@@ -83,7 +83,7 @@ class JurnalController(http.Controller):
         
         return request.render('jurnal_ilmiah.jurnal_index', values)
 
-    @http.route(['/jurnal/artikel/<int:post_id>'], type='http', auth="public", website=True)
+    @http.route(['/jurnal/detail/<int:post_id>'], type='http', auth="public", website=True)
     def jurnal_post(self, post_id, **kw):
         """Individual journal article page"""
         

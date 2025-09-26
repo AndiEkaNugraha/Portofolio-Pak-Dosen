@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     
-    <!-- Jurnal Blog Views (inherit from blog.blog) -->
-    <record id="view_jurnal_blog_form" model="ir.ui.view">
-        <field name="name">jurnal.blog.form</field>
+    <!-- Jurnal Blog Views - Custom form view -->
+    <record id="view_jurnal_blog_form_custom" model="ir.ui.view">
+        <field name="name">jurnal.blog.form.custom</field>
         <field name="model">jurnal.blog</field>
-        <field name="inherit_id" ref="website_blog.view_blog_blog_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
-                <field name="journal_scope"/>
-                <field name="accreditation_body"/>
-            </xpath>
+            <form string="Kategori Jurnal Ilmiah">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nama Kategori Jurnal..." required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="subtitle" placeholder="Deskripsi singkat kategori..."/>
+                    </group>
+                    <group>
+                        <group string="Informasi Kategori">
+                            <field name="journal_scope" required="1"/>
+                            <field name="accreditation_body"/>
+                            <field name="post_count" readonly="1"/>
+                        </group>
+                        <group string="Status">
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
@@ -102,6 +119,19 @@
     </record>
 
     <!-- Tree views -->
+    <record id="view_jurnal_blog_tree" model="ir.ui.view">
+        <field name="name">jurnal.blog.tree</field>
+        <field name="model">jurnal.blog</field>
+        <field name="arch" type="xml">
+            <list string="Kategori Jurnal">
+                <field name="name"/>
+                <field name="journal_scope"/>
+                <field name="accreditation_body"/>
+                <field name="post_count"/>
+            </list>
+        </field>
+    </record>
+
     <record id="view_jurnal_post_tree" model="ir.ui.view">
         <field name="name">jurnal.post.tree</field>
         <field name="model">jurnal.post</field>
@@ -117,6 +147,13 @@
     </record>
 
     <!-- Actions -->
+    <record id="action_jurnal_blog" model="ir.actions.act_window">
+        <field name="name">Kategori Jurnal</field>
+        <field name="res_model">jurnal.blog</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_jurnal_blog_tree"/>
+    </record>
+
     <record id="action_jurnal_post" model="ir.actions.act_window">
         <field name="name">Artikel Jurnal</field>
         <field name="res_model">jurnal.post</field>

@@ -30,6 +30,9 @@ class JurnalBlog(models.Model):
     # Computed field for post count
     post_count = fields.Integer('Jumlah Post', compute='_compute_post_count')
     
+    # Relasi ke artikel jurnal
+    blog_post_ids = fields.One2many('jurnal.post', 'blog_id', string='Artikel Jurnal')
+    
     def _compute_post_count(self):
         for blog in self:
             blog.post_count = self.env['jurnal.post'].search_count([('blog_id', '=', blog.id)])
