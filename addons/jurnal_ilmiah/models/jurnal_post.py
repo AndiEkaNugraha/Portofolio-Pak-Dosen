@@ -13,9 +13,19 @@ class JurnalPost(models.Model):
     name = fields.Char('Judul Artikel', required=True, translate=True)
     subtitle = fields.Char('Sub Judul', translate=True)
     blog_id = fields.Many2one('jurnal.blog', 'Kategori Jurnal', required=True, ondelete='cascade')
+        
+    # Override blog fields dengan label yang jelas untuk jurnal
+    teaser = fields.Text('Sinopsis', help="Ringkasan singkat artikel untuk preview")
+    content = fields.Html('Abstrak', help="Abstrak lengkap artikel jurnal")
     
-    # Hide/override problematic blog fields
-    cover_properties = fields.Text('Cover Properties', default='{}')
+    # Hide/override problematic blog fields dari parent blog.post
+    cover_properties = fields.Text(string="Cover Properties", default='{}', readonly=True)
+    teaser_manual = fields.Html(string="Teaser Manual", readonly=True)
+    
+    # Explicitly override other blog fields that might cause confusion
+    website_meta_title = fields.Char(string="Meta Title", readonly=True)
+    website_meta_description = fields.Text(string="Meta Description", readonly=True)
+    website_meta_keywords = fields.Char(string="Meta Keywords", readonly=True)
     
     # Field khusus jurnal ilmiah
     authors = fields.Char('Penulis', required=True)
