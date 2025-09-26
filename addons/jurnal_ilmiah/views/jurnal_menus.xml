@@ -23,7 +23,7 @@
         <field name="help">Buat dan kelola entri jurnal ilmiah</field>
     </record>
     
-    <menuitem id="menu_jurnal_post" name="Entri Jurnal" parent="menu_jurnal_root" 
+    <menuitem id="menu_jurnal_post" name="Tambah Jurnal" parent="menu_jurnal_root" 
               action="action_jurnal_post" sequence="20"/>
     
     <!-- Website Menu -->
