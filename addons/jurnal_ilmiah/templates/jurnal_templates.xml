@@ -8,7 +8,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <h1 class="text-center mb-4">Daftar Jurnal Ilmiah</h1>
+                            <h1 class="text-center mb-4 mt-4">Daftar Jurnal Ilmiah</h1>
                             <p class="text-center text-muted">Publikasi jurnal ilmiah nasional dan internasional</p>
                         </div>
                     </div>
@@ -78,6 +78,9 @@
                                             </t>
                                             <t t-if="post.quartile">
                                                 <t t-esc="post.quartile"/> • 
+                                            </t>
+                                            <t t-if="post.citations > 0">
+                                                <t t-esc="post.citations"/> sitasi • 
                                             </t>
                                             <t t-esc="post.visits"/> views
                                         </div>
@@ -169,6 +172,9 @@
                                             <t t-if="post.h_index > 0">
                                                 H-Index: <strong t-esc="post.h_index"/> • 
                                             </t>
+                                            <t t-if="post.citations > 0">
+                                                Sitasi: <strong t-esc="post.citations"/> • 
+                                            </t>
                                             Views: <strong t-esc="post.visits"/>
                                         </div>
                                     </div>
@@ -205,7 +211,7 @@
                         </div>
                         
                         <!-- Sidebar -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 mb-4">
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Informasi Tambahan</h5>

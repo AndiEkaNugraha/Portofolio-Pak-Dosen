@@ -11,7 +11,7 @@ class JurnalPost(models.Model):
     
     # Override fields dari blog post
     name = fields.Char('Judul Artikel', required=True, translate=True)
-    subtitle = fields.Char('Sub Judul', translate=True)
+    subtitle = fields.Char(string='Sub Judul', translate=True, help="Sub judul atau judul kecil")
     blog_id = fields.Many2one('jurnal.blog', 'Kategori Jurnal', required=True, ondelete='cascade')
         
     # Override blog fields dengan label yang jelas untuk jurnal
@@ -76,7 +76,7 @@ class JurnalPost(models.Model):
     
     # Citation metrics
     citations = fields.Integer('Jumlah Sitasi', default=0)
-    downloads = fields.Integer('Jumlah Unduhan', default=0)
+    # downloads field removed - tidak relevan untuk artikel jurnal yang di-host di publisher
     
     @api.depends('publication_date')
     def _compute_publication_year(self):

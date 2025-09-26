@@ -25,11 +25,13 @@
                             string="Publish" invisible="website_published"/>
                     <button name="website_publish_button" type="object" class="oe_highlight" 
                             string="Unpublish" invisible="not website_published"/>
-                    <field name="website_published" invisible="1"/>
+                    <field name="website_published"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
-                        <field name="name" placeholder="Judul Artikel..." required="1"/>
+                        <h1>
+                            <field name="name" placeholder="Judul Artikel..." required="1"/>
+                        </h1>
                         <field name="subtitle" placeholder="Sub Judul..."/>
                     </div>
                     
@@ -73,7 +75,6 @@
                                     <field name="h_index"/>
                                     <field name="quartile"/>
                                     <field name="citations"/>
-                                    <field name="downloads"/>
                                 </group>
                             </group>
                         </page>

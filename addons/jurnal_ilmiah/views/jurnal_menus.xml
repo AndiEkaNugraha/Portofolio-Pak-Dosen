@@ -17,7 +17,7 @@
     
     <!-- Jurnal Post Menu -->
     <record id="action_jurnal_post" model="ir.actions.act_window">
-        <field name="name">Entri Jurnal</field>
+        <field name="name">Tambahkan Jurnal</field>
         <field name="res_model">jurnal.post</field>
         <field name="view_mode">list,form</field>
         <field name="help">Buat dan kelola entri jurnal ilmiah</field>
