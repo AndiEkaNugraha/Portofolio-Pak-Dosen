@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            <a t-attf-href="/jurnal/artikel/#{post.id}" class="text-decoration-none">
+                                            <a t-attf-href="/jurnal/detail/#{post.id}" class="text-decoration-none">
                                                 <t t-esc="post.name"/>
                                             </a>
                                         </h5>
@@ -52,8 +52,7 @@
                                         
                                         <!-- Teaser/Preview -->
                                         <p class="card-text text-muted small" t-if="post.teaser">
-                                            <t t-esc="post.teaser[:150]"/>
-                                            <span t-if="len(post.teaser) > 150">...</span>
+                                            <t t-esc="post.teaser"/>
                                         </p>
                                         <div class="mb-2">
                                             <!-- Indexing Badges -->
@@ -99,7 +98,7 @@
     </template>
     
     <!-- Jurnal Post Detail Page -->
-    <template id="jurnal_post_detail" name="Detail Artikel Jurnal">
+    <template id="jurnal_post_detail" name="Detail Jurnal Ilmiah">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure">
                 <div class="container mt-4">
@@ -204,7 +203,7 @@
                                 <!-- Teaser (Summary) -->
                                 <div class="alert alert-info" t-if="post.teaser">
                                     <h5>Ringkasan</h5>
-                                    <p t-field="post.teaser" class="mb-0"/>
+                                    <p t-esc="post.teaser" class="mb-0"/>
                                 </div>
                             </div>
                             
@@ -218,7 +217,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p t-if="post.url">
-                                        <strong>URL Artikel:</strong><br/>
+                                        <strong>URL Jurnal:</strong><br/>
                                         <a t-att-href="post.url" target="_blank" class="btn btn-sm btn-outline-primary">
                                             Lihat di Jurnal
                                         </a>
@@ -239,12 +238,12 @@
                             <!-- Related Articles -->
                             <div class="card mt-4" t-if="related_posts">
                                 <div class="card-header">
-                                    <h5>Artikel Terkait</h5>
+                                    <h5>Jurnal Terkait</h5>
                                 </div>
                                 <div class="card-body">
                                     <t t-foreach="related_posts" t-as="related">
                                         <div class="mb-3">
-                                            <a t-attf-href="/jurnal/artikel/#{related.id}" class="text-decoration-none">
+                                            <a t-attf-href="/jurnal/detail/#{related.id}" class="text-decoration-none">
                                                 <h6 t-esc="related.name"/>
                                             </a>
                                             <small class="text-muted d-block">
@@ -278,7 +277,7 @@
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h5 class="card-title">
-                                                    <a t-attf-href="/jurnal/artikel/#{post.id}">
+                                                    <a t-attf-href="/jurnal/detail/#{post.id}">
                                                         <t t-esc="post.name"/>
                                                     </a>
                                                 </h5>

@@ -10,12 +10,12 @@ class JurnalPost(models.Model):
     _description = 'Entri Jurnal Ilmiah'
     
     # Override fields dari blog post
-    name = fields.Char('Judul Artikel', required=True, translate=True)
+    name = fields.Char('Judul Jurnal', required=True, translate=True)
     subtitle = fields.Char(string='Sub Judul', translate=True, help="Sub judul atau judul kecil")
     blog_id = fields.Many2one('jurnal.blog', 'Kategori Jurnal', required=True, ondelete='cascade')
         
     # Override blog fields dengan label yang jelas untuk jurnal
-    teaser = fields.Text('Sinopsis', help="Ringkasan singkat artikel untuk preview")
+    teaser = fields.Char('Sinopsis', help="Ringkasan singkat artikel untuk preview")
     content = fields.Html('Abstrak', help="Abstrak lengkap artikel jurnal")
     
     # Hide/override problematic blog fields dari parent blog.post
@@ -39,7 +39,7 @@ class JurnalPost(models.Model):
     issue = fields.Char('Issue/Nomor')
     pages = fields.Char('Halaman', help="Contoh: 123-145")
     doi = fields.Char('DOI', help="Digital Object Identifier")
-    url = fields.Char('URL Jurnal', help="Link ke artikel online")
+    url = fields.Char('URL Jurnal', help="Link ke jurnal online")
     
     # Impact & Indexing
     impact_factor = fields.Float('Impact Factor', digits=(5, 3))
@@ -91,7 +91,7 @@ class JurnalPost(models.Model):
         super(JurnalPost, self)._compute_website_url()
         for post in self:
             if post.id and post.blog_id:
-                post.website_url = f"/jurnal/artikel/{post.id}"
+                post.website_url = f"/jurnal/detail/{post.id}"
     
     def get_indexing_badges(self):
         """Return list of indexing badges for display"""

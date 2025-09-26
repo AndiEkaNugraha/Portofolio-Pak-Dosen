@@ -36,7 +36,7 @@
         <field name="name">jurnal.post.form.custom</field>
         <field name="model">jurnal.post</field>
         <field name="arch" type="xml">
-            <form string="Artikel Jurnal Ilmiah">
+            <form string="Jurnal Ilmiah">
                 <header>
                     <button name="website_publish_button" type="object" class="oe_highlight" 
                             string="Publish" invisible="website_published"/>
@@ -47,7 +47,7 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" placeholder="Judul Artikel..." required="1"/>
+                            <field name="name" placeholder="Judul Jurnal..." required="1"/>
                         </h1>
                         <field name="subtitle" placeholder="Sub Judul..."/>
                     </div>
@@ -71,7 +71,8 @@
                     <notebook>
                         <page string="Konten" name="content">
                             <group>
-                                <field name="teaser" string="Sinopsis" widget="text" 
+                                <field name="teaser" string="Sinopsis" 
+                                       placeholder="Ringkasan singkat artikel..."
                                        help="Ringkasan singkat artikel untuk preview"/>
                                 <field name="content" string="Abstrak" widget="html" 
                                        help="Abstrak lengkap artikel jurnal"/>
@@ -155,7 +156,7 @@
     </record>
 
     <record id="action_jurnal_post" model="ir.actions.act_window">
-        <field name="name">Artikel Jurnal</field>
+        <field name="name">Jurnal Ilmiah</field>
         <field name="res_model">jurnal.post</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_jurnal_post_tree"/>
