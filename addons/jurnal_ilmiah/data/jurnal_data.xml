@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Default Journal Categories -->
+        <record id="jurnal_blog_nasional" model="jurnal.blog">
+            <field name="name">Jurnal Nasional</field>
+            <field name="subtitle">Jurnal ilmiah nasional terakreditasi</field>
+            <field name="journal_scope">national</field>
+            <field name="accreditation_body">sinta</field>
+        </record>
+        
+        <record id="jurnal_blog_internasional" model="jurnal.blog">
+            <field name="name">Jurnal Internasional</field>
+            <field name="subtitle">Jurnal ilmiah internasional bereputasi</field>
+            <field name="journal_scope">international</field>
+            <field name="accreditation_body">scopus</field>
+        </record>
+        
+    </data>
+</odoo>

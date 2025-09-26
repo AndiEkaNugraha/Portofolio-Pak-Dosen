@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Journal Index Template -->
+    <template id="jurnal_index" name="Jurnal Index">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <h1>Daftar Jurnal Ilmiah</h1>
+                    <p>Database jurnal ilmiah nasional dan internasional</p>
+                    
+                    <!-- Search and Filters -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <form method="get" class="form-inline">
+                                <input type="text" name="search" class="form-control mr-2" 
+                                       placeholder="Cari jurnal..." t-att-value="search or ''"/>
+                                <button type="submit" class="btn btn-primary">Cari</button>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Total: <span t-esc="total_posts"/> artikel</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Journal Posts -->
+                    <div class="row">
+                        <t t-foreach="posts" t-as="post">
+                            <div class="col-md-6 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a t-att-href="'/jurnal/artikel/%s' % post.id" t-esc="post.name"/>
+                                        </h5>
+                                        <p class="card-text">
+                                            <strong>Penulis:</strong> <span t-esc="post.authors"/><br/>
+                                            <strong>Jurnal:</strong> <span t-esc="post.journal_name"/><br/>
+                                            <strong>Tahun:</strong> <span t-esc="post.publication_year"/>
+                                        </p>
+                                        
+                                        <!-- Indexing Badges -->
+                                        <div class="mb-2">
+                                            <span t-if="post.scopus_indexed" class="badge badge-primary">Scopus</span>
+                                            <span t-if="post.wos_indexed" class="badge badge-success">WoS</span>
+                                            <span t-if="post.sinta_indexed" class="badge badge-info">
+                                                SINTA <span t-esc="post.sinta_rank"/>
+                                            </span>
+                                        </div>
+                                        
+                                        <a t-att-href="'/jurnal/artikel/%s' % post.id" class="btn btn-sm btn-outline-primary">
+                                            Baca Selengkapnya
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <t t-raw="pager"/>
+                    
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Journal Post Template -->
+    <template id="jurnal_post" name="Jurnal Post">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <article>
+                                <header class="mb-4">
+                                    <h1 t-esc="post.name"/>
+                                    <h4 t-if="post.subtitle" class="text-muted" t-esc="post.subtitle"/>
+                                    
+                                    <div class="mb-3">
+                                        <strong>Penulis:</strong> <span t-esc="post.authors"/><br/>
+                                        <strong>Jurnal:</strong> <span t-esc="post.journal_name"/><br/>
+                                        <strong>Tahun Publikasi:</strong> <span t-esc="post.publication_year"/><br/>
+                                        <t t-if="post.doi">
+                                            <strong>DOI:</strong> <a t-att-href="'https://doi.org/%s' % post.doi" t-esc="post.doi"/>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Indexing Badges -->
+                                    <div class="mb-3">
+                                        <span t-if="post.scopus_indexed" class="badge badge-primary">Scopus</span>
+                                        <span t-if="post.wos_indexed" class="badge badge-success">Web of Science</span>
+                                        <span t-if="post.sinta_indexed" class="badge badge-info">
+                                            SINTA <span t-esc="post.sinta_rank"/>
+                                        </span>
+                                        <span t-if="post.doaj_indexed" class="badge badge-warning">DOAJ</span>
+                                    </div>
+                                </header>
+                                
+                                <div class="content">
+                                    <t t-if="post.content">
+                                        <t t-raw="post.content"/>
+                                    </t>
+                                    <t t-else="">
+                                        <p>Konten artikel tidak tersedia.</p>
+                                    </t>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Detail Publikasi</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Volume:</strong> <span t-esc="post.volume or '-'"/></p>
+                                    <p><strong>Issue:</strong> <span t-esc="post.issue or '-'"/></p>
+                                    <p><strong>Halaman:</strong> <span t-esc="post.pages or '-'"/></p>
+                                    <p><strong>Impact Factor:</strong> <span t-esc="post.impact_factor or '-'"/></p>
+                                    <p><strong>Quartile:</strong> <span t-esc="post.quartile or '-'"/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

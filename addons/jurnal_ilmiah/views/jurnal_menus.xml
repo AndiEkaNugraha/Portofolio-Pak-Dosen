@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Main Menu -->
+    <menuitem id="menu_jurnal_root" name="Jurnal Ilmiah" sequence="50"/>
+    
+    <!-- Jurnal Blog Menu -->
+    <record id="action_jurnal_blog" model="ir.actions.act_window">
+        <field name="name">Kategori Jurnal</field>
+        <field name="res_model">jurnal.blog</field>
+        <field name="view_mode">list,form</field>
+        <field name="help">Buat dan kelola kategori jurnal ilmiah</field>
+    </record>
+    
+    <menuitem id="menu_jurnal_blog" name="Kategori" parent="menu_jurnal_root" 
+              action="action_jurnal_blog" sequence="10"/>
+    
+    <!-- Jurnal Post Menu -->
+    <record id="action_jurnal_post" model="ir.actions.act_window">
+        <field name="name">Entri Jurnal</field>
+        <field name="res_model">jurnal.post</field>
+        <field name="view_mode">list,form</field>
+        <field name="help">Buat dan kelola entri jurnal ilmiah</field>
+    </record>
+    
+    <menuitem id="menu_jurnal_post" name="Entri Jurnal" parent="menu_jurnal_root" 
+              action="action_jurnal_post" sequence="20"/>
+    
+    <!-- Website Menu -->
+    <record id="menu_jurnal_website" model="website.menu">
+        <field name="name">Jurnal Ilmiah</field>
+        <field name="url">/jurnal</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+
+</odoo>

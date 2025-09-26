@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Jurnal Index Page -->
+    <template id="jurnal_index" name="Daftar Jurnal Ilmiah">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="text-center mb-4">Daftar Jurnal Ilmiah</h1>
+                            <p class="text-center text-muted">Publikasi jurnal ilmiah nasional dan internasional</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Categories -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h3>Kategori Jurnal</h3>
+                            <div class="d-flex flex-wrap">
+                                <t t-foreach="categories" t-as="category">
+                                    <a t-attf-href="/jurnal/kategori/#{category.id}" 
+                                       class="btn btn-outline-primary me-2 mb-2">
+                                        <t t-esc="category.name"/>
+                                        <span class="badge bg-secondary ms-1" t-esc="category.post_count"/>
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Journal Posts -->
+                    <div class="row">
+                        <t t-foreach="posts" t-as="post">
+                            <div class="col-lg-6 col-xl-4 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <small class="text-muted">
+                                            <t t-esc="post.journal_name"/> • 
+                                            <t t-esc="post.publication_date" t-options="{'widget': 'date'}"/>
+                                        </small>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a t-attf-href="/jurnal/artikel/#{post.id}" class="text-decoration-none">
+                                                <t t-esc="post.name"/>
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <strong>Penulis:</strong> <t t-esc="post.authors"/>
+                                        </p>
+                                        <div class="mb-2">
+                                            <!-- Indexing Badges -->
+                                            <t t-if="post.scopus_indexed">
+                                                <span class="badge bg-success me-1">Scopus</span>
+                                            </t>
+                                            <t t-if="post.wos_indexed">
+                                                <span class="badge bg-primary me-1">WoS</span>
+                                            </t>
+                                            <t t-if="post.sinta_indexed">
+                                                <span class="badge bg-warning text-dark me-1">
+                                                    SINTA <t t-esc="post.sinta_rank"/>
+                                                </span>
+                                            </t>
+                                            <t t-if="post.doaj_indexed">
+                                                <span class="badge bg-info me-1">DOAJ</span>
+                                            </t>
+                                        </div>
+                                        <div class="small text-muted">
+                                            <t t-if="post.impact_factor > 0">
+                                                IF: <t t-esc="post.impact_factor"/> • 
+                                            </t>
+                                            <t t-if="post.quartile">
+                                                <t t-esc="post.quartile"/> • 
+                                            </t>
+                                            <t t-esc="post.visits"/> views
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <t t-call="website.pager"/>
+                    
+                </div>
+            </div>
+        </t>
+    </template>
+    
+    <!-- Jurnal Post Detail Page -->
+    <template id="jurnal_post_detail" name="Detail Artikel Jurnal">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Article Header -->
+                            <div class="mb-4">
+                                <h1 t-field="post.name"/>
+                                <h4 class="text-muted" t-field="post.subtitle" t-if="post.subtitle"/>
+                                
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <p><strong>Penulis:</strong> <span t-field="post.authors"/></p>
+                                        <p t-if="post.corresponding_author">
+                                            <strong>Penulis Korespondensi:</strong> 
+                                            <span t-field="post.corresponding_author"/>
+                                        </p>
+                                        <p><strong>Jurnal:</strong> <span t-field="post.journal_name"/></p>
+                                        <p t-if="post.publisher">
+                                            <strong>Penerbit:</strong> <span t-field="post.publisher"/>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Tanggal Publikasi:</strong> 
+                                           <span t-field="post.publication_date" t-options="{'widget': 'date'}"/>
+                                        </p>
+                                        <p t-if="post.volume">
+                                            <strong>Volume:</strong> <span t-field="post.volume"/>
+                                            <t t-if="post.issue">, Issue: <span t-field="post.issue"/></t>
+                                        </p>
+                                        <p t-if="post.pages">
+                                            <strong>Halaman:</strong> <span t-field="post.pages"/>
+                                        </p>
+                                        <p t-if="post.doi">
+                                            <strong>DOI:</strong> 
+                                            <a t-attf-href="https://doi.org/#{post.doi}" target="_blank">
+                                                <span t-field="post.doi"/>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Indexing & Metrics -->
+                                <div class="row mt-3">
+                                    <div class="col-12">
+                                        <div class="d-flex flex-wrap mb-2">
+                                            <t t-if="post.scopus_indexed">
+                                                <span class="badge bg-success me-2 mb-1">Scopus Indexed</span>
+                                            </t>
+                                            <t t-if="post.wos_indexed">
+                                                <span class="badge bg-primary me-2 mb-1">Web of Science</span>
+                                            </t>
+                                            <t t-if="post.sinta_indexed">
+                                                <span class="badge bg-warning text-dark me-2 mb-1">
+                                                    SINTA <t t-esc="post.sinta_rank"/>
+                                                </span>
+                                            </t>
+                                            <t t-if="post.doaj_indexed">
+                                                <span class="badge bg-info me-2 mb-1">DOAJ</span>
+                                            </t>
+                                        </div>
+                                        
+                                        <div class="small text-muted">
+                                            <t t-if="post.impact_factor > 0">
+                                                Impact Factor: <strong t-esc="post.impact_factor"/> • 
+                                            </t>
+                                            <t t-if="post.quartile">
+                                                Quartile: <strong t-esc="post.quartile"/> • 
+                                            </t>
+                                            <t t-if="post.h_index > 0">
+                                                H-Index: <strong t-esc="post.h_index"/> • 
+                                            </t>
+                                            Views: <strong t-esc="post.visits"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Article Content -->
+                            <div class="mb-4">
+                                <h3>Abstrak</h3>
+                                <div t-field="post.content" class="oe_structure"/>
+                            </div>
+                            
+                            <!-- Keywords & Subject -->
+                            <div class="row mb-4" t-if="post.keywords or post.subject_area">
+                                <div class="col-md-6" t-if="post.keywords">
+                                    <h5>Kata Kunci</h5>
+                                    <p t-field="post.keywords"/>
+                                </div>
+                                <div class="col-md-6" t-if="post.subject_area">
+                                    <h5>Bidang Subjek</h5>
+                                    <p t-field="post.subject_area"/>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- Sidebar -->
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Informasi Tambahan</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p t-if="post.url">
+                                        <strong>URL Artikel:</strong><br/>
+                                        <a t-att-href="post.url" target="_blank" class="btn btn-sm btn-outline-primary">
+                                            Lihat di Jurnal
+                                        </a>
+                                    </p>
+                                    
+                                    <div t-if="post.research_area">
+                                        <strong>Area Penelitian:</strong>
+                                        <p t-field="post.research_area"/>
+                                    </div>
+                                    
+                                    <div class="small text-muted mt-3">
+                                        <p>Kategori: <span t-field="post.blog_id.name"/></p>
+                                        <p>Diterbitkan: <span t-field="post.create_date" t-options="{'widget': 'datetime'}"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Related Articles -->
+                            <div class="card mt-4" t-if="related_posts">
+                                <div class="card-header">
+                                    <h5>Artikel Terkait</h5>
+                                </div>
+                                <div class="card-body">
+                                    <t t-foreach="related_posts" t-as="related">
+                                        <div class="mb-3">
+                                            <a t-attf-href="/jurnal/artikel/#{related.id}" class="text-decoration-none">
+                                                <h6 t-esc="related.name"/>
+                                            </a>
+                                            <small class="text-muted d-block">
+                                                <t t-esc="related.authors"/> • 
+                                                <t t-esc="related.publication_date" t-options="{'widget': 'date'}"/>
+                                            </small>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    
+    <!-- Category Page -->
+    <template id="jurnal_category" name="Kategori Jurnal">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 t-field="category.name"/>
+                            <p class="text-muted" t-field="category.subtitle"/>
+                            
+                            <div class="row">
+                                <t t-foreach="posts" t-as="post">
+                                    <div class="col-lg-6 col-xl-4 mb-4">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <a t-attf-href="/jurnal/artikel/#{post.id}">
+                                                        <t t-esc="post.name"/>
+                                                    </a>
+                                                </h5>
+                                                <p><strong>Penulis:</strong> <t t-esc="post.authors"/></p>
+                                                <p><strong>Jurnal:</strong> <t t-esc="post.journal_name"/></p>
+                                                <small class="text-muted">
+                                                    <t t-esc="post.publication_date" t-options="{'widget': 'date'}"/>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                            
+                            <t t-call="website.pager"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    
+</odoo>

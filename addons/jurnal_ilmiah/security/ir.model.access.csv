@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_jurnal_blog_public,jurnal.blog public,model_jurnal_blog,base.group_public,1,0,0,0
+access_jurnal_blog_portal,jurnal.blog portal,model_jurnal_blog,base.group_portal,1,0,0,0
+access_jurnal_blog_user,jurnal.blog user,model_jurnal_blog,base.group_user,1,0,0,0
+access_jurnal_blog_author,jurnal.blog author,model_jurnal_blog,base.group_system,1,1,1,1
+access_jurnal_post_public,jurnal.post public,model_jurnal_post,base.group_public,1,0,0,0
+access_jurnal_post_portal,jurnal.post portal,model_jurnal_post,base.group_portal,1,0,0,0
+access_jurnal_post_user,jurnal.post user,model_jurnal_post,base.group_user,1,0,0,0
+access_jurnal_post_author,jurnal.post author,model_jurnal_post,base.group_system,1,1,1,1

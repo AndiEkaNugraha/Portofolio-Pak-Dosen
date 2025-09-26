@@ -1,0 +1,29 @@
+services:
+  odoo:
+    image: odoo:19.0
+    container_name: odoo_app
+    restart: always
+    ports:
+      - "8069:8069" # Port web Odoo
+      # - "8072:8072" # Port untuk live chat/longpolling (opsional, aktifkan jika perlu)
+    environment:
+      - HOST=host.docker.internal
+      - USER=user1
+      - PASSWORD=katakata
+      - PORT=5432
+      - ADMIN_PASSWORD=AdminG@nt4ng # Ganti ini!
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+    networks:
+      - app_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    #command: odoo --db-filter=^odoo-prod$
+
+volumes:
+  odoo-data:
+
+networks:
+  app_network:
+    driver: bridge

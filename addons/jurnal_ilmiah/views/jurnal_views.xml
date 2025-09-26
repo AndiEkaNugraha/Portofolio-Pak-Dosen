@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Jurnal Blog Views (inherit from blog.blog) -->
+    <record id="view_jurnal_blog_form" model="ir.ui.view">
+        <field name="name">jurnal.blog.form</field>
+        <field name="model">jurnal.blog</field>
+        <field name="inherit_id" ref="website_blog.view_blog_blog_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="journal_scope"/>
+                <field name="accreditation_body"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Jurnal Post Views (inherit from blog.post) -->
+    <record id="view_jurnal_post_form" model="ir.ui.view">
+        <field name="name">jurnal.post.form</field>
+        <field name="model">jurnal.post</field>
+        <field name="inherit_id" ref="website_blog.view_blog_post_form"/>
+        <field name="arch" type="xml">
+            <!-- Add journal-specific fields -->
+            <xpath expr="//field[@name='subtitle']" position="after">
+                <field name="authors" required="1"/>
+                <field name="corresponding_author"/>
+                <field name="journal_name" required="1"/>
+                <field name="publisher"/>
+            </xpath>
+            
+            <!-- Add publication details -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Detail Publikasi" name="publication_details">
+                    <group>
+                        <group string="Publikasi">
+                            <field name="publication_date"/>
+                            <field name="volume"/>
+                            <field name="issue"/>
+                            <field name="pages"/>
+                            <field name="doi"/>
+                            <field name="url"/>
+                        </group>
+                        <group string="Impact &amp; Metrics">
+                            <field name="impact_factor"/>
+                            <field name="h_index"/>
+                            <field name="quartile"/>
+                            <field name="citations"/>
+                            <field name="downloads"/>
+                        </group>
+                    </group>
+                </page>
+                
+                <page string="Indexing" name="indexing">
+                    <group>
+                        <group string="Database Indexing">
+                            <field name="scopus_indexed"/>
+                            <field name="wos_indexed"/>
+                            <field name="sinta_indexed"/>
+                            <field name="sinta_rank" invisible="not sinta_indexed"/>
+                            <field name="doaj_indexed"/>
+                        </group>
+                        <group string="Subject Classification">
+                            <field name="subject_area"/>
+                            <field name="keywords"/>
+                            <field name="research_area"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Tree views -->
+    <record id="view_jurnal_post_tree" model="ir.ui.view">
+        <field name="name">jurnal.post.tree</field>
+        <field name="model">jurnal.post</field>
+        <field name="arch" type="xml">
+            <list string="Entri Jurnal">
+                <field name="name"/>
+                <field name="authors"/>
+                <field name="journal_name"/>
+                <field name="publication_date"/>
+                <field name="journal_type"/>
+                <field name="website_published"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>
