@@ -49,6 +49,12 @@
                                         <p class="card-text">
                                             <strong>Penulis:</strong> <t t-esc="post.authors"/>
                                         </p>
+                                        
+                                        <!-- Teaser/Preview -->
+                                        <p class="card-text text-muted small" t-if="post.teaser">
+                                            <t t-esc="post.teaser[:150]"/>
+                                            <span t-if="len(post.teaser) > 150">...</span>
+                                        </p>
                                         <div class="mb-2">
                                             <!-- Indexing Badges -->
                                             <t t-if="post.scopus_indexed">
@@ -168,7 +174,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Article Content -->
                             <div class="mb-4">
                                 <h3>Abstrak</h3>
@@ -184,6 +190,15 @@
                                 <div class="col-md-6" t-if="post.subject_area">
                                     <h5>Bidang Subjek</h5>
                                     <p t-field="post.subject_area"/>
+                                </div>
+                            </div>
+
+                            <!-- Article Content -->
+                            <div class="mb-4">
+                                <!-- Teaser (Summary) -->
+                                <div class="alert alert-info" t-if="post.teaser">
+                                    <h5>Ringkasan</h5>
+                                    <p t-field="post.teaser" class="mb-0"/>
                                 </div>
                             </div>
                             

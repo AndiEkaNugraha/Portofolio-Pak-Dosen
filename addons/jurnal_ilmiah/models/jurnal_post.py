@@ -63,11 +63,6 @@ class JurnalPost(models.Model):
     
     # Computed fields
     publication_year = fields.Integer('Tahun Publikasi', compute='_compute_publication_year', store=True)
-    journal_type = fields.Selection([
-        ('national', 'Nasional'),
-        ('international', 'Internasional'),
-        ('both', 'Nasional & Internasional')
-    ], string='Jenis Jurnal', related='blog_id.journal_scope', store=True)
     
     # Citation metrics
     citations = fields.Integer('Jumlah Sitasi', default=0)

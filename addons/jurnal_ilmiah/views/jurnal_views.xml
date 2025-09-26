@@ -80,7 +80,6 @@
                 <field name="authors"/>
                 <field name="journal_name"/>
                 <field name="publication_date"/>
-                <field name="journal_type"/>
                 <field name="website_published"/>
             </list>
         </field>
