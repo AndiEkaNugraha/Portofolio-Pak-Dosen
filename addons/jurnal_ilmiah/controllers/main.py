@@ -8,19 +8,21 @@ from odoo.addons.website.controllers.main import QueryURL
 class JurnalController(http.Controller):
 
     @http.route(['/jurnal', '/jurnal/page/<int:page>'], type='http', auth="public", website=True)
-    def jurnal_index(self, page=1, search='', category_id=None, indexing=None, year=None, **kw):
+    def jurnal_index(self, page=1, search='', category_id=None, indexing=None, year=None, publisher=None, **kw):
         """Main journal listing page - berbeda dari /blog"""
         
         domain = []
         
-        # Search filter
+        # Search filter - diperluas untuk lebih komprehensif
         if search:
             domain += [
-                '|', '|', '|',
+                '|', '|', '|', '|', '|',
                 ('name', 'ilike', search),
                 ('authors', 'ilike', search),
                 ('journal_name', 'ilike', search),
-                ('subject_area', 'ilike', search)
+                ('subject_area', 'ilike', search),
+                ('keywords', 'ilike', search),
+                ('research_area', 'ilike', search)
             ]
         
         # Category filter
@@ -37,6 +39,10 @@ class JurnalController(http.Controller):
         elif indexing == 'doaj':
             domain.append(('doaj_indexed', '=', True))
         
+        # Publisher filter
+        if publisher:
+            domain.append(('publisher', 'ilike', publisher))
+        
         # Year filter
         if year:
             domain.append(('publication_year', '=', int(year)))
@@ -49,36 +55,48 @@ class JurnalController(http.Controller):
         categories = JurnalBlog.search([])
         
         # Pagination
-        total = len(posts)
-        per_page = 10
+        posts_per_page = 10
+        total_posts = len(posts)
         pager = request.website.pager(
             url='/jurnal',
-            total=total,
+            url_args={'search': search, 'category_id': category_id, 'indexing': indexing, 'year': year, 'publisher': publisher},
+            total=total_posts,
             page=page,
-            step=per_page,
-            url_args={'search': search, 'category_id': category_id, 'indexing': indexing, 'year': year}
+            step=posts_per_page
         )
         
-        posts_paged = posts[(page-1)*per_page:page*per_page]
+        offset = (page - 1) * posts_per_page
+        posts_paginated = posts[offset:offset + posts_per_page]
         
-        # Get available years for filter
-        years = list(set(posts.mapped('publication_year')))
-        years.sort(reverse=True)
+        # Get filter options
+        years = JurnalPost.search([]).mapped('publication_year')
+        years = sorted(list(set(years)), reverse=True)
         
-        # Create keep object for URL handling
-        keep = QueryURL('/jurnal', ['search', 'category_id', 'indexing', 'year'])
+        publishers = JurnalPost.search([]).mapped('publisher')
+        publishers = sorted(list(set([p for p in publishers if p])))
+        
+        # Get counts for statistics
+        stats = {
+            'total_articles': len(posts),
+            'scopus_articles': JurnalPost.search_count([('scopus_indexed', '=', True)]),
+            'wos_articles': JurnalPost.search_count([('wos_indexed', '=', True)]),
+            'sinta_articles': JurnalPost.search_count([('sinta_indexed', '=', True)]),
+            'doaj_articles': JurnalPost.search_count([('doaj_indexed', '=', True)]),
+            'international_articles': JurnalPost.search_count([('blog_id.journal_scope', 'in', ['international', 'both'])]),
+        }
         
         values = {
-            'posts': posts_paged,
+            'posts': posts_paginated,
             'categories': categories,
-            'years': years,
             'pager': pager,
             'search': search,
             'category_id': int(category_id) if category_id else None,
             'indexing': indexing,
             'year': int(year) if year else None,
-            'keep': keep,
-            'total_posts': total,
+            'publisher': publisher,
+            'years': years,
+            'publishers': publishers,
+            'stats': stats,
         }
         
         return request.render('jurnal_ilmiah.jurnal_index', values)
