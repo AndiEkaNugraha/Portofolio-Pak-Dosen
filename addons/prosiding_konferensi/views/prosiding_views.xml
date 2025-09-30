@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Prosiding Blog Views -->
+        <record id="view_prosiding_blog_form" model="ir.ui.view">
+            <field name="name">prosiding.blog.form</field>
+            <field name="model">prosiding.blog</field>
+            <field name="arch" type="xml">
+                <form string="Kategori Prosiding Konferensi">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Nama Kategori Konferensi"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="subtitle"/>
+                                <field name="conference_scope"/>
+                                <field name="scientific_field"/>
+                            </group>
+                            <group>
+                                <field name="accreditation_body"/>
+                                <field name="post_count"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Deskripsi">
+                                <field name="description"/>
+                            </page>
+                            <page string="Prosiding">
+                                <field name="prosiding_post_ids" readonly="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_prosiding_blog_tree" model="ir.ui.view">
+            <field name="name">prosiding.blog.tree</field>
+            <field name="model">prosiding.blog</field>
+            <field name="arch" type="xml">
+                <list string="Kategori Prosiding Konferensi">
+                    <field name="name"/>
+                    <field name="subtitle"/>
+                    <field name="conference_scope"/>
+                    <field name="scientific_field"/>
+                    <field name="accreditation_body"/>
+                    <field name="post_count"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Prosiding Post Views -->
+        <record id="view_prosiding_post_form" model="ir.ui.view">
+            <field name="name">prosiding.post.form</field>
+            <field name="model">prosiding.post</field>
+            <field name="arch" type="xml">
+                <form string="Paper Prosiding Konferensi">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Judul Paper"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="subtitle"/>
+                                <field name="blog_id"/>
+                                <field name="authors"/>
+                                <field name="corresponding_author"/>
+                            </group>
+                            <group>
+                                <field name="conference_date"/>
+                                <field name="conference_year"/>
+                                <field name="slug"/>
+                            </group>
+                        </group>
+                        
+                        <notebook>
+                            <page string="Informasi Konferensi">
+                                <group>
+                                    <group>
+                                        <field name="conference_name"/>
+                                        <field name="conference_acronym"/>
+                                        <field name="organizer"/>
+                                        <field name="conference_type"/>
+                                        <field name="presentation_type"/>
+                                    </group>
+                                    <group>
+                                        <field name="conference_city"/>
+                                        <field name="conference_country"/>
+                                        <field name="conference_venue"/>
+                                        <field name="track_name"/>
+                                        <field name="session_chair"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Publikasi">
+                                <group>
+                                    <group>
+                                        <field name="publisher"/>
+                                        <field name="proceedings_title"/>
+                                        <field name="volume"/>
+                                        <field name="pages"/>
+                                        <field name="isbn"/>
+                                    </group>
+                                    <group>
+                                        <field name="doi"/>
+                                        <field name="url"/>
+                                        <field name="conference_rank"/>
+                                        <field name="citations"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Indexing &amp; Akreditasi">
+                                <group>
+                                    <group string="Database Indexing">
+                                        <field name="ieee_indexed"/>
+                                        <field name="acm_indexed"/>
+                                        <field name="scopus_indexed"/>
+                                        <field name="wos_indexed"/>
+                                    </group>
+                                    <group string="Akreditasi Nasional">
+                                        <field name="sinta_indexed"/>
+                                        <field name="sinta_rank" invisible="not sinta_indexed"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Subjek &amp; Kata Kunci">
+                                <group>
+                                    <field name="subject_area"/>
+                                    <field name="research_area"/>
+                                    <field name="keywords"/>
+                                </group>
+                            </page>
+                            
+                            <page string="Penghargaan">
+                                <group>
+                                    <field name="best_paper"/>
+                                    <field name="award_description" invisible="not best_paper"/>
+                                </group>
+                            </page>
+                            
+                            <page string="Konten">
+                                <group>
+                                    <field name="teaser"/>
+                                </group>
+                                <field name="content"/>
+                            </page>
+                            
+                            <page string="SEO">
+                                <group>
+                                    <field name="meta_title"/>
+                                    <field name="meta_description"/>
+                                    <field name="meta_keywords"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_prosiding_post_tree" model="ir.ui.view">
+            <field name="name">prosiding.post.tree</field>
+            <field name="model">prosiding.post</field>
+            <field name="arch" type="xml">
+                <list string="Paper Prosiding Konferensi">
+                    <field name="name"/>
+                    <field name="authors"/>
+                    <field name="conference_name"/>
+                    <field name="conference_date"/>
+                    <field name="conference_city"/>
+                    <field name="publisher"/>
+                    <field name="ieee_indexed"/>
+                    <field name="scopus_indexed"/>
+                    <field name="sinta_indexed"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Actions -->
+        <record id="action_prosiding_blog" model="ir.actions.act_window">
+            <field name="name">Kategori Prosiding Konferensi</field>
+            <field name="res_model">prosiding.blog</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Buat kategori prosiding konferensi pertama Anda!
+                </p>
+                <p>
+                    Kategori membantu mengorganisir prosiding berdasarkan bidang keilmuan atau jenis konferensi.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_prosiding_post" model="ir.actions.act_window">
+            <field name="name">Paper Prosiding Konferensi</field>
+            <field name="res_model">prosiding.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan paper prosiding konferensi pertama Anda!
+                </p>
+                <p>
+                    Kelola semua paper yang dipresentasikan dalam berbagai konferensi nasional dan internasional.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Main Menu -->
+        <menuitem id="menu_prosiding_main" 
+                  name="Prosiding Konferensi" 
+                  sequence="85"
+                  web_icon="prosiding_konferensi,static/description/icon.png"/>
+        
+        <!-- Sub Menus -->
+        <menuitem id="menu_prosiding_management" 
+                  name="Manajemen Prosiding" 
+                  parent="menu_prosiding_main" 
+                  sequence="10"/>
+        
+        <menuitem id="menu_prosiding_post" 
+                  name="Paper Prosiding" 
+                  parent="menu_prosiding_management" 
+                  action="action_prosiding_post" 
+                  sequence="10"/>
+        
+        <menuitem id="menu_prosiding_blog" 
+                  name="Kategori Konferensi" 
+                  parent="menu_prosiding_management" 
+                  action="action_prosiding_blog" 
+                  sequence="20"/>
+        
+        <!-- Configuration Menu -->
+        <menuitem id="menu_prosiding_config" 
+                  name="Konfigurasi" 
+                  parent="menu_prosiding_main" 
+                  sequence="90"/>
+        
+        <!-- Website Menu Items -->
+        <record id="menu_prosiding_website" model="website.menu">
+            <field name="name">Prosiding</field>
+            <field name="url">/prosiding</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">40</field>
+        </record>
+
+    </data>
+</odoo>

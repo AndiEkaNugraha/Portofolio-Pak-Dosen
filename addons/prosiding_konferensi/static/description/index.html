@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Prosiding Konferensi - Odoo Module</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        .header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .feature {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .feature h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+        .feature-card i {
+            font-size: 2em;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .screenshot {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .screenshot img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Prosiding Konferensi</h1>
+            <p>Plugin Odoo untuk Manajemen Prosiding Konferensi Nasional & Internasional</p>
+        </div>
+
+        <div class="content">
+            <div class="feature">
+                <h3>🎯 Tentang Plugin Ini</h3>
+                <p>Plugin Prosiding Konferensi adalah modul Odoo yang dirancang khusus untuk mengelola dan menampilkan koleksi paper dari konferensi nasional dan internasional. Plugin ini menggunakan inheritance dari model blog bawaan Odoo namun dengan antarmuka dan fitur yang disesuaikan untuk kebutuhan akademik.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>📊 Manajemen Paper</h4>
+                    <p>Kelola paper konferensi dengan detail lengkap termasuk penulis, abstrak, dan informasi publikasi</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏛️ Info Konferensi</h4>
+                    <p>Simpan informasi lengkap konferensi termasuk lokasi, penyelenggara, dan tanggal</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📚 Indexing Database</h4>
+                    <p>Track indexing di IEEE Xplore, ACM Digital Library, Scopus, Web of Science, dan SINTA</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏆 Penghargaan</h4>
+                    <p>Catat pencapaian Best Paper Award dan penghargaan lainnya</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <h3>✨ Fitur Utama</h3>
+                <ul>
+                    <li><strong>Backend Management:</strong> Interface admin untuk mengelola kategori dan paper konferensi</li>
+                    <li><strong>Website Frontend:</strong> Halaman publik yang SEO-friendly di /prosiding</li>
+                    <li><strong>Advanced Search:</strong> Pencarian berdasarkan judul, penulis, konferensi, publisher, tahun</li>
+                    <li><strong>Filtering System:</strong> Filter berdasarkan kategori, indexing database, tahun publikasi</li>
+                    <li><strong>Responsive Design:</strong> Tampilan yang optimal di desktop dan mobile</li>
+                    <li><strong>SEO Optimization:</strong> URL yang SEO-friendly dan meta tags yang dapat dikustomisasi</li>
+                    <li><strong>Statistics Dashboard:</strong> Halaman statistik dengan berbagai metrik</li>
+                    <li><strong>Related Papers:</strong> Sistem rekomendasi paper terkait</li>
+                </ul>
+            </div>
+
+            <div class="feature">
+                <h3>🔧 Informasi Teknis</h3>
+                <ul>
+                    <li><strong>Kompatibilitas:</strong> Odoo 19.0+</li>
+                    <li><strong>Dependencies:</strong> base, website, website_blog, mail</li>
+                    <li><strong>Model Inheritance:</strong> Menggunakan blog.blog dan blog.post sebagai parent</li>
+                    <li><strong>Custom Routes:</strong> /prosiding, /prosiding/paper/[slug], /prosiding/kategori/[id]</li>
+                    <li><strong>Database Models:</strong> prosiding.blog, prosiding.post</li>
+                </ul>
+            </div>
+
+            <div class="feature">
+                <h3>📋 Panduan Instalasi</h3>
+                <ol>
+                    <li>Copy folder ini ke direktori addons Odoo</li>
+                    <li>Restart Odoo server</li>
+                    <li>Aktifkan developer mode</li>
+                    <li>Update Apps list</li>
+                    <li>Install modul "Daftar Prosiding Konferensi"</li>
+                    <li>Konfigurasi kategori dan mulai input data paper</li>
+                </ol>
+            </div>
+
+            <div class="feature">
+                <h3>🎯 Target Pengguna</h3>
+                <ul>
+                    <li>Universitas dan institusi pendidikan</li>
+                    <li>Dosen dan peneliti</li>
+                    <li>Pusat penelitian</li>
+                    <li>Organisasi ilmiah</li>
+                    <li>Website portofolio akademik</li>
+                </ul>
+            </div>
+
+            <div class="screenshot">
+                <p><strong>Preview Interface:</strong></p>
+                <p><em>Screenshot akan muncul di sini setelah plugin dijalankan</em></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Prosiding Konferensi Plugin | Dikembangkan untuk Odoo 19</p>
+        </div>
+    </div>
+</body>
+</html>

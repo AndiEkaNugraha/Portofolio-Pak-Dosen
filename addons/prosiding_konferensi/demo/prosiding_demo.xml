@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Demo Conference Proceedings -->
+        <record id="demo_prosiding_1" model="prosiding.post">
+            <field name="name">Machine Learning Approach for Smart City Development</field>
+            <field name="subtitle">A Comprehensive Study on IoT Integration</field>
+            <field name="blog_id" ref="prosiding_category_computer_science"/>
+            <field name="authors">Dr. Ahmad Sutanto, Prof. Sri Wahyuni, M.Eng</field>
+            <field name="corresponding_author">Dr. Ahmad Sutanto</field>
+            <field name="conference_name">International Conference on Information and Communication Technology</field>
+            <field name="conference_acronym">ICICT</field>
+            <field name="organizer">IEEE Indonesia Section</field>
+            
+            <field name="conference_city">Jakarta</field>
+            <field name="conference_country">Indonesia</field>
+            <field name="conference_venue">Hotel Indonesia Kempinski</field>
+            <field name="publisher">IEEE</field>
+            <field name="proceedings_title">Proceedings of ICICT 2024</field>
+            <field name="pages">123-130</field>
+            <field name="doi">10.1109/ICICT.2024.1234567</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">A</field>
+            <field name="ieee_indexed">True</field>
+            <field name="scopus_indexed">True</field>
+            <field name="subject_area">Machine Learning, IoT, Smart City</field>
+            <field name="keywords">machine learning, smart city, IoT, artificial intelligence</field>
+            <field name="teaser">Penelitian ini mengeksplorasi penerapan machine learning dalam pengembangan smart city melalui integrasi teknologi IoT.</field>
+            <field name="content">&lt;p&gt;Abstract: This paper presents a comprehensive study on the application of machine learning techniques in smart city development through IoT integration. The research focuses on developing efficient algorithms for urban data processing and decision-making systems.&lt;/p&gt;</field>
+        </record>
+
+        <record id="demo_prosiding_2" model="prosiding.post">
+            <field name="name">Sustainable Engineering Solutions for Climate Change Mitigation</field>
+            <field name="blog_id" ref="prosiding_category_engineering"/>
+            <field name="authors">Prof. Budi Hartono, Dr. Siti Nurhaliza, Ir. Made Wirawan</field>
+            <field name="corresponding_author">Prof. Budi Hartono</field>
+            <field name="conference_name">International Conference on Sustainable Engineering and Environmental Technology</field>
+            <field name="conference_acronym">ICSEET</field>
+            <field name="organizer">Universitas Indonesia</field>
+            
+            <field name="conference_city">Bandung</field>
+            <field name="conference_country">Indonesia</field>
+            <field name="publisher">Springer</field>
+            <field name="proceedings_title">Advances in Sustainable Engineering</field>
+            <field name="pages">45-52</field>
+            <field name="doi">10.1007/978-981-99-1234-5_6</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">keynote</field>
+            <field name="conference_rank">B</field>
+            <field name="scopus_indexed">True</field>
+            <field name="subject_area">Environmental Engineering</field>
+            <field name="keywords">sustainability, climate change, green technology, environmental engineering</field>
+            <field name="teaser">Makalah ini membahas solusi rekayasa berkelanjutan untuk mitigasi perubahan iklim melalui teknologi hijau.</field>
+            <field name="content">&lt;p&gt;Abstract: This study investigates sustainable engineering approaches to address climate change challenges. The research proposes innovative green technologies and methodologies for environmental protection and sustainable development.&lt;/p&gt;</field>
+        </record>
+
+        <record id="demo_prosiding_3" model="prosiding.post">
+            <field name="name">Innovative Mathematics Teaching Methods in Digital Era</field>
+            <field name="blog_id" ref="prosiding_category_education"/>
+            <field name="authors">Dr. Rina Sari, M.Pd. Joko Santoso, S.Pd. Dewi Lestari</field>
+            <field name="corresponding_author">Dr. Rina Sari</field>
+            <field name="conference_name">Seminar Nasional Pendidikan Matematika</field>
+            <field name="conference_acronym">SENDIMAT</field>
+            <field name="organizer">Universitas Negeri Malang</field>
+            
+            <field name="conference_city">Malang</field>
+            <field name="conference_country">Indonesia</field>
+            <field name="publisher">Universitas Negeri Malang</field>
+            <field name="proceedings_title">Prosiding SENDIMAT 2024</field>
+            <field name="pages">78-85</field>
+            <field name="conference_type">seminar</field>
+            <field name="presentation_type">oral</field>
+            <field name="sinta_indexed">True</field>
+            <field name="sinta_rank">3</field>
+            <field name="subject_area">Mathematics Education</field>
+            <field name="keywords">mathematics education, digital learning, teaching methods, technology integration</field>
+            <field name="teaser">Penelitian ini mengeksplorasi metode pengajaran matematika inovatif di era digital untuk meningkatkan pemahaman siswa.</field>
+            <field name="content">&lt;p&gt;Abstract: This research explores innovative mathematics teaching methods in the digital era. The study examines the effectiveness of technology-integrated approaches in enhancing student understanding and engagement in mathematics learning.&lt;/p&gt;</field>
+        </record>
+
+    </data>
+</odoo>

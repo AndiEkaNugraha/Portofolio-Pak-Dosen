@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Default Categories for Conference Proceedings -->
+        <record id="prosiding_category_computer_science" model="prosiding.blog">
+            <field name="name">Ilmu Komputer</field>
+            <field name="subtitle">Konferensi bidang ilmu komputer dan teknologi informasi</field>
+            <field name="conference_scope">both</field>
+            <field name="scientific_field">computer_science</field>
+            <field name="accreditation_body">ieee</field>
+        </record>
+
+        <record id="prosiding_category_engineering" model="prosiding.blog">
+            <field name="name">Teknik</field>
+            <field name="subtitle">Konferensi bidang teknik dan teknologi</field>
+            <field name="conference_scope">both</field>
+            <field name="scientific_field">engineering</field>
+            <field name="accreditation_body">ieee</field>
+        </record>
+
+        <record id="prosiding_category_mathematics" model="prosiding.blog">
+            <field name="name">Matematika</field>
+            <field name="subtitle">Konferensi bidang matematika dan statistika</field>
+            <field name="conference_scope">both</field>
+            <field name="scientific_field">mathematics</field>
+            <field name="accreditation_body">springer</field>
+        </record>
+
+        <record id="prosiding_category_education" model="prosiding.blog">
+            <field name="name">Pendidikan</field>
+            <field name="subtitle">Konferensi bidang pendidikan dan pembelajaran</field>
+            <field name="conference_scope">national</field>
+            <field name="scientific_field">education</field>
+            <field name="accreditation_body">sinta</field>
+        </record>
+
+        <record id="prosiding_category_social_science" model="prosiding.blog">
+            <field name="name">Ilmu Sosial</field>
+            <field name="subtitle">Konferensi bidang ilmu sosial dan humaniora</field>
+            <field name="conference_scope">both</field>
+            <field name="scientific_field">social_science</field>
+            <field name="accreditation_body">other</field>
+        </record>
+
+    </data>
+</odoo>
