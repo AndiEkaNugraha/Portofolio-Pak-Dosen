@@ -4,7 +4,7 @@
     <!-- Jurnal Index Page -->
     <template id="jurnal_index" name="Daftar Jurnal Ilmiah">
         <t t-call="website.layout">
-            <div id="wrap" class="oe_structure">
+            <div id="wrap" class="oe_structure my-4 py-4">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -130,7 +130,7 @@
                 <meta name="article:section" t-att-content="post.blog_id.name"/>
             </t>
             
-            <div id="wrap" class="oe_structure">
+            <div id="wrap" class="oe_structure my-4 py-4">
                 <div class="container mt-4">
                     <div class="row">
                         <div class="col-lg-8">
@@ -294,7 +294,7 @@
     <!-- Category Page -->
     <template id="jurnal_category" name="Kategori Jurnal">
         <t t-call="website.layout">
-            <div id="wrap" class="oe_structure">
+            <div id="wrap" class="oe_structure my-4 py-4">
                 <div class="container mt-4">
                     <div class="row">
                         <div class="col-12">
