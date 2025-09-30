@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            <a t-attf-href="/jurnal/detail/#{post.id}" class="text-decoration-none">
+                                            <a t-att-href="post.website_url" class="text-decoration-none">
                                                 <t t-esc="post.name"/>
                                             </a>
                                         </h5>
@@ -100,6 +100,36 @@
     <!-- Jurnal Post Detail Page -->
     <template id="jurnal_post_detail" name="Detail Jurnal Ilmiah">
         <t t-call="website.layout">
+            <!-- Set website title and meta -->
+            <t t-set="title" t-value="post.get_meta_title()"/>
+            <t t-set="website_meta_title" t-value="post.get_meta_title()"/>
+            <t t-set="website_meta_description" t-value="post.get_meta_description()"/>
+            <t t-set="website_meta_keywords" t-value="post.get_meta_keywords()"/>
+            
+            <!-- Custom head content -->
+            <t t-set="head">
+                <t t-raw="0"/>
+                <!-- SEO Meta Tags -->
+                <meta name="description" t-att-content="post.get_meta_description()"/>
+                <meta name="keywords" t-att-content="post.get_meta_keywords()"/>
+                
+                <!-- Open Graph Tags -->
+                <meta property="og:title" t-att-content="post.get_meta_title()"/>
+                <meta property="og:description" t-att-content="post.get_meta_description()"/>
+                <meta property="og:type" content="article"/>
+                <meta property="og:url" t-att-content="request.httprequest.url"/>
+                
+                <!-- Twitter Cards -->
+                <meta name="twitter:card" content="summary_large_image"/>
+                <meta name="twitter:title" t-att-content="post.get_meta_title()"/>
+                <meta name="twitter:description" t-att-content="post.get_meta_description()"/>
+                
+                <!-- Article specific meta -->
+                <meta name="author" t-att-content="post.authors"/>
+                <meta name="article:published_time" t-att-content="post.publication_date"/>
+                <meta name="article:section" t-att-content="post.blog_id.name"/>
+            </t>
+            
             <div id="wrap" class="oe_structure">
                 <div class="container mt-4">
                     <div class="row">
@@ -243,7 +273,7 @@
                                 <div class="card-body">
                                     <t t-foreach="related_posts" t-as="related">
                                         <div class="mb-3">
-                                            <a t-attf-href="/jurnal/detail/#{related.id}" class="text-decoration-none">
+                                            <a t-att-href="related.website_url" class="text-decoration-none">
                                                 <h6 t-esc="related.name"/>
                                             </a>
                                             <small class="text-muted d-block">
@@ -277,7 +307,7 @@
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h5 class="card-title">
-                                                    <a t-attf-href="/jurnal/detail/#{post.id}">
+                                                    <a t-att-href="post.website_url">
                                                         <t t-esc="post.name"/>
                                                     </a>
                                                 </h5>

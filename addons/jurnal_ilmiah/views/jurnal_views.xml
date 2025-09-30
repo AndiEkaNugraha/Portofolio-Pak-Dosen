@@ -79,6 +79,17 @@
                             </group>
                         </page>
                         
+                        <page string="SEO &amp; Metadata" name="seo">
+                            <group>
+                                <group string="URL &amp; SEO">
+                                    <field name="slug" readonly="1"/>
+                                    <field name="meta_title"/>
+                                    <field name="meta_description" widget="text"/>
+                                    <field name="meta_keywords"/>
+                                </group>
+                            </group>
+                        </page>
+                        
                         <page string="Detail Publikasi" name="publication_details">
                             <group>
                                 <group string="Publikasi">

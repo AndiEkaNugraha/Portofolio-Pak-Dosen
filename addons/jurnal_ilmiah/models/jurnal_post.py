@@ -10,9 +10,15 @@ class JurnalPost(models.Model):
     _description = 'Entri Jurnal Ilmiah'
     
     # Override fields dari blog post
-    name = fields.Char('Judul Jurnal', required=True, translate=True)
+    name = fields.Char('Judul Artikel', required=True, translate=True)
     subtitle = fields.Char(string='Sub Judul', translate=True, help="Sub judul atau judul kecil")
     blog_id = fields.Many2one('jurnal.blog', 'Kategori Jurnal', required=True, ondelete='cascade')
+    
+    # SEO fields
+    slug = fields.Char('URL Slug', compute='_compute_slug', store=True, index=True)
+    meta_title = fields.Char('Meta Title', help="Judul untuk SEO (akan menggunakan judul artikel jika kosong)")
+    meta_description = fields.Text('Meta Description', help="Deskripsi untuk SEO (akan menggunakan sinopsis jika kosong)")
+    meta_keywords = fields.Char('Meta Keywords', help="Kata kunci untuk SEO, pisahkan dengan koma")
         
     # Override blog fields dengan label yang jelas untuk jurnal
     teaser = fields.Char('Sinopsis', help="Ringkasan singkat artikel untuk preview")
@@ -78,6 +84,20 @@ class JurnalPost(models.Model):
     citations = fields.Integer('Jumlah Sitasi', default=0)
     # downloads field removed - tidak relevan untuk artikel jurnal yang di-host di publisher
     
+    @api.depends('name')
+    def _compute_slug(self):
+        for record in self:
+            if record.name:
+                import re
+                # Convert to lowercase and replace special characters
+                slug = record.name.lower()
+                slug = re.sub(r'[^a-z0-9\s-]', '', slug)
+                slug = re.sub(r'\s+', '-', slug)
+                slug = slug.strip('-')
+                record.slug = slug
+            else:
+                record.slug = ''
+    
     @api.depends('publication_date')
     def _compute_publication_year(self):
         for record in self:
@@ -86,12 +106,35 @@ class JurnalPost(models.Model):
             else:
                 record.publication_year = datetime.now().year
     
-    # Override website URL untuk halaman khusus
+    # Override website URL untuk halaman khusus dengan SEO-friendly URL
     def _compute_website_url(self):
         super(JurnalPost, self)._compute_website_url()
         for post in self:
-            if post.id and post.blog_id:
-                post.website_url = f"/jurnal/detail/{post.id}"
+            if post.id and post.blog_id and post.slug:
+                post.website_url = f"/jurnal/artikel/{post.slug}-{post.id}"
+            elif post.id and post.blog_id:
+                post.website_url = f"/jurnal/artikel/{post.id}"
+    
+    def get_meta_title(self):
+        """Get meta title for SEO"""
+        return self.meta_title or self.name
+    
+    def get_meta_description(self):
+        """Get meta description for SEO"""
+        return self.meta_description or self.teaser or f"Artikel jurnal: {self.name}"
+    
+    def get_meta_keywords(self):
+        """Get meta keywords for SEO"""
+        if self.meta_keywords:
+            return self.meta_keywords
+        keywords = []
+        if self.authors:
+            keywords.extend(self.authors.split(',')[:2])  # First 2 authors
+        if self.journal_name:
+            keywords.append(self.journal_name)
+        if self.subject_area:
+            keywords.append(self.subject_area)
+        return ', '.join(keywords) if keywords else ''
     
     def get_indexing_badges(self):
         """Return list of indexing badges for display"""
