@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Demo HKI Posts -->
+        <record id="hki_post_demo_1" model="hki.post">
+            <field name="name">Sistem Informasi Akademik Terintegrasi</field>
+            <field name="subtitle">Hak Cipta Program Komputer</field>
+            <field name="blog_id" ref="hki_blog_hak_cipta"/>
+            <field name="hki_type">copyright</field>
+            <field name="creators">Dr. Ahmad Fauzi, M.Kom</field>
+            <field name="applicant">Universitas ABC</field>
+            <field name="application_date">2023-01-15</field>
+            <field name="registration_number">C00202300001</field>
+            <field name="status">registered</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="protection_period">50</field>
+            <field name="technical_field">Sistem Informasi</field>
+            <field name="teaser">Sistem informasi untuk mengelola data akademik mahasiswa secara terintegrasi</field>
+            <field name="content">
+                &lt;p&gt;Sistem Informasi Akademik Terintegrasi adalah program komputer yang dirancang untuk mengelola seluruh aspek akademik di perguruan tinggi.&lt;/p&gt;
+            </field>
+            <field name="website_published" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

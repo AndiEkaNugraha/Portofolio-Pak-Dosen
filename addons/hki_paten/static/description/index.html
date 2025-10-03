@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKI &amp; Paten - Odoo App</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: #f8f9fa; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin: 10px 0; padding: 10px; background: #ecf0f1; border-left: 4px solid #3498db; }
+        .feature-list li:before { content: "✓"; color: #27ae60; font-weight: bold; margin-right: 10px; }
+        .badge { display: inline-block; padding: 4px 8px; background: #3498db; color: white; border-radius: 4px; font-size: 0.8em; margin: 2px; }
+        .highlight { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏛️ HKI &amp; Paten Manager</h1>
+        
+        <div class="highlight">
+            <h3>Kelola Hak Kekayaan Intelektual &amp; Paten dengan Mudah</h3>
+            <p>Plugin komprehensif untuk mengelola dan mempublikasikan daftar HKI &amp; Paten dalam website portofolio dosen.</p>
+        </div>
+
+        <h2>📋 Fitur Utama</h2>
+        <ul class="feature-list">
+            <li><strong>Manajemen HKI Lengkap</strong> - Kelola Hak Cipta, Paten, Merek, Desain Industri</li>
+            <li><strong>Kategori Fleksibel</strong> - Organisir berdasar jenis, bidang keilmuan, kantor pendaftaran</li>
+            <li><strong>Website Terintegrasi</strong> - Publikasi otomatis di website dengan URL /hki</li>
+            <li><strong>SEO Optimized</strong> - Meta tags, friendly URL, structured data</li>
+            <li><strong>Responsive Design</strong> - Tampilan optimal di desktop, tablet, dan mobile</li>
+            <li><strong>Filter &amp; Search</strong> - Pencarian canggih dengan multiple filter</li>
+            <li><strong>Status Tracking</strong> - Lacak status dari permohonan hingga pendaftaran</li>
+            <li><strong>Document Management</strong> - Upload sertifikat dan dokumen HKI</li>
+        </ul>
+
+        <h2>🎯 Jenis HKI yang Didukung</h2>
+        <div>
+            <span class="badge">Hak Cipta</span>
+            <span class="badge">Paten</span>
+            <span class="badge">Paten Sederhana</span>
+            <span class="badge">Merek</span>
+            <span class="badge">Desain Industri</span>
+            <span class="badge">Desain Tata Letak</span>
+            <span class="badge">Varietas Tanaman</span>
+            <span class="badge">Rahasia Dagang</span>
+        </div>
+
+        <h2>🌐 Kantor Pendaftaran</h2>
+        <div>
+            <span class="badge">Kemenkumham RI</span>
+            <span class="badge">USPTO</span>
+            <span class="badge">EPO</span>
+            <span class="badge">JPO</span>
+            <span class="badge">KIPO</span>
+            <span class="badge">SIPO</span>
+            <span class="badge">WIPO</span>
+        </div>
+
+        <h2>📊 Status Tracking</h2>
+        <ul class="feature-list">
+            <li><strong>Draft</strong> - Tahap persiapan dokumen</li>
+            <li><strong>Diajukan</strong> - Sudah diajukan ke kantor pendaftaran</li>
+            <li><strong>Dalam Pemeriksaan</strong> - Proses evaluasi oleh examiner</li>
+            <li><strong>Dipublikasi</strong> - Telah dipublikasikan untuk masa oposisi</li>
+            <li><strong>Diberikan/Terdaftar</strong> - HKI telah resmi terdaftar</li>
+        </ul>
+
+        <h2>🔍 Fitur Website</h2>
+        <ul class="feature-list">
+            <li><strong>Halaman Utama</strong> - /hki dengan grid view dan filtering</li>
+            <li><strong>Detail HKI</strong> - Informasi lengkap dengan SEO-friendly URL</li>
+            <li><strong>Kategori</strong> - Browsing berdasar kategori HKI</li>
+            <li><strong>Pencarian Lanjutan</strong> - Multi-criteria search</li>
+            <li><strong>Statistik</strong> - Dashboard visual dengan charts</li>
+        </ul>
+
+        <h2>⚙️ Instalasi</h2>
+        <ol>
+            <li>Copy folder <code>hki_paten</code> ke direktori <code>addons/</code></li>
+            <li>Update Apps List di Odoo</li>
+            <li>Install module "Daftar HKI & Paten"</li>
+            <li>Akses menu HKI & Paten di backend</li>
+            <li>Kunjungi /hki di website untuk melihat publikasi</li>
+        </ol>
+
+        <h2>🎨 Kustomisasi</h2>
+        <ul class="feature-list">
+            <li><strong>Template Customizable</strong> - Sesuaikan tampilan dengan branding</li>
+            <li><strong>Field Extensions</strong> - Tambah field custom sesuai kebutuhan</li>
+            <li><strong>Multiple Categories</strong> - Buat kategori berdasar kebutuhan</li>
+            <li><strong>Workflow States</strong> - Sesuaikan status dan workflow</li>
+        </ul>
+
+        <h2>📱 Kompatibilitas</h2>
+        <ul class="feature-list">
+            <li><strong>Odoo 19</strong> - Fully compatible dengan Odoo 19</li>
+            <li><strong>Website Module</strong> - Requires website, website_blog</li>
+            <li><strong>Responsive</strong> - Bootstrap 4+ compatible</li>
+            <li><strong>Modern Browsers</strong> - Chrome, Firefox, Safari, Edge</li>
+        </ul>
+
+        <div class="highlight">
+            <h3>💡 Perfect for Academic Portfolios</h3>
+            <p>Ideal untuk dosen dan peneliti yang ingin menampilkan pencapaian HKI & Paten dalam website portofolio profesional mereka.</p>
+        </div>
+
+        <h2>📞 Support</h2>
+        <p>Untuk dukungan teknis dan kustomisasi, silakan hubungi developer atau buat issue di repository project.</p>
+
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
+        
+        <p style="text-align: center; color: #7f8c8d; font-size: 0.9em;">
+            <strong>HKI &amp; Paten Manager v1.0.0</strong><br>
+            Developed for Odoo 19 Community &amp; Enterprise
+        </p>
+    </div>
+</body>
+</html>

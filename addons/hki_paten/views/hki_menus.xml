@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Main Menu -->
+        <record id="menu_hki_main" model="ir.ui.menu">
+            <field name="name">HKI dan Paten</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <!-- HKI Blog Menu dan Actions -->
+        <record id="action_hki_blog" model="ir.actions.act_window">
+            <field name="name">Kategori HKI</field>
+            <field name="res_model">hki.blog</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Buat kategori HKI pertama Anda!
+                </p>
+                <p>
+                    Kategori HKI membantu mengorganisir HKI dan Paten berdasar jenis, bidang keilmuan, atau kantor pendaftaran.
+                </p>
+            </field>
+        </record>
+
+
+
+        <!-- HKI Post Menu dan Actions -->
+        <record id="action_hki_post" model="ir.actions.act_window">
+            <field name="name">HKI dan Paten</field>
+            <field name="res_model">hki.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan HKI dan Paten pertama Anda!
+                </p>
+                <p>
+                    Kelola daftar HKI dan Paten seperti Hak Cipta, Paten, Merek, dan Desain Industri.
+                </p>
+            </field>
+        </record>
+
+        <record id="menu_hki_post" model="ir.ui.menu">
+            <field name="name">Daftar HKI dan Paten</field>
+            <field name="parent_id" ref="menu_hki_main"/>
+            <field name="action" ref="action_hki_post"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Separate actions for different HKI types -->
+        <record id="action_hki_copyright" model="ir.actions.act_window">
+            <field name="name">Hak Cipta</field>
+            <field name="res_model">hki.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('hki_type_id.code', '=', 'HC')]</field>
+            <field name="context">{'default_hki_type_id': ref('hki_type_hak_cipta')}</field>
+        </record>
+
+        <record id="action_hki_patent" model="ir.actions.act_window">
+            <field name="name">Paten</field>
+            <field name="res_model">hki.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('hki_type_id.code', 'in', ['P', 'PS'])]</field>
+            <field name="context">{'default_hki_type_id': ref('hki_type_paten')}</field>
+        </record>
+
+        <record id="action_hki_trademark" model="ir.actions.act_window">
+            <field name="name">Merek</field>
+            <field name="res_model">hki.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('hki_type_id.code', '=', 'M')]</field>
+            <field name="context">{'default_hki_type_id': ref('hki_type_merek')}</field>
+        </record>
+
+        <record id="action_hki_design" model="ir.actions.act_window">
+            <field name="name">Desain Industri</field>
+            <field name="res_model">hki.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('hki_type_id.code', '=', 'DI')]</field>
+            <field name="context">{'default_hki_type_id': ref('hki_type_desain_industri')}</field>
+        </record>
+
+
+
+
+
+        <!-- Configuration Menu -->
+        <record id="menu_hki_config" model="ir.ui.menu">
+            <field name="name">Konfigurasi</field>
+            <field name="parent_id" ref="menu_hki_main"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="menu_hki_blog_config" model="ir.ui.menu">
+            <field name="name">Kategori HKI</field>
+            <field name="parent_id" ref="menu_hki_config"/>
+            <field name="action" ref="action_hki_blog"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Master Data Actions -->
+        <record id="action_hki_type" model="ir.actions.act_window">
+            <field name="name">Jenis HKI</field>
+            <field name="res_model">hki.type</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan jenis HKI baru!
+                </p>
+                <p>
+                    Kelola jenis-jenis HKI seperti Hak Cipta, Paten, Merek, dan Desain Industri.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_registration_office" model="ir.actions.act_window">
+            <field name="name">Kantor Pendaftaran</field>
+            <field name="res_model">registration.office</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan kantor pendaftaran baru!
+                </p>
+                <p>
+                    Kelola daftar kantor pendaftaran HKI seperti DJKI, WIPO, USPTO, dll.
+                </p>
+            </field>
+        </record>
+
+        <!-- Master Data Menus -->
+        <record id="menu_hki_type" model="ir.ui.menu">
+            <field name="name">Jenis HKI</field>
+            <field name="parent_id" ref="menu_hki_config"/>
+            <field name="action" ref="action_hki_type"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="menu_registration_office" model="ir.ui.menu">
+            <field name="name">Kantor Pendaftaran</field>
+            <field name="parent_id" ref="menu_hki_config"/>
+            <field name="action" ref="action_registration_office"/>
+            <field name="sequence">30</field>
+        </record>
+
+    </data>
+</odoo>

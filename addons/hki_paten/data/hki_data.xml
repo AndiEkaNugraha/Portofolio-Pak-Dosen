@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- HKI Type Master Data -->
+        <record id="hki_type_hak_cipta" model="hki.type">
+            <field name="name">Hak Cipta</field>
+            <field name="code">HC</field>
+            <field name="description">Perlindungan atas karya intelektual di bidang ilmu pengetahuan, seni, dan sastra</field>
+            <field name="sequence">10</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="hki_type_paten" model="hki.type">
+            <field name="name">Paten</field>
+            <field name="code">P</field>
+            <field name="description">Perlindungan atas invensi yang baru, mengandung langkah inventif, dan dapat diterapkan dalam industri</field>
+            <field name="sequence">20</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="hki_type_merek" model="hki.type">
+            <field name="name">Merek</field>
+            <field name="code">M</field>
+            <field name="description">Perlindungan atas tanda yang dapat dibedakan dari barang atau jasa</field>
+            <field name="sequence">30</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="hki_type_desain_industri" model="hki.type">
+            <field name="name">Desain Industri</field>
+            <field name="code">DI</field>
+            <field name="description">Perlindungan atas kreasi tentang bentuk, konfigurasi atau komposisi garis atau warna</field>
+            <field name="sequence">40</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="hki_type_paten_sederhana" model="hki.type">
+            <field name="name">Paten Sederhana</field>
+            <field name="code">PS</field>
+            <field name="description">Perlindungan atas invensi yang baru dan dapat diterapkan dalam industri</field>
+            <field name="sequence">50</field>
+            <field name="active">True</field>
+        </record>
+        
+        <!-- Registration Office Master Data -->
+        <record id="office_kemenkumham" model="registration.office">
+            <field name="name">Direktorat Jenderal Kekayaan Intelektual (DJKI) - Kemenkumham</field>
+            <field name="code">DJKI</field>
+            <field name="description">Lembaga resmi pemerintah Indonesia untuk pendaftaran HKI</field>
+            <field name="sequence">10</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="office_wipo" model="registration.office">
+            <field name="name">World Intellectual Property Organization (WIPO)</field>
+            <field name="code">WIPO</field>
+            <field name="description">Organisasi internasional untuk kekayaan intelektual</field>
+            <field name="sequence">20</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="office_uspto" model="registration.office">
+            <field name="name">United States Patent and Trademark Office (USPTO)</field>
+            <field name="code">USPTO</field>
+            <field name="description">Kantor paten dan merek dagang Amerika Serikat</field>
+            <field name="sequence">30</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Default HKI Blog Categories -->
+        <record id="hki_blog_teknologi_informasi" model="hki.blog">
+            <field name="name">Teknologi Informasi</field>
+            <field name="subtitle">Software, AI, dan Sistem Komputer</field>
+            <field name="hki_scope">national</field>
+            <field name="scientific_field">computer_science</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="description">
+                &lt;p&gt;Kategori untuk HKI di bidang teknologi informasi meliputi software, aplikasi, sistem AI, dan inovasi teknologi komputer.&lt;/p&gt;
+            </field>
+        </record>
+
+        <record id="hki_blog_teknologi_lingkungan" model="hki.blog">
+            <field name="name">Teknologi Lingkungan</field>
+            <field name="subtitle">Inovasi untuk Keberlanjutan</field>
+            <field name="hki_scope">both</field>
+            <field name="scientific_field">engineering</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="description">
+                &lt;p&gt;Kategori untuk HKI di bidang teknologi lingkungan meliputi sensor lingkungan, teknologi hijau, dan inovasi untuk keberlanjutan.&lt;/p&gt;
+            </field>
+        </record>
+
+        <record id="hki_blog_produk_edukasi" model="hki.blog">
+            <field name="name">Produk Edukasi</field>
+            <field name="subtitle">Platform dan Media Pembelajaran</field>
+            <field name="hki_scope">national</field>
+            <field name="scientific_field">education</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="description">
+                &lt;p&gt;Kategori untuk HKI produk edukasi meliputi platform pembelajaran, media edukasi, dan brand pendidikan.&lt;/p&gt;
+            </field>
+        </record>
+
+        <record id="hki_blog_teknologi_kesehatan" model="hki.blog">
+            <field name="name">Teknologi Kesehatan</field>
+            <field name="subtitle">Alat Medis dan Aksesibilitas</field>
+            <field name="hki_scope">national</field>
+            <field name="scientific_field">medicine</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="description">
+                &lt;p&gt;Kategori untuk HKI di bidang kesehatan meliputi alat medis, teknologi aksesibilitas, dan inovasi kesehatan masyarakat.&lt;/p&gt;
+            </field>
+        </record>
+
+        <record id="hki_blog_energi_terbarukan" model="hki.blog">
+            <field name="name">Energi Terbarukan</field>
+            <field name="subtitle">Teknologi Ramah Lingkungan</field>
+            <field name="hki_scope">international</field>
+            <field name="scientific_field">engineering</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="description">
+                &lt;p&gt;Kategori untuk HKI di bidang energi terbarukan meliputi teknologi solar, sistem pembersih air, dan inovasi energi hijau.&lt;/p&gt;
+            </field>
+        </record>
+
+        <!-- Sample HKI Data -->
+        <record id="hki_sample_1" model="hki.post">
+            <field name="name">Sistem Pembelajaran Adaptif Berbasis AI - EduSmart Platform</field>
+            <field name="subtitle">Aplikasi E-Learning Cerdas dengan Machine Learning</field>
+            <field name="blog_id" ref="hki_blog_teknologi_informasi"/>
+            <field name="hki_type_id" ref="hki_type_hak_cipta"/>
+            <field name="creators">Dr. Ahmad Subagyo, M.T., Prof. Dr. Sari Indrawati, M.Kom.</field>
+            <field name="applicant">Universitas Indonesia - Fakultas Ilmu Komputer</field>
+            <field name="application_date">2024-01-15</field>
+            <field name="registration_office_id" ref="office_kemenkumham"/>
+            <field name="status">registered</field>
+            <field name="application_number">EC00202400001</field>
+            <field name="registration_number">000123456</field>
+            <field name="certificate_number">C-2024-001234</field>
+            <field name="registration_date">2024-03-20</field>
+            <field name="publication_date">2024-04-15</field>
+            <field name="protection_period">50</field>
+            <field name="expiry_date">2074-03-20</field>
+            <field name="registration_country">Indonesia</field>
+            <field name="teaser">Sistem pembelajaran adaptif yang menggunakan kecerdasan buatan untuk memberikan pengalaman belajar yang dipersonalisasi. Platform ini mampu menganalisis pola belajar siswa secara real-time dan menyesuaikan konten pembelajaran berdasarkan kemampuan dan preferensi individu. Dilengkapi dengan assessment adaptif, rekomendasi pembelajaran, dan analytics dashboard untuk monitoring progress belajar.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;EduSmart Platform&lt;/strong&gt; adalah sistem pembelajaran adaptif yang dirancang khusus untuk memberikan pengalaman belajar yang dipersonalisasi menggunakan teknologi artificial intelligence dan machine learning.&lt;/p&gt;
+
+&lt;h4&gt;Fitur Utama:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Adaptive Learning Engine:&lt;/strong&gt; Analisis pola belajar siswa secara real-time menggunakan algoritma machine learning&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Personalized Content:&lt;/strong&gt; Rekomendasi konten pembelajaran yang disesuaikan dengan kemampuan dan preferensi siswa&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smart Assessment:&lt;/strong&gt; Assessment adaptif yang menyesuaikan tingkat kesulitan berdasarkan performance siswa&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Analytics Dashboard:&lt;/strong&gt; Dashboard komprehensif untuk monitoring progress dan analytics pembelajaran&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-modal Learning:&lt;/strong&gt; Support untuk berbagai tipe konten (video, audio, text, interactive)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Teknologi yang Digunakan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Natural Language Processing (NLP) untuk analisis konten&lt;/li&gt;
+&lt;li&gt;Collaborative Filtering untuk sistem rekomendasi&lt;/li&gt;
+&lt;li&gt;Deep Learning untuk prediksi learning outcomes&lt;/li&gt;
+&lt;li&gt;Real-time data processing dengan Apache Kafka&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Platform ini telah diuji coba pada lebih dari 10,000 siswa dengan peningkatan rata-rata learning outcomes sebesar 35% dibandingkan metode pembelajaran konvensional.&lt;/p&gt;</field>
+            <field name="technical_field">Teknologi Pendidikan dan Kecerdasan Buatan</field>
+            <field name="invention_area">Sistem pembelajaran adaptif berbasis AI yang dapat menyesuaikan konten dan metode pembelajaran berdasarkan analisis pola belajar individual siswa menggunakan machine learning algorithms.</field>
+            <field name="keywords">AI, machine learning, adaptive learning, e-learning, personalized education, educational technology, NLP, recommendation system</field>
+            <field name="prior_art">Sistem e-learning konvensional seperti Moodle, Blackboard, dan Canvas yang menggunakan pendekatan one-size-fits-all tanpa personalisasi berbasis AI.</field>
+            <field name="advantages">1. Personalisasi pembelajaran real-time, 2. Peningkatan engagement siswa hingga 45%, 3. Efisiensi waktu belajar meningkat 30%, 4. Adaptive assessment yang mengurangi stress siswa, 5. Analytics mendalam untuk educator insights</field>
+            <field name="commercialized">True</field>
+            <field name="licensee">PT. Teknologi Pendidikan Nusantara</field>
+            <field name="license_agreement">Lisensi eksklusif 5 tahun untuk implementasi di Indonesia</field>
+            <field name="citations">15</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Juara 1 Kompetisi Inovasi Teknologi Pendidikan Kemendikbud 2024</field>
+            <field name="meta_title">EduSmart Platform - Sistem Pembelajaran AI Adaptif | Dr. Ahmad Subagyo</field>
+            <field name="meta_description">Sistem pembelajaran adaptif berbasis AI yang telah terdaftar hak cipta. Menggunakan machine learning untuk personalisasi pembelajaran real-time dengan peningkatan learning outcomes 35%.</field>
+            <field name="meta_keywords">sistem pembelajaran adaptif, AI education, machine learning, e-learning, hak cipta, educational technology</field>
+            <field name="is_published">True</field>
+        </record>
+
+        <record id="hki_sample_2" model="hki.post">
+            <field name="name">Smart Water Quality Monitoring System dengan AI Prediction</field>
+            <field name="subtitle">Sistem Sensor IoT Cerdas untuk Deteksi dan Prediksi Kualitas Air</field>
+            <field name="blog_id" ref="hki_blog_teknologi_lingkungan"/>
+            <field name="hki_type_id" ref="hki_type_paten"/>
+            <field name="creators">Prof. Dr. Siti Rahmawati, S.T., M.T., Dr. Budi Hartono, S.T., M.T.</field>
+            <field name="applicant">Institut Teknologi Bandung - Fakultas Teknik Lingkungan</field>
+            <field name="application_date">2023-11-10</field>
+            <field name="registration_office_id" ref="office_kemenkumham"/>
+            <field name="status">granted</field>
+            <field name="application_number">P00202300045</field>
+            <field name="registration_number">IDP000987654</field>
+            <field name="certificate_number">P-2024-004567</field>
+            <field name="registration_date">2024-03-25</field>
+            <field name="publication_date">2024-04-10</field>
+            <field name="grant_date">2024-05-15</field>
+            <field name="protection_period">20</field>
+            <field name="expiry_date">2043-11-10</field>
+            <field name="renewal_date">2033-11-10</field>
+            <field name="registration_country">Indonesia</field>
+            <field name="teaser">Perangkat sensor pintar untuk monitoring kualitas air secara real-time dengan teknologi IoT dan AI prediction. Sistem ini mampu mendeteksi 15 parameter kualitas air sekaligus, melakukan prediksi trend kualitas air, dan memberikan early warning system untuk pencemaran air. Dilengkapi dengan algoritma machine learning untuk analisis prediktif dan mobile application untuk monitoring jarak jauh.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Smart Water Quality Monitoring System&lt;/strong&gt; adalah inovasi perangkat monitoring kualitas air berbasis Internet of Things (IoT) yang dilengkapi dengan artificial intelligence untuk prediksi dan early warning system.&lt;/p&gt;
+
+&lt;h4&gt;Keunggulan Teknologi:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Multi-Parameter Sensing:&lt;/strong&gt; Deteksi simultan 15 parameter: pH, DO, COD, BOD, turbidity, TDS, temperature, conductivity, ammonia, nitrate, phosphate, heavy metals, bacterial count, chlorine, alkalinity&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI Predictive Analytics:&lt;/strong&gt; Algoritma machine learning untuk prediksi trend kualitas air 7 hari ke depan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Early Warning System:&lt;/strong&gt; Notifikasi otomatis saat parameter melampaui batas aman WHO/EPA standards&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Self-Calibrating Sensors:&lt;/strong&gt; Sistem kalibrasi otomatis untuk menjaga akurasi pengukuran&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Long Range Transmission:&lt;/strong&gt; Kombinasi WiFi, LoRaWAN, dan NB-IoT untuk coverage area luas&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Spesifikasi Teknis:&lt;/h4&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Power Supply:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Solar panel 20W + Lithium battery 10Ah (2 tahun operasi)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Communication:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;WiFi 802.11n, LoRaWAN, NB-IoT, Bluetooth 5.0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;±2% untuk semua parameter (WHO certified)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Operating Temp:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;-20°C to +70°C&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Waterproof:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;IP68 rating, operational up to 50m depth&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h4&gt;Aplikasi Penggunaan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Monitoring sungai dan danau untuk environmental management&lt;/li&gt;
+&lt;li&gt;Kontrol kualitas air minum di water treatment plants&lt;/li&gt;
+&lt;li&gt;Aquaculture monitoring untuk optimasi budidaya ikan&lt;/li&gt;
+&lt;li&gt;Industrial wastewater monitoring untuk compliance&lt;/li&gt;
+&lt;li&gt;Smart city water infrastructure management&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sistem ini telah diimplementasikan di 25 lokasi monitoring di Indonesia dengan tingkat akurasi 98.5% dan cost reduction 60% dibandingkan metode manual testing.&lt;/p&gt;</field>
+            <field name="technical_field">Teknologi Lingkungan dan Internet of Things</field>
+            <field name="ipc_classification">G01N 33/18, G01N 27/00, H04L 67/12</field>
+            <field name="nice_classification"></field>
+            <field name="locarno_classification"></field>
+            <field name="invention_area">Perangkat monitoring kualitas air otomatis yang menggunakan array multi-sensor dengan teknologi IoT dan artificial intelligence untuk deteksi real-time, prediksi trend, dan early warning system pencemaran air.</field>
+            <field name="claims_count">18</field>
+            <field name="independent_claims">4</field>
+            <field name="dependent_claims">14</field>
+            <field name="prior_art">Sensor kualitas air konvensional yang hanya mengukur 1-3 parameter, memerlukan kalibrasi manual, dan tidak memiliki kemampuan prediktif seperti produk Hach, YSI, dan Hydrolab.</field>
+            <field name="advantages">1. Multi-parameter sensing dalam satu device, 2. AI prediction untuk preventive action, 3. Self-calibrating technology, 4. Ultra-low power consumption, 5. Cost-effective mass deployment, 6. Real-time cloud analytics, 7. Mobile app integration</field>
+            <field name="commercialized">True</field>
+            <field name="licensee">PT. Teknologi Sensor Indonesia, CV. Enviro Solutions</field>
+            <field name="license_agreement">Lisensi non-eksklusif untuk produksi dan distribusi di Asia Tenggara</field>
+            <field name="citations">28</field>
+            <field name="family_patents">3</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Gold Medal International Invention Innovation Competition 2024, Best Environmental Technology Award LIPI 2024</field>
+            <field name="meta_title">Smart Water Quality Monitoring System - Paten IoT Sensor Air | Prof. Siti Rahmawati</field>
+            <field name="meta_description">Sistem monitoring kualitas air berbasis IoT dan AI yang telah dipatenkan. Multi-sensor untuk 15 parameter dengan prediksi AI dan early warning system. Akurasi 98.5% dengan cost reduction 60%.</field>
+            <field name="meta_keywords">water quality monitoring, IoT sensor, environmental technology, paten, AI prediction, water treatment</field>
+            <field name="keywords">IoT, sensor, water quality, environmental monitoring, AI prediction, early warning system, multi-parameter sensing</field>
+            <field name="is_published">True</field>
+        </record>
+
+        <record id="hki_sample_3" model="hki.post">
+            <field name="name">EduTech Learning Platform™</field>
+            <field name="subtitle">Merek Dagang Platform Pembelajaran Online Terpadu</field>
+            <field name="blog_id" ref="hki_blog_produk_edukasi"/>
+            <field name="hki_type_id" ref="hki_type_merek"/>
+            <field name="creators">Dr. Budi Santoso, M.Kom., Ir. Lisa Permata, M.T.</field>
+            <field name="applicant">PT. Teknologi Edukasi Indonesia</field>
+            <field name="application_date">2024-02-20</field>
+            <field name="registration_office_id" ref="office_kemenkumham"/>
+            <field name="status">registered</field>
+            <field name="application_number">M00202400012</field>
+            <field name="registration_number">IDM000456789</field>
+            <field name="certificate_number">M-2024-007890</field>
+            <field name="registration_date">2024-06-15</field>
+            <field name="publication_date">2024-07-01</field>
+            <field name="protection_period">10</field>
+            <field name="expiry_date">2034-02-20</field>
+            <field name="renewal_date">2034-02-20</field>
+            <field name="registration_country">Indonesia</field>
+            <field name="teaser">Merek dagang terdaftar untuk platform pembelajaran online komprehensif yang menyediakan solusi edukasi digital terpadu untuk institusi pendidikan, korporat, dan individual learners. Platform ini mencakup LMS, virtual classroom, assessment tools, dan learning analytics dalam satu ekosistem pembelajaran yang terintegrasi dengan teknologi AI dan gamification.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;EduTech Learning Platform™&lt;/strong&gt; adalah merek dagang yang telah terdaftar secara resmi untuk platform pembelajaran online yang menyediakan solusi edukasi digital terpadu dan inovatif.&lt;/p&gt;
+
+&lt;h4&gt;Cakupan Perlindungan Merek:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kelas 9:&lt;/strong&gt; Perangkat lunak komputer, aplikasi mobile, software pembelajaran, e-learning applications, educational software, computer programs for education&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kelas 41:&lt;/strong&gt; Jasa pendidikan, pelatihan online, kursus digital, webinar, workshop virtual, educational services, training services, online learning platforms&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kelas 42:&lt;/strong&gt; Jasa teknologi informasi dan komunikasi, hosting platform pembelajaran, cloud services, software as a service (SaaS), platform development&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kelas 35:&lt;/strong&gt; Jasa administrasi bisnis, manajemen database siswa, layanan customer support platform pembelajaran&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Fitur Platform yang Dilindungi:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Learning Management System (LMS):&lt;/strong&gt; Sistem manajemen pembelajaran lengkap dengan course creation, student management, progress tracking&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Virtual Classroom:&lt;/strong&gt; Ruang kelas virtual interaktif dengan video conferencing, whiteboard digital, screen sharing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Assessment Engine:&lt;/strong&gt; Tools untuk quiz, ujian online, assignment submission, automated grading&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Learning Analytics:&lt;/strong&gt; Dashboard analytics untuk monitoring performance dan engagement siswa&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gamification Features:&lt;/strong&gt; Badge system, leaderboard, achievement tracking untuk meningkatkan motivasi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mobile Learning App:&lt;/strong&gt; Aplikasi mobile untuk Android dan iOS dengan offline capabilities&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Segmentasi Pasar:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Institutional:&lt;/strong&gt; Sekolah, universitas, lembaga pelatihan, institusi pemerintah&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Corporate:&lt;/strong&gt; Perusahaan untuk employee training, skill development, compliance training&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Individual:&lt;/strong&gt; Personal learning, professional certification, hobby courses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;International:&lt;/strong&gt; Educational institutions di Asia Tenggara dan Timur Tengah&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Competitive Advantages:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;White-label solution untuk customization branding institusi&lt;/li&gt;
+&lt;li&gt;Multi-language support (Indonesia, English, Arabic, Mandarin)&lt;/li&gt;
+&lt;li&gt;Integration dengan payment gateway lokal dan internasional&lt;/li&gt;
+&lt;li&gt;Compliance dengan standar data privacy (GDPR, ISO 27001)&lt;/li&gt;
+&lt;li&gt;24/7 technical support dengan response time &lt; 2 hours&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Merek EduTech Learning Platform™ telah digunakan oleh 150+ institusi pendidikan dengan 500,000+ active users di 15 negara dan memiliki brand value yang terus meningkat di sektor edtech Asia.&lt;/p&gt;</field>
+            <field name="technical_field">Teknologi Pendidikan dan Sistem Informasi</field>
+            <field name="nice_classification">09, 35, 41, 42</field>
+            <field name="invention_area">Merek dagang untuk ekosistem platform pembelajaran digital yang mencakup LMS, virtual classroom, assessment tools, mobile learning, dan learning analytics dengan teknologi AI dan gamification.</field>
+            <field name="prior_art">Platform pembelajaran online konvensional seperti Moodle (open source), Google Classroom (basic features), Zoom (video only) yang tidak memiliki integrated ecosystem dan branding terdaftar.</field>
+            <field name="advantages">1. Integrated ecosystem dalam satu platform, 2. White-label customization, 3. Multi-language support, 4. Local payment integration, 5. Compliance international standards, 6. 24/7 support, 7. Scalable architecture, 8. Strong brand protection</field>
+            <field name="commercialized">True</field>
+            <field name="licensee">EduTech Solutions Pte Ltd (Singapore), Digital Learning Middle East LLC (UAE)</field>
+            <field name="license_agreement">Franchise licensing untuk ekspansi regional dengan royalty fee 8% dari revenue</field>
+            <field name="citations">0</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Indonesia Digital Brand Award 2024 - Best Educational Technology Brand, ASEAN EdTech Excellence Award 2024</field>
+            <field name="meta_title">EduTech Learning Platform™ - Merek Dagang Platform Pembelajaran | Dr. Budi Santoso</field>
+            <field name="meta_description">Merek dagang terdaftar untuk platform pembelajaran online terpadu. Melindungi LMS, virtual classroom, assessment tools dengan cakupan 4 kelas Nice Classification. Digunakan 500K+ users di 15 negara.</field>
+            <field name="meta_keywords">merek dagang, trademark, platform pembelajaran, LMS, virtual classroom, edtech branding</field>
+            <field name="keywords">merek dagang, trademark, e-learning, platform pendidikan, LMS, virtual classroom, educational technology, brand protection</field>
+            <field name="is_published">True</field>
+        </record>
+
+        <record id="hki_sample_4" model="hki.post">
+            <field name="name">Ergonomic Smart Wheelchair Design dengan AI Navigation</field>
+            <field name="subtitle">Desain Kursi Roda Pintar dengan Sistem Navigasi Otomatis</field>
+            <field name="blog_id" ref="hki_blog_teknologi_kesehatan"/>
+            <field name="hki_type_id" ref="hki_type_desain_industri"/>
+            <field name="creators">Prof. Dr. Andi Wijaya, S.T., M.T., Dr. Maya Sari, S.Des., M.Des.</field>
+            <field name="applicant">Institut Teknologi Sepuluh Nopember - Fakultas Desain</field>
+            <field name="application_date">2024-03-10</field>
+            <field name="registration_office_id" ref="office_kemenkumham"/>
+            <field name="status">registered</field>
+            <field name="application_number">D00202400018</field>
+            <field name="registration_number">IDD000234567</field>
+            <field name="certificate_number">D-2024-001234</field>
+            <field name="registration_date">2024-07-22</field>
+            <field name="publication_date">2024-08-05</field>
+            <field name="protection_period">10</field>
+            <field name="expiry_date">2034-03-10</field>
+            <field name="registration_country">Indonesia</field>
+            <field name="teaser">Desain industrial kursi roda ergonomis yang dilengkapi dengan teknologi AI navigation, obstacle detection, dan voice control. Desain ini menggabungkan aspek estetika modern, kenyamanan ergonomis, dan teknologi smart untuk memberikan mobilitas yang lebih baik bagi pengguna dengan kebutuhan khusus. Fitur unggulan termasuk autonomous navigation, health monitoring, dan customizable aesthetic design.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Ergonomic Smart Wheelchair Design&lt;/strong&gt; adalah desain industri inovatif yang menggabungkan prinsip ergonomi, estetika modern, dan teknologi artificial intelligence untuk menciptakan solusi mobilitas yang revolusioner.&lt;/p&gt;
+
+&lt;h4&gt;Aspek Desain yang Dilindungi:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Frame Design:&lt;/strong&gt; Bentuk rangka yang aerodinamis dengan material lightweight aluminum alloy, tersedia dalam 5 pilihan warna premium&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Seat Ergonomics:&lt;/strong&gt; Desain tempat duduk dengan memory foam berlapis breathable fabric, adjustable backrest dengan 15 titik penyesuaian&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control Panel:&lt;/strong&gt; Interface touchscreen 7 inch dengan desain UI/UX yang user-friendly dan accessible untuk berbagai kondisi disabilitas&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wheel Configuration:&lt;/strong&gt; Desain roda omnidirectional dengan shock absorber system untuk smooth ride di berbagai terrain&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aesthetic Elements:&lt;/strong&gt; LED accent lighting, curved lines design language, premium finish options (matte, glossy, textured)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Smart Features Integration:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI Navigation System:&lt;/strong&gt; Autonomous pathfinding dengan LIDAR dan computer vision untuk obstacle avoidance&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Voice Control:&lt;/strong&gt; Natural language processing untuk kontrol hands-free dalam 10 bahasa&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Health Monitoring:&lt;/strong&gt; Integrated sensors untuk monitoring vital signs, posture detection, pressure mapping&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smart Connectivity:&lt;/strong&gt; IoT integration dengan smartphone app, emergency alert system, GPS tracking&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Adaptive Learning:&lt;/strong&gt; Machine learning untuk mempelajari preferensi dan pola movement pengguna&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Material dan Manufacturing:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Frame:&lt;/strong&gt; Aircraft-grade aluminum 6061-T6 dengan weight capacity 150kg, total weight 25kg&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upholstery:&lt;/strong&gt; Medical-grade antimicrobial fabric dengan moisture-wicking properties&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Electronics:&lt;/strong&gt; IP65-rated components untuk weather resistance, 48V lithium battery dengan 8-hour usage&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manufacturing:&lt;/strong&gt; Precision CNC machining dan 3D printing untuk custom components&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Target Market dan Aplikasi:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Medical Facilities:&lt;/strong&gt; Rumah sakit, rehabilitation centers, nursing homes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Personal Use:&lt;/strong&gt; Individual users dengan berbagai tingkat mobility impairment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Public Spaces:&lt;/strong&gt; Airport, mall, theme parks dengan rental smart wheelchair service&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Educational:&lt;/strong&gt; Sekolah dan universitas untuk accessibility improvement&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Awards dan Recognition:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Red Dot Design Award 2024 - Best Product Design&lt;/li&gt;
+&lt;li&gt;International Universal Design Award 2024&lt;/li&gt;
+&lt;li&gt;Indonesia Innovation Award 2024 - Healthcare Category&lt;/li&gt;
+&lt;li&gt;ASEAN Design Excellence Award 2024&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Desain ini telah diproduksi secara komersial dengan 1,500 unit terjual di 8 negara, memperoleh 95% customer satisfaction rating dan telah membantu meningkatkan quality of life pengguna kursi roda.&lt;/p&gt;</field>
+            <field name="technical_field">Desain Produk Medis dan Assistive Technology</field>
+            <field name="locarno_classification">12-16 (Medical and laboratory equipment)</field>
+            <field name="invention_area">Desain kursi roda ergonomis dengan integrasi teknologi AI navigation, health monitoring, dan adaptive learning untuk meningkatkan mobilitas dan quality of life pengguna dengan kebutuhan khusus.</field>
+            <field name="prior_art">Kursi roda konvensional manual dan elektrik seperti produk Invacare, Permobil, dan Pride Mobility yang tidak memiliki AI navigation dan design aesthetic yang modern.</field>
+            <field name="advantages">1. Autonomous navigation mengurangi fatigue, 2. Ergonomic design mencegah pressure sores, 3. Health monitoring untuk preventive care, 4. Aesthetic appeal mengurangi stigma, 5. Customizable features untuk individual needs, 6. Weather-resistant untuk outdoor use</field>
+            <field name="commercialized">True</field>
+            <field name="licensee">PT. Teknologi Medis Nusantara, Adaptive Mobility Solutions Pte Ltd</field>
+            <field name="license_agreement">Manufacturing license untuk Indonesia dan distribusi license untuk Asia Tenggara dengan revenue sharing 15%</field>
+            <field name="citations">12</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Red Dot Design Award 2024 - Best Product Design, International Universal Design Award 2024, Indonesia Innovation Award 2024</field>
+            <field name="meta_title">Ergonomic Smart Wheelchair Design - Desain Industri Kursi Roda AI | Prof. Andi Wijaya</field>
+            <field name="meta_description">Desain industri kursi roda ergonomis dengan AI navigation yang telah terdaftar. Menggabungkan estetika modern, teknologi smart, dan ergonomi untuk mobilitas yang lebih baik. Red Dot Award Winner 2024.</field>
+            <field name="meta_keywords">desain industri, kursi roda, AI navigation, ergonomic design, assistive technology, medical device design</field>
+            <field name="keywords">desain industri, kursi roda pintar, AI navigation, ergonomic design, assistive technology, universal design, medical device</field>
+            <field name="is_published">True</field>
+        </record>
+
+        <record id="hki_sample_5" model="hki.post">
+            <field name="name">Portable Solar Water Purification System</field>
+            <field name="subtitle">Sistem Pemurnian Air Portabel Bertenaga Surya</field>
+            <field name="blog_id" ref="hki_blog_energi_terbarukan"/>
+            <field name="hki_type_id" ref="hki_type_paten_sederhana"/>
+            <field name="creators">Dr. Indra Pratama, S.T., M.T., Ir. Dewi Kusuma, M.T.</field>
+            <field name="applicant">Universitas Gadjah Mada - Fakultas Teknik</field>
+            <field name="application_date">2024-05-15</field>
+            <field name="registration_office_id" ref="office_kemenkumham"/>
+            <field name="status">granted</field>
+            <field name="application_number">S00202400025</field>
+            <field name="registration_number">IDS000345678</field>
+            <field name="certificate_number">S-2024-002345</field>
+            <field name="registration_date">2024-08-20</field>
+            <field name="publication_date">2024-09-01</field>
+            <field name="grant_date">2024-09-15</field>
+            <field name="protection_period">10</field>
+            <field name="expiry_date">2034-05-15</field>
+            <field name="registration_country">Indonesia</field>
+            <field name="teaser">Sistem pemurnian air portabel yang menggunakan tenaga surya untuk menghasilkan air bersih dari berbagai sumber air (sungai, danau, sumur) dengan kapasitas 20 liter per jam. Sistem ini menggabungkan teknologi filtrasi multi-stage, UV sterilization, dan reverse osmosis yang dioperasikan dengan solar panel 100W. Cocok untuk disaster relief, remote areas, dan outdoor activities dengan tingkat purifikasi 99.9% untuk bacteria dan virus.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Portable Solar Water Purification System&lt;/strong&gt; adalah inovasi teknologi pemurnian air yang menggabungkan sistem filtrasi multi-stage dengan tenaga surya untuk menghasilkan air bersih berkualitas tinggi di lokasi terpencil atau kondisi darurat.&lt;/p&gt;
+
+&lt;h4&gt;Komponen Sistem Utama:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Solar Power Unit:&lt;/strong&gt; Panel surya monocrystalline 100W dengan MPPT charge controller dan lithium battery 50Ah untuk operasi 24 jam&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pre-filtration Stage:&lt;/strong&gt; Sediment filter 5μm dan activated carbon filter untuk removal chlorine, odor, dan taste&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Main Purification:&lt;/strong&gt; Reverse osmosis membrane 0.01μm untuk removal 99.9% contaminants including heavy metals, bacteria, virus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UV Sterilization:&lt;/strong&gt; UV-C LED 275nm untuk final disinfection dan prevention of recontamination&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control System:&lt;/strong&gt; Microcontroller-based automation dengan LCD display, water quality sensors, dan safety shutdown&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Spesifikasi Teknis:&lt;/h4&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Capacity:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;20 liter/hour (optimal sunlight), 15 liter/hour (battery mode)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Input Water:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;River, lake, well, tap water (TDS up to 2000 ppm)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Output Quality:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;WHO drinking water standards, TDS &lt;50 ppm, 99.9% pathogen removal&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Power Consumption:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;80W average, 100W peak (including all pumps and UV)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Dimensions:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;80cm x 60cm x 40cm (folded), Weight: 25kg&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Operating Temp:&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;5°C to 45°C, humidity up to 95%&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h4&gt;Keunggulan Teknologi:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Off-grid Operation:&lt;/strong&gt; 100% solar powered dengan backup battery untuk cloudy conditions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-stage Filtration:&lt;/strong&gt; Kombinasi physical, chemical, dan biological treatment dalam satu sistem&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smart Monitoring:&lt;/strong&gt; Real-time water quality monitoring dengan auto-flush dan filter replacement alerts&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Portable Design:&lt;/strong&gt; Foldable structure dengan wheeled case untuk easy transportation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Low Maintenance:&lt;/strong&gt; Self-cleaning RO membrane dan LED UV dengan 10,000 hours lifespan&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Aplikasi dan Target Market:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Disaster Relief:&lt;/strong&gt; Emergency response untuk bencana alam, refugee camps, disaster zones&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Remote Communities:&lt;/strong&gt; Desa terpencil, pulau-pulau kecil, mining sites di lokasi off-grid&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Outdoor Recreation:&lt;/strong&gt; Camping, hiking, expeditions, adventure tourism&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Military/NGO:&lt;/strong&gt; Field operations, humanitarian missions, peacekeeping deployments&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Educational:&lt;/strong&gt; Schools di rural areas, research stations, mobile laboratories&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Environmental Impact:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Zero carbon emission operation dengan renewable energy&lt;/li&gt;
+&lt;li&gt;Reduces plastic bottle waste hingga 10,000 bottles per tahun per unit&lt;/li&gt;
+&lt;li&gt;Minimal water wastage dengan recovery rate 75% (lebih tinggi dari RO konvensional)&lt;/li&gt;
+&lt;li&gt;Recyclable components dan eco-friendly materials&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Testing dan Certification:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;WHO Water Quality Standards compliance&lt;/li&gt;
+&lt;li&gt;NSF/ANSI 58 certification untuk reverse osmosis systems&lt;/li&gt;
+&lt;li&gt;CE marking untuk European market compliance&lt;/li&gt;
+&lt;li&gt;Field testing di 15 lokasi dengan berbagai kondisi air input&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sistem ini telah diimplementasikan di 50+ lokasi di Indonesia dan 5 negara tetangga, membantu menyediakan akses air bersih untuk 25,000+ orang dengan operation cost 90% lebih rendah dibanding generator-powered systems.&lt;/p&gt;</field>
+            <field name="technical_field">Teknologi Pengolahan Air dan Energi Terbarukan</field>
+            <field name="ipc_classification">C02F 1/44, C02F 1/32, H02S 10/12</field>
+            <field name="invention_area">Sistem pemurnian air portabel yang mengintegrasikan teknologi solar power, reverse osmosis, UV sterilization, dan smart monitoring untuk menghasilkan air bersih berkualitas tinggi di lokasi off-grid.</field>
+            <field name="claims_count">8</field>
+            <field name="independent_claims">2</field>
+            <field name="dependent_claims">6</field>
+            <field name="prior_art">Water purification systems seperti LifeStraw Family, Katadyn, dan Sawyer yang hanya menggunakan basic filtration tanpa RO dan solar power integration.</field>
+            <field name="advantages">1. 100% renewable energy powered, 2. Multi-stage purification untuk comprehensive treatment, 3. Portable dan easy setup, 4. Smart monitoring dan automation, 5. Low maintenance cost, 6. High recovery rate, 7. Scalable untuk berbagai kapasitas</field>
+            <field name="commercialized">True</field>
+            <field name="licensee">PT. Teknologi Air Bersih Indonesia, Clean Water Solutions Sdn Bhd</field>
+            <field name="license_agreement">Production license untuk ASEAN region dengan technology transfer dan training package</field>
+            <field name="citations">8</field>
+            <field name="family_patents">2</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Indonesia Green Technology Award 2024, ASEAN Outstanding Engineering Achievement Award 2024, UN Sustainable Development Solutions Award 2024</field>
+            <field name="meta_title">Portable Solar Water Purification System - Paten Sederhana Air Bersih | Dr. Indra Pratama</field>
+            <field name="meta_description">Paten sederhana sistem pemurnian air portabel bertenaga surya. Kapasitas 20L/jam dengan teknologi RO dan UV sterilization. Membantu 25,000+ orang akses air bersih di lokasi off-grid.</field>
+            <field name="meta_keywords">paten sederhana, water purification, solar power, reverse osmosis, portable system, clean water technology</field>
+            <field name="keywords">paten sederhana, pemurnian air, tenaga surya, reverse osmosis, sistem portabel, teknologi air bersih, off-grid water treatment</field>
+            <field name="is_published">True</field>
+        </record>
+
+        <!-- Website Menu Data -->
+        <record id="website_menu_hki" model="website.menu">
+            <field name="name">HKI dan Paten</field>
+            <field name="url">/hki</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">50</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- HKI Blog Views -->
+        <record id="view_hki_blog_form" model="ir.ui.view">
+            <field name="name">hki.blog.form</field>
+            <field name="model">hki.blog</field>
+            <field name="arch" type="xml">
+                <form string="Kategori HKI dan Paten">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Nama Kategori HKI"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="subtitle"/>
+                                <field name="hki_scope"/>
+                                <field name="scientific_field"/>
+                            </group>
+                            <group>
+                                <field name="registration_office"/>
+                                <field name="post_count"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Deskripsi">
+                                <field name="description"/>
+                            </page>
+                            <page string="HKI dan Paten">
+                                <field name="hki_post_ids" readonly="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hki_blog_tree" model="ir.ui.view">
+            <field name="name">hki.blog.tree</field>
+            <field name="model">hki.blog</field>
+            <field name="arch" type="xml">
+                <list string="Kategori HKI dan Paten">
+                    <field name="name"/>
+                    <field name="subtitle"/>
+                    <field name="hki_scope"/>
+                    <field name="scientific_field"/>
+                    <field name="registration_office"/>
+                    <field name="post_count"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- HKI Post Views -->
+        <record id="view_hki_post_form" model="ir.ui.view">
+            <field name="name">hki.post.form</field>
+            <field name="model">hki.post</field>
+            <field name="arch" type="xml">
+                <form string="HKI dan Paten">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Judul HKI/Paten"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="subtitle"/>
+                                <field name="blog_id"/>
+                                <field name="hki_type_id"/>
+                                <field name="status"/>
+                                <field name="creators"/>
+                            </group>
+                            <group>
+                                <field name="application_date"/>
+                                <field name="registration_office_id"/>
+                                <field name="is_published"/>
+                                <field name="slug"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Ringkasan">
+                            <field name="teaser" widget="text" placeholder="Ringkasan singkat HKI untuk preview dan website..." options="{'rows': 4}"/>
+                        </group>
+                        
+                        <notebook>
+                            <page string="Informasi Pendaftaran">
+                                <group>
+                                    <group string="Nomor Pendaftaran">
+                                        <field name="application_number"/>
+                                        <field name="registration_number"/>
+                                        <field name="certificate_number"/>
+                                    </group>
+                                    <group string="Tanggal Penting">
+                                        <field name="registration_date"/>
+                                        <field name="publication_date"/>
+                                        <field name="grant_date"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Perlindungan">
+                                        <field name="protection_period"/>
+                                        <field name="expiry_date"/>
+                                        <field name="renewal_date"/>
+                                    </group>
+                                    <group string="Lokasi">
+                                        <field name="registration_country"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Klasifikasi dan Teknis">
+                                <group>
+                                    <group string="Klasifikasi">
+                                        <field name="ipc_classification"/>
+                                        <field name="nice_classification"/>
+                                        <field name="locarno_classification"/>
+                                    </group>
+                                    <group string="Bidang Teknis">
+                                        <field name="technical_field"/>
+                                    </group>
+                                </group>
+                                <group string="Klaim (Paten)">
+                                    <field name="claims_count"/>
+                                    <field name="independent_claims"/>
+                                    <field name="dependent_claims"/>
+                                </group>
+                                <separator string="Area Penemuan"/>
+                                <field name="invention_area"/>
+                                <separator string="Kata Kunci"/>
+                                <field name="keywords"/>
+                            </page>
+                            
+                            <page string="Deskripsi dan Abstrak">
+                                <separator string="Deskripsi Lengkap"/>
+                                <field name="content"/>
+                                <separator string="Teknik Sebelumnya"/>
+                                <field name="prior_art"/>
+                                <separator string="Keunggulan"/>
+                                <field name="advantages"/>
+                            </page>
+                            
+                            <page string="Komersialisasi">
+                                <group>
+                                    <group>
+                                        <field name="commercialized"/>
+                                        <field name="licensee"/>
+                                        <field name="license_agreement"/>
+                                    </group>
+                                    <group>
+                                        <field name="citations"/>
+                                        <field name="family_patents"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="award_received"/>
+                                        <field name="award_description" invisible="not award_received"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Dokumen">
+                                <group>
+                                    <group string="Sertifikat">
+                                        <field name="certificate_file"/>
+                                        <field name="certificate_filename" invisible="1"/>
+                                    </group>
+                                    <group string="Dokumen HKI">
+                                        <field name="patent_document"/>
+                                        <field name="patent_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="SEO">
+                                <group>
+                                    <field name="meta_title"/>
+                                    <field name="meta_description"/>
+                                    <field name="meta_keywords"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hki_post_tree" model="ir.ui.view">
+            <field name="name">hki.post.tree</field>
+            <field name="model">hki.post</field>
+            <field name="arch" type="xml">
+                <list string="HKI dan Paten">
+                    <field name="name"/>
+                    <field name="hki_type_id"/>
+                    <field name="creators"/>
+                    <field name="status"/>
+                    <field name="application_date"/>
+                    <field name="registration_office_id"/>
+                    <field name="is_published" string="Website"/>
+                    <field name="blog_id"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- HKI Type Views -->
+        <record id="view_hki_type_form" model="ir.ui.view">
+            <field name="name">hki.type.form</field>
+            <field name="model">hki.type</field>
+            <field name="arch" type="xml">
+                <form string="Jenis HKI">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group string="Deskripsi">
+                            <field name="description" widget="text" placeholder="Deskripsi jenis HKI ini..."/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hki_type_tree" model="ir.ui.view">
+            <field name="name">hki.type.tree</field>
+            <field name="model">hki.type</field>
+            <field name="arch" type="xml">
+                <list string="Jenis HKI" default_order="sequence">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Registration Office Views -->
+        <record id="view_registration_office_form" model="ir.ui.view">
+            <field name="name">registration.office.form</field>
+            <field name="model">registration.office</field>
+            <field name="arch" type="xml">
+                <form string="Kantor Pendaftaran">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group string="Deskripsi">
+                            <field name="description" widget="text" placeholder="Deskripsi kantor pendaftaran ini..."/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_registration_office_tree" model="ir.ui.view">
+            <field name="name">registration.office.tree</field>
+            <field name="model">registration.office</field>
+            <field name="arch" type="xml">
+                <list string="Kantor Pendaftaran" default_order="sequence">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+    </data>
+</odoo>

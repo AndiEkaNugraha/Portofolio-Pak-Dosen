@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hki_blog_public,hki.blog.public,model_hki_blog,,1,0,0,0
+access_hki_blog_user,hki.blog.user,model_hki_blog,base.group_user,1,1,1,1
+access_hki_post_public,hki.post.public,model_hki_post,,1,0,0,0
+access_hki_post_user,hki.post.user,model_hki_post,base.group_user,1,1,1,1
+access_hki_type_public,hki.type.public,model_hki_type,,1,0,0,0
+access_hki_type_user,hki.type.user,model_hki_type,base.group_user,1,1,1,1
+access_registration_office_public,registration.office.public,model_registration_office,,1,0,0,0
+access_registration_office_user,registration.office.user,model_registration_office,base.group_user,1,1,1,1

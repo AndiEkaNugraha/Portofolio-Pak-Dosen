@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Demo HKI Posts -->
+        <record id="hki_post_demo_1" model="hki.post">
+            <field name="name">Sistem Informasi Manajemen Akademik Berbasis Web</field>
+            <field name="subtitle">Aplikasi Web untuk Manajemen Data Akademik</field>
+            <field name="blog_id" ref="hki_blog_hak_cipta"/>
+            <field name="hki_type">copyright</field>
+            <field name="creators">Dr. Ahmad Susanto, S.Kom., M.T.</field>
+            <field name="applicant">Universitas ABC</field>
+            <field name="status">registered</field>
+            <field name="application_date">2023-01-15</field>
+            <field name="registration_date">2023-06-20</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="application_number">EC00202300123</field>
+            <field name="registration_number">000123456</field>
+            <field name="technical_field">Sistem Informasi</field>
+            <field name="keywords">sistem informasi, manajemen akademik, web application, PHP, MySQL</field>
+            <field name="teaser">Sistem informasi berbasis web untuk mengelola data akademik mahasiswa, dosen, dan kurikulum dengan fitur lengkap dan user-friendly interface.</field>
+            <field name="content">
+                &lt;p&gt;Sistem Informasi Manajemen Akademik Berbasis Web adalah aplikasi komprehensif yang dirancang untuk memudahkan pengelolaan data akademik di perguruan tinggi. Sistem ini menggunakan teknologi web modern dengan PHP dan MySQL sebagai backend, serta HTML5, CSS3, dan JavaScript untuk frontend yang responsif.&lt;/p&gt;
+                &lt;h4&gt;Fitur Utama:&lt;/h4&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Manajemen data mahasiswa dan dosen&lt;/li&gt;
+                    &lt;li&gt;Pengelolaan kurikulum dan mata kuliah&lt;/li&gt;
+                    &lt;li&gt;Sistem penjadwalan otomatis&lt;/li&gt;
+                    &lt;li&gt;Modul penilaian dan transkrip&lt;/li&gt;
+                    &lt;li&gt;Dashboard analytics dan reporting&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="protection_period">50</field>
+            <field name="expiry_date">2073-06-20</field>
+        </record>
+
+        <record id="hki_post_demo_2" model="hki.post">
+            <field name="name">Metode Optimasi Algoritma Genetika untuk Penjadwalan</field>
+            <field name="subtitle">Penemuan Metode Baru dalam Optimasi Penjadwalan</field>
+            <field name="blog_id" ref="hki_blog_paten"/>
+            <field name="hki_type">simple_patent</field>
+            <field name="creators">Prof. Dr. Budi Rahardjo, S.T., M.Eng.</field>
+            <field name="applicant">Institut Teknologi XYZ</field>
+            <field name="status">granted</field>
+            <field name="application_date">2022-09-10</field>
+            <field name="registration_date">2023-11-15</field>
+            <field name="grant_date">2023-11-15</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="application_number">S00202200456</field>
+            <field name="registration_number">IDS000456789</field>
+            <field name="technical_field">Algoritma Optimasi</field>
+            <field name="ipc_classification">G06F 17/00</field>
+            <field name="keywords">algoritma genetika, optimasi, penjadwalan, artificial intelligence</field>
+            <field name="claims_count">7</field>
+            <field name="independent_claims">3</field>
+            <field name="dependent_claims">4</field>
+            <field name="teaser">Metode baru untuk mengoptimalkan penjadwalan menggunakan algoritma genetika yang telah dimodifikasi dengan teknik seleksi adaptif dan crossover dinamis.</field>
+            <field name="content">
+                &lt;p&gt;Penemuan ini berkaitan dengan metode optimasi penjadwalan menggunakan algoritma genetika yang telah ditingkatkan. Metode ini menggunakan teknik seleksi adaptif yang dapat menyesuaikan parameter secara otomatis berdasarkan karakteristik problem space.&lt;/p&gt;
+                &lt;h4&gt;Keunggulan Penemuan:&lt;/h4&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Konvergensi lebih cepat 40% dibanding metode konvensional&lt;/li&gt;
+                    &lt;li&gt;Mampu menangani constraint yang kompleks&lt;/li&gt;
+                    &lt;li&gt;Hasil optimal lebih stabil dan konsisten&lt;/li&gt;
+                    &lt;li&gt;Dapat diterapkan pada berbagai domain penjadwalan&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="protection_period">10</field>
+            <field name="expiry_date">2033-11-15</field>
+            <field name="commercialized">True</field>
+        </record>
+
+        <record id="hki_post_demo_3" model="hki.post">
+            <field name="name">EduSmart</field>
+            <field name="subtitle">Merek untuk Platform Pembelajaran Digital</field>
+            <field name="blog_id" ref="hki_blog_merek"/>
+            <field name="hki_type">trademark</field>
+            <field name="creators">Dr. Citra Dewi, S.Pd., M.Pd.</field>
+            <field name="applicant">PT Edukasi Teknologi Indonesia</field>
+            <field name="status">registered</field>
+            <field name="application_date">2023-03-20</field>
+            <field name="registration_date">2023-09-10</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="application_number">M00202300789</field>
+            <field name="registration_number">IDM000789012</field>
+            <field name="nice_classification">41, 42</field>
+            <field name="keywords">edusmart, pendidikan, e-learning, platform digital</field>
+            <field name="teaser">Merek dagang untuk platform pembelajaran digital yang menyediakan layanan pendidikan online dengan teknologi AI dan gamifikasi.</field>
+            <field name="content">
+                &lt;p&gt;EduSmart adalah merek yang digunakan untuk platform pembelajaran digital inovatif yang menggabungkan teknologi artificial intelligence dengan konsep gamifikasi untuk meningkatkan engagement peserta didik.&lt;/p&gt;
+                &lt;h4&gt;Klasifikasi Merek:&lt;/h4&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Kelas 41: Jasa pendidikan dan pelatihan&lt;/li&gt;
+                    &lt;li&gt;Kelas 42: Jasa teknologi informasi dan penelitian&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="protection_period">10</field>
+            <field name="expiry_date">2033-09-10</field>
+        </record>
+
+        <record id="hki_post_demo_4" model="hki.post">
+            <field name="name">Desain Interface Aplikasi Mobile Learning</field>
+            <field name="subtitle">Desain UI/UX untuk Aplikasi Pembelajaran Mobile</field>
+            <field name="blog_id" ref="hki_blog_desain_industri"/>
+            <field name="hki_type">industrial_design</field>
+            <field name="creators">Drs. Eko Prasetyo, M.Des.</field>
+            <field name="applicant">Studio Desain Kreatif</field>
+            <field name="status">registered</field>
+            <field name="application_date">2023-05-12</field>
+            <field name="registration_date">2023-10-08</field>
+            <field name="registration_office">kemenkumham</field>
+            <field name="application_number">D00202300321</field>
+            <field name="registration_number">IDD000321654</field>
+            <field name="locarno_classification">14-04</field>
+            <field name="technical_field">Desain Interface</field>
+            <field name="keywords">desain interface, mobile learning, UI/UX, aplikasi pendidikan</field>
+            <field name="teaser">Desain antarmuka pengguna yang intuitif dan menarik untuk aplikasi pembelajaran mobile dengan fokus pada kemudahan penggunaan dan estetika modern.</field>
+            <field name="content">
+                &lt;p&gt;Desain ini menampilkan interface aplikasi mobile learning yang menggabungkan prinsip-prinsip user experience design dengan estetika visual yang modern dan menarik. Desain mengutamakan kemudahan navigasi dan aksesibilitas untuk berbagai kalangan pengguna.&lt;/p&gt;
+                &lt;h4&gt;Elemen Desain Utama:&lt;/h4&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Tata letak yang responsif dan adaptif&lt;/li&gt;
+                    &lt;li&gt;Skema warna yang eye-friendly&lt;/li&gt;
+                    &lt;li&gt;Typography yang mudah dibaca&lt;/li&gt;
+                    &lt;li&gt;Iconography yang konsisten&lt;/li&gt;
+                    &lt;li&gt;Interaction design yang smooth&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="protection_period">10</field>
+            <field name="expiry_date">2033-10-08</field>
+        </record>
+
+    </data>
+</odoo>
