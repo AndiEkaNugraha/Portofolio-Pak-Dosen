@@ -2,13 +2,14 @@
 <odoo>
     <data noupdate="1">
         
-        <!-- Demo Journal Entry -->
+        <!-- Demo Journal Entry 1 - International Scopus Q1 -->
         <record id="demo_jurnal_post_1" model="jurnal.post">
             <field name="name">Machine Learning Applications in Healthcare: A Systematic Review</field>
             <field name="subtitle">Comprehensive analysis of ML techniques in medical diagnosis</field>
+            <field name="slug">machine-learning-applications-healthcare-systematic-review</field>
             <field name="blog_id" ref="jurnal_blog_internasional"/>
-            <field name="authors">John Smith, Jane Doe, Ahmad Rahman</field>
-            <field name="corresponding_author">Ahmad Rahman</field>
+            <field name="authors">Dr. Ahmad Rahman, Prof. Sarah Johnson, Dr. Michael Chen</field>
+            <field name="corresponding_author">Dr. Ahmad Rahman (ahmad.rahman@university.edu)</field>
             <field name="journal_name">Journal of Medical Informatics</field>
             <field name="publisher">Elsevier</field>
             <field name="publication_date">2024-03-15</field>
@@ -16,14 +17,198 @@
             <field name="issue">3</field>
             <field name="pages">234-251</field>
             <field name="doi">10.1016/j.jmi.2024.03.001</field>
+            <field name="url">https://www.sciencedirect.com/science/article/pii/S1532046424000015</field>
             <field name="impact_factor">4.25</field>
+            <field name="h_index">87</field>
             <field name="quartile">Q1</field>
             <field name="scopus_indexed">True</field>
             <field name="wos_indexed">True</field>
-            <field name="subject_area">Computer Science, Healthcare</field>
-            <field name="keywords">machine learning, healthcare, artificial intelligence, medical diagnosis</field>
+            <field name="citations">127</field>
+            <field name="subject_area">Computer Science in Healthcare</field>
+            <field name="research_area">Artificial Intelligence, Medical Informatics, Machine Learning Applications</field>
+            <field name="keywords">machine learning, healthcare, artificial intelligence, medical diagnosis, systematic review</field>
+            <field name="teaser">Systematic review examining current applications of machine learning in healthcare with focus on diagnostic accuracy and clinical implementation challenges.</field>
+            <field name="meta_title">Machine Learning in Healthcare: Systematic Review of Applications</field>
+            <field name="meta_description">Comprehensive systematic review of machine learning applications in healthcare, covering diagnostic tools, treatment optimization, and implementation challenges in clinical settings.</field>
+            <field name="meta_keywords">machine learning healthcare, AI medical diagnosis, healthcare technology, systematic review</field>
             <field name="website_published">True</field>
-            <field name="content">&lt;p&gt;This systematic review examines the current applications of machine learning in healthcare...&lt;/p&gt;</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Background:&lt;/strong&gt; Machine learning (ML) has emerged as a transformative technology in healthcare, offering unprecedented opportunities for improving patient outcomes through enhanced diagnostic accuracy and personalized treatment approaches.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; This systematic review aims to comprehensively analyze current applications of machine learning in healthcare, evaluate their effectiveness, and identify implementation challenges in clinical settings.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Methods:&lt;/strong&gt; We conducted a systematic literature search across PubMed, Scopus, and IEEE Xplore databases for articles published between 2020-2024. Inclusion criteria focused on peer-reviewed studies implementing ML algorithms in clinical healthcare settings.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Results:&lt;/strong&gt; A total of 247 studies met our inclusion criteria. Key findings include: (1) 78% improvement in diagnostic accuracy for imaging-based diagnoses, (2) 45% reduction in false positive rates for cancer screening, and (3) 62% enhancement in treatment outcome prediction.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion:&lt;/strong&gt; Machine learning demonstrates significant potential for transforming healthcare delivery, particularly in diagnostic imaging, predictive analytics, and personalized medicine. However, challenges remain in clinical integration, regulatory approval, and ensuring equitable access to ML-enhanced healthcare services.&lt;/p&gt;</field>
+        </record>
+
+        <!-- Demo Journal Entry 2 - National SINTA 2 -->
+        <record id="demo_jurnal_post_2" model="jurnal.post">
+            <field name="name">Analisis Sentimen Media Sosial untuk Prediksi Perilaku Konsumen di Indonesia</field>
+            <field name="subtitle">Studi kasus platform e-commerce menggunakan deep learning</field>
+            <field name="slug">analisis-sentimen-media-sosial-prediksi-perilaku-konsumen</field>
+            <field name="blog_id" ref="jurnal_blog_nasional"/>
+            <field name="authors">Dr. Budi Santoso, Dr. Sari Wijaya, M.Kom. Andi Pratama</field>
+            <field name="corresponding_author">Dr. Budi Santoso (budi.santoso@univ.ac.id)</field>
+            <field name="journal_name">Jurnal Teknologi Informasi dan Komunikasi Indonesia</field>
+            <field name="publisher">Universitas Indonesia Press</field>
+            <field name="publication_date">2024-02-10</field>
+            <field name="volume">15</field>
+            <field name="issue">1</field>
+            <field name="pages">45-62</field>
+            <field name="doi">10.15408/jti.v15i1.2024001</field>
+            <field name="url">https://journal.ui.ac.id/jti/article/view/2024001</field>
+            <field name="impact_factor">1.85</field>
+            <field name="h_index">23</field>
+            <field name="quartile">Q2</field>
+            <field name="sinta_indexed">True</field>
+            <field name="sinta_rank">2</field>
+            <field name="citations">34</field>
+            <field name="subject_area">Teknologi Informasi</field>
+            <field name="research_area">Natural Language Processing, Sentiment Analysis, Consumer Behavior, E-commerce</field>
+            <field name="keywords">analisis sentimen, media sosial, deep learning, perilaku konsumen, e-commerce</field>
+            <field name="teaser">Penelitian ini mengembangkan model deep learning untuk analisis sentimen media sosial guna memprediksi perilaku konsumen pada platform e-commerce di Indonesia.</field>
+            <field name="meta_title">Analisis Sentimen Media Sosial untuk Prediksi Perilaku Konsumen</field>
+            <field name="meta_description">Penelitian analisis sentimen menggunakan deep learning untuk prediksi perilaku konsumen e-commerce di Indonesia berdasarkan data media sosial.</field>
+            <field name="meta_keywords">analisis sentimen, deep learning, perilaku konsumen, media sosial, e-commerce Indonesia</field>
+            <field name="website_published">True</field>
+            <field name="content">&lt;h3&gt;Abstrak&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Latar Belakang:&lt;/strong&gt; Pertumbuhan platform e-commerce di Indonesia yang pesat membutuhkan pemahaman mendalam tentang perilaku konsumen. Media sosial menjadi sumber data yang kaya untuk memahami sentimen dan preferensi konsumen.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tujuan:&lt;/strong&gt; Penelitian ini bertujuan mengembangkan model deep learning untuk analisis sentimen media sosial yang dapat memprediksi perilaku pembelian konsumen pada platform e-commerce.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Metode:&lt;/strong&gt; Data dikumpulkan dari Twitter, Facebook, dan Instagram selama 6 bulan. Model LSTM (Long Short-Term Memory) dan BERT (Bidirectional Encoder Representations from Transformers) digunakan untuk klasifikasi sentimen. Akurasi model divalidasi menggunakan data transaksi aktual dari 3 platform e-commerce major di Indonesia.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hasil:&lt;/strong&gt; Model BERT mencapai akurasi 87.3% dalam klasifikasi sentimen dan 76.8% dalam prediksi perilaku pembelian. Sentimen positif pada media sosial berkorelasi 0.73 dengan tingkat konversi pembelian dalam rentang 7 hari.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Kesimpulan:&lt;/strong&gt; Analisis sentimen media sosial menggunakan deep learning terbukti efektif untuk memprediksi perilaku konsumen e-commerce. Model ini dapat diimplementasikan untuk strategi pemasaran yang lebih targeted dan efisien.&lt;/p&gt;</field>
+        </record>
+
+        <!-- Demo Journal Entry 3 - International Web of Science Q2 -->
+        <record id="demo_jurnal_post_3" model="jurnal.post">
+            <field name="name">Blockchain-based Supply Chain Management in Agricultural Sector</field>
+            <field name="subtitle">Enhancing transparency and traceability using smart contracts</field>
+            <field name="slug">blockchain-supply-chain-management-agricultural-sector</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="authors">Prof. Lisa Anderson, Dr. Rajesh Kumar, Dr. Maria Santos, Ahmad Fauzi</field>
+            <field name="corresponding_author">Prof. Lisa Anderson (l.anderson@agritech.edu)</field>
+            <field name="journal_name">Agricultural Systems</field>
+            <field name="publisher">Springer Nature</field>
+            <field name="publication_date">2024-01-20</field>
+            <field name="volume">211</field>
+            <field name="issue">2</field>
+            <field name="pages">103-119</field>
+            <field name="doi">10.1016/j.agsy.2023.11.008</field>
+            <field name="url">https://link.springer.com/article/10.1016/j.agsy.2023.11.008</field>
+            <field name="impact_factor">3.12</field>
+            <field name="h_index">65</field>
+            <field name="quartile">Q2</field>
+            <field name="wos_indexed">True</field>
+            <field name="doaj_indexed">True</field>
+            <field name="citations">89</field>
+            <field name="subject_area">Agricultural Technology</field>
+            <field name="research_area">Blockchain Technology, Supply Chain Management, Agricultural Systems, Smart Contracts</field>
+            <field name="keywords">blockchain, supply chain, agriculture, smart contracts, transparency, traceability</field>
+            <field name="teaser">Novel blockchain framework for agricultural supply chain management improving transparency and reducing fraud through smart contract implementation.</field>
+            <field name="meta_title">Blockchain Supply Chain Management in Agriculture</field>
+            <field name="meta_description">Research on implementing blockchain technology in agricultural supply chains to enhance transparency, traceability, and reduce fraud through smart contracts.</field>
+            <field name="meta_keywords">blockchain agriculture, supply chain transparency, smart contracts farming, agricultural technology</field>
+            <field name="website_published">True</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Background:&lt;/strong&gt; Agricultural supply chains face significant challenges including lack of transparency, fraud, and difficulty in tracing products from farm to consumer. Blockchain technology offers potential solutions through immutable record-keeping and smart contract automation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; This study proposes and evaluates a blockchain-based framework for agricultural supply chain management that enhances transparency and traceability while reducing operational costs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Methods:&lt;/strong&gt; We developed a permissioned blockchain network using Hyperledger Fabric, integrating IoT sensors for real-time data collection and smart contracts for automated quality verification. The framework was tested with 50 farms and 25 distributors over 12 months.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Results:&lt;/strong&gt; Implementation resulted in 94% improvement in product traceability, 67% reduction in fraud incidents, and 23% decrease in operational costs. Smart contracts automated 78% of quality verification processes, reducing manual inspection time by 45%.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion:&lt;/strong&gt; Blockchain technology demonstrates significant potential for transforming agricultural supply chains. The proposed framework provides a scalable solution for enhancing transparency while reducing costs and improving consumer confidence in agricultural products.&lt;/p&gt;</field>
+        </record>
+
+        <!-- Demo Journal Entry 4 - National SINTA 3 -->
+        <record id="demo_jurnal_post_4" model="jurnal.post">
+            <field name="name">Implementasi Internet of Things (IoT) untuk Smart City di Kota-kota Indonesia</field>
+            <field name="subtitle">Studi komparasi Jakarta, Surabaya, dan Bandung</field>
+            <field name="slug">implementasi-iot-smart-city-indonesia</field>
+            <field name="blog_id" ref="jurnal_blog_nasional"/>
+            <field name="authors">Prof. Dr. Indra Wijaya, Dr. Nina Sari, M.T. Reza Pratama, Dra. Siti Aminah</field>
+            <field name="corresponding_author">Prof. Dr. Indra Wijaya (indra.wijaya@its.ac.id)</field>
+            <field name="journal_name">Jurnal Ilmu Komputer dan Informasi</field>
+            <field name="publisher">Fakultas Ilmu Komputer UI</field>
+            <field name="publication_date">2023-12-05</field>
+            <field name="volume">16</field>
+            <field name="issue">3</field>
+            <field name="pages">78-95</field>
+            <field name="doi">10.21609/jiki.v16i3.2023012</field>
+            <field name="url">https://jiki.cs.ui.ac.id/index.php/jiki/article/view/2023012</field>
+            <field name="impact_factor">1.23</field>
+            <field name="h_index">18</field>
+            <field name="quartile">Q3</field>
+            <field name="sinta_indexed">True</field>
+            <field name="sinta_rank">3</field>
+            <field name="citations">23</field>
+            <field name="subject_area">Sistem Informasi</field>
+            <field name="research_area">Internet of Things, Smart City, Urban Technology, Public Service Innovation</field>
+            <field name="keywords">IoT, smart city, teknologi perkotaan, Indonesia, layanan publik</field>
+            <field name="teaser">Analisis komparasi implementasi teknologi IoT untuk smart city di tiga kota besar Indonesia dengan fokus pada efektivitas layanan publik dan partisipasi masyarakat.</field>
+            <field name="meta_title">Implementasi IoT Smart City di Indonesia</field>
+            <field name="meta_description">Penelitian komparasi implementasi Internet of Things untuk smart city di Jakarta, Surabaya, dan Bandung dengan analisis efektivitas layanan publik.</field>
+            <field name="meta_keywords">IoT Indonesia, smart city Jakarta, teknologi perkotaan, layanan publik digital</field>
+            <field name="website_published">True</field>
+            <field name="content">&lt;h3&gt;Abstrak&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Latar Belakang:&lt;/strong&gt; Konsep smart city menjadi solusi strategis untuk mengatasi kompleksitas permasalahan perkotaan di Indonesia. Implementasi teknologi Internet of Things (IoT) menjadi kunci dalam mewujudkan layanan publik yang efisien dan responsif.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tujuan:&lt;/strong&gt; Penelitian ini bertujuan menganalisis dan membandingkan implementasi teknologi IoT untuk smart city di tiga kota besar Indonesia: Jakarta, Surabaya, dan Bandung.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Metode:&lt;/strong&gt; Studi komparasi dilakukan dengan metode mixed-method, melibatkan survei terhadap 1200 responden, wawancara mendalam dengan 45 stakeholder pemerintah, dan analisis data sekunder dari implementasi IoT di ketiga kota selama periode 2021-2023.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hasil:&lt;/strong&gt; Jakarta menunjukkan implementasi IoT terluas dengan 340 sensor tersebar di 267 lokasi, diikuti Surabaya (235 sensor, 189 lokasi) dan Bandung (156 sensor, 123 lokasi). Tingkat kepuasan masyarakat tertinggi dicapai Surabaya (78.5%), diikuti Bandung (72.3%) dan Jakarta (69.8%).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Kesimpulan:&lt;/strong&gt; Implementasi IoT untuk smart city di Indonesia menunjukkan perkembangan positif namun masih memerlukan standardisasi, integrasi antar sistem, dan peningkatan literasi digital masyarakat untuk optimalisasi manfaat.&lt;/p&gt;</field>
+        </record>
+
+        <!-- Demo Journal Entry 5 - International DOAJ Open Access -->
+        <record id="demo_jurnal_post_5" model="jurnal.post">
+            <field name="name">Sustainable Energy Management in Developing Countries: A Multi-criteria Decision Analysis</field>
+            <field name="subtitle">Case study from Southeast Asian renewable energy initiatives</field>
+            <field name="slug">sustainable-energy-management-developing-countries</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="authors">Dr. Elena Rodriguez, Prof. Hiroshi Tanaka, Dr. Agus Setiawan, Dr. Priya Sharma</field>
+            <field name="corresponding_author">Dr. Elena Rodriguez (e.rodriguez@renewabletech.org)</field>
+            <field name="journal_name">Renewable Energy Systems</field>
+            <field name="publisher">MDPI</field>
+            <field name="publication_date">2023-11-12</field>
+            <field name="volume">8</field>
+            <field name="issue">11</field>
+            <field name="pages">567-584</field>
+            <field name="doi">10.3390/res8110567</field>
+            <field name="url">https://www.mdpi.com/2071-1050/8/11/567</field>
+            <field name="impact_factor">2.89</field>
+            <field name="h_index">42</field>
+            <field name="quartile">Q2</field>
+            <field name="doaj_indexed">True</field>
+            <field name="citations">156</field>
+            <field name="subject_area">Renewable Energy</field>
+            <field name="research_area">Sustainable Energy, Multi-criteria Decision Analysis, Developing Countries, Renewable Energy Policy</field>
+            <field name="keywords">sustainable energy, renewable energy, developing countries, MCDA, energy policy, Southeast Asia</field>
+            <field name="teaser">Multi-criteria decision analysis framework for sustainable energy management in developing countries with case studies from Southeast Asian renewable energy initiatives.</field>
+            <field name="meta_title">Sustainable Energy Management in Developing Countries</field>
+            <field name="meta_description">Research on multi-criteria decision analysis for sustainable energy management in developing countries, focusing on Southeast Asian renewable energy case studies.</field>
+            <field name="meta_keywords">sustainable energy developing countries, renewable energy Southeast Asia, MCDA energy policy</field>
+            <field name="website_published">True</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Background:&lt;/strong&gt; Developing countries face unique challenges in implementing sustainable energy systems due to limited resources, infrastructure constraints, and competing socio-economic priorities. Multi-criteria decision analysis (MCDA) provides a systematic approach for evaluating energy alternatives.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Objective:&lt;/strong&gt; This study develops and validates an MCDA framework for sustainable energy management in developing countries, with empirical validation through Southeast Asian case studies.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Methods:&lt;/strong&gt; The MCDA framework incorporates economic, environmental, social, and technical criteria. Analytic Hierarchy Process (AHP) and TOPSIS methods were applied to evaluate renewable energy alternatives in Indonesia, Thailand, and Philippines. Data collected through expert surveys (n=127) and stakeholder workshops (n=15).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Results:&lt;/strong&gt; Solar photovoltaic systems ranked highest across all three countries (weighted scores: 0.78-0.82), followed by small-scale hydropower (0.65-0.71) and biomass (0.58-0.64). Economic factors showed highest importance weights (0.35-0.42), followed by environmental (0.28-0.33) and social criteria (0.22-0.29).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion:&lt;/strong&gt; The proposed MCDA framework provides a robust tool for energy policy makers in developing countries. Solar PV emerges as the most viable option, though context-specific factors significantly influence optimal energy mix decisions.&lt;/p&gt;</field>
         </record>
         
     </data>

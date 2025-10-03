@@ -4,6 +4,17 @@
     <!-- Main Menu -->
     <menuitem id="menu_jurnal_root" name="Jurnal Ilmiah" sequence="50"/>
     
+    <!-- Jurnal Post Menu - Daftar Jurnal (Menu Utama) -->
+    <record id="action_jurnal_post" model="ir.actions.act_window">
+        <field name="name">Daftar Jurnal</field>
+        <field name="res_model">jurnal.post</field>
+        <field name="view_mode">list,form</field>
+        <field name="help">Kelola dan lihat semua entri jurnal ilmiah</field>
+    </record>
+    
+    <menuitem id="menu_jurnal_post" name="Daftar Jurnal" parent="menu_jurnal_root" 
+              action="action_jurnal_post" sequence="10"/>
+    
     <!-- Jurnal Blog Menu -->
     <record id="action_jurnal_blog" model="ir.actions.act_window">
         <field name="name">Kategori Jurnal</field>
@@ -13,18 +24,7 @@
     </record>
     
     <menuitem id="menu_jurnal_blog" name="Kategori" parent="menu_jurnal_root" 
-              action="action_jurnal_blog" sequence="10"/>
-    
-    <!-- Jurnal Post Menu -->
-    <record id="action_jurnal_post" model="ir.actions.act_window">
-        <field name="name">Tambahkan Jurnal</field>
-        <field name="res_model">jurnal.post</field>
-        <field name="view_mode">list,form</field>
-        <field name="help">Buat dan kelola entri jurnal ilmiah</field>
-    </record>
-    
-    <menuitem id="menu_jurnal_post" name="Tambah Jurnal" parent="menu_jurnal_root" 
-              action="action_jurnal_post" sequence="20"/>
+              action="action_jurnal_blog" sequence="20"/>
     
     <!-- Website Menu -->
     <record id="menu_jurnal_website" model="website.menu">

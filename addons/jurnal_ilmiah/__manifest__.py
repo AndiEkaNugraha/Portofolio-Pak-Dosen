@@ -27,9 +27,6 @@ Modul untuk mengelola dan menampilkan daftar jurnal ilmiah nasional dan internas
         'templates/jurnal_templates.xml',
         'views/jurnal_menus.xml',
     ],
-    'demo': [
-        'demo/jurnal_demo.xml',
-    ],
     'installable': True,
     'auto_install': False,
     'application': True,

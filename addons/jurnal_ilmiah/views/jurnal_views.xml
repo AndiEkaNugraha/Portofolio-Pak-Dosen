@@ -37,13 +37,6 @@
         <field name="model">jurnal.post</field>
         <field name="arch" type="xml">
             <form string="Jurnal Ilmiah">
-                <header>
-                    <button name="website_publish_button" type="object" class="oe_highlight" 
-                            string="Publish" invisible="website_published"/>
-                    <button name="website_publish_button" type="object" class="oe_highlight" 
-                            string="Unpublish" invisible="not website_published"/>
-                    <field name="website_published"/>
-                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -55,15 +48,17 @@
                     <group>
                         <group string="Informasi Dasar">
                             <field name="blog_id" required="1"/>
+                            <field name="slug" placeholder="url-slug-artikel" 
+                                   help="URL slug yang SEO-friendly. Kosongkan untuk generate otomatis dari judul. Hanya huruf kecil, angka, dan tanda hubung (-)"/>
                             <field name="authors" required="1"/>
                             <field name="corresponding_author"/>
                             <field name="journal_name" required="1"/>
                             <field name="publisher"/>
                             <field name="publication_date"/>
+                            <field name="website_published" string="Tampilkan di Website" help="Publikasikan artikel ini di website publik"/>
                         </group>
                         <group string="Status">
-                            <field name="active"/>
-                            <field name="website_published"/>
+                            <field name="active" string="Status Aktif" help="Aktifkan/nonaktifkan record ini di sistem"/>
                             <field name="publication_year"/>
                         </group>
                     </group>
@@ -81,8 +76,7 @@
                         
                         <page string="SEO &amp; Metadata" name="seo">
                             <group>
-                                <group string="URL &amp; SEO">
-                                    <field name="slug" readonly="1"/>
+                                <group string="SEO">
                                     <field name="meta_title"/>
                                     <field name="meta_description" widget="text"/>
                                     <field name="meta_keywords"/>
@@ -150,10 +144,11 @@
         <field name="arch" type="xml">
             <list string="Entri Jurnal">
                 <field name="name"/>
+                <field name="slug" string="URL Slug"/>
                 <field name="authors"/>
                 <field name="journal_name"/>
                 <field name="publication_date"/>
-                <field name="website_published"/>
+                <field name="website_published" string="Di Website" widget="boolean_toggle"/>
             </list>
         </field>
     </record>

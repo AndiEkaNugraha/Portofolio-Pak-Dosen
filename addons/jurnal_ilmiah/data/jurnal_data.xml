@@ -16,6 +16,225 @@
             <field name="journal_scope">international</field>
             <field name="accreditation_body">scopus</field>
         </record>
+
+        <record id="jurnal_blog_konferensi" model="jurnal.blog">
+            <field name="name">Prosiding Konferensi</field>
+            <field name="subtitle">Paper dari konferensi internasional</field>
+            <field name="journal_scope">both</field>
+            <field name="accreditation_body">scopus</field>
+        </record>
+        
+        <!-- Sample Jurnal Articles -->
+        
+        <!-- Artikel Jurnal Internasional Scopus Q1 -->
+        <record id="jurnal_post_ai_education" model="jurnal.post">
+            <field name="name">Artificial Intelligence in Higher Education: A Systematic Literature Review</field>
+            <field name="subtitle">Comprehensive Analysis of AI Applications in Academic Settings</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="slug">artificial-intelligence-higher-education-systematic-review</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Sarah Johnson, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Computers &amp; Education</field>
+            <field name="publisher">Elsevier</field>
+            <field name="publication_date">2024-03-15</field>
+            <field name="volume">198</field>
+            <field name="issue">2</field>
+            <field name="pages">245-267</field>
+            <field name="doi">10.1016/j.compedu.2024.104756</field>
+            <field name="url">https://www.sciencedirect.com/science/article/pii/S0360131524000567</field>
+            <field name="impact_factor">8.538</field>
+            <field name="h_index">156</field>
+            <field name="quartile">Q1</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Computer Science Education</field>
+            <field name="research_area">Artificial Intelligence, Educational Technology, Machine Learning</field>
+            <field name="keywords">artificial intelligence, higher education, systematic review, educational technology, machine learning</field>
+            <field name="citations">45</field>
+            <field name="teaser">This study presents a comprehensive systematic literature review of artificial intelligence applications in higher education, analyzing 150 peer-reviewed papers from 2019-2024.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This systematic literature review examines the current state and future prospects of artificial intelligence (AI) in higher education. We analyzed 150 peer-reviewed papers published between 2019-2024 to identify key trends, applications, and challenges. Our findings reveal that AI technologies are increasingly being integrated into various aspects of higher education, including personalized learning systems, automated assessment tools, and predictive analytics for student success.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key Findings:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Machine learning algorithms show 85% accuracy in predicting student performance&lt;/li&gt;
+&lt;li&gt;Natural language processing improves automated essay scoring by 23%&lt;/li&gt;
+&lt;li&gt;AI-powered chatbots increase student engagement by 40%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The study concludes that while AI presents significant opportunities for enhancing educational outcomes, careful consideration of ethical implications and pedagogical principles is essential for successful implementation.&lt;/p&gt;</field>
+            <field name="meta_title">AI in Higher Education: Systematic Review | Computers &amp; Education</field>
+            <field name="meta_description">Comprehensive systematic literature review analyzing artificial intelligence applications in higher education. Published in Computers &amp; Education (Q1, Impact Factor 8.538).</field>
+            <field name="meta_keywords">artificial intelligence, higher education, systematic review, educational technology, Scopus Q1</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Artikel Jurnal Nasional SINTA 2 -->
+        <record id="jurnal_post_blockchain_iot" model="jurnal.post">
+            <field name="name">Implementasi Blockchain untuk Keamanan Data IoT dalam Smart Campus</field>
+            <field name="subtitle">Pendekatan Hybrid untuk Meningkatkan Privasi dan Integritas Data</field>
+            <field name="blog_id" ref="jurnal_blog_nasional"/>
+            <field name="slug">blockchain-keamanan-data-iot-smart-campus</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Budi Santoso, S.T., M.Kom.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Jurnal Teknologi Informasi dan Ilmu Komputer</field>
+            <field name="publisher">Fakultas Ilmu Komputer, Universitas Brawijaya</field>
+            <field name="publication_date">2024-01-20</field>
+            <field name="volume">11</field>
+            <field name="issue">1</field>
+            <field name="pages">89-102</field>
+            <field name="doi">10.25126/jtiik.2024111789</field>
+            <field name="url">https://jtiik.ub.ac.id/index.php/jtiik/article/view/6234</field>
+            <field name="sinta_indexed">True</field>
+            <field name="sinta_rank">2</field>
+            <field name="subject_area">Computer Science</field>
+            <field name="research_area">Blockchain Technology, Internet of Things, Cybersecurity</field>
+            <field name="keywords">blockchain, IoT, smart campus, keamanan data, privasi</field>
+            <field name="citations">12</field>
+            <field name="teaser">Penelitian ini mengusulkan implementasi teknologi blockchain untuk meningkatkan keamanan data IoT dalam lingkungan smart campus dengan pendekatan hybrid yang inovatif.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstrak&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Penelitian ini mengusulkan implementasi teknologi blockchain untuk meningkatkan keamanan data Internet of Things (IoT) dalam lingkungan smart campus. Dengan semakin berkembangnya teknologi IoT di institusi pendidikan, kebutuhan akan sistem keamanan yang robust menjadi sangat penting.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Metodologi:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Penelitian menggunakan pendekatan hybrid yang menggabungkan private blockchain dengan protokol konsensus Proof of Authority (PoA) untuk mengelola data sensor IoT di kampus. Sistem diuji pada 500 perangkat IoT yang tersebar di berbagai lokasi kampus.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hasil:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Peningkatan keamanan data sebesar 94.7%&lt;/li&gt;
+&lt;li&gt;Reduksi latency hingga 35% dibanding sistem konvensional&lt;/li&gt;
+&lt;li&gt;Throughput meningkat 28% untuk transaksi data IoT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementasi blockchain terbukti efektif dalam menjaga integritas dan privasi data IoT di lingkungan smart campus.&lt;/p&gt;</field>
+            <field name="meta_title">Blockchain untuk Keamanan IoT Smart Campus | JTIIK</field>
+            <field name="meta_description">Implementasi blockchain untuk keamanan data IoT dalam smart campus. Penelitian terbaru di Jurnal Teknologi Informasi dan Ilmu Komputer (SINTA 2).</field>
+            <field name="meta_keywords">blockchain, IoT, smart campus, SINTA 2, keamanan data</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Artikel Prosiding Konferensi Internasional -->
+        <record id="jurnal_post_machine_learning_covid" model="jurnal.post">
+            <field name="name">Machine Learning Approach for COVID-19 Detection Using Chest X-Ray Images</field>
+            <field name="subtitle">Deep Learning Model with Transfer Learning Optimization</field>
+            <field name="blog_id" ref="jurnal_blog_konferensi"/>
+            <field name="slug">machine-learning-covid19-detection-chest-xray</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Lisa Chen, Ph.D., Dr. Ahmad Wijaya, S.T., M.T.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">2024 IEEE International Conference on Artificial Intelligence and Machine Learning</field>
+            <field name="publisher">IEEE</field>
+            <field name="publication_date">2024-06-10</field>
+            <field name="pages">1245-1252</field>
+            <field name="doi">10.1109/AIML2024.9876543</field>
+            <field name="url">https://ieeexplore.ieee.org/document/9876543</field>
+            <field name="scopus_indexed">True</field>
+            <field name="subject_area">Medical Imaging</field>
+            <field name="research_area">Machine Learning, Medical Diagnosis, Computer Vision</field>
+            <field name="keywords">COVID-19, chest X-ray, deep learning, transfer learning, medical diagnosis</field>
+            <field name="citations">23</field>
+            <field name="teaser">Novel deep learning approach using transfer learning for automated COVID-19 detection from chest X-ray images with 96.5% accuracy achieved in clinical validation.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This paper presents a novel machine learning approach for automated COVID-19 detection using chest X-ray images. The proposed method leverages deep learning techniques with transfer learning optimization to achieve high accuracy in medical diagnosis.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Methodology:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We developed a convolutional neural network (CNN) model based on ResNet-50 architecture with transfer learning. The model was trained on a dataset of 15,000 chest X-ray images comprising COVID-19 positive, pneumonia, and normal cases.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Results:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Overall accuracy: 96.5%&lt;/li&gt;
+&lt;li&gt;COVID-19 detection sensitivity: 94.8%&lt;/li&gt;
+&lt;li&gt;Specificity: 97.2%&lt;/li&gt;
+&lt;li&gt;Processing time: &lt;2 seconds per image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The proposed system demonstrates significant potential for rapid screening and diagnosis support in clinical settings, particularly valuable during pandemic situations.&lt;/p&gt;</field>
+            <field name="meta_title">ML COVID-19 Detection from Chest X-Ray | IEEE AIML 2024</field>
+            <field name="meta_description">Machine learning approach for COVID-19 detection using chest X-ray images. Published in IEEE International Conference on AI and ML 2024.</field>
+            <field name="meta_keywords">COVID-19, machine learning, chest X-ray, deep learning, IEEE conference</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Artikel Jurnal Nasional SINTA 1 -->
+        <record id="jurnal_post_quantum_computing" model="jurnal.post">
+            <field name="name">Algoritma Quantum Computing untuk Optimasi Jaringan Sensor Nirkabel</field>
+            <field name="subtitle">Implementasi Quantum Annealing dalam WSN Energy Optimization</field>
+            <field name="blog_id" ref="jurnal_blog_nasional"/>
+            <field name="slug">quantum-computing-optimasi-jaringan-sensor-nirkabel</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Siti Nurhaliza, S.T., M.Kom., Dr. Rama Pratama, S.Kom., M.T.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Indonesian Journal of Electrical Engineering and Computer Science</field>
+            <field name="publisher">Institute of Advanced Engineering and Science</field>
+            <field name="publication_date">2023-12-15</field>
+            <field name="volume">32</field>
+            <field name="issue">3</field>
+            <field name="pages">1654-1663</field>
+            <field name="doi">10.11591/ijeecs.v32.i3.pp1654-1663</field>
+            <field name="url">https://ijeecs.iaescore.com/index.php/IJEECS/article/view/32146</field>
+            <field name="sinta_indexed">True</field>
+            <field name="sinta_rank">1</field>
+            <field name="scopus_indexed">True</field>
+            <field name="quartile">Q2</field>
+            <field name="impact_factor">2.987</field>
+            <field name="subject_area">Electrical Engineering</field>
+            <field name="research_area">Quantum Computing, Wireless Sensor Networks, Optimization</field>
+            <field name="keywords">quantum computing, wireless sensor networks, energy optimization, quantum annealing</field>
+            <field name="citations">18</field>
+            <field name="teaser">Penelitian pionir dalam penerapan algoritma quantum computing untuk optimasi konsumsi energi pada jaringan sensor nirkabel menggunakan quantum annealing approach.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstrak&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Penelitian ini memperkenalkan pendekatan baru dalam optimasi jaringan sensor nirkabel (WSN) menggunakan algoritma quantum computing. Dengan memanfaatkan quantum annealing, kami mengembangkan solusi untuk masalah optimasi konsumsi energi yang merupakan tantangan utama dalam WSN.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Kontribusi Utama:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1. Formulasi masalah WSN energy optimization sebagai Quadratic Unconstrained Binary Optimization (QUBO)&lt;br/&gt;
+2. Implementasi algoritma quantum annealing untuk menyelesaikan masalah optimasi&lt;br/&gt;
+3. Analisis perbandingan dengan metode klasik (genetic algorithm, simulated annealing)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hasil Eksperimen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Penghematan energi: 42% dibanding algoritma klasik&lt;/li&gt;
+&lt;li&gt;Network lifetime meningkat 38%&lt;/li&gt;
+&lt;li&gt;Convergence time berkurang 65%&lt;/li&gt;
+&lt;li&gt;Skalabilitas hingga 1000+ sensor nodes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Penelitian ini membuka peluang baru untuk aplikasi quantum computing dalam domain Internet of Things dan sensor networks.&lt;/p&gt;</field>
+            <field name="meta_title">Quantum Computing untuk WSN Optimization | IJEECS</field>
+            <field name="meta_description">Algoritma quantum computing untuk optimasi jaringan sensor nirkabel. Penelitian terbaru di Indonesian Journal of Electrical Engineering and Computer Science (SINTA 1).</field>
+            <field name="meta_keywords">quantum computing, WSN, SINTA 1, energy optimization, quantum annealing</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Artikel Review Paper -->
+        <record id="jurnal_post_edge_computing_review" model="jurnal.post">
+            <field name="name">Edge Computing in Industry 4.0: Challenges, Opportunities, and Future Directions</field>
+            <field name="subtitle">A Comprehensive Survey of Edge Computing Technologies</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="slug">edge-computing-industry-40-comprehensive-survey</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Michael Schmidt, Ph.D., Dr. Yuki Tanaka, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">IEEE Access</field>
+            <field name="publisher">IEEE</field>
+            <field name="publication_date">2024-02-28</field>
+            <field name="volume">12</field>
+            <field name="pages">23456-23489</field>
+            <field name="doi">10.1109/ACCESS.2024.3367890</field>
+            <field name="url">https://ieeexplore.ieee.org/document/10456789</field>
+            <field name="impact_factor">3.476</field>
+            <field name="h_index">89</field>
+            <field name="quartile">Q1</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="doaj_indexed">True</field>
+            <field name="subject_area">Computer Science</field>
+            <field name="research_area">Edge Computing, Industry 4.0, IoT, Fog Computing</field>
+            <field name="keywords">edge computing, Industry 4.0, IoT, fog computing, smart manufacturing</field>
+            <field name="citations">67</field>
+            <field name="teaser">Comprehensive survey of edge computing technologies in Industry 4.0 context, analyzing 200+ research papers and providing future research directions for smart manufacturing.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This comprehensive survey examines the role of edge computing in Industry 4.0 transformation. We systematically analyze over 200 research papers published between 2020-2024 to identify key challenges, opportunities, and future research directions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Survey Scope:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The survey covers six main areas: (1) Edge computing architectures, (2) Real-time processing capabilities, (3) Security and privacy concerns, (4) Integration with existing systems, (5) Scalability issues, and (6) Economic implications.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key Insights:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Edge computing reduces latency by 80% in industrial applications&lt;/li&gt;
+&lt;li&gt;Data processing costs decrease by 60% with edge deployment&lt;/li&gt;
+&lt;li&gt;Real-time decision making improves by 45% in smart factories&lt;/li&gt;
+&lt;li&gt;Security remains the primary concern (cited in 85% of studies)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Future Research Directions:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We identify 12 critical research areas including AI-driven edge orchestration, quantum-secure edge communications, and sustainable edge infrastructure for green manufacturing.&lt;/p&gt;</field>
+            <field name="meta_title">Edge Computing in Industry 4.0 Survey | IEEE Access</field>
+            <field name="meta_description">Comprehensive survey of edge computing in Industry 4.0. Published in IEEE Access (Q1, Impact Factor 3.476). Analysis of 200+ research papers.</field>
+            <field name="meta_keywords">edge computing, Industry 4.0, survey, IEEE Access, IoT, smart manufacturing</field>
+            <field name="website_published">True</field>
+        </record>
         
     </data>
 </odoo>

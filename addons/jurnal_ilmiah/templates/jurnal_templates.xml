@@ -326,15 +326,6 @@
                                 </div>
                             </div>
 
-                            <!-- Article Content -->
-                            <div class="mb-4">
-                                <!-- Teaser (Summary) -->
-                                <div class="alert alert-info" t-if="post.teaser">
-                                    <h5>Ringkasan</h5>
-                                    <p t-esc="post.teaser" class="mb-0"/>
-                                </div>
-                            </div>
-                            
                         </div>
                         
                         <!-- Sidebar -->

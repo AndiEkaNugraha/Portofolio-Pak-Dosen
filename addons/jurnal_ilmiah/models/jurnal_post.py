@@ -15,7 +15,7 @@ class JurnalPost(models.Model):
     blog_id = fields.Many2one('jurnal.blog', 'Kategori Jurnal', required=True, ondelete='cascade')
     
     # SEO fields
-    slug = fields.Char('URL Slug', compute='_compute_slug', store=True, index=True)
+    slug = fields.Char('URL Slug', index=True, help="URL slug yang SEO-friendly. Kosongkan untuk generate otomatis dari judul.")
     meta_title = fields.Char('Meta Title', help="Judul untuk SEO (akan menggunakan judul artikel jika kosong)")
     meta_description = fields.Text('Meta Description', help="Deskripsi untuk SEO (akan menggunakan sinopsis jika kosong)")
     meta_keywords = fields.Char('Meta Keywords', help="Kata kunci untuk SEO, pisahkan dengan koma")
@@ -84,19 +84,61 @@ class JurnalPost(models.Model):
     citations = fields.Integer('Jumlah Sitasi', default=0)
     # downloads field removed - tidak relevan untuk artikel jurnal yang di-host di publisher
     
-    @api.depends('name')
-    def _compute_slug(self):
-        for record in self:
-            if record.name:
-                import re
-                # Convert to lowercase and replace special characters
-                slug = record.name.lower()
-                slug = re.sub(r'[^a-z0-9\s-]', '', slug)
-                slug = re.sub(r'\s+', '-', slug)
-                slug = slug.strip('-')
-                record.slug = slug
-            else:
-                record.slug = ''
+    def _generate_slug_from_name(self, name):
+        """Generate SEO-friendly slug from name"""
+        if not name:
+            return ''
+        import re
+        # Convert to lowercase and replace special characters
+        slug = name.lower()
+        slug = re.sub(r'[^a-z0-9\s-]', '', slug)
+        slug = re.sub(r'\s+', '-', slug)
+        slug = slug.strip('-')
+        return slug
+    
+    @api.model
+    def create(self, vals_list):
+        """Auto-generate slug if not provided"""
+        # Handle both single dict and list of dicts
+        if isinstance(vals_list, dict):
+            vals_list = [vals_list]
+        
+        for vals in vals_list:
+            if not vals.get('slug') and vals.get('name'):
+                vals['slug'] = self._generate_slug_from_name(vals['name'])
+                # Ensure uniqueness
+                vals['slug'] = self._ensure_unique_slug(vals['slug'])
+        
+        return super(JurnalPost, self).create(vals_list)
+    
+    def write(self, vals):
+        """Auto-regenerate slug if name changed and slug is empty"""
+        if 'name' in vals and not vals.get('slug'):
+            for record in self:
+                if not record.slug:  # Only if slug is currently empty
+                    vals['slug'] = self._generate_slug_from_name(vals.get('name', record.name))
+                    vals['slug'] = record._ensure_unique_slug(vals['slug'], exclude_id=record.id)
+        return super(JurnalPost, self).write(vals)
+    
+    def _ensure_unique_slug(self, slug, exclude_id=None):
+        """Ensure slug is unique by adding number suffix if needed"""
+        if not slug:
+            return slug
+            
+        domain = [('slug', '=', slug)]
+        if exclude_id:
+            domain.append(('id', '!=', exclude_id))
+            
+        if self.search_count(domain) == 0:
+            return slug
+            
+        # Add number suffix to make it unique
+        counter = 1
+        original_slug = slug
+        while self.search_count([('slug', '=', slug)] + ([('id', '!=', exclude_id)] if exclude_id else [])) > 0:
+            slug = f"{original_slug}-{counter}"
+            counter += 1
+        return slug
     
     @api.depends('publication_date')
     def _compute_publication_year(self):
@@ -159,3 +201,22 @@ class JurnalPost(models.Model):
         if self.h_index:
             info['h_index'] = self.h_index
         return info
+    
+    @api.constrains('slug')
+    def _check_slug_format(self):
+        """Validate slug format"""
+        for record in self:
+            if record.slug:
+                import re
+                if not re.match(r'^[a-z0-9-]+$', record.slug):
+                    raise ValueError("Slug hanya boleh mengandung huruf kecil, angka, dan tanda hubung (-)")
+                if record.slug.startswith('-') or record.slug.endswith('-'):
+                    raise ValueError("Slug tidak boleh diawali atau diakhiri dengan tanda hubung (-)")
+                if '--' in record.slug:
+                    raise ValueError("Slug tidak boleh mengandung tanda hubung ganda (--)")
+    
+    @api.onchange('name')
+    def _onchange_name_generate_slug(self):
+        """Auto-generate slug when name changes if slug is empty"""
+        if self.name and not self.slug:
+            self.slug = self._generate_slug_from_name(self.name)
