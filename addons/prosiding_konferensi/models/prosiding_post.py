@@ -196,3 +196,16 @@ class ProsidingPost(models.Model):
         if self.conference_country:
             location_parts.append(self.conference_country)
         return ', '.join(location_parts) if location_parts else ''
+    
+    def button_publish(self):
+        """Publikasikan prosiding ke website"""
+        for record in self:
+            record.website_published = True
+            record.publication_date = fields.Datetime.now()
+        return True
+    
+    def button_unpublish(self):
+        """Batalkan publikasi prosiding dari website"""
+        for record in self:
+            record.website_published = False
+        return True

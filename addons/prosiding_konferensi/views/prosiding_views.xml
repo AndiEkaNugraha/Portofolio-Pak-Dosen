@@ -23,6 +23,7 @@
                             </group>
                             <group>
                                 <field name="accreditation_body"/>
+                                <field name="website_published"/>
                                 <field name="post_count"/>
                             </group>
                         </group>
@@ -49,6 +50,7 @@
                     <field name="conference_scope"/>
                     <field name="scientific_field"/>
                     <field name="accreditation_body"/>
+                    <field name="website_published"/>
                     <field name="post_count"/>
                 </list>
             </field>
@@ -77,6 +79,7 @@
                             <group>
                                 <field name="conference_date"/>
                                 <field name="conference_year"/>
+                                <field name="website_published"/>
                                 <field name="slug"/>
                             </group>
                         </group>
@@ -180,6 +183,7 @@
                     <field name="conference_date"/>
                     <field name="conference_city"/>
                     <field name="publisher"/>
+                    <field name="website_published"/>
                     <field name="ieee_indexed"/>
                     <field name="scopus_indexed"/>
                     <field name="sinta_indexed"/>

@@ -9,20 +9,15 @@
                   web_icon="prosiding_konferensi,static/description/icon.png"/>
         
         <!-- Sub Menus -->
-        <menuitem id="menu_prosiding_management" 
-                  name="Manajemen Prosiding" 
-                  parent="menu_prosiding_main" 
-                  sequence="10"/>
-        
         <menuitem id="menu_prosiding_post" 
-                  name="Paper Prosiding" 
-                  parent="menu_prosiding_management" 
+                  name="Daftar Prosiding" 
+                  parent="menu_prosiding_main" 
                   action="action_prosiding_post" 
                   sequence="10"/>
         
         <menuitem id="menu_prosiding_blog" 
-                  name="Kategori Konferensi" 
-                  parent="menu_prosiding_management" 
+                  name="Kategori Prosiding" 
+                  parent="menu_prosiding_main" 
                   action="action_prosiding_blog" 
                   sequence="20"/>
         

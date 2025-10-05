@@ -9,6 +9,7 @@
             <field name="conference_scope">both</field>
             <field name="scientific_field">computer_science</field>
             <field name="accreditation_body">ieee</field>
+            <field name="website_published">True</field>
         </record>
 
         <record id="prosiding_category_engineering" model="prosiding.blog">
@@ -17,6 +18,7 @@
             <field name="conference_scope">both</field>
             <field name="scientific_field">engineering</field>
             <field name="accreditation_body">ieee</field>
+            <field name="website_published">True</field>
         </record>
 
         <record id="prosiding_category_mathematics" model="prosiding.blog">
@@ -25,6 +27,7 @@
             <field name="conference_scope">both</field>
             <field name="scientific_field">mathematics</field>
             <field name="accreditation_body">springer</field>
+            <field name="website_published">True</field>
         </record>
 
         <record id="prosiding_category_education" model="prosiding.blog">
@@ -33,6 +36,7 @@
             <field name="conference_scope">national</field>
             <field name="scientific_field">education</field>
             <field name="accreditation_body">sinta</field>
+            <field name="website_published">True</field>
         </record>
 
         <record id="prosiding_category_social_science" model="prosiding.blog">
@@ -41,6 +45,259 @@
             <field name="conference_scope">both</field>
             <field name="scientific_field">social_science</field>
             <field name="accreditation_body">other</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Sample Conference Proceedings Data -->
+        <record id="prosiding_ml_smart_city" model="prosiding.post">
+            <field name="name">Machine Learning Approach for Smart City Development</field>
+            <field name="subtitle">A Comprehensive Study on IoT Integration and Data Analytics</field>
+            <field name="blog_id" ref="prosiding_category_computer_science"/>
+            <field name="authors">Dr. Ahmad Sutanto, Prof. Sri Wahyuni, M.Eng, Dr. Bambang Priyanto</field>
+            <field name="corresponding_author">Dr. Ahmad Sutanto</field>
+            <field name="conference_name">International Conference on Information and Communication Technology</field>
+            <field name="conference_acronym">ICICT</field>
+            <field name="organizer">IEEE Indonesia Section</field>
+            <field name="conference_date">2024-10-15</field>
+            <field name="conference_city">Jakarta</field>
+            <field name="conference_country">Indonesia</field>
+            <field name="conference_venue">Hotel Indonesia Kempinski Jakarta</field>
+            <field name="track_name">Artificial Intelligence and Machine Learning</field>
+            <field name="session_chair">Prof. Dr. Ir. Wisnu Jatmiko, M.Eng.</field>
+            <field name="publisher">IEEE</field>
+            <field name="proceedings_title">Proceedings of the 2024 International Conference on Information and Communication Technology</field>
+            <field name="volume">1</field>
+            <field name="pages">123-130</field>
+            <field name="isbn">978-1-6654-1234-5</field>
+            <field name="doi">10.1109/ICICT.2024.1234567</field>
+            <field name="url">https://ieeexplore.ieee.org/document/1234567</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">A</field>
+            <field name="citations">15</field>
+            <field name="ieee_indexed">True</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Machine Learning, IoT, Smart City, Data Analytics</field>
+            <field name="research_area">Artificial Intelligence and Smart Systems</field>
+            <field name="keywords">machine learning, smart city, IoT, artificial intelligence, data analytics, urban computing</field>
+            <field name="teaser">Penelitian ini mengeksplorasi penerapan machine learning dalam pengembangan smart city melalui integrasi teknologi IoT dan analisis data untuk menciptakan sistem urban yang lebih efisien dan berkelanjutan.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper presents a comprehensive study on the application of machine learning techniques in smart city development through IoT integration and data analytics. The research focuses on developing efficient algorithms for urban data processing, real-time decision-making systems, and predictive analytics for city management.&lt;/p&gt;
+
+&lt;h4&gt;Key Contributions:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Novel machine learning framework for smart city data processing&lt;/li&gt;
+&lt;li&gt;IoT integration architecture for real-time urban monitoring&lt;/li&gt;
+&lt;li&gt;Predictive analytics model for traffic and energy management&lt;/li&gt;
+&lt;li&gt;Case study implementation in Jakarta smart city initiative&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The experimental results demonstrate significant improvements in urban resource management efficiency, with 25% reduction in traffic congestion and 30% improvement in energy consumption optimization.&lt;/p&gt;</field>
+            <field name="meta_title">Machine Learning for Smart City Development - ICICT 2024</field>
+            <field name="meta_description">Comprehensive study on machine learning applications in smart city development through IoT integration and data analytics for urban efficiency.</field>
+            <field name="meta_keywords">machine learning, smart city, IoT, data analytics, urban computing, IEEE conference</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_sustainable_engineering" model="prosiding.post">
+            <field name="name">Sustainable Engineering Solutions for Climate Change Mitigation</field>
+            <field name="subtitle">Innovation in Green Technology and Environmental Protection</field>
+            <field name="blog_id" ref="prosiding_category_engineering"/>
+            <field name="authors">Prof. Dr. Ir. Budi Hartono, Dr. Siti Nurhaliza, M.T., Ir. Made Wirawan, M.Eng.</field>
+            <field name="corresponding_author">Prof. Dr. Ir. Budi Hartono</field>
+            <field name="conference_name">International Conference on Sustainable Engineering and Environmental Technology</field>
+            <field name="conference_acronym">ICSEET</field>
+            <field name="organizer">Universitas Indonesia dan ASEAN Engineering Network</field>
+            <field name="conference_date">2024-09-20</field>
+            <field name="conference_city">Bandung</field>
+            <field name="conference_country">Indonesia</field>
+            <field name="conference_venue">Institut Teknologi Bandung</field>
+            <field name="track_name">Environmental and Sustainable Engineering</field>
+            <field name="session_chair">Prof. Dr. Ir. Kusmawan Ruswandi, M.Sc.</field>
+            <field name="publisher">Springer Nature</field>
+            <field name="proceedings_title">Advances in Sustainable Engineering and Environmental Technology</field>
+            <field name="volume">2024</field>
+            <field name="pages">45-52</field>
+            <field name="isbn">978-981-99-1234-5</field>
+            <field name="doi">10.1007/978-981-99-1234-5_6</field>
+            <field name="url">https://link.springer.com/chapter/10.1007/978-981-99-1234-5_6</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">keynote</field>
+            <field name="conference_rank">A</field>
+            <field name="citations">28</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Environmental Engineering, Sustainable Technology, Climate Change</field>
+            <field name="research_area">Sustainable Engineering and Green Technology</field>
+            <field name="keywords">sustainability, climate change, green technology, environmental engineering, renewable energy</field>
+            <field name="best_paper">True</field>
+            <field name="award_description">Best Paper Award - ICSEET 2024 untuk kontribusi luar biasa dalam bidang teknologi berkelanjutan</field>
+            <field name="teaser">Makalah ini membahas solusi rekayasa berkelanjutan untuk mitigasi perubahan iklim melalui pengembangan teknologi hijau dan inovasi dalam perlindungan lingkungan.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This study investigates sustainable engineering approaches to address climate change challenges through innovative green technologies and environmental protection methodologies. The research proposes comprehensive solutions for sustainable development and carbon footprint reduction.&lt;/p&gt;
+
+&lt;h4&gt;Research Highlights:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Development of carbon-neutral manufacturing processes&lt;/li&gt;
+&lt;li&gt;Integration of renewable energy in industrial systems&lt;/li&gt;
+&lt;li&gt;Waste-to-energy conversion technologies&lt;/li&gt;
+&lt;li&gt;Life cycle assessment of green engineering solutions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The proposed solutions show potential for 40% reduction in industrial carbon emissions and 50% improvement in resource efficiency across multiple sectors.&lt;/p&gt;</field>
+            <field name="meta_title">Sustainable Engineering Solutions for Climate Change - ICSEET 2024</field>
+            <field name="meta_description">Research on sustainable engineering approaches for climate change mitigation through green technology and environmental protection innovations.</field>
+            <field name="meta_keywords">sustainable engineering, climate change, green technology, environmental protection, Springer conference</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_math_education" model="prosiding.post">
+            <field name="name">Innovative Mathematics Teaching Methods in Digital Era</field>
+            <field name="subtitle">Technology Integration for Enhanced Learning Experience</field>
+            <field name="blog_id" ref="prosiding_category_education"/>
+            <field name="authors">Dr. Rina Sari, M.Pd., Joko Santoso, S.Pd., M.Ed., Dewi Lestari, M.Pd.</field>
+            <field name="corresponding_author">Dr. Rina Sari, M.Pd.</field>
+            <field name="conference_name">Seminar Nasional Pendidikan Matematika dan Inovasi Pembelajaran</field>
+            <field name="conference_acronym">SENDIMAT</field>
+            <field name="organizer">Universitas Negeri Malang dan Asosiasi Guru Matematika Indonesia</field>
+            <field name="conference_date">2024-08-25</field>
+            <field name="conference_city">Malang</field>
+            <field name="conference_country">Indonesia</field>
+            <field name="conference_venue">Universitas Negeri Malang</field>
+            <field name="track_name">Digital Innovation in Mathematics Education</field>
+            <field name="session_chair">Prof. Dr. Subanji, M.Si.</field>
+            <field name="publisher">Universitas Negeri Malang Press</field>
+            <field name="proceedings_title">Prosiding Seminar Nasional Pendidikan Matematika 2024</field>
+            <field name="volume">7</field>
+            <field name="pages">78-85</field>
+            <field name="isbn">978-602-456-789-0</field>
+            <field name="conference_type">seminar</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">B</field>
+            <field name="citations">12</field>
+            <field name="sinta_indexed">True</field>
+            <field name="sinta_rank">3</field>
+            <field name="subject_area">Mathematics Education, Digital Learning, Pedagogy</field>
+            <field name="research_area">Educational Technology and Mathematics Pedagogy</field>
+            <field name="keywords">mathematics education, digital learning, teaching methods, technology integration, pedagogy innovation</field>
+            <field name="teaser">Penelitian ini mengeksplorasi metode pengajaran matematika inovatif di era digital untuk meningkatkan pemahaman dan keterlibatan siswa dalam pembelajaran matematika.</field>
+            <field name="content">&lt;h3&gt;Abstrak&lt;/h3&gt;
+&lt;p&gt;Penelitian ini mengeksplorasi metode pengajaran matematika inovatif di era digital dengan fokus pada integrasi teknologi untuk meningkatkan pengalaman belajar siswa. Studi ini mengevaluasi efektivitas pendekatan berbasis teknologi dalam meningkatkan pemahaman dan keterlibatan siswa.&lt;/p&gt;
+
+&lt;h4&gt;Metodologi Penelitian:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Implementasi platform pembelajaran digital interaktif&lt;/li&gt;
+&lt;li&gt;Penggunaan aplikasi visualisasi matematika&lt;/li&gt;
+&lt;li&gt;Metode pembelajaran berbasis game (gamification)&lt;/li&gt;
+&lt;li&gt;Analisis data pembelajaran dengan learning analytics&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hasil penelitian menunjukkan peningkatan signifikan dalam pemahaman konsep matematika siswa sebesar 35% dan tingkat keterlibatan meningkat 40% dibandingkan metode konvensional.&lt;/p&gt;</field>
+            <field name="meta_title">Innovative Mathematics Teaching in Digital Era - SENDIMAT 2024</field>
+            <field name="meta_description">Research on innovative mathematics teaching methods using digital technology integration for enhanced student learning experience.</field>
+            <field name="meta_keywords">mathematics education, digital learning, teaching innovation, technology integration, SINTA indexed</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_blockchain_security" model="prosiding.post">
+            <field name="name">Blockchain Technology for Enhanced Cybersecurity in Financial Services</field>
+            <field name="subtitle">A Comprehensive Framework for Secure Digital Transactions</field>
+            <field name="blog_id" ref="prosiding_category_computer_science"/>
+            <field name="authors">Prof. Dr. Ir. Rudi Harahap, M.Sc., Dr. Lina Marlina, S.Kom., M.T., Agus Setiawan, S.Kom., M.Cs.</field>
+            <field name="corresponding_author">Prof. Dr. Ir. Rudi Harahap, M.Sc.</field>
+            <field name="conference_name">ACM International Conference on Computer and Communications Security</field>
+            <field name="conference_acronym">ACM CCS</field>
+            <field name="organizer">Association for Computing Machinery (ACM)</field>
+            <field name="conference_date">2024-11-10</field>
+            <field name="conference_city">Copenhagen</field>
+            <field name="conference_country">Denmark</field>
+            <field name="conference_venue">Bella Center Copenhagen</field>
+            <field name="track_name">Blockchain and Distributed Systems Security</field>
+            <field name="session_chair">Prof. Ahmad-Reza Sadeghi</field>
+            <field name="publisher">ACM Digital Library</field>
+            <field name="proceedings_title">Proceedings of the 2024 ACM SIGSAC Conference on Computer and Communications Security</field>
+            <field name="volume">2024</field>
+            <field name="pages">1234-1247</field>
+            <field name="isbn">978-1-4503-9681-5</field>
+            <field name="doi">10.1145/3658644.3670123</field>
+            <field name="url">https://dl.acm.org/doi/10.1145/3658644.3670123</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">A*</field>
+            <field name="citations">42</field>
+            <field name="acm_indexed">True</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Cybersecurity, Blockchain Technology, Financial Technology</field>
+            <field name="research_area">Information Security and Distributed Systems</field>
+            <field name="keywords">blockchain, cybersecurity, financial services, distributed systems, cryptography, digital transactions</field>
+            <field name="teaser">Penelitian ini mengusulkan framework komprehensif berbasis blockchain untuk meningkatkan keamanan siber dalam layanan keuangan digital dengan fokus pada transaksi yang aman dan terpercaya.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper proposes a comprehensive blockchain-based framework for enhancing cybersecurity in financial services. Our approach addresses critical security challenges in digital financial transactions through innovative distributed ledger technologies and advanced cryptographic mechanisms.&lt;/p&gt;
+
+&lt;h4&gt;Key Innovations:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Novel consensus mechanism for financial transaction validation&lt;/li&gt;
+&lt;li&gt;Multi-layer security architecture with smart contract integration&lt;/li&gt;
+&lt;li&gt;Advanced cryptographic protocols for privacy preservation&lt;/li&gt;
+&lt;li&gt;Real-time threat detection and response system&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Experimental evaluation demonstrates 99.8% security effectiveness against common financial cyber attacks, with 60% improvement in transaction processing speed compared to traditional systems.&lt;/p&gt;</field>
+            <field name="meta_title">Blockchain Cybersecurity for Financial Services - ACM CCS 2024</field>
+            <field name="meta_description">Comprehensive blockchain framework for enhanced cybersecurity in financial services with advanced cryptographic mechanisms and distributed ledger technology.</field>
+            <field name="meta_keywords">blockchain, cybersecurity, financial services, ACM conference, distributed systems, cryptography</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_social_media_analysis" model="prosiding.post">
+            <field name="name">Social Media Sentiment Analysis for Public Policy Decision Making</field>
+            <field name="subtitle">Big Data Analytics Approach for Democratic Governance</field>
+            <field name="blog_id" ref="prosiding_category_social_science"/>
+            <field name="authors">Dr. Maya Sari, S.Sos., M.A., Prof. Ir. Andi Prasetyo, M.Si., Dr. Fitri Handayani, S.Kom., M.T.</field>
+            <field name="corresponding_author">Dr. Maya Sari, S.Sos., M.A.</field>
+            <field name="conference_name">International Conference on Digital Society and Governance</field>
+            <field name="conference_acronym">ICDSG</field>
+            <field name="organizer">International Association for Digital Society Research</field>
+            <field name="conference_date">2024-07-18</field>
+            <field name="conference_city">Bali</field>
+            <field name="conference_country">Indonesia</field>
+            <field name="conference_venue">Grand Hyatt Bali</field>
+            <field name="track_name">Digital Democracy and Policy Analytics</field>
+            <field name="session_chair">Prof. Dr. Sarah Johnson</field>
+            <field name="publisher">Elsevier</field>
+            <field name="proceedings_title">Procedia Computer Science - Digital Society and Governance</field>
+            <field name="volume">234</field>
+            <field name="pages">567-574</field>
+            <field name="isbn">978-1-85166-456-7</field>
+            <field name="doi">10.1016/j.procs.2024.03.045</field>
+            <field name="url">https://www.sciencedirect.com/science/article/pii/S1877050924003456</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">B</field>
+            <field name="citations">18</field>
+            <field name="scopus_indexed">True</field>
+            <field name="subject_area">Social Sciences, Public Policy, Data Analytics</field>
+            <field name="research_area">Digital Society and Computational Social Science</field>
+            <field name="keywords">sentiment analysis, social media, public policy, big data, democratic governance, computational social science</field>
+            <field name="teaser">Studi ini mengembangkan metodologi analisis sentimen media sosial untuk mendukung pengambilan keputusan kebijakan publik melalui pendekatan big data analytics dan democratic governance.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This study develops a comprehensive methodology for social media sentiment analysis to support public policy decision-making processes. The research leverages big data analytics and machine learning techniques to extract meaningful insights from citizen opinions expressed through social media platforms.&lt;/p&gt;
+
+&lt;h4&gt;Research Methodology:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Multi-platform social media data collection and preprocessing&lt;/li&gt;
+&lt;li&gt;Advanced natural language processing for Indonesian text analysis&lt;/li&gt;
+&lt;li&gt;Real-time sentiment classification and trend analysis&lt;/li&gt;
+&lt;li&gt;Policy impact assessment through sentiment tracking&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Case studies on three major policy initiatives show 85% accuracy in predicting public reception and 70% improvement in policy adjustment effectiveness when informed by sentiment analysis results.&lt;/p&gt;</field>
+            <field name="meta_title">Social Media Sentiment Analysis for Public Policy - ICDSG 2024</field>
+            <field name="meta_description">Comprehensive methodology for social media sentiment analysis supporting public policy decision-making through big data analytics and democratic governance.</field>
+            <field name="meta_keywords">sentiment analysis, social media, public policy, big data analytics, democratic governance, Elsevier</field>
+            <field name="website_published">True</field>
         </record>
 
     </data>

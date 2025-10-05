@@ -13,6 +13,9 @@ class ProsidingBlog(models.Model):
     subtitle = fields.Char('Deskripsi Kategori', translate=True)
     description = fields.Html('Deskripsi Lengkap', help="Deskripsi lengkap kategori konferensi")
     
+    # Field untuk publikasi website
+    website_published = fields.Boolean('Published on Website', default=False, help="Apakah kategori ini dipublikasikan di website")
+    
     # Field khusus prosiding konferensi
     conference_scope = fields.Selection([
         ('national', 'Nasional'),
@@ -66,3 +69,15 @@ class ProsidingBlog(models.Model):
     def _get_default_domain(self):
         """Return default domain for proceeding entries"""
         return [('blog_id.conference_scope', 'in', ['national', 'international', 'both'])]
+    
+    def button_publish(self):
+        """Publikasikan kategori prosiding ke website"""
+        for record in self:
+            record.website_published = True
+        return True
+    
+    def button_unpublish(self):
+        """Batalkan publikasi kategori prosiding dari website"""
+        for record in self:
+            record.website_published = False
+        return True

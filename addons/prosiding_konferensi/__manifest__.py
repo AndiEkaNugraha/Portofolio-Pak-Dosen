@@ -28,9 +28,6 @@ Modul untuk mengelola dan menampilkan daftar prosiding konferensi nasional dan i
         'templates/prosiding_templates.xml',
         'views/prosiding_menus.xml',
     ],
-    'demo': [
-        'demo/prosiding_demo.xml',
-    ],
     'installable': True,
     'auto_install': False,
     'application': True,
