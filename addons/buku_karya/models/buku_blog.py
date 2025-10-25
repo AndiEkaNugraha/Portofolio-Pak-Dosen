@@ -20,29 +20,6 @@ class BukuBlog(models.Model):
         ('both', 'Nasional & Internasional'),
     ], string='Cakupan Publikasi', default='both', required=True)
     
-    # Field untuk kategorisasi bidang keilmuan
-    scientific_field = fields.Selection([
-        ('computer_science', 'Ilmu Komputer'),
-        ('engineering', 'Teknik'),
-        ('mathematics', 'Matematika'),
-        ('physics', 'Fisika'),
-        ('biology', 'Biologi'),
-        ('chemistry', 'Kimia'),
-        ('medicine', 'Kedokteran'),
-        ('social_science', 'Ilmu Sosial'),
-        ('economics', 'Ekonomi'),
-        ('education', 'Pendidikan'),
-        ('arts', 'Seni & Desain'),
-        ('literature', 'Sastra'),
-        ('psychology', 'Psikologi'),
-        ('management', 'Manajemen'),
-        ('law', 'Hukum'),
-        ('philosophy', 'Filsafat'),
-        ('history', 'Sejarah'),
-        ('geography', 'Geografi'),
-        ('other', 'Lainnya'),
-    ], string='Bidang Keilmuan')
-    
     # Target pembaca
     target_audience = fields.Selection([
         ('undergraduate', 'Mahasiswa S1'),

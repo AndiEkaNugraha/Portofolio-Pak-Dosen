@@ -43,7 +43,7 @@ class HkiBlog(models.Model):
         ('social_science', 'Ilmu Sosial'),
         ('economics', 'Ekonomi'),
         ('education', 'Pendidikan'),
-        ('arts', 'Seni & Desain'),
+        ('arts', 'Seni &amp; Desain'),
         ('literature', 'Sastra'),
         ('other', 'Lainnya'),
     ], string='Bidang Keilmuan')

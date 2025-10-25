@@ -42,8 +42,8 @@ class BukuPost(models.Model):
     co_authors = fields.Char('Co-Penulis', help="Nama co-penulis jika ada")
     editors = fields.Char('Editor', help="Nama editor buku")
     
-    # Jenis Buku
-    buku_type_id = fields.Many2one('buku.type', 'Jenis Buku', required=True)
+    # Jenis Buku (menggunakan blog_id sebagai kategori)
+    # buku_type_id = fields.Many2one('buku.type', 'Jenis Buku', required=True)
     
     # Publication details
     publisher_id = fields.Many2one('book.publisher', 'Penerbit')
@@ -103,7 +103,7 @@ class BukuPost(models.Model):
         ('social_science', 'Ilmu Sosial'),
         ('economics', 'Ekonomi'),
         ('education', 'Pendidikan'),
-        ('arts', 'Seni & Desain'),
+        ('arts', 'Seni &amp; Desain'),
         ('literature', 'Sastra'),
         ('psychology', 'Psikologi'),
         ('management', 'Manajemen'),

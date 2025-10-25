@@ -13,7 +13,6 @@ class BukuController(http.Controller):
         # Get search parameters
         search = kw.get('search', '')
         category_id = kw.get('category_id', '')
-        book_type_id = kw.get('book_type_id', '')
         year = kw.get('year', '')
         
         # Base domain for published posts
@@ -36,12 +35,6 @@ class BukuController(http.Controller):
             except ValueError:
                 pass
                 
-        if book_type_id:
-            try:
-                domain += [('buku_type_id', '=', int(book_type_id))]
-            except ValueError:
-                pass
-                
         if year:
             try:
                 domain += [('publication_year', '=', int(year))]
@@ -50,7 +43,6 @@ class BukuController(http.Controller):
         
         # Get categories and book types for filter
         categories = request.env['buku.blog'].search([])
-        book_types = request.env['buku.type'].search([('active', '=', True)], order='sequence')
         
         # Get unique publication years for filter
         all_books = request.env['buku.post'].search([('is_published', '=', True)], order='publication_year desc')
@@ -80,19 +72,15 @@ class BukuController(http.Controller):
         stats = {
             'total_books': len(published_books),
             'published_books': len(published_books.filtered(lambda p: p.status == 'published')),
-            'textbook_count': len(published_books.filtered(lambda p: p.buku_type_id.code == 'TB')),
-            'monograph_count': len(published_books.filtered(lambda p: p.buku_type_id.code == 'MG')),
         }
         
         values = {
             'posts': posts,
             'categories': categories,
-            'book_types': book_types,
             'years': years,
             'stats': stats,
             'search': search,
             'category_id': category_id and int(category_id) or '',
-            'book_type_id': book_type_id and int(book_type_id) or '',
             'selected_year': year and int(year) or '',
             'pager': pager,
         }
@@ -144,27 +132,6 @@ class BukuController(http.Controller):
         }
         
         return request.render('buku_karya.buku_detail', values)
-
-    @http.route(['/buku/kategori/<int:category_id>'], type='http', auth="public", website=True)
-    def buku_category(self, category_id, **kw):
-        """Books by category page"""
-        category = request.env['buku.blog'].browse(category_id)
-        if not category.exists():
-            return request.not_found()
-        
-        # Get books in this category
-        posts = request.env['buku.post'].search([
-            ('blog_id', '=', category_id),
-            ('is_published', '=', True)
-        ], order='publication_year desc')
-        
-        values = {
-            'posts': posts,
-            'category': category,
-            'page_name': f'Kategori: {category.name}',
-        }
-        
-        return request.render('buku_karya.buku_index', values)
 
     @http.route(['/buku/penulis/<string:author_name>'], type='http', auth="public", website=True)
     def buku_by_author(self, author_name, **kw):

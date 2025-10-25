@@ -7,7 +7,6 @@
             <field name="name">Buku Teks</field>
             <field name="subtitle">Buku untuk pembelajaran dan pengajaran</field>
             <field name="book_scope">both</field>
-            <field name="scientific_field">education</field>
             <field name="target_audience">undergraduate</field>
             <field name="description">
                 <![CDATA[
@@ -20,7 +19,6 @@
             <field name="name">Monograf</field>
             <field name="subtitle">Karya tulis ilmiah mendalam tentang topik spesifik</field>
             <field name="book_scope">both</field>
-            <field name="scientific_field">other</field>
             <field name="target_audience">researcher</field>
             <field name="description">
                 <![CDATA[
@@ -33,7 +31,6 @@
             <field name="name">Buku Referensi</field>
             <field name="subtitle">Buku rujukan dan panduan</field>
             <field name="book_scope">both</field>
-            <field name="scientific_field">other</field>
             <field name="target_audience">professional</field>
             <field name="description">
                 <![CDATA[
@@ -42,68 +39,40 @@
             </field>
         </record>
 
-        <!-- Default Book Types (Standar Indonesia) -->
-        <record id="book_type_textbook" model="buku.type">
-            <field name="name">Buku Teks/Textbook</field>
-            <field name="code">TB</field>
-            <field name="sequence">10</field>
-            <field name="description">Buku yang digunakan sebagai bahan ajar utama di perguruan tinggi</field>
+        <record id="book_category_handbook" model="buku.blog">
+            <field name="name">Handbook</field>
+            <field name="subtitle">Buku panduan praktis untuk bidang tertentu</field>
+            <field name="book_scope">both</field>
+            <field name="target_audience">professional</field>
+            <field name="description">
+                <![CDATA[
+                <p>Kategori untuk handbook dan buku panduan praktis.</p>
+                ]]>
+            </field>
         </record>
 
-        <record id="book_type_monograph" model="buku.type">
-            <field name="name">Monograf</field>
-            <field name="code">MG</field>
-            <field name="sequence">20</field>
-            <field name="description">Karya tulis ilmiah yang membahas satu topik secara mendalam dan sistematis</field>
-        </record>
-
-        <record id="book_type_reference" model="buku.type">
-            <field name="name">Buku Referensi</field>
-            <field name="code">RF</field>
-            <field name="sequence">30</field>
-            <field name="description">Buku rujukan seperti kamus, ensiklopedia, manual</field>
-        </record>
-
-        <record id="book_type_anthology" model="buku.type">
+        <record id="book_category_anthology" model="buku.blog">
             <field name="name">Bunga Rampai</field>
-            <field name="code">BR</field>
-            <field name="sequence">40</field>
-            <field name="description">Kumpulan karya tulis dari berbagai penulis dalam satu tema</field>
+            <field name="subtitle">Kumpulan karya tulis dari berbagai penulis</field>
+            <field name="book_scope">both</field>
+            <field name="target_audience">general</field>
+            <field name="description">
+                <![CDATA[
+                <p>Kategori untuk bunga rampai dan kumpulan artikel dari berbagai penulis.</p>
+                ]]>
+            </field>
         </record>
 
-        <record id="book_type_popular" model="buku.type">
+        <record id="book_category_popular" model="buku.blog">
             <field name="name">Buku Ilmiah Populer</field>
-            <field name="code">IP</field>
-            <field name="sequence">50</field>
-            <field name="description">Buku yang menyajikan ilmu pengetahuan untuk masyarakat umum</field>
-        </record>
-
-        <record id="book_type_novel" model="buku.type">
-            <field name="name">Novel</field>
-            <field name="code">NV</field>
-            <field name="sequence">60</field>
-            <field name="description">Karya sastra berupa cerita panjang dalam bentuk prosa</field>
-        </record>
-
-        <record id="book_type_poetry" model="buku.type">
-            <field name="name">Kumpulan Puisi</field>
-            <field name="code">PS</field>
-            <field name="sequence">70</field>
-            <field name="description">Kumpulan karya puisi dari satu atau beberapa penyair</field>
-        </record>
-
-        <record id="book_type_translation" model="buku.type">
-            <field name="name">Buku Terjemahan</field>
-            <field name="code">TR</field>
-            <field name="sequence">80</field>
-            <field name="description">Buku yang diterjemahkan dari bahasa asing ke bahasa Indonesia</field>
-        </record>
-
-        <record id="book_type_proceedings" model="buku.type">
-            <field name="name">Prosiding</field>
-            <field name="code">PR</field>
-            <field name="sequence">90</field>
-            <field name="description">Kumpulan makalah dari seminar, konferensi, atau simposium</field>
+            <field name="subtitle">Buku yang menyajikan ilmu pengetahuan untuk masyarakat umum</field>
+            <field name="book_scope">national</field>
+            <field name="target_audience">general</field>
+            <field name="description">
+                <![CDATA[
+                <p>Kategori untuk buku ilmiah populer yang ditujukan untuk masyarakat umum.</p>
+                ]]>
+            </field>
         </record>
 
         <!-- Default Publishers (Indonesia) -->
@@ -183,97 +152,381 @@
             <field name="name">Pengantar Ilmu Komputer</field>
             <field name="subtitle">Konsep Dasar dan Implementasi</field>
             <field name="authors">Dr. John Doe, M.Kom</field>
+            <field name="co_authors">Prof. Jane Smith, Ph.D</field>
+            <field name="editors">Dr. Ahmad Rahman, M.A</field>
             <field name="blog_id" ref="book_category_textbook"/>
-            <field name="buku_type_id" ref="book_type_textbook"/>
             <field name="publisher_id" ref="publisher_ui_press"/>
             <field name="publication_year">2023</field>
+            <field name="publication_month">3</field>
+            <field name="publication_date">2023-03-15</field>
             <field name="isbn">978-602-386-123-4</field>
+            <field name="doi">10.1234/comp.intro.2023</field>
+            <field name="dewey_classification">004</field>
             <field name="pages">350</field>
+            <field name="edition">Edisi Pertama</field>
             <field name="language">id</field>
             <field name="scientific_field">computer_science</field>
+            <field name="academic_level">undergraduate</field>
+            <field name="subject">Ilmu Komputer Dasar</field>
+            <field name="keywords">ilmu komputer, algoritma, pemrograman, basis data</field>
             <field name="book_url">https://example.com/book1</field>
             <field name="status">published</field>
             <field name="is_published">True</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Buku Terbaik Kategori Pendidikan 2023</field>
+            <field name="citation_count">45</field>
+            <field name="print_run">2000</field>
+            <field name="teaser">Buku ini membahas konsep dasar ilmu komputer dan implementasinya dalam kehidupan sehari-hari dengan pendekatan praktis.</field>
             <field name="content">
                 <![CDATA[
-                <p>Buku ini membahas konsep dasar ilmu komputer dan implementasinya dalam kehidupan sehari-hari.</p>
+                <p>Buku ini membahas konsep dasar ilmu komputer dan implementasinya dalam kehidupan sehari-hari. Dimulai dari pengenalan komponen komputer, sistem operasi, hingga bahasa pemrograman dasar.</p>
+                <p>Bab-bab dalam buku ini meliputi:</p>
+                <ul>
+                    <li>Pengenalan Ilmu Komputer</li>
+                    <li>Arsitektur Komputer</li>
+                    <li>Sistem Operasi</li>
+                    <li>Jaringan Komputer</li>
+                    <li>Basis Data</li>
+                    <li>Pemrograman Dasar</li>
+                </ul>
                 ]]>
             </field>
             <field name="slug">pengantar-ilmu-komputer</field>
             <field name="meta_title">Pengantar Ilmu Komputer - Konsep Dasar dan Implementasi</field>
             <field name="meta_description">Buku panduan lengkap untuk mempelajari konsep dasar ilmu komputer dan implementasinya</field>
+            <field name="meta_keywords">ilmu komputer, pendidikan, pemrograman, algoritma</field>
         </record>
 
         <record id="sample_book_2" model="buku.post">
             <field name="name">Metodologi Penelitian Kualitatif</field>
             <field name="authors">Prof. Jane Smith, Ph.D</field>
             <field name="co_authors">Dr. Ahmad Rahman, M.A</field>
+            <field name="editors">Dr. Sari Indah, M.Si, Prof. Bambang Wicaksono, Ph.D</field>
             <field name="blog_id" ref="book_category_monograph"/>
-            <field name="buku_type_id" ref="book_type_monograph"/>
             <field name="publisher_id" ref="publisher_gramedia"/>
             <field name="publication_year">2024</field>
+            <field name="publication_month">6</field>
+            <field name="publication_date">2024-06-20</field>
             <field name="isbn">978-602-03-456-7</field>
+            <field name="doi">10.5678/qual.research.2024</field>
+            <field name="dewey_classification">300.72</field>
             <field name="pages">280</field>
+            <field name="edition">Edisi Kedua, Revisi</field>
             <field name="language">id</field>
             <field name="scientific_field">social_science</field>
+            <field name="academic_level">graduate</field>
+            <field name="subject">Metodologi Penelitian</field>
+            <field name="keywords">penelitian kualitatif, metodologi, analisis data, studi kasus</field>
             <field name="book_url">https://example.com/book2</field>
             <field name="status">published</field>
             <field name="is_published">True</field>
+            <field name="citation_count">78</field>
+            <field name="print_run">1500</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Buku Terbaik Metodologi Penelitian 2024</field>
+            <field name="teaser">Panduan komprehensif untuk melakukan penelitian kualitatif dalam berbagai bidang ilmu sosial dengan metodologi terkini.</field>
             <field name="content">
                 <![CDATA[
-                <p>Panduan komprehensif untuk melakukan penelitian kualitatif dalam berbagai bidang ilmu sosial.</p>
+                <p>Panduan komprehensif untuk melakukan penelitian kualitatif dalam berbagai bidang ilmu sosial. Buku ini mencakup teori dan praktik penelitian kualitatif secara mendalam.</p>
+                <p>Materi yang dibahas:</p>
+                <ul>
+                    <li>Paradigma Penelitian Kualitatif</li>
+                    <li>Desain Penelitian Kualitatif</li>
+                    <li>Teknik Pengumpulan Data</li>
+                    <li>Analisis Data Kualitatif</li>
+                    <li>Validitas dan Reliabilitas</li>
+                    <li>Etika Penelitian</li>
+                </ul>
                 ]]>
             </field>
             <field name="slug">metodologi-penelitian-kualitatif</field>
             <field name="meta_title">Metodologi Penelitian Kualitatif - Panduan Lengkap</field>
             <field name="meta_description">Buku panduan lengkap metodologi penelitian kualitatif untuk mahasiswa dan peneliti</field>
+            <field name="meta_keywords">penelitian kualitatif, metodologi, ilmu sosial, analisis data</field>
         </record>
 
         <record id="sample_book_3" model="buku.post">
             <field name="name">Artificial Intelligence untuk Pemula</field>
             <field name="authors">Dr. Sarah Wilson</field>
+            <field name="co_authors">Prof. David Chen, Ph.D</field>
+            <field name="editors">Prof. Michael Chen, Ph.D</field>
             <field name="blog_id" ref="book_category_textbook"/>
-            <field name="buku_type_id" ref="book_type_textbook"/>
             <field name="publisher_id" ref="publisher_andi"/>
             <field name="publication_year">2024</field>
+            <field name="publication_month">9</field>
+            <field name="publication_date">2024-09-10</field>
             <field name="isbn">978-979-29-456-8</field>
+            <field name="doi">10.9012/ai.beginners.2024</field>
+            <field name="dewey_classification">006.3</field>
             <field name="pages">420</field>
+            <field name="edition">Edisi Pertama</field>
             <field name="language">id</field>
             <field name="scientific_field">computer_science</field>
+            <field name="academic_level">undergraduate</field>
+            <field name="subject">Kecerdasan Buatan</field>
+            <field name="keywords">kecerdasan buatan, machine learning, deep learning, neural network</field>
             <field name="book_url">https://example.com/book3</field>
             <field name="status">in_press</field>
             <field name="is_published">True</field>
+            <field name="citation_count">23</field>
+            <field name="print_run">3000</field>
+            <field name="teaser">Buku panduan praktis untuk memahami dasar-dasar kecerdasan buatan dan penerapannya dalam berbagai bidang.</field>
             <field name="content">
                 <![CDATA[
-                <p>Buku panduan praktis untuk memahami dasar-dasar kecerdasan buatan dan penerapannya.</p>
+                <p>Buku panduan praktis untuk memahami dasar-dasar kecerdasan buatan dan penerapannya. Ditulis dengan bahasa yang mudah dipahami untuk pemula.</p>
+                <p>Bab-bab utama:</p>
+                <ul>
+                    <li>Pengenalan AI</li>
+                    <li>Machine Learning Dasar</li>
+                    <li>Deep Learning</li>
+                    <li>Computer Vision</li>
+                    <li>Natural Language Processing</li>
+                    <li>AI Ethics</li>
+                    <li>Implementasi AI</li>
+                </ul>
                 ]]>
             </field>
             <field name="slug">artificial-intelligence-untuk-pemula</field>
             <field name="meta_title">Artificial Intelligence untuk Pemula - Panduan Praktis AI</field>
             <field name="meta_description">Buku panduan praktis untuk memahami dan menerapkan kecerdasan buatan</field>
+            <field name="meta_keywords">kecerdasan buatan, AI, machine learning, deep learning</field>
         </record>
 
         <record id="sample_book_4" model="buku.post">
             <field name="name">Manajemen Proyek Digital</field>
             <field name="authors">Prof. Michael Brown</field>
+            <field name="co_authors">Dr. Lisa Johnson, MBA</field>
+            <field name="editors">Dr. Kevin Hart, Ph.D, Dr. Maria Rodriguez, MBA</field>
             <field name="blog_id" ref="book_category_reference"/>
-            <field name="buku_type_id" ref="book_type_handbook"/>
             <field name="publisher_id" ref="publisher_erlangga"/>
             <field name="publication_year">2024</field>
+            <field name="publication_month">11</field>
+            <field name="publication_date">2024-11-05</field>
+            <field name="isbn">978-602-8123-456-1</field>
+            <field name="issn">2345-6789</field>
+            <field name="doi">10.3456/project.mgmt.2024</field>
+            <field name="dewey_classification">658.404</field>
             <field name="pages">300</field>
+            <field name="edition">Edisi Pertama</field>
             <field name="language">id</field>
             <field name="scientific_field">management</field>
+            <field name="academic_level">professional</field>
+            <field name="subject">Manajemen Proyek</field>
+            <field name="keywords">manajemen proyek, digital transformation, agile, scrum, project management</field>
             <field name="book_url">https://example.com/book4</field>
             <field name="status">draft</field>
             <field name="is_published">False</field>
+            <field name="citation_count">12</field>
+            <field name="print_run">1000</field>
+            <field name="teaser">Panduan lengkap manajemen proyek di era digital dengan metodologi terkini dan tools modern.</field>
             <field name="content">
                 <![CDATA[
-                <p>Panduan lengkap manajemen proyek di era digital dengan metodologi terkini.</p>
+                <p>Panduan lengkap manajemen proyek di era digital dengan metodologi terkini. Buku ini membahas transformasi digital dalam manajemen proyek.</p>
+                <p>Konten utama:</p>
+                <ul>
+                    <li>Konsep Manajemen Proyek Modern</li>
+                    <li>Digital Tools untuk Project Management</li>
+                    <li>Agile dan Scrum Methodology</li>
+                    <li>Risk Management di Era Digital</li>
+                    <li>Project Communication</li>
+                    <li>Case Studies</li>
+                </ul>
                 ]]>
             </field>
             <field name="slug">manajemen-proyek-digital</field>
             <field name="meta_title">Manajemen Proyek Digital - Panduan Era Digital</field>
             <field name="meta_description">Panduan lengkap manajemen proyek menggunakan metodologi digital terkini</field>
+            <field name="meta_keywords">manajemen proyek, digital, agile, scrum, project management</field>
+        </record>
+
+        <record id="sample_book_5" model="buku.post">
+            <field name="name">Bunga Rampai Pendidikan Matematika</field>
+            <field name="authors">Dr. Budi Santoso, M.Pd</field>
+            <field name="co_authors">Prof. Rina Sari, Ph.D</field>
+            <field name="editors">Prof. Rina Sari, Ph.D, Dr. Ahmad Hidayat, M.Pd</field>
+            <field name="blog_id" ref="book_category_reference"/>
+            <field name="publisher_id" ref="publisher_ugm_press"/>
+            <field name="publication_year">2023</field>
+            <field name="publication_month">5</field>
+            <field name="publication_date">2023-05-25</field>
+            <field name="isbn">978-602-386-789-0</field>
+            <field name="issn">1234-5678</field>
+            <field name="dewey_classification">510.71</field>
+            <field name="pages">450</field>
+            <field name="edition">Edisi Pertama</field>
+            <field name="language">id</field>
+            <field name="scientific_field">mathematics</field>
+            <field name="academic_level">professional</field>
+            <field name="subject">Pendidikan Matematika</field>
+            <field name="keywords">pendidikan matematika, pembelajaran, kurikulum, metodologi pengajaran</field>
+            <field name="book_url">https://example.com/book5</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">67</field>
+            <field name="print_run">800</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Buku Terbaik Pendidikan Matematika 2023</field>
+            <field name="teaser">Kumpulan artikel terbaru tentang inovasi dalam pendidikan matematika dari berbagai ahli pendidikan.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Kumpulan artikel terbaru tentang inovasi dalam pendidikan matematika. Buku ini berisi kontribusi dari berbagai dosen dan peneliti pendidikan matematika.</p>
+                <p>Artikel dalam buku ini mencakup:</p>
+                <ul>
+                    <li>Reformasi Kurikulum Matematika</li>
+                    <li>Pembelajaran Matematika Berbasis Proyek</li>
+                    <li>Teknologi dalam Pembelajaran Matematika</li>
+                    <li>Penilaian Pembelajaran Matematika</li>
+                    <li>Matematika untuk Kehidupan Sehari-hari</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">bunga-rampai-pendidikan-matematika</field>
+            <field name="meta_title">Bunga Rampai Pendidikan Matematika - Inovasi Pembelajaran</field>
+            <field name="meta_description">Kumpulan artikel inovasi dalam pendidikan matematika dari para ahli</field>
+            <field name="meta_keywords">pendidikan matematika, pembelajaran, kurikulum, inovasi</field>
+        </record>
+
+        <record id="sample_book_6" model="buku.post">
+            <field name="name">Kimia Organik Dasar</field>
+            <field name="authors">Prof. Siti Nurhaliza, Ph.D</field>
+            <field name="co_authors">Dr. Rahman Hakim, M.Si</field>
+            <field name="editors">Prof. Ahmad Zaki, M.Si, Dr. Laila Nur, Ph.D</field>
+            <field name="blog_id" ref="book_category_textbook"/>
+            <field name="publisher_id" ref="publisher_itb_press"/>
+            <field name="publication_year">2024</field>
+            <field name="publication_month">2</field>
+            <field name="publication_date">2024-02-14</field>
+            <field name="isbn">978-623-123-456-7</field>
+            <field name="doi">10.7890/org.chem.2024</field>
+            <field name="dewey_classification">547</field>
+            <field name="pages">520</field>
+            <field name="edition">Edisi Ketiga, Revisi</field>
+            <field name="language">id</field>
+            <field name="scientific_field">chemistry</field>
+            <field name="academic_level">undergraduate</field>
+            <field name="subject">Kimia Organik</field>
+            <field name="keywords">kimia organik, struktur molekul, reaksi organik, spektroskopi</field>
+            <field name="book_url">https://example.com/book6</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Buku Terbaik Bidang Kimia 2024</field>
+            <field name="citation_count">89</field>
+            <field name="print_run">2500</field>
+            <field name="teaser">Buku teks komprehensif kimia organik untuk mahasiswa S1 dengan pendekatan modern dan praktis.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Buku teks komprehensif kimia organik untuk mahasiswa S1. Menggunakan pendekatan modern dengan teknologi terbaru dalam pembelajaran kimia organik.</p>
+                <p>Bab-bab pokok:</p>
+                <ul>
+                    <li>Struktur dan Ikatan Molekul Organik</li>
+                    <li>Reaksi Substitusi dan Eliminasi</li>
+                    <li>Reaksi Adisi</li>
+                    <li>Senyawa Aromatik</li>
+                    <li>Spektroskopi Organik</li>
+                    <li>Sintesis Organik</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">kimia-organik-dasar</field>
+            <field name="meta_title">Kimia Organik Dasar - Buku Teks Lengkap</field>
+            <field name="meta_description">Buku teks komprehensif kimia organik untuk mahasiswa dengan pendekatan modern</field>
+            <field name="meta_keywords">kimia organik, molekul, reaksi, spektroskopi, sintesis</field>
+        </record>
+
+        <record id="sample_book_7" model="buku.post">
+            <field name="name">Psikologi Pendidikan</field>
+            <field name="authors">Dr. Maya Sari, M.Psi</field>
+            <field name="co_authors">Prof. Hendro Wicaksono, Ph.D</field>
+            <field name="editors">Prof. Hendro Wicaksono, Ph.D, Dr. Sari Dewi, M.Psi</field>
+            <field name="blog_id" ref="book_category_textbook"/>
+            <field name="publisher_id" ref="publisher_ui_press"/>
+            <field name="publication_year">2023</field>
+            <field name="publication_month">8</field>
+            <field name="publication_date">2023-08-18</field>
+            <field name="isbn">978-602-8123-789-4</field>
+            <field name="doi">10.1111/edu.psych.2023</field>
+            <field name="dewey_classification">370.15</field>
+            <field name="pages">380</field>
+            <field name="edition">Edisi Kedua</field>
+            <field name="language">id</field>
+            <field name="scientific_field">psychology</field>
+            <field name="academic_level">undergraduate</field>
+            <field name="subject">Psikologi Pendidikan</field>
+            <field name="keywords">psikologi pendidikan, pembelajaran, motivasi, kecerdasan, perkembangan anak</field>
+            <field name="book_url">https://example.com/book7</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">134</field>
+            <field name="print_run">1800</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Buku Terbaik Psikologi Pendidikan 2023</field>
+            <field name="teaser">Panduan lengkap psikologi pendidikan untuk calon guru dan praktisi pendidikan.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Panduan lengkap psikologi pendidikan untuk calon guru dan praktisi pendidikan. Membahas aspek psikologis dalam proses pembelajaran dan pengajaran.</p>
+                <p>Materi yang dicakup:</p>
+                <ul>
+                    <li>Psikologi Perkembangan Anak</li>
+                    <li>Teori Pembelajaran</li>
+                    <li>Motivasi Belajar</li>
+                    <li>Kecerdasan dan Bakat</li>
+                    <li>Psikologi Guru</li>
+                    <li>Evaluasi Pembelajaran</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">psikologi-pendidikan</field>
+            <field name="meta_title">Psikologi Pendidikan - Panduan Lengkap untuk Guru</field>
+            <field name="meta_description">Buku panduan psikologi pendidikan untuk calon guru dan praktisi pendidikan</field>
+            <field name="meta_keywords">psikologi pendidikan, pembelajaran, motivasi, kecerdasan</field>
+        </record>
+
+        <record id="sample_book_8" model="buku.post">
+            <field name="name">Hukum Bisnis Internasional</field>
+            <field name="authors">Prof. Ahmad Faisal, SH, LLM</field>
+            <field name="co_authors">Dr. Nina Putri, SH, MH</field>
+            <field name="editors">Prof. Budi Santoso, SH, Dr. Maya Sari, SH</field>
+            <field name="blog_id" ref="book_category_reference"/>
+            <field name="publisher_id" ref="publisher_lipi"/>
+            <field name="publication_year">2024</field>
+            <field name="publication_month">7</field>
+            <field name="publication_date">2024-07-30</field>
+            <field name="isbn">978-623-456-789-1</field>
+            <field name="issn">3456-7890</field>
+            <field name="doi">10.2222/intl.business.law.2024</field>
+            <field name="dewey_classification">341.75</field>
+            <field name="pages">480</field>
+            <field name="edition">Edisi Pertama</field>
+            <field name="language">id</field>
+            <field name="scientific_field">law</field>
+            <field name="academic_level">graduate</field>
+            <field name="subject">Hukum Bisnis Internasional</field>
+            <field name="keywords">hukum bisnis, internasional, kontrak, arbitrase, WTO</field>
+            <field name="book_url">https://example.com/book8</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">56</field>
+            <field name="print_run">1200</field>
+            <field name="teaser">Referensi komprehensif hukum bisnis internasional dengan analisis kasus terkini.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Referensi komprehensif hukum bisnis internasional dengan analisis kasus terkini. Buku ini membahas aspek hukum dalam perdagangan internasional.</p>
+                <p>Bab-bab penting:</p>
+                <ul>
+                    <li>Prinsip Hukum Bisnis Internasional</li>
+                    <li>Kontrak Internasional</li>
+                    <li>Hak Kekayaan Intelektual</li>
+                    <li>Arbitrase dan Penyelesaian Sengketa</li>
+                    <li>Hukum WTO</li>
+                    <li>Kasus-Kasus Terkini</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">hukum-bisnis-internasional</field>
+            <field name="meta_title">Hukum Bisnis Internasional - Referensi Lengkap</field>
+            <field name="meta_description">Referensi komprehensif hukum bisnis internasional dengan analisis kasus</field>
+            <field name="meta_keywords">hukum bisnis, internasional, kontrak, arbitrase, WTO</field>
         </record>
 
     </data>

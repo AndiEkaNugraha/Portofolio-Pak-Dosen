@@ -11,8 +11,25 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <h1 class="display-4 fw-bold">Daftar Buku</h1>
-                                    <p class="lead">Kumpulan buku yang telah dipublikasikan</p>
+                                    <h1 class="display-4 fw-bold">
+                                        <t t-if="category">
+                                            <t t-esc="category.name"/>
+                                        </t>
+                                        <t t-else="">
+                                            Daftar Buku
+                                        </t>
+                                    </h1>
+                                    <p class="lead">
+                                        <t t-if="category and category.subtitle">
+                                            <t t-esc="category.subtitle"/>
+                                        </t>
+                                        <t t-elif="category">
+                                            Kategori buku <t t-esc="category.name"/>
+                                        </t>
+                                        <t t-else="">
+                                            Kumpulan buku yang telah dipublikasikan
+                                        </t>
+                                    </p>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="card">
@@ -51,17 +68,6 @@
                                             <option t-att-value="category.id" 
                                                     t-att-selected="category_id == category.id and 'selected' or None">
                                                 <t t-esc="category.name"/>
-                                            </option>
-                                        </t>
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
-                                    <select name="book_type_id" class="form-select">
-                                        <option value="">Semua Jenis</option>
-                                        <t t-foreach="book_types" t-as="book_type">
-                                            <option t-att-value="book_type.id" 
-                                                    t-att-selected="book_type_id == book_type.id and 'selected' or None">
-                                                <t t-esc="book_type.name"/>
                                             </option>
                                         </t>
                                     </select>
@@ -119,8 +125,6 @@
                                                     
                                                     <div class="card-body d-flex flex-column">
                                                         <div class="mb-2">
-                                                            <span class="badge bg-primary me-1"><t t-esc="post.buku_type_id.name"/></span>
-                                                            
                                                             <!-- Status Badge -->
                                                             <t t-if="post.status == 'published'">
                                                                 <span class="badge bg-success me-1">
@@ -159,6 +163,12 @@
                                                         <p class="card-text text-muted small mb-2">
                                                             <strong>Penulis:</strong> <t t-esc="post.display_authors"/>
                                                         </p>
+                                                        
+                                                        <t t-if="post.blog_id">
+                                                            <p class="card-text text-muted small mb-2">
+                                                                <strong>Kategori:</strong> <t t-esc="post.blog_id.name"/>
+                                                            </p>
+                                                        </t>
                                                         
                                                         <t t-if="post.publisher_id or post.publisher_name">
                                                             <p class="card-text text-muted small mb-2">
@@ -226,6 +236,11 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                                         <li class="breadcrumb-item"><a href="/buku">Buku</a></li>
+                                        <t t-if="post.blog_id">
+                                            <li class="breadcrumb-item">
+                                                <span class="text-muted"><t t-esc="post.blog_id.name"/></span>
+                                            </li>
+                                        </t>
                                         <li class="breadcrumb-item active" aria-current="page"><t t-esc="post.name"/></li>
                                     </ol>
                                 </nav>
@@ -262,8 +277,6 @@
                             <!-- Book Details -->
                             <div class="col-lg-8">
                                 <div class="mb-3">
-                                    <span class="badge bg-primary me-2"><t t-esc="post.buku_type_id.name"/></span>
-                                    
                                     <!-- Status Badge -->
                                     <t t-if="post.status == 'published'">
                                         <span class="badge bg-success me-2">
@@ -315,8 +328,23 @@
                                             </t>
                                             <tr>
                                                 <td><strong>Penerbit:</strong></td>
-                                                <td><t t-esc="post.publisher_id.name or post.publisher_name"/></td>
+                                                <td>
+                                                    <t t-if="post.publisher_id and post.publisher_id.website">
+                                                        <a t-att-href="post.publisher_id.website" target="_blank">
+                                                            <t t-esc="post.publisher_id.name"/>
+                                                        </a>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <t t-esc="post.publisher_id.name or post.publisher_name"/>
+                                                    </t>
+                                                </td>
                                             </tr>
+                                            <t t-if="post.blog_id">
+                                                <tr>
+                                                    <td><strong>Kategori Buku:</strong></td>
+                                                    <td><t t-esc="post.blog_id.name"/></td>
+                                                </tr>
+                                            </t>
                                             <tr>
                                                 <td><strong>Tahun Terbit:</strong></td>
                                                 <td><t t-esc="post.publication_year"/></td>
@@ -327,10 +355,18 @@
                                                     <td><t t-esc="post.pages"/> halaman</td>
                                                 </tr>
                                             </t>
-                                        </table>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <table class="table table-borderless">
+                                            <t t-if="post.citation_count">
+                                                <tr>
+                                                    <td><strong>Jumlah Sitasi:</strong></td>
+                                                    <td><t t-esc="post.citation_count"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.print_run">
+                                                <tr>
+                                                    <td><strong>Oplah Cetak:</strong></td>
+                                                    <td><t t-esc="post.print_run"/> eksemplar</td>
+                                                </tr>
+                                            </t>
                                             <t t-if="post.isbn">
                                                 <tr>
                                                     <td><strong>ISBN:</strong></td>
@@ -346,9 +382,17 @@
                                             <t t-if="post.doi">
                                                 <tr>
                                                     <td><strong>DOI:</strong></td>
-                                                    <td><t t-esc="post.doi"/></td>
+                                                    <td>
+                                                        <a t-att-href="'https://doi.org/' + post.doi" target="_blank">
+                                                            <t t-esc="post.doi"/>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             </t>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
                                             <tr>
                                                 <td><strong>Bahasa:</strong></td>
                                                 <td>
@@ -364,17 +408,57 @@
                                                     <td><t t-esc="post.edition"/></td>
                                                 </tr>
                                             </t>
+                                            <t t-if="post.subject">
+                                                <tr>
+                                                    <td><strong>Subjek:</strong></td>
+                                                    <td><t t-esc="post.subject"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.blog_id and post.blog_id.book_scope">
+                                                <tr>
+                                                    <td><strong>Cakupan Publikasi:</strong></td>
+                                                    <td><t t-esc="post.blog_id.book_scope"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.blog_id and post.blog_id.target_audience">
+                                                <tr>
+                                                    <td><strong>Target Pembaca:</strong></td>
+                                                    <td><t t-esc="post.blog_id.target_audience"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.academic_level">
+                                                <tr>
+                                                    <td><strong>Tingkat Akademik:</strong></td>
+                                                    <td>
+                                                        <t t-if="post.academic_level == 'elementary'">SD/MI</t>
+                                                        <t t-elif="post.academic_level == 'junior_high'">SMP/MTs</t>
+                                                        <t t-elif="post.academic_level == 'senior_high'">SMA/MA/SMK</t>
+                                                        <t t-elif="post.academic_level == 'undergraduate'">S1/Diploma</t>
+                                                        <t t-elif="post.academic_level == 'graduate'">S2</t>
+                                                        <t t-elif="post.academic_level == 'postgraduate'">S3</t>
+                                                        <t t-elif="post.academic_level == 'professional'">Profesional</t>
+                                                        <t t-elif="post.academic_level == 'general'">Umum</t>
+                                                        <t t-else=""><t t-esc="post.academic_level"/></t>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.dewey_classification">
+                                                <tr>
+                                                    <td><strong>Klasifikasi Dewey:</strong></td>
+                                                    <td><t t-esc="post.dewey_classification"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.publication_date">
+                                                <tr>
+                                                    <td><strong>Tanggal Terbit:</strong></td>
+                                                    <td><t t-esc="post.publication_date"/></td>
+                                                </tr>
+                                            </t>
                                         </table>
                                     </div>
                                 </div>
                                 
                                 <!-- Description -->
-                                <t t-if="post.teaser">
-                                    <div class="alert alert-light">
-                                        <h5>Ringkasan</h5>
-                                        <p class="mb-0"><t t-esc="post.teaser"/></p>
-                                    </div>
-                                </t>
                                 
                                 <t t-if="post.content">
                                     <div class="mt-4">
