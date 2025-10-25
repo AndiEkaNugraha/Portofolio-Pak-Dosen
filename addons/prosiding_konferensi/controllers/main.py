@@ -109,20 +109,27 @@ class ProsidingController(http.Controller):
         """Category specific page"""
         return self.prosiding_index(page=page, search=search, category_id=category_id, **kw)
     
-    @http.route(['/prosiding/paper/<slug>-<int:post_id>', '/prosiding/paper/<int:post_id>'], 
+    @http.route(['/prosiding/paper/<slug>', '/prosiding/paper/<int:post_id>'], 
                 type='http', auth="public", website=True)
-    def prosiding_detail(self, post_id, slug=None, **kw):
+    def prosiding_detail(self, slug=None, post_id=None, **kw):
         """Individual paper detail page"""
         
         ProsidingPost = request.env['prosiding.post']
-        post = ProsidingPost.browse(post_id)
         
-        if not post.exists():
+        if slug:
+            post = ProsidingPost.search([('slug', '=', slug)], limit=1)
+            if not post:
+                return request.not_found()
+        elif post_id:
+            post = ProsidingPost.browse(post_id)
+            if not post.exists():
+                return request.not_found()
+        else:
             return request.not_found()
         
-        # SEO canonical URL redirect if slug doesn't match
+        # SEO canonical URL redirect if slug doesn't match (for fallback routes)
         if post.slug and slug != post.slug:
-            return request.redirect(f'/prosiding/paper/{post.slug}-{post_id}', code=301)
+            return request.redirect(f'/prosiding/paper/{post.slug}', code=301)
         
         # Get related papers (same conference or category)
         related_domain = [

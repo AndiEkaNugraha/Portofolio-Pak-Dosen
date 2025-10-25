@@ -9,6 +9,10 @@ class ProsidingPost(models.Model):
     _inherit = 'blog.post'
     _description = 'Entri Prosiding Konferensi'
     
+    _sql_constraints = [
+        ('slug_unique', 'unique(slug)', 'Slug must be unique!'),
+    ]
+    
     # Override fields dari blog post
     name = fields.Char('Judul Paper', required=True, translate=True)
     subtitle = fields.Char(string='Sub Judul', translate=True, help="Sub judul atau judul kecil")
@@ -126,10 +130,21 @@ class ProsidingPost(models.Model):
             if not record.slug and record.name:
                 import re
                 # Convert to lowercase and replace special characters
-                slug = record.name.lower()
-                slug = re.sub(r'[^a-z0-9\s-]', '', slug)
-                slug = re.sub(r'\s+', '-', slug)
-                slug = slug.strip('-')
+                base_slug = record.name.lower()
+                base_slug = re.sub(r'[^a-z0-9\s-]', '', base_slug)
+                base_slug = re.sub(r'\s+', '-', base_slug)
+                base_slug = base_slug.strip('-')
+                
+                # Remove trailing numbers to avoid double numbering
+                base_slug = re.sub(r'-\d+$', '', base_slug)
+                
+                # Ensure slug is unique
+                slug = base_slug
+                counter = 1
+                while self.env['prosiding.post'].search([('slug', '=', slug), ('id', '!=', record.id)], limit=1):
+                    slug = f"{base_slug}-{counter}"
+                    counter += 1
+                
                 record.slug = slug
             else:
                 record.slug = ''
@@ -138,6 +153,16 @@ class ProsidingPost(models.Model):
             # Kalau user mengubah slug secara manual, simpan apa adanya
             if record.slug:
                 record.slug = record.slug.strip().lower().replace(' ', '-')
+                # Remove trailing numbers to avoid double numbering
+                import re
+                base_slug = re.sub(r'-\d+$', '', record.slug)
+                # Ensure uniqueness if manually set
+                slug = base_slug
+                counter = 1
+                while self.env['prosiding.post'].search([('slug', '=', slug), ('id', '!=', record.id)], limit=1):
+                    slug = f"{base_slug}-{counter}"
+                    counter += 1
+                record.slug = slug
 
     @api.depends('conference_date')
     def _compute_conference_year(self):
@@ -151,8 +176,8 @@ class ProsidingPost(models.Model):
     def _compute_website_url(self):
         super(ProsidingPost, self)._compute_website_url()
         for post in self:
-            if post.id and post.blog_id and post.slug:
-                post.website_url = f"/prosiding/paper/{post.slug}-{post.id}"
+            if post.slug:
+                post.website_url = f"/prosiding/paper/{post.slug}"
             elif post.id and post.blog_id:
                 post.website_url = f"/prosiding/paper/{post.id}"
     
