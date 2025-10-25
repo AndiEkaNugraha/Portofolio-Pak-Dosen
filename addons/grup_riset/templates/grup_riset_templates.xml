@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Halaman Utama Grup Riset -->
+        <template id="grup_riset_index" name="Grup Riset &amp; Laboratorium">
+            <t t-call="website.layout">
+                
+                <!-- SEO Meta Tags -->
+                <t t-set="head">
+                    <meta name="description" t-att-content="meta_description"/>
+                    <meta property="og:title" t-att-content="page_title"/>
+                    <meta property="og:description" t-att-content="meta_description"/>
+                    <meta property="og:type" content="website"/>
+                    <meta name="twitter:card" content="summary_large_image"/>
+                    <meta name="twitter:title" t-att-content="page_title"/>
+                    <meta name="twitter:description" t-att-content="meta_description"/>
+                </t>
+
+                <div class="container py-5">
+                    <!-- Header Section -->
+                    <div class="row mb-5">
+                        <div class="col-lg-8 mx-auto text-center">
+                            <h1 class="display-4 fw-bold text-primary mb-3">Grup Riset &amp; Laboratorium</h1>
+                            <p class="lead text-muted">
+                                Jelajahi berbagai grup riset dan laboratorium dengan fokus penelitian 
+                                dan inovasi teknologi terdepan
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Search and Filter -->
+                    <div class="row mb-4">
+                        <div class="col-lg-8">
+                            <form method="get" class="d-flex">
+                                <input type="text" name="search" class="form-control me-2" 
+                                       placeholder="Cari grup riset, penelitian, atau kata kunci..." 
+                                       t-att-value="search_term or ''"/>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-search"/> Cari
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" 
+                                        data-bs-toggle="dropdown">
+                                    <i class="fa fa-filter"/> Filter Kategori
+                                </button>
+                                <ul class="dropdown-menu w-100">
+                                    <li><a class="dropdown-item" href="/grup-riset">Semua Kategori</a></li>
+                                    <t t-foreach="categories" t-as="category">
+                                        <li>
+                                            <a class="dropdown-item" 
+                                               t-att-href="'/grup-riset?category=' + category.name"
+                                               t-esc="category.name"/>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Main Content -->
+                        <div class="col-lg-9">
+                            <t t-if="posts">
+                                <div class="row">
+                                    <t t-foreach="posts" t-as="post">
+                                        <div class="col-lg-6 col-md-6 mb-4">
+                                            <div class="card h-100 shadow-sm border-0">
+                                                <t t-if="post.group_photo">
+                                                    <img t-att-src="'/web/image/grup.riset.post/' + str(post.id) + '/group_photo'" 
+                                                         class="card-img-top" style="height: 200px; object-fit: cover;"
+                                                         t-att-alt="post.name"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" 
+                                                         style="height: 200px;">
+                                                        <i class="fa fa-users fa-3x text-muted"/>
+                                                    </div>
+                                                </t>
+                                                
+                                                <div class="card-body d-flex flex-column">
+                                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                                        <span class="badge bg-primary text-white" t-esc="post.blog_id.name"/>
+                                                        <t t-if="post.is_featured">
+                                                            <span class="badge bg-warning text-dark">
+                                                                <i class="fa fa-star"/> Unggulan
+                                                            </span>
+                                                        </t>
+                                                    </div>
+                                                    
+                                                    <h5 class="card-title">
+                                                        <a t-att-href="'/grup-riset/' + post.slug" 
+                                                           class="text-decoration-none text-dark"
+                                                           t-esc="post.name"/>
+                                                    </h5>
+                                                    
+                                                    <div class="mb-2">
+                                                        <small class="text-muted">
+                                                            <i class="fa fa-user"/> <t t-esc="post.leader_name"/>
+                                                            <t t-if="post.established_year">
+                                                                | <i class="fa fa-calendar"/> <t t-esc="post.established_year"/>
+                                                            </t>
+                                                        </small>
+                                                    </div>
+                                                    
+                                                    <p class="card-text text-muted mb-3" t-esc="post.teaser[:150] + '...' if post.teaser and len(post.teaser) > 150 else post.teaser"/>
+                                                    
+                                                    <div class="mb-3">
+                                                        <small class="text-primary">
+                                                            <i class="fa fa-users"/> <t t-esc="post.total_members"/> Anggota
+                                                            <t t-if="post.total_students">
+                                                                | <i class="fa fa-graduation-cap"/> <t t-esc="post.total_students"/> Mahasiswa
+                                                            </t>
+                                                        </small>
+                                                    </div>
+                                                    
+                                                    <div class="mt-auto">
+                                                        <a t-att-href="'/grup-riset/' + post.slug" 
+                                                           class="btn btn-outline-primary btn-sm">
+                                                            Lihat Detail <i class="fa fa-arrow-right"/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                                
+                                <!-- Pagination -->
+                                <t t-if="pager">
+                                    <div class="d-flex justify-content-center mt-4">
+                                        <t t-call="website.pager"/>
+                                    </div>
+                                </t>
+                            </t>
+                            
+                            <t t-else="">
+                                <div class="text-center py-5">
+                                    <i class="fa fa-search fa-3x text-muted mb-3"/>
+                                    <h4 class="text-muted">Grup Riset Tidak Ditemukan</h4>
+                                    <p class="text-muted">
+                                        <t t-if="search_term">
+                                            Tidak ada grup riset yang cocok dengan pencarian "<strong t-esc="search_term"/>".
+                                        </t>
+                                        <t t-else="">
+                                            Belum ada grup riset yang dipublikasikan.
+                                        </t>
+                                    </p>
+                                    <a href="/grup-riset" class="btn btn-primary">Lihat Semua</a>
+                                </div>
+                            </t>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="col-lg-3">
+                            <!-- Featured Posts -->
+                            <t t-if="featured_posts">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-primary text-white">
+                                        <h6 class="mb-0"><i class="fa fa-star"/> Grup Riset Unggulan</h6>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <t t-foreach="featured_posts" t-as="featured">
+                                            <div class="p-3 border-bottom">
+                                                <h6 class="mb-1">
+                                                    <a t-att-href="'/grup-riset/' + featured.slug" 
+                                                       class="text-decoration-none"
+                                                       t-esc="featured.name"/>
+                                                </h6>
+                                                <small class="text-muted" t-esc="featured.leader_name"/>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <!-- Categories -->
+                            <div class="card">
+                                <div class="card-header bg-secondary text-white">
+                                    <h6 class="mb-0"><i class="fa fa-list"/> Kategori</h6>
+                                </div>
+                                <div class="card-body p-0">
+                                    <t t-foreach="categories" t-as="category">
+                                        <a href="#" class="list-group-item list-group-item-action border-0">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span t-esc="category.name"/>
+                                                <span class="badge bg-light text-dark" t-esc="category.post_count"/>
+                                            </div>
+                                        </a>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </t>
+        </template>
+
+        <!-- Halaman Detail Grup Riset -->
+        <template id="grup_riset_detail" name="Detail Grup Riset">
+            <t t-call="website.layout">
+                
+                <!-- SEO Meta Tags -->
+                <t t-set="head">
+                    <meta name="description" t-att-content="meta_description"/>
+                    <meta name="keywords" t-att-content="meta_keywords"/>
+                    <meta property="og:title" t-att-content="page_title"/>
+                    <meta property="og:description" t-att-content="meta_description"/>
+                    <meta property="og:type" content="article"/>
+                    <meta name="twitter:card" content="summary_large_image"/>
+                    <meta name="twitter:title" t-att-content="page_title"/>
+                    <meta name="twitter:description" t-att-content="meta_description"/>
+                </t>
+
+                <div class="container py-5">
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb" class="mb-4">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="/grup-riset">Grup Riset</a></li>
+                            <li class="breadcrumb-item active" t-esc="post.name"/>
+                        </ol>
+                    </nav>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Header -->
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="badge bg-primary me-2" t-esc="post.blog_id.name"/>
+                                    <t t-if="post.is_featured">
+                                        <span class="badge bg-warning text-dark">
+                                            <i class="fa fa-star"/> Unggulan
+                                        </span>
+                                    </t>
+                                </div>
+                                
+                                <h1 class="display-5 fw-bold mb-3" t-esc="post.name"/>
+                                <t t-if="post.subtitle">
+                                    <p class="lead text-muted mb-3" t-esc="post.subtitle"/>
+                                </t>
+                                
+                                <div class="d-flex flex-wrap align-items-center text-muted mb-4">
+                                    <div class="me-4 mb-2">
+                                        <i class="fa fa-user"/> <strong t-esc="post.leader_name"/>
+                                        <t t-if="post.leader_title"> (<t t-esc="post.leader_title"/>)</t>
+                                    </div>
+                                    <t t-if="post.established_year">
+                                        <div class="me-4 mb-2">
+                                            <i class="fa fa-calendar"/> Didirikan <strong t-esc="post.established_year"/>
+                                        </div>
+                                    </t>
+                                    <div class="me-4 mb-2">
+                                        <i class="fa fa-users"/> <strong t-esc="post.total_members"/> Anggota
+                                    </div>
+                                    <t t-if="post.total_students">
+                                        <div class="mb-2">
+                                            <i class="fa fa-graduation-cap"/> <strong t-esc="post.total_students"/> Mahasiswa
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Group Photo -->
+                            <t t-if="post.group_photo">
+                                <div class="mb-4">
+                                    <img t-att-src="'/web/image/grup.riset.post/' + str(post.id) + '/group_photo'" 
+                                         class="img-fluid rounded shadow" 
+                                         t-att-alt="post.name"/>
+                                </div>
+                            </t>
+
+                            <!-- Research Focus -->
+                            <div class="mb-5">
+                                <h3 class="h4 mb-3"><i class="fa fa-flask text-primary"/> Fokus Penelitian</h3>
+                                <div class="bg-light p-4 rounded">
+                                    <t t-if="post.research_focus">
+                                        <p t-esc="post.research_focus"/>
+                                    </t>
+                                    <t t-if="post.research_keywords">
+                                        <div class="mt-3">
+                                            <strong>Kata Kunci:</strong>
+                                            <t t-foreach="post.research_keywords.split(',')" t-as="keyword">
+                                                <span class="badge bg-secondary me-1 mb-1" t-esc="keyword.strip()"/>
+                                            </t>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <t t-if="post.description">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-info-circle text-primary"/> Tentang Grup Riset</h3>
+                                    <div t-field="post.description"/>
+                                </div>
+                            </t>
+
+                            <!-- Team Members -->
+                            <div class="mb-5">
+                                <h3 class="h4 mb-3"><i class="fa fa-users text-primary"/> Tim Peneliti</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Ketua/Pembimbing</h6>
+                                        <p><strong t-esc="post.leader_name"/></p>
+                                        
+                                        <t t-if="post.co_leaders">
+                                            <h6>Pembimbing Pendamping</h6>
+                                            <t t-foreach="post.co_leaders.split('\n')" t-as="co_leader">
+                                                <t t-if="co_leader.strip()">
+                                                    <p class="mb-1" t-esc="co_leader.strip()"/>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <t t-if="post.team_members">
+                                            <h6>Anggota Tim</h6>
+                                            <t t-foreach="post.team_members.split('\n')" t-as="member">
+                                                <t t-if="member.strip()">
+                                                    <p class="mb-1" t-esc="member.strip()"/>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </div>
+                                </div>
+                                
+                                <!-- Students -->
+                                <t t-if="post.phd_students or post.master_students or post.undergrad_students">
+                                    <h6 class="mt-4">Mahasiswa Terlibat</h6>
+                                    <div class="row">
+                                        <t t-if="post.phd_students">
+                                            <div class="col-md-4">
+                                                <strong>S3:</strong>
+                                                <t t-foreach="post.phd_students.split('\n')" t-as="student">
+                                                    <t t-if="student.strip()">
+                                                        <p class="mb-1 small" t-esc="student.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                        <t t-if="post.master_students">
+                                            <div class="col-md-4">
+                                                <strong>S2:</strong>
+                                                <t t-foreach="post.master_students.split('\n')" t-as="student">
+                                                    <t t-if="student.strip()">
+                                                        <p class="mb-1 small" t-esc="student.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                        <t t-if="post.undergrad_students">
+                                            <div class="col-md-4">
+                                                <strong>S1:</strong>
+                                                <t t-foreach="post.undergrad_students.split('\n')" t-as="student">
+                                                    <t t-if="student.strip()">
+                                                        <p class="mb-1 small" t-esc="student.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <!-- Facilities -->
+                            <t t-if="post.facilities or post.equipment_list">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-cogs text-primary"/> Fasilitas &amp; Peralatan</h3>
+                                    
+                                    <t t-if="post.lab_photos">
+                                        <div class="mb-3">
+                                            <img t-att-src="'/web/image/grup.riset.post/' + str(post.id) + '/lab_photos'" 
+                                                 class="img-fluid rounded shadow-sm" 
+                                                 alt="Foto Laboratorium"/>
+                                        </div>
+                                    </t>
+                                    
+                                    <t t-if="post.facilities">
+                                        <div t-field="post.facilities"/>
+                                    </t>
+                                    
+                                    <t t-if="post.equipment_list">
+                                        <h6 class="mt-3">Peralatan Utama:</h6>
+                                        <ul>
+                                            <t t-foreach="post.equipment_list.split('\n')" t-as="equipment">
+                                                <t t-if="equipment.strip()">
+                                                    <li t-esc="equipment.strip()"/>
+                                                </t>
+                                            </t>
+                                        </ul>
+                                    </t>
+                                </div>
+                            </t>
+
+                            <!-- Contact -->
+                            <div class="mb-5">
+                                <h3 class="h4 mb-3"><i class="fa fa-envelope text-primary"/> Kontak</h3>
+                                <div class="bg-light p-4 rounded">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <t t-if="post.contact_email">
+                                                <p><i class="fa fa-envelope"/> <a t-att-href="'mailto:' + post.contact_email" t-esc="post.contact_email"/></p>
+                                            </t>
+                                            <t t-if="post.contact_person">
+                                                <p><i class="fa fa-user"/> <t t-esc="post.contact_person"/></p>
+                                            </t>
+                                            <t t-if="post.lab_space">
+                                                <p><i class="fa fa-map-marker"/> <t t-esc="post.lab_space"/></p>
+                                            </t>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <t t-if="post.website_url">
+                                                <p><i class="fa fa-globe"/> <a t-att-href="post.website_url" target="_blank">Website Grup</a></p>
+                                            </t>
+                                            <t t-if="post.social_media">
+                                                <p><i class="fa fa-share-alt"/> <a t-att-href="post.social_media" target="_blank">Media Sosial</a></p>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="col-lg-4">
+                            <!-- Quick Info -->
+                            <div class="card mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="fa fa-info-circle"/> Info Singkat</h6>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-sm table-borderless mb-0">
+                                        <tr>
+                                            <td><strong>Kategori</strong></td>
+                                            <td t-esc="post.blog_id.name"/>
+                                        </tr>
+                                        <t t-if="post.established_year">
+                                            <tr>
+                                                <td><strong>Didirikan</strong></td>
+                                                <td t-esc="post.established_year"/>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td><strong>Anggota</strong></td>
+                                            <td><t t-esc="post.total_members"/> orang</td>
+                                        </tr>
+                                        <t t-if="post.total_students">
+                                            <tr>
+                                                <td><strong>Mahasiswa</strong></td>
+                                                <td><t t-esc="post.total_students"/> orang</td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Related Posts -->
+                            <t t-if="related_posts">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-secondary text-white">
+                                        <h6 class="mb-0"><i class="fa fa-list"/> Grup Riset Terkait</h6>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <t t-foreach="related_posts" t-as="related">
+                                            <div class="p-3 border-bottom">
+                                                <h6 class="mb-1">
+                                                    <a t-att-href="'/grup-riset/' + related.slug" 
+                                                       class="text-decoration-none"
+                                                       t-esc="related.name"/>
+                                                </h6>
+                                                <small class="text-muted" t-esc="related.leader_name"/>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <!-- Share -->
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="fa fa-share"/> Bagikan</h6>
+                                </div>
+                                <div class="card-body text-center">
+                                    <a href="#" class="btn btn-primary btn-sm me-2 mb-2" onclick="shareToFacebook()">
+                                        <i class="fa fa-facebook"/> Facebook
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-sm me-2 mb-2" onclick="shareToTwitter()">
+                                        <i class="fa fa-twitter"/> Twitter
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-sm mb-2" onclick="shareToWhatsApp()">
+                                        <i class="fa fa-whatsapp"/> WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Share Functions -->
+                <script>
+                    function shareToFacebook() {
+                        const url = encodeURIComponent(window.location.href);
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+                    }
+                    
+                    function shareToTwitter() {
+                        const url = encodeURIComponent(window.location.href);
+                        const text = encodeURIComponent('<t t-esc="post.name"/>');
+                        window.open(`https://twitter.com/intent/tweet?url=${url}&amp;text=${text}`, '_blank');
+                    }
+                    
+                    function shareToWhatsApp() {
+                        const url = encodeURIComponent(window.location.href);
+                        const text = encodeURIComponent('<t t-esc="post.name"/>');
+                        window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+                    }
+                </script>
+
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Actions -->
+        <record id="action_produk_post" model="ir.actions.act_window">
+            <field name="name">Produk Penelitian</field>
+            <field name="res_model">produk.post</field>
+            <field name="view_mode">kanban,list,form</field>
+        </record>
+        
+        <record id="action_produk_blog" model="ir.actions.act_window">
+            <field name="name">Kategori Produk</field>
+            <field name="res_model">produk.blog</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <record id="action_produk_type" model="ir.actions.act_window">
+            <field name="name">Jenis Produk</field>
+            <field name="res_model">produk.type</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <record id="action_produk_technology" model="ir.actions.act_window">
+            <field name="name">Teknologi</field>
+            <field name="res_model">produk.technology</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <!-- Menus -->
+        <menuitem id="menu_produk_main" name="Produk Penelitian" sequence="50"/>
+        
+        <menuitem id="menu_produk_posts" name="Daftar Produk" parent="menu_produk_main" sequence="10" action="action_produk_post"/>
+        
+        <menuitem id="menu_produk_categories" name="Kategori" parent="menu_produk_main" sequence="20" action="action_produk_blog"/>
+        
+        <menuitem id="menu_produk_config" name="Konfigurasi" parent="menu_produk_main" sequence="90"/>
+        
+        <menuitem id="menu_produk_types" name="Jenis Produk" parent="menu_produk_config" sequence="10" action="action_produk_type"/>
+        
+        <menuitem id="menu_produk_technologies" name="Teknologi" parent="menu_produk_config" sequence="20" action="action_produk_technology"/>
+        
+        <!-- Website Menu -->
+        <record id="menu_produk_website" model="website.menu">
+            <field name="name">Produk Penelitian</field>
+            <field name="url">/produk-penelitian</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">40</field>
+        </record>
+        
+    </data>
+</odoo>

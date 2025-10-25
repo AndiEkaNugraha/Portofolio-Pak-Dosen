@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Grup Riset Blog Views -->
+        <record id="view_grup_riset_blog_form" model="ir.ui.view">
+            <field name="name">grup.riset.blog.form</field>
+            <field name="model">grup.riset.blog</field>
+            <field name="arch" type="xml">
+                <form string="Kategori Grup Riset">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Nama Kategori Grup Riset"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="subtitle"/>
+                                <field name="research_area"/>
+                                <field name="lab_type"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="institution"/>
+                                <field name="faculty"/>
+                                <field name="location"/>
+                                <field name="member_count"/>
+                                <field name="is_published"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_grup_riset_blog_list" model="ir.ui.view">
+            <field name="name">grup.riset.blog.list</field>
+            <field name="model">grup.riset.blog</field>
+            <field name="arch" type="xml">
+                <list string="Kategori Grup Riset">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="subtitle"/>
+                    <field name="research_area"/>
+                    <field name="lab_type"/>
+                    <field name="institution"/>
+                    <field name="member_count"/>
+                    <field name="post_count"/>
+                    <field name="is_published" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Grup Riset Post Views -->
+        <record id="view_grup_riset_post_form" model="ir.ui.view">
+            <field name="name">grup.riset.post.form</field>
+            <field name="model">grup.riset.post</field>
+            <field name="arch" type="xml">
+                <form string="Grup Riset &amp; Laboratorium">
+                    <sheet>
+                        <div class="oe_title">
+                            <div class="o_row">
+                                <field name="group_photo" widget="image" class="oe_avatar" options="{'size': [90, 90]}"/>
+                                <div>
+                                    <label for="name" class="oe_edit_only"/>
+                                    <h1><field name="name" placeholder="Nama Grup Riset/Laboratorium"/></h1>
+                                    <field name="subtitle" placeholder="Tagline atau motto grup riset"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="blog_id"/>
+                                <field name="leader_name"/>
+                                <field name="leader_title"/>
+                                <field name="established_year"/>
+                                <field name="is_published"/>
+                                <field name="slug"/>
+                            </group>
+                            <group>
+                                <field name="contact_email"/>
+                                <field name="contact_person"/>
+                                <field name="lab_space"/>
+                                <field name="is_featured"/>
+                                <field name="date"/>
+                            </group>
+                        </group>
+
+                        <group string="Ringkasan">
+                            <field name="teaser" widget="text" placeholder="Ringkasan singkat grup riset untuk preview di website..." options="{'rows': 4}"/>
+                        </group>
+
+                        <group string="Fokus Penelitian">
+                            <field name="research_focus" widget="text" placeholder="Deskripsi fokus penelitian utama..." options="{'rows': 3}"/>
+                            <field name="research_keywords" placeholder="machine learning, artificial intelligence, computer vision"/>
+                        </group>
+                        
+                        <notebook>
+                            <page string="Tim &amp; Anggota">
+                                <group>
+                                    <group string="Pembimbing">
+                                        <field name="co_leaders" widget="text" placeholder="Nama co-leader atau pembimbing pendamping..." options="{'rows': 3}"/>
+                                    </group>
+                                    <group string="Statistik">
+                                        <field name="total_members"/>
+                                        <field name="total_students"/>
+                                    </group>
+                                </group>
+                                
+                                <separator string="Anggota Tim Peneliti"/>
+                                <field name="team_members" widget="text" placeholder="Daftar anggota tim peneliti..." options="{'rows': 4}"/>
+                                
+                                <separator string="Mahasiswa"/>
+                                <group>
+                                    <group>
+                                        <field name="phd_students" widget="text" placeholder="Mahasiswa S3..." options="{'rows': 3}"/>
+                                        <field name="master_students" widget="text" placeholder="Mahasiswa S2..." options="{'rows': 3}"/>
+                                    </group>
+                                    <group>
+                                        <field name="undergrad_students" widget="text" placeholder="Mahasiswa S1..." options="{'rows': 3}"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Fasilitas &amp; Peralatan">
+                                <group>
+                                    <field name="lab_photos" widget="image" options="{'size': [200, 150]}"/>
+                                    <field name="lab_photos_filename" invisible="1"/>
+                                </group>
+                                
+                                <separator string="Fasilitas Laboratorium"/>
+                                <field name="facilities" placeholder="Deskripsi fasilitas dan peralatan yang dimiliki..."/>
+                                
+                                <separator string="Daftar Peralatan Utama"/>
+                                <field name="equipment_list" widget="text" placeholder="Daftar peralatan penting..." options="{'rows': 5}"/>
+                            </page>
+
+                            <page string="Proyek &amp; Kolaborasi">
+                                <separator string="Proyek Sedang Berjalan"/>
+                                <field name="current_projects" placeholder="Deskripsi proyek penelitian yang sedang aktif..."/>
+                                
+                                <separator string="Proyek yang Telah Selesai"/>
+                                <field name="completed_projects" placeholder="Deskripsi proyek yang telah selesai..."/>
+                                
+                                <separator string="Kolaborasi"/>
+                                <field name="collaborations" widget="text" placeholder="Institusi atau perusahaan yang berkolaborasi..." options="{'rows': 3}"/>
+                            </page>
+
+                            <page string="Publikasi &amp; Pencapaian">
+                                <separator string="Publikasi Terbaru"/>
+                                <field name="recent_publications" placeholder="Daftar publikasi terbaru grup riset..."/>
+                                
+                                <separator string="Pencapaian &amp; Penghargaan"/>
+                                <field name="achievements" placeholder="Pencapaian dan penghargaan yang diraih..."/>
+                                
+                                <separator string="Paten/HKI"/>
+                                <field name="patents" widget="text" placeholder="Paten atau HKI yang dimiliki grup..." options="{'rows': 3}"/>
+                            </page>
+
+                            <page string="Pendanaan &amp; Hibah">
+                                <separator string="Sumber Pendanaan"/>
+                                <field name="funding_sources" widget="text" placeholder="Sumber pendanaan penelitian..." options="{'rows': 3}"/>
+                                
+                                <separator string="Hibah yang Diterima"/>
+                                <field name="grants_received" placeholder="Daftar hibah penelitian yang pernah diterima..."/>
+                            </page>
+
+                            <page string="Kontak &amp; Media">
+                                <group>
+                                    <field name="website_url" widget="url"/>
+                                    <field name="social_media"/>
+                                    <field name="group_photo_filename" invisible="1"/>
+                                </group>
+                                
+                                <separator string="Deskripsi Lengkap"/>
+                                <field name="description" placeholder="Deskripsi lengkap grup riset untuk halaman detail..."/>
+                            </page>
+
+                            <page string="SEO">
+                                <group>
+                                    <field name="meta_title"/>
+                                    <field name="meta_description"/>
+                                    <field name="meta_keywords"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_grup_riset_post_list" model="ir.ui.view">
+            <field name="name">grup.riset.post.list</field>
+            <field name="model">grup.riset.post</field>
+            <field name="arch" type="xml">
+                <list string="Grup Riset &amp; Laboratorium">
+                    <field name="group_photo" widget="image" options="{'size': [40, 40]}"/>
+                    <field name="name"/>
+                    <field name="blog_id"/>
+                    <field name="leader_name"/>
+                    <field name="established_year"/>
+                    <field name="total_members"/>
+                    <field name="total_students"/>
+                    <field name="date"/>
+                    <field name="is_featured" widget="boolean_toggle"/>
+                    <field name="is_published" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Actions -->
+        <record id="grup_riset_blog_action" model="ir.actions.act_window">
+            <field name="name">Kategori Grup Riset</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">grup.riset.blog</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Buat Kategori Grup Riset Pertama!
+                </p>
+                <p>
+                    Kelola kategori untuk mengorganisasi grup riset dan laboratorium Anda.
+                    Anda dapat mengelompokkan berdasarkan area penelitian atau jenis laboratorium.
+                </p>
+            </field>
+        </record>
+
+        <record id="grup_riset_post_action" model="ir.actions.act_window">
+            <field name="name">Grup Riset &amp; Laboratorium</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">grup.riset.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan Grup Riset/Laboratorium Pertama!
+                </p>
+                <p>
+                    Kelola informasi grup riset dan laboratorium Anda termasuk anggota tim,
+                    fasilitas, proyek penelitian, dan pencapaian untuk ditampilkan di website portfolio.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

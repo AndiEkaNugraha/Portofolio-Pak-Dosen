@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Default Product Categories (Blog) -->
+        <record id="produk_blog_teknologi_informasi" model="produk.blog">
+            <field name="name">Teknologi Informasi</field>
+            <field name="description">Produk penelitian di bidang teknologi informasi dan komunikasi</field>
+            <field name="technology_focus">software</field>
+            <field name="application_area">education</field>
+            <field name="scientific_field">computer_science</field>
+        </record>
+        
+        <record id="produk_blog_kesehatan" model="produk.blog">
+            <field name="name">Kesehatan dan Kedokteran</field>
+            <field name="description">Produk penelitian untuk bidang kesehatan dan kedokteran</field>
+            <field name="technology_focus">hardware</field>
+            <field name="application_area">healthcare</field>
+            <field name="scientific_field">medicine</field>
+        </record>
+        
+        <record id="produk_blog_energi" model="produk.blog">
+            <field name="name">Energi Terbarukan</field>
+            <field name="description">Produk penelitian untuk energi terbarukan dan berkelanjutan</field>
+            <field name="technology_focus">system</field>
+            <field name="application_area">energy</field>
+            <field name="scientific_field">engineering</field>
+        </record>
+        
+        <record id="produk_blog_pertanian" model="produk.blog">
+            <field name="name">Pertanian dan Pangan</field>
+            <field name="description">Produk penelitian untuk bidang pertanian dan pangan</field>
+            <field name="technology_focus">system</field>
+            <field name="application_area">agriculture</field>
+            <field name="scientific_field">agriculture</field>
+        </record>
+        
+        <record id="produk_blog_manufaktur" model="produk.blog">
+            <field name="name">Manufaktur dan Industri</field>
+            <field name="description">Produk penelitian untuk industri manufaktur</field>
+            <field name="technology_focus">system</field>
+            <field name="application_area">industrial</field>
+            <field name="scientific_field">engineering</field>
+        </record>
+        
+        <record id="produk_blog_transportasi" model="produk.blog">
+            <field name="name">Transportasi</field>
+            <field name="description">Produk penelitian untuk sistem transportasi</field>
+            <field name="technology_focus">system</field>
+            <field name="application_area">transportation</field>
+            <field name="scientific_field">engineering</field>
+        </record>
+        
+        <!-- Default Product Types -->
+        <record id="produk_type_aplikasi_mobile" model="produk.type">
+            <field name="name">Aplikasi Mobile</field>
+            <field name="code">APP_MOBILE</field>
+            <field name="description">Aplikasi berbasis mobile/smartphone</field>
+        </record>
+        
+        <record id="produk_type_aplikasi_web" model="produk.type">
+            <field name="name">Aplikasi Web</field>
+            <field name="code">APP_WEB</field>
+            <field name="description">Aplikasi berbasis web/browser</field>
+        </record>
+        
+        <record id="produk_type_sistem_embedded" model="produk.type">
+            <field name="name">Sistem Embedded</field>
+            <field name="code">SYS_EMBED</field>
+            <field name="description">Sistem tertanam/embedded system</field>
+        </record>
+        
+        <record id="produk_type_alat_kesehatan" model="produk.type">
+            <field name="name">Alat Kesehatan</field>
+            <field name="code">HEALTH_DEV</field>
+            <field name="description">Perangkat/alat untuk bidang kesehatan</field>
+        </record>
+        
+        <record id="produk_type_material_baru" model="produk.type">
+            <field name="name">Material Baru</field>
+            <field name="code">NEW_MAT</field>
+            <field name="description">Material atau bahan baru hasil penelitian</field>
+        </record>
+        
+        <record id="produk_type_sistem_otomasi" model="produk.type">
+            <field name="name">Sistem Otomasi</field>
+            <field name="code">AUTO_SYS</field>
+            <field name="description">Sistem otomasi industri/pertanian</field>
+        </record>
+        
+        <!-- Default Technologies -->
+        <record id="produk_tech_ai_ml" model="produk.technology">
+            <field name="name">Artificial Intelligence &amp; Machine Learning</field>
+            <field name="code">AI_ML</field>
+            <field name="category">ai_ml</field>
+            <field name="description">Teknologi kecerdasan buatan dan pembelajaran mesin</field>
+        </record>
+        
+        <record id="produk_tech_iot" model="produk.technology">
+            <field name="name">Internet of Things (IoT)</field>
+            <field name="code">IOT</field>
+            <field name="category">iot</field>
+            <field name="description">Teknologi internet untuk segala hal</field>
+        </record>
+        
+        <record id="produk_tech_blockchain" model="produk.technology">
+            <field name="name">Blockchain</field>
+            <field name="code">BLOCKCHAIN</field>
+            <field name="category">blockchain</field>
+            <field name="description">Teknologi blockchain dan distributed ledger</field>
+        </record>
+        
+        <record id="produk_tech_cloud_computing" model="produk.technology">
+            <field name="name">Cloud Computing</field>
+            <field name="code">CLOUD</field>
+            <field name="category">software</field>
+            <field name="description">Teknologi komputasi awan</field>
+        </record>
+        
+        <record id="produk_tech_big_data" model="produk.technology">
+            <field name="name">Big Data Analytics</field>
+            <field name="code">BIG_DATA</field>
+            <field name="category">software</field>
+            <field name="description">Teknologi analisis data besar</field>
+        </record>
+        
+        <record id="produk_tech_renewable_energy" model="produk.technology">
+            <field name="name">Renewable Energy Systems</field>
+            <field name="code">RENEWABLE</field>
+            <field name="category">energy</field>
+            <field name="description">Sistem energi terbarukan</field>
+        </record>
+        
+        <record id="produk_tech_biotechnology" model="produk.technology">
+            <field name="name">Biotechnology</field>
+            <field name="code">BIOTECH</field>
+            <field name="category">biotech</field>
+            <field name="description">Teknologi biologi dan biomedis</field>
+        </record>
+        
+        <record id="produk_tech_nanotechnology" model="produk.technology">
+            <field name="name">Nanotechnology</field>
+            <field name="code">NANOTECH</field>
+            <field name="category">nanotech</field>
+            <field name="description">Teknologi nano dan material</field>
+        </record>
+        
+        <!-- Sample Product Data -->
+        <record id="produk_sample_sistem_monitoring_iot" model="produk.post">
+            <field name="name">Sistem Monitoring Lingkungan Berbasis IoT</field>
+            <field name="subtitle">Smart Environmental Monitoring System</field>
+            <field name="blog_id" ref="produk_blog_teknologi_informasi"/>
+            <field name="produk_type_id" ref="produk_type_sistem_embedded"/>
+            <field name="development_status">prototype</field>
+            <field name="trl_level">6</field>
+            <field name="teaser">Sistem monitoring lingkungan real-time menggunakan sensor IoT untuk memantau kualitas udara, suhu, kelembaban, dan parameter lingkungan lainnya.</field>
+            <field name="content">&lt;p&gt;Sistem monitoring lingkungan berbasis IoT ini menggunakan berbagai sensor untuk memantau kondisi lingkungan secara real-time. Sistem ini dapat mendeteksi polusi udara, suhu, kelembaban, kualitas air, dan tingkat kebisingan.&lt;/p&gt;
+&lt;p&gt;Data dari sensor dikumpulkan dan dikirim ke cloud server untuk analisis dan visualisasi. Pengguna dapat mengakses dashboard web dan aplikasi mobile untuk melihat kondisi lingkungan secara real-time dan menerima notifikasi jika ada parameter yang melebihi ambang batas.&lt;/p&gt;
+&lt;p&gt;Sistem ini telah diuji coba di beberapa lokasi strategis seperti sekolah, perkantoran, dan area industri dengan hasil yang memuaskan.&lt;/p&gt;</field>
+            <field name="development_date">2023-01-01</field>
+            <field name="completion_date">2023-09-30</field>
+            <field name="principal_investigator">Dr. Ir. Ahmad Susanto, M.T.</field>
+            <field name="team_members">Dr. Sari Rahayu, S.T., M.T.
+Budi Setiawan, S.Kom., M.Kom.
+Rina Kusuma, S.T., M.T.
+Muhammad Rizki, S.T.</field>
+            <field name="partner_institutions">Kementerian Lingkungan Hidup
+PT. Green Technology Indonesia
+Badan Meteorologi Klimatologi dan Geofisika</field>
+            <field name="funding_source">Hibah Penelitian Terapan Kemenristek 2023</field>
+            <field name="technical_specs">&lt;ul&gt;
+&lt;li&gt;Sensor PM2.5, PM10 untuk kualitas udara&lt;/li&gt;
+&lt;li&gt;Sensor DHT22 untuk suhu dan kelembaban&lt;/li&gt;
+&lt;li&gt;Sensor MQ-135 untuk gas berbahaya&lt;/li&gt;
+&lt;li&gt;Mikrocontroller ESP32 dengan WiFi dan Bluetooth&lt;/li&gt;
+&lt;li&gt;Solar panel 20W dengan baterai backup&lt;/li&gt;
+&lt;li&gt;Cloud storage dan dashboard real-time&lt;/li&gt;
+&lt;li&gt;Mobile app untuk Android dan iOS&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="innovation_points">&lt;ul&gt;
+&lt;li&gt;Multi-sensor terintegrasi dalam satu device&lt;/li&gt;
+&lt;li&gt;Low power consumption dengan solar power&lt;/li&gt;
+&lt;li&gt;Real-time monitoring dan alerting system&lt;/li&gt;
+&lt;li&gt;Dashboard interaktif dengan visualisasi data historis&lt;/li&gt;
+&lt;li&gt;Biaya lebih murah dibanding produk komersial sejenis&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="target_market">Pemerintah daerah, sekolah, perkantoran, kawasan industri, dan masyarakat umum yang peduli lingkungan</field>
+            <field name="market_potential">high</field>
+            <field name="estimated_market_size">1000+ unit untuk wilayah Indonesia dengan fokus kota-kota besar</field>
+            <field name="ip_status">filed</field>
+            <field name="patent_number">P00202301234</field>
+            <field name="patent_title">Sistem Monitoring Lingkungan Multi-Sensor Berbasis IoT dengan Energy Harvesting</field>
+            <field name="demo_video_url">https://www.youtube.com/watch?v=demo-iot-monitoring-system</field>
+            <field name="limitations">Sistem masih memerlukan koneksi internet yang stabil untuk real-time monitoring. Battery life terbatas pada kondisi cuaca mendung berkepanjangan. Perlu kalibrasi sensor setiap 6 bulan untuk akurasi optimal.</field>
+            <field name="performance_metrics">&lt;ul&gt;
+&lt;li&gt;Akurasi sensor PM2.5: 95% dibanding alat standard&lt;/li&gt;
+&lt;li&gt;Response time: &lt; 2 detik&lt;/li&gt;
+&lt;li&gt;Battery life: 7 hari tanpa solar (30+ hari dengan solar)&lt;/li&gt;
+&lt;li&gt;WiFi range: 100 meter&lt;/li&gt;
+&lt;li&gt;Data transmission success rate: 99.2%&lt;/li&gt;
+&lt;li&gt;Uptime: 99.5% dalam 6 bulan testing&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="awards_recognition">Juara 2 - Lomba Inovasi Teknologi Lingkungan Kemenristek 2023
+Best Innovation Award - Indonesia Green Technology Expo 2023</field>
+            <field name="publications">Ahmad Susanto, et al. "IoT-based Multi-Sensor Environmental Monitoring System with Solar Power" - Journal of Environmental Technology, Vol 15(3), 2023
+Presented at International Conference on IoT and Environmental Sustainability, Bali, 2023</field>
+            <field name="product_url">https://enviromonitor.university.ac.id</field>
+            <field name="contact_email">ahmad.susanto@university.ac.id</field>
+            <field name="contact_phone">+62-812-3456-7890</field>
+            <field name="is_published">True</field>
+            <field name="publication_date">2023-10-15 08:00:00</field>
+        </record>
+        
+        <record id="produk_sample_aplikasi_kesehatan" model="produk.post">
+            <field name="name">Aplikasi Telemedicine untuk Konsultasi Jarak Jauh</field>
+            <field name="subtitle">TeleCare Mobile Application</field>
+            <field name="blog_id" ref="produk_blog_kesehatan"/>
+            <field name="produk_type_id" ref="produk_type_aplikasi_mobile"/>
+            <field name="development_status">testing</field>
+            <field name="trl_level">8</field>
+            <field name="teaser">Aplikasi mobile untuk layanan konsultasi kesehatan jarak jauh dengan fitur video call, chat, dan manajemen rekam medis digital.</field>
+            <field name="content">&lt;p&gt;TeleCare adalah aplikasi telemedicine yang memungkinkan pasien untuk berkonsultasi dengan dokter secara jarak jauh melalui video call, voice call, atau chat. Aplikasi ini dilengkapi dengan sistem manajemen rekam medis elektronik yang aman dan terenkripsi.&lt;/p&gt;
+&lt;p&gt;Fitur unggulan aplikasi ini meliputi: jadwal konsultasi online, pembayaran digital, resep elektronik, reminder minum obat, riwayat kesehatan, dan integrasi dengan laboratorium untuk hasil pemeriksaan.&lt;/p&gt;
+&lt;p&gt;TeleCare telah diuji coba bekerjasama dengan 5 rumah sakit dan 50+ dokter dengan lebih dari 1000 konsultasi sukses dilakukan.&lt;/p&gt;</field>
+            <field name="development_date">2022-06-01</field>
+            <field name="completion_date">2023-06-30</field>
+            <field name="principal_investigator">dr. Siti Nurhaliza, Sp.KJ., M.Kes.</field>
+            <field name="team_members">Dr. Andri Wijaya, S.Kom., M.Kom.
+dr. Bambang Suryanto, Sp.PD
+Maya Sari, S.Kom., M.Kom.
+Rudi Hartono, S.T., M.T.
+Fitri Rahmawati, S.Kom.</field>
+            <field name="partner_institutions">RS. Siloam Hospital
+RS. Mitra Keluarga
+Fakultas Kedokteran Universitas Indonesia
+Kementerian Kesehatan RI</field>
+            <field name="funding_source">Hibah Inovasi Kesehatan Digital Kemenkes 2022</field>
+            <field name="technical_specs">&lt;ul&gt;
+&lt;li&gt;Platform: Android dan iOS native apps&lt;/li&gt;
+&lt;li&gt;Backend: Node.js dengan Express framework&lt;/li&gt;
+&lt;li&gt;Database: PostgreSQL dan MongoDB&lt;/li&gt;
+&lt;li&gt;Video Call: WebRTC technology&lt;/li&gt;
+&lt;li&gt;Security: End-to-end encryption, HTTPS, OAuth 2.0&lt;/li&gt;
+&lt;li&gt;Payment Gateway: Terintegrasi dengan Midtrans&lt;/li&gt;
+&lt;li&gt;Cloud Hosting: AWS dengan high availability&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="innovation_points">&lt;ul&gt;
+&lt;li&gt;Interface user-friendly untuk pasien dan dokter&lt;/li&gt;
+&lt;li&gt;Sistem antrian otomatis dan penjadwalan cerdas&lt;/li&gt;
+&lt;li&gt;AI-powered symptom checker untuk pre-screening&lt;/li&gt;
+&lt;li&gt;Integrasi dengan sistem BPJS Kesehatan&lt;/li&gt;
+&lt;li&gt;Rekam medis elektronik sesuai standar HL7 FHIR&lt;/li&gt;
+&lt;li&gt;Multi-language support (Indonesia, English)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="target_market">Pasien umum, dokter praktek mandiri, rumah sakit, klinik, dan puskesmas di seluruh Indonesia</field>
+            <field name="market_potential">very_high</field>
+            <field name="estimated_market_size">10 juta+ pengguna potensial di Indonesia dalam 3 tahun</field>
+            <field name="business_model">Freemium model: konsultasi chat gratis, video call berbayar, subscription untuk rumah sakit/klinik</field>
+            <field name="competitive_advantage">Fitur lengkap, harga terjangkau, dukungan bahasa lokal, integrasi BPJS, dan kemitraan dengan rumah sakit ternama</field>
+            <field name="ip_status">planned</field>
+            <field name="demo_video_url">https://www.youtube.com/watch?v=telecare-demo-app</field>
+            <field name="limitations">Memerlukan koneksi internet minimum 2 Mbps untuk video call berkualitas. Belum terintegrasi penuh dengan semua sistem EMR rumah sakit. Regulasi telemedicine masih developing di beberapa daerah.</field>
+            <field name="performance_metrics">&lt;ul&gt;
+&lt;li&gt;Total consultations: 1,000+ successful sessions&lt;/li&gt;
+&lt;li&gt;Video call quality: HD 720p dengan latency &lt; 200ms&lt;/li&gt;
+&lt;li&gt;App rating: 4.7/5.0 (Android), 4.8/5.0 (iOS)&lt;/li&gt;
+&lt;li&gt;System uptime: 99.8%&lt;/li&gt;
+&lt;li&gt;Average response time: &lt; 5 minutes untuk chat&lt;/li&gt;
+&lt;li&gt;Patient satisfaction: 92%&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="awards_recognition">Finalist - Indonesia Digital Health Innovation Award 2023
+Featured in TechInAsia as Top 10 HealthTech Startups Indonesia</field>
+            <field name="publications">Siti Nurhaliza, et al. "Telemedicine Platform for Remote Healthcare in Indonesia" - Journal of Medical Internet Research, 2023
+Presented at Asia Pacific Medical Informatics Conference, Singapore, 2023</field>
+            <field name="product_url">https://telecare.id</field>
+            <field name="contact_email">info@telecare.id</field>
+            <field name="contact_phone">+62-21-5555-1234</field>
+            <field name="is_published">True</field>
+            <field name="publication_date">2023-07-20 10:00:00</field>
+        </record>
+        
+        <record id="produk_sample_energi_solar" model="produk.post">
+            <field name="name">Sistem Hybrid Solar-Wind untuk Desa Terpencil</field>
+            <field name="subtitle">Rural Hybrid Renewable Energy System</field>
+            <field name="blog_id" ref="produk_blog_energi"/>
+            <field name="produk_type_id" ref="produk_type_sistem_otomasi"/>
+            <field name="development_status">pilot</field>
+            <field name="trl_level">7</field>
+            <field name="teaser">Sistem energi hibrid yang menggabungkan panel surya dan turbin angin kecil untuk menyediakan listrik bagi desa-desa terpencil.</field>
+            <field name="content">&lt;p&gt;Sistem Hybrid Solar-Wind ini dirancang khusus untuk memberikan solusi energi berkelanjutan bagi desa-desa terpencil yang belum terjangkau jaringan listrik PLN. Sistem ini menggabungkan panel surya, turbin angin vertikal, dan sistem penyimpanan baterai lithium.&lt;/p&gt;
+&lt;p&gt;Dengan intelligent energy management system, sistem ini dapat mengoptimalkan penggunaan energi dari matahari dan angin sesuai dengan kondisi cuaca. Sistem ini mampu menyuplai listrik untuk 50-100 rumah dengan kebutuhan daya total hingga 25 kW.&lt;/p&gt;
+&lt;p&gt;Pilot project telah diimplementasikan di 3 desa terpencil di NTT dengan hasil yang sangat memuaskan, memberikan akses listrik 24 jam untuk pertama kalinya bagi warga desa tersebut.&lt;/p&gt;</field>
+            <field name="development_date">2021-03-01</field>
+            <field name="completion_date">2023-08-31</field>
+            <field name="principal_investigator">Prof. Dr. Ir. Bambang Riyanto, M.Sc.</field>
+            <field name="team_members">Dr. Ir. Heru Prasetyo, M.T.
+Dr. Eng. Dewi Kartika, S.T., M.Eng.
+Agus Wijaya, S.T., M.T.
+Fitri Handayani, S.T., M.T.
+Roni Saputra, S.T.</field>
+            <field name="partner_institutions">Kementerian ESDM
+PT. PLN (Persero)
+Pemda Kabupaten Sumba Timur
+Yayasan Energi Berkelanjutan Indonesia</field>
+            <field name="funding_source">Hibah Program Desa Mandiri Energi Kemenristek-BRIN 2021</field>
+            <field name="technical_specs">&lt;ul&gt;
+&lt;li&gt;Solar Panel: 15 kWp monocrystalline dengan efficiency 20%&lt;/li&gt;
+&lt;li&gt;Wind Turbine: 3 unit vertical axis 3 kW per unit&lt;/li&gt;
+&lt;li&gt;Battery Storage: Lithium Iron Phosphate 100 kWh&lt;/li&gt;
+&lt;li&gt;Hybrid Charge Controller dengan MPPT technology&lt;/li&gt;
+&lt;li&gt;Inverter: Pure sine wave 25 kW&lt;/li&gt;
+&lt;li&gt;Smart monitoring system dengan IoT&lt;/li&gt;
+&lt;li&gt;Distribution panel untuk 50 rumah&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="innovation_points">&lt;ul&gt;
+&lt;li&gt;Kombinasi optimal solar dan wind untuk coverage 24/7&lt;/li&gt;
+&lt;li&gt;Intelligent load management untuk efisiensi maksimal&lt;/li&gt;
+&lt;li&gt;Modular design untuk skalabilitas mudah&lt;/li&gt;
+&lt;li&gt;Remote monitoring dan predictive maintenance&lt;/li&gt;
+&lt;li&gt;Tahan terhadap kondisi cuaca ekstrem&lt;/li&gt;
+&lt;li&gt;Perawatan minimal dan spare parts lokal&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="target_market">Desa terpencil yang belum teraliri listrik, pulau-pulau kecil, dan kawasan wisata off-grid di seluruh Indonesia</field>
+            <field name="market_potential">high</field>
+            <field name="estimated_market_size">5000+ desa di Indonesia yang belum teraliri listrik PLN</field>
+            <field name="business_model">Kerjasama dengan pemerintah daerah dan CSR perusahaan, dengan skema BOOT (Build-Own-Operate-Transfer)</field>
+            <field name="competitive_advantage">Total cost of ownership lebih rendah, reliability tinggi, dan didukung oleh tim maintenance lokal terlatih</field>
+            <field name="ip_status">granted</field>
+            <field name="patent_number">IDP000045678</field>
+            <field name="patent_title">Sistem Hybrid Solar-Wind dengan Intelligent Energy Management untuk Aplikasi Off-Grid</field>
+            <field name="patent_date">2023-05-20</field>
+            <field name="demo_video_url">https://www.youtube.com/watch?v=hybrid-microgrid-natuna</field>
+            <field name="limitations">Initial cost tinggi (Rp 1.2-1.5 miliar per instalasi). Memerlukan teknisi terlatih untuk maintenance. Performance bergantung pada kondisi cuaca lokal. Wind turbine memerlukan wind speed minimal 3 m/s.</field>
+            <field name="performance_metrics">&lt;ul&gt;
+&lt;li&gt;Renewable energy penetration: 75% (target 70%)&lt;/li&gt;
+&lt;li&gt;System efficiency: 87% overall&lt;/li&gt;
+&lt;li&gt;Diesel consumption reduction: 85%&lt;/li&gt;
+&lt;li&gt;System reliability: 99.7% uptime&lt;/li&gt;
+&lt;li&gt;CO2 emission reduction: 120 ton/year&lt;/li&gt;
+&lt;li&gt;Payback period: 8 tahun&lt;/li&gt;
+&lt;li&gt;Battery cycle life: 5000+ cycles&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="awards_recognition">Best Renewable Energy Project - Indonesia Energy Award 2023
+Featured as Success Story by Kementerian ESDM
+International Recognition from IRENA (International Renewable Energy Agency)</field>
+            <field name="publications">Bambang Riyanto, et al. "Hybrid Renewable Microgrid for Remote Indonesian Islands" - Renewable Energy Journal, Vol 180, 2023
+"Design and Implementation of Off-Grid Microgrid" - IEEE Transactions on Sustainable Energy, 2023</field>
+            <field name="product_url">https://microgrid-project.university.ac.id</field>
+            <field name="contact_email">bambang.riyanto@university.ac.id</field>
+            <field name="contact_phone">+62-811-2345-6789</field>
+            <field name="is_published">True</field>
+            <field name="publication_date">2023-09-05 09:00:00</field>
+        </record>
+        
+        <record id="produk_sample_smart_agriculture" model="produk.post">
+            <field name="name">Platform Smart Agriculture dengan AI</field>
+            <field name="subtitle">AgroSmart: Intelligent Farming Management System</field>
+            <field name="blog_id" ref="produk_blog_pertanian"/>
+            <field name="produk_type_id" ref="produk_type_aplikasi_web"/>
+            <field name="development_status">commercial</field>
+            <field name="trl_level">9</field>
+            <field name="teaser">Platform pertanian cerdas yang menggunakan AI dan IoT untuk monitoring lahan, prediksi hasil panen, deteksi hama/penyakit, dan rekomendasi pemupukan otomatis.</field>
+            <field name="content">&lt;p&gt;AgroSmart adalah platform pertanian pintar yang mengintegrasikan teknologi AI, Machine Learning, dan IoT untuk membantu petani meningkatkan produktivitas dan efisiensi. Platform ini menyediakan monitoring real-time kondisi lahan, analisis tanah, prediksi cuaca, dan rekomendasi tindakan berbasis data.&lt;/p&gt;
+&lt;p&gt;Fitur utama meliputi: computer vision untuk deteksi hama dan penyakit tanaman, soil moisture monitoring, weather forecasting, yield prediction, dan automated irrigation control. Petani dapat mengakses semua informasi melalui dashboard web atau aplikasi mobile.&lt;/p&gt;
+&lt;p&gt;Platform ini telah digunakan oleh 500+ petani di Jawa Barat dengan peningkatan hasil panen rata-rata 35% dan pengurangan penggunaan pestisida hingga 40%.&lt;/p&gt;</field>
+            <field name="development_date">2022-01-15</field>
+            <field name="completion_date">2023-12-20</field>
+            <field name="principal_investigator">Dr. Ir. Suryadi Wirawan, M.Agr.</field>
+            <field name="team_members">Dr. Ratna Kusuma, S.P., M.Si.
+Hendro Wibowo, S.Kom., M.Kom.
+Dr. Fitri Amalia, S.T., M.T.
+Andi Setiawan, S.Kom., M.T.
+Lina Marlina, S.P., M.Si.</field>
+            <field name="partner_institutions">Dinas Pertanian Provinsi Jawa Barat
+Fakultas Pertanian IPB
+PT. Pupuk Indonesia
+Kelompok Tani Maju Jaya</field>
+            <field name="funding_source">Hibah Smart Agriculture Innovation dari Kementerian Pertanian 2022</field>
+            <field name="technical_specs">&lt;ul&gt;
+&lt;li&gt;Web Platform: React.js frontend, Django backend&lt;/li&gt;
+&lt;li&gt;Mobile App: Flutter untuk cross-platform&lt;/li&gt;
+&lt;li&gt;AI Models: TensorFlow untuk image recognition dan prediction&lt;/li&gt;
+&lt;li&gt;IoT Sensors: Soil moisture, temperature, humidity, pH sensors&lt;/li&gt;
+&lt;li&gt;Database: PostgreSQL + TimescaleDB untuk time-series data&lt;/li&gt;
+&lt;li&gt;Cloud Infrastructure: Google Cloud Platform&lt;/li&gt;
+&lt;li&gt;Weather API: Integrasi dengan BMKG dan OpenWeather&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="innovation_points">&lt;ul&gt;
+&lt;li&gt;AI-powered disease detection dengan akurasi 92%&lt;/li&gt;
+&lt;li&gt;Rekomendasi pemupukan personalized berbasis data tanah&lt;/li&gt;
+&lt;li&gt;Yield prediction model dengan machine learning&lt;/li&gt;
+&lt;li&gt;Automated irrigation scheduling berdasarkan soil moisture&lt;/li&gt;
+&lt;li&gt;Marketplace terintegrasi untuk hasil panen&lt;/li&gt;
+&lt;li&gt;Community forum untuk knowledge sharing antar petani&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="target_market">Petani modern, agribisnis, perusahaan perkebunan, dan investor di sektor pertanian</field>
+            <field name="market_potential">very_high</field>
+            <field name="estimated_market_size">30 juta+ petani di Indonesia dengan fokus pada komoditas hortikultura dan padi</field>
+            <field name="business_model">Freemium untuk petani kecil, subscription premium untuk fitur advanced, dan enterprise license untuk perusahaan besar</field>
+            <field name="competitive_advantage">Model AI terlatih dengan data lokal Indonesia, dukungan bahasa daerah, harga terjangkau, dan konsultasi agronomi gratis</field>
+            <field name="ip_status">granted</field>
+            <field name="patent_number">IDP000056789</field>
+            <field name="patent_title">Sistem Pertanian Cerdas Berbasis AI untuk Deteksi Penyakit Tanaman dan Optimasi Hasil Panen</field>
+            <field name="patent_date">2024-01-10</field>
+            <field name="demo_video_url">https://www.youtube.com/watch?v=agrosmart-platform-demo</field>
+            <field name="limitations">Memerlukan smartphone atau tablet dengan kamera minimal 8MP. Akurasi deteksi penyakit menurun pada kondisi pencahayaan buruk. IoT sensors memerlukan pergantian baterai setiap 6-12 bulan. Biaya subscription mungkin memberatkan petani ultra-kecil.</field>
+            <field name="performance_metrics">&lt;ul&gt;
+&lt;li&gt;Disease detection accuracy: 92% untuk 50+ jenis penyakit&lt;/li&gt;
+&lt;li&gt;Yield prediction accuracy: 88% (MAPE 12%)&lt;/li&gt;
+&lt;li&gt;Irrigation efficiency: 35% water saving&lt;/li&gt;
+&lt;li&gt;Average yield increase: 35% (dari 4.5 ke 6.2 ton/ha)&lt;/li&gt;
+&lt;li&gt;Pesticide reduction: 40%&lt;/li&gt;
+&lt;li&gt;User retention rate: 78% setelah 6 bulan&lt;/li&gt;
+&lt;li&gt;Active users: 500+ petani&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="awards_recognition">Winner - National Agricultural Innovation Competition 2023
+Best Agritech Solution - Indonesia Agro Innovation Fair 2024
+Featured by Ministry of Agriculture as Model Digital Agriculture Platform</field>
+            <field name="publications">Suryadi Wirawan, et al. "AI-Powered Smart Agriculture Platform for Disease Detection" - Computers and Electronics in Agriculture, 2024
+"Machine Learning for Crop Yield Prediction in Indonesia" - Agricultural Systems Journal, 2024</field>
+            <field name="product_url">https://agrosmart.id</field>
+            <field name="contact_email">info@agrosmart.id</field>
+            <field name="contact_phone">+62-22-8765-4321</field>
+            <field name="is_published">True</field>
+            <field name="publication_date">2024-01-25 07:30:00</field>
+        </record>
+        
+        <record id="produk_sample_smart_traffic" model="produk.post">
+            <field name="name">Sistem Manajemen Lalu Lintas Cerdas</field>
+            <field name="subtitle">SmartTraffic AI - Intelligent Traffic Management System</field>
+            <field name="blog_id" ref="produk_blog_transportasi"/>
+            <field name="produk_type_id" ref="produk_type_aplikasi_web"/>
+            <field name="development_status">production</field>
+            <field name="trl_level">8</field>
+            <field name="teaser">Sistem manajemen lalu lintas berbasis AI untuk mengoptimalkan flow kendaraan, mengurangi kemacetan, dan meningkatkan keselamatan jalan melalui traffic light adaptive dan real-time monitoring.</field>
+            <field name="content">&lt;p&gt;SmartTraffic AI adalah solusi manajemen lalu lintas cerdas yang menggunakan computer vision, AI, dan IoT untuk mengoptimalkan arus lalu lintas di perkotaan. Sistem ini menggunakan kamera CCTV existing untuk analisis real-time volume kendaraan dan secara otomatis menyesuaikan timing traffic light.&lt;/p&gt;
+&lt;p&gt;Sistem ini dapat mendeteksi kepadatan lalu lintas, menghitung jumlah kendaraan, mengidentifikasi jenis kendaraan, dan memprediksi pola traffic. Dengan adaptive traffic light control, sistem dapat mengurangi waktu tunggu dan meningkatkan throughput persimpangan hingga 40%.&lt;/p&gt;
+&lt;p&gt;Telah diimplementasikan di 20 persimpangan strategis di Jakarta dengan hasil signifikan: pengurangan kemacetan 30%, peningkatan kecepatan rata-rata 25%, dan pengurangan emisi kendaraan 20%.&lt;/p&gt;</field>
+            <field name="development_date">2022-08-01</field>
+            <field name="completion_date">2024-02-28</field>
+            <field name="principal_investigator">Dr. Hendra Gunawan, S.T., M.T.</field>
+            <field name="team_members">Dr. Maya Puspita, S.T., M.Eng.
+Rudi Hermawan, S.Kom., M.Kom.
+Siti Aminah, S.T., M.T.
+Budi Santoso, S.T., M.T.
+Rina Wati, S.Kom.</field>
+            <field name="partner_institutions">Dinas Perhubungan DKI Jakarta
+Kepolisian Daerah Metro Jaya
+PT. Jasa Marga (Persero) Tbk
+Institut Teknologi Bandung</field>
+            <field name="funding_source">Hibah Kerjasama Pemerintah Daerah DKI Jakarta 2022</field>
+            <field name="technical_specs">&lt;ul&gt;
+&lt;li&gt;Computer Vision: YOLO v8 untuk vehicle detection dan counting&lt;/li&gt;
+&lt;li&gt;Traffic Light Controller: Custom hardware dengan API integration&lt;/li&gt;
+&lt;li&gt;Edge Computing: NVIDIA Jetson untuk on-site processing&lt;/li&gt;
+&lt;li&gt;Backend: Python FastAPI dengan Redis untuk caching&lt;/li&gt;
+&lt;li&gt;Database: PostgreSQL dengan PostGIS extension&lt;/li&gt;
+&lt;li&gt;Dashboard: React.js dengan real-time map visualization&lt;/li&gt;
+&lt;li&gt;Communication: MQTT protocol untuk low latency control&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="innovation_points">&lt;ul&gt;
+&lt;li&gt;Adaptive traffic light timing based on real-time traffic density&lt;/li&gt;
+&lt;li&gt;Multi-intersection coordination untuk green wave effect&lt;/li&gt;
+&lt;li&gt;Emergency vehicle prioritization system&lt;/li&gt;
+&lt;li&gt;Incident detection (accident, stalled vehicle) otomatis&lt;/li&gt;
+&lt;li&gt;Integration dengan Google Maps untuk traffic information&lt;/li&gt;
+&lt;li&gt;Predictive analytics untuk traffic forecasting&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="target_market">Pemerintah kota/kabupaten, dinas perhubungan, dan developer smart city solutions di Indonesia dan regional Asia Tenggara</field>
+            <field name="market_potential">high</field>
+            <field name="estimated_market_size">100+ kota besar dan menengah di Indonesia yang membutuhkan solusi smart traffic</field>
+            <field name="business_model">Project-based implementation dengan annual maintenance contract, dan SaaS model untuk monitoring platform</field>
+            <field name="competitive_advantage">Menggunakan infrastruktur CCTV existing, algoritma AI yang sudah terbukti efektif, dan cost-effective dibanding solusi import</field>
+            <field name="ip_status">granted</field>
+            <field name="patent_number">IDP000067890</field>
+            <field name="patent_title">Sistem Kontrol Lampu Lalu Lintas Adaptif Berbasis Computer Vision dan Machine Learning</field>
+            <field name="patent_date">2024-03-15</field>
+            <field name="demo_video_url">https://www.youtube.com/watch?v=smarttraffic-ai-system</field>
+            <field name="limitations">Memerlukan kamera CCTV dengan resolusi minimal 1080p dan lokasi pemasangan yang tepat. Performance menurun pada kondisi hujan deras atau kabut tebal. Sistem backup diperlukan untuk failover. Initial investment tinggi untuk hardware dan installation.</field>
+            <field name="performance_metrics">&lt;ul&gt;
+&lt;li&gt;Vehicle detection accuracy: 96.5% dalam berbagai kondisi&lt;/li&gt;
+&lt;li&gt;Travel time reduction: 20-30% pada peak hours&lt;/li&gt;
+&lt;li&gt;Average speed increase: 25%&lt;/li&gt;
+&lt;li&gt;Traffic throughput improvement: 40% di persimpangan&lt;/li&gt;
+&lt;li&gt;Emission reduction: 20% (CO2, NOx)&lt;/li&gt;
+&lt;li&gt;System response time: &lt; 500ms&lt;/li&gt;
+&lt;li&gt;Uptime: 99.5% dalam 6 bulan operasi&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="awards_recognition">Smart City Innovation Award - Jakarta Smart City Summit 2024
+Best AI Application in Transportation - IEEE Indonesia Section 2024
+Government Recognition dari Kementerian Perhubungan RI</field>
+            <field name="publications">Hendra Gunawan, et al. "Adaptive Traffic Light Control using Deep Learning" - IEEE Transactions on Intelligent Transportation Systems, 2024
+"Real-time Vehicle Detection and Classification for Traffic Management" - Transportation Research Part C, 2024</field>
+            <field name="product_url">https://smarttraffic-indonesia.ac.id</field>
+            <field name="contact_email">hendra.gunawan@university.ac.id</field>
+            <field name="contact_phone">+62-21-7654-3210</field>
+            <field name="is_published">True</field>
+            <field name="publication_date">2024-04-01 08:00:00</field>
+        </record>
+        
+        <record id="produk_sample_waste_management" model="produk.post">
+            <field name="name">Sistem Manajemen Sampah Pintar</field>
+            <field name="subtitle">EcoSmart: Smart Waste Management Solution</field>
+            <field name="blog_id" ref="produk_blog_teknologi_informasi"/>
+            <field name="produk_type_id" ref="produk_type_sistem_embedded"/>
+            <field name="development_status">pilot</field>
+            <field name="trl_level">7</field>
+            <field name="teaser">Solusi manajemen sampah terintegrasi dengan smart bins, route optimization untuk truk sampah, dan reward system untuk mendorong partisipasi masyarakat dalam program daur ulang.</field>
+            <field name="content">&lt;p&gt;EcoSmart adalah sistem manajemen sampah pintar yang menggabungkan smart bins dengan sensor level, platform digital untuk tracking, dan gamification untuk meningkatkan kesadaran masyarakat tentang pengelolaan sampah berkelanjutan.&lt;/p&gt;
+&lt;p&gt;Smart bins dilengkapi dengan sensor ultrasonic untuk monitoring level sampah secara real-time. Data dikirim ke control center untuk optimasi rute pengangkutan sampah. Sistem ini juga memiliki fitur klasifikasi sampah otomatis dan reward points untuk pengguna yang aktif mendaur ulang.&lt;/p&gt;
+&lt;p&gt;Pilot project dijalankan di 5 perumahan di Bandung dengan 100 smart bins. Hasilnya: efisiensi pengangkutan meningkat 45%, partisipasi daur ulang naik 60%, dan pengurangan volume sampah ke TPA sebesar 30%.&lt;/p&gt;</field>
+            <field name="development_date">2023-03-01</field>
+            <field name="completion_date">2024-03-31</field>
+            <field name="principal_investigator">Dr. Ir. Ratna Dewi Kusuma, M.T.</field>
+            <field name="team_members">Dr. Agus Prasetyo, S.T., M.T.
+Dian Purnama, S.Kom., M.Kom.
+Eko Wahyudi, S.T., M.T.
+Sari Rahayu, S.Sos., M.Si.
+Rizki Fauzi, S.T.</field>
+            <field name="partner_institutions">Dinas Lingkungan Hidup Kota Bandung
+PT. Recycling Indonesia
+Bank Sampah Nasional
+Komunitas Peduli Lingkungan Bandung</field>
+            <field name="funding_source">Hibah Smart City Innovation Kemenkominfo 2023</field>
+            <field name="technical_specs">&lt;ul&gt;
+&lt;li&gt;Smart Bin: Sensor ultrasonic HC-SR04 untuk level detection&lt;/li&gt;
+&lt;li&gt;MCU: ESP32 dengan WiFi dan LoRaWAN connectivity&lt;/li&gt;
+&lt;li&gt;Solar Panel: 10W untuk power autonomy&lt;/li&gt;
+&lt;li&gt;Mobile App: Flutter untuk user dan truck driver app&lt;/li&gt;
+&lt;li&gt;Backend: Node.js dengan Express dan MongoDB&lt;/li&gt;
+&lt;li&gt;Route Optimization: Google OR-Tools untuk VRP solving&lt;/li&gt;
+&lt;li&gt;Gamification: Point system dengan blockchain verification&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="innovation_points">&lt;ul&gt;
+&lt;li&gt;Real-time monitoring kapasitas sampah di setiap bin&lt;/li&gt;
+&lt;li&gt;Dynamic route optimization untuk efisiensi BBM 40%&lt;/li&gt;
+&lt;li&gt;Reward system dengan poin yang bisa ditukar voucher&lt;/li&gt;
+&lt;li&gt;AI-powered waste classification menggunakan camera&lt;/li&gt;
+&lt;li&gt;Community dashboard untuk transparansi pengelolaan sampah&lt;/li&gt;
+&lt;li&gt;Terintegrasi dengan bank sampah digital&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="target_market">Pemerintah kota, developer perumahan, pengelola kawasan komersial, dan perusahaan pengelola sampah</field>
+            <field name="market_potential">high</field>
+            <field name="estimated_market_size">200+ kota di Indonesia yang memerlukan solusi waste management modern</field>
+            <field name="business_model">Penjualan hardware smart bins, SaaS subscription untuk platform, dan revenue sharing dari program reward</field>
+            <field name="competitive_advantage">Sistem terintegrasi end-to-end, gamification untuk engagement, dan ROI jelas melalui efisiensi operasional</field>
+            <field name="ip_status">filed</field>
+            <field name="patent_number">P00202401234</field>
+            <field name="patent_title">Sistem Manajemen Sampah Pintar dengan Optimasi Rute Dinamis dan Insentif Berbasis Blockchain</field>
+            <field name="demo_video_url">https://www.youtube.com/watch?v=ecosmart-waste-management</field>
+            <field name="limitations">Memerlukan coverage LoRaWAN yang baik untuk komunikasi. Smart bins relatif mahal (Rp 8-12 juta per unit). Perlu edukasi intensif untuk adoption masyarakat. Sistem reward memerlukan partnership dengan merchants.</field>
+            <field name="performance_metrics">&lt;ul&gt;
+&lt;li&gt;Collection efficiency increase: 45%&lt;/li&gt;
+&lt;li&gt;Fuel consumption reduction: 40%&lt;/li&gt;
+&lt;li&gt;Route optimization: 35% shorter distance&lt;/li&gt;
+&lt;li&gt;Recycling participation rate: 60% (naik dari 25%)&lt;/li&gt;
+&lt;li&gt;Waste to landfill reduction: 30%&lt;/li&gt;
+&lt;li&gt;Bin level prediction accuracy: 91%&lt;/li&gt;
+&lt;li&gt;App daily active users: 2,500 dari 5,000 households&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="awards_recognition">Best Environmental Innovation - Bandung Smart City Awards 2024
+Green Technology Award - Indonesia Environmental Expo 2024
+Featured by KLHK (Kementerian Lingkungan Hidup dan Kehutanan)</field>
+            <field name="publications">Ratna Dewi Kusuma, et al. "Smart Waste Management System with IoT and AI" - Waste Management Journal, 2024
+"Gamification for Sustainable Waste Management" - Journal of Cleaner Production, 2024</field>
+            <field name="product_url">https://ecosmart.waste-management.id</field>
+            <field name="contact_email">ratna.kusuma@university.ac.id</field>
+            <field name="contact_phone">+62-22-9876-5432</field>
+            <field name="is_published">True</field>
+            <field name="publication_date">2024-04-15 09:00:00</field>
+        </record>
+        
+    </data>
+</odoo>

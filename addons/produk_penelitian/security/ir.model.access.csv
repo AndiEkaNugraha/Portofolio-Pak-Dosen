@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_produk_blog_public,produk.blog.public,model_produk_blog,base.group_public,1,0,0,0
+access_produk_blog_portal,produk.blog.portal,model_produk_blog,base.group_portal,1,0,0,0
+access_produk_blog_user,produk.blog.user,model_produk_blog,base.group_user,1,0,0,0
+access_produk_blog_manager,produk.blog.manager,model_produk_blog,base.group_system,1,1,1,1
+access_produk_post_public,produk.post.public,model_produk_post,base.group_public,1,0,0,0
+access_produk_post_portal,produk.post.portal,model_produk_post,base.group_portal,1,0,0,0
+access_produk_post_user,produk.post.user,model_produk_post,base.group_user,1,1,1,0
+access_produk_post_manager,produk.post.manager,model_produk_post,base.group_system,1,1,1,1
+access_produk_type_public,produk.type.public,model_produk_type,base.group_public,1,0,0,0
+access_produk_type_portal,produk.type.portal,model_produk_type,base.group_portal,1,0,0,0
+access_produk_type_user,produk.type.user,model_produk_type,base.group_user,1,0,0,0
+access_produk_type_manager,produk.type.manager,model_produk_type,base.group_system,1,1,1,1
+access_produk_technology_public,produk.technology.public,model_produk_technology,base.group_public,1,0,0,0
+access_produk_technology_portal,produk.technology.portal,model_produk_technology,base.group_portal,1,0,0,0
+access_produk_technology_user,produk.technology.user,model_produk_technology,base.group_user,1,0,0,0
+access_produk_technology_manager,produk.technology.manager,model_produk_technology,base.group_system,1,1,1,1

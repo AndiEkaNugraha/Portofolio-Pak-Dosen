@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Actions -->
+        <record id="action_buku_post" model="ir.actions.act_window">
+            <field name="name">Daftar Buku</field>
+            <field name="res_model">buku.post</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <record id="action_buku_blog" model="ir.actions.act_window">
+            <field name="name">Kategori Buku</field>
+            <field name="res_model">buku.blog</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <record id="action_buku_type" model="ir.actions.act_window">
+            <field name="name">Jenis Buku</field>
+            <field name="res_model">buku.type</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <record id="action_book_publisher" model="ir.actions.act_window">
+            <field name="name">Penerbit</field>
+            <field name="res_model">book.publisher</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <!-- Menus -->
+        <menuitem id="menu_buku_main" name="Buku" sequence="40"/>
+        
+        <menuitem id="menu_buku_posts" name="Daftar Buku" parent="menu_buku_main" sequence="10" action="action_buku_post"/>
+        
+        <menuitem id="menu_buku_categories" name="Kategori" parent="menu_buku_main" sequence="20" action="action_buku_blog"/>
+        
+        <menuitem id="menu_buku_config" name="Konfigurasi" parent="menu_buku_main" sequence="90"/>
+        
+        <menuitem id="menu_buku_types" name="Jenis Buku" parent="menu_buku_config" sequence="10" action="action_buku_type"/>
+        
+        <menuitem id="menu_book_publishers" name="Penerbit" parent="menu_buku_config" sequence="20" action="action_book_publisher"/>
+        
+        <!-- Website Menu -->
+        <record id="menu_buku_website" model="website.menu">
+            <field name="name">Buku</field>
+            <field name="url">/buku</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">30</field>
+        </record>
+        
+    </data>
+</odoo>

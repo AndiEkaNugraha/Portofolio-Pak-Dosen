@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_beranda_profile_user,beranda.profile.user,model_beranda_profile,base.group_user,1,0,0,0
+access_beranda_profile_manager,beranda.profile.manager,model_beranda_profile,base.group_system,1,1,1,1
+access_beranda_achievement_user,beranda.achievement.user,model_beranda_achievement,base.group_user,1,0,0,0
+access_beranda_achievement_manager,beranda.achievement.manager,model_beranda_achievement,base.group_system,1,1,1,1

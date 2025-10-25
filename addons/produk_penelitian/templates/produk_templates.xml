@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Main Produk Index Page -->
+        <template id="produk_index" name="Produk Penelitian">
+            <t t-call="website.layout">
+                <t t-set="title">Produk Penelitian - Prototipe dan Inovasi</t>
+                <t t-set="meta_description">Jelajahi koleksi produk penelitian, prototipe, dan inovasi teknologi terbaru yang dikembangkan oleh tim peneliti. Temukan solusi teknologi untuk berbagai bidang industri.</t>
+                <t t-set="meta_keywords">produk penelitian, prototipe, inovasi, teknologi, TRL, penelitian dan pengembangan</t>
+                <div id="wrap">
+                    <!-- Page Header -->
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h1 class="display-4 fw-bold">Produk Penelitian</h1>
+                                    <p class="lead">Prototipe dan produk hasil penelitian yang telah dikembangkan</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Statistik</h5>
+                                            <div class="row text-center">
+                                                <div class="col-6">
+                                                    <h4 class="text-primary"><t t-esc="total_products or 0"/></h4>
+                                                    <small class="text-muted">Total Produk</small>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h4 class="text-success"><t t-esc="production_count or 0"/></h4>
+                                                    <small class="text-muted">Produksi</small>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center mt-2">
+                                                <div class="col-6">
+                                                    <h4 class="text-info"><t t-esc="high_trl_count or 0"/></h4>
+                                                    <small class="text-muted">TRL Tinggi</small>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h4 class="text-warning"><t t-esc="prototype_count or 0"/></h4>
+                                                    <small class="text-muted">Prototype</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Search and Filters -->
+                    <section class="py-4 border-bottom">
+                        <div class="container">
+                            <form method="get" class="row g-3">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="search" 
+                                           placeholder="Cari nama produk, peneliti, atau teknologi..." 
+                                           t-att-value="search"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="filterby" class="form-select">
+                                        <option value="all">Semua Kategori</option>
+                                        <option value="prototype" t-att-selected="filterby == 'prototype'">Prototype</option>
+                                        <option value="product" t-att-selected="filterby == 'product'">Produk</option>
+                                        <option value="innovation" t-att-selected="filterby == 'innovation'">Inovasi</option>
+                                        <option value="applied_research" t-att-selected="filterby == 'applied_research'">Riset Terapan</option>
+                                        <option value="basic_research" t-att-selected="filterby == 'basic_research'">Riset Dasar</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="sortby" class="form-select">
+                                        <option value="name" t-att-selected="sortby == 'name'">Urutkan Nama</option>
+                                        <option value="date" t-att-selected="sortby == 'date'">Urutkan Tanggal</option>
+                                        <option value="trl" t-att-selected="sortby == 'trl'">Urutkan TRL</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-search"/> Cari
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- Products Grid -->
+                    <section class="py-5">
+                        <div class="container">
+                            <div class="row">
+                                <t t-if="products">
+                                    <div class="row">
+                                        <t t-foreach="products" t-as="post">
+                                            <div class="col-md-6 col-lg-4 mb-4">
+                                                <div class="card h-100 shadow-sm">
+                                                    <!-- Product Image -->
+                                                    <t t-if="post.product_image">
+                                                        <div class="card-img-top" style="height: 250px; overflow: hidden;">
+                                                            <img t-att-src="'/web/image/produk.post/%s/product_image' % post.id" 
+                                                                 t-att-alt="post.name" 
+                                                                 class="img-fluid w-100 h-100" 
+                                                                 style="object-fit: cover;"/>
+                                                        </div>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                                                            <i class="fa fa-cogs fa-3x text-muted"/>
+                                                        </div>
+                                                    </t>
+                                                    
+                                                    <div class="card-body d-flex flex-column">
+                                                        <div class="mb-2">
+                                                            <span class="badge bg-primary me-1"><t t-esc="post.produk_type_id.name"/></span>
+                                                            
+                                                            <!-- Status Badge -->
+                                                            <t t-if="post.development_status == 'commercial'">
+                                                                <span class="badge bg-success me-1">
+                                                                    <i class="fa fa-shopping-cart"/> Komersial
+                                                                </span>
+                                                            </t>
+                                                            <t t-elif="post.development_status == 'production'">
+                                                                <span class="badge bg-info me-1">
+                                                                    <i class="fa fa-industry"/> Produksi
+                                                                </span>
+                                                            </t>
+                                                            <t t-elif="post.development_status == 'testing'">
+                                                                <span class="badge bg-warning text-dark me-1">
+                                                                    <i class="fa fa-flask"/> Testing
+                                                                </span>
+                                                            </t>
+                                                            <t t-elif="post.development_status == 'prototype'">
+                                                                <span class="badge bg-secondary me-1">
+                                                                    <i class="fa fa-wrench"/> Prototype
+                                                                </span>
+                                                            </t>
+                                                            <t t-elif="post.development_status == 'concept'">
+                                                                <span class="badge bg-light text-dark me-1">
+                                                                    <i class="fa fa-lightbulb-o"/> Konsep
+                                                                </span>
+                                                            </t>
+                                                            
+                                                            <!-- TRL Badge -->
+                                                            <t t-if="post.trl_level">
+                                                                <span class="badge bg-dark me-1">
+                                                                    TRL <t t-esc="post.trl_level[0]"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                        
+                                                        <h5 class="card-title">
+                                                            <a t-att-href="'/produk-penelitian/detail/%s' % post.slug" class="text-decoration-none">
+                                                                <t t-esc="post.name"/>
+                                                            </a>
+                                                        </h5>
+                                                        
+                                                        <p class="card-text text-muted small mb-2">
+                                                            <strong>Peneliti:</strong> <t t-esc="post.principal_investigator"/>
+                                                        </p>
+                                                        
+                                                        <t t-if="post.development_date">
+                                                            <p class="card-text text-muted small mb-2">
+                                                                <strong>Dikembangkan:</strong> <t t-esc="post.development_date.year"/>
+                                                            </p>
+                                                        </t>
+                                                        
+                                                        <t t-if="post.teaser">
+                                                            <p class="card-text flex-grow-1">
+                                                                <t t-esc="post.teaser[:100]"/>
+                                                                <t t-if="len(post.teaser) > 100">...</t>
+                                                            </p>
+                                                        </t>
+                                                        
+                                                        <div class="mt-auto">
+                                                            <a t-att-href="'/produk-penelitian/detail/%s' % post.slug" class="btn btn-outline-primary btn-sm">
+                                                                <i class="fa fa-eye"/> Lihat Detail
+                                                            </a>
+                                                            <t t-if="post.product_url">
+                                                                <a t-att-href="post.product_url" target="_blank" class="btn btn-outline-success btn-sm ms-1">
+                                                                    <i class="fa fa-external-link"/> Website
+                                                                </a>
+                                                            </t>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Pagination -->
+                                    <t t-if="pager">
+                                        <t t-call="website.pager"/>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <div class="col-12 text-center py-5">
+                                        <i class="fa fa-cogs fa-3x text-muted mb-3"/>
+                                        <h4 class="text-muted">Belum Ada Produk</h4>
+                                        <p class="text-muted">Produk penelitian belum tersedia atau tidak ditemukan.</p>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <!-- Product Detail Page -->
+        <template id="produk_detail" name="Detail Produk">
+            <t t-call="website.layout">
+                <t t-set="title" t-value="post.meta_title or post.name"/>
+                <t t-set="meta_description" t-value="post.meta_description or post.teaser"/>
+                <t t-set="meta_keywords" t-value="post.meta_keywords"/>
+                <div id="wrap">
+                    <div class="container py-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Breadcrumb -->
+                                <nav aria-label="breadcrumb" class="mb-4">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="/produk-penelitian">Produk Penelitian</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page"><t t-esc="post.name"/></li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- Product Image and Info -->
+                            <div class="col-lg-4 mb-4">
+                                <t t-if="post.product_image">
+                                    <div class="text-center mb-3">
+                                        <img t-att-src="'/web/image/produk.post/%s/product_image' % post.id" 
+                                             t-att-alt="post.name" 
+                                             class="img-fluid rounded shadow"
+                                             style="max-height: 400px;"/>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 400px;">
+                                        <i class="fa fa-cogs fa-5x text-muted"/>
+                                    </div>
+                                </t>
+                                
+                                <!-- Action Buttons -->
+                                <div class="d-grid gap-2">
+                                    <t t-if="post.product_url">
+                                        <a t-att-href="post.product_url" target="_blank" class="btn btn-primary">
+                                            <i class="fa fa-external-link"/> Kunjungi Website
+                                        </a>
+                                    </t>
+                                    <t t-if="post.demo_video_url">
+                                        <a t-att-href="post.demo_video_url" target="_blank" class="btn btn-outline-primary">
+                                            <i class="fa fa-play-circle"/> Video Demo
+                                        </a>
+                                    </t>
+                                    <t t-if="post.documentation_file">
+                                        <a t-att-href="'/web/content/produk.post/%s/documentation_file' % post.id" 
+                                           class="btn btn-outline-secondary">
+                                            <i class="fa fa-download"/> Download Dokumentasi
+                                        </a>
+                                    </t>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Details -->
+                            <div class="col-lg-8">
+                                <div class="mb-3">
+                                    <span class="badge bg-primary me-2"><t t-esc="post.produk_type_id.name"/></span>
+                                    
+                                    <!-- Status Badge -->
+                                    <t t-if="post.development_status == 'commercial'">
+                                        <span class="badge bg-success me-2">
+                                            <i class="fa fa-shopping-cart"/> Komersial
+                                        </span>
+                                    </t>
+                                    <t t-elif="post.development_status == 'production'">
+                                        <span class="badge bg-info me-2">
+                                            <i class="fa fa-industry"/> Produksi
+                                        </span>
+                                    </t>
+                                    <t t-elif="post.development_status == 'testing'">
+                                        <span class="badge bg-warning text-dark me-2">
+                                            <i class="fa fa-flask"/> Testing/Validasi
+                                        </span>
+                                    </t>
+                                    <t t-elif="post.development_status == 'prototype'">
+                                        <span class="badge bg-secondary me-2">
+                                            <i class="fa fa-wrench"/> Prototype
+                                        </span>
+                                    </t>
+                                    <t t-elif="post.development_status == 'concept'">
+                                        <span class="badge bg-light text-dark me-2">
+                                            <i class="fa fa-lightbulb-o"/> Konsep/Ide
+                                        </span>
+                                    </t>
+                                    
+                                    <!-- TRL Badge -->
+                                    <t t-if="post.trl_level">
+                                        <span class="badge bg-dark me-2">
+                                            TRL <t t-esc="post.trl_level[0]"/> - <t t-esc="post.trl_level.split(' - ')[1] if ' - ' in post.trl_level else post.trl_level"/>
+                                        </span>
+                                    </t>
+                                    
+                                    <!-- IP Status -->
+                                    <t t-if="post.ip_status != 'none'">
+                                        <span class="badge bg-warning text-dark">
+                                            <i class="fa fa-shield"/> <t t-esc="dict(post._fields['ip_status'].selection)[post.ip_status]"/>
+                                        </span>
+                                    </t>
+                                </div>
+                                
+                                <h1 class="display-5 fw-bold mb-3"><t t-esc="post.name"/></h1>
+                                
+                                <t t-if="post.subtitle">
+                                    <h4 class="text-muted mb-4"><t t-esc="post.subtitle"/></h4>
+                                </t>
+                                
+                                <!-- Product Information -->
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Peneliti Utama:</strong></td>
+                                                <td><t t-esc="post.principal_investigator"/></td>
+                                            </tr>
+                                            <t t-if="post.team_members">
+                                                <tr>
+                                                    <td><strong>Tim:</strong></td>
+                                                    <td><t t-esc="post.display_team"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><strong>Pengembangan:</strong></td>
+                                                <td><t t-esc="post.development_date.year if post.development_date else '-'"/></td>
+                                            </tr>
+                                            <t t-if="post.completion_date">
+                                                <tr>
+                                                    <td><strong>Selesai:</strong></td>
+                                                    <td><t t-esc="post.completion_date.year"/></td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Kategori:</strong></td>
+                                                <td><t t-esc="post.blog_id.name"/></td>
+                                            </tr>
+                                            <t t-if="post.funding_source">
+                                                <tr>
+                                                    <td><strong>Pendanaan:</strong></td>
+                                                    <td><t t-esc="post.funding_source"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.partner_institutions">
+                                                <tr>
+                                                    <td><strong>Mitra:</strong></td>
+                                                    <td><t t-esc="post.partner_institutions"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.technology_ids">
+                                                <tr>
+                                                    <td><strong>Teknologi:</strong></td>
+                                                    <td>
+                                                        <t t-foreach="post.technology_ids" t-as="tech">
+                                                            <span class="badge bg-light text-dark me-1"><t t-esc="tech.name"/></span>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <!-- Description -->
+                                <t t-if="post.teaser">
+                                    <div class="alert alert-info">
+                                        <h5>Ringkasan</h5>
+                                        <p class="mb-0"><t t-esc="post.teaser"/></p>
+                                    </div>
+                                </t>
+                                
+                                <t t-if="post.content">
+                                    <div class="mb-4">
+                                        <h5>Deskripsi Lengkap</h5>
+                                        <t t-raw="post.content"/>
+                                    </div>
+                                </t>
+                                
+                                <!-- Technical Specs -->
+                                <t t-if="post.technical_specs">
+                                    <div class="mb-4">
+                                        <h5>Spesifikasi Teknis</h5>
+                                        <t t-raw="post.technical_specs"/>
+                                    </div>
+                                </t>
+                                
+                                <!-- Innovation Points -->
+                                <t t-if="post.innovation_points">
+                                    <div class="mb-4">
+                                        <h5>Poin Inovasi</h5>
+                                        <t t-raw="post.innovation_points"/>
+                                    </div>
+                                </t>
+                                
+                                <!-- Commercial Info -->
+                                <t t-if="post.target_market or post.business_model">
+                                    <div class="row mb-4">
+                                        <div class="col-12">
+                                            <h5>Informasi Komersialisasi</h5>
+                                        </div>
+                                        <t t-if="post.target_market">
+                                            <div class="col-md-6">
+                                                <h6>Target Pasar</h6>
+                                                <p><t t-esc="post.target_market"/></p>
+                                            </div>
+                                        </t>
+                                        <t t-if="post.business_model">
+                                            <div class="col-md-6">
+                                                <h6>Model Bisnis</h6>
+                                                <p><t t-esc="post.business_model"/></p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </t>
+                                
+                                <!-- Contact -->
+                                <t t-if="post.contact_email or post.contact_phone">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h6>Kontak</h6>
+                                            <t t-if="post.contact_email">
+                                                <p class="mb-1">
+                                                    <i class="fa fa-envelope"/> 
+                                                    <a t-att-href="'mailto:' + post.contact_email"><t t-esc="post.contact_email"/></a>
+                                                </p>
+                                            </t>
+                                            <t t-if="post.contact_phone">
+                                                <p class="mb-0">
+                                                    <i class="fa fa-phone"/> <t t-esc="post.contact_phone"/>
+                                                </p>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Halaman Kategori -->
+        <template id="category" name="Produk Penelitian - Kategori">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <!-- Header Section -->
+                    <section class="bg-primary text-white py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h1 class="display-4 mb-3">
+                                        <t t-esc="blog.name"/>
+                                    </h1>
+                                    <p class="lead mb-4" t-if="blog.description">
+                                        <t t-esc="blog.description"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Products Grid -->
+                    <section class="py-5">
+                        <div class="container">
+                            <t t-if="products">
+                                <div class="row">
+                                    <t t-foreach="products" t-as="product">
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card h-100 shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">
+                                                        <a t-attf-href="/produk-penelitian/#{slug(product)}" 
+                                                           class="text-decoration-none">
+                                                            <t t-esc="product.name"/>
+                                                        </a>
+                                                    </h5>
+                                                    <p class="card-text">
+                                                        <t t-esc="product.description[:150] + '...' if len(product.description) > 150 else product.description"/>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="text-center py-5">
+                                    <h3>Belum Ada Produk</h3>
+                                    <p class="text-muted">Belum ada produk penelitian dalam kategori ini.</p>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

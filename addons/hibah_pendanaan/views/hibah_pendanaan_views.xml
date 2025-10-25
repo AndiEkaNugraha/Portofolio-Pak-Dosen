@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Blog Category Views -->
+        <record id="view_hibah_pendanaan_blog_list" model="ir.ui.view">
+            <field name="name">hibah.pendanaan.blog.list</field>
+            <field name="model">hibah.pendanaan.blog</field>
+            <field name="arch" type="xml">
+                <list string="Kategori Hibah &amp; Pendanaan">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="funding_type"/>
+                    <field name="funding_level"/>
+                    <field name="funding_agency"/>
+                    <field name="post_count"/>
+                    <field name="total_funding" widget="monetary"/>
+                    <field name="website_published"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_hibah_pendanaan_blog_form" model="ir.ui.view">
+            <field name="name">hibah.pendanaan.blog.form</field>
+            <field name="model">hibah.pendanaan.blog</field>
+            <field name="arch" type="xml">
+                <form string="Kategori Hibah &amp; Pendanaan">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="subtitle"/>
+                                <field name="funding_type"/>
+                                <field name="funding_level"/>
+                                <field name="funding_agency"/>
+                                <field name="agency_type"/>
+                            </group>
+                            <group>
+                                <field name="sequence"/>
+                                <field name="website_published"/>
+                                <field name="active"/>
+                                <field name="post_count" readonly="1"/>
+                                <field name="total_funding" widget="monetary"/>
+                                <field name="average_funding" widget="monetary" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Deskripsi">
+                                <field name="description" placeholder="Deskripsi kategori hibah..."/>
+                            </page>
+                            <page string="Informasi Institusi">
+                                <group>
+                                    <group>
+                                        <field name="institution"/>
+                                        <field name="faculty"/>
+                                    </group>
+                                    <group>
+                                        <field name="contact_person"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Post/Grant Views -->
+        <record id="view_hibah_pendanaan_post_list" model="ir.ui.view">
+            <field name="name">hibah.pendanaan.post.list</field>
+            <field name="model">hibah.pendanaan.post</field>
+            <field name="arch" type="xml">
+                <list string="Hibah &amp; Pendanaan">
+                    <field name="name"/>
+                    <field name="blog_id"/>
+                    <field name="grant_number"/>
+                    <field name="principal_investigator"/>
+                    <field name="funding_agency"/>
+                    <field name="status"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="total_amount" widget="monetary"/>
+                    <field name="disbursed_amount" widget="monetary"/>
+                    <field name="progress_percentage"/>
+                    <field name="is_featured"/>
+                    <field name="website_published"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_hibah_pendanaan_post_form" model="ir.ui.view">
+            <field name="name">hibah.pendanaan.post.form</field>
+            <field name="model">hibah.pendanaan.post</field>
+            <field name="arch" type="xml">
+                <form string="Hibah &amp; Pendanaan">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_website_published" type="object" class="oe_stat_button" icon="fa-globe">
+                                <field name="website_published" widget="website_publish_button"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="subtitle"/>
+                                <field name="blog_id"/>
+                                <field name="grant_number"/>
+                                <field name="grant_scheme"/>
+                                <field name="principal_investigator"/>
+                            </group>
+                            <group>
+                                <field name="status"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="duration_months" readonly="1"/>
+                                <field name="progress_percentage"/>
+                                <field name="is_featured"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Informasi Pendanaan">
+                                <group>
+                                    <group>
+                                        <field name="funding_agency"/>
+                                        <field name="funding_source"/>
+                                        <field name="total_amount" widget="monetary"/>
+                                        <field name="disbursed_amount" widget="monetary"/>
+                                        <field name="remaining_amount" widget="monetary" readonly="1"/>
+                                        <field name="funding_year"/>
+                                    </group>
+                                    <group>
+                                        <field name="personnel_cost" widget="monetary"/>
+                                        <field name="equipment_cost" widget="monetary"/>
+                                        <field name="material_cost" widget="monetary"/>
+                                        <field name="travel_cost" widget="monetary"/>
+                                        <field name="other_cost" widget="monetary"/>
+                                        <field name="overhead_percentage"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Deskripsi &amp; Tujuan">
+                                <group>
+                                    <field name="research_area"/>
+                                    <field name="keywords"/>
+                                </group>
+                                <field name="teaser" placeholder="Ringkasan singkat hibah..."/>
+                                <field name="description" placeholder="Deskripsi lengkap hibah..."/>
+                                <field name="background" placeholder="Latar belakang hibah..."/>
+                                <field name="objectives" placeholder="Tujuan hibah..."/>
+                                <field name="methodology" placeholder="Metodologi yang digunakan..."/>
+                                <field name="expected_outcomes" placeholder="Luaran yang diharapkan..."/>
+                                <field name="significance" placeholder="Signifikansi hibah..."/>
+                            </page>
+                            <page string="Tim &amp; Kolaborasi">
+                                <group>
+                                    <group>
+                                        <field name="co_investigators" placeholder="Anggota tim peneliti..."/>
+                                        <field name="research_assistants" placeholder="Asisten peneliti..."/>
+                                        <field name="external_experts" placeholder="Pakar eksternal..."/>
+                                    </group>
+                                    <group>
+                                        <field name="phd_students" placeholder="Mahasiswa S3..."/>
+                                        <field name="master_students" placeholder="Mahasiswa S2..."/>
+                                        <field name="undergrad_students" placeholder="Mahasiswa S1..."/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="international_collaboration"/>
+                                </group>
+                                <field name="partner_institutions" placeholder="Institusi mitra..." invisible="not international_collaboration"/>
+                                <field name="industry_partners" placeholder="Mitra industri..."/>
+                                <field name="international_partners" placeholder="Mitra internasional..." invisible="not international_collaboration"/>
+                            </page>
+                            <page string="Progress &amp; Milestone">
+                                <field name="milestone_achieved" placeholder="Milestone yang telah dicapai..."/>
+                                <field name="current_activities" placeholder="Kegiatan yang sedang berlangsung..."/>
+                                <field name="challenges_faced" placeholder="Tantangan yang dihadapi..."/>
+                                <field name="next_steps" placeholder="Langkah selanjutnya..."/>
+                            </page>
+                            <page string="Luaran &amp; Hasil">
+                                <field name="publications" placeholder="Publikasi yang dihasilkan..."/>
+                                <field name="patents_ip" placeholder="Paten dan HKI..."/>
+                                <field name="prototypes" placeholder="Prototipe dan produk..."/>
+                                <field name="conference_presentations" placeholder="Presentasi konferensi..."/>
+                                <field name="awards_recognition" placeholder="Penghargaan yang diterima..."/>
+                            </page>
+                            <page string="Dampak &amp; Keberlanjutan">
+                                <field name="social_impact" placeholder="Dampak sosial..."/>
+                                <field name="economic_impact" placeholder="Dampak ekonomi..."/>
+                                <field name="environmental_impact" placeholder="Dampak lingkungan..."/>
+                                <field name="sustainability_plan" placeholder="Rencana keberlanjutan..."/>
+                            </page>
+                            <page string="Dokumentasi &amp; Laporan">
+                                <field name="interim_reports" placeholder="Laporan kemajuan..."/>
+                                <field name="final_report" placeholder="Laporan akhir..."/>
+                                <field name="financial_reports" placeholder="Laporan keuangan..."/>
+                                <field name="audit_results" placeholder="Hasil audit..."/>
+                            </page>
+                            <page string="Media &amp; Kontak">
+                                <group>
+                                    <group>
+                                        <field name="image_url"/>
+                                        <field name="video_url"/>
+                                        <field name="project_website"/>
+                                    </group>
+                                    <group>
+                                        <field name="contact_email"/>
+                                        <field name="contact_phone"/>
+                                        <field name="date"/>
+                                    </group>
+                                </group>
+                                <field name="document_urls" placeholder="Link dokumen terkait..."/>
+                                <field name="related_links" placeholder="Link terkait lainnya..."/>
+                            </page>
+                            <page string="SEO">
+                                <group>
+                                    <field name="slug"/>
+                                    <field name="meta_title"/>
+                                    <field name="meta_description"/>
+                                    <field name="meta_keywords"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search Views -->
+        <record id="view_hibah_pendanaan_blog_search" model="ir.ui.view">
+            <field name="name">hibah.pendanaan.blog.search</field>
+            <field name="model">hibah.pendanaan.blog</field>
+            <field name="arch" type="xml">
+                <search string="Cari Kategori Hibah">
+                    <field name="name"/>
+                    <field name="funding_type"/>
+                    <field name="funding_agency"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_hibah_pendanaan_post_search" model="ir.ui.view">
+            <field name="name">hibah.pendanaan.post.search</field>
+            <field name="model">hibah.pendanaan.post</field>
+            <field name="arch" type="xml">
+                <search string="Cari Hibah &amp; Pendanaan">
+                    <field name="name"/>
+                    <field name="grant_number"/>
+                    <field name="principal_investigator"/>
+                    <field name="funding_agency"/>
+                    <field name="research_area"/>
+                    <field name="status"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

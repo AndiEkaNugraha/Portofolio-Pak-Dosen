@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Main Menu -->
+        <menuitem 
+            id="grup_riset_main_menu"
+            name="Grup Riset"
+            sequence="15"
+            web_icon="grup_riset,static/description/icon.png"/>
+
+        <!-- Sub Menu: Grup Riset & Lab -->
+        <menuitem 
+            id="grup_riset_post_menu"
+            name="Grup Riset &amp; Lab"
+            parent="grup_riset_main_menu"
+            action="grup_riset_post_action"
+            sequence="10"/>
+
+        <!-- Sub Menu: Kategori -->
+        <menuitem 
+            id="grup_riset_blog_menu"
+            name="Kategori"
+            parent="grup_riset_main_menu"
+            action="grup_riset_blog_action"
+            sequence="20"/>
+
+        <!-- Sub Menu: Lihat Website -->
+        <record id="grup_riset_website_action" model="ir.actions.act_url">
+            <field name="name">Lihat di Website</field>
+            <field name="url">/grup-riset</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem 
+            id="grup_riset_website_menu"
+            name="Lihat di Website"
+            parent="grup_riset_main_menu"
+            action="grup_riset_website_action"
+            sequence="30"/>
+
+    </data>
+</odoo>

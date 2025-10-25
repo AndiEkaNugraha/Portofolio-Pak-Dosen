@@ -246,7 +246,9 @@
                                         </p>
                                         <p><strong>Jurnal:</strong> <span t-field="post.journal_name"/></p>
                                         <p t-if="post.publisher">
-                                            <strong>Penerbit:</strong> <span t-field="post.publisher"/>
+                                            <strong>Penerbit:</strong> <a t-attf-href="post.publisher_website" target="_blank">
+                                                <span t-field="post.publisher"/>
+                                            </a>
                                         </p>
                                     </div>
                                     <div class="col-md-6">
@@ -336,9 +338,9 @@
                                 </div>
                                 <div class="card-body">
                                     <p t-if="post.url">
-                                        <strong>URL Jurnal:</strong><br/>
+                                        <strong>Jurnal:</strong><br/>
                                         <a t-att-href="post.url" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            Lihat di Jurnal
+                                            Lihat Jurnal
                                         </a>
                                     </p>
                                     

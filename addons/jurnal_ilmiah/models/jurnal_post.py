@@ -39,6 +39,7 @@ class JurnalPost(models.Model):
     journal_name = fields.Char('Nama Jurnal', required=True)
     publisher = fields.Char('Penerbit')
     publication_date = fields.Date('Tanggal Publikasi', default=fields.Date.today)
+    publisher_website = fields.Char('Situs Penerbit')
     
     # Publication details
     volume = fields.Char('Volume')

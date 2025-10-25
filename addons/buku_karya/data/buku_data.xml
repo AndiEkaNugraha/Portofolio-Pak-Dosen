@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Default Book Categories -->
+        <record id="book_category_textbook" model="buku.blog">
+            <field name="name">Buku Teks</field>
+            <field name="subtitle">Buku untuk pembelajaran dan pengajaran</field>
+            <field name="book_scope">both</field>
+            <field name="scientific_field">education</field>
+            <field name="target_audience">undergraduate</field>
+            <field name="description">
+                <![CDATA[
+                <p>Kategori buku teks dan bahan ajar untuk mahasiswa dan pelajar.</p>
+                ]]>
+            </field>
+        </record>
+
+        <record id="book_category_monograph" model="buku.blog">
+            <field name="name">Monograf</field>
+            <field name="subtitle">Karya tulis ilmiah mendalam tentang topik spesifik</field>
+            <field name="book_scope">both</field>
+            <field name="scientific_field">other</field>
+            <field name="target_audience">researcher</field>
+            <field name="description">
+                <![CDATA[
+                <p>Kategori untuk monograf dan karya tulis ilmiah yang membahas topik spesifik secara mendalam.</p>
+                ]]>
+            </field>
+        </record>
+
+        <record id="book_category_reference" model="buku.blog">
+            <field name="name">Buku Referensi</field>
+            <field name="subtitle">Buku rujukan dan panduan</field>
+            <field name="book_scope">both</field>
+            <field name="scientific_field">other</field>
+            <field name="target_audience">professional</field>
+            <field name="description">
+                <![CDATA[
+                <p>Kategori untuk buku referensi, panduan, dan handbook.</p>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Default Book Types (Standar Indonesia) -->
+        <record id="book_type_textbook" model="buku.type">
+            <field name="name">Buku Teks/Textbook</field>
+            <field name="code">TB</field>
+            <field name="sequence">10</field>
+            <field name="description">Buku yang digunakan sebagai bahan ajar utama di perguruan tinggi</field>
+        </record>
+
+        <record id="book_type_monograph" model="buku.type">
+            <field name="name">Monograf</field>
+            <field name="code">MG</field>
+            <field name="sequence">20</field>
+            <field name="description">Karya tulis ilmiah yang membahas satu topik secara mendalam dan sistematis</field>
+        </record>
+
+        <record id="book_type_reference" model="buku.type">
+            <field name="name">Buku Referensi</field>
+            <field name="code">RF</field>
+            <field name="sequence">30</field>
+            <field name="description">Buku rujukan seperti kamus, ensiklopedia, manual</field>
+        </record>
+
+        <record id="book_type_anthology" model="buku.type">
+            <field name="name">Bunga Rampai</field>
+            <field name="code">BR</field>
+            <field name="sequence">40</field>
+            <field name="description">Kumpulan karya tulis dari berbagai penulis dalam satu tema</field>
+        </record>
+
+        <record id="book_type_popular" model="buku.type">
+            <field name="name">Buku Ilmiah Populer</field>
+            <field name="code">IP</field>
+            <field name="sequence">50</field>
+            <field name="description">Buku yang menyajikan ilmu pengetahuan untuk masyarakat umum</field>
+        </record>
+
+        <record id="book_type_novel" model="buku.type">
+            <field name="name">Novel</field>
+            <field name="code">NV</field>
+            <field name="sequence">60</field>
+            <field name="description">Karya sastra berupa cerita panjang dalam bentuk prosa</field>
+        </record>
+
+        <record id="book_type_poetry" model="buku.type">
+            <field name="name">Kumpulan Puisi</field>
+            <field name="code">PS</field>
+            <field name="sequence">70</field>
+            <field name="description">Kumpulan karya puisi dari satu atau beberapa penyair</field>
+        </record>
+
+        <record id="book_type_translation" model="buku.type">
+            <field name="name">Buku Terjemahan</field>
+            <field name="code">TR</field>
+            <field name="sequence">80</field>
+            <field name="description">Buku yang diterjemahkan dari bahasa asing ke bahasa Indonesia</field>
+        </record>
+
+        <record id="book_type_proceedings" model="buku.type">
+            <field name="name">Prosiding</field>
+            <field name="code">PR</field>
+            <field name="sequence">90</field>
+            <field name="description">Kumpulan makalah dari seminar, konferensi, atau simposium</field>
+        </record>
+
+        <!-- Default Publishers (Indonesia) -->
+        <record id="publisher_gramedia" model="book.publisher">
+            <field name="name">Gramedia Pustaka Utama</field>
+            <field name="code">GPU</field>
+            <field name="country">Indonesia</field>
+            <field name="city">Jakarta</field>
+            <field name="website">https://www.gpu.id</field>
+        </record>
+
+        <record id="publisher_erlangga" model="book.publisher">
+            <field name="name">Penerbit Erlangga</field>
+            <field name="code">ERL</field>
+            <field name="country">Indonesia</field>
+            <field name="city">Jakarta</field>
+            <field name="website">https://www.erlangga.co.id</field>
+        </record>
+
+        <record id="publisher_andi" model="book.publisher">
+            <field name="name">Penerbit Andi</field>
+            <field name="code">AND</field>
+            <field name="country">Indonesia</field>
+            <field name="city">Yogyakarta</field>
+            <field name="website">https://www.andipublisher.com</field>
+        </record>
+
+        <record id="publisher_mizan" model="book.publisher">
+            <field name="name">Mizan Pustaka</field>
+            <field name="code">MZN</field>
+            <field name="country">Indonesia</field>
+            <field name="city">Bandung</field>
+            <field name="website">https://www.mizan.com</field>
+        </record>
+
+        <record id="publisher_ui_press" model="book.publisher">
+            <field name="name">UI Press</field>
+            <field name="code">UIP</field>
+            <field name="country">Indonesia</field>
+            <field name="city">Depok</field>
+            <field name="website">https://ui-press.ui.ac.id</field>
+        </record>
+
+        <record id="publisher_ugm_press" model="book.publisher">
+            <field name="name">Gadjah Mada University Press</field>
+            <field name="code">GMP</field>
+            <field name="country">Indonesia</field>
+            <field name="city">Yogyakarta</field>
+            <field name="website">https://ugmpress.ugm.ac.id</field>
+        </record>
+
+        <record id="publisher_itb_press" model="book.publisher">
+            <field name="name">ITB Press</field>
+            <field name="code">ITB</field>
+            <field name="country">Indonesia</field>
+            <field name="city">Bandung</field>
+            <field name="website">https://www.itbpress.itb.ac.id</field>
+        </record>
+
+        <record id="publisher_lipi" model="book.publisher">
+            <field name="name">LIPI Press</field>
+            <field name="code">LPI</field>
+            <field name="country">Indonesia</field>
+            <field name="city">Jakarta</field>
+            <field name="website">https://press.lipi.go.id</field>
+        </record>
+
+        <record id="publisher_self" model="book.publisher">
+            <field name="name">Penerbit Sendiri</field>
+            <field name="code">SELF</field>
+            <field name="country">Indonesia</field>
+            <field name="description">Buku yang diterbitkan sendiri oleh penulis</field>
+        </record>
+
+        <!-- Sample Books Data -->
+        <record id="sample_book_1" model="buku.post">
+            <field name="name">Pengantar Ilmu Komputer</field>
+            <field name="subtitle">Konsep Dasar dan Implementasi</field>
+            <field name="authors">Dr. John Doe, M.Kom</field>
+            <field name="blog_id" ref="book_category_textbook"/>
+            <field name="buku_type_id" ref="book_type_textbook"/>
+            <field name="publisher_id" ref="publisher_ui_press"/>
+            <field name="publication_year">2023</field>
+            <field name="isbn">978-602-386-123-4</field>
+            <field name="pages">350</field>
+            <field name="language">id</field>
+            <field name="scientific_field">computer_science</field>
+            <field name="book_url">https://example.com/book1</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="content">
+                <![CDATA[
+                <p>Buku ini membahas konsep dasar ilmu komputer dan implementasinya dalam kehidupan sehari-hari.</p>
+                ]]>
+            </field>
+            <field name="slug">pengantar-ilmu-komputer</field>
+            <field name="meta_title">Pengantar Ilmu Komputer - Konsep Dasar dan Implementasi</field>
+            <field name="meta_description">Buku panduan lengkap untuk mempelajari konsep dasar ilmu komputer dan implementasinya</field>
+        </record>
+
+        <record id="sample_book_2" model="buku.post">
+            <field name="name">Metodologi Penelitian Kualitatif</field>
+            <field name="authors">Prof. Jane Smith, Ph.D</field>
+            <field name="co_authors">Dr. Ahmad Rahman, M.A</field>
+            <field name="blog_id" ref="book_category_monograph"/>
+            <field name="buku_type_id" ref="book_type_monograph"/>
+            <field name="publisher_id" ref="publisher_gramedia"/>
+            <field name="publication_year">2024</field>
+            <field name="isbn">978-602-03-456-7</field>
+            <field name="pages">280</field>
+            <field name="language">id</field>
+            <field name="scientific_field">social_science</field>
+            <field name="book_url">https://example.com/book2</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="content">
+                <![CDATA[
+                <p>Panduan komprehensif untuk melakukan penelitian kualitatif dalam berbagai bidang ilmu sosial.</p>
+                ]]>
+            </field>
+            <field name="slug">metodologi-penelitian-kualitatif</field>
+            <field name="meta_title">Metodologi Penelitian Kualitatif - Panduan Lengkap</field>
+            <field name="meta_description">Buku panduan lengkap metodologi penelitian kualitatif untuk mahasiswa dan peneliti</field>
+        </record>
+
+        <record id="sample_book_3" model="buku.post">
+            <field name="name">Artificial Intelligence untuk Pemula</field>
+            <field name="authors">Dr. Sarah Wilson</field>
+            <field name="blog_id" ref="book_category_textbook"/>
+            <field name="buku_type_id" ref="book_type_textbook"/>
+            <field name="publisher_id" ref="publisher_andi"/>
+            <field name="publication_year">2024</field>
+            <field name="isbn">978-979-29-456-8</field>
+            <field name="pages">420</field>
+            <field name="language">id</field>
+            <field name="scientific_field">computer_science</field>
+            <field name="book_url">https://example.com/book3</field>
+            <field name="status">in_press</field>
+            <field name="is_published">True</field>
+            <field name="content">
+                <![CDATA[
+                <p>Buku panduan praktis untuk memahami dasar-dasar kecerdasan buatan dan penerapannya.</p>
+                ]]>
+            </field>
+            <field name="slug">artificial-intelligence-untuk-pemula</field>
+            <field name="meta_title">Artificial Intelligence untuk Pemula - Panduan Praktis AI</field>
+            <field name="meta_description">Buku panduan praktis untuk memahami dan menerapkan kecerdasan buatan</field>
+        </record>
+
+        <record id="sample_book_4" model="buku.post">
+            <field name="name">Manajemen Proyek Digital</field>
+            <field name="authors">Prof. Michael Brown</field>
+            <field name="blog_id" ref="book_category_reference"/>
+            <field name="buku_type_id" ref="book_type_handbook"/>
+            <field name="publisher_id" ref="publisher_erlangga"/>
+            <field name="publication_year">2024</field>
+            <field name="pages">300</field>
+            <field name="language">id</field>
+            <field name="scientific_field">management</field>
+            <field name="book_url">https://example.com/book4</field>
+            <field name="status">draft</field>
+            <field name="is_published">False</field>
+            <field name="content">
+                <![CDATA[
+                <p>Panduan lengkap manajemen proyek di era digital dengan metodologi terkini.</p>
+                ]]>
+            </field>
+            <field name="slug">manajemen-proyek-digital</field>
+            <field name="meta_title">Manajemen Proyek Digital - Panduan Era Digital</field>
+            <field name="meta_description">Panduan lengkap manajemen proyek menggunakan metodologi digital terkini</field>
+        </record>
+
+    </data>
+</odoo>

@@ -55,6 +55,7 @@
                             <field name="journal_name" required="1"/>
                             <field name="publisher"/>
                             <field name="publication_date"/>
+                            <field name="publisher_website"/>
                             <field name="website_published" string="Tampilkan di Website" help="Publikasikan artikel ini di website publik"/>
                         </group>
                         <group string="Status">

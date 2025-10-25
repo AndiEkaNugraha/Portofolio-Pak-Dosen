@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Demo Product Data for Testing -->
+        <record id="demo_produk_ai_chatbot" model="produk.post">
+            <field name="name">AI Chatbot untuk Customer Service</field>
+            <field name="subtitle">Intelligent Customer Support Assistant</field>
+            <field name="blog_id" ref="produk_blog_teknologi_informasi"/>
+            <field name="development_status">commercial</field>
+            <field name="trl_level">9</field>
+            <field name="description">Chatbot berbasis AI yang dapat menangani pertanyaan customer secara otomatis dengan tingkat akurasi tinggi menggunakan teknologi Natural Language Processing.</field>
+            <field name="technical_specs">- NLP Engine: BERT, GPT-3.5
+- Platform: Web, Mobile, WhatsApp
+- Languages: Indonesian, English
+- Integration: CRM, Ticketing System
+- Response Time: &lt; 500ms</field>
+            <field name="main_researcher">Dr. Ir. Budi Santoso, M.Kom.</field>
+            <field name="research_team">Tim AI Research Lab</field>
+            <field name="estimated_cost">200000000</field>
+            <field name="development_duration">24</field>
+            <field name="target_market">E-commerce, Banking, Telco</field>
+            <field name="competitive_advantage">Multi-language support, Industry-specific training, High accuracy rate</field>
+            <field name="intellectual_property">Patent pending: ID P00202300123</field>
+            <field name="commercial_potential">Very High</field>
+            <field name="website_published">True</field>
+        </record>
+        
+        <record id="demo_produk_telemedicine" model="produk.post">
+            <field name="name">Aplikasi Telemedicine untuk Konsultasi Jarak Jauh</field>
+            <field name="subtitle">Remote Healthcare Consultation Platform</field>
+            <field name="blog_id" ref="produk_blog_kesehatan"/>
+            <field name="development_status">production</field>
+            <field name="trl_level">8</field>
+            <field name="teaser">Platform telemedicine yang memungkinkan konsultasi medis jarak jauh dengan fitur video call, chat, dan manajemen rekam medis digital.</field>
+            <field name="content">&lt;p&gt;Platform telemedicine komprehensif yang dirancang untuk mempermudah akses layanan kesehatan di era digital. Sistem ini memungkinkan pasien berkonsultasi dengan dokter dari jarak jauh melalui berbagai channel komunikasi.&lt;/p&gt;
+
+&lt;h3&gt;Fitur Utama:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Video consultation dengan kualitas HD&lt;/li&gt;
+&lt;li&gt;Chat real-time dengan dokter&lt;/li&gt;
+&lt;li&gt;Digital medical records management&lt;/li&gt;
+&lt;li&gt;Appointment scheduling system&lt;/li&gt;
+&lt;li&gt;E-prescription dan digital pharmacy integration&lt;/li&gt;
+&lt;li&gt;Payment gateway terintegrasi&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="principal_investigator">Dr. Sarah Johnson, M.D.</field>
+            <field name="team_members">Dr. Michael Chen, Software Engineer Tim Lee, UX Designer Maya Sari</field>
+            <field name="development_date">2023-01-15</field>
+            <field name="completion_date">2024-08-30</field>
+            <field name="funding_source">BRIN Healthcare Innovation Grant</field>
+            <field name="target_market">Rumah Sakit, Klinik, Dokter Praktik Mandiri</field>
+            <field name="competitive_advantage">End-to-end healthcare solution, HIPAA compliant, Mobile-first design</field>
+            <field name="ip_status">applied</field>
+            <field name="technical_specifications">- Frontend: React Native, Flutter
+- Backend: Node.js, Express
+- Database: PostgreSQL, Redis
+- Real-time: Socket.io, WebRTC
+- Security: OAuth2, JWT, AES-256
+- Cloud: AWS, Docker, Kubernetes</field>
+            <field name="meta_title">Aplikasi Telemedicine untuk Konsultasi Jarak Jauh - Inovasi Healthcare Digital</field>
+            <field name="meta_description">Platform telemedicine terdepan yang memungkinkan konsultasi medis jarak jauh dengan fitur video call HD, chat real-time, dan manajemen rekam medis digital terintegrasi.</field>
+            <field name="meta_keywords">telemedicine, konsultasi online, healthcare digital, video consultation, rekam medis digital, kesehatan jarak jauh</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="demo_produk_smart_farm" model="produk.post">
+            <field name="name">Smart Farming System dengan Drone Monitoring</field>
+            <field name="subtitle">Precision Agriculture Solution</field>
+            <field name="blog_id" ref="produk_blog_pertanian"/>
+            <field name="development_status">pilot</field>
+            <field name="trl_level">7</field>
+            <field name="description">Sistem pertanian pintar yang mengintegrasikan IoT sensors, drone monitoring, dan AI analysis untuk optimasi produksi pertanian.</field>
+            <field name="technical_specs">- Sensors: Soil moisture, pH, NPK, Weather
+- Drone: Fixed-wing, 2-hour flight time
+- AI Analysis: Crop health, Disease detection
+- Mobile App: Farmer dashboard
+- Connectivity: LoRa, 4G</field>
+            <field name="main_researcher">Prof. Dr. Ir. Sri Wahyuni, M.Sc.</field>
+            <field name="research_team">Laboratorium Precision Agriculture</field>
+            <field name="estimated_cost">500000000</field>
+            <field name="development_duration">36</field>
+            <field name="target_market">Petani Modern, Agribisnis, Koperasi</field>
+            <field name="competitive_advantage">Integrated solution, Cost-effective, Local language support</field>
+            <field name="website_published">True</field>
+        </record>
+        
+        <record id="demo_produk_medical_device" model="produk.post">
+            <field name="name">Portable ECG Monitor dengan AI Diagnosis</field>
+            <field name="subtitle">AI-Powered Heart Monitoring Device</field>
+            <field name="blog_id" ref="produk_blog_kesehatan"/>
+            <field name="development_status">testing</field>
+            <field name="trl_level">8</field>
+            <field name="description">Alat monitor ECG portable yang dapat mendeteksi kelainan jantung secara real-time menggunakan algoritma machine learning.</field>
+            <field name="technical_specs">- 12-lead ECG capability
+- AI Algorithm: Trained on 100K+ ECGs
+- Battery: 48-hour continuous use
+- Connectivity: Bluetooth, WiFi
+- Certification: FDA Class II pending</field>
+            <field name="main_researcher">dr. Ahmad Fauzi, Sp.JP</field>
+            <field name="research_team">Tim Biomedical Engineering</field>
+            <field name="estimated_cost">1000000000</field>
+            <field name="development_duration">48</field>
+            <field name="target_market">Rumah Sakit, Klinik, Home Care</field>
+            <field name="competitive_advantage">AI-powered diagnosis, Portable design, Cloud connectivity</field>
+            <field name="intellectual_property">Patent applied: WO2023/012345</field>
+            <field name="regulatory_status">Clinical trial phase</field>
+            <field name="website_published">True</field>
+        </record>
+        
+        <record id="demo_produk_renewable_energy" model="produk.post">
+            <field name="name">Micro Hydro Power Generator untuk Sungai Kecil</field>
+            <field name="subtitle">Small Stream Hydro Power Solution</field>
+            <field name="blog_id" ref="produk_blog_energi"/>
+            <field name="development_status">prototype</field>
+            <field name="trl_level">6</field>
+            <field name="description">Generator listrik tenaga air skala kecil yang dapat dipasang di sungai atau aliran air kecil untuk menghasilkan listrik bagi komunitas rural.</field>
+            <field name="technical_specs">- Power Output: 1-5 kW
+- Water Flow: Min 0.5 m³/s
+- Turbine: Pelton wheel design
+- Generator: Permanent magnet
+- Control System: MPPT controller</field>
+            <field name="main_researcher">Dr. Ir. Hendra Gunawan, M.T.</field>
+            <field name="research_team">Laboratorium Energi Alternatif</field>
+            <field name="estimated_cost">100000000</field>
+            <field name="development_duration">18</field>
+            <field name="target_market">Desa Terpencil, Eco-tourism, Mining</field>
+            <field name="competitive_advantage">Low maintenance, Fish-friendly design, Remote monitoring</field>
+            <field name="environmental_impact">Zero emission, Minimal ecosystem disruption</field>
+            <field name="website_published">True</field>
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Main Buku Index Page -->
+        <template id="buku_index" name="Daftar Buku">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <!-- Page Header -->
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h1 class="display-4 fw-bold">Daftar Buku</h1>
+                                    <p class="lead">Kumpulan buku yang telah dipublikasikan</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Statistik</h5>
+                                            <div class="row text-center">
+                                                <div class="col-6">
+                                                    <h4 class="text-primary"><t t-esc="stats.get('total_books', 0)"/></h4>
+                                                    <small class="text-muted">Total Buku</small>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h4 class="text-success"><t t-esc="stats.get('published_books', 0)"/></h4>
+                                                    <small class="text-muted">Terbit</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Search and Filters -->
+                    <section class="py-4 border-bottom">
+                        <div class="container">
+                            <form method="get" class="row g-3">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="search" 
+                                           placeholder="Cari judul, penulis, atau kata kunci..." 
+                                           t-att-value="search"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="category_id" class="form-select">
+                                        <option value="">Semua Kategori</option>
+                                        <t t-foreach="categories" t-as="category">
+                                            <option t-att-value="category.id" 
+                                                    t-att-selected="category_id == category.id and 'selected' or None">
+                                                <t t-esc="category.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="book_type_id" class="form-select">
+                                        <option value="">Semua Jenis</option>
+                                        <t t-foreach="book_types" t-as="book_type">
+                                            <option t-att-value="book_type.id" 
+                                                    t-att-selected="book_type_id == book_type.id and 'selected' or None">
+                                                <t t-esc="book_type.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="year" class="form-select">
+                                        <option value="">Semua Tahun</option>
+                                        <t t-foreach="years" t-as="year">
+                                            <option t-att-value="year" 
+                                                    t-att-selected="selected_year == year and 'selected' or None">
+                                                <t t-esc="year"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-search"/> Cari
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- Content -->
+                    <div class="container py-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <t t-if="not posts">
+                                    <div class="alert alert-info text-center">
+                                        <h4>Belum ada buku yang dipublikasikan</h4>
+                                        <p>Silakan kembali lagi nanti untuk melihat update terbaru.</p>
+                                    </div>
+                                </t>
+                                
+                                <t t-if="posts">
+                                    <div class="row">
+                                        <t t-foreach="posts" t-as="post">
+                                            <div class="col-md-6 col-lg-4 mb-4">
+                                                <div class="card h-100 shadow-sm">
+                                                    <!-- Book Cover -->
+                                                    <t t-if="post.cover_image">
+                                                        <div class="card-img-top" style="height: 250px; overflow: hidden;">
+                                                            <img t-att-src="'/web/image/buku.post/%s/cover_image' % post.id" 
+                                                                 t-att-alt="post.name" 
+                                                                 class="img-fluid w-100 h-100" 
+                                                                 style="object-fit: cover;"/>
+                                                        </div>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                                                            <i class="fa fa-book fa-3x text-muted"/>
+                                                        </div>
+                                                    </t>
+                                                    
+                                                    <div class="card-body d-flex flex-column">
+                                                        <div class="mb-2">
+                                                            <span class="badge bg-primary me-1"><t t-esc="post.buku_type_id.name"/></span>
+                                                            
+                                                            <!-- Status Badge -->
+                                                            <t t-if="post.status == 'published'">
+                                                                <span class="badge bg-success me-1">
+                                                                    <i class="fa fa-check-circle"/> Terbit
+                                                                </span>
+                                                            </t>
+                                                            <t t-elif="post.status == 'in_press'">
+                                                                <span class="badge bg-warning text-dark me-1">
+                                                                    <i class="fa fa-print"/> Dalam Cetak
+                                                                </span>
+                                                            </t>
+                                                            <t t-elif="post.status == 'submitted'">
+                                                                <span class="badge bg-info text-white me-1">
+                                                                    <i class="fa fa-paper-plane"/> Diserahkan
+                                                                </span>
+                                                            </t>
+                                                            <t t-elif="post.status == 'draft'">
+                                                                <span class="badge bg-secondary me-1">
+                                                                    <i class="fa fa-edit"/> Draft
+                                                                </span>
+                                                            </t>
+                                                            
+                                                            <t t-if="post.award_received">
+                                                                <span class="badge bg-warning text-dark">
+                                                                    <i class="fa fa-trophy"/> Award
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                        
+                                                        <h5 class="card-title">
+                                                            <a t-att-href="'/buku/detail/%s' % post.slug" class="text-decoration-none">
+                                                                <t t-esc="post.name"/>
+                                                            </a>
+                                                        </h5>
+                                                        
+                                                        <p class="card-text text-muted small mb-2">
+                                                            <strong>Penulis:</strong> <t t-esc="post.display_authors"/>
+                                                        </p>
+                                                        
+                                                        <t t-if="post.publisher_id or post.publisher_name">
+                                                            <p class="card-text text-muted small mb-2">
+                                                                <strong>Penerbit:</strong> 
+                                                                <t t-esc="post.publisher_id.name or post.publisher_name"/>
+                                                                <t t-if="post.publication_year"> 
+                                                                    (<t t-esc="post.publication_year"/>)
+                                                                </t>
+                                                            </p>
+                                                        </t>
+                                                        
+                                                <t t-if="post.teaser">
+                                                    <p class="card-text flex-grow-1">
+                                                        <t t-esc="post.teaser"/>
+                                                    </p>
+                                                </t>                                                        <div class="mt-auto">
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <small class="text-muted">
+                                                                    <t t-if="post.isbn">
+                                                                        ISBN: <t t-esc="post.isbn"/>
+                                                                    </t>
+                                                                </small>
+                                                                <div class="btn-group btn-group-sm">
+                                                                    <a t-att-href="'/buku/detail/%s' % post.slug" 
+                                                                       class="btn btn-outline-primary">
+                                                                        <i class="fa fa-eye"/> Detail
+                                                                    </a>
+                                                                    <t t-if="post.book_url">
+                                                                        <a t-att-href="post.book_url" 
+                                                                           target="_blank" 
+                                                                           class="btn btn-outline-success">
+                                                                            <i class="fa fa-external-link"/> Lihat
+                                                                        </a>
+                                                                    </t>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Pagination -->
+                                    <t t-if="pager">
+                                        <t t-call="website.pager"/>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Book Detail Page -->
+        <template id="buku_detail" name="Detail Buku">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container py-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Breadcrumb -->
+                                <nav aria-label="breadcrumb" class="mb-4">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="/buku">Buku</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page"><t t-esc="post.name"/></li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- Book Cover and Actions -->
+                            <div class="col-lg-4 mb-4">
+                                <t t-if="post.cover_image">
+                                    <div class="text-center mb-3">
+                                        <img t-att-src="'/web/image/buku.post/%s/cover_image' % post.id" 
+                                             t-att-alt="post.name" 
+                                             class="img-fluid rounded shadow"
+                                             style="max-height: 400px;"/>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 400px;">
+                                        <i class="fa fa-book fa-5x text-muted"/>
+                                    </div>
+                                </t>
+                                
+                                <!-- Action Buttons -->
+                                <div class="d-grid gap-2">
+                                    <t t-if="post.book_url">
+                                        <a t-att-href="post.book_url" target="_blank" class="btn btn-primary">
+                                            <i class="fa fa-external-link"/> Lihat Buku
+                                        </a>
+                                    </t>
+                                </div>
+                            </div>
+                            
+                            <!-- Book Details -->
+                            <div class="col-lg-8">
+                                <div class="mb-3">
+                                    <span class="badge bg-primary me-2"><t t-esc="post.buku_type_id.name"/></span>
+                                    
+                                    <!-- Status Badge -->
+                                    <t t-if="post.status == 'published'">
+                                        <span class="badge bg-success me-2">
+                                            <i class="fa fa-check-circle"/> Terbit
+                                        </span>
+                                    </t>
+                                    <t t-elif="post.status == 'in_press'">
+                                        <span class="badge bg-warning text-dark me-2">
+                                            <i class="fa fa-print"/> Dalam Cetak
+                                        </span>
+                                    </t>
+                                    <t t-elif="post.status == 'submitted'">
+                                        <span class="badge bg-info text-white me-2">
+                                            <i class="fa fa-paper-plane"/> Diserahkan ke Penerbit
+                                        </span>
+                                    </t>
+                                    <t t-elif="post.status == 'draft'">
+                                        <span class="badge bg-secondary me-2">
+                                            <i class="fa fa-edit"/> Draft
+                                        </span>
+                                    </t>
+                                    
+                                    <t t-if="post.award_received">
+                                        <span class="badge bg-warning text-dark">
+                                            <i class="fa fa-trophy"/> <t t-esc="post.award_description or 'Mendapat Penghargaan'"/>
+                                        </span>
+                                    </t>
+                                </div>
+                                
+                                <h1 class="display-5 fw-bold mb-3"><t t-esc="post.name"/></h1>
+                                
+                                <t t-if="post.subtitle">
+                                    <h4 class="text-muted mb-4"><t t-esc="post.subtitle"/></h4>
+                                </t>
+                                
+                                <!-- Book Information -->
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Penulis:</strong></td>
+                                                <td><t t-esc="post.display_authors"/></td>
+                                            </tr>
+                                            <t t-if="post.editors">
+                                                <tr>
+                                                    <td><strong>Editor:</strong></td>
+                                                    <td><t t-esc="post.editors"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><strong>Penerbit:</strong></td>
+                                                <td><t t-esc="post.publisher_id.name or post.publisher_name"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Tahun Terbit:</strong></td>
+                                                <td><t t-esc="post.publication_year"/></td>
+                                            </tr>
+                                            <t t-if="post.pages">
+                                                <tr>
+                                                    <td><strong>Jumlah Halaman:</strong></td>
+                                                    <td><t t-esc="post.pages"/> halaman</td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <t t-if="post.isbn">
+                                                <tr>
+                                                    <td><strong>ISBN:</strong></td>
+                                                    <td><t t-esc="post.isbn"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.issn">
+                                                <tr>
+                                                    <td><strong>ISSN:</strong></td>
+                                                    <td><t t-esc="post.issn"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.doi">
+                                                <tr>
+                                                    <td><strong>DOI:</strong></td>
+                                                    <td><t t-esc="post.doi"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><strong>Bahasa:</strong></td>
+                                                <td>
+                                                    <t t-if="post.language == 'id'">Bahasa Indonesia</t>
+                                                    <t t-elif="post.language == 'en'">English</t>
+                                                    <t t-elif="post.language == 'other'"><t t-esc="post.other_language"/></t>
+                                                    <t t-else=""><t t-esc="post.language"/></t>
+                                                </td>
+                                            </tr>
+                                            <t t-if="post.edition">
+                                                <tr>
+                                                    <td><strong>Edisi:</strong></td>
+                                                    <td><t t-esc="post.edition"/></td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <!-- Description -->
+                                <t t-if="post.teaser">
+                                    <div class="alert alert-light">
+                                        <h5>Ringkasan</h5>
+                                        <p class="mb-0"><t t-esc="post.teaser"/></p>
+                                    </div>
+                                </t>
+                                
+                                <t t-if="post.content">
+                                    <div class="mt-4">
+                                        <h5>Deskripsi Lengkap</h5>
+                                        <div t-field="post.content"/>
+                                    </div>
+                                </t>
+                                
+                                <!-- Keywords -->
+                                <t t-if="post.keywords">
+                                    <div class="mt-4">
+                                        <h6>Kata Kunci:</h6>
+                                        <t t-foreach="post.keywords.split(',')" t-as="keyword">
+                                            <span class="badge bg-secondary me-1"><t t-esc="keyword.strip()"/></span>
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        
+                        <!-- Related Books -->
+                        <t t-if="related_books">
+                            <div class="row mt-5">
+                                <div class="col-12">
+                                    <h4>Buku Terkait</h4>
+                                    <div class="row">
+                                        <t t-foreach="related_books" t-as="related">
+                                            <div class="col-md-3 mb-3">
+                                                <div class="card">
+                                                    <t t-if="related.cover_image">
+                                                        <img t-att-src="'/web/image/buku.post/%s/cover_image' % related.id" 
+                                                             class="card-img-top" 
+                                                             style="height: 200px; object-fit: cover;"/>
+                                                    </t>
+                                                    <div class="card-body">
+                                                        <h6 class="card-title">
+                                                            <a t-att-href="'/buku/detail/%s' % related.slug">
+                                                                <t t-esc="related.name"/>
+                                                            </a>
+                                                        </h6>
+                                                        <small class="text-muted"><t t-esc="related.authors"/></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

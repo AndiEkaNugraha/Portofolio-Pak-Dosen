@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_buku_blog,buku.blog,model_buku_blog,base.group_user,1,1,1,1
+access_buku_post,buku.post,model_buku_post,base.group_user,1,1,1,1
+access_buku_type,buku.type,model_buku_type,base.group_user,1,1,1,1
+access_book_publisher,book.publisher,model_book_publisher,base.group_user,1,1,1,1
+access_buku_blog_public,buku.blog public,model_buku_blog,base.group_public,1,0,0,0
+access_buku_post_public,buku.post public,model_buku_post,base.group_public,1,0,0,0
+access_buku_type_public,buku.type public,model_buku_type,base.group_public,1,0,0,0
+access_book_publisher_public,book.publisher public,model_book_publisher,base.group_public,1,0,0,0

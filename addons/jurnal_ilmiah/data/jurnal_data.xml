@@ -37,6 +37,7 @@
             <field name="journal_name">Computers &amp; Education</field>
             <field name="publisher">Elsevier</field>
             <field name="publication_date">2024-03-15</field>
+            <field name="publisher_website">https://www.elsevier.com</field>
             <field name="volume">198</field>
             <field name="issue">2</field>
             <field name="pages">245-267</field>
@@ -78,6 +79,7 @@
             <field name="journal_name">Jurnal Teknologi Informasi dan Ilmu Komputer</field>
             <field name="publisher">Fakultas Ilmu Komputer, Universitas Brawijaya</field>
             <field name="publication_date">2024-01-20</field>
+            <field name="publisher_website">https://jtiik.ub.ac.id</field>
             <field name="volume">11</field>
             <field name="issue">1</field>
             <field name="pages">89-102</field>
@@ -117,6 +119,7 @@
             <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
             <field name="journal_name">2024 IEEE International Conference on Artificial Intelligence and Machine Learning</field>
             <field name="publisher">IEEE</field>
+            <field name="publisher_website">https://www.ieee.org</field>
             <field name="publication_date">2024-06-10</field>
             <field name="pages">1245-1252</field>
             <field name="doi">10.1109/AIML2024.9876543</field>
@@ -156,6 +159,7 @@
             <field name="journal_name">Indonesian Journal of Electrical Engineering and Computer Science</field>
             <field name="publisher">Institute of Advanced Engineering and Science</field>
             <field name="publication_date">2023-12-15</field>
+            <field name="publisher_website">https://www.iaescore.com</field>
             <field name="volume">32</field>
             <field name="issue">3</field>
             <field name="pages">1654-1663</field>
@@ -202,6 +206,7 @@
             <field name="journal_name">IEEE Access</field>
             <field name="publisher">IEEE</field>
             <field name="publication_date">2024-02-28</field>
+            <field name="publisher_website">https://www.ieee.org</field>
             <field name="volume">12</field>
             <field name="pages">23456-23489</field>
             <field name="doi">10.1109/ACCESS.2024.3367890</field>

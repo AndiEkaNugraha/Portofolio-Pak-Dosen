@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Demo Profile Data -->
+        <record id="beranda_profile_demo" model="beranda.profile">
+            <field name="name">Dr. Ahmad Wijaya</field>
+            <field name="title">Prof. Dr. Ir.</field>
+            <field name="position">Profesor Teknik Informatika</field>
+            <field name="institution">Universitas Teknologi Indonesia</field>
+            <field name="department">Fakultas Teknik Informatika dan Komputer</field>
+            <field name="email">ahmad.wijaya@university.ac.id</field>
+            <field name="phone">+62-21-12345678</field>
+            <field name="office_address">Gedung Teknik Informatika Lt. 3, Ruang 301
+Jl. Teknologi No. 123, Jakarta Selatan 12345</field>
+            <field name="website_url">https://prof-ahmad-wijaya.com</field>
+            <field name="short_bio">Ahli dalam bidang Artificial Intelligence, Machine Learning, dan Data Science dengan pengalaman lebih dari 15 tahun dalam penelitian dan pengembangan teknologi.</field>
+            <field name="about_me">&lt;p&gt;Selamat datang di website portofolio saya. Saya adalah seorang profesor di bidang Teknik Informatika dengan spesialisasi dalam Artificial Intelligence dan Machine Learning.&lt;/p&gt;
+&lt;p&gt;Selama lebih dari 15 tahun, saya telah berkecimpung dalam dunia penelitian dan pengembangan teknologi, khususnya dalam penerapan AI untuk menyelesaikan masalah-masalah kompleks di berbagai industri.&lt;/p&gt;
+&lt;p&gt;Penelitian saya fokus pada pengembangan algoritma machine learning yang efisien, computer vision, natural language processing, dan implementasi AI dalam smart city solutions.&lt;/p&gt;</field>
+            <field name="vision_mission">&lt;h4&gt;Visi&lt;/h4&gt;
+&lt;p&gt;Menjadi peneliti terdepan dalam bidang Artificial Intelligence yang berkontribusi pada kemajuan teknologi untuk kesejahteraan masyarakat Indonesia dan dunia.&lt;/p&gt;
+&lt;h4&gt;Misi&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Melakukan penelitian berkualitas tinggi dalam bidang AI dan Machine Learning&lt;/li&gt;
+&lt;li&gt;Mengembangkan solusi teknologi yang dapat diterapkan dalam industri&lt;/li&gt;
+&lt;li&gt;Mendidik generasi muda untuk menjadi ahli teknologi yang kompeten&lt;/li&gt;
+&lt;li&gt;Berkolaborasi dengan industri dan institusi penelitian internasional&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="education_background">&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;S3 Computer Science&lt;/strong&gt; - Stanford University, USA (2010)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;S2 Teknik Informatika&lt;/strong&gt; - Institut Teknologi Bandung (2005)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;S1 Teknik Informatika&lt;/strong&gt; - Universitas Indonesia (2003)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="work_experience">&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2015-Sekarang:&lt;/strong&gt; Profesor, Universitas Teknologi Indonesia&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2012-2015:&lt;/strong&gt; Associate Professor, Universitas Teknologi Indonesia&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2010-2012:&lt;/strong&gt; Assistant Professor, Universitas Teknologi Indonesia&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2008-2010:&lt;/strong&gt; Research Associate, Stanford AI Lab&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="expertise_areas">Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, Data Science, Smart City Technology</field>
+            <field name="total_publications">85</field>
+            <field name="total_research_projects">32</field>
+            <field name="total_patents">12</field>
+            <field name="years_experience">15</field>
+            <field name="h_index">28</field>
+            <field name="total_citations">2450</field>
+            <field name="linkedin_url">https://linkedin.com/in/ahmad-wijaya-prof</field>
+            <field name="google_scholar_url">https://scholar.google.com/citations?user=example</field>
+            <field name="researchgate_url">https://researchgate.net/profile/Ahmad-Wijaya</field>
+            <field name="orcid_url">https://orcid.org/0000-0000-0000-0000</field>
+            <field name="is_active" eval="True"/>
+            <field name="sequence">1</field>
+            <field name="theme_color">blue</field>
+            <field name="show_research_cta" eval="True"/>
+            <field name="show_cv_download" eval="True"/>
+            <field name="show_collaboration_cta" eval="True"/>
+            <field name="show_publication_cta" eval="True"/>
+            <field name="research_cta_url">/penelitian</field>
+            <field name="collaboration_email">kolaborasi@prof-ahmad-wijaya.com</field>
+            <field name="slug">prof-dr-ahmad-wijaya</field>
+            <field name="meta_title">Prof. Dr. Ir. Ahmad Wijaya - AI Researcher &amp; Professor</field>
+            <field name="meta_description">Website portofolio Prof. Ahmad Wijaya, ahli Artificial Intelligence dan Machine Learning. Lihat penelitian, publikasi, dan pencapaian terbaru.</field>
+            <field name="meta_keywords">artificial intelligence, machine learning, computer science, professor, penelitian AI, teknologi</field>
+        </record>
+
+        <!-- Demo Achievement Data -->
+        <record id="beranda_achievement_1" model="beranda.achievement">
+            <field name="name">Best Paper Award - International AI Conference 2024</field>
+            <field name="description">Mendapat penghargaan best paper untuk penelitian "Advanced Neural Network Architecture for Smart City Applications" di International AI Conference 2024.</field>
+            <field name="date">2024-03-15</field>
+            <field name="category">award</field>
+            <field name="profile_id" ref="beranda_profile_demo"/>
+            <field name="is_highlight" eval="True"/>
+            <field name="sequence">1</field>
+            <field name="url">https://ai-conference-2024.org/best-papers</field>
+        </record>
+
+        <record id="beranda_achievement_2" model="beranda.achievement">
+            <field name="name">Paten AI-Based Traffic Management System</field>
+            <field name="description">Mendapat paten untuk sistem manajemen lalu lintas berbasis AI yang dapat mengurangi kemacetan hingga 35% di area perkotaan.</field>
+            <field name="date">2024-01-20</field>
+            <field name="category">patent</field>
+            <field name="profile_id" ref="beranda_profile_demo"/>
+            <field name="is_highlight" eval="True"/>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="beranda_achievement_3" model="beranda.achievement">
+            <field name="name">Hibah Penelitian Nasional Rp 2.5 Miliar</field>
+            <field name="description">Mendapat hibah penelitian dari Kementerian Riset dan Teknologi untuk proyek "Pengembangan AI untuk Smart Healthcare System" selama 3 tahun.</field>
+            <field name="date">2023-12-01</field>
+            <field name="category">grant</field>
+            <field name="profile_id" ref="beranda_profile_demo"/>
+            <field name="is_highlight" eval="True"/>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="beranda_achievement_4" model="beranda.achievement">
+            <field name="name">Kolaborasi Riset dengan MIT dan Stanford</field>
+            <field name="description">Memulai kolaborasi penelitian bersama MIT Computer Science and Artificial Intelligence Laboratory (CSAIL) dan Stanford AI Lab untuk proyek AI Ethics.</field>
+            <field name="date">2023-10-15</field>
+            <field name="category">collaboration</field>
+            <field name="profile_id" ref="beranda_profile_demo"/>
+            <field name="is_highlight" eval="True"/>
+            <field name="sequence">4</field>
+        </record>
+
+        <record id="beranda_achievement_5" model="beranda.achievement">
+            <field name="name">Publikasi di Nature Machine Intelligence</field>
+            <field name="description">Artikel penelitian "Explainable AI for Critical Decision Making" diterbitkan di jurnal Nature Machine Intelligence dengan impact factor 25.898.</field>
+            <field name="date">2023-09-30</field>
+            <field name="category">publication</field>
+            <field name="profile_id" ref="beranda_profile_demo"/>
+            <field name="is_highlight" eval="True"/>
+            <field name="sequence">5</field>
+            <field name="url">https://nature.com/articles/example</field>
+        </record>
+
+        <record id="beranda_achievement_6" model="beranda.achievement">
+            <field name="name">Keynote Speaker - IEEE International Conference</field>
+            <field name="description">Diundang sebagai keynote speaker di IEEE International Conference on AI and Machine Learning 2023 dengan topik "Future of AI in Developing Countries".</field>
+            <field name="date">2023-08-25</field>
+            <field name="category">conference</field>
+            <field name="profile_id" ref="beranda_profile_demo"/>
+            <field name="is_highlight" eval="True"/>
+            <field name="sequence">6</field>
+        </record>
+
+    </data>
+</odoo>

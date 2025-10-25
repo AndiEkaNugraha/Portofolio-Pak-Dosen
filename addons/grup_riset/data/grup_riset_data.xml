@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Blog Categories -->
+        <record id="blog_grup_riset_ai" model="grup.riset.blog">
+            <field name="name">Artificial Intelligence &amp; Machine Learning</field>
+            <field name="description">Grup riset yang fokus pada pengembangan kecerdasan buatan, pembelajaran mesin, dan teknologi terkait</field>
+            <field name="research_area">ai_ml</field>
+            <field name="lab_type">laboratory</field>
+            <field name="institution">Universitas Teknologi Indonesia</field>
+            <field name="faculty">Fakultas Teknik Informatika</field>
+            <field name="website_published" eval="True"/>
+            <field name="active" eval="True"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="blog_grup_riset_iot" model="grup.riset.blog">
+            <field name="name">Internet of Things &amp; Embedded Systems</field>
+            <field name="description">Penelitian dan pengembangan sistem IoT, embedded systems, dan smart devices</field>
+            <field name="research_area">iot</field>
+            <field name="lab_type">laboratory</field>
+            <field name="institution">Universitas Teknologi Indonesia</field>
+            <field name="faculty">Fakultas Teknik Elektro</field>
+            <field name="website_published" eval="True"/>
+            <field name="active" eval="True"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="blog_grup_riset_cyber" model="grup.riset.blog">
+            <field name="name">Cybersecurity &amp; Network</field>
+            <field name="description">Keamanan siber, jaringan komputer, dan sistem keamanan informasi</field>
+            <field name="research_area">cybersecurity</field>
+            <field name="lab_type">laboratory</field>
+            <field name="institution">Universitas Teknologi Indonesia</field>
+            <field name="faculty">Fakultas Teknik Informatika</field>
+            <field name="website_published" eval="True"/>
+            <field name="active" eval="True"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="blog_grup_riset_data" model="grup.riset.blog">
+            <field name="name">Data Science &amp; Analytics</field>
+            <field name="description">Ilmu data, analitik bisnis, dan visualisasi data</field>
+            <field name="research_area">data_science</field>
+            <field name="lab_type">center</field>
+            <field name="institution">Universitas Teknologi Indonesia</field>
+            <field name="faculty">Fakultas Matematika &amp; Statistika</field>
+            <field name="website_published" eval="True"/>
+            <field name="active" eval="True"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <!-- Sample Research Groups -->
+        <record id="post_ai_lab" model="grup.riset.post">
+            <field name="name">Laboratory of Artificial Intelligence &amp; Robotics</field>
+            <field name="subtitle">Mengembangkan teknologi AI dan robotika untuk masa depan yang lebih cerdas</field>
+            <field name="blog_id" ref="blog_grup_riset_ai"/>
+            <field name="teaser">Laboratorium AI &amp; Robotika merupakan pusat penelitian unggulan yang mengembangkan solusi kecerdasan buatan untuk berbagai aplikasi industri dan kehidupan sehari-hari.</field>
+            <field name="description">&lt;p&gt;Laboratory of Artificial Intelligence &amp; Robotics adalah salah satu laboratorium riset terdepan di bidang kecerdasan buatan dan robotika. Didirikan pada tahun 2018, laboratorium ini telah menghasilkan berbagai inovasi dan publikasi internasional yang berkualitas tinggi.&lt;/p&gt;
+
+&lt;p&gt;Tim peneliti kami terdiri dari dosen-dosen berpengalaman dan mahasiswa pascasarjana yang berdedikasi dalam mengembangkan teknologi AI untuk menyelesaikan permasalahan nyata di masyarakat. Kami memiliki fokus khusus pada computer vision, natural language processing, dan autonomous systems.&lt;/p&gt;
+
+&lt;p&gt;Laboratorium ini dilengkapi dengan fasilitas komputasi high-performance, sensor-sensor canggih, dan peralatan robotika modern yang mendukung penelitian berkualitas tinggi.&lt;/p&gt;</field>
+            <field name="leader_name">Prof. Dr. Ahmad Wijaya, S.T., M.T.</field>
+            <field name="leader_title">Profesor Teknik Informatika</field>
+            <field name="co_leaders">Dr. Sari Indrawati, S.Kom., M.Kom.
+Dr. Budi Santoso, S.T., M.T.</field>
+            <field name="team_members">Dr. Lisa Permata, S.Kom., M.Kom.
+Andi Kurniawan, S.T., M.T.
+Maya Sari, S.Kom., M.Kom.
+Rizky Pratama, S.T., M.T.</field>
+            <field name="research_focus">Penelitian kami berfokus pada pengembangan algoritma machine learning untuk computer vision, natural language processing untuk analisis sentimen, sistem rekomendasi cerdas, autonomous robot navigation, dan AI untuk healthcare applications. Kami juga mengembangkan framework dan tools untuk mempermudah implementasi AI dalam berbagai domain.</field>
+            <field name="research_keywords">Artificial Intelligence, Machine Learning, Computer Vision, Natural Language Processing, Robotics, Deep Learning, Neural Networks</field>
+            <field name="facilities">&lt;p&gt;Laboratorium AI &amp; Robotika memiliki fasilitas yang lengkap dan modern untuk mendukung penelitian berkualitas tinggi:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Server komputasi dengan GPU NVIDIA RTX 4090 dan A100&lt;/li&gt;
+&lt;li&gt;Workstation high-end untuk development dan training model&lt;/li&gt;
+&lt;li&gt;Robot manipulator industrial dan mobile robots&lt;/li&gt;
+&lt;li&gt;Sensor array: LiDAR, RGB-D cameras, IMU sensors&lt;/li&gt;
+&lt;li&gt;Ruang meeting dan presentation dengan smart board&lt;/li&gt;
+&lt;li&gt;Area testing untuk robot experiments&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">NVIDIA DGX Station A100
+NVIDIA RTX 4090 GPU Cluster
+Universal Robots UR5e
+TurtleBot3 Mobile Robots
+Intel RealSense D435i Cameras
+Velodyne VLP-16 LiDAR
+Arduino dan Raspberry Pi Development Kits
+3D Printer untuk prototyping</field>
+            <field name="phd_students">Muhammad Fajar (Computer Vision for Medical Imaging)
+Siti Rahma (NLP for Indonesian Language)
+David Chen (Autonomous Robot Navigation)</field>
+            <field name="master_students">Ayu Lestari (Sentiment Analysis)
+Riko Saputra (Object Detection)
+Nina Kartika (Chatbot Development)
+Eko Prasetyo (Robot Localization)
+Dian Purnama (Image Classification)</field>
+            <field name="undergrad_students">Andi Saputra (Final Project: Face Recognition)
+Lina Sari (Final Project: Voice Assistant)
+Bayu Wijaya (Final Project: Mobile Robot)
+Citra Dewi (Final Project: Recommendation System)</field>
+            <field name="current_projects">&lt;h5&gt;Proyek Aktif:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Smart Healthcare Assistant&lt;/strong&gt; - Pengembangan asisten AI untuk diagnosis medis menggunakan computer vision&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Autonomous Delivery Robot&lt;/strong&gt; - Robot pengantaran otomatis untuk kampus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Indonesian NLP Platform&lt;/strong&gt; - Platform pemrosesan bahasa Indonesia untuk analisis teks&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smart Agriculture Monitoring&lt;/strong&gt; - Sistem monitoring pertanian menggunakan AI dan IoT&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="recent_publications">&lt;ul&gt;
+&lt;li&gt;"Deep Learning Approaches for Indonesian Text Classification" - IEEE Conference 2024&lt;/li&gt;
+&lt;li&gt;"Autonomous Navigation in Dynamic Environments using Reinforcement Learning" - Robotics Journal 2024&lt;/li&gt;
+&lt;li&gt;"Medical Image Analysis for Early Disease Detection" - Medical AI Conference 2024&lt;/li&gt;
+&lt;li&gt;"Smart City Applications using Computer Vision" - Smart City Summit 2023&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_person">Prof. Dr. Ahmad Wijaya, S.T., M.T.</field>
+            <field name="contact_email">ai.robotics.lab@university.ac.id</field>
+            <field name="lab_space">Gedung Teknik Informatika Lantai 3, Ruang 301-305</field>
+            <field name="website_url">https://ailab.university.ac.id</field>
+            <field name="social_media">https://instagram.com/ailab_university</field>
+            <field name="established_year">2018</field>
+            <field name="is_featured" eval="True"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Laboratory of Artificial Intelligence &amp; Robotics - AI Research Group</field>
+            <field name="meta_description">Laboratorium AI &amp; Robotika yang mengembangkan teknologi kecerdasan buatan, machine learning, computer vision, dan robotika untuk masa depan yang lebih cerdas.</field>
+            <field name="meta_keywords">AI, Artificial Intelligence, Machine Learning, Robotics, Computer Vision, NLP, Deep Learning</field>
+            <field name="date">2024-01-15</field>
+        </record>
+
+        <record id="post_iot_lab" model="grup.riset.post">
+            <field name="name">Smart IoT &amp; Embedded Systems Research Group</field>
+            <field name="subtitle">Membangun ekosistem IoT yang cerdas dan berkelanjutan</field>
+            <field name="blog_id" ref="blog_grup_riset_iot"/>
+            <field name="teaser">Grup riset yang fokus pada pengembangan sistem IoT terintegrasi, smart city solutions, dan embedded systems untuk berbagai aplikasi industri 4.0.</field>
+            <field name="description">&lt;p&gt;Smart IoT &amp; Embedded Systems Research Group adalah tim riset yang berdedikasi dalam mengembangkan solusi Internet of Things (IoT) yang inovatif dan berkelanjutan. Sejak didirikan pada tahun 2019, grup ini telah berhasil mengembangkan berbagai prototype dan sistem IoT yang telah diimplementasikan di berbagai sektor.&lt;/p&gt;
+
+&lt;p&gt;Kami menggabungkan keahlian dalam embedded programming, wireless communication, cloud computing, dan data analytics untuk menciptakan solusi IoT yang komprehensif. Focus area kami meliputi smart agriculture, smart home, environmental monitoring, dan industrial IoT.&lt;/p&gt;</field>
+            <field name="leader_name">Dr. Eng. Ratna Sari, S.T., M.T.</field>
+            <field name="leader_title">Lektor Kepala Teknik Elektro</field>
+            <field name="co_leaders">Dr. Bambang Sutrisno, S.T., M.T.
+Ir. Dewi Puspitasari, M.T.</field>
+            <field name="team_members">Dr. Hendra Gunawan, S.T., M.T.
+Yudi Setiawan, S.Kom., M.T.
+Rini Handayani, S.T., M.T.
+Agus Priyanto, S.T., M.T.</field>
+            <field name="research_focus">Grup riset kami mengembangkan sistem IoT untuk smart agriculture dengan sensor monitoring tanah dan cuaca, smart home automation systems, environmental monitoring networks, industrial IoT untuk predictive maintenance, dan edge computing solutions. Kami juga fokus pada pengembangan protokol komunikasi wireless yang energy-efficient dan secure IoT architectures.</field>
+            <field name="research_keywords">Internet of Things, Embedded Systems, Smart City, Wireless Sensor Networks, Edge Computing, Industry 4.0, Smart Agriculture</field>
+            <field name="facilities">&lt;p&gt;Laboratorium IoT &amp; Embedded Systems dilengkapi dengan fasilitas terkini:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IoT Development Platform dengan berbagai microcontroller&lt;/li&gt;
+&lt;li&gt;Wireless Testing Equipment (WiFi, Bluetooth, LoRa, ZigBee)&lt;/li&gt;
+&lt;li&gt;Environmental Sensors dan Industrial Sensors&lt;/li&gt;
+&lt;li&gt;Cloud Computing Infrastructure (AWS, Azure)&lt;/li&gt;
+&lt;li&gt;PCB Design dan Manufacturing Station&lt;/li&gt;
+&lt;li&gt;Smart Agriculture Testbed (greenhouse mini)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">Arduino dan ESP32 Development Boards
+Raspberry Pi 4 Cluster
+LoRaWAN Gateway dan Nodes
+Various Sensors (Temperature, Humidity, Soil, Air Quality)
+Oscilloscope dan Logic Analyzer
+3D Printer untuk Case Prototyping
+Soldering Station dan PCB Tools</field>
+            <field name="phd_students">Indra Wijaya (Energy-Efficient IoT Networks)
+Sari Kusuma (Edge Computing for IoT)</field>
+            <field name="master_students">Rian Pratama (Smart Agriculture System)
+Fitri Nuraini (Indoor Air Quality Monitoring)
+Joko Susanto (Industrial Predictive Maintenance)
+Ayu Purnama (Smart Home Security System)
+Dedi Kurniawan (Environmental Monitoring Network)</field>
+            <field name="undergrad_students">Budi Hartono (Final Project: Smart Garden)
+Sinta Maharani (Final Project: IoT Weather Station)
+Rio Saputra (Final Project: Smart Parking System)</field>
+            <field name="current_projects">&lt;h5&gt;Proyek Sedang Berjalan:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Smart Campus Initiative&lt;/strong&gt; - Implementasi sistem IoT untuk monitoring lingkungan kampus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Precision Agriculture Platform&lt;/strong&gt; - Platform IoT untuk pertanian presisi menggunakan sensor tanah dan cuaca&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Industrial Monitoring System&lt;/strong&gt; - Sistem monitoring industri untuk predictive maintenance&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_person">Dr. Eng. Ratna Sari, S.T., M.T.</field>
+            <field name="contact_email">iot.embedded@university.ac.id</field>
+            <field name="lab_space">Gedung Teknik Elektro Lantai 2, Ruang 201-203</field>
+            <field name="website_url">https://iotlab.university.ac.id</field>
+            <field name="social_media">https://twitter.com/iotlab_univ</field>
+            <field name="established_year">2019</field>
+            <field name="is_featured" eval="False"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Smart IoT &amp; Embedded Systems Research Group</field>
+            <field name="meta_description">Grup riset IoT dan embedded systems yang mengembangkan solusi smart city, smart agriculture, dan industrial IoT.</field>
+            <field name="meta_keywords">IoT, Internet of Things, Embedded Systems, Smart City, Wireless Sensors</field>
+            <field name="date">2024-02-10</field>
+        </record>
+
+        <record id="post_cyber_lab" model="grup.riset.post">
+            <field name="name">Cybersecurity &amp; Network Defense Laboratory</field>
+            <field name="subtitle">Membangun pertahanan siber yang tangguh untuk era digital</field>
+            <field name="blog_id" ref="blog_grup_riset_cyber"/>
+            <field name="teaser">Laboratorium keamanan siber yang mengembangkan sistem pertahanan, analisis malware, dan solusi keamanan jaringan untuk melindungi infrastruktur digital.</field>
+            <field name="description">&lt;p&gt;Cybersecurity &amp; Network Defense Laboratory merupakan pusat penelitian keamanan siber yang berfokus pada pengembangan teknologi pertahanan siber terdepan. Didirikan pada tahun 2020, laboratorium ini berkomitmen untuk menciptakan solusi keamanan yang efektif menghadapi ancaman siber yang terus berkembang.&lt;/p&gt;
+
+&lt;p&gt;Tim peneliti kami terdiri dari ahli keamanan siber, network security, cryptography, dan digital forensics yang berpengalaman dalam menangani berbagai jenis ancaman siber.&lt;/p&gt;</field>
+            <field name="leader_name">Dr. Hadi Kurniawan, S.Kom., M.Kom.</field>
+            <field name="leader_title">Dosen Senior Keamanan Siber</field>
+            <field name="co_leaders">Dr. Rina Pratiwi, S.T., M.T.
+Ir. Joko Widodo, M.Kom.</field>
+            <field name="team_members">Dr. Fendi Aryanto, S.Kom., M.Kom.
+Siska Amelinda, S.Kom., M.Kom.
+Doni Prasetya, S.T., M.T.
+Eko Susilo, S.Kom., M.Kom.</field>
+            <field name="research_focus">Penelitian kami mencakup malware analysis dan reverse engineering, network intrusion detection systems, cryptographic algorithm development, digital forensics methodologies, blockchain security, dan AI-powered security solutions. Kami juga mengembangkan tools untuk vulnerability assessment dan penetration testing.</field>
+            <field name="research_keywords">Cybersecurity, Network Security, Malware Analysis, Digital Forensics, Cryptography, Intrusion Detection</field>
+            <field name="facilities">&lt;p&gt;Laboratorium Cybersecurity memiliki fasilitas khusus untuk penelitian keamanan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Isolated Network Environment untuk malware analysis&lt;/li&gt;
+&lt;li&gt;High-end Workstations untuk reverse engineering&lt;/li&gt;
+&lt;li&gt;Network Security Appliances (Firewall, IDS/IPS)&lt;/li&gt;
+&lt;li&gt;Digital Forensics Tools dan Hardware&lt;/li&gt;
+&lt;li&gt;Honeypot Network untuk threat intelligence&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">VMware vSphere Infrastructure
+Wireshark Network Protocol Analyzer
+Metasploit Framework
+Kali Linux Penetration Testing Tools
+IDA Pro Reverse Engineering Software
+EnCase Digital Forensics Suite
+Hardware Security Modules (HSM)</field>
+            <field name="phd_students">Rizki Handoyo (AI-based Malware Detection)
+Putri Maharani (Blockchain Security Analysis)</field>
+            <field name="master_students">Wahyu Santoso (Network Intrusion Detection)
+Lilis Suryani (Digital Forensics Methodology)
+Arif Rahman (Cryptographic Protocol Analysis)</field>
+            <field name="undergrad_students">Adi Nugroho (Final Project: Phishing Detection)
+Sari Wulandari (Final Project: Password Security)
+Hendri Saputra (Final Project: Network Monitoring)</field>
+            <field name="contact_person">Dr. Hadi Kurniawan, S.Kom., M.Kom.</field>
+            <field name="contact_email">cybersec.lab@university.ac.id</field>
+            <field name="lab_space">Gedung Teknik Informatika Lantai 4, Ruang 401-403</field>
+            <field name="website_url">https://cybersec.university.ac.id</field>
+            <field name="social_media">https://linkedin.com/company/cybersec-lab</field>
+            <field name="established_year">2020</field>
+            <field name="is_featured" eval="True"/>
+            <field name="website_published" eval="True"/>
+            <field name="date">2024-03-05</field>
+        </record>
+
+        <record id="post_data_science_center" model="grup.riset.post">
+            <field name="name">Data Science &amp; Business Analytics Center</field>
+            <field name="subtitle">Mengubah data menjadi insight yang bermakna</field>
+            <field name="blog_id" ref="blog_grup_riset_data"/>
+            <field name="teaser">Pusat riset data science yang mengembangkan metodologi analytics, predictive modeling, dan business intelligence untuk berbagai sektor industri.</field>
+            <field name="description">&lt;p&gt;Data Science &amp; Business Analytics Center adalah pusat penelitian yang berfokus pada pengembangan metodologi dan aplikasi data science untuk menyelesaikan permasalahan bisnis dan sosial. Didirikan pada tahun 2017, center ini telah berkolaborasi dengan berbagai industri dan organisasi.&lt;/p&gt;
+&lt;p&gt;Tim kami menggunakan pendekatan interdisipliner yang menggabungkan statistika, machine learning, domain expertise, dan business acumen untuk menghasilkan insights yang actionable. Kami memiliki track record yang kuat dalam analytics projects untuk retail, finance, healthcare, dan e-commerce sectors.&lt;/p&gt;</field>
+            <field name="leader_name">Prof. Dr. Maya Indrawati, S.Si., M.Stat.</field>
+            <field name="leader_title">Profesor Statistika dan Data Science</field>
+            <field name="co_leaders">Dr. Anton Setiawan, S.Kom., M.Kom.
+Dr. Sri Wahyuni, S.E., M.M.</field>
+            <field name="team_members">Dr. Rahmat Hidayat, S.Si., M.Si.
+Lia Permatasari, S.Kom., M.Kom.
+Indra Gunawan, S.E., M.M.
+Wati Suryani, S.Si., M.Stat.</field>
+            <field name="research_focus">Penelitian kami meliputi predictive analytics untuk business forecasting, customer behavior analysis dan segmentation, market basket analysis dan recommendation systems, social network analysis, time series forecasting dengan machine learning, text mining dan sentiment analysis dari social media, serta big data processing techniques menggunakan Spark dan Hadoop.</field>
+            <field name="research_keywords">Data Science, Business Analytics, Machine Learning, Big Data, Predictive Modeling, Data Visualization, Customer Analytics</field>
+            <field name="facilities">&lt;p&gt;Center dilengkapi dengan infrastruktur data science modern:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hadoop Cluster untuk big data processing&lt;/li&gt;
+&lt;li&gt;Spark infrastructure untuk distributed computing&lt;/li&gt;
+&lt;li&gt;GPU servers untuk deep learning training&lt;/li&gt;
+&lt;li&gt;Tableau dan Power BI untuk visualization&lt;/li&gt;
+&lt;li&gt;Python/R development environments&lt;/li&gt;
+&lt;li&gt;Cloud computing resources (AWS, GCP, Azure)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">Dell PowerEdge R740 Servers
+NVIDIA Tesla V100 GPUs
+Hadoop Distributed File System
+Apache Spark Cluster
+Tableau Desktop dan Server
+Microsoft Power BI Premium
+RStudio Server Pro
+Jupyter Hub for collaborative work</field>
+            <field name="phd_students">Andi Wijaya (Deep Learning for Time Series Forecasting)
+Siska Purnama (Social Media Analytics for Brand Intelligence)</field>
+            <field name="master_students">Rio Pratama (Customer Segmentation using Clustering Algorithms)
+Dina Sari (Fraud Detection System for E-Commerce)
+Eko Hariyanto (Supply Chain Analytics and Optimization)
+Fitri Lestari (Churn Prediction for Subscription Business)
+Bayu Saputra (Recommendation System for E-Commerce)</field>
+            <field name="undergrad_students">Budi Santoso (Final Project: Sales Forecasting with LSTM)
+Rina Handayani (Final Project: Customer Churn Analysis)
+Dian Purnama (Final Project: Sentiment Analysis Dashboard)
+Rizki Fauzi (Final Project: Price Optimization Model)</field>
+            <field name="current_projects">&lt;h5&gt;Active Projects:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Retail Analytics Platform&lt;/strong&gt; - Developing predictive models untuk demand forecasting dan inventory optimization&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Credit Scoring Model&lt;/strong&gt; - Machine learning model untuk credit risk assessment di bank&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Social Media Listening&lt;/strong&gt; - Real-time sentiment analysis untuk brand monitoring&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Healthcare Analytics&lt;/strong&gt; - Predictive modeling untuk patient readmission&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="collaborations">Bank Mandiri - Credit Scoring Project
+PT. Unilever Indonesia - Customer Analytics
+Tokopedia - Recommendation System
+Grab Indonesia - Demand Forecasting
+Rumah Sakit Siloam - Healthcare Analytics</field>
+            <field name="recent_publications">&lt;ul&gt;
+&lt;li&gt;"Ensemble Methods for Credit Risk Assessment in Microfinance" - Journal of Banking &amp; Finance, 2024&lt;/li&gt;
+&lt;li&gt;"Deep Learning for Time Series Forecasting in Retail" - International Journal of Forecasting, 2024&lt;/li&gt;
+&lt;li&gt;"Social Media Sentiment Analysis for Brand Reputation Management" - Data Mining and Knowledge Discovery, 2023&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;Winner of Kaggle Competition "Retail Sales Prediction" 2023&lt;/li&gt;
+&lt;li&gt;Best Analytics Project Award from Indonesian Data Science Association 2024&lt;/li&gt;
+&lt;li&gt;3 consulting projects generating Rp 500 juta revenue for university&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_person">Prof. Dr. Maya Indrawati, S.Si., M.Stat.</field>
+            <field name="contact_email">datasci.center@university.ac.id</field>
+            <field name="lab_space">Gedung Matematika &amp; Statistika Lantai 3, Ruang 301-306</field>
+            <field name="website_url">https://datasci.university.ac.id</field>
+            <field name="social_media">https://linkedin.com/company/datasci-center</field>
+            <field name="established_year">2017</field>
+            <field name="is_featured" eval="False"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Data Science &amp; Business Analytics Center</field>
+            <field name="meta_description">Pusat riset data science dan business analytics yang mengembangkan solusi predictive modeling dan AI untuk berbagai industri.</field>
+            <field name="meta_keywords">Data Science, Business Analytics, Machine Learning, Predictive Analytics, Big Data</field>
+            <field name="date">2024-01-20</field>
+        </record>
+        
+        <record id="post_computer_vision_lab" model="grup.riset.post">
+            <field name="name">Computer Vision &amp; Image Processing Laboratory</field>
+            <field name="subtitle">Mengembangkan sistem visi komputer untuk aplikasi dunia nyata</field>
+            <field name="blog_id" ref="blog_grup_riset_ai"/>
+            <field name="teaser">Laboratorium riset computer vision yang fokus pada pengembangan algoritma image processing, object detection, dan visual recognition untuk berbagai aplikasi industri dan medis.</field>
+            <field name="description">&lt;p&gt;Computer Vision &amp; Image Processing Laboratory adalah laboratorium riset yang berdedikasi dalam mengembangkan teknologi computer vision terdepan. Sejak didirikan pada tahun 2019, laboratorium ini telah menghasilkan berbagai inovasi dalam image processing, object detection, face recognition, dan medical imaging.&lt;/p&gt;
+&lt;p&gt;Tim peneliti kami memiliki expertise dalam deep learning untuk computer vision, khususnya CNN architectures seperti YOLO, Faster R-CNN, dan Vision Transformers. Kami juga mengembangkan aplikasi praktis untuk industry automation, medical diagnostics, dan smart city solutions.&lt;/p&gt;</field>
+            <field name="leader_name">Dr. Ir. Bambang Sutrisno, M.T.</field>
+            <field name="leader_title">Dosen Senior Computer Vision</field>
+            <field name="co_leaders">Dr. Ratna Dewi, S.Kom., M.Kom.
+Dr. Agus Prasetyo, S.T., M.T.</field>
+            <field name="team_members">Dr. Fitri Handayani, S.Kom., M.Kom.
+Andi Kurniawan, S.T., M.T.
+Maya Puspita, S.Kom., M.Kom.
+Rizky Fauzi, S.T., M.T.</field>
+            <field name="research_focus">Fokus penelitian kami meliputi object detection dan tracking untuk autonomous vehicles dan surveillance systems, face recognition dan biometric authentication, medical image analysis untuk diagnosis penyakit, document analysis dan OCR technology, image enhancement dan restoration techniques, serta 3D vision dan depth estimation untuk robotics applications.</field>
+            <field name="research_keywords">Computer Vision, Deep Learning, Image Processing, Object Detection, Face Recognition, Medical Imaging, CNN, YOLO</field>
+            <field name="facilities">&lt;p&gt;Laboratorium dilengkapi dengan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GPU Computing Cluster (8x NVIDIA RTX 4090)&lt;/li&gt;
+&lt;li&gt;High-resolution cameras (RGB, thermal, depth sensors)&lt;/li&gt;
+&lt;li&gt;3D scanning equipment&lt;/li&gt;
+&lt;li&gt;Medical imaging devices untuk research&lt;/li&gt;
+&lt;li&gt;Annotation workstations&lt;/li&gt;
+&lt;li&gt;Testing environment untuk real-world scenarios&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">NVIDIA RTX 4090 GPU Cluster
+Intel RealSense Depth Cameras D435i
+FLIR Thermal Imaging Cameras
+Canon EOS R5 High-Resolution Cameras
+3D Scanner Artec Eva
+Medical Image Datasets (CT, MRI, X-Ray)
+Labelbox for Image Annotation
+DGX Station for Training</field>
+            <field name="phd_students">Siti Rahmawati (Medical Image Segmentation using U-Net)
+Muhammad Rizki (3D Object Detection for Autonomous Driving)</field>
+            <field name="master_students">Budi Hartono (Face Recognition in Challenging Conditions)
+Dian Purnama (Real-time Object Tracking for Surveillance)
+Eko Prasetyo (Document Understanding with Vision Transformers)
+Lina Kusuma (Image Super Resolution using GANs)
+Andi Saputra (Facial Expression Recognition)</field>
+            <field name="undergrad_students">Rio Setiawan (Final Project: License Plate Recognition)
+Maya Sari (Final Project: Face Mask Detection)
+Fitri Lestari (Final Project: Plant Disease Detection)
+Bayu Wijaya (Final Project: Handwriting Recognition)</field>
+            <field name="current_projects">&lt;h5&gt;Ongoing Research:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Smart Traffic Monitoring System&lt;/strong&gt; - Vehicle detection, counting, dan classification untuk traffic management&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Medical Image Analysis&lt;/strong&gt; - AI-powered diagnosis untuk X-ray, CT scan, dan MRI images&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Industrial Quality Inspection&lt;/strong&gt; - Automated defect detection untuk manufacturing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Biometric Security System&lt;/strong&gt; - Multi-modal biometric authentication (face + iris)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="completed_projects">&lt;ul&gt;
+&lt;li&gt;Automatic Number Plate Recognition System for Parking Management (2023)&lt;/li&gt;
+&lt;li&gt;Face Recognition Attendance System for 10+ Universities (2022-2023)&lt;/li&gt;
+&lt;li&gt;Fruit Quality Grading System using Computer Vision (2022)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="collaborations">Dinas Perhubungan DKI Jakarta - Smart Traffic System
+RS Cipto Mangunkusumo - Medical Imaging AI
+PT. Astra Manufacturing - Quality Control System
+Bank Mandiri - Biometric Authentication
+Telkom Indonesia - Surveillance Analytics</field>
+            <field name="recent_publications">&lt;ul&gt;
+&lt;li&gt;"YOLO-Medical: Real-time Object Detection for Medical Imaging" - IEEE Access, 2024&lt;/li&gt;
+&lt;li&gt;"Deep Learning for Indonesian Face Recognition: Dataset and Benchmark" - Pattern Recognition Letters, 2024&lt;/li&gt;
+&lt;li&gt;"Multi-scale Attention Network for Document Understanding" - ICDAR Conference, 2024&lt;/li&gt;
+&lt;li&gt;"3D Object Detection from LiDAR Point Clouds for Autonomous Vehicles" - Intelligent Vehicles Symposium, 2023&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;1st Place - ImageNet Indonesian Face Recognition Challenge 2024&lt;/li&gt;
+&lt;li&gt;Best Demo Award - CVPR Conference 2024&lt;/li&gt;
+&lt;li&gt;Research Grant from Google Research - $50,000 USD (2024)&lt;/li&gt;
+&lt;li&gt;Deployed systems used by 100+ organizations nationwide&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="funding_sources">Kemenristek BRIN - Research Grant (Rp 1.2 M/year)
+Industry Partnerships - Consulting Projects (Rp 800 M/year)
+Google Research Award - $50,000 USD
+NVIDIA Academic Grant - 4x DGX A100 GPUs</field>
+            <field name="contact_person">Dr. Ir. Bambang Sutrisno, M.T.</field>
+            <field name="contact_email">cvlab@university.ac.id</field>
+            <field name="lab_space">Gedung Teknik Informatika Lantai 5, Ruang 501-505</field>
+            <field name="website_url">https://cvlab.university.ac.id</field>
+            <field name="social_media">https://twitter.com/cvlab_univ</field>
+            <field name="established_year">2019</field>
+            <field name="is_featured" eval="True"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Computer Vision &amp; Image Processing Laboratory</field>
+            <field name="meta_description">Lab riset computer vision yang mengembangkan AI untuk object detection, face recognition, medical imaging, dan industrial applications.</field>
+            <field name="meta_keywords">Computer Vision, Object Detection, Face Recognition, Medical Imaging, Deep Learning, YOLO</field>
+            <field name="date">2024-02-15</field>
+        </record>
+
+        <!-- Website Menu -->
+        <record id="menu_grup_riset_main" model="website.menu">
+            <field name="name">Grup Riset</field>
+            <field name="url">/grup-riset</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">30</field>
+        </record>
+
+    </data>
+</odoo>

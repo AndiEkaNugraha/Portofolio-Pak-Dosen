@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Main Index Template -->
+        <template id="grants_index" name="Hibah &amp; Pendanaan">
+            <t t-call="website.layout">
+                <t t-set="title">Hibah &amp; Pendanaan</t>
+                <t t-set="meta_description">Dokumentasi lengkap hibah dan pendanaan penelitian. Lihat berbagai hibah nasional, internasional, dan kolaborasi industri yang telah diperoleh.</t>
+                <t t-set="meta_keywords">hibah penelitian, pendanaan penelitian, grant, hibah nasional, hibah internasional, pendanaan industri</t>
+
+                <div id="wrap" class="oe_structure oe_empty">
+                    <!-- Hero Section -->
+                    <section class="s_banner pt-5 pb-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <h1 class="display-4 text-white font-weight-bold mb-4">
+                                        Hibah &amp; Pendanaan Penelitian
+                                    </h1>
+                                    <p class="lead text-white mb-4">
+                                        Dokumentasi lengkap hibah dan pendanaan penelitian yang telah diperoleh dari berbagai lembaga nasional dan internasional
+                                    </p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge badge-light p-2">
+                                            <i class="fa fa-trophy mr-1"></i>
+                                            <t t-esc="total_grants"/> Hibah Total
+                                        </span>
+                                        <span class="badge badge-light p-2">
+                                            <i class="fa fa-university mr-1"></i>
+                                            <t t-esc="len(categories)"/> Kategori
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <i class="fa fa-money fa-5x text-white opacity-75"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Search &amp; Filter Section -->
+                    <section class="pt-4 pb-4 bg-light">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form method="get" action="/hibah-pendanaan/search" class="mb-4">
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="search" placeholder="Cari hibah..." t-att-value="search"/>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary" type="submit">
+                                                            <i class="fa fa-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <select name="category" class="form-control">
+                                                    <option value="">Semua Kategori</option>
+                                                    <t t-foreach="categories" t-as="category">
+                                                        <option t-att-value="category.id" t-att-selected="'selected' if current_category == category.id else None">
+                                                            <t t-esc="category.name"/>
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <select name="status" class="form-control">
+                                                    <option value="">Semua Status</option>
+                                                    <t t-foreach="status_options" t-as="status_option">
+                                                        <option t-att-value="status_option[0]" t-att-selected="'selected' if current_status == status_option[0] else None">
+                                                            <t t-esc="status_option[1]"/>
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Grants Grid -->
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <t t-if="grants">
+                                <div class="row">
+                                    <t t-foreach="grants" t-as="grant">
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card h-100 shadow-sm hover-shadow">
+                                                <div class="card-body d-flex flex-column">
+                                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                                        <span t-att-class="'badge badge-' + ('success' if grant.status == 'active' else 'primary' if grant.status == 'approved' else 'info' if grant.status == 'completed' else 'secondary')">
+                                                            <t t-esc="dict(grant._fields['status'].selection)[grant.status]"/>
+                                                        </span>
+                                                        <t t-if="grant.is_featured">
+                                                            <span class="badge badge-warning">
+                                                                <i class="fa fa-star"></i> Unggulan
+                                                            </span>
+                                                        </t>
+                                                    </div>
+                                                    
+                                                    <h5 class="card-title mb-3">
+                                                        <a t-att-href="'/hibah-pendanaan/' + grant.slug" class="text-decoration-none">
+                                                            <t t-esc="grant.name"/>
+                                                        </a>
+                                                    </h5>
+                                                    
+                                                    <p class="card-text text-muted small mb-2">
+                                                        <i class="fa fa-university mr-1"></i>
+                                                        <t t-esc="grant.funding_agency"/>
+                                                    </p>
+                                                    
+                                                    <p class="card-text flex-grow-1">
+                                                        <t t-esc="grant.teaser[:150] + '...' if grant.teaser and len(grant.teaser) > 150 else grant.teaser or 'Tidak ada ringkasan tersedia.'"/>
+                                                    </p>
+                                                    
+                                                    <div class="card-info mb-3">
+                                                        <small class="text-muted d-block">
+                                                            <i class="fa fa-money mr-1"></i>
+                                                            Rp <t t-esc="'{:,.0f}'.format(grant.total_amount)" t-if="grant.total_amount"/>
+                                                        </small>
+                                                        <small class="text-muted d-block" t-if="grant.start_date">
+                                                            <i class="fa fa-calendar mr-1"></i>
+                                                            <t t-esc="grant.start_date.strftime('%B %Y')"/>
+                                                            <t t-if="grant.end_date"> - <t t-esc="grant.end_date.strftime('%B %Y')"/></t>
+                                                        </small>
+                                                        <small class="text-muted d-block">
+                                                            <i class="fa fa-user mr-1"></i>
+                                                            <t t-esc="grant.principal_investigator"/>
+                                                        </small>
+                                                    </div>
+                                                    
+                                                    <div class="mt-auto">
+                                                        <a t-att-href="'/hibah-pendanaan/' + grant.slug" class="btn btn-primary btn-sm">
+                                                            Selengkapnya <i class="fa fa-arrow-right ml-1"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+
+                                <!-- Pagination -->
+                                <t t-if="pager">
+                                    <div class="row mt-4">
+                                        <div class="col-12">
+                                            <t t-call="website.pager"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <div class="row">
+                                    <div class="col-12 text-center py-5">
+                                        <i class="fa fa-search fa-3x text-muted mb-3"></i>
+                                        <h4 class="text-muted">Tidak ada hibah ditemukan</h4>
+                                        <p class="text-muted">
+                                            <t t-if="search">Coba kata kunci yang berbeda atau</t>
+                                            <a href="/hibah-pendanaan" class="btn btn-link">lihat semua hibah</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+
+                    <!-- Categories Sidebar (for large screens) -->
+                    <aside class="d-none d-lg-block position-fixed" style="right: 20px; top: 50%; transform: translateY(-50%); z-index: 100;">
+                        <div class="card shadow">
+                            <div class="card-header bg-primary text-white">
+                                <h6 class="mb-0">
+                                    <i class="fa fa-filter mr-1"></i> Filter Kategori
+                                </h6>
+                            </div>
+                            <div class="card-body p-2">
+                                <a href="/hibah-pendanaan" class="btn btn-link btn-sm d-block text-left">Semua</a>
+                                <t t-foreach="categories" t-as="category">
+                                    <a t-att-href="'/hibah-pendanaan/category/' + str(category.id)" 
+                                       class="btn btn-link btn-sm d-block text-left">
+                                        <t t-esc="category.name"/>
+                                        <small class="text-muted">(<t t-esc="category.post_count"/>)</small>
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+                <!-- Custom CSS -->
+                <style>
+                    .hover-shadow:hover {
+                        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+                        transform: translateY(-2px);
+                        transition: all 0.3s ease;
+                    }
+                    .gap-2 > * {
+                        margin-right: 0.5rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    @media (max-width: 768px) {
+                        .display-4 {
+                            font-size: 2rem;
+                        }
+                    }
+                </style>
+            </t>
+        </template>
+
+        <!-- Detail Page Template -->
+        <template id="grant_detail" name="Detail Hibah &amp; Pendanaan">
+            <t t-call="website.layout">
+                <t t-set="title" t-value="grant.meta_title or grant.name"/>
+                <t t-set="meta_description" t-value="grant.meta_description or grant.teaser"/>
+                <t t-set="meta_keywords" t-value="grant.meta_keywords or grant.keywords"/>
+
+                <div id="wrap" class="oe_structure">
+                    <!-- Breadcrumb -->
+                    <section class="pt-3 pb-2 bg-light">
+                        <div class="container">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0 bg-transparent">
+                                    <li class="breadcrumb-item">
+                                        <a href="/">Home</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="/hibah-pendanaan">Hibah &amp; Pendanaan</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        <t t-esc="grant.name"/>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </section>
+
+                    <!-- Grant Detail Content -->
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <!-- Grant Header -->
+                                    <div class="mb-4">
+                                        <div class="d-flex flex-wrap align-items-center mb-3">
+                                            <span t-att-class="'badge badge-' + ('success' if grant.status == 'active' else 'primary' if grant.status == 'approved' else 'info' if grant.status == 'completed' else 'secondary') + ' mr-2'">
+                                                <t t-esc="dict(grant._fields['status'].selection)[grant.status]"/>
+                                            </span>
+                                            <span class="badge badge-secondary mr-2">
+                                                <t t-esc="grant.blog_id.name"/>
+                                            </span>
+                                            <t t-if="grant.is_featured">
+                                                <span class="badge badge-warning">
+                                                    <i class="fa fa-star"></i> Unggulan
+                                                </span>
+                                            </t>
+                                        </div>
+                                        
+                                        <h1 class="display-4 mb-3">
+                                            <t t-esc="grant.name"/>
+                                        </h1>
+                                        
+                                        <t t-if="grant.subtitle">
+                                            <p class="lead text-muted mb-4">
+                                                <t t-esc="grant.subtitle"/>
+                                            </p>
+                                        </t>
+                                    </div>
+
+                                    <!-- Grant Meta Info -->
+                                    <div class="row mb-4">
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2">
+                                                    <strong><i class="fa fa-university mr-2"></i>Lembaga Pemberi Dana:</strong><br/>
+                                                    <t t-esc="grant.funding_agency"/>
+                                                </li>
+                                                <li class="mb-2" t-if="grant.grant_number">
+                                                    <strong><i class="fa fa-file-text mr-2"></i>Nomor Hibah:</strong><br/>
+                                                    <t t-esc="grant.grant_number"/>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <strong><i class="fa fa-user mr-2"></i>Ketua/Penanggung Jawab:</strong><br/>
+                                                    <t t-esc="grant.principal_investigator"/>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2">
+                                                    <strong><i class="fa fa-money mr-2"></i>Total Anggaran:</strong><br/>
+                                                    Rp <t t-esc="'{:,.0f}'.format(grant.total_amount)" t-if="grant.total_amount"/>
+                                                </li>
+                                                <li class="mb-2" t-if="grant.start_date">
+                                                    <strong><i class="fa fa-calendar mr-2"></i>Periode:</strong><br/>
+                                                    <t t-esc="grant.start_date.strftime('%d %B %Y')"/>
+                                                    <t t-if="grant.end_date"> - <t t-esc="grant.end_date.strftime('%d %B %Y')"/></t>
+                                                </li>
+                                                <li class="mb-2" t-if="grant.progress_percentage">
+                                                    <strong><i class="fa fa-tasks mr-2"></i>Progress:</strong><br/>
+                                                    <div class="progress" style="height: 20px;">
+                                                        <div class="progress-bar" role="progressbar" 
+                                                             t-att-style="'width: ' + str(grant.progress_percentage) + '%'" 
+                                                             t-att-aria-valuenow="grant.progress_percentage" 
+                                                             aria-valuemin="0" aria-valuemax="100">
+                                                            <t t-esc="grant.progress_percentage"/>%
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Grant Description -->
+                                    <t t-if="grant.teaser">
+                                        <div class="alert alert-info">
+                                            <h5><i class="fa fa-info-circle mr-2"></i>Ringkasan</h5>
+                                            <p class="mb-0"><t t-esc="grant.teaser"/></p>
+                                        </div>
+                                    </t>
+
+                                    <t t-if="grant.description">
+                                        <div class="mb-4">
+                                            <h3>Deskripsi Lengkap</h3>
+                                            <t t-raw="grant.description"/>
+                                        </div>
+                                    </t>
+
+                                    <t t-if="grant.objectives">
+                                        <div class="mb-4">
+                                            <h3>Tujuan Hibah</h3>
+                                            <t t-raw="grant.objectives"/>
+                                        </div>
+                                    </t>
+
+                                    <t t-if="grant.expected_outcomes">
+                                        <div class="mb-4">
+                                            <h3>Luaran yang Diharapkan</h3>
+                                            <t t-raw="grant.expected_outcomes"/>
+                                        </div>
+                                    </t>
+
+                                    <!-- Team Information -->
+                                    <t t-if="grant.co_investigators or grant.research_assistants">
+                                        <div class="mb-4">
+                                            <h3>Tim Peneliti</h3>
+                                            <t t-if="grant.co_investigators">
+                                                <h5>Anggota Tim:</h5>
+                                                <div class="text-muted mb-3" style="white-space: pre-line;">
+                                                    <t t-esc="grant.co_investigators"/>
+                                                </div>
+                                            </t>
+                                            <t t-if="grant.research_assistants">
+                                                <h5>Asisten Peneliti:</h5>
+                                                <div class="text-muted" style="white-space: pre-line;">
+                                                    <t t-esc="grant.research_assistants"/>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </t>
+
+                                    <!-- Publications and Outputs -->
+                                    <t t-if="grant.publications">
+                                        <div class="mb-4">
+                                            <h3>Publikasi yang Dihasilkan</h3>
+                                            <t t-raw="grant.publications"/>
+                                        </div>
+                                    </t>
+
+                                    <!-- Social Sharing -->
+                                    <div class="mb-4">
+                                        <h5>Bagikan:</h5>
+                                        <div class="d-flex flex-wrap">
+                                            <t t-set="share_url" t-value="request.httprequest.url"/>
+                                            <t t-set="share_text" t-value="grant.name"/>
+                                            
+                                            <a t-att-href="'https://www.facebook.com/sharer/sharer.php?u=' + share_url" 
+                                               class="btn btn-primary btn-sm mr-2 mb-2" target="_blank">
+                                                <i class="fa fa-facebook"></i> Facebook
+                                            </a>
+                                            <a t-att-href="'https://twitter.com/intent/tweet?url=' + share_url + '&amp;text=' + share_text" 
+                                               class="btn btn-info btn-sm mr-2 mb-2" target="_blank">
+                                                <i class="fa fa-twitter"></i> Twitter
+                                            </a>
+                                            <a t-att-href="'https://www.linkedin.com/sharing/share-offsite/?url=' + share_url" 
+                                               class="btn btn-primary btn-sm mr-2 mb-2" target="_blank">
+                                                <i class="fa fa-linkedin"></i> LinkedIn
+                                            </a>
+                                            <a t-att-href="'whatsapp://send?text=' + share_text + ' ' + share_url" 
+                                               class="btn btn-success btn-sm mr-2 mb-2">
+                                                <i class="fa fa-whatsapp"></i> WhatsApp
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sidebar -->
+                                <div class="col-lg-4">
+                                    <!-- Grant Info Card -->
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="mb-0">
+                                                <i class="fa fa-info-circle mr-2"></i>Informasi Hibah
+                                            </h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="grant.grant_scheme">
+                                                <p><strong>Skema:</strong><br/><t t-esc="grant.grant_scheme"/></p>
+                                            </t>
+                                            <t t-if="grant.research_area">
+                                                <p><strong>Bidang Penelitian:</strong><br/><t t-esc="grant.research_area"/></p>
+                                            </t>
+                                            <t t-if="grant.keywords">
+                                                <p><strong>Kata Kunci:</strong><br/>
+                                                    <t t-foreach="grant.keywords.split(',')" t-as="keyword">
+                                                        <span class="badge badge-secondary mr-1 mb-1">
+                                                            <t t-esc="keyword.strip()"/>
+                                                        </span>
+                                                    </t>
+                                                </p>
+                                            </t>
+                                            <t t-if="grant.contact_email or grant.project_website">
+                                                <hr/>
+                                                <h6>Kontak:</h6>
+                                                <t t-if="grant.contact_email">
+                                                    <p><i class="fa fa-envelope mr-2"></i>
+                                                       <a t-att-href="'mailto:' + grant.contact_email">
+                                                           <t t-esc="grant.contact_email"/>
+                                                       </a>
+                                                    </p>
+                                                </t>
+                                                <t t-if="grant.project_website">
+                                                    <p><i class="fa fa-globe mr-2"></i>
+                                                       <a t-att-href="grant.project_website" target="_blank">
+                                                           Website Proyek
+                                                       </a>
+                                                    </p>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </div>
+
+                                    <!-- Related Grants -->
+                                    <t t-if="related_grants">
+                                        <div class="card">
+                                            <div class="card-header bg-secondary text-white">
+                                                <h5 class="mb-0">
+                                                    <i class="fa fa-link mr-2"></i>Hibah Terkait
+                                                </h5>
+                                            </div>
+                                            <div class="card-body p-0">
+                                                <t t-foreach="related_grants" t-as="related">
+                                                    <div class="border-bottom p-3">
+                                                        <h6 class="mb-1">
+                                                            <a t-att-href="'/hibah-pendanaan/' + related.slug" class="text-decoration-none">
+                                                                <t t-esc="related.name"/>
+                                                            </a>
+                                                        </h6>
+                                                        <small class="text-muted">
+                                                            <i class="fa fa-university mr-1"></i>
+                                                            <t t-esc="related.funding_agency"/>
+                                                        </small>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

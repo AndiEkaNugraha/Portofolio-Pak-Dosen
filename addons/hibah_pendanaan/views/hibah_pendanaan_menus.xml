@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Actions -->
+        <record id="action_hibah_pendanaan_blog" model="ir.actions.act_window">
+            <field name="name">Kategori Hibah &amp; Pendanaan</field>
+            <field name="res_model">hibah.pendanaan.blog</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Buat kategori hibah pertama Anda!
+                </p>
+                <p>
+                    Kelompokkan hibah dan pendanaan berdasarkan jenis, tingkat, atau lembaga pemberi dana.
+                </p>
+            </field>
+        </record>
+        
+        <record id="action_hibah_pendanaan_post" model="ir.actions.act_window">
+            <field name="name">Hibah &amp; Pendanaan</field>
+            <field name="res_model">hibah.pendanaan.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan hibah atau pendanaan pertama Anda!
+                </p>
+                <p>
+                    Dokumentasikan semua hibah dan pendanaan penelitian untuk portfolio Anda.
+                </p>
+            </field>
+        </record>
+
+        <!-- Main Menu -->
+        <menuitem id="menu_hibah_pendanaan_main" 
+                  name="Hibah &amp; Pendanaan" 
+                  sequence="40"/>
+        
+        <!-- Blog/Category Menus -->
+        <menuitem id="menu_hibah_pendanaan_blog" 
+                  name="Kategori Hibah" 
+                  parent="menu_hibah_pendanaan_main"
+                  action="action_hibah_pendanaan_blog" 
+                  sequence="10"/>
+        
+        <!-- Post/Grant Menus -->
+        <menuitem id="menu_hibah_pendanaan_post" 
+                  name="Hibah &amp; Pendanaan" 
+                  parent="menu_hibah_pendanaan_main"
+                  action="action_hibah_pendanaan_post" 
+                  sequence="20"/>
+
+        <!-- Website Menu -->
+        <record id="menu_hibah_pendanaan_website" model="website.menu">
+            <field name="name">Hibah &amp; Pendanaan</field>
+            <field name="url">/hibah-pendanaan</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">40</field>
+        </record>
+        
+    </data>
+</odoo>

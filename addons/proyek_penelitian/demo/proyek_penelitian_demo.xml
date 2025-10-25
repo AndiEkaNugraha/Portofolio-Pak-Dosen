@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sample Research Projects -->
+        <record id="post_ai_healthcare" model="proyek.penelitian.post">
+            <field name="name">Pengembangan Sistem AI untuk Diagnosis Medis Berbasis Computer Vision</field>
+            <field name="subtitle">Implementasi Deep Learning untuk Deteksi Dini Penyakit Mata dan Kulit</field>
+            <field name="blog_id" ref="blog_penelitian_terapan"/>
+            <field name="project_code">AI-MED-2024-001</field>
+            <field name="principal_investigator">Prof. Dr. Ahmad Sutrisno, S.T., M.T.</field>
+            <field name="co_investigators">Dr. Sari Indrawati, S.Kom., M.Kom.
+Dr. Budi Hartono, S.T., M.T.
+Rina Purnama, S.Kom., M.Kom.</field>
+            <field name="research_assistants">Maya Sari, S.Kom. (Asisten Peneliti Senior)
+Andi Pratama, S.T. (Asisten Peneliti Junior)</field>
+            <field name="start_date">2024-01-15</field>
+            <field name="end_date">2026-01-14</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">65</field>
+            <field name="funding_source">Kementerian Pendidikan, Kebudayaan, Riset dan Teknologi</field>
+            <field name="funding_scheme">Hibah Penelitian Terapan Unggulan Perguruan Tinggi</field>
+            <field name="total_budget">850000000</field>
+            <field name="budget_year">2024-2026</field>
+            <field name="research_area">Artificial Intelligence, Computer Vision, Medical Imaging</field>
+            <field name="keywords">AI, Computer Vision, Medical Diagnosis, Deep Learning, Healthcare, Image Processing</field>
+            <field name="teaser">Proyek penelitian yang mengembangkan sistem kecerdasan buatan untuk membantu tenaga medis dalam mendiagnosis penyakit mata dan kulit menggunakan teknologi computer vision dan deep learning. Sistem ini dapat memproses gambar medis dan memberikan hasil diagnosis dengan akurasi tinggi.</field>
+            <field name="description">&lt;p&gt;Proyek penelitian ini bertujuan mengembangkan sistem kecerdasan buatan yang dapat membantu tenaga medis dalam proses diagnosis penyakit mata dan kulit. Dengan memanfaatkan teknologi computer vision dan deep learning, sistem ini mampu menganalisis gambar medis dan memberikan rekomendasi diagnosis dengan tingkat akurasi yang tinggi.&lt;/p&gt;
+
+&lt;p&gt;Penelitian ini melibatkan pengumpulan dataset gambar medis, pengembangan algoritma deep learning, dan validasi klinis bersama rumah sakit mitra. Tim peneliti bekerja sama dengan dokter spesialis untuk memastikan hasil yang akurat dan dapat diandalkan dalam praktik medis.&lt;/p&gt;
+
+&lt;p&gt;Sistem yang dikembangkan akan menjadi alat bantu diagnostik yang dapat digunakan di fasilitas kesehatan dengan keterbatasan tenaga ahli, sehingga dapat meningkatkan akses dan kualitas layanan kesehatan masyarakat.&lt;/p&gt;</field>
+            <field name="research_objectives">&lt;ul&gt;
+&lt;li&gt;Mengembangkan algoritma deep learning untuk deteksi penyakit mata (katarak, glaukoma, retinopati diabetik)&lt;/li&gt;
+&lt;li&gt;Membangun sistem computer vision untuk diagnosis penyakit kulit (melanoma, karsinoma, dermatitis)&lt;/li&gt;
+&lt;li&gt;Menciptakan aplikasi mobile dan web untuk implementasi sistem&lt;/li&gt;
+&lt;li&gt;Melakukan validasi klinis dengan akurasi minimal 90%&lt;/li&gt;
+&lt;li&gt;Menghasilkan publikasi internasional dan paten teknologi&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Metodologi Penelitian:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Data Collection:&lt;/strong&gt; Pengumpulan dataset gambar medis dari rumah sakit mitra dengan persetujuan etik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Preprocessing:&lt;/strong&gt; Augmentasi data, normalisasi, dan labeling dengan bantuan dokter spesialis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model Development:&lt;/strong&gt; Pengembangan arsitektur CNN (ResNet, EfficientNet, Vision Transformer)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Training &amp; Validation:&lt;/strong&gt; Pelatihan model dengan k-fold cross validation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clinical Testing:&lt;/strong&gt; Uji coba klinis di rumah sakit untuk validasi performa&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application Development:&lt;/strong&gt; Implementasi sistem dalam bentuk aplikasi mobile dan web&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="expected_outcomes">&lt;h5&gt;Luaran yang Diharapkan:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Sistem AI untuk diagnosis penyakit mata dengan akurasi &gt;90%&lt;/li&gt;
+&lt;li&gt;Sistem AI untuk diagnosis penyakit kulit dengan akurasi &gt;85%&lt;/li&gt;
+&lt;li&gt;Aplikasi mobile dan web siap pakai untuk tenaga medis&lt;/li&gt;
+&lt;li&gt;3-4 publikasi jurnal internasional Q1/Q2&lt;/li&gt;
+&lt;li&gt;2 paten teknologi terkait algoritma AI&lt;/li&gt;
+&lt;li&gt;1 produk teknologi siap komersialisasi&lt;/li&gt;
+&lt;li&gt;Pelatihan 50+ tenaga medis dalam penggunaan sistem&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">Rumah Sakit Dr. Soetomo Surabaya
+Rumah Sakit Cipto Mangunkusumo Jakarta
+Fakultas Kedokteran Universitas Indonesia
+Ikatan Dokter Indonesia (IDI)</field>
+            <field name="industry_partners">PT. Kalbe Farma Tbk
+PT. Siloam Hospitals
+PT. Prodia Widyahusada</field>
+            <field name="international_collaboration" eval="True"/>
+            <field name="international_partners">National University of Singapore (Computer Vision Lab)
+Stanford University (AI in Medicine Research)
+University of Oxford (Medical AI Centre)</field>
+            <field name="phd_students">Rizky Pratama (Deep Learning for Medical Image Analysis)
+Siti Aminah (Computer Vision for Skin Disease Detection)
+David Kurniawan (AI System for Ophthalmology)</field>
+            <field name="master_students">Ayu Lestari (Mobile App Development for Medical AI)
+Eko Saputra (Web-based Medical Diagnosis System)
+Nina Kartika (User Interface Design for Healthcare AI)
+Dian Purnama (Data Preprocessing for Medical Images)
+Fajar Ramadhan (Clinical Validation of AI Systems)</field>
+            <field name="undergrad_students">Budi Santoso (Final Project: Eye Disease Classification)
+Lina Handayani (Final Project: Skin Cancer Detection App)
+Rio Wijaya (Final Project: Medical Image Augmentation)
+Citra Dewi (Final Project: AI Performance Evaluation)</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"Deep Learning Approaches for Automated Eye Disease Detection" - IEEE Transactions on Medical Imaging, 2024 (Q1)&lt;/li&gt;
+&lt;li&gt;"Computer Vision-Based Skin Lesion Classification using EfficientNet" - Medical Image Analysis, 2024 (Q1)&lt;/li&gt;
+&lt;li&gt;"Mobile Application for AI-Powered Medical Diagnosis in Low-Resource Settings" - JMIR mHealth, 2024 (Q1)&lt;/li&gt;
+&lt;li&gt;"Clinical Validation of AI System for Ophthalmologic Screening" - Nature Digital Medicine, 2024 (Under Review)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="patents_ip">Sistem Kecerdasan Buatan untuk Diagnosis Penyakit Mata (Paten Pending - P2024001234)
+Algoritma Deep Learning untuk Deteksi Kanker Kulit (Paten Pending - P2024001235)</field>
+            <field name="prototypes">&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MedVision Mobile App:&lt;/strong&gt; Aplikasi mobile untuk diagnosis penyakit mata dan kulit&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI-Diagnosis Web Platform:&lt;/strong&gt; Platform web untuk tenaga medis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Medical AI API:&lt;/strong&gt; API untuk integrasi dengan sistem rumah sakit&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Training Simulator:&lt;/strong&gt; Simulator untuk pelatihan tenaga medis&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="conference_presentations">&lt;ul&gt;
+&lt;li&gt;IEEE International Conference on Medical AI - Singapore, 2024&lt;/li&gt;
+&lt;li&gt;Asian Conference on Computer Vision (ACCV) - Tokyo, 2024&lt;/li&gt;
+&lt;li&gt;International Conference on Healthcare Innovation - Bangkok, 2024&lt;/li&gt;
+&lt;li&gt;ASEAN Medical Technology Summit - Kuala Lumpur, 2024&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;Best Research Paper Award - IEEE Medical AI Conference 2024&lt;/li&gt;
+&lt;li&gt;Innovation Award - Indonesia Healthcare Innovation Competition 2024&lt;/li&gt;
+&lt;li&gt;Featured in Nature Medicine News &amp; Views, April 2024&lt;/li&gt;
+&lt;li&gt;Shortlisted for UNESCO AI for Good Competition 2024&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Proyek ini memberikan dampak sosial yang signifikan dengan meningkatkan akses layanan kesehatan berkualitas di daerah terpencil yang kekurangan dokter spesialis. Sistem AI dapat membantu puskesmas dan klinik kecil dalam memberikan diagnosis awal yang akurat, sehingga pasien dapat segera mendapat penanganan yang tepat.&lt;/p&gt;
+
+&lt;p&gt;Selain itu, sistem ini juga membantu mengurangi biaya diagnosis medis dan mempercepat proses screening massal untuk program kesehatan masyarakat.&lt;/p&gt;</field>
+            <field name="economic_impact">&lt;p&gt;Potensi ekonomi dari teknologi ini sangat besar, dengan proyeksi nilai pasar global untuk AI dalam healthcare mencapai $148 miliar pada 2030. Sistem yang dikembangkan dapat dikomersialisasi melalui lisensi teknologi kepada perusahaan healthcare atau dikembangkan menjadi startup teknologi kesehatan.&lt;/p&gt;
+
+&lt;p&gt;Estimasi nilai ekonomi: Rp 50-100 miliar dalam 5 tahun pertama melalui komersialisasi dan ekspor teknologi.&lt;/p&gt;</field>
+            <field name="milestones">&lt;h5&gt;Milestone yang Telah Dicapai (65%):&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ Pengumpulan dataset 50,000+ gambar medis (100%)&lt;/li&gt;
+&lt;li&gt;✅ Pengembangan algoritma deep learning untuk mata (90%)&lt;/li&gt;
+&lt;li&gt;✅ Pengembangan algoritma untuk kulit (80%)&lt;/li&gt;
+&lt;li&gt;⏳ Validasi klinis fase 1 (60%)&lt;/li&gt;
+&lt;li&gt;⏳ Pengembangan aplikasi mobile (50%)&lt;/li&gt;
+&lt;li&gt;❌ Validasi klinis fase 2 (0%)&lt;/li&gt;
+&lt;li&gt;❌ Komersialisasi produk (0%)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="current_activities">&lt;ul&gt;
+&lt;li&gt;Melakukan validasi klinis di 3 rumah sakit mitra&lt;/li&gt;
+&lt;li&gt;Optimasi model AI untuk meningkatkan akurasi&lt;/li&gt;
+&lt;li&gt;Pengembangan user interface aplikasi mobile&lt;/li&gt;
+&lt;li&gt;Penyusunan dokumen paten teknologi&lt;/li&gt;
+&lt;li&gt;Persiapan publikasi jurnal internasional&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="next_steps">&lt;ul&gt;
+&lt;li&gt;Menyelesaikan validasi klinis fase 2 (Q1 2025)&lt;/li&gt;
+&lt;li&gt;Meluncurkan aplikasi mobile beta version (Q2 2025)&lt;/li&gt;
+&lt;li&gt;Mengajukan sertifikasi FDA dan BPOM (Q3 2025)&lt;/li&gt;
+&lt;li&gt;Memulai pilot project di 10 puskesmas (Q4 2025)&lt;/li&gt;
+&lt;li&gt;Mencari investor untuk komersialisasi (Q1 2026)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_email">ai.medical.research@university.ac.id</field>
+            <field name="project_website">https://aimedical.university.ac.id</field>
+            <field name="related_links">https://github.com/ai-medical-vision
+https://dataset.aimedical.com
+https://demo.aimedical.app</field>
+            <field name="is_featured" eval="True"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Sistem AI untuk Diagnosis Medis - Proyek Penelitian Inovatif</field>
+            <field name="meta_description">Pengembangan sistem kecerdasan buatan untuk diagnosis penyakit mata dan kulit menggunakan computer vision dan deep learning. Penelitian terapan dengan dampak sosial tinggi.</field>
+            <field name="meta_keywords">AI, Computer Vision, Medical Diagnosis, Deep Learning, Healthcare, Medical AI, Diagnosis Penyakit</field>
+            <field name="date">2024-01-15</field>
+        </record>
+
+        <record id="post_iot_smart_agriculture" model="proyek.penelitian.post">
+            <field name="name">Smart Agriculture System Berbasis IoT untuk Pertanian Presisi</field>
+            <field name="subtitle">Implementasi Sensor Network dan Machine Learning untuk Optimasi Produksi Pertanian</field>
+            <field name="blog_id" ref="blog_penelitian_terapan"/>
+            <field name="project_code">IOT-AGR-2023-002</field>
+            <field name="principal_investigator">Dr. Eng. Ratna Purnama, S.T., M.T.</field>
+            <field name="co_investigators">Dr. Bambang Sutrisno, S.T., M.T.
+Ir. Dewi Maharani, M.T.
+Agus Setiawan, S.T., M.T.</field>
+            <field name="start_date">2023-08-01</field>
+            <field name="end_date">2025-07-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">75</field>
+            <field name="funding_source">Kementerian Pertanian RI</field>
+            <field name="funding_scheme">Hibah Penelitian Inovasi Pertanian Digital</field>
+            <field name="total_budget">650000000</field>
+            <field name="budget_year">2023-2025</field>
+            <field name="research_area">Internet of Things, Smart Agriculture, Machine Learning, Precision Farming</field>
+            <field name="keywords">IoT, Smart Agriculture, Precision Farming, Sensor Network, Machine Learning, Sustainable Agriculture</field>
+            <field name="teaser">Proyek penelitian yang mengembangkan sistem pertanian cerdas menggunakan teknologi IoT dan machine learning untuk meningkatkan produktivitas dan efisiensi pertanian melalui monitoring real-time kondisi tanah, cuaca, dan tanaman.</field>
+            <field name="description">&lt;p&gt;Sistem Smart Agriculture berbasis IoT ini dirancang untuk membantu petani dalam mengoptimalkan produksi pertanian melalui monitoring dan kontrol otomatis berbagai parameter lingkungan. Sistem ini mengintegrasikan sensor-sensor untuk mengukur kelembaban tanah, pH, suhu udara, intensitas cahaya, dan kondisi cuaca.&lt;/p&gt;
+
+&lt;p&gt;Data dari sensor-sensor tersebut diolah menggunakan algoritma machine learning untuk memberikan rekomendasi optimal terkait waktu penyiraman, pemberian pupuk, dan tindakan perawatan lainnya. Sistem ini juga dilengkapi dengan aplikasi mobile yang memungkinkan petani memantau kondisi lahan dari jarak jauh.&lt;/p&gt;</field>
+            <field name="research_objectives">&lt;ul&gt;
+&lt;li&gt;Mengembangkan jaringan sensor IoT untuk monitoring pertanian&lt;/li&gt;
+&lt;li&gt;Membangun sistem prediksi cuaca dan kondisi tanaman&lt;/li&gt;
+&lt;li&gt;Menciptakan dashboard dan aplikasi mobile untuk petani&lt;/li&gt;
+&lt;li&gt;Meningkatkan produktivitas pertanian 20-30%&lt;/li&gt;
+&lt;li&gt;Mengurangi penggunaan air dan pupuk 15-25%&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">Balai Penelitian Tanaman Pangan (Balitkabi)
+Institut Pertanian Bogor (IPB)
+Dinas Pertanian Jawa Timur
+Gabungan Kelompok Tani Nusantara</field>
+            <field name="industry_partners">PT. Pupuk Indonesia
+PT. Telkom Indonesia (IoT Solutions)
+PT. Indosat Ooredoo (Connectivity)</field>
+            <field name="phd_students">Indra Wijaya (IoT Network Optimization for Agriculture)
+Sari Kusuma (Machine Learning for Crop Prediction)</field>
+            <field name="master_students">Rian Pratama (Smart Irrigation System Development)
+Fitri Nuraini (Weather Prediction using IoT Data)
+Joko Susanto (Mobile Application for Farmers)
+Ayu Purnama (Sensor Data Analytics)</field>
+            <field name="undergrad_students">Budi Hartono (Final Project: Soil Moisture Monitoring)
+Sinta Maharani (Final Project: Automated Irrigation)
+Rio Saputra (Final Project: Weather Station IoT)</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"IoT-Based Precision Agriculture System for Sustainable Farming" - Computers and Electronics in Agriculture, 2024&lt;/li&gt;
+&lt;li&gt;"Machine Learning Approaches for Crop Yield Prediction in Smart Agriculture" - Agricultural Systems, 2024&lt;/li&gt;
+&lt;li&gt;"Wireless Sensor Network Design for Large-Scale Agricultural Monitoring" - IEEE Internet of Things Journal, 2024&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="prototypes">&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SmartFarm IoT Kit:&lt;/strong&gt; Paket sensor lengkap untuk monitoring pertanian&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FarmBot Mobile App:&lt;/strong&gt; Aplikasi mobile untuk petani&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AgriDash Web Platform:&lt;/strong&gt; Dashboard web untuk manajemen data&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Auto-Irrigation Controller:&lt;/strong&gt; Sistem irigasi otomatis&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;Juara 1 Kompetisi Inovasi Teknologi Pertanian Nasional 2024&lt;/li&gt;
+&lt;li&gt;Best IoT Solution Award - Indonesia IoT Summit 2024&lt;/li&gt;
+&lt;li&gt;Implementasi sukses di 25 desa percontohan&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Sistem ini telah membantu 150+ petani kecil meningkatkan produktivitas lahan mereka rata-rata 25%. Selain itu, penggunaan air berkurang 30% dan penggunaan pupuk lebih efisien, mendukung pertanian berkelanjutan dan ramah lingkungan.&lt;/p&gt;</field>
+            <field name="contact_email">smartagri.research@university.ac.id</field>
+            <field name="project_website">https://smartagri.university.ac.id</field>
+            <field name="is_featured" eval="False"/>
+            <field name="website_published" eval="True"/>
+            <field name="date">2023-08-01</field>
+        </record>
+
+        <record id="post_blockchain_supply_chain" model="proyek.penelitian.post">
+            <field name="name">Blockchain-Based Supply Chain Management untuk Industri Makanan</field>
+            <field name="subtitle">Implementasi Teknologi Distributed Ledger untuk Traceability dan Food Safety</field>
+            <field name="blog_id" ref="blog_hibah_internasional"/>
+            <field name="project_code">BLC-SCM-2022-003</field>
+            <field name="principal_investigator">Prof. Dr. Hadi Kurniawan, S.Kom., M.Kom.</field>
+            <field name="co_investigators">Dr. Rina Pratiwi, S.T., M.T.
+Dr. Joko Widodo, M.Kom.
+Siska Amelinda, S.Kom., M.Kom.</field>
+            <field name="start_date">2022-09-01</field>
+            <field name="end_date">2024-08-31</field>
+            <field name="status">completed</field>
+            <field name="progress_percentage">100</field>
+            <field name="funding_source">European Union Horizon 2020</field>
+            <field name="funding_scheme">Marie Skłodowska-Curie Research and Innovation Staff Exchange</field>
+            <field name="total_budget">1200000000</field>
+            <field name="budget_year">2022-2024</field>
+            <field name="research_area">Blockchain Technology, Supply Chain Management, Food Safety, Distributed Systems</field>
+            <field name="keywords">Blockchain, Supply Chain, Food Safety, Traceability, Smart Contracts, Distributed Ledger</field>
+            <field name="teaser">Proyek penelitian kolaborasi internasional yang mengembangkan sistem supply chain management berbasis blockchain untuk industri makanan, meningkatkan transparansi, traceability, dan keamanan pangan dari farm-to-fork.</field>
+            <field name="description">&lt;p&gt;Proyek ini mengembangkan solusi blockchain untuk mengatasi tantangan transparansi dan traceability dalam supply chain industri makanan. Sistem yang dikembangkan memungkinkan tracking produk makanan dari tahap produksi hingga konsumen akhir, memastikan keamanan pangan dan kualitas produk.&lt;/p&gt;
+
+&lt;p&gt;Kolaborasi internasional ini melibatkan universitas dan perusahaan dari Indonesia, Belanda, Jerman, dan Italia. Sistem blockchain yang dibangun menggunakan Hyperledger Fabric dan smart contracts untuk automasi proses verifikasi dan sertifikasi.&lt;/p&gt;</field>
+            <field name="international_collaboration" eval="True"/>
+            <field name="international_partners">Delft University of Technology, Netherlands
+Technical University of Munich, Germany
+University of Bologna, Italy
+Wageningen University &amp; Research, Netherlands</field>
+            <field name="industry_partners">Unilever Indonesia
+Nestlé
+Royal FrieslandCampina
+PT. Indofood Sukses Makmur</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"Blockchain-enabled Food Supply Chain: A Systematic Review and Future Directions" - IEEE Access, 2024 (Q1)&lt;/li&gt;
+&lt;li&gt;"Smart Contracts for Automated Food Safety Compliance in Supply Chains" - Food Control, 2024 (Q1)&lt;/li&gt;
+&lt;li&gt;"Hyperledger Fabric Implementation for Multi-party Food Traceability" - Computers &amp; Industrial Engineering, 2024 (Q1)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="patents_ip">Sistem Blockchain untuk Traceability Makanan (Paten Terdaftar - P0022001345)
+Smart Contract untuk Sertifikasi Keamanan Pangan (Paten EU Pending)</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;Best Paper Award - IEEE International Conference on Blockchain Technology 2024&lt;/li&gt;
+&lt;li&gt;Featured in Harvard Business Review - Digital Transformation Case Study&lt;/li&gt;
+&lt;li&gt;Implementasi komersial di 3 perusahaan multinasional&lt;/li&gt;
+&lt;li&gt;EU Innovation Prize for Digital Agriculture 2024&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="economic_impact">&lt;p&gt;Sistem blockchain yang dikembangkan telah diadopsi oleh beberapa perusahaan besar dengan potensi penghematan biaya operasional 15-20% dan peningkatan consumer trust hingga 40%. Nilai ekonomi yang dihasilkan diperkirakan mencapai €2.5 juta dalam 2 tahun pertama implementasi.&lt;/p&gt;</field>
+            <field name="contact_email">blockchain.research@university.ac.id</field>
+            <field name="is_featured" eval="True"/>
+            <field name="website_published" eval="True"/>
+            <field name="date">2022-09-01</field>
+        </record>
+
+        <record id="post_renewable_energy" model="proyek.penelitian.post">
+            <field name="name">Optimasi Sistem Energi Terbarukan Hybrid untuk Desa Mandiri Energi</field>
+            <field name="subtitle">Pengembangan Microgrid Solar-Wind-Hydro dengan Smart Energy Management</field>
+            <field name="blog_id" ref="blog_penelitian_dasar"/>
+            <field name="principal_investigator">Prof. Dr. Ir. Suryanto Wijaya, M.Eng.</field>
+            <field name="co_investigators">Dr. Wulan Sari, S.T., M.T.
+Ir. Ahmad Fauzi, M.T.
+Dr. Maya Indrawati, S.Si., M.T.</field>
+            <field name="start_date">2023-03-01</field>
+            <field name="end_date">2026-02-28</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">45</field>
+            <field name="funding_source">Badan Riset dan Inovasi Nasional (BRIN)</field>
+            <field name="funding_scheme">Riset Unggulan Nasional</field>
+            <field name="total_budget">1500000000</field>
+            <field name="research_area">Renewable Energy, Microgrid, Energy Management, Sustainable Development</field>
+            <field name="keywords">Renewable Energy, Solar Power, Wind Energy, Hydro Power, Microgrid, Energy Storage, Smart Grid</field>
+            <field name="teaser">Penelitian untuk mengembangkan sistem energi terbarukan hybrid yang mengintegrasikan solar, wind, dan micro-hydro dengan sistem manajemen energi cerdas untuk menciptakan desa mandiri energi di Indonesia.</field>
+            <field name="description">&lt;p&gt;Proyek ini bertujuan mengembangkan sistem energi terbarukan hybrid yang dapat memenuhi kebutuhan listrik desa secara mandiri dan berkelanjutan. Sistem ini mengintegrasikan panel surya, turbin angin skala kecil, dan micro-hydro generator dengan sistem penyimpanan energi dan smart energy management system.&lt;/p&gt;</field>
+            <field name="partner_institutions">Kementerian Energi dan Sumber Daya Mineral
+PLN (Persero)
+Institut Teknologi Bandung
+Universitas Gadjah Mada</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;Pilot project berhasil di Desa Wukirsari, Yogyakarta&lt;/li&gt;
+&lt;li&gt;Penghargaan Green Technology Innovation 2024&lt;/li&gt;
+&lt;li&gt;Featured di UN Sustainable Development Goals Report&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Proyek ini telah memberikan akses listrik 24/7 kepada 350 keluarga di desa terpencil, meningkatkan kualitas hidup dan membuka peluang ekonomi baru seperti industri rumah tangga dan e-commerce berbasis digital.&lt;/p&gt;</field>
+            <field name="is_featured" eval="False"/>
+            <field name="website_published" eval="True"/>
+            <field name="date">2023-03-01</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Blog Categories -->
+        <record id="blog_penelitian_dasar" model="proyek.penelitian.blog">
+            <field name="name">Penelitian Dasar</field>
+            <field name="description">Proyek penelitian dasar untuk pengembangan ilmu pengetahuan fundamental</field>
+            <field name="research_type">basic</field>
+            <field name="funding_category">national</field>
+            <field name="institution">Universitas Teknologi Indonesia</field>
+            <field name="faculty">Fakultas Teknik</field>
+            <field name="funding_agency">Kemendikbud Ristek</field>
+            <field name="website_published" eval="True"/>
+            <field name="active" eval="True"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="blog_penelitian_terapan" model="proyek.penelitian.blog">
+            <field name="name">Penelitian Terapan</field>
+            <field name="description">Proyek penelitian terapan untuk solusi masalah industri dan masyarakat</field>
+            <field name="research_type">applied</field>
+            <field name="funding_category">industry</field>
+            <field name="institution">Universitas Teknologi Indonesia</field>
+            <field name="faculty">Fakultas Teknik</field>
+            <field name="funding_agency">Kerjasama Industri</field>
+            <field name="website_published" eval="True"/>
+            <field name="active" eval="True"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="blog_hibah_internasional" model="proyek.penelitian.blog">
+            <field name="name">Hibah Internasional</field>
+            <field name="description">Proyek penelitian yang didanai oleh lembaga internasional</field>
+            <field name="research_type">international</field>
+            <field name="funding_category">international</field>
+            <field name="institution">Universitas Teknologi Indonesia</field>
+            <field name="faculty">Fakultas Teknik</field>
+            <field name="funding_agency">International Research Grant</field>
+            <field name="website_published" eval="True"/>
+            <field name="active" eval="True"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <!-- Website Menu -->
+        <record id="menu_proyek_penelitian_main" model="website.menu">
+            <field name="name">Proyek Penelitian</field>
+            <field name="url">/proyek-penelitian</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">40</field>
+        </record>
+        
+        <!-- Sample Research Projects -->
+        <record id="proyek_ai_healthcare" model="proyek.penelitian.post">
+            <field name="name">Pengembangan Sistem AI untuk Diagnosis Dini Kanker Paru-Paru</field>
+            <field name="subtitle">AI-Powered Early Lung Cancer Detection System</field>
+            <field name="blog_id" ref="blog_penelitian_dasar"/>
+            <field name="project_code">PD-2023-001-BRIN</field>
+            <field name="principal_investigator">Prof. Dr. dr. Hartanto Wijaya, Sp.Rad(K)., M.Kes.</field>
+            <field name="co_investigators">Dr. Siti Aminah, S.Kom., M.Kom. - AI/ML Specialist
+dr. Bambang Suryanto, Sp.P(K) - Pulmonologist
+Dr. Ir. Ratna Sari, M.T. - Medical Imaging Expert
+Agus Setiawan, S.Kom., M.Kom. - Software Engineer</field>
+            <field name="start_date">2023-01-15</field>
+            <field name="end_date">2025-12-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">65</field>
+            <field name="funding_source">Badan Riset dan Inovasi Nasional (BRIN)</field>
+            <field name="funding_scheme">Riset Kolaborasi Indonesia 2023</field>
+            <field name="total_budget">2500000000</field>
+            <field name="budget_year">2023-2025</field>
+            <field name="research_area">Medical AI, Computer Vision, Deep Learning, Radiology</field>
+            <field name="keywords">artificial intelligence, lung cancer, early detection, deep learning, medical imaging, CNN, computer-aided diagnosis</field>
+            <field name="research_objectives">&lt;h5&gt;Tujuan Penelitian:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan model deep learning untuk deteksi nodul paru pada CT scan dengan akurasi minimal 95%&lt;/li&gt;
+&lt;li&gt;Membuat sistem Computer-Aided Detection (CAD) yang dapat membantu radiolog dalam diagnosis&lt;/li&gt;
+&lt;li&gt;Validasi sistem menggunakan dataset lokal Indonesia dengan 10,000+ CT scan images&lt;/li&gt;
+&lt;li&gt;Implementasi prototype sistem di 3 rumah sakit rujukan nasional&lt;/li&gt;
+&lt;li&gt;Publikasi hasil penelitian di jurnal internasional bereputasi Q1&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Metodologi Penelitian:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Data Collection:&lt;/strong&gt; Pengumpulan 10,000 CT scan images dari 5 rumah sakit dengan berbagai jenis kasus (normal, nodul jinak, kanker)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Preprocessing:&lt;/strong&gt; Image enhancement, normalization, dan augmentation untuk meningkatkan kualitas training data&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model Development:&lt;/strong&gt; Menggunakan arsitektur 3D CNN dengan ResNet dan DenseNet backbone, transfer learning dari pretrained models&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Training &amp; Validation:&lt;/strong&gt; 5-fold cross validation dengan split 70:15:15 untuk training, validation, dan testing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clinical Validation:&lt;/strong&gt; Testing di rumah sakit dengan evaluasi dari 10 radiolog senior&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="expected_outcomes">&lt;ul&gt;
+&lt;li&gt;Prototype sistem CAD untuk deteksi kanker paru-paru dengan sensitivity &gt;95% dan specificity &gt;90%&lt;/li&gt;
+&lt;li&gt;Publikasi 3 paper di jurnal internasional Q1 atau Q2&lt;/li&gt;
+&lt;li&gt;1 paten terdaftar untuk sistem dan algoritma yang dikembangkan&lt;/li&gt;
+&lt;li&gt;Software aplikasi yang siap digunakan di rumah sakit&lt;/li&gt;
+&lt;li&gt;Lulusan 2 mahasiswa S3 dan 5 mahasiswa S2&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">RS Cipto Mangunkusumo Jakarta
+RS Dr. Soetomo Surabaya
+RS Dr. Sardjito Yogyakarta
+Fakultas Kedokteran Universitas Indonesia
+Fakultas Teknik Institut Teknologi Bandung</field>
+            <field name="international_collaboration">True</field>
+            <field name="international_partners">Stanford University Medical Center, USA
+National Cancer Center, Singapore</field>
+            <field name="phd_students">Andi Kurniawan - Research Focus: 3D CNN Architecture for Lung Nodule Detection
+Siti Rahmawati - Research Focus: Explainable AI for Medical Diagnosis</field>
+            <field name="master_students">Budi Santoso - Thesis: Transfer Learning for Medical Image Classification
+Fitri Handayani - Thesis: Data Augmentation Techniques for Small Medical Datasets
+Rizky Pratama - Thesis: Real-time Inference Optimization for Medical AI
+Maya Kusuma - Thesis: Multi-task Learning for Lung Disease Classification
+Dian Purnama - Thesis: Federated Learning for Privacy-Preserving Medical AI</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"Deep Learning for Lung Cancer Detection using 3D CT Scans: Indonesian Dataset Analysis" - Submitted to IEEE Transactions on Medical Imaging, 2024&lt;/li&gt;
+&lt;li&gt;"Transfer Learning Approaches for Limited Medical Imaging Data" - Accepted at International Conference on Medical Image Computing (MICCAI), 2024&lt;/li&gt;
+&lt;li&gt;"Clinical Validation of AI-based Lung Nodule Detection System in Indonesian Hospitals" - In preparation for The Lancet Digital Health, 2024&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="patents_ip">Pending Patent: "Sistem Deteksi Kanker Paru Berbasis Deep Learning dengan Explainable AI" - Submission Number: P00202400123</field>
+            <field name="prototypes">&lt;p&gt;Prototype CAD System sudah dikembangkan dengan fitur:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DICOM image viewer terintegrasi&lt;/li&gt;
+&lt;li&gt;Automated lung segmentation dan nodule detection&lt;/li&gt;
+&lt;li&gt;Risk scoring dan classification (benign vs malignant)&lt;/li&gt;
+&lt;li&gt;Heatmap visualization untuk explainability&lt;/li&gt;
+&lt;li&gt;Integration dengan PACS system&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;Best Paper Award pada Indonesian Conference on AI for Healthcare 2024&lt;/li&gt;
+&lt;li&gt;Sistem mencapai sensitivity 96.2% dan specificity 91.8% pada validation set&lt;/li&gt;
+&lt;li&gt;Pilot testing di RS Cipto Mangunkusumo dengan 500+ kasus&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Proyek ini diharapkan dapat meningkatkan deteksi dini kanker paru-paru di Indonesia, dimana angka survival rate masih rendah karena terlambat terdiagnosis. Dengan sistem CAD ini, radiolog dapat lebih cepat dan akurat dalam mendeteksi nodul paru yang mencurigakan, sehingga pasien dapat mendapat penanganan lebih cepat.&lt;/p&gt;</field>
+            <field name="milestones">&lt;table border="1"&gt;
+&lt;tr&gt;&lt;th&gt;Milestone&lt;/th&gt;&lt;th&gt;Target&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Data Collection (10K images)&lt;/td&gt;&lt;td&gt;June 2023&lt;/td&gt;&lt;td&gt;✓ Completed&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Model Development v1&lt;/td&gt;&lt;td&gt;Dec 2023&lt;/td&gt;&lt;td&gt;✓ Completed&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Clinical Validation Phase 1&lt;/td&gt;&lt;td&gt;June 2024&lt;/td&gt;&lt;td&gt;✓ Completed&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Model Optimization v2&lt;/td&gt;&lt;td&gt;Dec 2024&lt;/td&gt;&lt;td&gt;⋯ In Progress&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Clinical Validation Phase 2&lt;/td&gt;&lt;td&gt;June 2025&lt;/td&gt;&lt;td&gt;○ Planned&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Final Report &amp; Publication&lt;/td&gt;&lt;td&gt;Dec 2025&lt;/td&gt;&lt;td&gt;○ Planned&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</field>
+            <field name="contact_email">hartanto.wijaya@university.ac.id</field>
+            <field name="teaser">Penelitian pengembangan sistem AI berbasis deep learning untuk deteksi dini kanker paru-paru dari CT scan images, dengan akurasi tinggi dan dapat membantu radiolog dalam diagnosis.</field>
+            <field name="slug">ai-diagnosis-kanker-paru-paru</field>
+            <field name="meta_title">Pengembangan Sistem AI untuk Diagnosis Dini Kanker Paru-Paru | Proyek Penelitian</field>
+            <field name="meta_description">Proyek penelitian kolaborasi dengan BRIN mengembangkan sistem AI berbasis deep learning untuk deteksi dini kanker paru-paru dengan akurasi 95%+. Implementasi di 3 rumah sakit rujukan nasional.</field>
+            <field name="meta_keywords">AI healthcare, kanker paru-paru, deep learning, medical imaging, computer-aided diagnosis, CNN, lung cancer detection, medical AI Indonesia</field>
+            <field name="is_published">True</field>
+            <field name="is_featured">True</field>
+            <field name="date">2023-01-15</field>
+        </record>
+        
+        <record id="proyek_iot_agriculture" model="proyek.penelitian.post">
+            <field name="name">Sistem IoT untuk Precision Agriculture di Lahan Kering</field>
+            <field name="subtitle">Smart Irrigation and Soil Monitoring for Dryland Farming</field>
+            <field name="blog_id" ref="blog_penelitian_terapan"/>
+            <field name="project_code">PT-2022-042-KEMTAN</field>
+            <field name="principal_investigator">Dr. Ir. Suryadi Wirawan, M.Agr.</field>
+            <field name="co_investigators">Dr. Ratna Dewi, S.P., M.Si. - Soil Science Expert
+Ir. Bambang Prasetyo, M.T. - IoT Engineer
+Drs. Heru Santoso, M.Si. - Agronomist
+Fitri Rahayu, S.Kom., M.T. - Data Scientist</field>
+            <field name="start_date">2022-03-01</field>
+            <field name="end_date">2024-12-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">80</field>
+            <field name="funding_source">Kementerian Pertanian RI</field>
+            <field name="funding_scheme">Penelitian Terapan Pertanian Berkelanjutan</field>
+            <field name="total_budget">1200000000</field>
+            <field name="budget_year">2022-2024</field>
+            <field name="research_area">Precision Agriculture, IoT, Smart Farming, Agricultural Technology</field>
+            <field name="keywords">IoT, precision agriculture, soil moisture, smart irrigation, dryland farming, sensor networks, sustainable agriculture</field>
+            <field name="research_objectives">&lt;h5&gt;Tujuan:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan sistem monitoring real-time untuk parameter tanah (moisture, pH, NPK, temperature)&lt;/li&gt;
+&lt;li&gt;Membuat sistem irigasi otomatis berbasis IoT yang water-efficient&lt;/li&gt;
+&lt;li&gt;Validasi sistem di 10 lahan petani dengan total area 50 hektar&lt;/li&gt;
+&lt;li&gt;Meningkatkan produktivitas lahan kering minimal 30% dengan efisiensi air 40%&lt;/li&gt;
+&lt;li&gt;Transfer teknologi kepada 100 petani di NTT dan NTB&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Metode Penelitian:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Sensor Network Design:&lt;/strong&gt; Deployment soil moisture sensors, weather stations, dan actuators untuk automated irrigation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IoT Platform:&lt;/strong&gt; Development platform berbasis LoRaWAN untuk long-range communication&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Analytics:&lt;/strong&gt; Machine learning untuk prediction model optimal irrigation timing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Field Testing:&lt;/strong&gt; Implementasi di lahan jagung, kacang, dan hortikultura&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Farmer Training:&lt;/strong&gt; Program pelatihan dan pendampingan petani&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="expected_outcomes">&lt;ul&gt;
+&lt;li&gt;Sistem IoT agriculture terintegrasi yang siap diproduksi massal&lt;/li&gt;
+&lt;li&gt;Peningkatan yield 30-40% dengan penghematan air 40-50%&lt;/li&gt;
+&lt;li&gt;100 petani terlatih menggunakan teknologi IoT&lt;/li&gt;
+&lt;li&gt;2-3 publikasi ilmiah nasional dan internasional&lt;/li&gt;
+&lt;li&gt;Rekomendasi kebijakan untuk adopsi IoT di pertanian&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">Dinas Pertanian Provinsi NTT
+Dinas Pertanian Provinsi NTB
+Fakultas Pertanian Universitas Nusa Cendana
+PT. Pupuk Indonesia (Persero)
+Gabungan Kelompok Tani (Gapoktan) Maju Sejahtera</field>
+            <field name="industry_partners">PT. Telkom Indonesia - LoRaWAN Infrastructure
+PT. Smart Agriculture Tech - Hardware Manufacturing</field>
+            <field name="master_students">Andi Saputra - Thesis: Optimization of Sensor Placement in Agricultural Fields
+Maya Lestari - Thesis: Machine Learning for Irrigation Scheduling
+Rizki Fauzi - Thesis: Energy Harvesting for Agricultural IoT Sensors</field>
+            <field name="undergrad_students">Budi Hartono (TA: Mobile App Development)
+Siti Aminah (TA: Dashboard Visualization)
+Riko Pratama (TA: Sensor Calibration)</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"IoT-based Precision Agriculture System for Dryland Farming" - Journal of Agricultural Engineering, 2023&lt;/li&gt;
+&lt;li&gt;"Machine Learning for Smart Irrigation Scheduling" - International Conference on Smart Agriculture, 2024&lt;/li&gt;
+&lt;li&gt;"Impact of IoT Technology Adoption on Smallholder Farmers Productivity" - Agricultural Innovation Journal, In Press&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;Sistem berhasil meningkatkan produktivitas jagung dari 4.5 ton/ha menjadi 6.2 ton/ha&lt;/li&gt;
+&lt;li&gt;Penghematan penggunaan air irigasi mencapai 45%&lt;/li&gt;
+&lt;li&gt;Best Innovation Award pada Agro Innovation Fair 2024&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Proyek ini memberikan dampak signifikan bagi petani lahan kering di NTT dan NTB. Dengan teknologi IoT, petani dapat memantau kondisi lahan secara real-time dan melakukan irigasi yang tepat waktu dan tepat jumlah. Hal ini tidak hanya meningkatkan hasil panen tetapi juga menghemat penggunaan air yang sangat terbatas di wilayah tersebut. Proyek ini juga membuka peluang ekonomi baru dengan meningkatkan pendapatan petani hingga 50%.&lt;/p&gt;</field>
+            <field name="current_activities">&lt;ul&gt;
+&lt;li&gt;Instalasi sistem di 5 lokasi baru di NTB&lt;/li&gt;
+&lt;li&gt;Training program untuk 50 petani angkatan ketiga&lt;/li&gt;
+&lt;li&gt;Development mobile app versi 2.0 dengan fitur marketplace&lt;/li&gt;
+&lt;li&gt;Preparasi untuk commercialization dan mass production&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_email">suryadi.wirawan@university.ac.id</field>
+            <field name="teaser">Penelitian pengembangan sistem IoT untuk precision agriculture di lahan kering, meningkatkan produktivitas dan efisiensi penggunaan air.</field>
+            <field name="slug">iot-precision-agriculture-lahan-kering</field>
+            <field name="meta_title">Sistem IoT untuk Precision Agriculture di Lahan Kering | Penelitian Terapan</field>
+            <field name="meta_description">Proyek penelitian terapan mengembangkan sistem IoT untuk monitoring dan irigasi otomatis di lahan kering NTT dan NTB. Meningkatkan produktivitas 30% dan efisiensi air 40%.</field>
+            <field name="meta_keywords">IoT agriculture, precision farming, smart irrigation, lahan kering, sensor tanah, smart farming Indonesia, agricultural technology</field>
+            <field name="is_published">True</field>
+            <field name="date">2022-03-01</field>
+        </record>
+        
+        <record id="proyek_renewable_energy" model="proyek.penelitian.post">
+            <field name="name">Pengembangan Microgrid Energi Terbarukan untuk Pulau-Pulau Terluar</field>
+            <field name="subtitle">Hybrid Renewable Energy Microgrid for Remote Islands</field>
+            <field name="blog_id" ref="blog_penelitian_terapan"/>
+            <field name="project_code">PT-2023-018-ESDM</field>
+            <field name="principal_investigator">Prof. Dr. Ir. Bambang Riyanto, M.Sc.</field>
+            <field name="co_investigators">Dr. Eng. Hendra Gunawan, S.T., M.Eng. - Power Systems Expert
+Dr. Ratna Kusuma, S.T., M.T. - Renewable Energy Specialist
+Ir. Agus Prasetyo, M.T. - Control Systems Engineer
+Siti Rahayu, S.T., M.T. - Energy Storage Expert</field>
+            <field name="start_date">2023-02-01</field>
+            <field name="end_date">2026-01-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">45</field>
+            <field name="funding_source">Kementerian ESDM</field>
+            <field name="funding_scheme">Program Energi Terbarukan untuk Wilayah Terpencil</field>
+            <field name="total_budget">5000000000</field>
+            <field name="budget_year">2023-2026</field>
+            <field name="research_area">Renewable Energy, Microgrid, Power Systems, Energy Storage</field>
+            <field name="keywords">microgrid, renewable energy, hybrid system, solar power, wind energy, battery storage, remote islands, sustainable energy</field>
+            <field name="research_objectives">&lt;h5&gt;Tujuan Penelitian:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Merancang dan mengimplementasikan microgrid hybrid (solar-wind-diesel) untuk 5 pulau terluar Indonesia&lt;/li&gt;
+&lt;li&gt;Mengembangkan energy management system (EMS) cerdas untuk optimasi penggunaan renewable energy&lt;/li&gt;
+&lt;li&gt;Mencapai penetrasi renewable energy minimal 70% dengan reliability 99.5%&lt;/li&gt;
+&lt;li&gt;Mengurangi konsumsi diesel hingga 80% dan emisi CO2 hingga 1000 ton/tahun per lokasi&lt;/li&gt;
+&lt;li&gt;Pelatihan teknisi lokal untuk operasional dan maintenance sistem&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Metodologi:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Site Assessment:&lt;/strong&gt; Survey potensi solar dan wind resource di 10 pulau kandidat&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;System Design:&lt;/strong&gt; Optimal sizing solar PV, wind turbine, battery storage, dan backup diesel generator&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;EMS Development:&lt;/strong&gt; AI-based energy management dengan weather forecasting&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Implementation:&lt;/strong&gt; Installation dan commissioning di 5 lokasi pilot&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Monitoring &amp; Evaluation:&lt;/strong&gt; Performance monitoring 24/7 dengan remote SCADA system&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="expected_outcomes">&lt;ul&gt;
+&lt;li&gt;5 microgrid hybrid terbangun dan beroperasi dengan total kapasitas 2.5 MW&lt;/li&gt;
+&lt;li&gt;Energy Management System yang scalable dan replicable&lt;/li&gt;
+&lt;li&gt;50 teknisi lokal terlatih untuk operasional sistem&lt;/li&gt;
+&lt;li&gt;Model bisnis untuk sustainability microgrid di pulau terpencil&lt;/li&gt;
+&lt;li&gt;Policy brief untuk pemerintah tentang pengembangan renewable energy di pulau terluar&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">PT. PLN (Persero)
+Kementerian Kelautan dan Perikanan
+Pemerintah Kabupaten Kepulauan Natuna
+Pemerintah Kabupaten Kepulauan Talaud
+Fakultas Teknik Elektro ITB</field>
+            <field name="international_collaboration">True</field>
+            <field name="international_partners">IRENA - International Renewable Energy Agency
+University of Technology Sydney - Microgrid Research Centre</field>
+            <field name="phd_students">Muhammad Rizki - Research: Advanced Control Strategies for Hybrid Microgrids
+Dewi Purnama - Research: Battery Degradation Modeling in Tropical Climate</field>
+            <field name="master_students">Andi Kurniawan - Thesis: Machine Learning for Solar Power Forecasting
+Sari Lestari - Thesis: Optimal Energy Storage Sizing
+Budi Hartono - Thesis: Diesel Generator Scheduling Optimization</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"Optimal Design of Hybrid Renewable Microgrid for Remote Islands" - IEEE Transactions on Sustainable Energy, Under Review&lt;/li&gt;
+&lt;li&gt;"AI-based Energy Management System for Microgrid Applications" - Applied Energy Journal, 2024&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="prototypes">&lt;p&gt;Prototype microgrid sudah terbangun di Pulau Natuna dengan konfigurasi:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Solar PV: 300 kWp&lt;/li&gt;
+&lt;li&gt;Wind Turbine: 2 x 50 kW&lt;/li&gt;
+&lt;li&gt;Battery Storage: 500 kWh Lithium-ion&lt;/li&gt;
+&lt;li&gt;Backup Diesel: 200 kVA&lt;/li&gt;
+&lt;li&gt;Smart EMS dengan SCADA monitoring&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;Microgrid Pulau Natuna mencapai 75% renewable energy penetration&lt;/li&gt;
+&lt;li&gt;Pengurangan konsumsi diesel sebesar 85% (dari 120,000 liter/tahun menjadi 18,000 liter/tahun)&lt;/li&gt;
+&lt;li&gt;System reliability 99.7% dalam 12 bulan operasi&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Proyek ini memberikan akses listrik yang andal dan berkelanjutan untuk masyarakat di pulau-pulau terluar Indonesia. Sebelumnya, listrik hanya tersedia 6-8 jam per hari dari diesel generator dengan biaya tinggi. Dengan microgrid renewable, masyarakat kini memiliki akses listrik 24 jam dengan biaya lebih murah. Ini membuka peluang untuk pengembangan ekonomi lokal seperti cold storage untuk ikan, home industry, dan konektivitas internet.&lt;/p&gt;</field>
+            <field name="economic_impact">&lt;p&gt;Penghematan biaya operasional mencapai Rp 800 juta/tahun per lokasi dari pengurangan konsumsi diesel. ROI diperkirakan 8-10 tahun. Selain itu, proyek ini menciptakan lapangan kerja untuk teknisi lokal dan peluang bisnis baru bagi masyarakat.&lt;/p&gt;</field>
+            <field name="milestones">&lt;ul&gt;
+&lt;li&gt;Q1 2023: Site survey completed ✓&lt;/li&gt;
+&lt;li&gt;Q3 2023: Detailed engineering design completed ✓&lt;/li&gt;
+&lt;li&gt;Q1 2024: First microgrid (Natuna) commissioned ✓&lt;/li&gt;
+&lt;li&gt;Q3 2024: Second and third microgrids under construction (in progress)&lt;/li&gt;
+&lt;li&gt;Q1 2025: All 5 microgrids operational (planned)&lt;/li&gt;
+&lt;li&gt;Q4 2025: Final evaluation and reporting (planned)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_email">bambang.riyanto@university.ac.id</field>
+            <field name="project_website">https://microgrid-project.university.ac.id</field>
+            <field name="teaser">Proyek pengembangan microgrid energi terbarukan hybrid untuk pulau-pulau terluar Indonesia, memberikan akses listrik berkelanjutan dan mengurangi ketergantungan pada diesel.</field>
+            <field name="slug">microgrid-energi-terbarukan-pulau-terluar</field>
+            <field name="meta_title">Pengembangan Microgrid Energi Terbarukan untuk Pulau-Pulau Terluar | Proyek ESDM</field>
+            <field name="meta_description">Proyek penelitian terapan senilai Rp 5 miliar untuk membangun microgrid hybrid solar-wind-diesel di 5 pulau terluar Indonesia. Penetrasi renewable energy 70%+ dengan reliability 99.5%.</field>
+            <field name="meta_keywords">microgrid, renewable energy, solar power, wind energy, pulau terluar, energi terbarukan, off-grid power, sustainable energy Indonesia</field>
+            <field name="is_published">True</field>
+            <field name="is_featured">True</field>
+            <field name="date">2023-02-01</field>
+        </record>
+        
+        <record id="proyek_smart_city" model="proyek.penelitian.post">
+            <field name="name">Implementasi Smart City Platform untuk Kota Menengah</field>
+            <field name="subtitle">Integrated Smart City Solutions for Medium-Sized Cities</field>
+            <field name="blog_id" ref="blog_hibah_internasional"/>
+            <field name="project_code">PI-2023-007-WB</field>
+            <field name="principal_investigator">Dr. Hendra Gunawan, S.T., M.T.</field>
+            <field name="co_investigators">Dr. Maya Puspita, S.T., M.Eng. - Urban Planning Expert
+Rudi Hermawan, S.Kom., M.Kom. - IoT &amp; Cloud Architect
+Dr. Ir. Ratna Dewi, M.T. - Transportation Engineer
+Agus Wijaya, S.Kom., M.M. - Smart City Consultant</field>
+            <field name="start_date">2023-06-01</field>
+            <field name="end_date">2026-05-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">35</field>
+            <field name="funding_source">World Bank</field>
+            <field name="funding_scheme">Smart Cities Development Program - Asia Pacific</field>
+            <field name="total_budget">3500000000</field>
+            <field name="budget_year">2023-2026</field>
+            <field name="research_area">Smart City, IoT, Urban Planning, ICT Infrastructure</field>
+            <field name="keywords">smart city, IoT, urban development, intelligent transportation, smart governance, digital city, sustainable urbanization</field>
+            <field name="research_objectives">&lt;h5&gt;Tujuan:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan integrated smart city platform untuk 3 kota menengah di Indonesia&lt;/li&gt;
+&lt;li&gt;Implementasi smart traffic management, smart waste management, dan smart lighting&lt;/li&gt;
+&lt;li&gt;Membangun command center untuk monitoring dan kontrol layanan kota secara real-time&lt;/li&gt;
+&lt;li&gt;Meningkatkan efisiensi layanan publik dan kualitas hidup warga minimal 30%&lt;/li&gt;
+&lt;li&gt;Membuat framework dan guideline untuk replikasi di kota-kota lain&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Metodologi Implementasi:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Assessment:&lt;/strong&gt; Baseline study kondisi existing dan kebutuhan stakeholders&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Platform Development:&lt;/strong&gt; Cloud-based IoT platform dengan microservices architecture&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pilot Implementation:&lt;/strong&gt; Deploy smart solutions di area terbatas untuk proof of concept&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scale-up:&lt;/strong&gt; Expansion ke seluruh area kota setelah evaluasi pilot&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Capacity Building:&lt;/strong&gt; Training aparatur pemerintah dan masyarakat&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="expected_outcomes">&lt;ul&gt;
+&lt;li&gt;Smart city platform beroperasi di 3 kota pilot (Pekanbaru, Malang, Balikpapan)&lt;/li&gt;
+&lt;li&gt;Pengurangan kemacetan 25%, pengurangan sampah tidak terkelola 40%&lt;/li&gt;
+&lt;li&gt;Penghematan energi street lighting 50%&lt;/li&gt;
+&lt;li&gt;Command center terintegrasi dengan 20+ sensors dan systems&lt;/li&gt;
+&lt;li&gt;Smart City Readiness Index meningkat dari level 2 ke level 4&lt;/li&gt;
+&lt;li&gt;Framework dan best practices untuk 100+ kota lain di Indonesia&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">Pemerintah Kota Pekanbaru
+Pemerintah Kota Malang
+Pemerintah Kota Balikpapan
+Kementerian Kominfo
+Kementerian Dalam Negeri
+Institut Teknologi Bandung</field>
+            <field name="industry_partners">PT. Telkom Indonesia - Communication Infrastructure
+PT. Schneider Electric Indonesia - Smart Grid Solutions
+IBM Indonesia - AI and Analytics Platform</field>
+            <field name="international_collaboration">True</field>
+            <field name="international_partners">World Bank - Asia Pacific Smart Cities Program
+Singapore Smart Nation Office - Technical Advisory
+Barcelona Smart City - Knowledge Exchange</field>
+            <field name="master_students">Andi Saputra - Thesis: IoT Architecture for Smart Cities
+Fitri Rahmawati - Thesis: Citizen Engagement in Smart City Services
+Budi Hartono - Thesis: Data Analytics for Urban Planning</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"Smart City Platform Architecture for Medium-Sized Cities in Developing Countries" - Journal of Urban Technology, In Preparation&lt;/li&gt;
+&lt;li&gt;"Citizen Engagement Strategies in Smart City Implementation" - Submitted to Cities Journal, 2024&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="current_activities">&lt;ul&gt;
+&lt;li&gt;Installation 500 smart street lights di Kota Malang&lt;/li&gt;
+&lt;li&gt;Development command center dashboard untuk 3 kota&lt;/li&gt;
+&lt;li&gt;Pilot testing smart parking system di 10 lokasi&lt;/li&gt;
+&lt;li&gt;Training program untuk 100 aparatur pemerintah kota&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="achievements">&lt;ul&gt;
+&lt;li&gt;Pilot smart traffic system di Kota Pekanbaru reduce travel time 20%&lt;/li&gt;
+&lt;li&gt;Smart waste management system meningkatkan collection efficiency 35%&lt;/li&gt;
+&lt;li&gt;Citizen satisfaction index meningkat dari 65% menjadi 78%&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Proyek smart city ini meningkatkan kualitas layanan publik dan kualitas hidup warga. Dengan smart traffic management, warga menghemat waktu perjalanan hingga 30 menit per hari. Smart lighting meningkatkan keamanan jalan di malam hari. Platform digital memudahkan warga mengakses layanan pemerintah. Proyek ini juga menciptakan ekosistem startup dan teknologi lokal.&lt;/p&gt;</field>
+            <field name="economic_impact">&lt;p&gt;Efisiensi operasional pemerintah kota meningkat dengan penghematan biaya hingga Rp 5 miliar/tahun per kota dari energi, operasional, dan pemeliharaan. Smart city juga menarik investasi teknologi dan menciptakan 500+ lapangan kerja baru di sektor digital.&lt;/p&gt;</field>
+            <field name="contact_email">hendra.gunawan@university.ac.id</field>
+            <field name="project_website">https://smartcity-indonesia.ac.id</field>
+            <field name="teaser">Proyek implementasi smart city platform terintegrasi untuk kota menengah, meningkatkan efisiensi layanan publik dan kualitas hidup warga melalui teknologi IoT dan data analytics.</field>
+            <field name="slug">smart-city-platform-kota-menengah</field>
+            <field name="meta_title">Implementasi Smart City Platform untuk Kota Menengah | World Bank Project</field>
+            <field name="meta_description">Proyek smart city senilai Rp 3.5 miliar didanai World Bank untuk implementasi IoT platform di Pekanbaru, Malang, dan Balikpapan. Smart traffic, waste management, dan lighting system terintegrasi.</field>
+            <field name="meta_keywords">smart city, IoT platform, urban development, intelligent transportation, smart governance, digital city, sustainable urbanization, Indonesia smart city</field>
+            <field name="is_published">True</field>
+            <field name="date">2023-06-01</field>
+        </record>
+
+    </data>
+</odoo>

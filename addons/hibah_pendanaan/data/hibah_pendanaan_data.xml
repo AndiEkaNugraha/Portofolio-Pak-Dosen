@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Blog Categories -->
+        <record id="blog_hibah_nasional" model="hibah.pendanaan.blog">
+            <field name="name">Hibah Nasional</field>
+            <field name="subtitle">Hibah penelitian dari lembaga pemerintah Indonesia</field>
+            <field name="description">Kategori untuk hibah penelitian yang diperoleh dari lembaga pemerintah tingkat nasional seperti Kemendikbud, BRIN, Kemenristek, dan lembaga pemerintah lainnya.</field>
+            <field name="funding_type">research_grant</field>
+            <field name="funding_level">national</field>
+            <field name="agency_type">government</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="blog_hibah_internasional" model="hibah.pendanaan.blog">
+            <field name="name">Hibah Internasional</field>
+            <field name="subtitle">Hibah penelitian dari lembaga internasional</field>
+            <field name="description">Kategori untuk hibah penelitian yang diperoleh dari lembaga internasional seperti EU Horizon, NSF, World Bank, dan organisasi internasional lainnya.</field>
+            <field name="funding_type">international_grant</field>
+            <field name="funding_level">international</field>
+            <field name="agency_type">international</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="blog_pendanaan_industri" model="hibah.pendanaan.blog">
+            <field name="name">Pendanaan Industri</field>
+            <field name="subtitle">Pendanaan penelitian dari sektor industri</field>
+            <field name="description">Kategori untuk pendanaan penelitian yang diperoleh dari perusahaan atau sektor industri untuk penelitian kolaboratif atau kontrak penelitian.</field>
+            <field name="funding_type">industry_funding</field>
+            <field name="funding_level">national</field>
+            <field name="agency_type">private</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="blog_hibah_inovasi" model="hibah.pendanaan.blog">
+            <field name="name">Hibah Inovasi</field>
+            <field name="subtitle">Hibah untuk pengembangan inovasi dan startup</field>
+            <field name="description">Kategori untuk hibah yang fokus pada pengembangan inovasi, komersialisasi teknologi, dan pengembangan startup berbasis teknologi.</field>
+            <field name="funding_type">innovation_grant</field>
+            <field name="funding_level">national</field>
+            <field name="agency_type">government</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="blog_hibah_pengabdian" model="hibah.pendanaan.blog">
+            <field name="name">Hibah Pengabdian Masyarakat</field>
+            <field name="subtitle">Hibah untuk kegiatan pengabdian kepada masyarakat</field>
+            <field name="description">Kategori untuk hibah yang fokus pada kegiatan pengabdian kepada masyarakat, pemberdayaan komunitas, dan aplikasi teknologi untuk masyarakat.</field>
+            <field name="funding_type">community_service</field>
+            <field name="funding_level">national</field>
+            <field name="agency_type">government</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <!-- Sample Grant Data -->
+        <record id="hibah_sample_penelitian_fundamental" model="hibah.pendanaan.post">
+            <field name="name">Hibah Penelitian Fundamental Komputasi Kuantum</field>
+            <field name="subtitle">Quantum Computing Algorithms for Optimization Problems</field>
+            <field name="blog_id" ref="blog_hibah_nasional"/>
+            <field name="grant_number">142/E5/PG.02.00.PT/2023</field>
+            <field name="grant_scheme">Penelitian Dasar Unggulan Perguruan Tinggi (PDUPT)</field>
+            <field name="principal_investigator">Prof. Dr. Ir. Ahmad Faizal, M.Sc.</field>
+            <field name="co_investigators">Dr. Siti Nurjanah, S.Kom., M.Kom.
+Dr. Budi Santoso, S.Si., M.Sc.
+Ratna Sari, S.Kom., M.Kom., Ph.D.</field>
+            <field name="start_date">2023-01-01</field>
+            <field name="end_date">2025-12-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">58</field>
+            <field name="funding_agency">Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi</field>
+            <field name="funding_source">APBN - Direktorat Jenderal Pendidikan Tinggi</field>
+            <field name="total_amount">950000000</field>
+            <field name="disbursed_amount">570000000</field>
+            <field name="funding_year">2023-2025</field>
+            <field name="personnel_cost">380000000</field>
+            <field name="equipment_cost">350000000</field>
+            <field name="material_cost">120000000</field>
+            <field name="travel_cost">80000000</field>
+            <field name="other_cost">20000000</field>
+            <field name="research_area">Quantum Computing, Algorithm Design, Computational Physics</field>
+            <field name="keywords">quantum computing, quantum algorithms, optimization, computational complexity, quantum simulation</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Penelitian:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan algoritma kuantum baru untuk menyelesaikan masalah optimasi kombinatorial&lt;/li&gt;
+&lt;li&gt;Mengimplementasikan algoritma pada quantum simulator dan real quantum hardware&lt;/li&gt;
+&lt;li&gt;Melakukan benchmarking performa algoritma kuantum vs klasik&lt;/li&gt;
+&lt;li&gt;Publikasi minimal 5 paper di jurnal internasional Q1/Q2&lt;/li&gt;
+&lt;li&gt;Melatih 3 doktor dan 6 magister di bidang quantum computing&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Metode Penelitian:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Studi teoretis quantum algorithms (QAOA, VQE, Quantum Annealing)&lt;/li&gt;
+&lt;li&gt;Development dan testing pada IBM Quantum Experience dan AWS Braket&lt;/li&gt;
+&lt;li&gt;Quantum circuit optimization dan error mitigation techniques&lt;/li&gt;
+&lt;li&gt;Comparative analysis dengan classical optimization algorithms&lt;/li&gt;
+&lt;li&gt;Application pada real-world problems (logistics, finance, drug discovery)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="expected_outcomes">&lt;ul&gt;
+&lt;li&gt;3-5 novel quantum algorithms untuk optimization problems&lt;/li&gt;
+&lt;li&gt;Open-source quantum algorithm library&lt;/li&gt;
+&lt;li&gt;5+ publikasi di jurnal Q1/Q2 (Physical Review, Nature Communications, dll)&lt;/li&gt;
+&lt;li&gt;3 lulusan Ph.D. dan 6 lulusan Master&lt;/li&gt;
+&lt;li&gt;Kerjasama dengan IBM Quantum Network&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="international_collaboration">True</field>
+            <field name="international_partners">MIT - Center for Quantum Engineering
+University of Oxford - Quantum Computing Research Group
+IBM Quantum Network</field>
+            <field name="phd_students">Muhammad Rizki - Quantum Algorithms for Logistics Optimization
+Siti Rahmawati - Variational Quantum Eigensolver Applications
+Andi Kurniawan - Quantum Machine Learning</field>
+            <field name="master_students">Budi Hartono - Thesis: QAOA for Graph Coloring
+Maya Lestari - Thesis: Quantum Annealing for Scheduling
+Dian Purnama - Thesis: Error Mitigation in NISQ Devices
+Rizky Fauzi - Thesis: Quantum Circuit Optimization
+Fitri Handayani - Thesis: Hybrid Quantum-Classical Algorithms
+Eko Prasetyo - Thesis: Quantum Simulation of Molecular Systems</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"Novel Quantum Algorithm for Vehicle Routing Problem" - Physical Review A, 2024 (Published)&lt;/li&gt;
+&lt;li&gt;"Variational Quantum Eigensolver for Drug Discovery Applications" - Nature Communications, Under Review&lt;/li&gt;
+&lt;li&gt;"Error Mitigation Techniques in NISQ Era Quantum Computing" - Quantum Science and Technology, 2024 (Published)&lt;/li&gt;
+&lt;li&gt;"Benchmarking Quantum vs Classical Optimization Algorithms" - IEEE Quantum Engineering, In Preparation&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="conference_presentations">- International Conference on Quantum Computing (ICQC) 2023, Singapore
+- Quantum Information Processing (QIP) 2024, Taiwan
+- IEEE International Conference on Quantum Computing and Engineering 2024, USA</field>
+            <field name="milestone_achieved">&lt;table border="1"&gt;
+&lt;tr&gt;&lt;th&gt;Milestone&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Completion&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Literature Review &amp; Theoretical Framework&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;Mar 2023&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Algorithm Development Phase 1&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;Sep 2023&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Implementation on Quantum Simulator&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;Mar 2024&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Testing on Real Quantum Hardware&lt;/td&gt;&lt;td&gt;⋯&lt;/td&gt;&lt;td&gt;In Progress&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Benchmarking &amp; Optimization&lt;/td&gt;&lt;td&gt;○&lt;/td&gt;&lt;td&gt;Planned 2025&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Final Publications &amp; Report&lt;/td&gt;&lt;td&gt;○&lt;/td&gt;&lt;td&gt;Planned 2025&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</field>
+            <field name="current_activities">&lt;ul&gt;
+&lt;li&gt;Running experiments pada IBM Quantum 127-qubit processor&lt;/li&gt;
+&lt;li&gt;Developing error mitigation framework untuk NISQ devices&lt;/li&gt;
+&lt;li&gt;Collaborating dengan industry partner untuk real-world applications&lt;/li&gt;
+&lt;li&gt;Preparing 2 manuscripts untuk submission ke Nature Quantum Information&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="significance">&lt;p&gt;Penelitian ini sangat penting karena quantum computing diprediksi akan merevolusi banyak industri dalam 10-20 tahun ke depan. Indonesia perlu mempersiapkan SDM dan research capability di bidang ini agar tidak tertinggal. Penelitian fundamental ini akan menjadi foundation untuk pengembangan quantum technology di Indonesia.&lt;/p&gt;</field>
+            <field name="contact_email">ahmad.faizal@university.ac.id</field>
+            <field name="teaser">Hibah penelitian fundamental untuk mengembangkan algoritma kuantum baru untuk masalah optimasi, dengan implementasi pada quantum hardware dan publikasi internasional.</field>
+            <field name="slug">hibah-penelitian-quantum-computing</field>
+            <field name="meta_title">Hibah Penelitian Fundamental Komputasi Kuantum | PDUPT Kemendikbud</field>
+            <field name="meta_description">Hibah PDUPT senilai Rp 950 juta untuk riset quantum computing algorithms. Kolaborasi dengan MIT, Oxford, dan IBM Quantum Network. Target 5 publikasi Q1/Q2 dan 3 lulusan PhD.</field>
+            <field name="meta_keywords">quantum computing, quantum algorithms, optimization, PDUPT, hibah penelitian, fundamental research, quantum simulation, NISQ devices</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="date">2023-01-01</field>
+        </record>
+        
+        <record id="hibah_sample_kolaborasi_internasional" model="hibah.pendanaan.post">
+            <field name="name">Hibah Kolaborasi Riset Indonesia-Jepang: Robotika untuk Disaster Response</field>
+            <field name="subtitle">Indonesia-Japan Joint Research: Robotic Systems for Disaster Management</field>
+            <field name="blog_id" ref="blog_hibah_internasional"/>
+            <field name="grant_number">IJR-2023-045</field>
+            <field name="grant_scheme">Indonesia-Japan Joint Research Program</field>
+            <field name="principal_investigator">Dr. Ir. Hendra Gunawan, M.Eng.</field>
+            <field name="co_investigators">Dr. Maya Puspita, S.T., M.T.
+Prof. Takeshi Yamamoto (Tokyo Institute of Technology)
+Dr. Rudi Hermawan, S.T., M.T.
+Dr. Siti Aminah, S.T., M.Eng.</field>
+            <field name="start_date">2023-04-01</field>
+            <field name="end_date">2026-03-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">42</field>
+            <field name="funding_agency">Japan Science and Technology Agency (JST) &amp; Kemenristek BRIN</field>
+            <field name="funding_source">International Joint Research Fund</field>
+            <field name="total_amount">1800000000</field>
+            <field name="disbursed_amount">720000000</field>
+            <field name="funding_year">2023-2026</field>
+            <field name="personnel_cost">600000000</field>
+            <field name="equipment_cost">800000000</field>
+            <field name="travel_cost">250000000</field>
+            <field name="material_cost">100000000</field>
+            <field name="other_cost">50000000</field>
+            <field name="research_area">Robotics, Disaster Management, AI, Autonomous Systems</field>
+            <field name="keywords">disaster robotics, search and rescue, autonomous systems, teleoperation, AI for disaster response, unmanned ground vehicles</field>
+            <field name="objectives">&lt;h5&gt;Research Objectives:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Develop autonomous robotic systems untuk search and rescue operations di area bencana&lt;/li&gt;
+&lt;li&gt;Create AI-powered victim detection system menggunakan computer vision dan thermal imaging&lt;/li&gt;
+&lt;li&gt;Design robust communication system untuk remote operation di challenging environments&lt;/li&gt;
+&lt;li&gt;Conduct field testing di disaster simulation facilities Indonesia dan Jepang&lt;/li&gt;
+&lt;li&gt;Build capacity dan knowledge transfer antara peneliti Indonesia dan Jepang&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Research Methodology:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Robot Platform Development:&lt;/strong&gt; Design all-terrain mobile robot dengan manipulator arm&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI System:&lt;/strong&gt; Deep learning untuk victim detection, path planning, dan obstacle avoidance&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Communication:&lt;/strong&gt; Multi-modal communication (RF, satellite, mesh network)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; Simulation dan field testing di disaster training center&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integration:&lt;/strong&gt; Integration dengan existing disaster management systems (BNPB)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="expected_outcomes">&lt;ul&gt;
+&lt;li&gt;3 prototype disaster response robots (ground, aerial, amphibious)&lt;/li&gt;
+&lt;li&gt;AI system dengan detection accuracy &gt;90% dalam various disaster scenarios&lt;/li&gt;
+&lt;li&gt;10+ joint publications di international journals dan conferences&lt;/li&gt;
+&lt;li&gt;Patent applications untuk novel robotic mechanisms dan algorithms&lt;/li&gt;
+&lt;li&gt;Training program untuk BNPB dan disaster response teams&lt;/li&gt;
+&lt;li&gt;20 researchers exchange visits between Indonesia and Japan&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">Tokyo Institute of Technology, Japan
+Waseda University, Japan
+Badan Nasional Penanggulangan Bencana (BNPB)
+BMKG - Indonesian Meteorology Agency
+Institut Teknologi Bandung</field>
+            <field name="international_collaboration">True</field>
+            <field name="international_partners">Tokyo Institute of Technology - Robotics Lab
+Waseda University - Disaster Robotics Research Center
+NEDO (New Energy and Industrial Technology Development Organization), Japan</field>
+            <field name="phd_students">Andi Kurniawan - Research: AI for Victim Detection in Rubble
+Dewi Purnama - Research: Teleoperation in High-Latency Networks</field>
+            <field name="master_students">Budi Hartono - Thesis: Path Planning for All-Terrain Robots
+Sari Lestari - Thesis: Thermal Imaging for Victim Detection
+Rizky Fauzi - Thesis: Swarm Robotics for Search and Rescue
+Maya Kusuma - Thesis: Human-Robot Interaction in Disaster Scenarios</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"Autonomous Navigation for Disaster Response Robots in GPS-Denied Environments" - IEEE Robotics and Automation Letters, 2024&lt;/li&gt;
+&lt;li&gt;"Deep Learning for Victim Detection Using Multimodal Sensor Fusion" - Journal of Field Robotics, Under Review&lt;/li&gt;
+&lt;li&gt;"Design and Testing of All-Terrain Mobile Robot for Search and Rescue" - IROS 2024 Conference&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="prototypes">&lt;p&gt;Prototype Robots yang telah dikembangkan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ResQ-Ground v2:&lt;/strong&gt; All-terrain tracked robot dengan manipulator arm, thermal camera, dan gas sensors&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ResQ-Air v1:&lt;/strong&gt; Quadcopter drone untuk aerial survey dan victim localization&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ResQ-Water v1:&lt;/strong&gt; Amphibious robot untuk flood rescue operations&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="awards_recognition">&lt;ul&gt;
+&lt;li&gt;Best Paper Award - IEEE International Conference on Robotics and Automation (ICRA) 2024&lt;/li&gt;
+&lt;li&gt;Innovation Award - RoboCup Rescue Robot League 2024&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Indonesia adalah negara dengan tingkat bencana alam yang tinggi (gempa, tsunami, banjir, longsor). Robotic systems ini dapat membantu tim SAR dalam operasi penyelamatan, terutama di area berbahaya yang sulit diakses manusia. Teknologi ini dapat menyelamatkan lebih banyak nyawa dan mempercepat proses evakuasi korban. Selain itu, proyek ini meningkatkan capability disaster response di Indonesia.&lt;/p&gt;</field>
+            <field name="sustainability_plan">&lt;p&gt;Setelah proyek selesai, robots akan diserahkan ke BNPB untuk operasional. Tim peneliti akan terus provide technical support dan training. Kerjasama dengan Japan akan dilanjutkan untuk continuous improvement dan development. Ada juga rencana untuk commercialization dengan kerjasama industry partners.&lt;/p&gt;</field>
+            <field name="current_activities">&lt;ul&gt;
+&lt;li&gt;Field testing ResQ-Ground v2 di disaster training center Sentul&lt;/li&gt;
+&lt;li&gt;Researcher exchange: 3 researchers ke Tokyo Institute of Technology (3 bulan)&lt;/li&gt;
+&lt;li&gt;Joint workshop dengan BNPB dan disaster response teams&lt;/li&gt;
+&lt;li&gt;Development AI model untuk various disaster scenarios&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_email">hendra.gunawan@university.ac.id</field>
+            <field name="project_website">https://disaster-robotics.ac.id</field>
+            <field name="teaser">Kolaborasi riset Indonesia-Jepang untuk mengembangkan sistem robotika otonom untuk search and rescue operations di area bencana.</field>
+            <field name="slug">hibah-kolaborasi-indonesia-jepang-disaster-robotics</field>
+            <field name="meta_title">Hibah Kolaborasi Riset Indonesia-Jepang: Robotika untuk Disaster Response | JST-BRIN</field>
+            <field name="meta_description">Hibah riset kolaborasi senilai Rp 1.8 miliar dengan Tokyo Institute of Technology untuk mengembangkan autonomous robots untuk search and rescue. 3 prototype robots dan 10+ publikasi internasional.</field>
+            <field name="meta_keywords">disaster robotics, search and rescue, autonomous systems, Indonesia-Japan collaboration, JST grant, BRIN, disaster management, rescue robots</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="date">2023-04-01</field>
+        </record>
+        
+        <record id="hibah_sample_industri_ai" model="hibah.pendanaan.post">
+            <field name="name">Pendanaan Riset Kolaborasi Industri: AI untuk Quality Control Manufacturing</field>
+            <field name="subtitle">Industry Partnership: Computer Vision for Automated Quality Inspection</field>
+            <field name="blog_id" ref="blog_pendanaan_industri"/>
+            <field name="grant_number">IND-2023-078</field>
+            <field name="grant_scheme">Industry-University Research Collaboration</field>
+            <field name="principal_investigator">Dr. Ratna Kusuma, S.T., M.T.</field>
+            <field name="co_investigators">Dr. Agus Wijaya, S.Kom., M.Kom.
+Ir. Bambang Sutrisno, M.T.
+Maya Sari, S.Kom., M.Kom.</field>
+            <field name="start_date">2023-07-01</field>
+            <field name="end_date">2025-06-30</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">68</field>
+            <field name="funding_agency">PT. Astra Manufacturing Indonesia</field>
+            <field name="funding_source">Industry Research Fund</field>
+            <field name="total_amount">850000000</field>
+            <field name="disbursed_amount">612000000</field>
+            <field name="funding_year">2023-2025</field>
+            <field name="personnel_cost">320000000</field>
+            <field name="equipment_cost">380000000</field>
+            <field name="material_cost">80000000</field>
+            <field name="travel_cost">50000000</field>
+            <field name="other_cost">20000000</field>
+            <field name="research_area">Computer Vision, Quality Control, Manufacturing, AI</field>
+            <field name="keywords">computer vision, defect detection, quality control, deep learning, automated inspection, Industry 4.0</field>
+            <field name="objectives">&lt;h5&gt;Project Objectives:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Develop AI-powered visual inspection system untuk deteksi defect pada automotive parts&lt;/li&gt;
+&lt;li&gt;Achieve detection accuracy &gt;99% dengan false positive rate &lt;1%&lt;/li&gt;
+&lt;li&gt;Reduce inspection time dari 30 detik menjadi &lt;2 detik per part&lt;/li&gt;
+&lt;li&gt;Implement sistem di 5 production lines dengan 20+ inspection stations&lt;/li&gt;
+&lt;li&gt;Train model untuk 15+ different product types dan 50+ defect categories&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Development Approach:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Data Collection:&lt;/strong&gt; Acquire 100,000+ images dari production line (normal dan defective parts)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Annotation:&lt;/strong&gt; Expert labeling untuk berbagai jenis defect (scratch, dent, crack, discoloration)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model Development:&lt;/strong&gt; Transfer learning dari pretrained models (EfficientNet, ResNet, YOLO)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimization:&lt;/strong&gt; Model quantization dan optimization untuk real-time inference&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integration:&lt;/strong&gt; Integration dengan existing MES (Manufacturing Execution System)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="expected_outcomes">&lt;ul&gt;
+&lt;li&gt;AI inspection system deployed di 5 production lines&lt;/li&gt;
+&lt;li&gt;Detection accuracy 99.5% dengan throughput 1800 parts/hour&lt;/li&gt;
+&lt;li&gt;Cost saving Rp 2.5 miliar/tahun dari reduced labor dan rework&lt;/li&gt;
+&lt;li&gt;Quality improvement dengan defect escape rate &lt;0.1%&lt;/li&gt;
+&lt;li&gt;2 patents untuk novel inspection methods&lt;/li&gt;
+&lt;li&gt;Technology transfer dan commercialization untuk industries lain&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="industry_partners">PT. Astra Manufacturing Indonesia - Automotive Components
+PT. Intel Technology Indonesia - Edge Computing Hardware
+NVIDIA Indonesia - GPU and AI Platform</field>
+            <field name="master_students">Andi Saputra - Thesis: Deep Learning for Surface Defect Detection
+Fitri Handayani - Thesis: Few-Shot Learning for Rare Defect Types
+Rizky Fauzi - Thesis: Edge AI Optimization for Real-time Inspection</field>
+            <field name="undergrad_students">Budi Hartono (TA: Data Augmentation Techniques)
+Siti Rahmawati (TA: Explainable AI for Quality Inspection)
+Dian Purnama (TA: Dashboard Development)</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"Deep Learning for Automated Visual Inspection in Automotive Manufacturing" - Journal of Manufacturing Systems, 2024&lt;/li&gt;
+&lt;li&gt;"Few-Shot Learning Approach for Rare Defect Detection" - IEEE Transactions on Industrial Informatics, Under Review&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="patents_ip">&lt;ul&gt;
+&lt;li&gt;Patent Filed: "Sistem Inspeksi Visual Otomatis Berbasis AI dengan Multi-Angle Camera Setup" - P00202400567&lt;/li&gt;
+&lt;li&gt;Patent Planned: "Adaptive Learning System for Quality Inspection AI"&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="milestone_achieved">&lt;ul&gt;
+&lt;li&gt;✓ Data collection 150,000 images (exceeding target)&lt;/li&gt;
+&lt;li&gt;✓ Model development achieving 99.6% accuracy on test set&lt;/li&gt;
+&lt;li&gt;✓ Pilot implementation di 2 production lines (successful)&lt;/li&gt;
+&lt;li&gt;⋯ Scale-up to 5 production lines (in progress)&lt;/li&gt;
+&lt;li&gt;○ Full system integration dengan MES (Q4 2024)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="economic_impact">&lt;p&gt;&lt;strong&gt;Quantifiable Benefits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Productivity increase: 40% faster inspection time&lt;/li&gt;
+&lt;li&gt;Labor cost saving: Rp 1.2 miliar/tahun (reduction dari 20 inspectors ke 5 operators)&lt;/li&gt;
+&lt;li&gt;Quality cost saving: Rp 1.3 miliar/tahun dari reduced warranty claims dan rework&lt;/li&gt;
+&lt;li&gt;Overall ROI: 18 months payback period&lt;/li&gt;
+&lt;li&gt;Potential market size: 200+ automotive suppliers in Indonesia&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="current_activities">&lt;ul&gt;
+&lt;li&gt;Fine-tuning model untuk 5 new product types&lt;/li&gt;
+&lt;li&gt;Installing camera systems di 3 additional lines&lt;/li&gt;
+&lt;li&gt;Training operators dan maintenance staff&lt;/li&gt;
+&lt;li&gt;Developing mobile app untuk remote monitoring&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="challenges_faced">&lt;p&gt;&lt;strong&gt;Challenges &amp; Solutions:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Challenge:&lt;/strong&gt; Limited data untuk rare defect types ⟹ &lt;strong&gt;Solution:&lt;/strong&gt; Implemented few-shot learning dan synthetic data generation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Challenge:&lt;/strong&gt; Variation in lighting conditions ⟹ &lt;strong&gt;Solution:&lt;/strong&gt; Custom LED lighting setup dan image preprocessing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Challenge:&lt;/strong&gt;Real-time performance requirement ⟹ &lt;strong&gt;Solution:&lt;/strong&gt; Model optimization dan edge computing with NVIDIA Jetson&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_email">ratna.kusuma@university.ac.id</field>
+            <field name="teaser">Kolaborasi riset dengan industri untuk mengembangkan sistem AI-powered visual inspection untuk quality control di manufacturing automotive parts.</field>
+            <field name="slug">pendanaan-industri-ai-quality-control</field>
+            <field name="meta_title">Pendanaan Riset Kolaborasi Industri: AI untuk Quality Control Manufacturing | PT Astra</field>
+            <field name="meta_description">Riset kolaborasi industri senilai Rp 850 juta dengan PT Astra untuk AI visual inspection system. Akurasi 99.5%, ROI 18 bulan, cost saving Rp 2.5 miliar/tahun.</field>
+            <field name="meta_keywords">computer vision, quality control, AI manufacturing, defect detection, industry 4.0, visual inspection, automotive industry, deep learning quality</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="date">2023-07-01</field>
+        </record>
+        
+        <record id="hibah_sample_startup_grant" model="hibah.pendanaan.post">
+            <field name="name">Hibah Inkubasi Startup Teknologi: EduTech Platform untuk Pendidikan Vokasi</field>
+            <field name="subtitle">Startup Incubation Grant: AI-Powered Vocational Education Platform</field>
+            <field name="blog_id" ref="blog_hibah_inovasi"/>
+            <field name="grant_number">STARTUP-2024-012</field>
+            <field name="grant_scheme">Program Inkubasi Startup Teknologi Kemendikbudristek</field>
+            <field name="principal_investigator">Dr. Maya Puspita Sari, S.Kom., M.Kom.</field>
+            <field name="co_investigators">Rudi Hermawan, S.Kom., M.M.
+Fitri Rahmawati, S.Pd., M.Pd.
+Andi Kurniawan, S.Kom., M.T.</field>
+            <field name="start_date">2024-01-15</field>
+            <field name="end_date">2025-12-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">35</field>
+            <field name="funding_agency">Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi</field>
+            <field name="funding_source">Program Merdeka Belajar - Dana Inkubasi Startup</field>
+            <field name="total_amount">500000000</field>
+            <field name="disbursed_amount">175000000</field>
+            <field name="funding_year">2024-2025</field>
+            <field name="personnel_cost">200000000</field>
+            <field name="equipment_cost">150000000</field>
+            <field name="material_cost">80000000</field>
+            <field name="travel_cost">50000000</field>
+            <field name="other_cost">20000000</field>
+            <field name="research_area">Educational Technology, AI, E-Learning, Vocational Training</field>
+            <field name="keywords">edutech, vocational education, AI tutoring, adaptive learning, skills training, online learning platform</field>
+            <field name="objectives">&lt;h5&gt;Project Goals:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Develop AI-powered adaptive learning platform untuk pendidikan vokasi&lt;/li&gt;
+&lt;li&gt;Create 100+ interactive courses untuk 10 vocational skills (welding, electrical, automotive, etc.)&lt;/li&gt;
+&lt;li&gt;Acquire 10,000 active users dalam 12 bulan&lt;/li&gt;
+&lt;li&gt;Partnership dengan 20 SMK dan 10 industri untuk job placement&lt;/li&gt;
+&lt;li&gt;Achieve sustainable business model dengan monthly revenue Rp 50 juta+&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Development &amp; Business Strategy:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Platform Development:&lt;/strong&gt; Web dan mobile app dengan video pembelajaran, simulasi virtual, dan AI tutoring&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Content Creation:&lt;/strong&gt; Kolaborasi dengan expert teachers dan industry practitioners&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI Features:&lt;/strong&gt; Personalized learning path, automated assessment, dan chatbot mentor&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Go-to-Market:&lt;/strong&gt; Freemium model dengan B2C dan B2B (SMK, training centers)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Partnership:&lt;/strong&gt; Job placement program dengan industry partners&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="expected_outcomes">&lt;ul&gt;
+&lt;li&gt;Platform dengan 100+ courses dan 500+ video pembelajaran&lt;/li&gt;
+&lt;li&gt;10,000+ registered users, 3,000+ active learners&lt;/li&gt;
+&lt;li&gt;Partnership dengan 20 SMK dan 10 companies&lt;/li&gt;
+&lt;li&gt;500+ students successfully placed in jobs&lt;/li&gt;
+&lt;li&gt;Monthly revenue Rp 50-75 juta (sustainable business)&lt;/li&gt;
+&lt;li&gt;Follow-on investment dari VC (target: Series A Rp 5 miliar)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">SMKN 1 Jakarta - Pilot School
+SMKN 2 Bandung - Content Development Partner
+SMKN 5 Surabaya - Testing &amp; Feedback
+Kadin Indonesia - Industry Liaison
+Asosiasi SMK Indonesia</field>
+            <field name="industry_partners">PT. Astra International - Job Placement Partner
+PT. Schneider Electric - Electrical Skills Training Content
+PT. Toyota Astra Motor - Automotive Training Curriculum
+PT. Unilever Indonesia - Manufacturing Skills Program</field>
+            <field name="master_students">Dian Purnama - Thesis: AI Recommendation System untuk Learning Path</field>
+            <field name="undergrad_students">Budi Santoso (TA: Chatbot Development)
+Siti Rahmawati (TA: Gamification Design)
+Rizky Fauzi (TA: Video Analytics)</field>
+            <field name="prototypes">&lt;p&gt;&lt;strong&gt;Current Platform Features:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Web platform dan Android/iOS mobile apps&lt;/li&gt;
+&lt;li&gt;50 courses available (automotive, electrical, welding, HVAC, plumbing)&lt;/li&gt;
+&lt;li&gt;300+ video tutorials dengan interactive quizzes&lt;/li&gt;
+&lt;li&gt;AI chatbot mentor untuk Q&amp;A 24/7&lt;/li&gt;
+&lt;li&gt;Virtual simulation untuk safety training&lt;/li&gt;
+&lt;li&gt;Certificate of completion recognized oleh industry partners&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="milestone_achieved">&lt;ul&gt;
+&lt;li&gt;3,500 registered users dalam 6 bulan (35% of target)&lt;/li&gt;
+&lt;li&gt;1,200 active learners dengan avg completion rate 65%&lt;/li&gt;
+&lt;li&gt;150 students successfully placed in jobs&lt;/li&gt;
+&lt;li&gt;Winner of Startup Competition "Inovasi Pendidikan 2024"&lt;/li&gt;
+&lt;li&gt;Featured in 5 national media (Kompas, Detik, CNN Indonesia)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Platform ini memberikan akses pendidikan vokasi berkualitas kepada masyarakat luas, terutama di daerah yang kekurangan instruktur berkualitas. Dengan pembelajaran online yang fleksibel, siswa dapat belajar skills marketable dengan biaya terjangkau. Program job placement membantu mengurangi pengangguran lulusan SMK yang saat ini mencapai 12%.&lt;/p&gt;</field>
+            <field name="economic_impact">&lt;p&gt;&lt;strong&gt;Business Metrics:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Current MRR (Monthly Recurring Revenue): Rp 18 juta&lt;/li&gt;
+&lt;li&gt;Average Revenue Per User: Rp 15,000/month&lt;/li&gt;
+&lt;li&gt;Conversion rate free to paid: 8%&lt;/li&gt;
+&lt;li&gt;Customer Acquisition Cost: Rp 45,000&lt;/li&gt;
+&lt;li&gt;Lifetime Value: Rp 180,000&lt;/li&gt;
+&lt;li&gt;Projected breakeven: Q2 2025&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="sustainability_plan">&lt;p&gt;Revenue model: Freemium (basic courses free, premium courses Rp 50k-150k), B2B licensing untuk SMK (Rp 5 juta/tahun per school), dan commission dari job placement (15% dari first month salary). Target raising Series A funding Rp 5 miliar di Q4 2025 untuk scale-up operations dan expand to 50 vocational skills.&lt;/p&gt;</field>
+            <field name="current_activities">&lt;ul&gt;
+&lt;li&gt;Developing 30 new courses (target: 50 → 80 courses by end of 2024)&lt;/li&gt;
+&lt;li&gt;Pilot program di 5 SMK dengan 500 students&lt;/li&gt;
+&lt;li&gt;Marketing campaign targeting SMK students dan job seekers&lt;/li&gt;
+&lt;li&gt;Preparing pitch deck untuk investor roadshow&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="next_steps">&lt;ul&gt;
+&lt;li&gt;Launch mobile app versi 2.0 dengan offline capability&lt;/li&gt;
+&lt;li&gt;Expand partnership ke 15 additional SMKs&lt;/li&gt;
+&lt;li&gt;Develop VR/AR simulation untuk advanced training&lt;/li&gt;
+&lt;li&gt;International expansion: pilot in Malaysia dan Philippines&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_email">maya.puspita@skilllearn.id</field>
+            <field name="project_website">https://skilllearn.id</field>
+            <field name="teaser">Hibah inkubasi startup untuk platform EduTech AI-powered yang menyediakan pendidikan vokasi berkualitas dan job placement untuk ribuan pelajar Indonesia.</field>
+            <field name="slug">hibah-startup-edutech-pendidikan-vokasi</field>
+            <field name="meta_title">Hibah Inkubasi Startup Teknologi: EduTech Platform untuk Pendidikan Vokasi | Kemendikbud</field>
+            <field name="meta_description">Hibah inkubasi startup senilai Rp 500 juta untuk platform edutech pendidikan vokasi. 3,500 users, 50+ courses, partnership 20 SMK. Target Series A Rp 5 miliar.</field>
+            <field name="meta_keywords">edutech startup, vocational education, online learning, SMK digital, skills training, AI tutoring, job placement, startup incubation, edtech Indonesia</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-01-15</field>
+        </record>
+        
+        <record id="hibah_sample_pengabdian_masyarakat" model="hibah.pendanaan.post">
+            <field name="name">Hibah Pengabdian: Pemberdayaan UMKM melalui Digitalisasi dan E-Commerce</field>
+            <field name="subtitle">Community Service: Digital Transformation for Small Businesses</field>
+            <field name="blog_id" ref="blog_hibah_pengabdian"/>
+            <field name="grant_number">PKM-2024-089</field>
+            <field name="grant_scheme">Program Kemitraan Masyarakat (PKM)</field>
+            <field name="principal_investigator">Dr. Siti Aminah, S.E., M.M.</field>
+            <field name="co_investigators">Rudi Setiawan, S.Kom., M.Kom.
+Dr. Fitri Handayani, S.E., M.Si.
+Bambang Prasetyo, S.Kom., M.T.</field>
+            <field name="start_date">2024-03-01</field>
+            <field name="end_date">2024-12-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">70</field>
+            <field name="funding_agency">Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi</field>
+            <field name="funding_source">Dana Pengabdian Kepada Masyarakat</field>
+            <field name="total_amount">150000000</field>
+            <field name="disbursed_amount">105000000</field>
+            <field name="funding_year">2024</field>
+            <field name="personnel_cost">45000000</field>
+            <field name="equipment_cost">35000000</field>
+            <field name="material_cost">40000000</field>
+            <field name="travel_cost">25000000</field>
+            <field name="other_cost">5000000</field>
+            <field name="research_area">Community Development, Digital Economy, E-Commerce, UMKM Empowerment</field>
+            <field name="keywords">UMKM, digital transformation, e-commerce, digital marketing, community empowerment, small business</field>
+            <field name="objectives">&lt;h5&gt;Program Objectives:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Melatih 100 pelaku UMKM dalam digital marketing dan e-commerce&lt;/li&gt;
+&lt;li&gt;Membantu 50 UMKM membuat toko online di marketplace (Tokopedia, Shopee, dll)&lt;/li&gt;
+&lt;li&gt;Meningkatkan omzet UMKM minimal 30% dalam 6 bulan&lt;/li&gt;
+&lt;li&gt;Develop website e-commerce komunal untuk produk lokal&lt;/li&gt;
+&lt;li&gt;Create sustainable digital ecosystem untuk UMKM binaan&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Program Implementation:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Training Program:&lt;/strong&gt; 8 sesi workshop (digital literacy, product photography, copywriting, ads management)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hands-on Assistance:&lt;/strong&gt; One-on-one mentoring untuk setup online store&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Platform Development:&lt;/strong&gt; Website e-commerce komunal dengan payment gateway&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Marketing Support:&lt;/strong&gt; Social media campaign dan influencer collaboration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Monitoring &amp; Evaluation:&lt;/strong&gt; Monthly follow-up dan performance tracking&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="expected_outcomes">&lt;ul&gt;
+&lt;li&gt;100 UMKM trained dengan certification&lt;/li&gt;
+&lt;li&gt;50 online stores successfully launched&lt;/li&gt;
+&lt;li&gt;Average omzet increase 30-50%&lt;/li&gt;
+&lt;li&gt;Community e-commerce website dengan 50+ products&lt;/li&gt;
+&lt;li&gt;Sustainable UMKM community yang saling support&lt;/li&gt;
+&lt;li&gt;Model replikasi untuk komunitas UMKM lain&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">Dinas Koperasi dan UMKM Kota Bandung
+Asosiasi UMKM Jawa Barat
+Universitas Padjadjaran - Fakultas Ekonomi
+Bank BRI - Program KUR
+Tokopedia - Seller Education Program</field>
+            <field name="undergrad_students">Andi Saputra (KKN: Product Photography Training)
+Maya Lestari (KKN: Social Media Content Creation)
+Dian Purnama (KKN: Website Development)
+Rizky Fauzi (KKN: Video Tutorial Production)</field>
+            <field name="milestone_achieved">&lt;ul&gt;
+&lt;li&gt;110 UMKM trained (110% of target)&lt;/li&gt;
+&lt;li&gt;52 online stores launched successfully&lt;/li&gt;
+&lt;li&gt;Average omzet increase: 45% dalam 6 bulan&lt;/li&gt;
+&lt;li&gt;Community website: 1,500+ monthly visitors, Rp 25 juta monthly GMV&lt;/li&gt;
+&lt;li&gt;3 UMKM binaan menjadi best seller di kategorinya&lt;/li&gt;
+&lt;li&gt;Featured di Kompas TV "Bisnis Anak Muda"&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;&lt;strong&gt;Community Impact:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;100+ families meningkat income dengan additional Rp 2-5 juta/bulan&lt;/li&gt;
+&lt;li&gt;30 UMKM yang sebelumnya "offline only" kini punya customer nationwide&lt;/li&gt;
+&lt;li&gt;Terbentuk komunitas digital UMKM yang saling support dan share knowledge&lt;/li&gt;
+&lt;li&gt;20 employment created (UMKM hire additional workers karena increased demand)&lt;/li&gt;
+&lt;li&gt;Preserved traditional crafts dan products lokal melalui digital market access&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="sustainability_plan">&lt;p&gt;Setelah program selesai, komunitas UMKM akan continue dengan koordinator lokal yang sudah ditraining. Website akan dikelola oleh koperasi UMKM dengan revenue sharing model. Partnership dengan marketplace dan bank akan dilanjutkan untuk continuous support. Ada juga rencana untuk scale ke kabupaten lain di Jawa Barat.&lt;/p&gt;</field>
+            <field name="current_activities">&lt;ul&gt;
+&lt;li&gt;Advanced training: Instagram Ads dan TikTok Shop (50 participants)&lt;/li&gt;
+&lt;li&gt;Product packaging improvement workshop&lt;/li&gt;
+&lt;li&gt;Facilitating partnership dengan distributor untuk bulk orders&lt;/li&gt;
+&lt;li&gt;Documentation untuk best practices guidebook&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="interim_reports">&lt;p&gt;&lt;strong&gt;Progress Reports:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Laporan Kemajuan 1 (Maret 2024): Setup awal, recruitment participants - ✓ Approved&lt;/li&gt;
+&lt;li&gt;Laporan Kemajuan 2 (Juni 2024): Training completion, store setup - ✓ Approved&lt;/li&gt;
+&lt;li&gt;Laporan Kemajuan 3 (September 2024): Performance evaluation, website launch - ✓ Approved&lt;/li&gt;
+&lt;li&gt;Laporan Akhir (Target: Desember 2024): Final evaluation dan sustainability plan&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="contact_email">siti.aminah@university.ac.id</field>
+            <field name="teaser">Program pengabdian masyarakat untuk memberdayakan 100 UMKM melalui pelatihan digitalisasi, pembuatan toko online, dan digital marketing untuk meningkatkan penjualan.</field>
+            <field name="slug">hibah-pengabdian-digitalisasi-umkm</field>
+            <field name="meta_title">Hibah Pengabdian: Pemberdayaan UMKM melalui Digitalisasi dan E-Commerce | PKM</field>
+            <field name="meta_description">Program PKM senilai Rp 150 juta untuk digitalisasi 100 UMKM. Training digital marketing, pembuatan toko online, peningkatan omzet 45%. Community e-commerce platform Rp 25 juta monthly GMV.</field>
+            <field name="meta_keywords">UMKM digitalisasi, digital transformation, e-commerce training, digital marketing UMKM, pengabdian masyarakat, PKM, small business empowerment</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-03-01</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Actions -->
+        <record id="action_proyek_penelitian_blog" model="ir.actions.act_window">
+            <field name="name">Kategori Proyek</field>
+            <field name="res_model">proyek.penelitian.blog</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Buat kategori proyek penelitian pertama Anda!
+                </p>
+                <p>
+                    Kategori membantu mengorganisir proyek penelitian berdasarkan jenis, sumber pendanaan, atau bidang ilmu.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_proyek_penelitian_post" model="ir.actions.act_window">
+            <field name="name">Proyek Penelitian</field>
+            <field name="res_model">proyek.penelitian.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{'search_default_published': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan proyek penelitian pertama Anda!
+                </p>
+                <p>
+                    Dokumentasikan proyek penelitian aktif dan terdahulu dengan detail lengkap untuk dipromosikan di website portfolio.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Items -->
+        <menuitem id="menu_proyek_penelitian_root" 
+                  name="Proyek Penelitian" 
+                  sequence="25"/>
+
+        <menuitem id="menu_proyek_penelitian_blog" 
+                  name="Kategori Proyek" 
+                  parent="menu_proyek_penelitian_root" 
+                  action="action_proyek_penelitian_blog" 
+                  sequence="10"/>
+
+        <menuitem id="menu_proyek_penelitian_post" 
+                  name="Proyek Penelitian" 
+                  parent="menu_proyek_penelitian_root" 
+                  action="action_proyek_penelitian_post" 
+                  sequence="20"/>
+
+    </data>
+</odoo>

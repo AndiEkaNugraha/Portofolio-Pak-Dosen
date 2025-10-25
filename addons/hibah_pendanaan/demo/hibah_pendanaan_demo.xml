@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sample Grants -->
+        <record id="grant_hibah_penelitian_dasar" model="hibah.pendanaan.post">
+            <field name="name">Pengembangan Material Nanoteknologi untuk Aplikasi Energi Terbarukan</field>
+            <field name="subtitle">Sintesis dan Karakterisasi Nanomaterial untuk Solar Cell Generasi Terbaru</field>
+            <field name="blog_id" ref="blog_hibah_nasional"/>
+            <field name="grant_number">142/SP2H/LT/DRPM/2024</field>
+            <field name="grant_scheme">Hibah Penelitian Dasar Unggulan Perguruan Tinggi</field>
+            <field name="principal_investigator">Prof. Dr. Ir. Sari Indrawati, M.T.</field>
+            <field name="co_investigators">Dr. Budi Hartono, S.T., M.T.
+Dr. Rina Purnama, S.Si., M.Si.
+Agus Setiawan, S.T., M.T.</field>
+            <field name="research_assistants">Maya Sari, S.T. (Asisten Peneliti Senior)
+Andi Pratama, S.Si. (Asisten Peneliti Junior)</field>
+            <field name="start_date">2024-01-01</field>
+            <field name="end_date">2026-12-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">45</field>
+            <field name="funding_agency">Direktorat Riset dan Pengabdian Masyarakat, Kemendikbud</field>
+            <field name="funding_source">APBN - Dana PNBP Kemendikbud</field>
+            <field name="total_amount">750000000</field>
+            <field name="disbursed_amount">337500000</field>
+            <field name="funding_year">2024-2026</field>
+            <field name="personnel_cost">300000000</field>
+            <field name="equipment_cost">250000000</field>
+            <field name="material_cost">150000000</field>
+            <field name="travel_cost">30000000</field>
+            <field name="other_cost">20000000</field>
+            <field name="research_area">Nanoteknologi, Material Science, Energi Terbarukan</field>
+            <field name="keywords">nanomaterial, solar cell, energi terbarukan, nanoteknologi, material science</field>
+            <field name="teaser">Penelitian ini mengembangkan material nanoteknologi inovatif untuk meningkatkan efisiensi solar cell dan mendukung transisi energi terbarukan di Indonesia. Fokus pada sintesis nanomaterial dengan karakteristik optik dan elektronik superior.</field>
+            <field name="description">&lt;p&gt;Penelitian ini bertujuan mengembangkan material nanoteknologi untuk aplikasi energi terbarukan, khususnya dalam pembuatan solar cell generasi terbaru dengan efisiensi tinggi. Tim peneliti menggunakan pendekatan multidisiplin yang menggabungkan kimia material, fisika solid state, dan teknik karakterisasi canggih.&lt;/p&gt;
+
+&lt;p&gt;Penelitian ini sangat relevan dengan program pemerintah untuk mencapai target energi terbarukan 23% pada tahun 2025 dan mendukung transisi energi yang berkelanjutan di Indonesia.&lt;/p&gt;</field>
+            <field name="objectives">&lt;ul&gt;
+&lt;li&gt;Mengembangkan metode sintesis nanomaterial yang efisien dan ramah lingkungan&lt;/li&gt;
+&lt;li&gt;Menciptakan nanomaterial dengan karakteristik optik dan elektronik superior&lt;/li&gt;
+&lt;li&gt;Mengoptimalkan performa solar cell dengan efisiensi minimal 20%&lt;/li&gt;
+&lt;li&gt;Menghasilkan prototipe solar cell skala laboratorium&lt;/li&gt;
+&lt;li&gt;Mempublikasikan hasil pada jurnal internasional bereputasi&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="methodology">&lt;p&gt;&lt;strong&gt;Metodologi Penelitian:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Sintesis Nanomaterial:&lt;/strong&gt; Menggunakan metode sol-gel, hidrotermal, dan chemical vapor deposition&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Karakterisasi:&lt;/strong&gt; XRD, SEM, TEM, UV-Vis Spectroscopy, dan pengukuran sifat elektronik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fabrikasi Device:&lt;/strong&gt; Pembuatan prototipe solar cell dengan berbagai konfigurasi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Testing &amp; Optimization:&lt;/strong&gt; Pengukuran efisiensi dan optimasi parameter&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="expected_outcomes">&lt;h5&gt;Luaran yang Diharapkan:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;3-4 publikasi pada jurnal internasional Q1/Q2&lt;/li&gt;
+&lt;li&gt;2 paten teknologi nanomaterial&lt;/li&gt;
+&lt;li&gt;1 prototipe solar cell dengan efisiensi &gt;20%&lt;/li&gt;
+&lt;li&gt;Pelatihan 2 mahasiswa S3 dan 4 mahasiswa S2&lt;/li&gt;
+&lt;li&gt;Kerjasama dengan industri energi terbarukan&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="partner_institutions">Institut Teknologi Bandung (ITB)
+Universitas Gadjah Mada (UGM)
+BRIN - Pusat Riset Teknologi Material</field>
+            <field name="industry_partners">PT. LEN Industri
+PT. Barata Indonesia
+PT. Surya Utama Nuansa</field>
+            <field name="international_collaboration" eval="True"/>
+            <field name="international_partners">Nanyang Technological University, Singapore
+University of New South Wales, Australia
+Technical University of Denmark</field>
+            <field name="phd_students">Rizky Pratama (Sintesis Nanomaterial untuk Solar Cell)
+Siti Aminah (Karakterisasi Sifat Optik Nanomaterial)</field>
+            <field name="master_students">Ayu Lestari (Optimasi Proses Sintesis)
+Eko Saputra (Karakterisasi Sifat Elektronik)
+Nina Kartika (Fabrikasi dan Testing Device)
+Dian Purnama (Analisis Ekonomi Teknologi)</field>
+            <field name="publications">&lt;ul&gt;
+&lt;li&gt;"Novel Nanomaterial Synthesis for High-Efficiency Solar Cells" - Advanced Materials, 2024 (Q1)&lt;/li&gt;
+&lt;li&gt;"Optimization of Nanomaterial Properties for Renewable Energy Applications" - Nature Energy, 2024 (Q1)&lt;/li&gt;
+&lt;li&gt;"Sustainable Synthesis Methods for Energy Nanomaterials" - ACS Nano, 2024 (Q1)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="patents_ip">Metode Sintesis Nanomaterial untuk Solar Cell (Paten Pending - P2024001100)
+Komposisi Nanomaterial untuk Aplikasi Energi (Paten Pending - P2024001101)</field>
+            <field name="prototypes">&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Solar Cell Prototipe:&lt;/strong&gt; Prototipe solar cell dengan efisiensi 18-20%&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nanomaterial Library:&lt;/strong&gt; Koleksi 50+ nanomaterial dengan karakterisasi lengkap&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Synthesis Equipment:&lt;/strong&gt; Setup reaktor skala laboratorium&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="milestone_achieved">&lt;h5&gt;Milestone yang Telah Dicapai (45%):&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ Optimasi metode sintesis nanomaterial (100%)&lt;/li&gt;
+&lt;li&gt;✅ Karakterisasi material dasar (90%)&lt;/li&gt;
+&lt;li&gt;⏳ Fabrikasi prototipe solar cell (60%)&lt;/li&gt;
+&lt;li&gt;⏳ Testing dan optimasi device (30%)&lt;/li&gt;
+&lt;li&gt;❌ Publikasi hasil penelitian (20%)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="current_activities">&lt;ul&gt;
+&lt;li&gt;Optimasi konfigurasi solar cell untuk efisiensi maksimal&lt;/li&gt;
+&lt;li&gt;Karakterisasi lanjut nanomaterial dengan metode spektroskopi&lt;/li&gt;
+&lt;li&gt;Persiapan manuscript untuk publikasi internasional&lt;/li&gt;
+&lt;li&gt;Kolaborasi dengan industri untuk pengembangan aplikasi&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="social_impact">&lt;p&gt;Penelitian ini berkontribusi pada pengembangan teknologi energi terbarukan yang dapat mengurangi ketergantungan Indonesia pada energi fosil. Teknologi yang dikembangkan berpotensi menciptakan lapangan kerja baru di sektor teknologi tinggi dan mendukung industri energi terbarukan nasional.&lt;/p&gt;</field>
+            <field name="economic_impact">&lt;p&gt;Potensi nilai ekonomi dari teknologi ini mencapai Rp 100-200 miliar dalam 10 tahun ke depan melalui komersialisasi dan lisensi teknologi. Dapat mengurangi impor teknologi solar cell dan menciptakan industri nanomaterial dalam negeri.&lt;/p&gt;</field>
+            <field name="contact_email">nanomaterial.research@university.ac.id</field>
+            <field name="project_website">https://nanomaterial.university.ac.id</field>
+            <field name="is_featured" eval="True"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Hibah Penelitian Nanoteknologi untuk Energi Terbarukan</field>
+            <field name="meta_description">Pengembangan material nanoteknologi inovatif untuk solar cell efisiensi tinggi. Hibah penelitian dasar dari Kemendikbud dengan nilai Rp 750 juta.</field>
+            <field name="meta_keywords">hibah penelitian, nanoteknologi, solar cell, energi terbarukan, kemendikbud</field>
+            <field name="date">2024-01-01</field>
+        </record>
+
+        <record id="grant_hibah_internasional" model="hibah.pendanaan.post">
+            <field name="name">ASEAN-EU Sustainable Agriculture Innovation Network</field>
+            <field name="subtitle">Collaborative Research for Climate-Smart Agriculture Technologies</field>
+            <field name="blog_id" ref="blog_hibah_internasional"/>
+            <field name="grant_number">H2020-SFS-2024-101089234</field>
+            <field name="grant_scheme">Horizon Europe - Food, Bioeconomy, Natural Resources, Agriculture</field>
+            <field name="principal_investigator">Prof. Dr. Ir. Ahmad Wijaya, M.Sc.</field>
+            <field name="co_investigators">Dr. Maria Santos (University of Barcelona)
+Dr. Nguyen Van Duc (Vietnam National University)
+Dr. Supachai Pongsiri (Chulalongkorn University)</field>
+            <field name="start_date">2023-09-01</field>
+            <field name="end_date">2026-08-31</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">35</field>
+            <field name="funding_agency">European Commission - Horizon Europe</field>
+            <field name="funding_source">EU Framework Programme for Research and Innovation</field>
+            <field name="total_amount">1200000000</field>
+            <field name="disbursed_amount">420000000</field>
+            <field name="funding_year">2023-2026</field>
+            <field name="research_area">Sustainable Agriculture, Climate Change, Food Security</field>
+            <field name="keywords">climate-smart agriculture, sustainability, food security, ASEAN-EU cooperation, agricultural innovation</field>
+            <field name="teaser">Kolaborasi internasional ASEAN-EU untuk mengembangkan teknologi pertanian berkelanjutan yang adaptif terhadap perubahan iklim. Fokus pada inovasi sistem pertanian cerdas dan ketahanan pangan regional.</field>
+            <field name="description">&lt;p&gt;Proyek kolaboratif ini melibatkan 12 institusi dari ASEAN dan EU untuk mengembangkan teknologi pertanian berkelanjutan yang dapat beradaptasi dengan perubahan iklim. Penelitian ini menggabungkan keahlian dari berbagai negara untuk menciptakan solusi inovatif bagi tantangan ketahanan pangan regional.&lt;/p&gt;</field>
+            <field name="international_collaboration" eval="True"/>
+            <field name="international_partners">University of Barcelona, Spain
+Wageningen University, Netherlands
+Vietnam National University
+Chulalongkorn University, Thailand
+University of the Philippines Los Baños</field>
+            <field name="is_featured" eval="False"/>
+            <field name="website_published" eval="True"/>
+            <field name="date">2023-09-01</field>
+        </record>
+
+        <record id="grant_pendanaan_industri" model="hibah.pendanaan.post">
+            <field name="name">Pengembangan Sistem Monitoring IoT untuk Smart Factory</field>
+            <field name="subtitle">Implementasi Industry 4.0 untuk Optimasi Produksi Manufaktur</field>
+            <field name="blog_id" ref="blog_pendanaan_industri"/>
+            <field name="grant_number">IND/2024/001</field>
+            <field name="grant_scheme">Kontrak Penelitian Industri</field>
+            <field name="principal_investigator">Dr. Budi Santoso, S.T., M.T.</field>
+            <field name="co_investigators">Dr. Lina Handayani, S.Kom., M.Kom.
+Ir. Rio Wijaya, M.T.</field>
+            <field name="start_date">2024-03-01</field>
+            <field name="end_date">2025-02-28</field>
+            <field name="status">active</field>
+            <field name="progress_percentage">60</field>
+            <field name="funding_agency">PT. Industri Teknologi Indonesia</field>
+            <field name="funding_source">Dana Swasta - R&amp;D Budget</field>
+            <field name="total_amount">450000000</field>
+            <field name="disbursed_amount">270000000</field>
+            <field name="funding_year">2024-2025</field>
+            <field name="research_area">Internet of Things, Industry 4.0, Smart Manufacturing</field>
+            <field name="keywords">IoT, smart factory, industry 4.0, manufacturing, monitoring system</field>
+            <field name="teaser">Pengembangan sistem monitoring berbasis IoT untuk mengoptimalkan proses produksi di pabrik. Kerjasama dengan industri untuk implementasi teknologi Industry 4.0 yang dapat meningkatkan efisiensi produksi hingga 25%.</field>
+            <field name="industry_partners">PT. Industri Teknologi Indonesia
+PT. Manufacturing Solutions
+PT. Automation Systems</field>
+            <field name="is_featured" eval="False"/>
+            <field name="website_published" eval="True"/>
+            <field name="date">2024-03-01</field>
+        </record>
+
+    </data>
+</odoo>

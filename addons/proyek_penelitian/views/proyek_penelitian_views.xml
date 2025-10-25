@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Blog Category Views -->
+        <record id="view_proyek_penelitian_blog_list" model="ir.ui.view">
+            <field name="name">proyek.penelitian.blog.list</field>
+            <field name="model">proyek.penelitian.blog</field>
+            <field name="arch" type="xml">
+                <list string="Kategori Proyek Penelitian">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="research_type"/>
+                    <field name="funding_category"/>
+                    <field name="post_count"/>
+                    <field name="website_published"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_proyek_penelitian_blog_form" model="ir.ui.view">
+            <field name="name">proyek.penelitian.blog.form</field>
+            <field name="model">proyek.penelitian.blog</field>
+            <field name="arch" type="xml">
+                <form string="Kategori Proyek Penelitian">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="subtitle"/>
+                                <field name="research_type"/>
+                                <field name="funding_category"/>
+                            </group>
+                            <group>
+                                <field name="sequence"/>
+                                <field name="website_published"/>
+                                <field name="active"/>
+                                <field name="post_count" readonly="1"/>
+                            </group>
+                        </group>
+                        <field name="description" placeholder="Deskripsi kategori..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Post/Project Views -->
+        <record id="view_proyek_penelitian_post_list" model="ir.ui.view">
+            <field name="name">proyek.penelitian.post.list</field>
+            <field name="model">proyek.penelitian.post</field>
+            <field name="arch" type="xml">
+                <list string="Proyek Penelitian">
+                    <field name="name"/>
+                    <field name="blog_id"/>
+                    <field name="principal_investigator"/>
+                    <field name="status"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="progress_percentage"/>
+                    <field name="total_budget" widget="monetary"/>
+                    <field name="is_featured"/>
+                    <field name="website_published"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_proyek_penelitian_post_form" model="ir.ui.view">
+            <field name="name">proyek.penelitian.post.form</field>
+            <field name="model">proyek.penelitian.post</field>
+            <field name="arch" type="xml">
+                <form string="Proyek Penelitian">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_website_published" type="object" class="oe_stat_button" icon="fa-globe">
+                                <field name="website_published" widget="website_publish_button"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="subtitle"/>
+                                <field name="blog_id"/>
+                                <field name="project_code"/>
+                                <field name="principal_investigator"/>
+                            </group>
+                            <group>
+                                <field name="status"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="progress_percentage"/>
+                                <field name="is_featured"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="funding_source"/>
+                                <field name="funding_scheme"/>
+                                <field name="total_budget"/>
+                                <field name="budget_year"/>
+                            </group>
+                            <group>
+                                <field name="research_area"/>
+                                <field name="keywords"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Deskripsi">
+                                <field name="teaser" placeholder="Ringkasan singkat proyek..."/>
+                                <field name="description" placeholder="Deskripsi lengkap proyek..."/>
+                            </page>
+                            <page string="Tim &amp; Kolaborasi">
+                                <field name="co_investigators" placeholder="Daftar anggota peneliti..."/>
+                                <field name="partner_institutions" placeholder="Institusi mitra..."/>
+                            </page>
+                            <page string="SEO">
+                                <group>
+                                    <field name="slug"/>
+                                    <field name="meta_title"/>
+                                    <field name="meta_description"/>
+                                    <field name="meta_keywords"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search Views -->
+        <record id="view_proyek_penelitian_blog_search" model="ir.ui.view">
+            <field name="name">proyek.penelitian.blog.search</field>
+            <field name="model">proyek.penelitian.blog</field>
+            <field name="arch" type="xml">
+                <search string="Cari Kategori Proyek">
+                    <field name="name"/>
+                    <field name="research_type"/>
+                    <field name="funding_category"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_proyek_penelitian_post_search" model="ir.ui.view">
+            <field name="name">proyek.penelitian.post.search</field>
+            <field name="model">proyek.penelitian.post</field>
+            <field name="arch" type="xml">
+                <search string="Cari Proyek Penelitian">
+                    <field name="name"/>
+                    <field name="principal_investigator"/>
+                    <field name="funding_source"/>
+                    <field name="status"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

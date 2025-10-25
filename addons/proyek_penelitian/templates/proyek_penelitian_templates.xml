@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Halaman Utama Proyek Penelitian -->
+        <template id="proyek_penelitian_index" name="Proyek Penelitian">
+            <t t-call="website.layout">
+                
+                <!-- SEO Meta Tags -->
+                <t t-set="head">
+                    <meta name="description" t-att-content="meta_description"/>
+                    <meta property="og:title" t-att-content="page_title"/>
+                    <meta property="og:description" t-att-content="meta_description"/>
+                    <meta property="og:type" content="website"/>
+                    <meta name="twitter:card" content="summary_large_image"/>
+                    <meta name="twitter:title" t-att-content="page_title"/>
+                    <meta name="twitter:description" t-att-content="meta_description"/>
+                </t>
+
+                <div class="container py-5">
+                    <!-- Header Section -->
+                    <div class="row mb-5">
+                        <div class="col-lg-8 mx-auto text-center">
+                            <h1 class="display-4 fw-bold text-primary mb-3">Proyek Penelitian</h1>
+                            <p class="lead text-muted">
+                                Jelajahi berbagai proyek penelitian aktif dan terdahulu dengan informasi 
+                                lengkap tentang tim, pendanaan, luaran, dan dampak penelitian
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Search and Filter -->
+                    <div class="row mb-4">
+                        <div class="col-lg-6">
+                            <form method="get" class="d-flex">
+                                <input type="text" name="search" class="form-control me-2" 
+                                       placeholder="Cari proyek, peneliti, atau kata kunci..." 
+                                       t-att-value="search_term or ''"/>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-search"/> Cari
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" 
+                                        data-bs-toggle="dropdown">
+                                    <i class="fa fa-filter"/> Filter Kategori
+                                </button>
+                                <ul class="dropdown-menu w-100">
+                                    <li><a class="dropdown-item" href="/proyek-penelitian">Semua Kategori</a></li>
+                                    <t t-foreach="categories" t-as="category">
+                                        <li>
+                                            <a class="dropdown-item" 
+                                               t-att-href="'/proyek-penelitian?category=' + category.name"
+                                               t-esc="category.name"/>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-info dropdown-toggle w-100" type="button" 
+                                        data-bs-toggle="dropdown">
+                                    <i class="fa fa-tasks"/> Filter Status
+                                </button>
+                                <ul class="dropdown-menu w-100">
+                                    <li><a class="dropdown-item" href="/proyek-penelitian">Semua Status</a></li>
+                                    <li><a class="dropdown-item" href="/proyek-penelitian?status=active">Sedang Berjalan</a></li>
+                                    <li><a class="dropdown-item" href="/proyek-penelitian?status=completed">Selesai</a></li>
+                                    <li><a class="dropdown-item" href="/proyek-penelitian?status=proposal">Tahap Proposal</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Main Content -->
+                        <div class="col-lg-9">
+                            <t t-if="posts">
+                                <div class="row">
+                                    <t t-foreach="posts" t-as="post">
+                                        <div class="col-lg-6 col-md-6 mb-4">
+                                            <div class="card h-100 shadow-sm border-0">
+                                                <t t-if="post.project_images">
+                                                    <img t-att-src="'/web/image/proyek.penelitian.post/' + str(post.id) + '/project_images'" 
+                                                         class="card-img-top" style="height: 200px; object-fit: cover;"
+                                                         t-att-alt="post.name"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" 
+                                                         style="height: 200px;">
+                                                        <i class="fa fa-flask fa-3x text-muted"/>
+                                                    </div>
+                                                </t>
+                                                
+                                                <div class="card-body d-flex flex-column">
+                                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                                        <span class="badge bg-primary text-white" t-esc="post.blog_id.name"/>
+                                                        <t t-if="post.is_featured">
+                                                            <span class="badge bg-warning text-dark">
+                                                                <i class="fa fa-star"/> Unggulan
+                                                            </span>
+                                                        </t>
+                                                    </div>
+                                                    
+                                                    <div class="mb-2">
+                                                        <t t-if="post.status == 'active'">
+                                                            <span class="badge bg-success">Sedang Berjalan</span>
+                                                        </t>
+                                                        <t t-elif="post.status == 'completed'">
+                                                            <span class="badge bg-info">Selesai</span>
+                                                        </t>
+                                                        <t t-elif="post.status == 'proposal'">
+                                                            <span class="badge bg-warning">Proposal</span>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span class="badge bg-secondary" t-esc="post.status"/>
+                                                        </t>
+                                                    </div>
+                                                    
+                                                    <h5 class="card-title">
+                                                        <a t-att-href="'/proyek-penelitian/' + post.slug" 
+                                                           class="text-decoration-none text-dark"
+                                                           t-esc="post.name"/>
+                                                    </h5>
+                                                    
+                                                    <div class="mb-2">
+                                                        <small class="text-muted">
+                                                            <i class="fa fa-user"/> <t t-esc="post.principal_investigator"/>
+                                                            <t t-if="post.start_date">
+                                                                | <i class="fa fa-calendar"/> <t t-esc="post.start_date.year"/>
+                                                            </t>
+                                                        </small>
+                                                    </div>
+                                                    
+                                                    <p class="card-text text-muted mb-3" t-esc="post.teaser[:150] + '...' if post.teaser and len(post.teaser) > 150 else post.teaser"/>
+                                                    
+                                                    <div class="mb-3">
+                                                        <small class="text-primary">
+                                                            <i class="fa fa-money"/> <t t-esc="post.funding_source"/>
+                                                            <t t-if="post.total_budget">
+                                                                | <i class="fa fa-coins"/> Rp <t t-esc="'{:,.0f}'.format(post.total_budget)"/>
+                                                            </t>
+                                                        </small>
+                                                    </div>
+                                                    
+                                                    <div class="mt-auto">
+                                                        <a t-att-href="'/proyek-penelitian/' + post.slug" 
+                                                           class="btn btn-outline-primary btn-sm">
+                                                            Lihat Detail <i class="fa fa-arrow-right"/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                                
+                                <!-- Pagination -->
+                                <t t-if="pager">
+                                    <div class="d-flex justify-content-center mt-4">
+                                        <t t-call="website.pager"/>
+                                    </div>
+                                </t>
+                            </t>
+                            
+                            <t t-else="">
+                                <div class="text-center py-5">
+                                    <i class="fa fa-search fa-3x text-muted mb-3"/>
+                                    <h4 class="text-muted">Proyek Penelitian Tidak Ditemukan</h4>
+                                    <p class="text-muted">
+                                        <t t-if="search_term">
+                                            Tidak ada proyek penelitian yang cocok dengan pencarian "<strong t-esc="search_term"/>".
+                                        </t>
+                                        <t t-else="">
+                                            Belum ada proyek penelitian yang dipublikasikan.
+                                        </t>
+                                    </p>
+                                    <a href="/proyek-penelitian" class="btn btn-primary">Lihat Semua</a>
+                                </div>
+                            </t>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="col-lg-3">
+                            <!-- Featured Projects -->
+                            <t t-if="featured_posts">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-primary text-white">
+                                        <h6 class="mb-0"><i class="fa fa-star"/> Proyek Unggulan</h6>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <t t-foreach="featured_posts" t-as="featured">
+                                            <div class="p-3 border-bottom">
+                                                <h6 class="mb-1">
+                                                    <a t-att-href="'/proyek-penelitian/' + featured.slug" 
+                                                       class="text-decoration-none"
+                                                       t-esc="featured.name"/>
+                                                </h6>
+                                                <small class="text-muted" t-esc="featured.principal_investigator"/>
+                                                <div class="mt-1">
+                                                    <t t-if="featured.status == 'active'">
+                                                        <small class="badge bg-success">Aktif</small>
+                                                    </t>
+                                                    <t t-elif="featured.status == 'completed'">
+                                                        <small class="badge bg-info">Selesai</small>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <!-- Categories -->
+                            <div class="card mb-4">
+                                <div class="card-header bg-secondary text-white">
+                                    <h6 class="mb-0"><i class="fa fa-list"/> Kategori</h6>
+                                </div>
+                                <div class="card-body p-0">
+                                    <t t-foreach="categories" t-as="category">
+                                        <a href="#" class="list-group-item list-group-item-action border-0">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span t-esc="category.name"/>
+                                                <span class="badge bg-light text-dark" t-esc="category.post_count"/>
+                                            </div>
+                                        </a>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Status Filter -->
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="fa fa-tasks"/> Filter Status</h6>
+                                </div>
+                                <div class="card-body p-0">
+                                    <a href="/proyek-penelitian?status=active" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-play-circle text-success"/> Sedang Berjalan
+                                    </a>
+                                    <a href="/proyek-penelitian?status=completed" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-check-circle text-info"/> Selesai
+                                    </a>
+                                    <a href="/proyek-penelitian?status=proposal" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-clock text-warning"/> Tahap Proposal
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </t>
+        </template>
+
+        <!-- Halaman Detail Proyek Penelitian -->
+        <template id="proyek_penelitian_detail" name="Detail Proyek Penelitian">
+            <t t-call="website.layout">
+                
+                <!-- SEO Meta Tags -->
+                <t t-set="head">
+                    <meta name="description" t-att-content="meta_description"/>
+                    <meta name="keywords" t-att-content="meta_keywords"/>
+                    <meta property="og:title" t-att-content="page_title"/>
+                    <meta property="og:description" t-att-content="meta_description"/>
+                    <meta property="og:type" content="article"/>
+                    <meta name="twitter:card" content="summary_large_image"/>
+                    <meta name="twitter:title" t-att-content="page_title"/>
+                    <meta name="twitter:description" t-att-content="meta_description"/>
+                </t>
+
+                <div class="container py-5">
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb" class="mb-4">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="/proyek-penelitian">Proyek Penelitian</a></li>
+                            <li class="breadcrumb-item active" t-esc="post.name"/>
+                        </ol>
+                    </nav>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Header -->
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center flex-wrap mb-3">
+                                    <span class="badge bg-primary me-2 mb-2" t-esc="post.blog_id.name"/>
+                                    <t t-if="post.status == 'active'">
+                                        <span class="badge bg-success me-2 mb-2">Sedang Berjalan</span>
+                                    </t>
+                                    <t t-elif="post.status == 'completed'">
+                                        <span class="badge bg-info me-2 mb-2">Selesai</span>
+                                    </t>
+                                    <t t-elif="post.status == 'proposal'">
+                                        <span class="badge bg-warning me-2 mb-2">Tahap Proposal</span>
+                                    </t>
+                                    <t t-if="post.is_featured">
+                                        <span class="badge bg-warning text-dark mb-2">
+                                            <i class="fa fa-star"/> Unggulan
+                                        </span>
+                                    </t>
+                                </div>
+                                
+                                <h1 class="display-5 fw-bold mb-3" t-esc="post.name"/>
+                                <t t-if="post.subtitle">
+                                    <p class="lead text-muted mb-3" t-esc="post.subtitle"/>
+                                </t>
+                                
+                                <div class="d-flex flex-wrap align-items-center text-muted mb-4">
+                                    <div class="me-4 mb-2">
+                                        <i class="fa fa-user"/> <strong t-esc="post.principal_investigator"/>
+                                    </div>
+                                    <t t-if="post.start_date">
+                                        <div class="me-4 mb-2">
+                                            <i class="fa fa-calendar"/> <strong t-esc="post.start_date.strftime('%d %B %Y')"/>
+                                            <t t-if="post.end_date"> - <t t-esc="post.end_date.strftime('%d %B %Y')"/></t>
+                                        </div>
+                                    </t>
+                                    <t t-if="post.duration_months">
+                                        <div class="me-4 mb-2">
+                                            <i class="fa fa-clock"/> <strong t-esc="post.duration_months"/> bulan
+                                        </div>
+                                    </t>
+                                    <t t-if="post.progress_percentage and post.status == 'active'">
+                                        <div class="mb-2">
+                                            <i class="fa fa-chart-line"/> <strong t-esc="post.progress_percentage"/>% selesai
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Project Image -->
+                            <t t-if="post.project_images">
+                                <div class="mb-4">
+                                    <img t-att-src="'/web/image/proyek.penelitian.post/' + str(post.id) + '/project_images'" 
+                                         class="img-fluid rounded shadow" 
+                                         t-att-alt="post.name"/>
+                                </div>
+                            </t>
+
+                            <!-- Project Overview -->
+                            <div class="mb-5">
+                                <h3 class="h4 mb-3"><i class="fa fa-info-circle text-primary"/> Ringkasan Proyek</h3>
+                                <div class="bg-light p-4 rounded">
+                                    <t t-if="post.teaser">
+                                        <p t-esc="post.teaser"/>
+                                    </t>
+                                    <t t-if="post.research_area or post.keywords">
+                                        <div class="mt-3">
+                                            <t t-if="post.research_area">
+                                                <strong>Bidang Penelitian:</strong> <span t-esc="post.research_area"/><br/>
+                                            </t>
+                                            <t t-if="post.keywords">
+                                                <strong>Kata Kunci:</strong>
+                                                <t t-foreach="post.keywords.split(',')" t-as="keyword">
+                                                    <span class="badge bg-secondary me-1 mb-1" t-esc="keyword.strip()"/>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <t t-if="post.description">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-file-text text-primary"/> Deskripsi Proyek</h3>
+                                    <div t-field="post.description"/>
+                                </div>
+                            </t>
+
+                            <!-- Research Objectives -->
+                            <t t-if="post.research_objectives">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-bullseye text-primary"/> Tujuan Penelitian</h3>
+                                    <div t-field="post.research_objectives"/>
+                                </div>
+                            </t>
+
+                            <!-- Methodology -->
+                            <t t-if="post.methodology">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-cogs text-primary"/> Metodologi</h3>
+                                    <div t-field="post.methodology"/>
+                                </div>
+                            </t>
+
+                            <!-- Team -->
+                            <div class="mb-5">
+                                <h3 class="h4 mb-3"><i class="fa fa-users text-primary"/> Tim Peneliti</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Ketua Peneliti</h6>
+                                        <p><strong t-esc="post.principal_investigator"/></p>
+                                        
+                                        <t t-if="post.co_investigators">
+                                            <h6>Anggota Peneliti</h6>
+                                            <t t-foreach="post.co_investigators.split('\n')" t-as="investigator">
+                                                <t t-if="investigator.strip()">
+                                                    <p class="mb-1" t-esc="investigator.strip()"/>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <t t-if="post.research_assistants">
+                                            <h6>Asisten Peneliti</h6>
+                                            <t t-foreach="post.research_assistants.split('\n')" t-as="assistant">
+                                                <t t-if="assistant.strip()">
+                                                    <p class="mb-1" t-esc="assistant.strip()"/>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </div>
+                                </div>
+                                
+                                <!-- Students -->
+                                <t t-if="post.phd_students or post.master_students or post.undergrad_students">
+                                    <h6 class="mt-4">Mahasiswa Terlibat</h6>
+                                    <div class="row">
+                                        <t t-if="post.phd_students">
+                                            <div class="col-md-4">
+                                                <strong>S3:</strong>
+                                                <t t-foreach="post.phd_students.split('\n')" t-as="student">
+                                                    <t t-if="student.strip()">
+                                                        <p class="mb-1 small" t-esc="student.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                        <t t-if="post.master_students">
+                                            <div class="col-md-4">
+                                                <strong>S2:</strong>
+                                                <t t-foreach="post.master_students.split('\n')" t-as="student">
+                                                    <t t-if="student.strip()">
+                                                        <p class="mb-1 small" t-esc="student.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                        <t t-if="post.undergrad_students">
+                                            <div class="col-md-4">
+                                                <strong>S1:</strong>
+                                                <t t-foreach="post.undergrad_students.split('\n')" t-as="student">
+                                                    <t t-if="student.strip()">
+                                                        <p class="mb-1 small" t-esc="student.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <!-- Publications & Outputs -->
+                            <t t-if="post.publications or post.patents_ip or post.prototypes">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-book text-primary"/> Luaran &amp; Publikasi</h3>
+                                    
+                                    <t t-if="post.publications">
+                                        <h6>Publikasi</h6>
+                                        <div t-field="post.publications" class="mb-3"/>
+                                    </t>
+                                    
+                                    <t t-if="post.patents_ip">
+                                        <h6>Paten/HKI</h6>
+                                        <t t-foreach="post.patents_ip.split('\n')" t-as="patent">
+                                            <t t-if="patent.strip()">
+                                                <p class="mb-1" t-esc="patent.strip()"/>
+                                            </t>
+                                        </t>
+                                    </t>
+                                    
+                                    <t t-if="post.prototypes">
+                                        <h6 class="mt-3">Prototipe/Produk</h6>
+                                        <div t-field="post.prototypes"/>
+                                    </t>
+                                </div>
+                            </t>
+
+                            <!-- Collaboration -->
+                            <t t-if="post.partner_institutions or post.industry_partners or post.international_partners">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-handshake text-primary"/> Kolaborasi</h3>
+                                    <div class="row">
+                                        <t t-if="post.partner_institutions">
+                                            <div class="col-md-6">
+                                                <h6>Institusi Mitra</h6>
+                                                <t t-foreach="post.partner_institutions.split('\n')" t-as="partner">
+                                                    <t t-if="partner.strip()">
+                                                        <p class="mb-1" t-esc="partner.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                        <t t-if="post.industry_partners">
+                                            <div class="col-md-6">
+                                                <h6>Mitra Industri</h6>
+                                                <t t-foreach="post.industry_partners.split('\n')" t-as="industry">
+                                                    <t t-if="industry.strip()">
+                                                        <p class="mb-1" t-esc="industry.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    <t t-if="post.international_partners">
+                                        <h6 class="mt-3">Mitra Internasional</h6>
+                                        <t t-foreach="post.international_partners.split('\n')" t-as="intl_partner">
+                                            <t t-if="intl_partner.strip()">
+                                                <p class="mb-1" t-esc="intl_partner.strip()"/>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </div>
+                            </t>
+
+                            <!-- Impact & Achievement -->
+                            <t t-if="post.achievements or post.social_impact or post.economic_impact">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-trophy text-primary"/> Dampak &amp; Pencapaian</h3>
+                                    
+                                    <t t-if="post.achievements">
+                                        <h6>Pencapaian &amp; Prestasi</h6>
+                                        <div t-field="post.achievements" class="mb-3"/>
+                                    </t>
+                                    
+                                    <t t-if="post.social_impact">
+                                        <h6>Dampak Sosial</h6>
+                                        <div t-field="post.social_impact" class="mb-3"/>
+                                    </t>
+                                    
+                                    <t t-if="post.economic_impact">
+                                        <h6>Dampak Ekonomi</h6>
+                                        <div t-field="post.economic_impact"/>
+                                    </t>
+                                </div>
+                            </t>
+
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="col-lg-4">
+                            <!-- Project Info -->
+                            <div class="card mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="fa fa-info-circle"/> Info Proyek</h6>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-sm table-borderless mb-0">
+                                        <tr>
+                                            <td><strong>Kategori</strong></td>
+                                            <td t-esc="post.blog_id.name"/>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Status</strong></td>
+                                            <td>
+                                                <t t-if="post.status == 'active'">
+                                                    <span class="badge bg-success">Sedang Berjalan</span>
+                                                </t>
+                                                <t t-elif="post.status == 'completed'">
+                                                    <span class="badge bg-info">Selesai</span>
+                                                </t>
+                                                <t t-elif="post.status == 'proposal'">
+                                                    <span class="badge bg-warning">Proposal</span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <t t-if="post.start_date">
+                                            <tr>
+                                                <td><strong>Mulai</strong></td>
+                                                <td t-esc="post.start_date.strftime('%d %b %Y')"/>
+                                            </tr>
+                                        </t>
+                                        <t t-if="post.end_date">
+                                            <tr>
+                                                <td><strong>Selesai</strong></td>
+                                                <td t-esc="post.end_date.strftime('%d %b %Y')"/>
+                                            </tr>
+                                        </t>
+                                        <t t-if="post.funding_source">
+                                            <tr>
+                                                <td><strong>Pendanaan</strong></td>
+                                                <td t-esc="post.funding_source"/>
+                                            </tr>
+                                        </t>
+                                        <t t-if="post.total_budget">
+                                            <tr>
+                                                <td><strong>Budget</strong></td>
+                                                <td>Rp <t t-esc="'{:,.0f}'.format(post.total_budget)"/></td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Contact -->
+                            <t t-if="post.contact_email or post.project_website">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-success text-white">
+                                        <h6 class="mb-0"><i class="fa fa-envelope"/> Kontak</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <t t-if="post.contact_email">
+                                            <p><i class="fa fa-envelope"/> <a t-att-href="'mailto:' + post.contact_email" t-esc="post.contact_email"/></p>
+                                        </t>
+                                        <t t-if="post.project_website">
+                                            <p><i class="fa fa-globe"/> <a t-att-href="post.project_website" target="_blank">Website Proyek</a></p>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <!-- Related Projects -->
+                            <t t-if="related_posts">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-secondary text-white">
+                                        <h6 class="mb-0"><i class="fa fa-list"/> Proyek Terkait</h6>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <t t-foreach="related_posts" t-as="related">
+                                            <div class="p-3 border-bottom">
+                                                <h6 class="mb-1">
+                                                    <a t-att-href="'/proyek-penelitian/' + related.slug" 
+                                                       class="text-decoration-none"
+                                                       t-esc="related.name"/>
+                                                </h6>
+                                                <small class="text-muted" t-esc="related.principal_investigator"/>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <!-- Share -->
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="fa fa-share"/> Bagikan</h6>
+                                </div>
+                                <div class="card-body text-center">
+                                    <a href="#" class="btn btn-primary btn-sm me-2 mb-2" onclick="shareToFacebook()">
+                                        <i class="fa fa-facebook"/> Facebook
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-sm me-2 mb-2" onclick="shareToTwitter()">
+                                        <i class="fa fa-twitter"/> Twitter
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-sm mb-2" onclick="shareToWhatsApp()">
+                                        <i class="fa fa-whatsapp"/> WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Share Functions -->
+                <script>
+                    function shareToFacebook() {
+                        const url = encodeURIComponent(window.location.href);
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+                    }
+                    
+                    function shareToTwitter() {
+                        const url = encodeURIComponent(window.location.href);
+                        const text = encodeURIComponent('<t t-esc="post.name"/>');
+                        window.open(`https://twitter.com/intent/tweet?url=${url}&amp;text=${text}`, '_blank');
+                    }
+                    
+                    function shareToWhatsApp() {
+                        const url = encodeURIComponent(window.location.href);
+                        const text = encodeURIComponent('<t t-esc="post.name"/>');
+                        window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+                    }
+                </script>
+
+            </t>
+        </template>
+
+    </data>
+</odoo>

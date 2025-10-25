@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Proyek Penelitian Blog Views -->
+        <record id="view_proyek_penelitian_blog_list" model="ir.ui.view">
+            <field name="name">proyek.penelitian.blog.list</field>
+            <field name="model">proyek.penelitian.blog</field>
+            <field name="arch" type="xml">
+                <list string="Kategori Proyek Penelitian" default_order="sequence">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="research_type"/>
+                    <field name="funding_category"/>
+                    <field name="post_count"/>
+                    <field name="website_published"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_proyek_penelitian_blog_form" model="ir.ui.view">
+            <field name="name">proyek.penelitian.blog.form</field>
+            <field name="model">proyek.penelitian.blog</field>
+            <field name="arch" type="xml">
+                <form string="Kategori Proyek Penelitian">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="subtitle"/>
+                                <field name="research_type"/>
+                                <field name="funding_category"/>
+                            </group>
+                            <group>
+                                <field name="institution"/>
+                                <field name="faculty"/>
+                                <field name="funding_agency"/>
+                                <field name="sequence"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <field name="description" placeholder="Deskripsi kategori proyek penelitian..."/>
+                        </group>
+                        
+                        <group>
+                            <group>
+                                <field name="website_published"/>
+                                <field name="active"/>
+                            </group>
+                            <group>
+                                <field name="post_count" readonly="1"/>
+                                <field name="total_funding" widget="monetary"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Proyek Penelitian Post Views -->
+        <record id="view_proyek_penelitian_post_list" model="ir.ui.view">
+            <field name="name">proyek.penelitian.post.list</field>
+            <field name="model">proyek.penelitian.post</field>
+            <field name="arch" type="xml">
+                <list string="Proyek Penelitian" default_order="start_date desc">
+                    <field name="name"/>
+                    <field name="principal_investigator"/>
+                    <field name="blog_id"/>
+                    <field name="status" decoration-success="status == 'completed'" decoration-info="status == 'active'" decoration-warning="status == 'proposal'"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="funding_source"/>
+                    <field name="total_budget" widget="monetary"/>
+                    <field name="is_featured"/>
+                    <field name="website_published"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_proyek_penelitian_post_form" model="ir.ui.view">
+            <field name="name">proyek.penelitian.post.form</field>
+            <field name="model">proyek.penelitian.post</field>
+            <field name="arch" type="xml">
+                <form string="Proyek Penelitian">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_website_published" type="object" class="oe_stat_button" icon="fa-globe">
+                                <field name="website_published" widget="website_publish_button"/>
+                            </button>
+                        </div>
+                        
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="subtitle"/>
+                                <field name="blog_id"/>
+                                <field name="project_code"/>
+                            </group>
+                            <group>
+                                <field name="status"/>
+                                <field name="progress_percentage" widget="progressbar"/>
+                                <field name="is_featured"/>
+                                <field name="date"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Informasi Proyek">
+                                <group>
+                                    <group string="Tim Peneliti">
+                                        <field name="principal_investigator"/>
+                                        <field name="co_investigators" placeholder="Nama anggota peneliti, satu per baris"/>
+                                        <field name="research_assistants" placeholder="Asisten peneliti, satu per baris"/>
+                                    </group>
+                                    <group string="Timeline">
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="duration_months" readonly="1"/>
+                                        <field name="budget_year"/>
+                                    </group>
+                                </group>
+                                
+                                <group>
+                                    <group string="Pendanaan">
+                                        <field name="funding_source"/>
+                                        <field name="funding_scheme"/>
+                                        <field name="total_budget" widget="monetary"/>
+                                    </group>
+                                    <group string="Bidang Penelitian">
+                                        <field name="research_area"/>
+                                        <field name="keywords" placeholder="kata kunci, pisahkan dengan koma"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Deskripsi &amp; Tujuan">
+                                <group>
+                                    <field name="teaser" placeholder="Ringkasan singkat proyek untuk preview"/>
+                                </group>
+                                <group>
+                                    <field name="description" placeholder="Deskripsi lengkap proyek"/>
+                                </group>
+                                <group>
+                                    <field name="research_objectives" placeholder="Tujuan dan target yang ingin dicapai"/>
+                                </group>
+                                <group>
+                                    <field name="methodology" placeholder="Metode penelitian yang digunakan"/>
+                                </group>
+                                <group>
+                                    <field name="expected_outcomes" placeholder="Output dan outcome yang diharapkan"/>
+                                </group>
+                            </page>
+
+                            <page string="Mahasiswa &amp; Kolaborasi">
+                                <group>
+                                    <group string="Mahasiswa Terlibat">
+                                        <field name="phd_students" placeholder="Mahasiswa S3, satu per baris"/>
+                                        <field name="master_students" placeholder="Mahasiswa S2, satu per baris"/>
+                                        <field name="undergrad_students" placeholder="Mahasiswa S1, satu per baris"/>
+                                    </group>
+                                    <group string="Kolaborasi">
+                                        <field name="partner_institutions" placeholder="Institusi mitra, satu per baris"/>
+                                        <field name="industry_partners" placeholder="Mitra industri, satu per baris"/>
+                                        <field name="international_collaboration"/>
+                                        <field name="international_partners" placeholder="Mitra internasional, satu per baris" invisible="not international_collaboration"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Luaran &amp; Publikasi">
+                                <group>
+                                    <field name="publications" placeholder="Jurnal, konferensi, dan publikasi lainnya"/>
+                                </group>
+                                <group>
+                                    <field name="patents_ip" placeholder="Paten atau HKI yang dihasilkan"/>
+                                </group>
+                                <group>
+                                    <field name="prototypes" placeholder="Prototipe atau produk yang dikembangkan"/>
+                                </group>
+                                <group>
+                                    <field name="conference_presentations" placeholder="Presentasi di konferensi atau seminar"/>
+                                </group>
+                            </page>
+
+                            <page string="Dampak &amp; Pencapaian">
+                                <group>
+                                    <field name="achievements" placeholder="Penghargaan atau pencapaian dari proyek"/>
+                                </group>
+                                <group>
+                                    <field name="social_impact" placeholder="Manfaat atau dampak proyek terhadap masyarakat"/>
+                                </group>
+                                <group>
+                                    <field name="economic_impact" placeholder="Dampak ekonomi atau komersialisasi hasil penelitian"/>
+                                </group>
+                                <group>
+                                    <field name="policy_impact" placeholder="Pengaruh terhadap kebijakan pemerintah atau regulasi"/>
+                                </group>
+                            </page>
+
+                            <page string="Progress &amp; Aktivitas">
+                                <group>
+                                    <field name="milestones" placeholder="Pencapaian target dan milestone proyek"/>
+                                </group>
+                                <group>
+                                    <field name="current_activities" placeholder="Aktivitas penelitian yang sedang dilakukan"/>
+                                </group>
+                                <group>
+                                    <field name="next_steps" placeholder="Rencana kegiatan ke depan"/>
+                                </group>
+                            </page>
+
+                            <page string="Media &amp; Kontak">
+                                <group>
+                                    <group string="Media">
+                                        <field name="project_images" filename="project_images_filename"/>
+                                        <field name="project_images_filename" invisible="1"/>
+                                        <field name="project_documents" filename="project_documents_filename"/>
+                                        <field name="project_documents_filename" invisible="1"/>
+                                        <field name="project_video" placeholder="URL video dokumentasi"/>
+                                    </group>
+                                    <group string="Kontak &amp; Link">
+                                        <field name="contact_email"/>
+                                        <field name="project_website" placeholder="URL website khusus proyek"/>
+                                        <field name="related_links" placeholder="Link publikasi, media, atau sumber terkait"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="SEO">
+                                <group>
+                                    <group>
+                                        <field name="slug" placeholder="url-friendly-slug"/>
+                                        <field name="meta_title" placeholder="Judul untuk SEO"/>
+                                    </group>
+                                    <group>
+                                        <field name="meta_description" placeholder="Deskripsi untuk SEO (150-160 karakter)"/>
+                                        <field name="meta_keywords" placeholder="kata kunci, seo, penelitian"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search Views -->
+        <record id="view_proyek_penelitian_blog_search" model="ir.ui.view">
+            <field name="name">proyek.penelitian.blog.search</field>
+            <field name="model">proyek.penelitian.blog</field>
+            <field name="arch" type="xml">
+                <search string="Cari Kategori Proyek">
+                    <field name="name"/>
+                    <field name="research_type"/>
+                    <field name="funding_category"/>
+                    <filter string="Dipublikasikan" name="published" domain="[('website_published', '=', True)]"/>
+                    <filter string="Aktif" name="active" domain="[('active', '=', True)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Jenis Penelitian" name="group_research_type" context="{'group_by': 'research_type'}"/>
+                        <filter string="Kategori Pendanaan" name="group_funding" context="{'group_by': 'funding_category'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_proyek_penelitian_post_search" model="ir.ui.view">
+            <field name="name">proyek.penelitian.post.search</field>
+            <field name="model">proyek.penelitian.post</field>
+            <field name="arch" type="xml">
+                <search string="Cari Proyek Penelitian">
+                    <field name="name"/>
+                    <field name="principal_investigator"/>
+                    <field name="funding_source"/>
+                    <field name="research_area"/>
+                    <field name="keywords"/>
+                    <filter string="Sedang Berjalan" name="active" domain="[('status', '=', 'active')]"/>
+                    <filter string="Selesai" name="completed" domain="[('status', '=', 'completed')]"/>
+                    <filter string="Unggulan" name="featured" domain="[('is_featured', '=', True)]"/>
+                    <filter string="Dipublikasikan" name="published" domain="[('website_published', '=', True)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                        <filter string="Kategori" name="group_category" context="{'group_by': 'blog_id'}"/>
+                        <filter string="Sumber Pendanaan" name="group_funding" context="{'group_by': 'funding_source'}"/>
+                        <filter string="Tahun Mulai" name="group_year" context="{'group_by': 'start_date:year'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>
