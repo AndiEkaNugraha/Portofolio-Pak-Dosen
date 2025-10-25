@@ -146,15 +146,8 @@
                                 <field name="development_status"/>
                                 <field name="development_date"/>
                                 <field name="is_published"/>
-                                <field name="slug" readonly="1"/>
+                                <field name="slug"/>
                             </group>
-                            <group>
-                                <field name="product_image" widget="image" class="oe_avatar" options="{'preview_image': 'product_image', 'size': [200, 200]}"/>
-                            </group>
-                        </group>
-                        
-                        <group string="Ringkasan">
-                            <field name="teaser" nolabel="1" placeholder="Ringkasan singkat produk untuk preview di website..."/>
                         </group>
                         
                         <notebook>
@@ -174,11 +167,16 @@
                                     </group>
                                 </group>
                                 <group string="Spesifikasi Teknis">
-                                    <field name="technical_specs" nolabel="1" placeholder="Detail spesifikasi teknis produk..."/>
+                                    <field name="technical_specs" placeholder="Detail spesifikasi teknis produk..."/>
                                 </group>
                             </page>
                             <page string="Deskripsi &amp; Konten">
-                                <field name="content" placeholder="Deskripsi lengkap produk..."/>
+                                <group>
+                                    <field name="teaser" placeholder="Ringkasan singkat produk untuk preview di website..."/>
+                                </group>
+                                <group>
+                                    <field name="content" placeholder="Deskripsi lengkap produk..."/>
+                                </group>
                             </page>
                             <page string="Media &amp; Link">
                                 <group>
@@ -218,9 +216,11 @@
                     <field name="principal_investigator"/>
                     <field name="produk_type_id"/>
                     <field name="blog_id"/>
+                    <field name="technology_ids" widget="many2many_tags"/>
                     <field name="trl_level"/>
                     <field name="development_status" decoration-success="development_status == 'commercial'" decoration-warning="development_status == 'production'" decoration-info="development_status in ['prototype','testing']" decoration-muted="development_status == 'concept'"/>
                     <field name="development_date"/>
+                    <field name="completion_date"/>
                     <field name="market_potential"/>
                     <field name="is_published" widget="boolean_toggle"/>
                 </list>

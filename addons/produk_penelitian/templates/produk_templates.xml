@@ -375,12 +375,6 @@
                                 </div>
                                 
                                 <!-- Description -->
-                                <t t-if="post.teaser">
-                                    <div class="alert alert-info">
-                                        <h5>Ringkasan</h5>
-                                        <p class="mb-0"><t t-esc="post.teaser"/></p>
-                                    </div>
-                                </t>
                                 
                                 <t t-if="post.content">
                                     <div class="mb-4">
@@ -426,22 +420,88 @@
                                     </div>
                                 </t>
                                 
-                                <!-- Contact -->
-                                <t t-if="post.contact_email or post.contact_phone">
-                                    <div class="card bg-light">
-                                        <div class="card-body">
-                                            <h6>Kontak</h6>
-                                            <t t-if="post.contact_email">
-                                                <p class="mb-1">
-                                                    <i class="fa fa-envelope"/> 
-                                                    <a t-att-href="'mailto:' + post.contact_email"><t t-esc="post.contact_email"/></a>
-                                                </p>
-                                            </t>
-                                            <t t-if="post.contact_phone">
-                                                <p class="mb-0">
-                                                    <i class="fa fa-phone"/> <t t-esc="post.contact_phone"/>
-                                                </p>
-                                            </t>
+                                <!-- Performance Metrics -->
+                                <t t-if="post.performance_metrics">
+                                    <div class="mb-4">
+                                        <h5>Metrik Kinerja</h5>
+                                        <t t-raw="post.performance_metrics"/>
+                                    </div>
+                                </t>
+                                
+                                <!-- Limitations -->
+                                <t t-if="post.limitations">
+                                    <div class="mb-4">
+                                        <h5>Keterbatasan</h5>
+                                        <p class="text-muted"><t t-esc="post.limitations"/></p>
+                                    </div>
+                                </t>
+                                
+                                <!-- Awards and Recognition -->
+                                <t t-if="post.awards_recognition">
+                                    <div class="mb-4">
+                                        <h5>Penghargaan dan Pengakuan</h5>
+                                        <p><t t-esc="post.awards_recognition"/></p>
+                                    </div>
+                                </t>
+                                
+                                <!-- Publications -->
+                                <t t-if="post.publications">
+                                    <div class="mb-4">
+                                        <h5>Publikasi Terkait</h5>
+                                        <p><t t-esc="post.publications"/></p>
+                                    </div>
+                                </t>
+                                
+                                <!-- Competitive Advantage -->
+                                <t t-if="post.competitive_advantage">
+                                    <div class="mb-4">
+                                        <h5>Keunggulan Kompetitif</h5>
+                                        <p><t t-esc="post.competitive_advantage"/></p>
+                                    </div>
+                                </t>
+                                
+                                <!-- Market Information -->
+                                <t t-if="post.estimated_market_size or post.market_potential">
+                                    <div class="mb-4">
+                                        <h5>Informasi Pasar</h5>
+                                        <t t-if="post.market_potential">
+                                            <p><strong>Potensi Pasar:</strong> 
+                                                <span class="badge bg-info">
+                                                    <t t-esc="dict(post._fields['market_potential'].selection)[post.market_potential]"/>
+                                                </span>
+                                            </p>
+                                        </t>
+                                        <t t-if="post.estimated_market_size">
+                                            <p><strong>Estimasi Ukuran Pasar:</strong> <t t-esc="post.estimated_market_size"/></p>
+                                        </t>
+                                    </div>
+                                </t>
+                                
+                                <!-- IP Details -->
+                                <t t-if="post.ip_status != 'none'">
+                                    <div class="mb-4">
+                                        <h5>Kekayaan Intelektual</h5>
+                                        <t t-if="post.patent_number">
+                                            <p><strong>Nomor Paten/HKI:</strong> <t t-esc="post.patent_number"/></p>
+                                        </t>
+                                        <t t-if="post.patent_title">
+                                            <p><strong>Judul Paten/HKI:</strong> <t t-esc="post.patent_title"/></p>
+                                        </t>
+                                        <t t-if="post.patent_date">
+                                            <p><strong>Tanggal Paten/HKI:</strong> <t t-esc="post.patent_date"/></p>
+                                        </t>
+                                    </div>
+                                </t>
+                                
+                                <!-- Technical Drawing -->
+                                <t t-if="post.technical_drawing">
+                                    <div class="mb-4">
+                                        <h5>Gambar Teknis</h5>
+                                        <div class="text-center">
+                                            <img t-att-src="'/web/image/produk.post/%s/technical_drawing' % post.id" 
+                                                 t-att-alt="'Gambar Teknis ' + post.name" 
+                                                 class="img-fluid rounded shadow"
+                                                 style="max-height: 400px;"/>
                                         </div>
                                     </div>
                                 </t>

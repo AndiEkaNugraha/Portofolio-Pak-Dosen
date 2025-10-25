@@ -209,6 +209,11 @@ Presented at International Conference on IoT and Environmental Sustainability, B
             <field name="contact_phone">+62-812-3456-7890</field>
             <field name="is_published">True</field>
             <field name="publication_date">2023-10-15 08:00:00</field>
+            <field name="slug">sistem-monitoring-lingkungan-berbasis-iot</field>
+            <field name="meta_title">Sistem Monitoring Lingkungan IoT - Smart Environmental Monitoring</field>
+            <field name="meta_description">Sistem monitoring lingkungan real-time menggunakan sensor IoT untuk memantau kualitas udara, suhu, kelembaban, dan parameter lingkungan lainnya di Indonesia.</field>
+            <field name="meta_keywords">monitoring lingkungan, IoT, sensor, kualitas udara, environmental monitoring, smart city</field>
+            <field name="technology_ids" eval="[(6, 0, [ref('produk_tech_iot'), ref('produk_tech_cloud_computing')])]"/>
         </record>
         
         <record id="produk_sample_aplikasi_kesehatan" model="produk.post">
@@ -277,6 +282,11 @@ Presented at Asia Pacific Medical Informatics Conference, Singapore, 2023</field
             <field name="contact_phone">+62-21-5555-1234</field>
             <field name="is_published">True</field>
             <field name="publication_date">2023-07-20 10:00:00</field>
+            <field name="slug">aplikasi-telemedicine-untuk-konsultasi-jarak-jauh</field>
+            <field name="meta_title">TeleCare - Aplikasi Telemedicine Indonesia untuk Konsultasi Dokter Online</field>
+            <field name="meta_description">Aplikasi telemedicine TeleCare untuk konsultasi dokter jarak jauh dengan video call, chat, dan rekam medis digital. Layanan kesehatan modern di Indonesia.</field>
+            <field name="meta_keywords">telemedicine, konsultasi dokter online, telecare, kesehatan digital, aplikasi kesehatan, telemedicine Indonesia</field>
+            <field name="technology_ids" eval="[(6, 0, [ref('produk_tech_ai_ml'), ref('produk_tech_cloud_computing')])]"/>
         </record>
         
         <record id="produk_sample_energi_solar" model="produk.post">
@@ -350,6 +360,11 @@ International Recognition from IRENA (International Renewable Energy Agency)</fi
             <field name="contact_phone">+62-811-2345-6789</field>
             <field name="is_published">True</field>
             <field name="publication_date">2023-09-05 09:00:00</field>
+            <field name="slug">sistem-hybrid-solar-wind-untuk-desa-terpencil</field>
+            <field name="meta_title">Sistem Hybrid Solar-Wind - Energi Terbarukan untuk Desa Terpencil Indonesia</field>
+            <field name="meta_description">Sistem energi hibrid solar-wind untuk menyediakan listrik 24 jam bagi desa terpencil. Solusi energi berkelanjutan dengan intelligent energy management.</field>
+            <field name="meta_keywords">energi terbarukan, solar wind hybrid, microgrid, desa terpencil, renewable energy Indonesia</field>
+            <field name="technology_ids" eval="[(6, 0, [ref('produk_tech_renewable_energy'), ref('produk_tech_iot')])]"/>
         </record>
         
         <record id="produk_sample_smart_agriculture" model="produk.post">
@@ -423,6 +438,11 @@ Featured by Ministry of Agriculture as Model Digital Agriculture Platform</field
             <field name="contact_phone">+62-22-8765-4321</field>
             <field name="is_published">True</field>
             <field name="publication_date">2024-01-25 07:30:00</field>
+            <field name="slug">platform-smart-agriculture-dengan-ai</field>
+            <field name="meta_title">AgroSmart - Platform Pertanian Cerdas AI untuk Petani Indonesia</field>
+            <field name="meta_description">Platform pertanian cerdas dengan AI untuk deteksi penyakit tanaman, prediksi hasil panen, dan monitoring lahan. Tingkatkan produktivitas pertanian Anda.</field>
+            <field name="meta_keywords">pertanian cerdas, AI agriculture, deteksi penyakit tanaman, smart farming, agro technology Indonesia</field>
+            <field name="technology_ids" eval="[(6, 0, [ref('produk_tech_ai_ml'), ref('produk_tech_iot'), ref('produk_tech_cloud_computing')])]"/>
         </record>
         
         <record id="produk_sample_smart_traffic" model="produk.post">
@@ -496,6 +516,11 @@ Government Recognition dari Kementerian Perhubungan RI</field>
             <field name="contact_phone">+62-21-7654-3210</field>
             <field name="is_published">True</field>
             <field name="publication_date">2024-04-01 08:00:00</field>
+            <field name="slug">sistem-manajemen-lalu-lintas-cerdas</field>
+            <field name="meta_title">SmartTraffic AI - Sistem Manajemen Lalu Lintas Cerdas Jakarta</field>
+            <field name="meta_description">Sistem manajemen lalu lintas cerdas dengan AI untuk mengoptimalkan flow kendaraan, mengurangi kemacetan, dan meningkatkan keselamatan jalan.</field>
+            <field name="meta_keywords">manajemen lalu lintas, smart traffic, AI transportation, traffic light adaptive, smart city Jakarta</field>
+            <field name="technology_ids" eval="[(6, 0, [ref('produk_tech_ai_ml'), ref('produk_tech_iot')])]"/>
         </record>
         
         <record id="produk_sample_waste_management" model="produk.post">
@@ -568,6 +593,11 @@ Featured by KLHK (Kementerian Lingkungan Hidup dan Kehutanan)</field>
             <field name="contact_phone">+62-22-9876-5432</field>
             <field name="is_published">True</field>
             <field name="publication_date">2024-04-15 09:00:00</field>
+            <field name="slug">sistem-manajemen-sampah-pintar</field>
+            <field name="meta_title">EcoSmart - Sistem Manajemen Sampah Pintar dengan IoT</field>
+            <field name="meta_description">Sistem manajemen sampah pintar dengan smart bins, route optimization, dan reward system untuk meningkatkan partisipasi daur ulang masyarakat.</field>
+            <field name="meta_keywords">manajemen sampah, smart waste, IoT bins, daur ulang, waste management Indonesia</field>
+            <field name="technology_ids" eval="[(6, 0, [ref('produk_tech_iot'), ref('produk_tech_ai_ml'), ref('produk_tech_blockchain')])]"/>
         </record>
         
     </data>

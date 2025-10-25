@@ -162,6 +162,10 @@ class ProdukPost(models.Model):
     display_team = fields.Char('Tim Lengkap', compute='_compute_display_team', store=True)
     age_in_months = fields.Integer('Usia Pengembangan (bulan)', compute='_compute_age_in_months')
     
+    _sql_constraints = [
+        ('slug_unique', 'unique(slug)', 'URL Slug harus unik untuk setiap produk!'),
+    ]
+    
     @api.depends('development_date', 'completion_date')
     def _compute_development_duration(self):
         for record in self:
@@ -199,23 +203,62 @@ class ProdukPost(models.Model):
             vals_list = [vals_list]
         
         for vals in vals_list:
-            if not vals.get('slug') and vals.get('name'):
+            if vals.get('slug'):
+                # Check if slug is already used
+                existing_record = self.search([('slug', '=', vals['slug'])], limit=1)
+                if existing_record:
+                    # Auto-generate unique slug instead of raising error
+                    vals['slug'] = self._generate_slug(vals.get('name', ''), exclude_id=None)
+            elif vals.get('name'):
                 vals['slug'] = self._generate_slug(vals['name'])
         
-        return super().create(vals_list)
+        records = super().create(vals_list)
+        
+        # Ensure slug uniqueness for newly created records
+        for record in records:
+            if record.slug:
+                unique_slug = self._generate_slug(record.name, exclude_id=record.id)
+                if unique_slug != record.slug:
+                    record.slug = unique_slug
+        
+        return records
     
     def write(self, vals):
+        if vals.get('slug'):
+            # Validate slug uniqueness when manually edited
+            existing_record = self.search([('slug', '=', vals['slug']), ('id', '!=', self.id)], limit=1)
+            if existing_record:
+                # Auto-generate unique slug instead of raising error
+                vals['slug'] = self._generate_slug(vals.get('name', self.name), exclude_id=self.id)
+        
         if not vals.get('slug') and vals.get('name'):
-            vals['slug'] = self._generate_slug(vals['name'])
+            vals['slug'] = self._generate_slug(vals['name'], exclude_id=self.id)
+        elif vals.get('name') and not self.slug:
+            vals['slug'] = self._generate_slug(vals['name'], exclude_id=self.id)
         return super().write(vals)
     
-    def _generate_slug(self, name):
-        """Generate URL-friendly slug from name"""
+    def _generate_slug(self, name, exclude_id=None):
+        """Generate URL-friendly slug from name, ensuring uniqueness"""
         import re
-        slug = name.lower()
-        slug = re.sub(r'[^\w\s-]', '', slug)
-        slug = re.sub(r'[-\s]+', '-', slug)
-        return slug.strip('-')
+        base_slug = name.lower()
+        base_slug = re.sub(r'[^\w\s-]', '', base_slug)
+        base_slug = re.sub(r'[-\s]+', '-', base_slug).strip('-')
+        
+        # Ensure uniqueness
+        slug = base_slug
+        counter = 1
+        domain = [('slug', '=', slug)]
+        if exclude_id:
+            domain.append(('id', '!=', exclude_id))
+        
+        while self.search(domain):
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+            domain = [('slug', '=', slug)]
+            if exclude_id:
+                domain.append(('id', '!=', exclude_id))
+        
+        return slug
     
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
@@ -247,9 +290,17 @@ class ProdukPost(models.Model):
             result.append((record.id, name))
         return result
     
-    def get_access_action(self, access_uid=None):
-        """Return website URL for this product"""
-        self.ensure_one()
-        if not self.is_published:
-            return False
-        return '/produk-penelitian/detail/%s' % self.slug or self.id
+    @api.onchange('slug')
+    def _onchange_slug(self):
+        """Validate slug uniqueness in real-time"""
+        if self.slug:
+            # Check if slug is already used by other records
+            exclude_id = self.id if self.id else None
+            existing_record = self.search([('slug', '=', self.slug)] + ([('id', '!=', exclude_id)] if exclude_id else []), limit=1)
+            if existing_record:
+                return {
+                    'warning': {
+                        'title': 'Slug Duplikat',
+                        'message': f"URL Slug '{self.slug}' sudah digunakan oleh produk '{existing_record.name}'. Sistem akan mengubahnya menjadi unik saat disimpan."
+                    }
+                }
