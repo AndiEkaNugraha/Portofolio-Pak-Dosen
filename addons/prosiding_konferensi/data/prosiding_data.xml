@@ -58,6 +58,7 @@
             <field name="conference_name">International Conference on Information and Communication Technology</field>
             <field name="conference_acronym">ICICT</field>
             <field name="organizer">IEEE Indonesia Section</field>
+            <field name="organizer_website">https://www.ieee.org</field>
             <field name="conference_date">2024-10-15</field>
             <field name="conference_city">Jakarta</field>
             <field name="conference_country">Indonesia</field>
@@ -109,6 +110,7 @@
             <field name="conference_name">International Conference on Sustainable Engineering and Environmental Technology</field>
             <field name="conference_acronym">ICSEET</field>
             <field name="organizer">Universitas Indonesia dan ASEAN Engineering Network</field>
+            <field name="organizer_website">https://www.ui.ac.id</field>
             <field name="conference_date">2024-09-20</field>
             <field name="conference_city">Bandung</field>
             <field name="conference_country">Indonesia</field>
@@ -161,6 +163,7 @@
             <field name="conference_name">Seminar Nasional Pendidikan Matematika dan Inovasi Pembelajaran</field>
             <field name="conference_acronym">SENDIMAT</field>
             <field name="organizer">Universitas Negeri Malang dan Asosiasi Guru Matematika Indonesia</field>
+            <field name="organizer_website">https://www.um.ac.id</field>
             <field name="conference_date">2024-08-25</field>
             <field name="conference_city">Malang</field>
             <field name="conference_country">Indonesia</field>
@@ -209,6 +212,7 @@
             <field name="conference_name">ACM International Conference on Computer and Communications Security</field>
             <field name="conference_acronym">ACM CCS</field>
             <field name="organizer">Association for Computing Machinery (ACM)</field>
+            <field name="organizer_website">https://www.acm.org</field>
             <field name="conference_date">2024-11-10</field>
             <field name="conference_city">Copenhagen</field>
             <field name="conference_country">Denmark</field>
@@ -260,6 +264,7 @@
             <field name="conference_name">International Conference on Digital Society and Governance</field>
             <field name="conference_acronym">ICDSG</field>
             <field name="organizer">International Association for Digital Society Research</field>
+            <field name="organizer_website">https://www.digitalsociety.org</field>
             <field name="conference_date">2024-07-18</field>
             <field name="conference_city">Bali</field>
             <field name="conference_country">Indonesia</field>

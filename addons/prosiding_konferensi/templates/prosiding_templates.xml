@@ -211,7 +211,9 @@
                                                             </t>
                                                             <t t-if="post.publisher">
                                                                 <p class="mb-2">
-                                                                    <strong>Publisher:</strong> <t t-esc="post.publisher"/>
+                                                                    <strong>Publisher:</strong> <a t-att-href="post.organizer_website" target="_blank">
+                                                                        <t t-esc="post.publisher"/>
+                                                                    </a>
                                                                 </p>
                                                             </t>
                                                             <t t-if="post.pages">

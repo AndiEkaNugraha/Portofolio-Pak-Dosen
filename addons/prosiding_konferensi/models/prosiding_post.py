@@ -17,7 +17,7 @@ class ProsidingPost(models.Model):
     # Field inherited dari blog.post: create_date, write_date, active, website_published, publication_date
     
     # SEO fields
-    slug = fields.Char('URL Slug', compute='_compute_slug', store=True, index=True)
+    slug = fields.Char('URL Slug', compute='_compute_slug', store=True, inverse='_inverse_slug', index=True)
     meta_title = fields.Char('Meta Title', help="Judul untuk SEO (akan menggunakan judul paper jika kosong)")
     meta_description = fields.Text('Meta Description', help="Deskripsi untuk SEO (akan menggunakan sinopsis jika kosong)")
     meta_keywords = fields.Char('Meta Keywords', help="Kata kunci untuk SEO, pisahkan dengan koma")
@@ -41,6 +41,7 @@ class ProsidingPost(models.Model):
     conference_name = fields.Char('Nama Konferensi', required=True)
     conference_acronym = fields.Char('Singkatan Konferensi', help="Contoh: ICICT, ICITACEE, dll")
     organizer = fields.Char('Penyelenggara')
+    organizer_website = fields.Char('Website Penyelenggara')
     conference_date = fields.Date('Tanggal Konferensi', required=True)
     
     # Conference location
@@ -122,7 +123,7 @@ class ProsidingPost(models.Model):
     @api.depends('name')
     def _compute_slug(self):
         for record in self:
-            if record.name:
+            if not record.slug and record.name:
                 import re
                 # Convert to lowercase and replace special characters
                 slug = record.name.lower()
@@ -132,7 +133,12 @@ class ProsidingPost(models.Model):
                 record.slug = slug
             else:
                 record.slug = ''
-    
+    def _inverse_slug(self):
+        for record in self:
+            # Kalau user mengubah slug secara manual, simpan apa adanya
+            if record.slug:
+                record.slug = record.slug.strip().lower().replace(' ', '-')
+
     @api.depends('conference_date')
     def _compute_conference_year(self):
         for record in self:
