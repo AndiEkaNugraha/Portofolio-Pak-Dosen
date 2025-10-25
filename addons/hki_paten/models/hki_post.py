@@ -30,6 +30,15 @@ class RegistrationOffice(models.Model):
     active = fields.Boolean('Aktif', default=True)
 
 
+class HkiLicense(models.Model):
+    _name = 'hki.license'
+    _description = 'Lisensi HKI'
+    
+    post_id = fields.Many2one('hki.post', 'HKI Post', required=True, ondelete='cascade')
+    licensee = fields.Char('Penerima Lisensi', required=True)
+    license_agreement = fields.Text('Perjanjian Lisensi')
+
+
 class HkiPost(models.Model):
     _name = 'hki.post'
     _description = 'Entri HKI dan Paten'
@@ -117,8 +126,7 @@ class HkiPost(models.Model):
     
     # Commercial info
     commercialized = fields.Boolean('Sudah Dikomersialisasi')
-    licensee = fields.Char('Penerima Lisensi')
-    license_agreement = fields.Char('Perjanjian Lisensi')
+    license_ids = fields.One2many('hki.license', 'post_id', string='Lisensi')
     
     # Computed fields
     application_year = fields.Integer('Tahun Permohonan', compute='_compute_application_year', store=True)

@@ -148,8 +148,12 @@
                                 <group>
                                     <group>
                                         <field name="commercialized"/>
-                                        <field name="licensee"/>
-                                        <field name="license_agreement"/>
+                                        <field name="license_ids">
+                                            <list editable="bottom">
+                                                <field name="licensee"/>
+                                                <field name="license_agreement"/>
+                                            </list>
+                                        </field>
                                     </group>
                                     <group>
                                         <field name="citations"/>
@@ -256,6 +260,8 @@
                             <group>
                                 <field name="name"/>
                                 <field name="code"/>
+                                <field name="country"/>
+                                <field name="website"/>
                                 <field name="sequence"/>
                             </group>
                             <group>
@@ -278,7 +284,40 @@
                     <field name="sequence" widget="handle"/>
                     <field name="name"/>
                     <field name="code"/>
+                    <field name="country"/>
+                    <field name="website"/>
                     <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- HKI License Views -->
+        <record id="view_hki_license_form" model="ir.ui.view">
+            <field name="name">hki.license.form</field>
+            <field name="model">hki.license</field>
+            <field name="arch" type="xml">
+                <form string="Lisensi HKI">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="licensee"/>
+                            </group>
+                            <group>
+                                <field name="license_agreement"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hki_license_tree" model="ir.ui.view">
+            <field name="name">hki.license.tree</field>
+            <field name="model">hki.license</field>
+            <field name="arch" type="xml">
+                <list string="Lisensi HKI">
+                    <field name="licensee"/>
+                    <field name="license_agreement"/>
                 </list>
             </field>
         </record>

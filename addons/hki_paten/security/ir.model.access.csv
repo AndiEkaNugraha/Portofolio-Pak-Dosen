@@ -7,3 +7,5 @@ access_hki_type_public,hki.type.public,model_hki_type,,1,0,0,0
 access_hki_type_user,hki.type.user,model_hki_type,base.group_user,1,1,1,1
 access_registration_office_public,registration.office.public,model_registration_office,,1,0,0,0
 access_registration_office_user,registration.office.user,model_registration_office,base.group_user,1,1,1,1
+access_hki_license_public,hki.license.public,model_hki_license,,1,0,0,0
+access_hki_license_user,hki.license.user,model_hki_license,base.group_user,1,1,1,1

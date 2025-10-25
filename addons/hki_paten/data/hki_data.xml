@@ -47,6 +47,8 @@
         <record id="office_kemenkumham" model="registration.office">
             <field name="name">Direktorat Jenderal Kekayaan Intelektual (DJKI) - Kemenkumham</field>
             <field name="code">DJKI</field>
+            <field name="country">Indonesia</field>
+            <field name="website">https://www.dgip.go.id</field>
             <field name="description">Lembaga resmi pemerintah Indonesia untuk pendaftaran HKI</field>
             <field name="sequence">10</field>
             <field name="active">True</field>
@@ -55,6 +57,8 @@
         <record id="office_wipo" model="registration.office">
             <field name="name">World Intellectual Property Organization (WIPO)</field>
             <field name="code">WIPO</field>
+            <field name="country">Switzerland</field>
+            <field name="website">https://www.wipo.int</field>
             <field name="description">Organisasi internasional untuk kekayaan intelektual</field>
             <field name="sequence">20</field>
             <field name="active">True</field>
@@ -63,6 +67,8 @@
         <record id="office_uspto" model="registration.office">
             <field name="name">United States Patent and Trademark Office (USPTO)</field>
             <field name="code">USPTO</field>
+            <field name="country">United States</field>
+            <field name="website">https://www.uspto.gov</field>
             <field name="description">Kantor paten dan merek dagang Amerika Serikat</field>
             <field name="sequence">30</field>
             <field name="active">True</field>
@@ -170,8 +176,6 @@
             <field name="prior_art">Sistem e-learning konvensional seperti Moodle, Blackboard, dan Canvas yang menggunakan pendekatan one-size-fits-all tanpa personalisasi berbasis AI.</field>
             <field name="advantages">1. Personalisasi pembelajaran real-time, 2. Peningkatan engagement siswa hingga 45%, 3. Efisiensi waktu belajar meningkat 30%, 4. Adaptive assessment yang mengurangi stress siswa, 5. Analytics mendalam untuk educator insights</field>
             <field name="commercialized">True</field>
-            <field name="licensee">PT. Teknologi Pendidikan Nusantara</field>
-            <field name="license_agreement">Lisensi eksklusif 5 tahun untuk implementasi di Indonesia</field>
             <field name="citations">15</field>
             <field name="award_received">True</field>
             <field name="award_description">Juara 1 Kompetisi Inovasi Teknologi Pendidikan Kemendikbud 2024</field>
@@ -243,8 +247,6 @@
             <field name="prior_art">Sensor kualitas air konvensional yang hanya mengukur 1-3 parameter, memerlukan kalibrasi manual, dan tidak memiliki kemampuan prediktif seperti produk Hach, YSI, dan Hydrolab.</field>
             <field name="advantages">1. Multi-parameter sensing dalam satu device, 2. AI prediction untuk preventive action, 3. Self-calibrating technology, 4. Ultra-low power consumption, 5. Cost-effective mass deployment, 6. Real-time cloud analytics, 7. Mobile app integration</field>
             <field name="commercialized">True</field>
-            <field name="licensee">PT. Teknologi Sensor Indonesia, CV. Enviro Solutions</field>
-            <field name="license_agreement">Lisensi non-eksklusif untuk produksi dan distribusi di Asia Tenggara</field>
             <field name="citations">28</field>
             <field name="family_patents">3</field>
             <field name="award_received">True</field>
@@ -320,8 +322,6 @@
             <field name="prior_art">Platform pembelajaran online konvensional seperti Moodle (open source), Google Classroom (basic features), Zoom (video only) yang tidak memiliki integrated ecosystem dan branding terdaftar.</field>
             <field name="advantages">1. Integrated ecosystem dalam satu platform, 2. White-label customization, 3. Multi-language support, 4. Local payment integration, 5. Compliance international standards, 6. 24/7 support, 7. Scalable architecture, 8. Strong brand protection</field>
             <field name="commercialized">True</field>
-            <field name="licensee">EduTech Solutions Pte Ltd (Singapore), Digital Learning Middle East LLC (UAE)</field>
-            <field name="license_agreement">Franchise licensing untuk ekspansi regional dengan royalty fee 8% dari revenue</field>
             <field name="citations">0</field>
             <field name="award_received">True</field>
             <field name="award_description">Indonesia Digital Brand Award 2024 - Best Educational Technology Brand, ASEAN EdTech Excellence Award 2024</field>
@@ -402,8 +402,6 @@
             <field name="prior_art">Kursi roda konvensional manual dan elektrik seperti produk Invacare, Permobil, dan Pride Mobility yang tidak memiliki AI navigation dan design aesthetic yang modern.</field>
             <field name="advantages">1. Autonomous navigation mengurangi fatigue, 2. Ergonomic design mencegah pressure sores, 3. Health monitoring untuk preventive care, 4. Aesthetic appeal mengurangi stigma, 5. Customizable features untuk individual needs, 6. Weather-resistant untuk outdoor use</field>
             <field name="commercialized">True</field>
-            <field name="licensee">PT. Teknologi Medis Nusantara, Adaptive Mobility Solutions Pte Ltd</field>
-            <field name="license_agreement">Manufacturing license untuk Indonesia dan distribusi license untuk Asia Tenggara dengan revenue sharing 15%</field>
             <field name="citations">12</field>
             <field name="award_received">True</field>
             <field name="award_description">Red Dot Design Award 2024 - Best Product Design, International Universal Design Award 2024, Indonesia Innovation Award 2024</field>
@@ -499,8 +497,6 @@
             <field name="prior_art">Water purification systems seperti LifeStraw Family, Katadyn, dan Sawyer yang hanya menggunakan basic filtration tanpa RO dan solar power integration.</field>
             <field name="advantages">1. 100% renewable energy powered, 2. Multi-stage purification untuk comprehensive treatment, 3. Portable dan easy setup, 4. Smart monitoring dan automation, 5. Low maintenance cost, 6. High recovery rate, 7. Scalable untuk berbagai kapasitas</field>
             <field name="commercialized">True</field>
-            <field name="licensee">PT. Teknologi Air Bersih Indonesia, Clean Water Solutions Sdn Bhd</field>
-            <field name="license_agreement">Production license untuk ASEAN region dengan technology transfer dan training package</field>
             <field name="citations">8</field>
             <field name="family_patents">2</field>
             <field name="award_received">True</field>
@@ -510,6 +506,61 @@
             <field name="meta_keywords">paten sederhana, water purification, solar power, reverse osmosis, portable system, clean water technology</field>
             <field name="keywords">paten sederhana, pemurnian air, tenaga surya, reverse osmosis, sistem portabel, teknologi air bersih, off-grid water treatment</field>
             <field name="is_published">True</field>
+        </record>
+
+        <!-- License Demo Data -->
+        <record id="license_sample_1_1" model="hki.license">
+            <field name="post_id" ref="hki_sample_1"/>
+            <field name="licensee">PT. Teknologi Pendidikan Nusantara</field>
+            <field name="license_agreement">Lisensi eksklusif 5 tahun untuk implementasi di Indonesia</field>
+        </record>
+
+        <record id="license_sample_2_1" model="hki.license">
+            <field name="post_id" ref="hki_sample_2"/>
+            <field name="licensee">PT. Teknologi Sensor Indonesia</field>
+            <field name="license_agreement">Lisensi non-eksklusif untuk produksi di Indonesia</field>
+        </record>
+
+        <record id="license_sample_2_2" model="hki.license">
+            <field name="post_id" ref="hki_sample_2"/>
+            <field name="licensee">CV. Enviro Solutions</field>
+            <field name="license_agreement">Lisensi distribusi untuk Asia Tenggara</field>
+        </record>
+
+        <record id="license_sample_3_1" model="hki.license">
+            <field name="post_id" ref="hki_sample_3"/>
+            <field name="licensee">EduTech Solutions Pte Ltd (Singapore)</field>
+            <field name="license_agreement">Franchise licensing untuk Asia Tenggara dengan royalty fee 8%</field>
+        </record>
+
+        <record id="license_sample_3_2" model="hki.license">
+            <field name="post_id" ref="hki_sample_3"/>
+            <field name="licensee">Digital Learning Middle East LLC (UAE)</field>
+            <field name="license_agreement">Franchise licensing untuk Timur Tengah dengan royalty fee 8%</field>
+        </record>
+
+        <record id="license_sample_4_1" model="hki.license">
+            <field name="post_id" ref="hki_sample_4"/>
+            <field name="licensee">PT. Teknologi Medis Nusantara</field>
+            <field name="license_agreement">Manufacturing license untuk Indonesia dengan revenue sharing 15%</field>
+        </record>
+
+        <record id="license_sample_4_2" model="hki.license">
+            <field name="post_id" ref="hki_sample_4"/>
+            <field name="licensee">Adaptive Mobility Solutions Pte Ltd</field>
+            <field name="license_agreement">Distribusi license untuk Asia Tenggara dengan revenue sharing 15%</field>
+        </record>
+
+        <record id="license_sample_5_1" model="hki.license">
+            <field name="post_id" ref="hki_sample_5"/>
+            <field name="licensee">PT. Teknologi Air Bersih Indonesia</field>
+            <field name="license_agreement">Production license untuk Indonesia dengan technology transfer</field>
+        </record>
+
+        <record id="license_sample_5_2" model="hki.license">
+            <field name="post_id" ref="hki_sample_5"/>
+            <field name="licensee">Clean Water Solutions Sdn Bhd</field>
+            <field name="license_agreement">Production license untuk Malaysia dengan training package</field>
         </record>
 
         <!-- Website Menu Data -->
