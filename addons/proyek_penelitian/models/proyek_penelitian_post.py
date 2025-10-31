@@ -64,6 +64,9 @@ class ProyekPenelitianPost(models.Model):
     prototypes = fields.Html('Prototipe/Produk', help="Prototipe atau produk yang dikembangkan")
     conference_presentations = fields.Html('Presentasi Konferensi', help="Presentasi di konferensi atau seminar")
     
+    # Related Products - NEW FIELD
+    product_ids = fields.One2many('proyek.penelitian.produk', 'proyek_id', string='Produk Penelitian', help="Produk penelitian yang terkait dengan proyek ini")
+    
     # Impact & Achievement
     achievements = fields.Html('Pencapaian & Prestasi', help="Penghargaan atau pencapaian dari proyek") 
     social_impact = fields.Html('Dampak Sosial', help="Manfaat atau dampak proyek terhadap masyarakat")

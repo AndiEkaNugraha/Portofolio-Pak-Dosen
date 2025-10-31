@@ -45,7 +45,37 @@
             </field>
         </record>
 
-        <!-- Post/Project Views -->
+        <!-- Produk Terkait Views -->
+        <record id="view_proyek_penelitian_produk_tree" model="ir.ui.view">
+            <field name="name">proyek.penelitian.produk.tree</field>
+            <field name="model">proyek.penelitian.produk</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="sequence"/>
+                    <field name="product_ref"/>
+                    <field name="product_type"/>
+                    <field name="product_name"/>
+                    <field name="product_year"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_proyek_penelitian_produk_form" model="ir.ui.view">
+            <field name="name">proyek.penelitian.produk.form</field>
+            <field name="model">proyek.penelitian.produk</field>
+            <field name="arch" type="xml">
+                <form string="Produk Terkait">
+                    <group>
+                        <field name="product_ref"/>
+                        <field name="sequence"/>
+                        <field name="product_name" readonly="1"/>
+                        <field name="product_type" readonly="1"/>
+                        <field name="product_year" readonly="1"/>
+                        <field name="product_url" readonly="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
         <record id="view_proyek_penelitian_post_list" model="ir.ui.view">
             <field name="name">proyek.penelitian.post.list</field>
             <field name="model">proyek.penelitian.post</field>
@@ -108,6 +138,9 @@
                             <page string="Deskripsi">
                                 <field name="teaser" placeholder="Ringkasan singkat proyek..."/>
                                 <field name="description" placeholder="Deskripsi lengkap proyek..."/>
+                            </page>
+                            <page string="Produk Terkait">
+                                <field name="product_ids"/>
                             </page>
                             <page string="Tim &amp; Kolaborasi">
                                 <field name="co_investigators" placeholder="Daftar anggota peneliti..."/>

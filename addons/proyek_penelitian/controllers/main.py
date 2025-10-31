@@ -106,6 +106,7 @@ class ProyekPenelitianController(http.Controller):
         values = {
             'post': post,
             'related_posts': related_posts,
+            'related_products': post.product_ids.sorted(lambda r: (r.product_type, r.sequence)),
             'page_title': page_title,
             'meta_description': meta_description,
             'meta_keywords': meta_keywords,

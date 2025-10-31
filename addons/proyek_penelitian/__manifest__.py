@@ -6,7 +6,7 @@
     'description': """""",
     'category': 'Website/Website',
     'author': 'Andi Eka Nugraha',
-    'depends': ['base', 'website'],
+    'depends': ['base', 'website', 'buku_karya', 'jurnal_ilmiah', 'produk_penelitian', 'hki_paten', 'prosiding_konferensi'],
     'data': [
         'security/ir.model.access.csv',
         'data/proyek_penelitian_data.xml',

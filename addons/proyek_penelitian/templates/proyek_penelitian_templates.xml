@@ -651,6 +651,30 @@
                                     </a>
                                 </div>
                             </div>
+                            
+                            <!-- Related Products -->
+                            <t t-if="related_products and len(related_products) &gt; 0">
+                                <div class="card mt-4">
+                                    <div class="card-header bg-primary text-white">
+                                        <h6 class="mb-0"><i class="fa fa-box"/> Produk Terkait</h6>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <t t-foreach="related_products" t-as="rp">
+                                            <div class="p-3 border-bottom">
+                                                <h6 class="mb-1">
+                                                    <t t-if="rp.product_url">
+                                                        <a t-att-href="rp.product_url" target="_blank" class="text-decoration-none" t-esc="rp.product_name"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="rp.product_name"/>
+                                                    </t>
+                                                </h6>
+                                                <small class="text-muted"> <t t-esc="rp.product_type"/> <t t-if="rp.product_year">| <t t-esc="rp.product_year"/></t></small>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
                         </div>
                     </div>
                 </div>
