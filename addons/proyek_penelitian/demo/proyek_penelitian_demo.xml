@@ -19,6 +19,7 @@ Andi Pratama, S.T. (Asisten Peneliti Junior)</field>
             <field name="status">active</field>
             <field name="progress_percentage">65</field>
             <field name="funding_source">Kementerian Pendidikan, Kebudayaan, Riset dan Teknologi</field>
+            <field name="funding_source_url">https://www.kemdikbud.go.id</field>
             <field name="funding_scheme">Hibah Penelitian Terapan Unggulan Perguruan Tinggi</field>
             <field name="total_budget">850000000</field>
             <field name="budget_year">2024-2026</field>
@@ -162,6 +163,7 @@ Agus Setiawan, S.T., M.T.</field>
             <field name="status">active</field>
             <field name="progress_percentage">75</field>
             <field name="funding_source">Kementerian Pertanian RI</field>
+            <field name="funding_source_url">https://www.pertanian.go.id</field>
             <field name="funding_scheme">Hibah Penelitian Inovasi Pertanian Digital</field>
             <field name="total_budget">650000000</field>
             <field name="budget_year">2023-2025</field>
@@ -232,6 +234,7 @@ Siska Amelinda, S.Kom., M.Kom.</field>
             <field name="status">completed</field>
             <field name="progress_percentage">100</field>
             <field name="funding_source">European Union Horizon 2020</field>
+            <field name="funding_source_url">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home</field>
             <field name="funding_scheme">Marie Skłodowska-Curie Research and Innovation Staff Exchange</field>
             <field name="total_budget">1200000000</field>
             <field name="budget_year">2022-2024</field>
@@ -283,6 +286,7 @@ Dr. Maya Indrawati, S.Si., M.T.</field>
             <field name="status">active</field>
             <field name="progress_percentage">45</field>
             <field name="funding_source">Badan Riset dan Inovasi Nasional (BRIN)</field>
+            <field name="funding_source_url">https://brin.go.id</field>
             <field name="funding_scheme">Riset Unggulan Nasional</field>
             <field name="total_budget">1500000000</field>
             <field name="research_area">Renewable Energy, Microgrid, Energy Management, Sustainable Development</field>

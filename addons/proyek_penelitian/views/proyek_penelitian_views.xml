@@ -125,6 +125,7 @@
                         <group>
                             <group>
                                 <field name="funding_source"/>
+                                <field name="funding_source_url"/>
                                 <field name="funding_scheme"/>
                                 <field name="total_budget"/>
                                 <field name="budget_year"/>

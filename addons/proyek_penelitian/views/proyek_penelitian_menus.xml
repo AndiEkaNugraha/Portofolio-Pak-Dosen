@@ -3,20 +3,6 @@
     <data>
 
         <!-- Actions -->
-        <record id="action_proyek_penelitian_blog" model="ir.actions.act_window">
-            <field name="name">Kategori Proyek</field>
-            <field name="res_model">proyek.penelitian.blog</field>
-            <field name="view_mode">list,form</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">
-                    Buat kategori proyek penelitian pertama Anda!
-                </p>
-                <p>
-                    Kategori membantu mengorganisir proyek penelitian berdasarkan jenis, sumber pendanaan, atau bidang ilmu.
-                </p>
-            </field>
-        </record>
-
         <record id="action_proyek_penelitian_post" model="ir.actions.act_window">
             <field name="name">Proyek Penelitian</field>
             <field name="res_model">proyek.penelitian.post</field>
@@ -31,11 +17,26 @@
                 </p>
             </field>
         </record>
+        <record id="action_proyek_penelitian_blog" model="ir.actions.act_window">
+            <field name="name">Kategori Proyek</field>
+            <field name="res_model">proyek.penelitian.blog</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Buat kategori proyek penelitian pertama Anda!
+                </p>
+                <p>
+                    Kategori membantu mengorganisir proyek penelitian berdasarkan jenis, sumber pendanaan, atau bidang ilmu.
+                </p>
+            </field>
+        </record>
+
+        
 
         <!-- Menu Items -->
         <menuitem id="menu_proyek_penelitian_root" 
                   name="Proyek Penelitian" 
-                  sequence="25"/>
+                  sequence="5"/>
 
         <menuitem id="menu_proyek_penelitian_blog" 
                   name="Kategori Proyek" 

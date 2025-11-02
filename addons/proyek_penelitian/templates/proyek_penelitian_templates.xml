@@ -31,17 +31,17 @@
 
                     <!-- Search and Filter -->
                     <div class="row mb-4">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 py-2">
                             <form method="get" class="d-flex">
                                 <input type="text" name="search" class="form-control me-2" 
                                        placeholder="Cari proyek, peneliti, atau kata kunci..." 
                                        t-att-value="search_term or ''"/>
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-search"/> Cari
+                                    <i class="fa fa-search"/>
                                 </button>
                             </form>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 py-2">
                             <div class="dropdown">
                                 <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" 
                                         data-bs-toggle="dropdown">
@@ -59,7 +59,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 py-2">
                             <div class="dropdown">
                                 <button class="btn btn-outline-info dropdown-toggle w-100" type="button" 
                                         data-bs-toggle="dropdown">
@@ -139,7 +139,13 @@
                                                     
                                                     <div class="mb-3">
                                                         <small class="text-primary">
-                                                            <i class="fa fa-money"/> <t t-esc="post.funding_source"/>
+                                                            <i class="fa fa-money"/>
+                                                            <t t-if="post.funding_source_url">
+                                                                <a t-att-href="post.funding_source_url" target="_blank" class="text-decoration-none" t-esc="post.funding_source"/>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <t t-esc="post.funding_source"/>
+                                                            </t>
                                                             <t t-if="post.total_budget">
                                                                 | <i class="fa fa-coins"/> Rp <t t-esc="'{:,.0f}'.format(post.total_budget)"/>
                                                             </t>
@@ -219,7 +225,7 @@
                                 <div class="card-header bg-secondary text-white">
                                     <h6 class="mb-0"><i class="fa fa-list"/> Kategori</h6>
                                 </div>
-                                <div class="card-body p-0">
+                                <div class="card-body">
                                     <t t-foreach="categories" t-as="category">
                                         <a href="#" class="list-group-item list-group-item-action border-0">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -236,7 +242,7 @@
                                 <div class="card-header bg-info text-white">
                                     <h6 class="mb-0"><i class="fa fa-tasks"/> Filter Status</h6>
                                 </div>
-                                <div class="card-body p-0">
+                                <div class="card-body">
                                     <a href="/proyek-penelitian?status=active" class="list-group-item list-group-item-action border-0">
                                         <i class="fa fa-play-circle text-success"/> Sedang Berjalan
                                     </a>
@@ -583,7 +589,14 @@
                                         <t t-if="post.funding_source">
                                             <tr>
                                                 <td><strong>Pendanaan</strong></td>
-                                                <td t-esc="post.funding_source"/>
+                                                <td>
+                                                    <t t-if="post.funding_source_url">
+                                                        <a t-att-href="post.funding_source_url" target="_blank" t-esc="post.funding_source"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <t t-esc="post.funding_source"/>
+                                                    </t>
+                                                </td>
                                             </tr>
                                         </t>
                                         <t t-if="post.total_budget">
@@ -635,7 +648,7 @@
                             </t>
 
                             <!-- Share -->
-                            <div class="card">
+                            <!-- <div class="card">
                                 <div class="card-header bg-info text-white">
                                     <h6 class="mb-0"><i class="fa fa-share"/> Bagikan</h6>
                                 </div>
@@ -650,7 +663,7 @@
                                         <i class="fa fa-whatsapp"/> WhatsApp
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
                             
                             <!-- Related Products -->
                             <t t-if="related_products and len(related_products) &gt; 0">
@@ -681,7 +694,7 @@
 
                 <!-- Share Functions -->
                 <script>
-                    function shareToFacebook() {
+                    <!-- function shareToFacebook() {
                         const url = encodeURIComponent(window.location.href);
                         window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
                     }
@@ -696,7 +709,7 @@
                         const url = encodeURIComponent(window.location.href);
                         const text = encodeURIComponent('<t t-esc="post.name"/>');
                         window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
-                    }
+                    } -->
                 </script>
 
             </t>

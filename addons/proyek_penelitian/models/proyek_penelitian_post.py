@@ -35,6 +35,7 @@ class ProyekPenelitianPost(models.Model):
     
     # Funding Information
     funding_source = fields.Char('Sumber Pendanaan', required=True, help="Contoh: Kemendikbud, BRIN, Industri")
+    funding_source_url = fields.Char('URL Sumber Pendanaan', help="URL website pemberi dana")
     funding_scheme = fields.Char('Skema Pendanaan', help="Contoh: Hibah Penelitian Dasar, PKM, dll")
     total_budget = fields.Float('Total Anggaran (Rp)')
     budget_year = fields.Char('Tahun Anggaran', help="Contoh: 2024, 2023-2025")

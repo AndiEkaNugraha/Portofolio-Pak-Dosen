@@ -66,6 +66,7 @@ Agus Setiawan, S.Kom., M.Kom. - Software Engineer</field>
             <field name="status">active</field>
             <field name="progress_percentage">65</field>
             <field name="funding_source">Badan Riset dan Inovasi Nasional (BRIN)</field>
+            <field name="funding_source_url">https://brin.go.id</field>
             <field name="funding_scheme">Riset Kolaborasi Indonesia 2023</field>
             <field name="total_budget">2500000000</field>
             <field name="budget_year">2023-2025</field>
@@ -164,6 +165,7 @@ Fitri Rahayu, S.Kom., M.T. - Data Scientist</field>
             <field name="status">active</field>
             <field name="progress_percentage">80</field>
             <field name="funding_source">Kementerian Pertanian RI</field>
+            <field name="funding_source_url">https://www.pertanian.go.id</field>
             <field name="funding_scheme">Penelitian Terapan Pertanian Berkelanjutan</field>
             <field name="total_budget">1200000000</field>
             <field name="budget_year">2022-2024</field>
@@ -247,6 +249,7 @@ Siti Rahayu, S.T., M.T. - Energy Storage Expert</field>
             <field name="status">active</field>
             <field name="progress_percentage">45</field>
             <field name="funding_source">Kementerian ESDM</field>
+            <field name="funding_source_url">https://www.esdm.go.id</field>
             <field name="funding_scheme">Program Energi Terbarukan untuk Wilayah Terpencil</field>
             <field name="total_budget">5000000000</field>
             <field name="budget_year">2023-2026</field>
@@ -342,6 +345,7 @@ Agus Wijaya, S.Kom., M.M. - Smart City Consultant</field>
             <field name="status">active</field>
             <field name="progress_percentage">35</field>
             <field name="funding_source">World Bank</field>
+            <field name="funding_source_url">https://www.worldbank.org</field>
             <field name="funding_scheme">Smart Cities Development Program - Asia Pacific</field>
             <field name="total_budget">3500000000</field>
             <field name="budget_year">2023-2026</field>
