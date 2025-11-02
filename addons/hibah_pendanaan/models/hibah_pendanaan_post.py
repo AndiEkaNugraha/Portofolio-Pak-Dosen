@@ -17,8 +17,6 @@ class HibahPendanaanPost(models.Model):
     # Grant Details
     grant_number = fields.Char('Nomor Hibah', help="Nomor kontrak/SK hibah")
     grant_scheme = fields.Char('Skema Hibah', help="Nama skema hibah, contoh: Hibah Penelitian Dasar, PKM, dll")
-    principal_investigator = fields.Char('Ketua/Penanggung Jawab', required=True)
-    co_investigators = fields.Text('Anggota Tim', help="Nama anggota tim, pisahkan dengan baris baru")
     
     # Timeline & Status
     start_date = fields.Date('Tanggal Mulai', required=True)
@@ -34,8 +32,6 @@ class HibahPendanaanPost(models.Model):
         ('extended', 'Diperpanjang')
     ], string='Status Hibah', required=True, default='proposal')
     
-    progress_percentage = fields.Float('Progress (%)', help="Persentase penyelesaian hibah (0-100)")
-    
     # Funding Information
     funding_agency = fields.Char('Lembaga Pemberi Dana', required=True)
     funding_source = fields.Char('Sumber Dana', help="Detail sumber dana, contoh: APBN, APBD, Swasta")
@@ -44,7 +40,16 @@ class HibahPendanaanPost(models.Model):
     remaining_amount = fields.Float('Sisa Dana (Rp)', compute='_compute_remaining_amount', store=True)
     funding_year = fields.Char('Tahun Anggaran', help="Contoh: 2024, 2023-2025")
     
-    # Budget Breakdown
+    # Contact Information (for hibah)
+    contact_person = fields.Char('Narahubung Hibah', help="PIC untuk hibah ini")
+    contact_email = fields.Char('Email Kontak')
+    contact_phone = fields.Char('Telepon Kontak')
+    
+    # Budget Breakdown - One2many relation to flexible budget lines
+    budget_line_ids = fields.One2many('hibah.budget.line', 'hibah_id', 'Rincian Anggaran')
+    budget_total = fields.Float('Total dari Rincian', compute='_compute_budget_total', store=True)
+    
+    # Legacy budget fields (kept for compatibility, can be removed if not needed)
     personnel_cost = fields.Float('Biaya Personel (Rp)')
     equipment_cost = fields.Float('Biaya Peralatan (Rp)')
     material_cost = fields.Float('Biaya Bahan (Rp)')
@@ -52,72 +57,52 @@ class HibahPendanaanPost(models.Model):
     other_cost = fields.Float('Biaya Lainnya (Rp)')
     overhead_percentage = fields.Float('Overhead (%)')
     
-    # Research Information
+    # Research Information (simplified - detailed research info in proyek)
     research_area = fields.Char('Bidang Penelitian', help="Area/bidang penelitian")
+    research_focus = fields.Text('Fokus Penelitian', help="Deskripsi fokus penelitian hibah")
     keywords = fields.Char('Kata Kunci', help="Kata kunci hibah, pisahkan dengan koma")
     objectives = fields.Html('Tujuan Hibah', help="Tujuan dan target yang ingin dicapai")
-    methodology = fields.Html('Metodologi', help="Metode penelitian yang digunakan")
     expected_outcomes = fields.Html('Luaran yang Diharapkan', help="Output dan outcome yang diharapkan")
     
-    # Collaboration & Partnership  
-    partner_institutions = fields.Text('Institusi Mitra', help="Institusi yang berkolaborasi, pisahkan dengan baris baru")
-    industry_partners = fields.Text('Mitra Industri', help="Perusahaan/industri yang terlibat")
-    international_collaboration = fields.Boolean('Kolaborasi Internasional')
-    international_partners = fields.Text('Mitra Internasional', help="Institusi internasional yang terlibat")
+    # Grant Application Information
+    eligibility_criteria = fields.Html('Kriteria Kelayakan', help="Kriteria penerima hibah")
+    application_requirements = fields.Html('Persyaratan Aplikasi', help="Dokumen dan persyaratan yang dibutuhkan")
+    application_deadline = fields.Date('Batas Waktu Pendaftaran', help="Deadline pengajuan proposal")
+    reporting_requirements = fields.Html('Kebutuhan Pelaporan', help="Jenis dan jadwal laporan yang diperlukan")
     
-    # Team & Human Resources
-    phd_students = fields.Text('Mahasiswa S3 Terlibat', help="Nama mahasiswa S3 yang terlibat")
-    master_students = fields.Text('Mahasiswa S2 Terlibat', help="Nama mahasiswa S2 yang terlibat")
-    undergrad_students = fields.Text('Mahasiswa S1 Terlibat', help="Nama mahasiswa S1 yang terlibat")
-    research_assistants = fields.Text('Asisten Peneliti', help="Nama asisten peneliti")
-    external_experts = fields.Text('Pakar Eksternal', help="Konsultan atau pakar dari luar institusi")
+    # Documentation & Reporting - File Uploads
+    interim_reports = fields.Binary('Laporan Kemajuan', help="Upload file laporan kemajuan", attachment=True)
+    interim_reports_filename = fields.Char('Nama File Laporan Kemajuan')
     
-    # Outputs & Results
-    publications = fields.Html('Publikasi yang Dihasilkan', help="Daftar publikasi dari hibah ini")
-    patents_ip = fields.Html('Paten/HKI', help="Paten atau hak kekayaan intelektual yang dihasilkan")
-    prototypes = fields.Html('Prototipe/Produk', help="Prototipe atau produk yang dikembangkan")
-    conference_presentations = fields.Text('Presentasi Konferensi', help="Konferensi/seminar yang diikuti")
-    awards_recognition = fields.Html('Penghargaan', help="Penghargaan yang diterima")
+    final_report = fields.Binary('Laporan Akhir', help="Upload file laporan akhir", attachment=True)
+    final_report_filename = fields.Char('Nama File Laporan Akhir')
     
-    # Impact & Sustainability
-    social_impact = fields.Html('Dampak Sosial', help="Dampak positif terhadap masyarakat")
-    economic_impact = fields.Html('Dampak Ekonomi', help="Dampak ekonomi yang dihasilkan")
-    environmental_impact = fields.Html('Dampak Lingkungan', help="Dampak terhadap lingkungan")
-    sustainability_plan = fields.Html('Rencana Keberlanjutan', help="Rencana setelah hibah selesai")
+    financial_reports = fields.Binary('Laporan Keuangan', help="Upload file laporan keuangan", attachment=True)
+    financial_reports_filename = fields.Char('Nama File Laporan Keuangan')
     
-    # Progress Reporting
-    milestone_achieved = fields.Html('Milestone yang Dicapai', help="Pencapaian milestone utama")
-    current_activities = fields.Html('Kegiatan Saat Ini', help="Aktivitas yang sedang berlangsung")
-    challenges_faced = fields.Html('Tantangan yang Dihadapi', help="Masalah dan solusi")
-    next_steps = fields.Html('Langkah Selanjutnya', help="Rencana ke depan")
-    
-    # Documentation & Reporting
-    interim_reports = fields.Html('Laporan Kemajuan', help="Link atau deskripsi laporan kemajuan")
-    final_report = fields.Html('Laporan Akhir', help="Link atau deskripsi laporan akhir")
-    financial_reports = fields.Html('Laporan Keuangan', help="Dokumentasi penggunaan dana")
     audit_results = fields.Html('Hasil Audit', help="Hasil audit jika ada")
+    
+    # Removed duplicate fields that should be in proyek:
+    # - partner_institutions, industry_partners, international_collaboration, international_partners
+    # - phd_students, master_students, undergrad_students, research_assistants, external_experts
+    # - publications, patents_ip, prototypes, conference_presentations, awards_recognition
+    # - social_impact, economic_impact, environmental_impact, sustainability_plan
+    # - milestone_achieved, current_activities, challenges_faced, next_steps
+    # These are research outputs that belong to the project, not the grant itself
     
     # Content & Description
     teaser = fields.Text('Ringkasan Singkat', help="Deskripsi singkat untuk preview")
     description = fields.Html('Deskripsi Lengkap', help="Deskripsi detail hibah/pendanaan")
     background = fields.Html('Latar Belakang', help="Latar belakang dan urgensi hibah")
-    significance = fields.Html('Signifikansi', help="Pentingnya hibah ini")
+    terms_conditions = fields.Html('Syarat & Ketentuan', help="Syarat dan ketentuan hibah")
     
-    # Media & Documents  
-    image_url = fields.Char('URL Gambar', help="Link gambar untuk ditampilkan di website")
-    document_urls = fields.Text('Link Dokumen', help="Link ke dokumen terkait hibah")
-    video_url = fields.Char('URL Video', help="Link video presentasi atau dokumentasi")
-    
-    # Contact & External Links
-    contact_email = fields.Char('Email Kontak')
-    contact_phone = fields.Char('Telepon Kontak')
-    project_website = fields.Char('Website Proyek', help="Website khusus proyek jika ada")
-    related_links = fields.Text('Link Terkait', help="Link ke artikel, berita, atau halaman terkait")
+    # Contact & External Links (for public)
+    project_website = fields.Char('Website Hibah', help="Website informasi hibah jika ada")
     
     # Display & Website
     is_featured = fields.Boolean('Unggulan', help="Tampilkan di halaman utama")
     website_published = fields.Boolean('Dipublikasikan di Website', default=True)
-    date = fields.Date('Tanggal Publikasi', default=fields.Date.today)
+    date = fields.Date('Tanggal Publikasi Hibah', default=fields.Date.today)
     
     # SEO Fields
     slug = fields.Char('URL Slug', help="Slug untuk URL (otomatis dari nama jika kosong)")
@@ -139,6 +124,11 @@ class HibahPendanaanPost(models.Model):
     def _compute_remaining_amount(self):
         for record in self:
             record.remaining_amount = record.total_amount - record.disbursed_amount
+    
+    @api.depends('budget_line_ids.amount')
+    def _compute_budget_total(self):
+        for record in self:
+            record.budget_total = sum(record.budget_line_ids.mapped('amount'))
     
     @api.model
     def create(self, vals_list):
@@ -181,12 +171,6 @@ class HibahPendanaanPost(models.Model):
         for record in self:
             if record.start_date and record.end_date and record.start_date > record.end_date:
                 raise UserError("Tanggal mulai tidak boleh lebih besar dari tanggal selesai.")
-    
-    @api.constrains('progress_percentage')
-    def _check_progress(self):
-        for record in self:
-            if record.progress_percentage < 0 or record.progress_percentage > 100:
-                raise UserError("Progress harus antara 0-100%.")
     
     @api.constrains('total_amount', 'disbursed_amount')
     def _check_amounts(self):

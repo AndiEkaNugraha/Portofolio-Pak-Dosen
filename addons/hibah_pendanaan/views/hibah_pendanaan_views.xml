@@ -3,6 +3,21 @@
     <data>
 
         <!-- Blog Category Views -->
+        <record id="view_hibah_budget_line_tree" model="ir.ui.view">
+            <field name="name">hibah.budget.line.tree</field>
+            <field name="model">hibah.budget.line</field>
+            <field name="arch" type="xml">
+                <list editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="category"/>
+                    <field name="description"/>
+                    <field name="currency_id" column_invisible="1"/>
+                    <field name="amount" widget="monetary" sum="Total"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+        </record>
+
         <record id="view_hibah_pendanaan_blog_list" model="ir.ui.view">
             <field name="name">hibah.pendanaan.blog.list</field>
             <field name="model">hibah.pendanaan.blog</field>
@@ -75,14 +90,12 @@
                     <field name="name"/>
                     <field name="blog_id"/>
                     <field name="grant_number"/>
-                    <field name="principal_investigator"/>
                     <field name="funding_agency"/>
                     <field name="status"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
                     <field name="total_amount" widget="monetary"/>
                     <field name="disbursed_amount" widget="monetary"/>
-                    <field name="progress_percentage"/>
                     <field name="is_featured"/>
                     <field name="website_published"/>
                 </list>
@@ -107,14 +120,12 @@
                                 <field name="blog_id"/>
                                 <field name="grant_number"/>
                                 <field name="grant_scheme"/>
-                                <field name="principal_investigator"/>
                             </group>
                             <group>
                                 <field name="status"/>
                                 <field name="start_date"/>
                                 <field name="end_date"/>
                                 <field name="duration_months" readonly="1"/>
-                                <field name="progress_percentage"/>
                                 <field name="is_featured"/>
                             </group>
                         </group>
@@ -130,12 +141,15 @@
                                         <field name="funding_year"/>
                                     </group>
                                     <group>
-                                        <field name="personnel_cost" widget="monetary"/>
-                                        <field name="equipment_cost" widget="monetary"/>
-                                        <field name="material_cost" widget="monetary"/>
-                                        <field name="travel_cost" widget="monetary"/>
-                                        <field name="other_cost" widget="monetary"/>
                                         <field name="overhead_percentage"/>
+                                    </group>
+                                </group>
+                                <group string="Rincian Anggaran">
+                                    <field name="budget_line_ids"/>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="budget_total" widget="monetary" readonly="1" class="oe_subtotal_footer_separator"/>
                                     </group>
                                 </group>
                             </page>
@@ -143,75 +157,57 @@
                                 <group>
                                     <field name="research_area"/>
                                     <field name="keywords"/>
+                                    <field name="research_focus" placeholder="Fokus penelitian hibah..."/>
+                                    <field name="teaser" placeholder="Ringkasan singkat hibah..."/>
+                                    <field name="description" placeholder="Deskripsi lengkap hibah..."/>
+                                    <field name="background" placeholder="Latar belakang hibah..."/>
+                                    <field name="objectives" placeholder="Tujuan hibah..."/>
+                                    <field name="expected_outcomes" placeholder="Luaran yang diharapkan..."/>
+                                    <field name="terms_conditions" placeholder="Syarat dan ketentuan hibah..."/>
                                 </group>
-                                <field name="teaser" placeholder="Ringkasan singkat hibah..."/>
-                                <field name="description" placeholder="Deskripsi lengkap hibah..."/>
-                                <field name="background" placeholder="Latar belakang hibah..."/>
-                                <field name="objectives" placeholder="Tujuan hibah..."/>
-                                <field name="methodology" placeholder="Metodologi yang digunakan..."/>
-                                <field name="expected_outcomes" placeholder="Luaran yang diharapkan..."/>
-                                <field name="significance" placeholder="Signifikansi hibah..."/>
+                                
                             </page>
-                            <page string="Tim &amp; Kolaborasi">
+                            <page string="Aplikasi &amp; Persyaratan">
+                                <group>
+                                    <field name="application_deadline"/>
+                                    <field name="eligibility_criteria" placeholder="Kriteria kelayakan penerima hibah..."/>
+                                    <field name="application_requirements" placeholder="Persyaratan dan dokumen yang dibutuhkan..."/>
+                                    <field name="reporting_requirements" placeholder="Kebutuhan pelaporan..."/>
+                                </group>
+                            </page>
+                            <page string="Kontak &amp; Informasi">
                                 <group>
                                     <group>
-                                        <field name="co_investigators" placeholder="Anggota tim peneliti..."/>
-                                        <field name="research_assistants" placeholder="Asisten peneliti..."/>
-                                        <field name="external_experts" placeholder="Pakar eksternal..."/>
-                                    </group>
-                                    <group>
-                                        <field name="phd_students" placeholder="Mahasiswa S3..."/>
-                                        <field name="master_students" placeholder="Mahasiswa S2..."/>
-                                        <field name="undergrad_students" placeholder="Mahasiswa S1..."/>
-                                    </group>
-                                </group>
-                                <group>
-                                    <field name="international_collaboration"/>
-                                </group>
-                                <field name="partner_institutions" placeholder="Institusi mitra..." invisible="not international_collaboration"/>
-                                <field name="industry_partners" placeholder="Mitra industri..."/>
-                                <field name="international_partners" placeholder="Mitra internasional..." invisible="not international_collaboration"/>
-                            </page>
-                            <page string="Progress &amp; Milestone">
-                                <field name="milestone_achieved" placeholder="Milestone yang telah dicapai..."/>
-                                <field name="current_activities" placeholder="Kegiatan yang sedang berlangsung..."/>
-                                <field name="challenges_faced" placeholder="Tantangan yang dihadapi..."/>
-                                <field name="next_steps" placeholder="Langkah selanjutnya..."/>
-                            </page>
-                            <page string="Luaran &amp; Hasil">
-                                <field name="publications" placeholder="Publikasi yang dihasilkan..."/>
-                                <field name="patents_ip" placeholder="Paten dan HKI..."/>
-                                <field name="prototypes" placeholder="Prototipe dan produk..."/>
-                                <field name="conference_presentations" placeholder="Presentasi konferensi..."/>
-                                <field name="awards_recognition" placeholder="Penghargaan yang diterima..."/>
-                            </page>
-                            <page string="Dampak &amp; Keberlanjutan">
-                                <field name="social_impact" placeholder="Dampak sosial..."/>
-                                <field name="economic_impact" placeholder="Dampak ekonomi..."/>
-                                <field name="environmental_impact" placeholder="Dampak lingkungan..."/>
-                                <field name="sustainability_plan" placeholder="Rencana keberlanjutan..."/>
-                            </page>
-                            <page string="Dokumentasi &amp; Laporan">
-                                <field name="interim_reports" placeholder="Laporan kemajuan..."/>
-                                <field name="final_report" placeholder="Laporan akhir..."/>
-                                <field name="financial_reports" placeholder="Laporan keuangan..."/>
-                                <field name="audit_results" placeholder="Hasil audit..."/>
-                            </page>
-                            <page string="Media &amp; Kontak">
-                                <group>
-                                    <group>
-                                        <field name="image_url"/>
-                                        <field name="video_url"/>
-                                        <field name="project_website"/>
-                                    </group>
-                                    <group>
+                                        <field name="contact_person"/>
                                         <field name="contact_email"/>
                                         <field name="contact_phone"/>
+                                    </group>
+                                    <group>
+                                        <field name="project_website"/>
                                         <field name="date"/>
                                     </group>
                                 </group>
-                                <field name="document_urls" placeholder="Link dokumen terkait..."/>
-                                <field name="related_links" placeholder="Link terkait lainnya..."/>
+                            </page>
+                            <page string="Dokumentasi &amp; Laporan">
+                                <group>
+                                    <group>
+                                        <field name="interim_reports_filename" invisible="1"/>
+                                        <field name="interim_reports" filename="interim_reports_filename"/>
+                                    </group>
+                                    <group>
+                                        <field name="final_report_filename" invisible="1"/>
+                                        <field name="final_report" filename="final_report_filename"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="financial_reports_filename" invisible="1"/>
+                                        <field name="financial_reports" filename="financial_reports_filename"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="audit_results" placeholder="Hasil audit..."/>
+                                </group>
                             </page>
                             <page string="SEO">
                                 <group>
@@ -247,7 +243,6 @@
                 <search string="Cari Hibah &amp; Pendanaan">
                     <field name="name"/>
                     <field name="grant_number"/>
-                    <field name="principal_investigator"/>
                     <field name="funding_agency"/>
                     <field name="research_area"/>
                     <field name="status"/>

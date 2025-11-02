@@ -33,12 +33,22 @@ class ProyekPenelitianPost(models.Model):
     
     progress_percentage = fields.Float('Progress (%)', help="Persentase penyelesaian proyek (0-100)")
     
-    # Funding Information
-    funding_source = fields.Char('Sumber Pendanaan', required=True, help="Contoh: Kemendikbud, BRIN, Industri")
-    funding_source_url = fields.Char('URL Sumber Pendanaan', help="URL website pemberi dana")
-    funding_scheme = fields.Char('Skema Pendanaan', help="Contoh: Hibah Penelitian Dasar, PKM, dll")
-    total_budget = fields.Float('Total Anggaran (Rp)')
-    budget_year = fields.Char('Tahun Anggaran', help="Contoh: 2024, 2023-2025")
+    # Funding Information - Linked to Hibah Pendanaan
+    hibah_ids = fields.Many2many(
+        'hibah.pendanaan.post',
+        'proyek_hibah_rel',
+        'proyek_id',
+        'hibah_id',
+        string='Hibah Pendanaan Terkait',
+        help="Hibah/pendanaan yang terkait dengan proyek ini"
+    )
+    
+    # Computed funding fields from related hibah
+    total_funding_amount = fields.Float('Total Pendanaan', compute='_compute_total_funding', store=True, help="Total anggaran dari semua hibah terkait")
+    hibah_count = fields.Integer('Jumlah Hibah', compute='_compute_hibah_count', store=True)
+    
+    # Note: Legacy funding fields (funding_source, funding_scheme, total_budget, budget_year) 
+    # have been REMOVED. Use hibah_ids relationship instead.
     
     # Research Information
     research_area = fields.Char('Bidang Penelitian', help="Area/bidang ilmu penelitian")
@@ -108,6 +118,18 @@ class ProyekPenelitianPost(models.Model):
     meta_keywords = fields.Char('Meta Keywords', help="Kata kunci SEO, pisahkan dengan koma")
     
     # Computed Fields
+    @api.depends('hibah_ids', 'hibah_ids.total_amount')
+    def _compute_total_funding(self):
+        """Compute total funding from all related hibah"""
+        for record in self:
+            record.total_funding_amount = sum(hibah.total_amount for hibah in record.hibah_ids)
+    
+    @api.depends('hibah_ids')
+    def _compute_hibah_count(self):
+        """Count number of related hibah"""
+        for record in self:
+            record.hibah_count = len(record.hibah_ids)
+    
     @api.depends('start_date', 'end_date')
     def _compute_duration(self):
         for record in self:
@@ -165,8 +187,14 @@ class ProyekPenelitianPost(models.Model):
             if record.progress_percentage < 0 or record.progress_percentage > 100:
                 raise UserError("Progress harus antara 0-100%.")
     
-    @api.constrains('total_budget')
-    def _check_budget(self):
-        for record in self:
-            if record.total_budget < 0:
-                raise UserError("Anggaran tidak boleh negatif.")
+    def action_view_hibah(self):
+        """Open list of related hibah"""
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Hibah Pendanaan Terkait',
+            'res_model': 'hibah.pendanaan.post',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', self.hibah_ids.ids)],
+            'context': {'default_proyek_ids': [(4, self.id)]},
+        }

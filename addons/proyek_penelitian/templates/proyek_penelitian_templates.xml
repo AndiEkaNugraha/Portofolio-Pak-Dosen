@@ -138,18 +138,20 @@
                                                     <p class="card-text text-muted mb-3" t-esc="post.teaser[:150] + '...' if post.teaser and len(post.teaser) > 150 else post.teaser"/>
                                                     
                                                     <div class="mb-3">
-                                                        <small class="text-primary">
-                                                            <i class="fa fa-money"/>
-                                                            <t t-if="post.funding_source_url">
-                                                                <a t-att-href="post.funding_source_url" target="_blank" class="text-decoration-none" t-esc="post.funding_source"/>
-                                                            </t>
-                                                            <t t-else="">
-                                                                <t t-esc="post.funding_source"/>
-                                                            </t>
-                                                            <t t-if="post.total_budget">
-                                                                | <i class="fa fa-coins"/> Rp <t t-esc="'{:,.0f}'.format(post.total_budget)"/>
-                                                            </t>
-                                                        </small>
+                                                        <t t-if="post.hibah_ids">
+                                                            <small class="text-primary">
+                                                                <i class="fa fa-money"/> 
+                                                                <t t-esc="len(post.hibah_ids)"/> Sumber Hibah
+                                                                <t t-if="post.total_funding_amount">
+                                                                    | <i class="fa fa-coins"/> Rp <t t-esc="'{:,.0f}'.format(post.total_funding_amount)"/>
+                                                                </t>
+                                                            </small>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <small class="text-muted">
+                                                                <i class="fa fa-info-circle"/> Belum ada info pendanaan
+                                                            </small>
+                                                        </t>
                                                     </div>
                                                     
                                                     <div class="mt-auto">
@@ -460,6 +462,48 @@
                                 </t>
                             </div>
 
+                            <!-- Funding Information -->
+                            <t t-if="post.hibah_ids">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-money text-primary"/> Sumber Pendanaan</h3>
+                                    <div class="row">
+                                        <t t-foreach="post.hibah_ids" t-as="hibah">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="card border-primary">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title">
+                                                            <a t-att-href="'/hibah-pendanaan/' + hibah.slug" 
+                                                               class="text-decoration-none text-primary"
+                                                               t-esc="hibah.name"/>
+                                                        </h6>
+                                                        <p class="card-text small mb-2">
+                                                            <strong>Lembaga:</strong> <t t-esc="hibah.funding_agency"/><br/>
+                                                            <t t-if="hibah.grant_scheme">
+                                                                <strong>Skema:</strong> <t t-esc="hibah.grant_scheme"/><br/>
+                                                            </t>
+                                                            <strong>Anggaran:</strong> Rp <t t-esc="'{:,.0f}'.format(hibah.total_amount)"/><br/>
+                                                            <t t-if="hibah.start_date">
+                                                                <strong>Periode:</strong> <t t-esc="hibah.start_date.strftime('%Y')"/>
+                                                                <t t-if="hibah.end_date"> - <t t-esc="hibah.end_date.strftime('%Y')"/></t>
+                                                            </t>
+                                                        </p>
+                                                        <a t-att-href="'/hibah-pendanaan/' + hibah.slug" 
+                                                           class="btn btn-sm btn-outline-primary">
+                                                            Lihat Detail Hibah <i class="fa fa-arrow-right"/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    <t t-if="post.total_funding_amount">
+                                        <div class="alert alert-info mt-3">
+                                            <strong>Total Pendanaan Proyek:</strong> Rp <t t-esc="'{:,.0f}'.format(post.total_funding_amount)"/>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
+
                             <!-- Publications & Outputs -->
                             <t t-if="post.publications or post.patents_ip or post.prototypes">
                                 <div class="mb-5">
@@ -586,24 +630,30 @@
                                                 <td t-esc="post.end_date.strftime('%d %b %Y')"/>
                                             </tr>
                                         </t>
-                                        <t t-if="post.funding_source">
+                                        <t t-if="post.hibah_ids">
                                             <tr>
-                                                <td><strong>Pendanaan</strong></td>
-                                                <td>
-                                                    <t t-if="post.funding_source_url">
-                                                        <a t-att-href="post.funding_source_url" target="_blank" t-esc="post.funding_source"/>
-                                                    </t>
-                                                    <t t-else="">
-                                                        <t t-esc="post.funding_source"/>
-                                                    </t>
-                                                </td>
+                                                <td colspan="2"><hr class="my-2"/></td>
                                             </tr>
-                                        </t>
-                                        <t t-if="post.total_budget">
                                             <tr>
-                                                <td><strong>Budget</strong></td>
-                                                <td>Rp <t t-esc="'{:,.0f}'.format(post.total_budget)"/></td>
+                                                <td colspan="2"><strong class="text-primary">Sumber Pendanaan:</strong></td>
                                             </tr>
+                                            <t t-foreach="post.hibah_ids" t-as="hibah">
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <a t-att-href="'/hibah-pendanaan/' + hibah.slug" 
+                                                           class="text-decoration-none"
+                                                           t-esc="hibah.name"/>
+                                                        <br/>
+                                                        <small class="text-muted" t-esc="hibah.funding_agency"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="post.total_funding_amount">
+                                                <tr>
+                                                    <td><strong>Total Dana</strong></td>
+                                                    <td>Rp <t t-esc="'{:,.0f}'.format(post.total_funding_amount)"/></td>
+                                                </tr>
+                                            </t>
                                         </t>
                                     </table>
                                 </div>

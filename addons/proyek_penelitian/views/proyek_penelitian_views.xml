@@ -88,7 +88,6 @@
                     <field name="start_date"/>
                     <field name="end_date"/>
                     <field name="progress_percentage"/>
-                    <field name="total_budget" widget="monetary"/>
                     <field name="is_featured"/>
                     <field name="website_published"/>
                 </list>
@@ -104,6 +103,9 @@
                         <div class="oe_button_box" name="button_box">
                             <button name="toggle_website_published" type="object" class="oe_stat_button" icon="fa-globe">
                                 <field name="website_published" widget="website_publish_button"/>
+                            </button>
+                            <button name="action_view_hibah" type="object" class="oe_stat_button" icon="fa-money" invisible="hibah_count == 0">
+                                <field name="hibah_count" widget="statinfo" string="Hibah"/>
                             </button>
                         </div>
                         <group>
@@ -122,18 +124,13 @@
                                 <field name="is_featured"/>
                             </group>
                         </group>
-                        <group>
-                            <group>
-                                <field name="funding_source"/>
-                                <field name="funding_source_url"/>
-                                <field name="funding_scheme"/>
-                                <field name="total_budget"/>
-                                <field name="budget_year"/>
-                            </group>
-                            <group>
-                                <field name="research_area"/>
-                                <field name="keywords"/>
-                            </group>
+                        <group string="Pendanaan">
+                            <field name="hibah_ids" widget="many2many_tags"/>
+                            <field name="total_funding_amount" widget="monetary" readonly="1"/>
+                        </group>
+                        <group string="Area Penelitian">
+                            <field name="research_area"/>
+                            <field name="keywords"/>
                         </group>
                         <notebook>
                             <page string="Deskripsi">
@@ -181,7 +178,7 @@
                 <search string="Cari Proyek Penelitian">
                     <field name="name"/>
                     <field name="principal_investigator"/>
-                    <field name="funding_source"/>
+                    <field name="research_area"/>
                     <field name="status"/>
                 </search>
             </field>

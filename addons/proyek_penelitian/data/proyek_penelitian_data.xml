@@ -65,11 +65,6 @@ Agus Setiawan, S.Kom., M.Kom. - Software Engineer</field>
             <field name="end_date">2025-12-31</field>
             <field name="status">active</field>
             <field name="progress_percentage">65</field>
-            <field name="funding_source">Badan Riset dan Inovasi Nasional (BRIN)</field>
-            <field name="funding_source_url">https://brin.go.id</field>
-            <field name="funding_scheme">Riset Kolaborasi Indonesia 2023</field>
-            <field name="total_budget">2500000000</field>
-            <field name="budget_year">2023-2025</field>
             <field name="research_area">Medical AI, Computer Vision, Deep Learning, Radiology</field>
             <field name="keywords">artificial intelligence, lung cancer, early detection, deep learning, medical imaging, CNN, computer-aided diagnosis</field>
             <field name="research_objectives">&lt;h5&gt;Tujuan Penelitian:&lt;/h5&gt;
@@ -164,11 +159,6 @@ Fitri Rahayu, S.Kom., M.T. - Data Scientist</field>
             <field name="end_date">2024-12-31</field>
             <field name="status">active</field>
             <field name="progress_percentage">80</field>
-            <field name="funding_source">Kementerian Pertanian RI</field>
-            <field name="funding_source_url">https://www.pertanian.go.id</field>
-            <field name="funding_scheme">Penelitian Terapan Pertanian Berkelanjutan</field>
-            <field name="total_budget">1200000000</field>
-            <field name="budget_year">2022-2024</field>
             <field name="research_area">Precision Agriculture, IoT, Smart Farming, Agricultural Technology</field>
             <field name="keywords">IoT, precision agriculture, soil moisture, smart irrigation, dryland farming, sensor networks, sustainable agriculture</field>
             <field name="research_objectives">&lt;h5&gt;Tujuan:&lt;/h5&gt;
@@ -248,11 +238,6 @@ Siti Rahayu, S.T., M.T. - Energy Storage Expert</field>
             <field name="end_date">2026-01-31</field>
             <field name="status">active</field>
             <field name="progress_percentage">45</field>
-            <field name="funding_source">Kementerian ESDM</field>
-            <field name="funding_source_url">https://www.esdm.go.id</field>
-            <field name="funding_scheme">Program Energi Terbarukan untuk Wilayah Terpencil</field>
-            <field name="total_budget">5000000000</field>
-            <field name="budget_year">2023-2026</field>
             <field name="research_area">Renewable Energy, Microgrid, Power Systems, Energy Storage</field>
             <field name="keywords">microgrid, renewable energy, hybrid system, solar power, wind energy, battery storage, remote islands, sustainable energy</field>
             <field name="research_objectives">&lt;h5&gt;Tujuan Penelitian:&lt;/h5&gt;
@@ -344,11 +329,6 @@ Agus Wijaya, S.Kom., M.M. - Smart City Consultant</field>
             <field name="end_date">2026-05-31</field>
             <field name="status">active</field>
             <field name="progress_percentage">35</field>
-            <field name="funding_source">World Bank</field>
-            <field name="funding_source_url">https://www.worldbank.org</field>
-            <field name="funding_scheme">Smart Cities Development Program - Asia Pacific</field>
-            <field name="total_budget">3500000000</field>
-            <field name="budget_year">2023-2026</field>
             <field name="research_area">Smart City, IoT, Urban Planning, ICT Infrastructure</field>
             <field name="keywords">smart city, IoT, urban development, intelligent transportation, smart governance, digital city, sustainable urbanization</field>
             <field name="research_objectives">&lt;h5&gt;Tujuan:&lt;/h5&gt;
