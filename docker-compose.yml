@@ -1,28 +1,43 @@
 services:
+  db:
+    image: postgres:15
+    container_name: odoo_db
+    restart: always
+    environment:
+      - POSTGRES_USER=user1
+      - POSTGRES_PASSWORD=fazah1103
+      - POSTGRES_DB=postgres
+      - LANG=en_US.UTF-8
+      - LC_ALL=en_US.UTF-8
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    networks:
+      - app_network
+
   odoo:
     image: odoo:19.0
     container_name: odoo_app
     restart: always
+    depends_on:
+      - db
     ports:
-      - "8069:8069" # Port web Odoo
-      # - "8072:8072" # Port untuk live chat/longpolling (opsional, aktifkan jika perlu)
+      - "8069:8069"
     environment:
-      - HOST=host.docker.internal
+      - HOST=db
       - USER=user1
-      - PASSWORD=katakata
-      - PORT=5432
-      - ADMIN_PASSWORD=AdminG@nt4ng # Ganti ini!
+      - PASSWORD=fazah1103
+      - ADMIN_PASSWORD=AdminG@nt4ng
+      - LANG=en_US.UTF-8
+      - LC_ALL=en_US.UTF-8
     volumes:
       - odoo-data:/var/lib/odoo
       - ./addons:/mnt/extra-addons
     networks:
       - app_network
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    #command: odoo --db-filter=^odoo-prod$
 
 volumes:
   odoo-data:
+  odoo-db-data:
 
 networks:
   app_network:
