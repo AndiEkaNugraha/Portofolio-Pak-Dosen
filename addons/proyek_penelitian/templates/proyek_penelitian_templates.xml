@@ -347,252 +347,10 @@
                                          t-att-alt="post.name"/>
                                 </div>
                             </t>
-
-                            <!-- Project Overview -->
-                            <div class="mb-5">
-                                <h3 class="h4 mb-3"><i class="fa fa-info-circle text-primary"/> Ringkasan Proyek</h3>
-                                <div class="bg-light p-4 rounded">
-                                    <t t-if="post.teaser">
-                                        <p t-esc="post.teaser"/>
-                                    </t>
-                                    <t t-if="post.research_area or post.keywords">
-                                        <div class="mt-3">
-                                            <t t-if="post.research_area">
-                                                <strong>Bidang Penelitian:</strong> <span t-esc="post.research_area"/><br/>
-                                            </t>
-                                            <t t-if="post.keywords">
-                                                <strong>Kata Kunci:</strong>
-                                                <t t-foreach="post.keywords.split(',')" t-as="keyword">
-                                                    <span class="badge bg-secondary me-1 mb-1" t-esc="keyword.strip()"/>
-                                                </t>
-                                            </t>
-                                        </div>
-                                    </t>
-                                </div>
-                            </div>
-
-                            <!-- Description -->
-                            <t t-if="post.description">
-                                <div class="mb-5">
-                                    <h3 class="h4 mb-3"><i class="fa fa-file-text text-primary"/> Deskripsi Proyek</h3>
-                                    <div t-field="post.description"/>
-                                </div>
-                            </t>
-
-                            <!-- Research Objectives -->
-                            <t t-if="post.research_objectives">
-                                <div class="mb-5">
-                                    <h3 class="h4 mb-3"><i class="fa fa-bullseye text-primary"/> Tujuan Penelitian</h3>
-                                    <div t-field="post.research_objectives"/>
-                                </div>
-                            </t>
-
-                            <!-- Methodology -->
-                            <t t-if="post.methodology">
-                                <div class="mb-5">
-                                    <h3 class="h4 mb-3"><i class="fa fa-cogs text-primary"/> Metodologi</h3>
-                                    <div t-field="post.methodology"/>
-                                </div>
-                            </t>
-
-                            <!-- Team -->
-                            <div class="mb-5">
-                                <h3 class="h4 mb-3"><i class="fa fa-users text-primary"/> Tim Peneliti</h3>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h6>Ketua Peneliti</h6>
-                                        <p><strong t-esc="post.principal_investigator"/></p>
-                                        
-                                        <t t-if="post.co_investigators">
-                                            <h6>Anggota Peneliti</h6>
-                                            <t t-foreach="post.co_investigators.split('\n')" t-as="investigator">
-                                                <t t-if="investigator.strip()">
-                                                    <p class="mb-1" t-esc="investigator.strip()"/>
-                                                </t>
-                                            </t>
-                                        </t>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <t t-if="post.research_assistants">
-                                            <h6>Asisten Peneliti</h6>
-                                            <t t-foreach="post.research_assistants.split('\n')" t-as="assistant">
-                                                <t t-if="assistant.strip()">
-                                                    <p class="mb-1" t-esc="assistant.strip()"/>
-                                                </t>
-                                            </t>
-                                        </t>
-                                    </div>
-                                </div>
-                                
-                                <!-- Students -->
-                                <t t-if="post.phd_students or post.master_students or post.undergrad_students">
-                                    <h6 class="mt-4">Mahasiswa Terlibat</h6>
-                                    <div class="row">
-                                        <t t-if="post.phd_students">
-                                            <div class="col-md-4">
-                                                <strong>S3:</strong>
-                                                <t t-foreach="post.phd_students.split('\n')" t-as="student">
-                                                    <t t-if="student.strip()">
-                                                        <p class="mb-1 small" t-esc="student.strip()"/>
-                                                    </t>
-                                                </t>
-                                            </div>
-                                        </t>
-                                        <t t-if="post.master_students">
-                                            <div class="col-md-4">
-                                                <strong>S2:</strong>
-                                                <t t-foreach="post.master_students.split('\n')" t-as="student">
-                                                    <t t-if="student.strip()">
-                                                        <p class="mb-1 small" t-esc="student.strip()"/>
-                                                    </t>
-                                                </t>
-                                            </div>
-                                        </t>
-                                        <t t-if="post.undergrad_students">
-                                            <div class="col-md-4">
-                                                <strong>S1:</strong>
-                                                <t t-foreach="post.undergrad_students.split('\n')" t-as="student">
-                                                    <t t-if="student.strip()">
-                                                        <p class="mb-1 small" t-esc="student.strip()"/>
-                                                    </t>
-                                                </t>
-                                            </div>
-                                        </t>
-                                    </div>
-                                </t>
-                            </div>
-
-                            <!-- Funding Information -->
-                            <t t-if="post.hibah_ids">
-                                <div class="mb-5">
-                                    <h3 class="h4 mb-3"><i class="fa fa-money text-primary"/> Sumber Pendanaan</h3>
-                                    <div class="row">
-                                        <t t-foreach="post.hibah_ids" t-as="hibah">
-                                            <div class="col-md-6 mb-3">
-                                                <div class="card border-primary">
-                                                    <div class="card-body">
-                                                        <h6 class="card-title">
-                                                            <a t-att-href="'/hibah-pendanaan/' + hibah.slug" 
-                                                               class="text-decoration-none text-primary"
-                                                               t-esc="hibah.name"/>
-                                                        </h6>
-                                                        <p class="card-text small mb-2">
-                                                            <strong>Lembaga:</strong> <t t-esc="hibah.funding_agency"/><br/>
-                                                            <t t-if="hibah.grant_scheme">
-                                                                <strong>Skema:</strong> <t t-esc="hibah.grant_scheme"/><br/>
-                                                            </t>
-                                                            <strong>Anggaran:</strong> Rp <t t-esc="'{:,.0f}'.format(hibah.total_amount)"/><br/>
-                                                            <t t-if="hibah.start_date">
-                                                                <strong>Periode:</strong> <t t-esc="hibah.start_date.strftime('%Y')"/>
-                                                                <t t-if="hibah.end_date"> - <t t-esc="hibah.end_date.strftime('%Y')"/></t>
-                                                            </t>
-                                                        </p>
-                                                        <a t-att-href="'/hibah-pendanaan/' + hibah.slug" 
-                                                           class="btn btn-sm btn-outline-primary">
-                                                            Lihat Detail Hibah <i class="fa fa-arrow-right"/>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </t>
-                                    </div>
-                                    <t t-if="post.total_funding_amount">
-                                        <div class="alert alert-info mt-3">
-                                            <strong>Total Pendanaan Proyek:</strong> Rp <t t-esc="'{:,.0f}'.format(post.total_funding_amount)"/>
-                                        </div>
-                                    </t>
-                                </div>
-                            </t>
-
-                            <!-- Publications & Outputs -->
-                            <t t-if="post.publications or post.patents_ip or post.prototypes">
-                                <div class="mb-5">
-                                    <h3 class="h4 mb-3"><i class="fa fa-book text-primary"/> Luaran &amp; Publikasi</h3>
-                                    
-                                    <t t-if="post.publications">
-                                        <h6>Publikasi</h6>
-                                        <div t-field="post.publications" class="mb-3"/>
-                                    </t>
-                                    
-                                    <t t-if="post.patents_ip">
-                                        <h6>Paten/HKI</h6>
-                                        <t t-foreach="post.patents_ip.split('\n')" t-as="patent">
-                                            <t t-if="patent.strip()">
-                                                <p class="mb-1" t-esc="patent.strip()"/>
-                                            </t>
-                                        </t>
-                                    </t>
-                                    
-                                    <t t-if="post.prototypes">
-                                        <h6 class="mt-3">Prototipe/Produk</h6>
-                                        <div t-field="post.prototypes"/>
-                                    </t>
-                                </div>
-                            </t>
-
-                            <!-- Collaboration -->
-                            <t t-if="post.partner_institutions or post.industry_partners or post.international_partners">
-                                <div class="mb-5">
-                                    <h3 class="h4 mb-3"><i class="fa fa-handshake text-primary"/> Kolaborasi</h3>
-                                    <div class="row">
-                                        <t t-if="post.partner_institutions">
-                                            <div class="col-md-6">
-                                                <h6>Institusi Mitra</h6>
-                                                <t t-foreach="post.partner_institutions.split('\n')" t-as="partner">
-                                                    <t t-if="partner.strip()">
-                                                        <p class="mb-1" t-esc="partner.strip()"/>
-                                                    </t>
-                                                </t>
-                                            </div>
-                                        </t>
-                                        <t t-if="post.industry_partners">
-                                            <div class="col-md-6">
-                                                <h6>Mitra Industri</h6>
-                                                <t t-foreach="post.industry_partners.split('\n')" t-as="industry">
-                                                    <t t-if="industry.strip()">
-                                                        <p class="mb-1" t-esc="industry.strip()"/>
-                                                    </t>
-                                                </t>
-                                            </div>
-                                        </t>
-                                    </div>
-                                    <t t-if="post.international_partners">
-                                        <h6 class="mt-3">Mitra Internasional</h6>
-                                        <t t-foreach="post.international_partners.split('\n')" t-as="intl_partner">
-                                            <t t-if="intl_partner.strip()">
-                                                <p class="mb-1" t-esc="intl_partner.strip()"/>
-                                            </t>
-                                        </t>
-                                    </t>
-                                </div>
-                            </t>
-
-                            <!-- Impact & Achievement -->
-                            <t t-if="post.achievements or post.social_impact or post.economic_impact">
-                                <div class="mb-5">
-                                    <h3 class="h4 mb-3"><i class="fa fa-trophy text-primary"/> Dampak &amp; Pencapaian</h3>
-                                    
-                                    <t t-if="post.achievements">
-                                        <h6>Pencapaian &amp; Prestasi</h6>
-                                        <div t-field="post.achievements" class="mb-3"/>
-                                    </t>
-                                    
-                                    <t t-if="post.social_impact">
-                                        <h6>Dampak Sosial</h6>
-                                        <div t-field="post.social_impact" class="mb-3"/>
-                                    </t>
-                                    
-                                    <t t-if="post.economic_impact">
-                                        <h6>Dampak Ekonomi</h6>
-                                        <div t-field="post.economic_impact"/>
-                                    </t>
-                                </div>
-                            </t>
-
                         </div>
 
                         <!-- Sidebar -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 mb-4">
                             <!-- Project Info -->
                             <div class="card mb-4">
                                 <div class="card-header bg-primary text-white">
@@ -736,6 +494,307 @@
                                             </div>
                                         </t>
                                     </div>
+                                </div>
+                            </t>
+                        </div>
+
+                        <div>
+                        <!-- Project Overview -->
+                            <div class="mb-5">
+                                <div class="bg-light p-4 rounded">
+                                    <t t-if="post.research_area or post.keywords">
+                                        <div class="mt-3">
+                                            <t t-if="post.research_area">
+                                                <strong>Bidang Penelitian:</strong> <span t-esc="post.research_area"/><br/>
+                                            </t>
+                                            <t t-if="post.keywords">
+                                                <strong>Kata Kunci:</strong>
+                                                <t t-foreach="post.keywords.split(',')" t-as="keyword">
+                                                    <span class="badge bg-secondary me-1 mb-1" t-esc="keyword.strip()"/>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                            <!-- Description -->
+                            <t t-if="post.description">
+                                <div class="mb-5">
+                                    <div t-field="post.description"/>
+                                </div>
+                            </t>
+
+                            <!-- Research Objectives -->
+                            <t t-if="post.research_objectives">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-bullseye text-primary"/> Tujuan Penelitian</h3>
+                                    <div t-field="post.research_objectives"/>
+                                </div>
+                            </t>
+
+                            <!-- Methodology -->
+                            <t t-if="post.methodology">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-cogs text-primary"/> Metodologi</h3>
+                                    <div t-field="post.methodology"/>
+                                </div>
+                            </t>
+
+                            <!-- Team -->
+                            <div class="mb-5">
+                                <h3 class="h4 mb-3"><i class="fa fa-users text-primary"/> Tim Peneliti</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Ketua Peneliti</h6>
+                                        <p><strong t-esc="post.principal_investigator"/></p>
+                                        
+                                        <t t-if="post.co_investigators">
+                                            <h6>Anggota Peneliti</h6>
+                                            <t t-foreach="post.co_investigators.split('\n')" t-as="investigator">
+                                                <t t-if="investigator.strip()">
+                                                    <p class="mb-1" t-esc="investigator.strip()"/>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <t t-if="post.research_assistants">
+                                            <h6>Asisten Peneliti</h6>
+                                            <t t-foreach="post.research_assistants.split('\n')" t-as="assistant">
+                                                <t t-if="assistant.strip()">
+                                                    <p class="mb-1" t-esc="assistant.strip()"/>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </div>
+                                </div>
+                                
+                                <!-- Students -->
+                                <t t-if="post.phd_students or post.master_students or post.undergrad_students">
+                                    <h6 class="mt-4">Mahasiswa Terlibat</h6>
+                                    <div class="row">
+                                        <t t-if="post.phd_students">
+                                            <div class="col-md-4">
+                                                <strong>S3:</strong>
+                                                <t t-foreach="post.phd_students.split('\n')" t-as="student">
+                                                    <t t-if="student.strip()">
+                                                        <p class="mb-1 small" t-esc="student.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                        <t t-if="post.master_students">
+                                            <div class="col-md-4">
+                                                <strong>S2:</strong>
+                                                <t t-foreach="post.master_students.split('\n')" t-as="student">
+                                                    <t t-if="student.strip()">
+                                                        <p class="mb-1 small" t-esc="student.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                        <t t-if="post.undergrad_students">
+                                            <div class="col-md-4">
+                                                <strong>S1:</strong>
+                                                <t t-foreach="post.undergrad_students.split('\n')" t-as="student">
+                                                    <t t-if="student.strip()">
+                                                        <p class="mb-1 small" t-esc="student.strip()"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <!-- Collaboration -->
+                            <t t-if="post.mitra_ids and len(post.mitra_ids) > 0">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-handshake text-primary"/> Kolaborasi</h3>
+
+                                    <t t-set="academic_partners" t-value="post.mitra_ids.filtered(lambda m: m.partner_type == 'academic')"/>
+                                    <t t-set="government_partners" t-value="post.mitra_ids.filtered(lambda m: m.partner_type == 'government')"/>
+                                    <t t-set="industry_partners" t-value="post.mitra_ids.filtered(lambda m: m.partner_type == 'industry')"/>
+                                    <t t-set="international_partners" t-value="post.mitra_ids.filtered(lambda m: m.partner_type == 'international')"/>
+
+                                    <div class="row">
+                                        <t t-if="academic_partners">
+                                            <div class="col-md-6">
+                                                <h6>Mitra Akademik</h6>
+                                                <t t-foreach="academic_partners" t-as="mitra">
+                                                    <div class="mb-2">
+                                                        <t t-if="mitra.partner_url">
+                                                            <a t-att-href="mitra.partner_url" target="_blank" class="text-decoration-none">
+                                                                <strong t-esc="mitra.name"/>
+                                                            </a>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <strong t-esc="mitra.name"/>
+                                                        </t>
+                                                        <t t-if="mitra.contact_person">
+                                                            <br/><small class="text-muted"><i class="fa fa-user"/> <t t-esc="mitra.contact_person"/></small>
+                                                        </t>
+                                                        <t t-if="mitra.role_description">
+                                                            <br/><small class="text-muted"><t t-esc="mitra.role_description"/></small>
+                                                        </t>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </t>
+                                        <t t-if="government_partners">
+                                            <div class="col-md-6">
+                                                <h6>Mitra Pemerintah</h6>
+                                                <t t-foreach="government_partners" t-as="mitra">
+                                                    <div class="mb-2">
+                                                        <t t-if="mitra.partner_url">
+                                                            <a t-att-href="mitra.partner_url" target="_blank" class="text-decoration-none">
+                                                                <strong t-esc="mitra.name"/>
+                                                            </a>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <strong t-esc="mitra.name"/>
+                                                        </t>
+                                                        <t t-if="mitra.contact_person">
+                                                            <br/><small class="text-muted"><i class="fa fa-user"/> <t t-esc="mitra.contact_person"/></small>
+                                                        </t>
+                                                        <t t-if="mitra.role_description">
+                                                            <br/><small class="text-muted"><t t-esc="mitra.role_description"/></small>
+                                                        </t>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </div>
+
+                                    <t t-if="industry_partners">
+                                        <h6 class="mt-3">Mitra Industri</h6>
+                                        <t t-foreach="industry_partners" t-as="mitra">
+                                            <div class="mb-2">
+                                                <t t-if="mitra.partner_url">
+                                                    <a t-att-href="mitra.partner_url" target="_blank" class="text-decoration-none">
+                                                        <strong t-esc="mitra.name"/>
+                                                    </a>
+                                                </t>
+                                                <t t-else="">
+                                                    <strong t-esc="mitra.name"/>
+                                                </t>
+                                                <t t-if="mitra.contact_person">
+                                                    <br/><small class="text-muted"><i class="fa fa-user"/> <t t-esc="mitra.contact_person"/></small>
+                                                </t>
+                                                <t t-if="mitra.role_description">
+                                                    <br/><small class="text-muted"><t t-esc="mitra.role_description"/></small>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </t>
+
+                                    <t t-if="international_partners">
+                                        <h6 class="mt-3">Mitra Internasional</h6>
+                                        <t t-foreach="international_partners" t-as="mitra">
+                                            <div class="mb-2">
+                                                <t t-if="mitra.partner_url">
+                                                    <a t-att-href="mitra.partner_url" target="_blank" class="text-decoration-none">
+                                                        <strong t-esc="mitra.name"/>
+                                                    </a>
+                                                </t>
+                                                <t t-else="">
+                                                    <strong t-esc="mitra.name"/>
+                                                </t>
+                                                <t t-if="mitra.contact_person">
+                                                    <br/><small class="text-muted"><i class="fa fa-user"/> <t t-esc="mitra.contact_person"/></small>
+                                                </t>
+                                                <t t-if="mitra.role_description">
+                                                    <br/><small class="text-muted"><t t-esc="mitra.role_description"/></small>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </t>
+                                </div>
+                            </t>
+
+                            <!-- Impact & Achievement -->
+                            <t t-if="post.achievements or post.social_impact or post.economic_impact or post.policy_impact">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-trophy text-primary"/> Dampak &amp; Pencapaian</h3>
+                                    
+                                    <t t-if="post.achievements">
+                                        <h6>Pencapaian &amp; Prestasi</h6>
+                                        <div t-field="post.achievements" class="mb-3"/>
+                                    </t>
+                                    
+                                    <t t-if="post.social_impact">
+                                        <h6>Dampak Sosial</h6>
+                                        <div t-field="post.social_impact" class="mb-3"/>
+                                    </t>
+                                    
+                                    <t t-if="post.economic_impact">
+                                        <h6>Dampak Ekonomi</h6>
+                                        <div t-field="post.economic_impact" class="mb-3"/>
+                                    </t>
+
+                                    <t t-if="post.policy_impact">
+                                        <h6>Dampak Kebijakan</h6>
+                                        <div t-field="post.policy_impact"/>
+                                    </t>
+                                </div>
+                            </t>
+
+                            <!-- Progress & Milestones -->
+                            <t t-if="post.milestones or post.current_activities or post.next_steps">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-tasks text-primary"/> Progress &amp; Milestone</h3>
+                                    
+                                    <t t-if="post.milestones">
+                                        <h6>Milestone &amp; Target</h6>
+                                        <div t-field="post.milestones" class="mb-3"/>
+                                    </t>
+                                    
+                                    <t t-if="post.current_activities">
+                                        <h6>Kegiatan Saat Ini</h6>
+                                        <div t-field="post.current_activities" class="mb-3"/>
+                                    </t>
+                                    
+                                    <t t-if="post.next_steps">
+                                        <h6>Langkah Selanjutnya</h6>
+                                        <div t-field="post.next_steps"/>
+                                    </t>
+                                </div>
+                            </t>
+
+                            <!-- Media & Documentation -->
+                            <t t-if="post.project_video or post.project_documents or post.related_links">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-file-video text-primary"/> Media &amp; Dokumentasi</h3>
+                                    
+                                    <t t-if="post.project_video">
+                                        <h6>Link Video</h6>
+                                        <p><a t-att-href="post.project_video" target="_blank" class="btn btn-outline-primary">
+                                            <i class="fa fa-play-circle"/> Tonton Video Dokumentasi
+                                        </a></p>
+                                    </t>
+                                    
+                                    <t t-if="post.project_documents">
+                                        <h6>Dokumen Proyek</h6>
+                                        <p><a t-att-href="'/web/content/proyek.penelitian.post/' + str(post.id) + '/project_documents/' + (post.project_documents_filename or 'document')" 
+                                              target="_blank" class="btn btn-outline-secondary">
+                                            <i class="fa fa-download"/> Unduh Dokumen Proyek
+                                        </a></p>
+                                    </t>
+
+                                    <t t-if="post.related_links">
+                                        <h6>Link Terkait</h6>
+                                        <div class="mb-3">
+                                            <t t-foreach="post.related_links.split('\n')" t-as="link">
+                                                <t t-if="link.strip()">
+                                                    <p class="mb-1">
+                                                        <a t-att-href="link.strip()" target="_blank" class="text-decoration-none">
+                                                            <i class="fa fa-external-link"/> <t t-esc="link.strip()"/>
+                                                        </a>
+                                                    </p>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </t>
                                 </div>
                             </t>
                         </div>

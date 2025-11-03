@@ -55,25 +55,19 @@ class ProyekPenelitianPost(models.Model):
     keywords = fields.Char('Kata Kunci', help="Kata kunci penelitian, pisahkan dengan koma")
     research_objectives = fields.Html('Tujuan Penelitian', help="Tujuan dan target yang ingin dicapai")
     methodology = fields.Html('Metodologi', help="Metode penelitian yang digunakan")
-    expected_outcomes = fields.Html('Luaran yang Diharapkan', help="Output dan outcome yang diharapkan")
     
     # Collaboration & Partnership  
-    partner_institutions = fields.Text('Institusi Mitra', help="Institusi yang berkolaborasi, pisahkan dengan baris baru")
-    industry_partners = fields.Text('Mitra Industri', help="Perusahaan atau industri yang terlibat")
-    international_collaboration = fields.Boolean('Kolaborasi Internasional')
-    international_partners = fields.Text('Mitra Internasional', help="Institusi luar negeri yang berkolaborasi")
+    # partner_institutions = fields.Text('Institusi Mitra', help="Institusi yang berkolaborasi, pisahkan dengan baris baru")  # REMOVED - replaced with mitra_ids
+    mitra_ids = fields.One2many('proyek.penelitian.mitra', 'proyek_id', string='Mitra Kolaborasi', help="Daftar mitra yang berkolaborasi dalam proyek ini")
+    # industry_partners = fields.Text('Mitra Industri', help="Perusahaan atau industri yang terlibat")  # REMOVED - now part of mitra_ids
+    # international_collaboration = fields.Boolean('Kolaborasi Internasional')  # REMOVED - now part of mitra_ids
+    # international_partners = fields.Text('Mitra Internasional', help="Institusi luar negeri yang berkolaborasi")  # REMOVED - now part of mitra_ids
     
     # Students & Team
     phd_students = fields.Text('Mahasiswa S3 Terlibat', help="Mahasiswa doktoral yang terlibat dalam proyek")
     master_students = fields.Text('Mahasiswa S2 Terlibat', help="Mahasiswa magister yang terlibat")
     undergrad_students = fields.Text('Mahasiswa S1 Terlibat', help="Mahasiswa sarjana yang terlibat")
     research_assistants = fields.Text('Asisten Peneliti', help="Tenaga peneliti dan asisten yang terlibat")
-    
-    # Outputs & Publications
-    publications = fields.Html('Publikasi yang Dihasilkan', help="Jurnal, konferensi, dan publikasi lainnya")
-    patents_ip = fields.Text('Paten/HKI', help="Paten atau HKI yang dihasilkan dari proyek")
-    prototypes = fields.Html('Prototipe/Produk', help="Prototipe atau produk yang dikembangkan")
-    conference_presentations = fields.Html('Presentasi Konferensi', help="Presentasi di konferensi atau seminar")
     
     # Related Products - NEW FIELD
     product_ids = fields.One2many('proyek.penelitian.produk', 'proyek_id', string='Produk Penelitian', help="Produk penelitian yang terkait dengan proyek ini")

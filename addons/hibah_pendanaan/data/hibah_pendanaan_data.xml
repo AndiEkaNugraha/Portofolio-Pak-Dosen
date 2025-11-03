@@ -5,61 +5,38 @@
         <!-- Blog Categories -->
         <record id="blog_hibah_nasional" model="hibah.pendanaan.blog">
             <field name="name">Hibah Nasional</field>
-            <field name="subtitle">Hibah penelitian dari lembaga pemerintah Indonesia</field>
-            <field name="description">Kategori untuk hibah penelitian yang diperoleh dari lembaga pemerintah tingkat nasional seperti Kemendikbud, BRIN, Kemenristek, dan lembaga pemerintah lainnya.</field>
-            <field name="funding_type">research_grant</field>
-            <field name="funding_level">national</field>
-            <field name="agency_type">government</field>
             <field name="sequence">10</field>
         </record>
 
         <record id="blog_hibah_internasional" model="hibah.pendanaan.blog">
             <field name="name">Hibah Internasional</field>
-            <field name="subtitle">Hibah penelitian dari lembaga internasional</field>
-            <field name="description">Kategori untuk hibah penelitian yang diperoleh dari lembaga internasional seperti EU Horizon, NSF, World Bank, dan organisasi internasional lainnya.</field>
-            <field name="funding_type">international_grant</field>
-            <field name="funding_level">international</field>
-            <field name="agency_type">international</field>
             <field name="sequence">20</field>
         </record>
 
         <record id="blog_pendanaan_industri" model="hibah.pendanaan.blog">
             <field name="name">Pendanaan Industri</field>
-            <field name="subtitle">Pendanaan penelitian dari sektor industri</field>
-            <field name="description">Kategori untuk pendanaan penelitian yang diperoleh dari perusahaan atau sektor industri untuk penelitian kolaboratif atau kontrak penelitian.</field>
-            <field name="funding_type">industry_funding</field>
-            <field name="funding_level">national</field>
-            <field name="agency_type">private</field>
             <field name="sequence">30</field>
         </record>
 
         <record id="blog_hibah_inovasi" model="hibah.pendanaan.blog">
             <field name="name">Hibah Inovasi</field>
-            <field name="subtitle">Hibah untuk pengembangan inovasi dan startup</field>
-            <field name="description">Kategori untuk hibah yang fokus pada pengembangan inovasi, komersialisasi teknologi, dan pengembangan startup berbasis teknologi.</field>
-            <field name="funding_type">innovation_grant</field>
-            <field name="funding_level">national</field>
-            <field name="agency_type">government</field>
             <field name="sequence">40</field>
         </record>
 
         <record id="blog_hibah_pengabdian" model="hibah.pendanaan.blog">
             <field name="name">Hibah Pengabdian Masyarakat</field>
-            <field name="subtitle">Hibah untuk kegiatan pengabdian kepada masyarakat</field>
-            <field name="description">Kategori untuk hibah yang fokus pada kegiatan pengabdian kepada masyarakat, pemberdayaan komunitas, dan aplikasi teknologi untuk masyarakat.</field>
-            <field name="funding_type">community_service</field>
-            <field name="funding_level">national</field>
-            <field name="agency_type">government</field>
             <field name="sequence">50</field>
         </record>
         
         <!-- Sample Grant Data -->
         <record id="hibah_sample_penelitian_fundamental" model="hibah.pendanaan.post">
             <field name="name">Hibah Penelitian Fundamental Komputasi Kuantum</field>
-            <field name="subtitle">Quantum Computing Algorithms for Optimization Problems</field>
             <field name="blog_id" ref="blog_hibah_nasional"/>
             <field name="grant_number">142/E5/PG.02.00.PT/2023</field>
             <field name="grant_scheme">Penelitian Dasar Unggulan Perguruan Tinggi (PDUPT)</field>
+            <field name="research_area">Komputasi Kuantum</field>
+            <field name="research_focus">Pengembangan algoritma kuantum untuk masalah optimasi kombinatorial dengan implementasi pada quantum hardware</field>
+            <field name="keywords">quantum computing, quantum algorithms, optimization, PDUPT, hibah penelitian, fundamental research</field>
             <field name="start_date">2023-01-01</field>
             <field name="end_date">2025-12-31</field>
             <field name="status">active</field>
@@ -73,6 +50,7 @@
             <field name="material_cost">120000000</field>
             <field name="travel_cost">80000000</field>
             <field name="other_cost">20000000</field>
+            <field name="overhead_percentage">10</field>
             <field name="research_focus">Pengembangan algoritma kuantum untuk masalah optimasi kombinatorial dengan implementasi pada quantum hardware</field>
             <field name="objectives">&lt;h5&gt;Tujuan Hibah:&lt;/h5&gt;
 &lt;ol&gt;
@@ -100,6 +78,31 @@
             <field name="contact_email">budiman.santoso@kemdikbud.go.id</field>
             <field name="contact_phone">+62-21-57946100</field>
             <field name="terms_conditions">&lt;p&gt;Dana hibah tidak dapat digunakan untuk pembelian tanah, bangunan, atau kendaraan. Seluruh hasil penelitian menjadi milik negara dan wajib dipublikasikan. Peneliti wajib mencantumkan acknowledgment ke Kemendikbudristek dalam setiap publikasi.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Penelitian Fundamental Komputasi Kuantum PDUPT&lt;/h3&gt;
+&lt;p&gt;Hibah Penelitian Fundamental PDUPT ini fokus pada pengembangan algoritma komputasi kuantum untuk menyelesaikan masalah optimasi kombinatorial yang kompleks. Proyek ini akan mengembangkan algoritma quantum baru yang dapat memberikan keunggulan signifikan dibandingkan algoritma klasik dalam menyelesaikan masalah optimasi di berbagai bidang seperti logistik, keuangan, manufaktur, dan transportasi.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ruang Lingkup Penelitian:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pengembangan algoritma quantum untuk Quadratic Unconstrained Binary Optimization (QUBO)&lt;/li&gt;
+&lt;li&gt;Implementasi pada quantum annealers dan gate-based quantum computers&lt;/li&gt;
+&lt;li&gt;Benchmarking performa terhadap algoritma klasik state-of-the-art&lt;/li&gt;
+&lt;li&gt;Pengembangan hybrid quantum-classical algorithms&lt;/li&gt;
+&lt;li&gt;Aplikasi pada masalah optimasi nyata dari industri&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Metodologi:&lt;/strong&gt; Penelitian menggunakan pendekatan teori dan eksperimen dengan akses ke quantum hardware melalui kolaborasi internasional. Dataset dari masalah optimasi nyata akan digunakan untuk validasi algoritma.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dampak:&lt;/strong&gt; Proyek ini akan menghasilkan breakthrough dalam komputasi kuantum terapan dan membuka peluang komersialisasi teknologi quantum di Indonesia.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Publikasi Ilmiah:&lt;/strong&gt; Minimal 5 paper di jurnal internasional Q1/Q2 (Nature, Science, IEEE Transactions)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Algoritma Quantum:&lt;/strong&gt; 3 algoritma quantum baru untuk masalah optimasi kombinatorial&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prototype Software:&lt;/strong&gt; Quantum optimization toolkit open-source&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Paten:&lt;/strong&gt; 2-3 patent applications untuk inovasi algoritma&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SDM Terlatih:&lt;/strong&gt; 3 doktor dan 6 magister di bidang quantum computing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kolaborasi Internasional:&lt;/strong&gt; Partnership dengan MIT, Oxford, dan IBM Quantum&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transfer Teknologi:&lt;/strong&gt; Workshop dan training untuk industri&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Komputasi kuantum merupakan teknologi masa depan yang memiliki potensi revolusioner dalam menyelesaikan masalah yang sulit diatasi oleh komputer klasik. Meskipun masih dalam tahap awal, algoritma quantum telah menunjukkan keunggulan teoritis dalam beberapa aplikasi. Namun, pengembangan algoritma praktis yang dapat diimplementasikan pada hardware quantum saat ini (NISQ devices) masih terbatas. Hibah ini diperlukan untuk mengembangkan algoritma quantum yang dapat memberikan dampak nyata dalam industri dan masyarakat.&lt;/p&gt;</field>
+            <field name="project_website">https://pdupt-quantum.kemdikbud.go.id</field>
+            <field name="audit_results">&lt;p&gt;Audit internal menunjukkan bahwa penggunaan dana sesuai dengan RAB yang disetujui. Tidak ada temuan signifikan dalam audit tahap pertama.&lt;/p&gt;</field>
             <field name="teaser">Hibah penelitian fundamental PDUPT untuk pengembangan algoritma kuantum, dengan total dana Rp 950 juta untuk periode 2023-2025.</field>
             <field name="slug">hibah-penelitian-quantum-computing</field>
             <field name="meta_title">Hibah Penelitian Fundamental Komputasi Kuantum | PDUPT Kemendikbud</field>
@@ -112,10 +115,12 @@
         
         <record id="hibah_sample_kolaborasi_internasional" model="hibah.pendanaan.post">
             <field name="name">Hibah Kolaborasi Riset Indonesia-Jepang: Robotika untuk Disaster Response</field>
-            <field name="subtitle">Indonesia-Japan Joint Research: Robotic Systems for Disaster Management</field>
             <field name="blog_id" ref="blog_hibah_internasional"/>
             <field name="grant_number">IJR-2023-045</field>
             <field name="grant_scheme">Indonesia-Japan Joint Research Program</field>
+            <field name="research_area">Robotika dan Sistem Otonom</field>
+            <field name="research_focus">Pengembangan sistem robotika otonom untuk search and rescue operations di area bencana dengan kolaborasi Indonesia-Jepang</field>
+            <field name="keywords">disaster robotics, autonomous systems, search and rescue, Indonesia-Japan collaboration, JST grant</field>
             <field name="start_date">2023-04-01</field>
             <field name="end_date">2026-03-31</field>
             <field name="status">active</field>
@@ -129,6 +134,7 @@
             <field name="travel_cost">250000000</field>
             <field name="material_cost">100000000</field>
             <field name="other_cost">50000000</field>
+            <field name="overhead_percentage">10</field>
             <field name="research_focus">Pengembangan sistem robotika otonom untuk search and rescue operations di area bencana dengan kolaborasi Indonesia-Jepang</field>
             <field name="objectives">&lt;h5&gt;Tujuan Hibah:&lt;/h5&gt;
 &lt;ol&gt;
@@ -155,6 +161,31 @@
             <field name="contact_email">yamamoto@jst.go.jp</field>
             <field name="contact_phone">+81-3-5214-7375</field>
             <field name="terms_conditions">&lt;p&gt;Hasil penelitian menjadi intellectual property bersama antara kedua negara. Wajib mencantumkan logo JST dan BRIN dalam publikasi. Researcher exchange wajib dilakukan sesuai rencana.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Kolaborasi Indonesia-Jepang: Robotika untuk Disaster Response&lt;/h3&gt;
+&lt;p&gt;Proyek kolaborasi riset Indonesia-Jepang ini bertujuan mengembangkan sistem robotika otonom canggih untuk operasi pencarian dan penyelamatan di daerah bencana. Sistem ini akan mengintegrasikan teknologi AI, computer vision, navigasi otonom, dan sensor canggih untuk membantu tim SAR dalam mendeteksi korban, menilai kondisi lingkungan bencana, dan melakukan rescue operations dengan lebih efisien dan aman.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Teknologi Utama:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sistem robotika multi-terrain untuk berbagai jenis bencana (gempa, tsunami, longsor)&lt;/li&gt;
+&lt;li&gt;AI-powered computer vision untuk deteksi korban dan navigasi otonom&lt;/li&gt;
+&lt;li&gt;Sensor suite terintegrasi (thermal imaging, gas detection, structural assessment)&lt;/li&gt;
+&lt;li&gt;Real-time communication system untuk koordinasi tim SAR&lt;/li&gt;
+&lt;li&gt;Human-robot interface untuk kontrol dan monitoring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Kolaborasi Bilateral:&lt;/strong&gt; Proyek ini memanfaatkan keahlian Jepang dalam robotika disaster response dan pengalaman Indonesia dalam penanganan bencana skala besar. Tim riset gabungan dari universitas terkemuka kedua negara akan bekerja sama dalam development, testing, dan deployment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Implementasi Field Testing:&lt;/strong&gt; Sistem akan diuji di disaster simulation facilities di Indonesia dan Jepang, serta field testing di area bencana nyata untuk memastikan efektivitas dalam kondisi operasional sesungguhnya.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Robot Prototypes:&lt;/strong&gt; 3 jenis robot disaster response (ground, aerial, aquatic)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Publikasi Internasional:&lt;/strong&gt; 10+ joint publications di jurnal dan konferensi internasional&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Paten Kolaboratif:&lt;/strong&gt; 5+ patent applications untuk inovasi robotika&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Training Program:&lt;/strong&gt; Capacity building untuk 50+ SAR personnel di Indonesia&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technology Transfer:&lt;/strong&gt; Transfer robot technology ke BNPB dan Basarnas&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Joint Research Network:&lt;/strong&gt; Sustainable collaboration framework Indonesia-Japan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Commercialization:&lt;/strong&gt; Spin-off company untuk produksi robot disaster response&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Bencana alam seperti gempa bumi, tsunami, dan tanah longsor sering terjadi di Indonesia dan Jepang. Teknologi robotika dapat memainkan peran penting dalam operasi SAR dengan mengurangi risiko bagi personel manusia. Kolaborasi antara kedua negara ini akan memanfaatkan keahlian Jepang dalam robotika dan pengalaman Indonesia dalam penanganan bencana untuk menghasilkan solusi teknologi yang sesuai dengan kondisi lokal.&lt;/p&gt;</field>
+            <field name="project_website">https://indojapan-robotics.jst.go.jp</field>
+            <field name="audit_results">&lt;p&gt;Audit bersama Indonesia-Jepang menunjukkan progress sesuai rencana. Penggunaan dana untuk equipment dan travel telah diaudit dan disetujui.&lt;/p&gt;</field>
             <field name="teaser">Hibah kolaborasi Indonesia-Jepang untuk pengembangan disaster robotics, senilai Rp 1.8 miliar untuk periode 2023-2026.</field>
             <field name="slug">hibah-kolaborasi-indonesia-jepang-disaster-robotics</field>
             <field name="meta_title">Hibah Kolaborasi Riset Indonesia-Jepang: Robotika untuk Disaster Response | JST-BRIN</field>
@@ -167,10 +198,12 @@
         
         <record id="hibah_sample_industri_ai" model="hibah.pendanaan.post">
             <field name="name">Pendanaan Riset Kolaborasi Industri: AI untuk Quality Control Manufacturing</field>
-            <field name="subtitle">Industry Partnership: Computer Vision for Automated Quality Inspection</field>
             <field name="blog_id" ref="blog_pendanaan_industri"/>
             <field name="grant_number">IND-2023-078</field>
             <field name="grant_scheme">Industry-University Research Collaboration</field>
+            <field name="research_area">Computer Vision dan AI</field>
+            <field name="research_focus">Pendanaan untuk pengembangan sistem AI visual inspection untuk quality control dalam industri manufacturing automotive parts</field>
+            <field name="keywords">computer vision, quality control, AI manufacturing, defect detection, visual inspection, deep learning</field>
             <field name="start_date">2023-07-01</field>
             <field name="end_date">2025-06-30</field>
             <field name="status">active</field>
@@ -184,6 +217,7 @@
             <field name="material_cost">80000000</field>
             <field name="travel_cost">50000000</field>
             <field name="other_cost">20000000</field>
+            <field name="overhead_percentage">10</field>
             <field name="research_focus">Pendanaan untuk pengembangan sistem AI visual inspection untuk quality control dalam industri manufacturing automotive parts</field>
             <field name="objectives">&lt;h5&gt;Tujuan Pendanaan:&lt;/h5&gt;
 &lt;ol&gt;
@@ -210,6 +244,32 @@
             <field name="contact_email">bambang.sutrisno@astra.co.id</field>
             <field name="contact_phone">+62-21-6583388</field>
             <field name="terms_conditions">&lt;p&gt;Intellectual property menjadi joint ownership antara university dan PT Astra. Commercialization revenue sharing 50:50. Wajib maintain confidentiality untuk sensitive industrial data.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Pendanaan Riset Industri: AI untuk Quality Control Manufacturing&lt;/h3&gt;
+&lt;p&gt;Proyek kolaborasi industri-universitas ini bertujuan mengembangkan sistem inspeksi visual berbasis AI untuk kontrol kualitas dalam manufaktur komponen otomotif. Sistem ini akan menggunakan computer vision dan deep learning untuk mendeteksi defect pada produk dengan akurasi tinggi, menggantikan inspeksi manual yang rentan kesalahan manusia dan memberikan konsistensi yang lebih baik dalam production line.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sistem AI Visual Inspection:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Multi-camera setup untuk inspeksi 360° komponen otomotif&lt;/li&gt;
+&lt;li&gt;Deep learning models untuk defect detection (cracks, scratches, dimensional defects)&lt;/li&gt;
+&lt;li&gt;Real-time processing dengan latency &lt; 100ms&lt;/li&gt;
+&lt;li&gt;Integration dengan existing production line PLC systems&lt;/li&gt;
+&lt;li&gt;Automated sorting dan rejection system&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Machine Learning Pipeline:&lt;/strong&gt; Sistem menggunakan transfer learning dari pre-trained models, custom dataset dari production line PT Astra, dan continuous learning untuk adaptasi dengan variasi produk baru.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Industry 4.0 Integration:&lt;/strong&gt; Sistem terintegrasi dengan smart factory ecosystem, IoT sensors, dan data analytics platform untuk predictive maintenance dan quality trend analysis.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scalability:&lt;/strong&gt; Solution dapat diadaptasi untuk berbagai jenis manufacturing (automotive, electronics, consumer goods) dengan minimal customization.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI Inspection System:&lt;/strong&gt; Deployed di 5 production lines PT Astra dengan accuracy &gt; 99.5%&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cost Savings:&lt;/strong&gt; Rp 2.5 miliar per tahun dari reduced defect rates dan labor efficiency&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Paten Teknologi:&lt;/strong&gt; 2 patent applications untuk AI inspection algorithms&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Commercial Product:&lt;/strong&gt; AI inspection software product untuk industri manufaktur&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Training Program:&lt;/strong&gt; Sertifikasi AI untuk 50+ engineers PT Astra&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ROI Achievement:&lt;/strong&gt; Return on investment dalam 18 bulan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Industry Standards:&lt;/strong&gt; Kontribusi pada standar AI inspection di industri otomotif&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Industri manufaktur otomotif memerlukan kontrol kualitas yang sangat ketat untuk memastikan keselamatan dan kepuasan konsumen. Inspeksi manual saat ini masih dominan namun memiliki keterbatasan dalam konsistensi dan kecepatan. Teknologi AI dapat memberikan solusi otomatis yang lebih akurat dan efisien, namun memerlukan penyesuaian dengan kondisi produksi industri.&lt;/p&gt;</field>
+            <field name="project_website">https://ai-quality-control.astra.co.id</field>
+            <field name="audit_results">&lt;p&gt;Audit industri menunjukkan implementasi sistem di 3 production lines berhasil. ROI tercapai dalam 18 bulan sesuai target.&lt;/p&gt;</field>
             <field name="teaser">Pendanaan riset industri senilai Rp 850 juta untuk pengembangan AI quality control system dengan PT Astra Manufacturing.</field>
             <field name="slug">pendanaan-industri-ai-quality-control</field>
             <field name="meta_title">Pendanaan Riset Kolaborasi Industri: AI untuk Quality Control Manufacturing | PT Astra</field>
@@ -222,10 +282,12 @@
         
         <record id="hibah_sample_startup_grant" model="hibah.pendanaan.post">
             <field name="name">Hibah Inkubasi Startup Teknologi: EduTech Platform untuk Pendidikan Vokasi</field>
-            <field name="subtitle">Startup Incubation Grant: AI-Powered Vocational Education Platform</field>
             <field name="blog_id" ref="blog_hibah_inovasi"/>
             <field name="grant_number">STARTUP-2024-012</field>
             <field name="grant_scheme">Program Inkubasi Startup Teknologi Kemendikbudristek</field>
+            <field name="research_area">EduTech dan Pendidikan Vokasi</field>
+            <field name="research_focus">Hibah inkubasi untuk pengembangan platform EduTech AI-powered untuk pendidikan vokasi dengan target 10,000 users dan sustainable business model</field>
+            <field name="keywords">edutech startup, vocational education, online learning, AI tutoring, job placement, startup incubation</field>
             <field name="start_date">2024-01-15</field>
             <field name="end_date">2025-12-31</field>
             <field name="status">active</field>
@@ -239,6 +301,7 @@
             <field name="material_cost">80000000</field>
             <field name="travel_cost">50000000</field>
             <field name="other_cost">20000000</field>
+            <field name="overhead_percentage">10</field>
             <field name="research_focus">Hibah inkubasi untuk pengembangan platform EduTech AI-powered untuk pendidikan vokasi dengan target 10,000 users dan sustainable business model</field>
             <field name="objectives">&lt;h5&gt;Tujuan Hibah:&lt;/h5&gt;
 &lt;ol&gt;
@@ -267,6 +330,32 @@
             <field name="contact_email">budi.hartono@kemdikbud.go.id</field>
             <field name="contact_phone">+62-21-57946101</field>
             <field name="terms_conditions">&lt;p&gt;Dana hibah tidak dapat digunakan untuk gaji founder. Equity sharing 0% (non-dilutive grant). Startup wajib berkomitmen continue di Indonesia minimal 3 tahun setelah program. Kemendikbud berhak showcase startup sebagai success story.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Inkubasi Startup: EduTech Platform untuk Pendidikan Vokasi&lt;/h3&gt;
+&lt;p&gt;Program inkubasi startup teknologi ini mendukung pengembangan platform EduTech berbasis AI untuk pendidikan vokasi yang dapat mentransformasi pembelajaran keterampilan di Indonesia. Platform ini menyediakan pembelajaran adaptif yang dipersonalisasi, menggunakan AI untuk menyesuaikan materi dengan kemampuan dan kebutuhan siswa, serta menghubungkan siswa dengan peluang kerja melalui partnership strategis dengan industri.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fitur Platform EduTech:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI-Powered Learning:&lt;/strong&gt; Adaptive learning paths berdasarkan assessment kemampuan siswa&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interactive Content:&lt;/strong&gt; Video tutorials, simulations, VR/AR experiences untuk vocational skills&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Industry Integration:&lt;/strong&gt; Real project collaboration dengan perusahaan mitra&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Career Matching:&lt;/strong&gt; AI-driven job recommendations dan internship placement&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Progress Tracking:&lt;/strong&gt; Comprehensive dashboard untuk siswa, guru, dan orang tua&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Target Segment:&lt;/strong&gt; Platform ini menargetkan 10,000 siswa SMK di seluruh Indonesia dengan fokus pada 8 kompetensi utama: digital marketing, programming, design grafis, mekanik otomotif, elektronika, kuliner, fashion, dan bisnis.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Business Model:&lt;/strong&gt; Kombinasi freemium model untuk siswa dengan subscription B2B untuk sekolah dan B2G partnership dengan pemerintah daerah untuk implementasi skala besar.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Impact Measurement:&lt;/strong&gt; Platform dilengkapi dengan analytics system untuk mengukur improvement learning outcomes, employability rates, dan satisfaction levels dari semua stakeholders.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Platform Launch:&lt;/strong&gt; MVP platform dengan 100+ interactive courses untuk 8 kompetensi vokasi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User Acquisition:&lt;/strong&gt; 10,000 active users dalam 12 bulan dengan retention rate &gt; 70%&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Partnership Development:&lt;/strong&gt; 20+ SMK dan 50+ perusahaan mitra untuk job placement&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Business Traction:&lt;/strong&gt; Revenue Rp 500 juta dari subscription dan partnership&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Funding Achievement:&lt;/strong&gt; Series A funding Rp 5 miliar dari investor teknologi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Social Impact:&lt;/strong&gt; 30% improvement dalam employability rates siswa vokasi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technology Innovation:&lt;/strong&gt; 3 patent applications untuk AI learning algorithms&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Pendidikan vokasi di Indonesia menghadapi tantangan dalam menyediakan pembelajaran yang relevan dengan kebutuhan industri 4.0. Teknologi digital dan AI dapat mentransformasi pendidikan vokasi menjadi lebih efektif dan menarik. Startup edutech memiliki potensi besar untuk mengatasi kesenjangan antara pendidikan dan dunia kerja melalui platform digital yang scalable.&lt;/p&gt;</field>
+            <field name="project_website">https://edutech-vokasi.kemdikbud.go.id</field>
+            <field name="audit_results">&lt;p&gt;Audit program inkubasi menunjukkan pencapaian 3,500 users aktif. Progress sesuai target dengan 50+ courses dikembangkan.&lt;/p&gt;</field>
             <field name="teaser">Hibah inkubasi startup senilai Rp 500 juta untuk platform EduTech pendidikan vokasi dengan target 10,000 users dan sustainable business.</field>
             <field name="slug">hibah-startup-edutech-pendidikan-vokasi</field>
             <field name="meta_title">Hibah Inkubasi Startup Teknologi: EduTech Platform untuk Pendidikan Vokasi | Kemendikbud</field>
@@ -279,10 +368,12 @@
         
         <record id="hibah_sample_pengabdian_masyarakat" model="hibah.pendanaan.post">
             <field name="name">Hibah Pengabdian: Pemberdayaan UMKM melalui Digitalisasi dan E-Commerce</field>
-            <field name="subtitle">Community Service: Digital Transformation for Small Businesses</field>
             <field name="blog_id" ref="blog_hibah_pengabdian"/>
             <field name="grant_number">PKM-2024-089</field>
             <field name="grant_scheme">Program Kemitraan Masyarakat (PKM)</field>
+            <field name="research_area">Digitalisasi UMKM</field>
+            <field name="research_focus">Program pengabdian masyarakat untuk memberdayakan 100 UMKM melalui pelatihan digitalisasi, e-commerce, dan digital marketing</field>
+            <field name="keywords">UMKM digitalisasi, digital transformation, e-commerce training, digital marketing UMKM, pengabdian masyarakat</field>
             <field name="start_date">2024-03-01</field>
             <field name="end_date">2024-12-31</field>
             <field name="status">active</field>
@@ -296,6 +387,7 @@
             <field name="material_cost">40000000</field>
             <field name="travel_cost">25000000</field>
             <field name="other_cost">5000000</field>
+            <field name="overhead_percentage">10</field>
             <field name="research_focus">Program pengabdian masyarakat untuk memberdayakan 100 UMKM melalui pelatihan digitalisasi, e-commerce, dan digital marketing</field>
             <field name="objectives">&lt;h5&gt;Tujuan Program:&lt;/h5&gt;
 &lt;ol&gt;
@@ -322,6 +414,32 @@
             <field name="contact_email">suharto@kemdikbud.go.id</field>
             <field name="contact_phone">+62-21-57946102</field>
             <field name="terms_conditions">&lt;p&gt;Program wajib melibatkan mahasiswa sebagai Tim PKM. Hasil program harus sustainable dan dapat dilanjutkan oleh mitra setelah program selesai. Wajib membuat video dokumentasi untuk dissemination.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Pengabdian: Pemberdayaan UMKM melalui Digitalisasi dan E-Commerce&lt;/h3&gt;
+&lt;p&gt;Program pengabdian kepada masyarakat ini bertujuan memberdayakan 100 UMKM melalui digitalisasi komprehensif dan pengembangan e-commerce yang berkelanjutan. Program mencakup pelatihan intensif digital marketing, pembuatan toko online di marketplace, pengembangan platform e-commerce komunal, serta pendampingan berkelanjutan untuk memastikan keberhasilan transformasi digital UMKM lokal.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Komponen Program Digitalisasi:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Digital Marketing Training:&lt;/strong&gt; Social media marketing, SEO, content creation, dan digital advertising&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;E-Commerce Setup:&lt;/strong&gt; Toko online di Shopee, Tokopedia, Bukalapak, dan marketplace lainnya&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Platform Komunal:&lt;/strong&gt; Website e-commerce bersama untuk UMKM dengan branding lokal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Digital Payment Integration:&lt;/strong&gt; QRIS, e-wallet, dan sistem pembayaran digital&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Supply Chain Digital:&lt;/strong&gt; Inventory management dan order tracking system&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Pendekatan Pelaksanaan:&lt;/strong&gt; Program menggunakan blended learning dengan workshop tatap muka, online training, dan mentoring individu. Tim PKM terdiri dari dosen dan mahasiswa yang melakukan pendampingan intensif selama 10 bulan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sektor UMKM Target:&lt;/strong&gt; Fokus pada 5 sektor unggulan: fashion &amp; tekstil, kuliner, kerajinan tangan, produk pertanian olahan, dan jasa kreatif dengan potensi ekspor digital.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sustainability Framework:&lt;/strong&gt; Program dirancang untuk berkelanjutan dengan pembentukan komunitas digital UMKM, knowledge center, dan partnership dengan platform e-commerce untuk support jangka panjang.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;UMKM Digital:&lt;/strong&gt; 100 UMKM berhasil go-digital dengan toko online aktif&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Platform E-Commerce:&lt;/strong&gt; Website komunal dengan 50+ produk UMKM terdaftar&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Omzet Increase:&lt;/strong&gt; Peningkatan omzet rata-rata 30-50% per UMKM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Digital Skills:&lt;/strong&gt; 150+ pelaku UMKM terlatih digital marketing dan e-commerce&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Job Creation:&lt;/strong&gt; 25+ lapangan kerja baru di sektor digital UMKM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sustainable Ecosystem:&lt;/strong&gt; Komunitas digital UMKM yang aktif dan mandiri&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Knowledge Products:&lt;/strong&gt; Buku panduan, video tutorial, dan modul training digitalisasi&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;UMKM merupakan tulang punggung ekonomi Indonesia dengan kontribusi signifikan terhadap PDB dan penyerapan tenaga kerja. Namun, UMKM sering kesulitan dalam pemasaran dan akses pasar karena keterbatasan pengetahuan digital. Digitalisasi UMKM melalui e-commerce dapat meningkatkan omzet dan daya saing, namun memerlukan pendampingan intensif dari akademisi.&lt;/p&gt;</field>
+            <field name="project_website">https://pkm-umkm-digital.kemdikbud.go.id</field>
+            <field name="audit_results">&lt;p&gt;Audit program menunjukkan 85 UMKM berhasil didigitalisasi dengan peningkatan omzet rata-rata 45%. Platform e-commerce komunal mencapai GMV Rp 25 juta per bulan.&lt;/p&gt;</field>
             <field name="teaser">Hibah pengabdian senilai Rp 150 juta untuk digitalisasi 100 UMKM dengan training e-commerce dan digital marketing.</field>
             <field name="slug">hibah-pengabdian-digitalisasi-umkm</field>
             <field name="meta_title">Hibah Pengabdian: Pemberdayaan UMKM melalui Digitalisasi dan E-Commerce | PKM</field>
@@ -330,6 +448,207 @@
             <field name="is_featured">False</field>
             <field name="website_published">True</field>
             <field name="date">2024-03-01</field>
+        </record>
+
+        <!-- Budget Lines -->
+        <record id="budget_line_quantum_1" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
+            <field name="sequence">1</field>
+            <field name="category">Personel</field>
+            <field name="description">Gaji peneliti utama, asisten peneliti, dan tenaga pendukung</field>
+            <field name="amount">380000000</field>
+        </record>
+
+        <record id="budget_line_quantum_2" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
+            <field name="sequence">2</field>
+            <field name="category">Peralatan</field>
+            <field name="description">Komputer high-end, akses quantum simulator, dan software lisensi</field>
+            <field name="amount">350000000</field>
+        </record>
+
+        <record id="budget_line_quantum_3" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
+            <field name="sequence">3</field>
+            <field name="category">Bahan</field>
+            <field name="description">Dataset training, cloud computing resources, dan bahan habis pakai</field>
+            <field name="amount">120000000</field>
+        </record>
+
+        <record id="budget_line_quantum_4" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
+            <field name="sequence">4</field>
+            <field name="category">Perjalanan</field>
+            <field name="description">Kunjungan ke MIT dan Oxford untuk kolaborasi riset</field>
+            <field name="amount">80000000</field>
+        </record>
+
+        <record id="budget_line_quantum_5" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
+            <field name="sequence">5</field>
+            <field name="category">Lainnya</field>
+            <field name="description">Publikasi, workshop, dan biaya administrasi</field>
+            <field name="amount">20000000</field>
+        </record>
+
+        <record id="budget_line_robotics_1" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
+            <field name="sequence">1</field>
+            <field name="category">Personel</field>
+            <field name="description">Gaji tim riset Indonesia-Jepang</field>
+            <field name="amount">600000000</field>
+        </record>
+
+        <record id="budget_line_robotics_2" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
+            <field name="sequence">2</field>
+            <field name="category">Peralatan</field>
+            <field name="description">Robot hardware, sensor, dan equipment testing</field>
+            <field name="amount">800000000</field>
+        </record>
+
+        <record id="budget_line_robotics_3" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
+            <field name="sequence">3</field>
+            <field name="category">Perjalanan</field>
+            <field name="description">Researcher exchange dan joint workshops</field>
+            <field name="amount">250000000</field>
+        </record>
+
+        <record id="budget_line_robotics_4" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
+            <field name="sequence">4</field>
+            <field name="category">Bahan</field>
+            <field name="description">Materials untuk prototyping dan testing</field>
+            <field name="amount">100000000</field>
+        </record>
+
+        <record id="budget_line_robotics_5" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
+            <field name="sequence">5</field>
+            <field name="category">Lainnya</field>
+            <field name="description">Overhead dan biaya administrasi</field>
+            <field name="amount">50000000</field>
+        </record>
+
+        <record id="budget_line_ai_1" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_industri_ai"/>
+            <field name="sequence">1</field>
+            <field name="category">Personel</field>
+            <field name="description">Gaji tim AI dan computer vision</field>
+            <field name="amount">320000000</field>
+        </record>
+
+        <record id="budget_line_ai_2" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_industri_ai"/>
+            <field name="sequence">2</field>
+            <field name="category">Peralatan</field>
+            <field name="description">GPU servers, industrial cameras, dan computing infrastructure</field>
+            <field name="amount">380000000</field>
+        </record>
+
+        <record id="budget_line_ai_3" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_industri_ai"/>
+            <field name="sequence">3</field>
+            <field name="category">Bahan</field>
+            <field name="description">Dataset training dan software licenses</field>
+            <field name="amount">80000000</field>
+        </record>
+
+        <record id="budget_line_ai_4" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_industri_ai"/>
+            <field name="sequence">4</field>
+            <field name="category">Perjalanan</field>
+            <field name="description">Site visits dan training sessions</field>
+            <field name="amount">50000000</field>
+        </record>
+
+        <record id="budget_line_ai_5" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_industri_ai"/>
+            <field name="sequence">5</field>
+            <field name="category">Lainnya</field>
+            <field name="description">Patent applications dan commercialization</field>
+            <field name="amount">20000000</field>
+        </record>
+
+        <record id="budget_line_edutech_1" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_startup_grant"/>
+            <field name="sequence">1</field>
+            <field name="category">Personel</field>
+            <field name="description">Development team dan content creators</field>
+            <field name="amount">200000000</field>
+        </record>
+
+        <record id="budget_line_edutech_2" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_startup_grant"/>
+            <field name="sequence">2</field>
+            <field name="category">Peralatan</field>
+            <field name="description">Servers, development tools, dan cloud infrastructure</field>
+            <field name="amount">150000000</field>
+        </record>
+
+        <record id="budget_line_edutech_3" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_startup_grant"/>
+            <field name="sequence">3</field>
+            <field name="category">Bahan</field>
+            <field name="description">Content development dan marketing materials</field>
+            <field name="amount">80000000</field>
+        </record>
+
+        <record id="budget_line_edutech_4" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_startup_grant"/>
+            <field name="sequence">4</field>
+            <field name="category">Perjalanan</field>
+            <field name="description">Partnership meetings dan user acquisition</field>
+            <field name="amount">50000000</field>
+        </record>
+
+        <record id="budget_line_edutech_5" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_startup_grant"/>
+            <field name="sequence">5</field>
+            <field name="category">Lainnya</field>
+            <field name="description">Legal, IP protection, dan contingencies</field>
+            <field name="amount">20000000</field>
+        </record>
+
+        <record id="budget_line_umkm_1" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
+            <field name="sequence">1</field>
+            <field name="category">Personel</field>
+            <field name="description">Tim pengabdian dan trainer</field>
+            <field name="amount">45000000</field>
+        </record>
+
+        <record id="budget_line_umkm_2" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
+            <field name="sequence">2</field>
+            <field name="category">Peralatan</field>
+            <field name="description">Laptop, projector, dan training materials</field>
+            <field name="amount">35000000</field>
+        </record>
+
+        <record id="budget_line_umkm_3" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
+            <field name="sequence">3</field>
+            <field name="category">Bahan</field>
+            <field name="description">Digital marketing tools dan e-commerce setup</field>
+            <field name="amount">40000000</field>
+        </record>
+
+        <record id="budget_line_umkm_4" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
+            <field name="sequence">4</field>
+            <field name="category">Perjalanan</field>
+            <field name="description">Field visits dan training sessions</field>
+            <field name="amount">25000000</field>
+        </record>
+
+        <record id="budget_line_umkm_5" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
+            <field name="sequence">5</field>
+            <field name="category">Lainnya</field>
+            <field name="description">Website development dan monitoring</field>
+            <field name="amount">5000000</field>
         </record>
 
     </data>

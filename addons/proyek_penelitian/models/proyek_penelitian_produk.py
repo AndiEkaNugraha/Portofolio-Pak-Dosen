@@ -6,11 +6,11 @@ from odoo import models, fields, api
 class ProyekPenelitianProduk(models.Model):
     _name = 'proyek.penelitian.produk'
     _description = 'Produk Terkait Proyek Penelitian'
-    _order = 'sequence, id'
+    _order = 'id'
 
     # Basic fields
     proyek_id = fields.Many2one('proyek.penelitian.post', 'Proyek Penelitian', required=True, ondelete='cascade')
-    sequence = fields.Integer('Urutan', default=10)
+    # sequence = fields.Integer('Urutan', default=10)  # REMOVED - not used in website
 
     # Product reference - menggunakan reference field untuk berbagai model
     product_ref = fields.Reference([

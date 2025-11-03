@@ -25,11 +25,7 @@
                 <list string="Kategori Hibah &amp; Pendanaan">
                     <field name="sequence" widget="handle"/>
                     <field name="name"/>
-                    <field name="funding_type"/>
-                    <field name="funding_level"/>
-                    <field name="funding_agency"/>
                     <field name="post_count"/>
-                    <field name="total_funding" widget="monetary"/>
                     <field name="website_published"/>
                     <field name="active"/>
                 </list>
@@ -43,39 +39,12 @@
                 <form string="Kategori Hibah &amp; Pendanaan">
                     <sheet>
                         <group>
-                            <group>
-                                <field name="name"/>
-                                <field name="subtitle"/>
-                                <field name="funding_type"/>
-                                <field name="funding_level"/>
-                                <field name="funding_agency"/>
-                                <field name="agency_type"/>
-                            </group>
-                            <group>
-                                <field name="sequence"/>
-                                <field name="website_published"/>
-                                <field name="active"/>
-                                <field name="post_count" readonly="1"/>
-                                <field name="total_funding" widget="monetary"/>
-                                <field name="average_funding" widget="monetary" readonly="1"/>
-                            </group>
+                            <field name="name"/>
+                            <field name="sequence"/>
+                            <field name="website_published"/>
+                            <field name="active"/>
+                            <field name="post_count" readonly="1"/>
                         </group>
-                        <notebook>
-                            <page string="Deskripsi">
-                                <field name="description" placeholder="Deskripsi kategori hibah..."/>
-                            </page>
-                            <page string="Informasi Institusi">
-                                <group>
-                                    <group>
-                                        <field name="institution"/>
-                                        <field name="faculty"/>
-                                    </group>
-                                    <group>
-                                        <field name="contact_person"/>
-                                    </group>
-                                </group>
-                            </page>
-                        </notebook>
                     </sheet>
                 </form>
             </field>
@@ -230,8 +199,6 @@
             <field name="arch" type="xml">
                 <search string="Cari Kategori Hibah">
                     <field name="name"/>
-                    <field name="funding_type"/>
-                    <field name="funding_agency"/>
                 </search>
             </field>
         </record>

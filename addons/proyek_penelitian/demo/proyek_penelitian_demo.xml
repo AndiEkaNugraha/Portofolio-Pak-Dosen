@@ -80,20 +80,6 @@ Fajar Ramadhan (Clinical Validation of AI Systems)</field>
 Lina Handayani (Final Project: Skin Cancer Detection App)
 Rio Wijaya (Final Project: Medical Image Augmentation)
 Citra Dewi (Final Project: AI Performance Evaluation)</field>
-            <field name="publications">&lt;ul&gt;
-&lt;li&gt;"Deep Learning Approaches for Automated Eye Disease Detection" - IEEE Transactions on Medical Imaging, 2024 (Q1)&lt;/li&gt;
-&lt;li&gt;"Computer Vision-Based Skin Lesion Classification using EfficientNet" - Medical Image Analysis, 2024 (Q1)&lt;/li&gt;
-&lt;li&gt;"Mobile Application for AI-Powered Medical Diagnosis in Low-Resource Settings" - JMIR mHealth, 2024 (Q1)&lt;/li&gt;
-&lt;li&gt;"Clinical Validation of AI System for Ophthalmologic Screening" - Nature Digital Medicine, 2024 (Under Review)&lt;/li&gt;
-&lt;/ul&gt;</field>
-            <field name="patents_ip">Sistem Kecerdasan Buatan untuk Diagnosis Penyakit Mata (Paten Pending - P2024001234)
-Algoritma Deep Learning untuk Deteksi Kanker Kulit (Paten Pending - P2024001235)</field>
-            <field name="prototypes">&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;MedVision Mobile App:&lt;/strong&gt; Aplikasi mobile untuk diagnosis penyakit mata dan kulit&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI-Diagnosis Web Platform:&lt;/strong&gt; Platform web untuk tenaga medis&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Medical AI API:&lt;/strong&gt; API untuk integrasi dengan sistem rumah sakit&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Training Simulator:&lt;/strong&gt; Simulator untuk pelatihan tenaga medis&lt;/li&gt;
-&lt;/ul&gt;</field>
             <field name="conference_presentations">&lt;ul&gt;
 &lt;li&gt;IEEE International Conference on Medical AI - Singapore, 2024&lt;/li&gt;
 &lt;li&gt;Asian Conference on Computer Vision (ACCV) - Tokyo, 2024&lt;/li&gt;
@@ -196,11 +182,6 @@ Ayu Purnama (Sensor Data Analytics)</field>
             <field name="undergrad_students">Budi Hartono (Final Project: Soil Moisture Monitoring)
 Sinta Maharani (Final Project: Automated Irrigation)
 Rio Saputra (Final Project: Weather Station IoT)</field>
-            <field name="publications">&lt;ul&gt;
-&lt;li&gt;"IoT-Based Precision Agriculture System for Sustainable Farming" - Computers and Electronics in Agriculture, 2024&lt;/li&gt;
-&lt;li&gt;"Machine Learning Approaches for Crop Yield Prediction in Smart Agriculture" - Agricultural Systems, 2024&lt;/li&gt;
-&lt;li&gt;"Wireless Sensor Network Design for Large-Scale Agricultural Monitoring" - IEEE Internet of Things Journal, 2024&lt;/li&gt;
-&lt;/ul&gt;</field>
             <field name="prototypes">&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;SmartFarm IoT Kit:&lt;/strong&gt; Paket sensor lengkap untuk monitoring pertanian&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;FarmBot Mobile App:&lt;/strong&gt; Aplikasi mobile untuk petani&lt;/li&gt;
@@ -253,13 +234,6 @@ Wageningen University &amp; Research, Netherlands</field>
 Nestlé
 Royal FrieslandCampina
 PT. Indofood Sukses Makmur</field>
-            <field name="publications">&lt;ul&gt;
-&lt;li&gt;"Blockchain-enabled Food Supply Chain: A Systematic Review and Future Directions" - IEEE Access, 2024 (Q1)&lt;/li&gt;
-&lt;li&gt;"Smart Contracts for Automated Food Safety Compliance in Supply Chains" - Food Control, 2024 (Q1)&lt;/li&gt;
-&lt;li&gt;"Hyperledger Fabric Implementation for Multi-party Food Traceability" - Computers &amp; Industrial Engineering, 2024 (Q1)&lt;/li&gt;
-&lt;/ul&gt;</field>
-            <field name="patents_ip">Sistem Blockchain untuk Traceability Makanan (Paten Terdaftar - P0022001345)
-Smart Contract untuk Sertifikasi Keamanan Pangan (Paten EU Pending)</field>
             <field name="achievements">&lt;ul&gt;
 &lt;li&gt;Best Paper Award - IEEE International Conference on Blockchain Technology 2024&lt;/li&gt;
 &lt;li&gt;Featured in Harvard Business Review - Digital Transformation Case Study&lt;/li&gt;

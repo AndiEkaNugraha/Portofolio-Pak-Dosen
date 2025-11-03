@@ -14,7 +14,7 @@ class HibahPendanaanController(http.Controller):
         
         # Search filter
         if search:
-            domain.append(['|', ('name', 'ilike', search), ('teaser', 'ilike', search)])
+            domain.append(['|', '|', '|', ('name', 'ilike', search), ('teaser', 'ilike', search), ('funding_agency', 'ilike', search), ('grant_scheme', 'ilike', search)])
         
         # Category filter
         if category:
@@ -47,12 +47,19 @@ class HibahPendanaanController(http.Controller):
         # Get categories for filter
         categories = request.env['hibah.pendanaan.blog'].search([('website_published', '=', True)])
         
+        # Get featured grants
+        featured_grants = request.env['hibah.pendanaan.post'].search([
+            ('website_published', '=', True),
+            ('is_featured', '=', True)
+        ], limit=3, order='start_date desc')
+        
         # Get status options
         status_options = request.env['hibah.pendanaan.post']._fields['status'].selection
         
         values = {
             'grants': grants,
             'categories': categories,
+            'featured_grants': featured_grants,
             'status_options': status_options,
             'search': search,
             'current_category': int(category) if category else None,

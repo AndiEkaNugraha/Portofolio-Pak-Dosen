@@ -51,7 +51,6 @@
             <field name="model">proyek.penelitian.produk</field>
             <field name="arch" type="xml">
                 <list>
-                    <field name="sequence"/>
                     <field name="product_ref"/>
                     <field name="product_type"/>
                     <field name="product_name"/>
@@ -66,13 +65,45 @@
             <field name="arch" type="xml">
                 <form string="Produk Terkait">
                     <group>
-                        <field name="product_ref"/>
-                        <field name="sequence"/>
-                        <field name="product_name" readonly="1"/>
-                        <field name="product_type" readonly="1"/>
-                        <field name="product_year" readonly="1"/>
-                        <field name="product_url" readonly="1"/>
+                        <field name="proyek_id" invisible="1"/>
+                        <field name="product_ref" required="1"/>
                     </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_proyek_penelitian_mitra_tree" model="ir.ui.view">
+            <field name="name">proyek.penelitian.mitra.tree</field>
+            <field name="model">proyek.penelitian.mitra</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="partner_type"/>
+                    <field name="contact_person"/>
+                    <field name="partner_url"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_proyek_penelitian_mitra_form" model="ir.ui.view">
+            <field name="name">proyek.penelitian.mitra.form</field>
+            <field name="model">proyek.penelitian.mitra</field>
+            <field name="arch" type="xml">
+                <form string="Mitra Kolaborasi">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_type"/>
+                            <field name="partner_url" placeholder="https://..."/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="contact_person"/>
+                            <field name="contact_email"/>
+                        </group>
+                    </group>
+                    <field name="role_description" placeholder="Jelaskan peran dan kontribusi mitra dalam proyek..."/>
                 </form>
             </field>
         </record>
@@ -137,12 +168,63 @@
                                 <field name="teaser" placeholder="Ringkasan singkat proyek..."/>
                                 <field name="description" placeholder="Deskripsi lengkap proyek..."/>
                             </page>
+                            <page string="Area &amp; Tujuan Penelitian">
+                                <group>
+                                    <field name="research_area"/>
+                                    <field name="keywords"/>
+                                    <field name="research_objectives" placeholder="Tujuan penelitian..."/>
+                                    <field name="methodology" placeholder="Metodologi penelitian..."/>
+                                </group>
+                            </page>
                             <page string="Produk Terkait">
-                                <field name="product_ids"/>
+                                <field name="product_ids" context="{'default_proyek_id': id}"/>
                             </page>
                             <page string="Tim &amp; Kolaborasi">
-                                <field name="co_investigators" placeholder="Daftar anggota peneliti..."/>
-                                <field name="partner_institutions" placeholder="Institusi mitra..."/>
+                                <group>
+                                    <field name="co_investigators" placeholder="Daftar anggota peneliti..."/>
+                                </group> 
+                                <group string="Mahasiswa &amp; Asisten">
+                                    <field name="phd_students" placeholder="Mahasiswa S3..."/>
+                                    <field name="master_students" placeholder="Mahasiswa S2..."/>
+                                    <field name="undergrad_students" placeholder="Mahasiswa S1..."/>
+                                    <field name="research_assistants" placeholder="Asisten peneliti..."/>
+                                </group>
+                                <group string="Kolaborator">
+                                    <field name="mitra_ids"/>
+                                </group>
+                            </page>
+                            <page string="Dampak &amp; Prestasi">
+                                <group >
+                                    <field name="achievements" placeholder="Pencapaian &amp; prestasi..."/>
+                                    <field name="social_impact" placeholder="Dampak sosial..."/>
+                                    <field name="economic_impact" placeholder="Dampak ekonomi..."/>
+                                    <field name="policy_impact" placeholder="Dampak kebijakan..."/>
+                                </group>
+                            </page>
+                            <page string="Media &amp; Dokumentasi">
+                                <group>
+                                    <field name="project_images" widget="image"/>
+                                    <field name="project_images_filename" invisible="1"/>
+                                    <field name="project_video" placeholder="URL video dokumentasi..."/>
+                                </group>
+                                <group>
+                                    <field name="project_documents" widget="binary"/>
+                                    <field name="project_documents_filename" invisible="1"/>
+                                </group>
+                            </page>
+                            <page string="Progress &amp; Milestone">
+                                <group>
+                                    <field name="milestones" placeholder="Milestone &amp; target..."/>
+                                    <field name="current_activities" placeholder="Kegiatan saat ini..."/>
+                                    <field name="next_steps" placeholder="Langkah selanjutnya..."/>
+                                </group>
+                            </page>
+                            <page string="Kontak &amp; Link">
+                                <group>
+                                    <field name="contact_email"/>
+                                    <field name="project_website" placeholder="URL website proyek..."/>
+                                    <field name="related_links" placeholder="Link terkait..."/>
+                                </group>
                             </page>
                             <page string="SEO">
                                 <group>
