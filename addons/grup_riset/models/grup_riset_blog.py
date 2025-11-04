@@ -100,27 +100,23 @@ class GrupRisetPost(models.Model):
     # Facilities & Equipment
     facilities = fields.Html('Fasilitas & Peralatan', help="Deskripsi fasilitas dan peralatan yang dimiliki")
     lab_space = fields.Char('Ruang Lab', help="Contoh: Ruang B301, Lab AI Lt.3")
-    equipment_list = fields.Text('Daftar Peralatan Utama', help="Daftar peralatan penting, pisahkan dengan baris baru")
+    equipment_list = fields.Html('Daftar Peralatan Utama', help="Deskripsi peralatan penting laboratorium")
     
-    # Projects & Collaborations
-    current_projects = fields.Html('Proyek Sedang Berjalan', help="Deskripsi proyek penelitian yang sedang aktif")
-    completed_projects = fields.Html('Proyek Selesai', help="Deskripsi proyek yang telah selesai")
-    collaborations = fields.Text('Kolaborasi', help="Institusi atau perusahaan yang berkolaborasi")
-    
-    # Publications & Achievements
-    recent_publications = fields.Html('Publikasi Terbaru', help="Daftar publikasi terbaru grup riset")
-    achievements = fields.Html('Pencapaian & Penghargaan', help="Pencapaian dan penghargaan yang diraih")
-    patents = fields.Text('Paten/HKI', help="Paten atau HKI yang dimiliki grup")
-    
-    # Funding & Grants
-    funding_sources = fields.Text('Sumber Pendanaan', help="Sumber pendanaan penelitian, pisahkan dengan baris baru")
-    grants_received = fields.Html('Hibah yang Diterima', help="Daftar hibah penelitian yang pernah diterima")
+    # Projects & Collaborations - Linked to Proyek Penelitian
+    proyek_ids = fields.Many2many(
+        'proyek.penelitian.post',
+        'grup_riset_proyek_rel',
+        'grup_riset_id',
+        'proyek_id',
+        string='Proyek Terkait',
+        help="Proyek penelitian yang terkait dengan grup riset ini"
+    )
+    proyek_count = fields.Integer('Jumlah Proyek', compute='_compute_proyek_count', store=True)
     
     # Contact & Social
     contact_email = fields.Char('Email Kontak')
     contact_person = fields.Char('Person in Charge')
     website_url = fields.Char('Website Grup Riset', help="URL website grup riset jika ada")
-    social_media = fields.Char('Media Sosial', help="Link media sosial grup riset")
     
     # Media
     group_photo = fields.Binary('Foto Grup', help="Foto anggota grup riset")
@@ -169,6 +165,24 @@ class GrupRisetPost(models.Model):
             if record.undergrad_students:
                 total += len([line.strip() for line in record.undergrad_students.split('\n') if line.strip()])
             record.total_students = total
+    
+    @api.depends('proyek_ids')
+    def _compute_proyek_count(self):
+        """Count number of related proyek penelitian"""
+        for record in self:
+            record.proyek_count = len(record.proyek_ids)
+    
+    def action_view_proyek(self):
+        """Open list of related proyek penelitian"""
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Proyek Penelitian Terkait',
+            'res_model': 'proyek.penelitian.post',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', self.proyek_ids.ids)],
+            'context': {'default_grup_riset_ids': [(4, self.id)]},
+        }
     
     @api.model
     def create(self, vals_list):

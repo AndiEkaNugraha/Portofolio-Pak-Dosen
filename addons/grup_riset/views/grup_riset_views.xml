@@ -61,8 +61,8 @@
                 <form string="Grup Riset &amp; Laboratorium">
                     <sheet>
                         <div class="oe_title">
-                            <div class="o_row">
-                                <field name="group_photo" widget="image" class="oe_avatar" options="{'size': [90, 90]}"/>
+                            <field name="group_photo" widget="image" class="oe_avatar" options="{'size': [90, 90]}"/>
+                            <div class="o_row" style="justify-content: space-between;">
                                 <div>
                                     <label for="name" class="oe_edit_only"/>
                                     <h1><field name="name" placeholder="Nama Grup Riset/Laboratorium"/></h1>
@@ -87,10 +87,6 @@
                                 <field name="is_featured"/>
                                 <field name="date"/>
                             </group>
-                        </group>
-
-                        <group string="Ringkasan">
-                            <field name="teaser" widget="text" placeholder="Ringkasan singkat grup riset untuk preview di website..." options="{'rows': 4}"/>
                         </group>
 
                         <group string="Fokus Penelitian">
@@ -127,7 +123,7 @@
 
                             <page string="Fasilitas &amp; Peralatan">
                                 <group>
-                                    <field name="lab_photos" widget="image" options="{'size': [200, 150]}"/>
+                                    <field name="lab_photos" widget="image" options="{'size': [200, 'auto']}"/>
                                     <field name="lab_photos_filename" invisible="1"/>
                                 </group>
                                 
@@ -135,48 +131,35 @@
                                 <field name="facilities" placeholder="Deskripsi fasilitas dan peralatan yang dimiliki..."/>
                                 
                                 <separator string="Daftar Peralatan Utama"/>
-                                <field name="equipment_list" widget="text" placeholder="Daftar peralatan penting..." options="{'rows': 5}"/>
+                                <field name="equipment_list" placeholder="Deskripsi peralatan penting laboratorium..."/>
                             </page>
 
-                            <page string="Proyek &amp; Kolaborasi">
-                                <separator string="Proyek Sedang Berjalan"/>
-                                <field name="current_projects" placeholder="Deskripsi proyek penelitian yang sedang aktif..."/>
-                                
-                                <separator string="Proyek yang Telah Selesai"/>
-                                <field name="completed_projects" placeholder="Deskripsi proyek yang telah selesai..."/>
-                                
-                                <separator string="Kolaborasi"/>
-                                <field name="collaborations" widget="text" placeholder="Institusi atau perusahaan yang berkolaborasi..." options="{'rows': 3}"/>
-                            </page>
-
-                            <page string="Publikasi &amp; Pencapaian">
-                                <separator string="Publikasi Terbaru"/>
-                                <field name="recent_publications" placeholder="Daftar publikasi terbaru grup riset..."/>
-                                
-                                <separator string="Pencapaian &amp; Penghargaan"/>
-                                <field name="achievements" placeholder="Pencapaian dan penghargaan yang diraih..."/>
-                                
-                                <separator string="Paten/HKI"/>
-                                <field name="patents" widget="text" placeholder="Paten atau HKI yang dimiliki grup..." options="{'rows': 3}"/>
-                            </page>
-
-                            <page string="Pendanaan &amp; Hibah">
-                                <separator string="Sumber Pendanaan"/>
-                                <field name="funding_sources" widget="text" placeholder="Sumber pendanaan penelitian..." options="{'rows': 3}"/>
-                                
-                                <separator string="Hibah yang Diterima"/>
-                                <field name="grants_received" placeholder="Daftar hibah penelitian yang pernah diterima..."/>
+                            <page string="Proyek Terkait">
+                                <group>
+                                    <field name="proyek_ids" widget="many2many_tags" options="{'color_field': 'status', 'no_create_edit': True}"/>
+                                </group>
+                                <group>
+                                    <field name="proyek_count" readonly="1"/>
+                                </group>
                             </page>
 
                             <page string="Kontak &amp; Media">
                                 <group>
-                                    <field name="website_url" widget="url"/>
-                                    <field name="social_media"/>
-                                    <field name="group_photo_filename" invisible="1"/>
+                                    <group>
+                                        <field name="contact_email" widget="email"/>
+                                        <field name="contact_person"/>
+                                    </group>
+                                    <group>
+                                        <field name="website_url" widget="url"/>
+                                    </group>
                                 </group>
-                                
+                                <separator string="Ringkasan"/>
+                                <field name="teaser" widget="text" placeholder="Ringkasan singkat grup riset untuk preview di website..." options="{'rows': 4}"/>
                                 <separator string="Deskripsi Lengkap"/>
                                 <field name="description" placeholder="Deskripsi lengkap grup riset untuk halaman detail..."/>
+                                <group>
+                                    <field name="group_photo_filename" invisible="1"/>
+                                </group>
                             </page>
 
                             <page string="SEO">

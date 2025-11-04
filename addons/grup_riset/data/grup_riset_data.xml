@@ -81,14 +81,16 @@ Rizky Pratama, S.T., M.T.</field>
 &lt;li&gt;Ruang meeting dan presentation dengan smart board&lt;/li&gt;
 &lt;li&gt;Area testing untuk robot experiments&lt;/li&gt;
 &lt;/ul&gt;</field>
-            <field name="equipment_list">NVIDIA DGX Station A100
-NVIDIA RTX 4090 GPU Cluster
-Universal Robots UR5e
-TurtleBot3 Mobile Robots
-Intel RealSense D435i Cameras
-Velodyne VLP-16 LiDAR
-Arduino dan Raspberry Pi Development Kits
-3D Printer untuk prototyping</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;NVIDIA DGX Station A100&lt;/li&gt;
+&lt;li&gt;NVIDIA RTX 4090 GPU Cluster&lt;/li&gt;
+&lt;li&gt;Universal Robots UR5e&lt;/li&gt;
+&lt;li&gt;TurtleBot3 Mobile Robots&lt;/li&gt;
+&lt;li&gt;Intel RealSense D435i Cameras&lt;/li&gt;
+&lt;li&gt;Velodyne VLP-16 LiDAR&lt;/li&gt;
+&lt;li&gt;Arduino dan Raspberry Pi Development Kits&lt;/li&gt;
+&lt;li&gt;3D Printer untuk prototyping&lt;/li&gt;
+&lt;/ul&gt;</field>
             <field name="phd_students">Muhammad Fajar (Computer Vision for Medical Imaging)
 Siti Rahma (NLP for Indonesian Language)
 David Chen (Autonomous Robot Navigation)</field>
@@ -101,24 +103,10 @@ Dian Purnama (Image Classification)</field>
 Lina Sari (Final Project: Voice Assistant)
 Bayu Wijaya (Final Project: Mobile Robot)
 Citra Dewi (Final Project: Recommendation System)</field>
-            <field name="current_projects">&lt;h5&gt;Proyek Aktif:&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Smart Healthcare Assistant&lt;/strong&gt; - Pengembangan asisten AI untuk diagnosis medis menggunakan computer vision&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Autonomous Delivery Robot&lt;/strong&gt; - Robot pengantaran otomatis untuk kampus&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Indonesian NLP Platform&lt;/strong&gt; - Platform pemrosesan bahasa Indonesia untuk analisis teks&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Smart Agriculture Monitoring&lt;/strong&gt; - Sistem monitoring pertanian menggunakan AI dan IoT&lt;/li&gt;
-&lt;/ul&gt;</field>
-            <field name="recent_publications">&lt;ul&gt;
-&lt;li&gt;"Deep Learning Approaches for Indonesian Text Classification" - IEEE Conference 2024&lt;/li&gt;
-&lt;li&gt;"Autonomous Navigation in Dynamic Environments using Reinforcement Learning" - Robotics Journal 2024&lt;/li&gt;
-&lt;li&gt;"Medical Image Analysis for Early Disease Detection" - Medical AI Conference 2024&lt;/li&gt;
-&lt;li&gt;"Smart City Applications using Computer Vision" - Smart City Summit 2023&lt;/li&gt;
-&lt;/ul&gt;</field>
             <field name="contact_person">Prof. Dr. Ahmad Wijaya, S.T., M.T.</field>
             <field name="contact_email">ai.robotics.lab@university.ac.id</field>
             <field name="lab_space">Gedung Teknik Informatika Lantai 3, Ruang 301-305</field>
             <field name="website_url">https://ailab.university.ac.id</field>
-            <field name="social_media">https://instagram.com/ailab_university</field>
             <field name="established_year">2018</field>
             <field name="is_featured" eval="True"/>
             <field name="website_published" eval="True"/>
@@ -155,13 +143,15 @@ Agus Priyanto, S.T., M.T.</field>
 &lt;li&gt;PCB Design dan Manufacturing Station&lt;/li&gt;
 &lt;li&gt;Smart Agriculture Testbed (greenhouse mini)&lt;/li&gt;
 &lt;/ul&gt;</field>
-            <field name="equipment_list">Arduino dan ESP32 Development Boards
-Raspberry Pi 4 Cluster
-LoRaWAN Gateway dan Nodes
-Various Sensors (Temperature, Humidity, Soil, Air Quality)
-Oscilloscope dan Logic Analyzer
-3D Printer untuk Case Prototyping
-Soldering Station dan PCB Tools</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;Arduino dan ESP32 Development Boards&lt;/li&gt;
+&lt;li&gt;Raspberry Pi 4 Cluster&lt;/li&gt;
+&lt;li&gt;LoRaWAN Gateway dan Nodes&lt;/li&gt;
+&lt;li&gt;Various Sensors (Temperature, Humidity, Soil, Air Quality)&lt;/li&gt;
+&lt;li&gt;Oscilloscope dan Logic Analyzer&lt;/li&gt;
+&lt;li&gt;3D Printer untuk Case Prototyping&lt;/li&gt;
+&lt;li&gt;Soldering Station dan PCB Tools&lt;/li&gt;
+&lt;/ul&gt;</field>
             <field name="phd_students">Indra Wijaya (Energy-Efficient IoT Networks)
 Sari Kusuma (Edge Computing for IoT)</field>
             <field name="master_students">Rian Pratama (Smart Agriculture System)
@@ -172,17 +162,10 @@ Dedi Kurniawan (Environmental Monitoring Network)</field>
             <field name="undergrad_students">Budi Hartono (Final Project: Smart Garden)
 Sinta Maharani (Final Project: IoT Weather Station)
 Rio Saputra (Final Project: Smart Parking System)</field>
-            <field name="current_projects">&lt;h5&gt;Proyek Sedang Berjalan:&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Smart Campus Initiative&lt;/strong&gt; - Implementasi sistem IoT untuk monitoring lingkungan kampus&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Precision Agriculture Platform&lt;/strong&gt; - Platform IoT untuk pertanian presisi menggunakan sensor tanah dan cuaca&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Industrial Monitoring System&lt;/strong&gt; - Sistem monitoring industri untuk predictive maintenance&lt;/li&gt;
-&lt;/ul&gt;</field>
             <field name="contact_person">Dr. Eng. Ratna Sari, S.T., M.T.</field>
             <field name="contact_email">iot.embedded@university.ac.id</field>
             <field name="lab_space">Gedung Teknik Elektro Lantai 2, Ruang 201-203</field>
             <field name="website_url">https://iotlab.university.ac.id</field>
-            <field name="social_media">https://twitter.com/iotlab_univ</field>
             <field name="established_year">2019</field>
             <field name="is_featured" eval="False"/>
             <field name="website_published" eval="True"/>
@@ -218,13 +201,15 @@ Eko Susilo, S.Kom., M.Kom.</field>
 &lt;li&gt;Digital Forensics Tools dan Hardware&lt;/li&gt;
 &lt;li&gt;Honeypot Network untuk threat intelligence&lt;/li&gt;
 &lt;/ul&gt;</field>
-            <field name="equipment_list">VMware vSphere Infrastructure
-Wireshark Network Protocol Analyzer
-Metasploit Framework
-Kali Linux Penetration Testing Tools
-IDA Pro Reverse Engineering Software
-EnCase Digital Forensics Suite
-Hardware Security Modules (HSM)</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;VMware vSphere Infrastructure&lt;/li&gt;
+&lt;li&gt;Wireshark Network Protocol Analyzer&lt;/li&gt;
+&lt;li&gt;Metasploit Framework&lt;/li&gt;
+&lt;li&gt;Kali Linux Penetration Testing Tools&lt;/li&gt;
+&lt;li&gt;IDA Pro Reverse Engineering Software&lt;/li&gt;
+&lt;li&gt;EnCase Digital Forensics Suite&lt;/li&gt;
+&lt;li&gt;Hardware Security Modules (HSM)&lt;/li&gt;
+&lt;/ul&gt;</field>
             <field name="phd_students">Rizki Handoyo (AI-based Malware Detection)
 Putri Maharani (Blockchain Security Analysis)</field>
             <field name="master_students">Wahyu Santoso (Network Intrusion Detection)
@@ -237,7 +222,6 @@ Hendri Saputra (Final Project: Network Monitoring)</field>
             <field name="contact_email">cybersec.lab@university.ac.id</field>
             <field name="lab_space">Gedung Teknik Informatika Lantai 4, Ruang 401-403</field>
             <field name="website_url">https://cybersec.university.ac.id</field>
-            <field name="social_media">https://linkedin.com/company/cybersec-lab</field>
             <field name="established_year">2020</field>
             <field name="is_featured" eval="True"/>
             <field name="website_published" eval="True"/>
@@ -270,14 +254,16 @@ Wati Suryani, S.Si., M.Stat.</field>
 &lt;li&gt;Python/R development environments&lt;/li&gt;
 &lt;li&gt;Cloud computing resources (AWS, GCP, Azure)&lt;/li&gt;
 &lt;/ul&gt;</field>
-            <field name="equipment_list">Dell PowerEdge R740 Servers
-NVIDIA Tesla V100 GPUs
-Hadoop Distributed File System
-Apache Spark Cluster
-Tableau Desktop dan Server
-Microsoft Power BI Premium
-RStudio Server Pro
-Jupyter Hub for collaborative work</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;Dell PowerEdge R740 Servers&lt;/li&gt;
+&lt;li&gt;NVIDIA Tesla V100 GPUs&lt;/li&gt;
+&lt;li&gt;Hadoop Distributed File System&lt;/li&gt;
+&lt;li&gt;Apache Spark Cluster&lt;/li&gt;
+&lt;li&gt;Tableau Desktop dan Server&lt;/li&gt;
+&lt;li&gt;Microsoft Power BI Premium&lt;/li&gt;
+&lt;li&gt;RStudio Server Pro&lt;/li&gt;
+&lt;li&gt;Jupyter Hub for collaborative work&lt;/li&gt;
+&lt;/ul&gt;</field>
             <field name="phd_students">Andi Wijaya (Deep Learning for Time Series Forecasting)
 Siska Purnama (Social Media Analytics for Brand Intelligence)</field>
             <field name="master_students">Rio Pratama (Customer Segmentation using Clustering Algorithms)
@@ -289,33 +275,10 @@ Bayu Saputra (Recommendation System for E-Commerce)</field>
 Rina Handayani (Final Project: Customer Churn Analysis)
 Dian Purnama (Final Project: Sentiment Analysis Dashboard)
 Rizki Fauzi (Final Project: Price Optimization Model)</field>
-            <field name="current_projects">&lt;h5&gt;Active Projects:&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Retail Analytics Platform&lt;/strong&gt; - Developing predictive models untuk demand forecasting dan inventory optimization&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Credit Scoring Model&lt;/strong&gt; - Machine learning model untuk credit risk assessment di bank&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Social Media Listening&lt;/strong&gt; - Real-time sentiment analysis untuk brand monitoring&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Healthcare Analytics&lt;/strong&gt; - Predictive modeling untuk patient readmission&lt;/li&gt;
-&lt;/ul&gt;</field>
-            <field name="collaborations">Bank Mandiri - Credit Scoring Project
-PT. Unilever Indonesia - Customer Analytics
-Tokopedia - Recommendation System
-Grab Indonesia - Demand Forecasting
-Rumah Sakit Siloam - Healthcare Analytics</field>
-            <field name="recent_publications">&lt;ul&gt;
-&lt;li&gt;"Ensemble Methods for Credit Risk Assessment in Microfinance" - Journal of Banking &amp; Finance, 2024&lt;/li&gt;
-&lt;li&gt;"Deep Learning for Time Series Forecasting in Retail" - International Journal of Forecasting, 2024&lt;/li&gt;
-&lt;li&gt;"Social Media Sentiment Analysis for Brand Reputation Management" - Data Mining and Knowledge Discovery, 2023&lt;/li&gt;
-&lt;/ul&gt;</field>
-            <field name="achievements">&lt;ul&gt;
-&lt;li&gt;Winner of Kaggle Competition "Retail Sales Prediction" 2023&lt;/li&gt;
-&lt;li&gt;Best Analytics Project Award from Indonesian Data Science Association 2024&lt;/li&gt;
-&lt;li&gt;3 consulting projects generating Rp 500 juta revenue for university&lt;/li&gt;
-&lt;/ul&gt;</field>
             <field name="contact_person">Prof. Dr. Maya Indrawati, S.Si., M.Stat.</field>
             <field name="contact_email">datasci.center@university.ac.id</field>
             <field name="lab_space">Gedung Matematika &amp; Statistika Lantai 3, Ruang 301-306</field>
             <field name="website_url">https://datasci.university.ac.id</field>
-            <field name="social_media">https://linkedin.com/company/datasci-center</field>
             <field name="established_year">2017</field>
             <field name="is_featured" eval="False"/>
             <field name="website_published" eval="True"/>
@@ -351,14 +314,16 @@ Rizky Fauzi, S.T., M.T.</field>
 &lt;li&gt;Annotation workstations&lt;/li&gt;
 &lt;li&gt;Testing environment untuk real-world scenarios&lt;/li&gt;
 &lt;/ul&gt;</field>
-            <field name="equipment_list">NVIDIA RTX 4090 GPU Cluster
-Intel RealSense Depth Cameras D435i
-FLIR Thermal Imaging Cameras
-Canon EOS R5 High-Resolution Cameras
-3D Scanner Artec Eva
-Medical Image Datasets (CT, MRI, X-Ray)
-Labelbox for Image Annotation
-DGX Station for Training</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;NVIDIA RTX 4090 GPU Cluster&lt;/li&gt;
+&lt;li&gt;Intel RealSense Depth Cameras D435i&lt;/li&gt;
+&lt;li&gt;FLIR Thermal Imaging Cameras&lt;/li&gt;
+&lt;li&gt;Canon EOS R5 High-Resolution Cameras&lt;/li&gt;
+&lt;li&gt;3D Scanner Artec Eva&lt;/li&gt;
+&lt;li&gt;Medical Image Datasets (CT, MRI, X-Ray)&lt;/li&gt;
+&lt;li&gt;Labelbox for Image Annotation&lt;/li&gt;
+&lt;li&gt;DGX Station for Training&lt;/li&gt;
+&lt;/ul&gt;</field>
             <field name="phd_students">Siti Rahmawati (Medical Image Segmentation using U-Net)
 Muhammad Rizki (3D Object Detection for Autonomous Driving)</field>
             <field name="master_students">Budi Hartono (Face Recognition in Challenging Conditions)
@@ -370,44 +335,10 @@ Andi Saputra (Facial Expression Recognition)</field>
 Maya Sari (Final Project: Face Mask Detection)
 Fitri Lestari (Final Project: Plant Disease Detection)
 Bayu Wijaya (Final Project: Handwriting Recognition)</field>
-            <field name="current_projects">&lt;h5&gt;Ongoing Research:&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Smart Traffic Monitoring System&lt;/strong&gt; - Vehicle detection, counting, dan classification untuk traffic management&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Medical Image Analysis&lt;/strong&gt; - AI-powered diagnosis untuk X-ray, CT scan, dan MRI images&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Industrial Quality Inspection&lt;/strong&gt; - Automated defect detection untuk manufacturing&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Biometric Security System&lt;/strong&gt; - Multi-modal biometric authentication (face + iris)&lt;/li&gt;
-&lt;/ul&gt;</field>
-            <field name="completed_projects">&lt;ul&gt;
-&lt;li&gt;Automatic Number Plate Recognition System for Parking Management (2023)&lt;/li&gt;
-&lt;li&gt;Face Recognition Attendance System for 10+ Universities (2022-2023)&lt;/li&gt;
-&lt;li&gt;Fruit Quality Grading System using Computer Vision (2022)&lt;/li&gt;
-&lt;/ul&gt;</field>
-            <field name="collaborations">Dinas Perhubungan DKI Jakarta - Smart Traffic System
-RS Cipto Mangunkusumo - Medical Imaging AI
-PT. Astra Manufacturing - Quality Control System
-Bank Mandiri - Biometric Authentication
-Telkom Indonesia - Surveillance Analytics</field>
-            <field name="recent_publications">&lt;ul&gt;
-&lt;li&gt;"YOLO-Medical: Real-time Object Detection for Medical Imaging" - IEEE Access, 2024&lt;/li&gt;
-&lt;li&gt;"Deep Learning for Indonesian Face Recognition: Dataset and Benchmark" - Pattern Recognition Letters, 2024&lt;/li&gt;
-&lt;li&gt;"Multi-scale Attention Network for Document Understanding" - ICDAR Conference, 2024&lt;/li&gt;
-&lt;li&gt;"3D Object Detection from LiDAR Point Clouds for Autonomous Vehicles" - Intelligent Vehicles Symposium, 2023&lt;/li&gt;
-&lt;/ul&gt;</field>
-            <field name="achievements">&lt;ul&gt;
-&lt;li&gt;1st Place - ImageNet Indonesian Face Recognition Challenge 2024&lt;/li&gt;
-&lt;li&gt;Best Demo Award - CVPR Conference 2024&lt;/li&gt;
-&lt;li&gt;Research Grant from Google Research - $50,000 USD (2024)&lt;/li&gt;
-&lt;li&gt;Deployed systems used by 100+ organizations nationwide&lt;/li&gt;
-&lt;/ul&gt;</field>
-            <field name="funding_sources">Kemenristek BRIN - Research Grant (Rp 1.2 M/year)
-Industry Partnerships - Consulting Projects (Rp 800 M/year)
-Google Research Award - $50,000 USD
-NVIDIA Academic Grant - 4x DGX A100 GPUs</field>
             <field name="contact_person">Dr. Ir. Bambang Sutrisno, M.T.</field>
             <field name="contact_email">cvlab@university.ac.id</field>
             <field name="lab_space">Gedung Teknik Informatika Lantai 5, Ruang 501-505</field>
             <field name="website_url">https://cvlab.university.ac.id</field>
-            <field name="social_media">https://twitter.com/cvlab_univ</field>
             <field name="established_year">2019</field>
             <field name="is_featured" eval="True"/>
             <field name="website_published" eval="True"/>

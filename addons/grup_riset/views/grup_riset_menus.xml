@@ -25,19 +25,5 @@
             action="grup_riset_blog_action"
             sequence="20"/>
 
-        <!-- Sub Menu: Lihat Website -->
-        <record id="grup_riset_website_action" model="ir.actions.act_url">
-            <field name="name">Lihat di Website</field>
-            <field name="url">/grup-riset</field>
-            <field name="target">new</field>
-        </record>
-
-        <menuitem 
-            id="grup_riset_website_menu"
-            name="Lihat di Website"
-            parent="grup_riset_main_menu"
-            action="grup_riset_website_action"
-            sequence="30"/>
-
     </data>
 </odoo>

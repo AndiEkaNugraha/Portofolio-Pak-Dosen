@@ -273,7 +273,81 @@
                                          t-att-alt="post.name"/>
                                 </div>
                             </t>
+                        </div>
 
+                        <!-- Sidebar -->
+                        <div class="col-lg-4">
+                            <!-- Quick Info -->
+                            <div class="card mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="fa fa-info-circle"/> Info Singkat</h6>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-sm table-borderless mb-0">
+                                        <tr>
+                                            <td><strong>Kategori</strong></td>
+                                            <td t-esc="post.blog_id.name"/>
+                                        </tr>
+                                        <t t-if="post.established_year">
+                                            <tr>
+                                                <td><strong>Didirikan</strong></td>
+                                                <td t-esc="post.established_year"/>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td><strong>Anggota</strong></td>
+                                            <td><t t-esc="post.total_members"/> orang</td>
+                                        </tr>
+                                        <t t-if="post.total_students">
+                                            <tr>
+                                                <td><strong>Mahasiswa</strong></td>
+                                                <td><t t-esc="post.total_students"/> orang</td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Related Posts -->
+                            <t t-if="related_posts">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-secondary text-white">
+                                        <h6 class="mb-0"><i class="fa fa-list"/> Grup Riset Terkait</h6>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <t t-foreach="related_posts" t-as="related">
+                                            <div class="p-3 border-bottom">
+                                                <h6 class="mb-1">
+                                                    <a t-att-href="'/grup-riset/' + related.slug" 
+                                                       class="text-decoration-none"
+                                                       t-esc="related.name"/>
+                                                </h6>
+                                                <small class="text-muted" t-esc="related.leader_name"/>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <!-- Share -->
+                            <!-- <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="fa fa-share"/> Bagikan</h6>
+                                </div>
+                                <div class="card-body text-center">
+                                    <a href="#" class="btn btn-primary btn-sm me-2 mb-2" onclick="shareToFacebook()">
+                                        <i class="fa fa-facebook"/> Facebook
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-sm me-2 mb-2" onclick="shareToTwitter()">
+                                        <i class="fa fa-twitter"/> Twitter
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-sm mb-2" onclick="shareToWhatsApp()">
+                                        <i class="fa fa-whatsapp"/> WhatsApp
+                                    </a>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div>
                             <!-- Research Focus -->
                             <div class="mb-5">
                                 <h3 class="h4 mb-3"><i class="fa fa-flask text-primary"/> Fokus Penelitian</h3>
@@ -385,15 +459,43 @@
                                     </t>
                                     
                                     <t t-if="post.equipment_list">
-                                        <h6 class="mt-3">Peralatan Utama:</h6>
-                                        <ul>
-                                            <t t-foreach="post.equipment_list.split('\n')" t-as="equipment">
-                                                <t t-if="equipment.strip()">
-                                                    <li t-esc="equipment.strip()"/>
-                                                </t>
-                                            </t>
-                                        </ul>
+                                        <h4 class="mt-3">Daftar Peralatan Utama:</h4>
+                                        <div t-field="post.equipment_list"/>
                                     </t>
+                                </div>
+                            </t>
+
+                            <!-- Proyek Terkait -->
+                            <t t-if="post.proyek_ids">
+                                <div class="mb-5">
+                                    <h3 class="h4 mb-3"><i class="fa fa-project-diagram text-primary"/> Proyek Penelitian Terkait</h3>
+                                    <div class="row">
+                                        <t t-foreach="post.proyek_ids" t-as="proyek">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="card h-100 border-left-primary">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title">
+                                                            <a t-att-href="'/proyek-penelitian/' + proyek.slug" 
+                                                               class="text-decoration-none text-primary"
+                                                               t-esc="proyek.name"/>
+                                                        </h6>
+                                                        <t t-if="proyek.subtitle">
+                                                            <p class="small text-muted mb-2" t-esc="proyek.subtitle"/>
+                                                        </t>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <span class="badge" t-att-class="'badge bg-' + ('success' if proyek.status == 'active' else 'info' if proyek.status == 'completed' else 'warning')" 
+                                                                  t-esc="dict(proposal='Proposal', active='Aktif', completed='Selesai', suspended='Ditunda', cancelled='Dibatalkan').get(proyek.status, proyek.status)"/>
+                                                            <small class="text-muted">
+                                                                <t t-if="proyek.start_date">
+                                                                    <i class="fa fa-calendar"/> <t t-esc="proyek.start_date.strftime('%Y')"/>
+                                                                </t>
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
                                 </div>
                             </t>
 
@@ -417,84 +519,8 @@
                                             <t t-if="post.website_url">
                                                 <p><i class="fa fa-globe"/> <a t-att-href="post.website_url" target="_blank">Website Grup</a></p>
                                             </t>
-                                            <t t-if="post.social_media">
-                                                <p><i class="fa fa-share-alt"/> <a t-att-href="post.social_media" target="_blank">Media Sosial</a></p>
-                                            </t>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sidebar -->
-                        <div class="col-lg-4">
-                            <!-- Quick Info -->
-                            <div class="card mb-4">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0"><i class="fa fa-info-circle"/> Info Singkat</h6>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-sm table-borderless mb-0">
-                                        <tr>
-                                            <td><strong>Kategori</strong></td>
-                                            <td t-esc="post.blog_id.name"/>
-                                        </tr>
-                                        <t t-if="post.established_year">
-                                            <tr>
-                                                <td><strong>Didirikan</strong></td>
-                                                <td t-esc="post.established_year"/>
-                                            </tr>
-                                        </t>
-                                        <tr>
-                                            <td><strong>Anggota</strong></td>
-                                            <td><t t-esc="post.total_members"/> orang</td>
-                                        </tr>
-                                        <t t-if="post.total_students">
-                                            <tr>
-                                                <td><strong>Mahasiswa</strong></td>
-                                                <td><t t-esc="post.total_students"/> orang</td>
-                                            </tr>
-                                        </t>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <!-- Related Posts -->
-                            <t t-if="related_posts">
-                                <div class="card mb-4">
-                                    <div class="card-header bg-secondary text-white">
-                                        <h6 class="mb-0"><i class="fa fa-list"/> Grup Riset Terkait</h6>
-                                    </div>
-                                    <div class="card-body p-0">
-                                        <t t-foreach="related_posts" t-as="related">
-                                            <div class="p-3 border-bottom">
-                                                <h6 class="mb-1">
-                                                    <a t-att-href="'/grup-riset/' + related.slug" 
-                                                       class="text-decoration-none"
-                                                       t-esc="related.name"/>
-                                                </h6>
-                                                <small class="text-muted" t-esc="related.leader_name"/>
-                                            </div>
-                                        </t>
-                                    </div>
-                                </div>
-                            </t>
-
-                            <!-- Share -->
-                            <div class="card">
-                                <div class="card-header bg-info text-white">
-                                    <h6 class="mb-0"><i class="fa fa-share"/> Bagikan</h6>
-                                </div>
-                                <div class="card-body text-center">
-                                    <a href="#" class="btn btn-primary btn-sm me-2 mb-2" onclick="shareToFacebook()">
-                                        <i class="fa fa-facebook"/> Facebook
-                                    </a>
-                                    <a href="#" class="btn btn-info btn-sm me-2 mb-2" onclick="shareToTwitter()">
-                                        <i class="fa fa-twitter"/> Twitter
-                                    </a>
-                                    <a href="#" class="btn btn-success btn-sm mb-2" onclick="shareToWhatsApp()">
-                                        <i class="fa fa-whatsapp"/> WhatsApp
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -503,7 +529,7 @@
 
                 <!-- Share Functions -->
                 <script>
-                    function shareToFacebook() {
+                    <!-- function shareToFacebook() {
                         const url = encodeURIComponent(window.location.href);
                         window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
                     }
@@ -518,7 +544,7 @@
                         const url = encodeURIComponent(window.location.href);
                         const text = encodeURIComponent('<t t-esc="post.name"/>');
                         window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
-                    }
+                    } -->
                 </script>
 
             </t>
