@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- ==================== LIST VIEW ==================== -->
+        <record id="profil_dosen_list" model="ir.ui.view">
+            <field name="name">profil.dosen.list</field>
+            <field name="model">profil.dosen</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="nama_lengkap"/>
+                    <field name="nip"/>
+                    <field name="email"/>
+                    <field name="posisi"/>
+                    <field name="is_published"/>
+                    <field name="sequence"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ==================== FORM VIEW ==================== -->
+        <record id="profil_dosen_form" model="ir.ui.view">
+            <field name="name">profil.dosen.form</field>
+            <field name="model">profil.dosen</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_publish" type="object" string="Publikasikan" class="btn-primary" invisible="is_published"/>
+                        <button name="action_unpublish" type="object" string="Unpublish" class="btn-warning" invisible="not is_published"/>
+                        <button name="action_download_cv" type="object" string="Download CV" class="btn-info" invisible="not cv_file"/>
+                    </header>
+                    <sheet>
+                        <!-- Header dengan Foto -->
+                        <div class="oe_title">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <field name="foto" widget="image" class="oe_avatar" options="{'preview_image': 'foto'}"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <h1>
+                                        <field name="nama_lengkap" placeholder="Nama Lengkap Dosen"/>
+                                    </h1>
+                                    <field name="jabatan" placeholder="Prof., Dr., Ir., etc."/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <notebook>
+                            <!-- Tab: Data Dasar -->
+                            <page string="Data Dasar" name="data_dasar">
+                                <group>
+                                    <group string="Identitas">
+                                        <field name="nip" placeholder="Nomor Induk Pegawai"/>
+                                        <field name="email" required="1"/>
+                                        <field name="telepon"/>
+                                    </group>
+                                    <group string="Posisi">
+                                        <field name="posisi" placeholder="Profesor, Lektor Kepala, etc."/>
+                                        <field name="departemen"/>
+                                        <field name="institusi"/>
+                                    </group>
+                                </group>
+                                <separator string="Deskripsi"/>
+                                <field name="bio_singkat" placeholder="Deskripsi singkat profil..." widget="char"/>
+                                <field name="biografi" widget="html" options="{'collaborative': true}"/>
+                                <separator string="Visi &amp; Misi"/>
+                                <field name="visi_misi" widget="html" options="{'collaborative': true}"/>
+                            </page>
+
+                            <!-- Tab: Keahlian &amp; Riset -->
+                            <page string="Keahlian &amp; Riset" name="expertise_research">
+                                <group>
+                                    <group>
+                                        <field name="kata_kunci" placeholder="AI, Machine Learning, Big Data, etc."/>
+                                    </group>
+                                </group>
+                                <separator string="Bidang Keahlian"/>
+                                <field name="bidang_keahlian" widget="html" options="{'collaborative': true}"/>
+                                <separator string="Minat Riset"/>
+                                <field name="minat_riset" widget="html" options="{'collaborative': true}"/>
+                            </page>
+
+                            <!-- Tab: Pendidikan -->
+                            <page string="Pendidikan" name="education">
+                                <group>
+                                    <group string="S1">
+                                        <field name="pendidikan_s1" placeholder="Nama Program Studi"/>
+                                        <field name="universitas_s1"/>
+                                        <field name="tahun_lulus_s1"/>
+                                    </group>
+                                    <group string="S2">
+                                        <field name="pendidikan_s2" placeholder="Nama Program Studi"/>
+                                        <field name="universitas_s2"/>
+                                        <field name="tahun_lulus_s2"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="S3">
+                                        <field name="pendidikan_s3" placeholder="Nama Program Studi"/>
+                                        <field name="universitas_s3"/>
+                                        <field name="tahun_lulus_s3"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <!-- Tab: Pengalaman -->
+                            <page string="Pengalaman" name="experience">
+                                <group>
+                                    <field name="tahun_pengalaman" readonly="1"/>
+                                </group>
+                                <separator string="Riwayat Pekerjaan"/>
+                                <field name="pengalaman_kerja" widget="html" options="{'collaborative': true}"/>
+                            </page>
+
+                            <!-- Tab: Pencapaian -->
+                            <page string="Pencapaian" name="achievement">
+                                <group>
+                                    <group>
+                                        <field name="total_publikasi"/>
+                                        <field name="total_proyek_riset"/>
+                                        <field name="total_paten"/>
+                                    </group>
+                                    <group>
+                                        <field name="h_index"/>
+                                        <field name="total_sitasi"/>
+                                    </group>
+                                </group>
+                                <separator string="Penghargaan &amp; Pengakuan"/>
+                                <field name="penghargaan" widget="html" options="{'collaborative': true}"/>
+                            </page>
+
+                            <!-- Tab: Media Sosial -->
+                            <page string="Media Sosial &amp; Online" name="social_media">
+                                <group>
+                                    <field name="linkedin_url" placeholder="https://linkedin.com/in/..."/>
+                                    <field name="google_scholar_url" placeholder="https://scholar.google.com/..."/>
+                                    <field name="researchgate_url" placeholder="https://researchgate.net/..."/>
+                                    <field name="orcid_url" placeholder="https://orcid.org/..."/>
+                                    <field name="website_url" placeholder="https://..."/>
+                                </group>
+                            </page>
+
+                            <!-- Tab: CV -->
+                            <page string="File CV" name="cv">
+                                <group>
+                                    <field name="cv_file"/>
+                                    <field name="cv_filename" readonly="1"/>
+                                </group>
+                            </page>
+
+                            <!-- Tab: SEO -->
+                            <page string="SEO" name="seo">
+                                <group>
+                                    <field name="slug" readonly="1"/>
+                                    <field name="meta_title" placeholder="Meta Title untuk SEO"/>
+                                    <field name="meta_description" placeholder="Meta Description"/>
+                                    <field name="meta_keywords" placeholder="Kata kunci utama"/>
+                                </group>
+                            </page>
+
+                            <!-- Tab: Pengaturan -->
+                            <page string="Pengaturan" name="settings">
+                                <group>
+                                    <field name="is_published"/>
+                                    <field name="active"/>
+                                    <field name="sequence"/>
+                                </group>
+                                <group string="Informasi Sistem" readonly="1">
+                                    <field name="created_at"/>
+                                    <field name="updated_at"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================== SEARCH VIEW ==================== -->
+        <record id="profil_dosen_search" model="ir.ui.view">
+            <field name="name">profil.dosen.search</field>
+            <field name="model">profil.dosen</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nama_lengkap" string="Nama"/>
+                    <field name="nip" string="NIP"/>
+                    <field name="email" string="Email"/>
+                    <field name="posisi" string="Posisi"/>
+                    <separator/>
+                    <filter name="published" string="Dipublikasikan" domain="[('is_published', '=', True)]"/>
+                    <filter name="unpublished" string="Belum Dipublikasikan" domain="[('is_published', '=', False)]"/>
+                    <filter name="active" string="Aktif" domain="[('active', '=', True)]"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- ==================== ACTIONS ==================== -->
+        <record id="profil_dosen_action" model="ir.actions.act_window">
+            <field name="name">Profil Dosen</field>
+            <field name="res_model">profil.dosen</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="profil_dosen_list"/>
+            <field name="search_view_id" ref="profil_dosen_search"/>
+        </record>
+
+    </data>
+</odoo>
