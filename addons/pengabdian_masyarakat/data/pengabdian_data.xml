@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Security Access Rules -->
+        <record id="access_pengabdian_blog_public" model="ir.model.access">
+            <field name="name">pengabdian.blog.public</field>
+            <field name="model_id" ref="model_pengabdian_blog"/>
+            <field name="group_id"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">0</field>
+            <field name="perm_create">0</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+        <record id="access_pengabdian_blog_user" model="ir.model.access">
+            <field name="name">pengabdian.blog.user</field>
+            <field name="model_id" ref="model_pengabdian_blog"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+
+        <record id="access_pengabdian_post_public" model="ir.model.access">
+            <field name="name">pengabdian.post.public</field>
+            <field name="model_id" ref="model_pengabdian_post"/>
+            <field name="group_id"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">0</field>
+            <field name="perm_create">0</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+        <record id="access_pengabdian_post_user" model="ir.model.access">
+            <field name="name">pengabdian.post.user</field>
+            <field name="model_id" ref="model_pengabdian_post"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+
+        <record id="access_pengabdian_type_public" model="ir.model.access">
+            <field name="name">pengabdian.type.public</field>
+            <field name="model_id" ref="model_pengabdian_type"/>
+            <field name="group_id"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">0</field>
+            <field name="perm_create">0</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+        <record id="access_pengabdian_type_user" model="ir.model.access">
+            <field name="name">pengabdian.type.user</field>
+            <field name="model_id" ref="model_pengabdian_type"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+
+        <record id="access_pengabdian_partner_public" model="ir.model.access">
+            <field name="name">pengabdian.partner.public</field>
+            <field name="model_id" ref="model_pengabdian_partner"/>
+            <field name="group_id"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">0</field>
+            <field name="perm_create">0</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+        <record id="access_pengabdian_partner_user" model="ir.model.access">
+            <field name="name">pengabdian.partner.user</field>
+            <field name="model_id" ref="model_pengabdian_partner"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+        
+        <!-- Pengabdian Types -->
+        <record id="pengabdian_type_pendidikan" model="pengabdian.type">
+            <field name="name">Pengabdian Bidang Pendidikan</field>
+            <field name="code">PEND</field>
+            <field name="description">Kegiatan pengabdian di bidang pendidikan seperti pelatihan, workshop, dan pengembangan kurikulum</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="pengabdian_type_kesehatan" model="pengabdian.type">
+            <field name="name">Pengabdian Bidang Kesehatan</field>
+            <field name="code">KES</field>
+            <field name="description">Kegiatan pengabdian di bidang kesehatan seperti penyuluhan kesehatan dan pelayanan medis</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <record id="pengabdian_type_pertanian" model="pengabdian.type">
+            <field name="name">Pengabdian Bidang Pertanian</field>
+            <field name="code">TANI</field>
+            <field name="description">Kegiatan pengabdian di bidang pertanian seperti pelatihan pertanian dan pengembangan teknologi pertanian</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <record id="pengabdian_type_teknologi" model="pengabdian.type">
+            <field name="name">Pengabdian Bidang Teknologi</field>
+            <field name="code">TEK</field>
+            <field name="description">Kegiatan pengabdian di bidang teknologi seperti pelatihan IT dan pengembangan aplikasi</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <record id="pengabdian_type_sosial" model="pengabdian.type">
+            <field name="name">Pengabdian Bidang Sosial</field>
+            <field name="code">SOS</field>
+            <field name="description">Kegiatan pengabdian di bidang sosial seperti pemberdayaan masyarakat dan pengentasan kemiskinan</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <record id="pengabdian_type_lingkungan" model="pengabdian.type">
+            <field name="name">Pengabdian Bidang Lingkungan</field>
+            <field name="code">LING</field>
+            <field name="description">Kegiatan pengabdian di bidang lingkungan seperti penghijauan, pengelolaan sampah, dan konservasi</field>
+            <field name="sequence">60</field>
+        </record>
+        
+        <record id="pengabdian_type_ekonomi" model="pengabdian.type">
+            <field name="name">Pengabdian Bidang Ekonomi</field>
+            <field name="code">EKON</field>
+            <field name="description">Kegiatan pengabdian di bidang ekonomi seperti pengembangan UMKM dan kewirausahaan</field>
+            <field name="sequence">70</field>
+        </record>
+        
+        <record id="pengabdian_type_budaya" model="pengabdian.type">
+            <field name="name">Pengabdian Bidang Budaya</field>
+            <field name="code">BUDAYA</field>
+            <field name="description">Kegiatan pengabdian di bidang budaya seperti pelestarian seni dan tradisi lokal</field>
+            <field name="sequence">80</field>
+        </record>
+        
+        <record id="pengabdian_type_multidisiplin" model="pengabdian.type">
+            <field name="name">Pengabdian Multidisiplin</field>
+            <field name="code">MULTI</field>
+            <field name="description">Kegiatan pengabdian yang melibatkan berbagai disiplin ilmu dan bidang keahlian</field>
+            <field name="sequence">90</field>
+        </record>
+        
+        <!-- Sample Partners -->
+        <record id="partner_desa_sukamaju" model="pengabdian.partner">
+            <field name="name">Pemerintah Desa Sukamaju</field>
+            <field name="partner_type">government</field>
+            <field name="contact_person">Bapak Kepala Desa</field>
+            <field name="contact_email">desa.sukamaju@email.com</field>
+            <field name="address">Jl. Raya Sukamaju No. 1, Kabupaten Bandung</field>
+            <field name="description">Pemerintah desa yang menjadi mitra utama kegiatan pengabdian</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="partner_koperasi_wanita" model="pengabdian.partner">
+            <field name="name">Koperasi Wanita Mandiri</field>
+            <field name="partner_type">community</field>
+            <field name="contact_person">Ibu Siti Aminah</field>
+            <field name="contact_email">koperasi.wanita@email.com</field>
+            <field name="website_url">https://koperasiwanita.com</field>
+            <field name="description">Koperasi wanita yang bergerak di bidang ekonomi kreatif</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <record id="partner_pt_teknologi" model="pengabdian.partner">
+            <field name="name">PT Teknologi Maju</field>
+            <field name="partner_type">company</field>
+            <field name="contact_person">Bapak Andi Wijaya</field>
+            <field name="contact_email">andi@teknologimaju.com</field>
+            <field name="contact_phone">+62 812-3456-7890</field>
+            <field name="website_url">https://teknologimaju.com</field>
+            <field name="address">Jl. Teknologi No. 15, Jakarta</field>
+            <field name="description">Perusahaan teknologi yang menyediakan peralatan dan dukungan teknis</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <record id="partner_rs_harapan" model="pengabdian.partner">
+            <field name="name">Rumah Sakit Harapan Kita</field>
+            <field name="partner_type">institution</field>
+            <field name="contact_person">Dr. Maya Sari, Sp.KK</field>
+            <field name="contact_email">maya.sari@rsharapan.com</field>
+            <field name="contact_phone">+62 21-555-0123</field>
+            <field name="website_url">https://rsharapan.com</field>
+            <field name="address">Jl. Harapan No. 45, Jakarta Pusat</field>
+            <field name="description">Rumah sakit yang berkolaborasi dalam program kesehatan masyarakat</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <record id="partner_dinas_pertanian" model="pengabdian.partner">
+            <field name="name">Dinas Pertanian Kabupaten Bandung</field>
+            <field name="partner_type">government</field>
+            <field name="contact_person">Ir. Sumarno, MM</field>
+            <field name="contact_email">sumarno@dinaspertanian.bandung.go.id</field>
+            <field name="contact_phone">+62 22-123-4567</field>
+            <field name="address">Jl. Pertanian No. 10, Soreang, Kabupaten Bandung</field>
+            <field name="description">Dinas pertanian yang mendukung program pengembangan pertanian berkelanjutan</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <record id="partner_lsm_hijaukan" model="pengabdian.partner">
+            <field name="name">LSM Hijau Kan Indonesia</field>
+            <field name="partner_type">ngo</field>
+            <field name="contact_person">Bu Rina Kartika</field>
+            <field name="contact_email">rina@hijaukanindonesia.org</field>
+            <field name="contact_phone">+62 811-987-6543</field>
+            <field name="website_url">https://hijaukanindonesia.org</field>
+            <field name="address">Jl. Lingkungan No. 25, Bandung</field>
+            <field name="description">Organisasi non-profit yang fokus pada konservasi lingkungan dan penghijauan</field>
+            <field name="sequence">60</field>
+        </record>
+        
+        <record id="partner_umkm_maju" model="pengabdian.partner">
+            <field name="name">Kelompok UMKM Maju Bersama</field>
+            <field name="partner_type">community</field>
+            <field name="contact_person">Pak Ahmad Sudirman</field>
+            <field name="contact_email">ahmad@umkmmaju.com</field>
+            <field name="contact_phone">+62 813-456-7890</field>
+            <field name="address">Jl. UMKM No. 8, Cimahi</field>
+            <field name="description">Kelompok usaha mikro kecil menengah yang mendapat pendampingan pengembangan bisnis</field>
+            <field name="sequence">70</field>
+        </record>
+        
+        <record id="partner_universitas_pendidikan" model="pengabdian.partner">
+            <field name="name">Universitas Pendidikan Indonesia</field>
+            <field name="partner_type">institution</field>
+            <field name="contact_person">Prof. Dr. H. Dadang Sunendar, M.Pd.</field>
+            <field name="contact_email">dadang@upi.edu</field>
+            <field name="contact_phone">+62 22-201-3163</field>
+            <field name="website_url">https://www.upi.edu</field>
+            <field name="address">Jl. Dr. Setiabudi No. 229, Bandung</field>
+            <field name="description">Universitas yang berkolaborasi dalam program pengembangan pendidikan dan pelatihan</field>
+            <field name="sequence">80</field>
+        </record>
+        
+        <!-- Sample Blog Categories -->
+        <record id="pengabdian_blog_pendidikan" model="pengabdian.blog">
+            <field name="name">Pengabdian Pendidikan</field>
+            <field name="subtitle">Kegiatan pengabdian di bidang pendidikan</field>
+            <field name="description">Kumpulan kegiatan pengabdian masyarakat di bidang pendidikan</field>
+            <field name="pengabdian_scope">national</field>
+            <field name="service_field">education</field>
+            <field name="funding_source">internal</field>
+        </record>
+        
+        <record id="pengabdian_blog_kesehatan" model="pengabdian.blog">
+            <field name="name">Pengabdian Kesehatan</field>
+            <field name="subtitle">Kegiatan pengabdian di bidang kesehatan</field>
+            <field name="description">Kumpulan kegiatan pengabdian masyarakat di bidang kesehatan</field>
+            <field name="pengabdian_scope">regional</field>
+            <field name="service_field">health</field>
+            <field name="funding_source">mixed</field>
+        </record>
+        
+        <record id="pengabdian_blog_pertanian" model="pengabdian.blog">
+            <field name="name">Pengabdian Pertanian</field>
+            <field name="subtitle">Kegiatan pengabdian di bidang pertanian dan pangan</field>
+            <field name="description">Kumpulan kegiatan pengabdian masyarakat di bidang pertanian berkelanjutan dan ketahanan pangan</field>
+            <field name="pengabdian_scope">national</field>
+            <field name="service_field">agriculture</field>
+            <field name="funding_source">external</field>
+        </record>
+        
+        <record id="pengabdian_blog_lingkungan" model="pengabdian.blog">
+            <field name="name">Pengabdian Lingkungan</field>
+            <field name="subtitle">Kegiatan pengabdian di bidang lingkungan hidup</field>
+            <field name="description">Kumpulan kegiatan pengabdian masyarakat di bidang konservasi lingkungan dan pengelolaan sumber daya alam</field>
+            <field name="pengabdian_scope">regional</field>
+            <field name="service_field">environment</field>
+            <field name="funding_source">community</field>
+        </record>
+        
+        <record id="pengabdian_blog_ekonomi" model="pengabdian.blog">
+            <field name="name">Pengabdian Ekonomi</field>
+            <field name="subtitle">Kegiatan pengabdian di bidang ekonomi dan kewirausahaan</field>
+            <field name="description">Kumpulan kegiatan pengabdian masyarakat di bidang pengembangan ekonomi dan pemberdayaan UMKM</field>
+            <field name="pengabdian_scope">local</field>
+            <field name="service_field">economy</field>
+            <field name="funding_source">mixed</field>
+        </record>
+        
+        <record id="pengabdian_blog_teknologi" model="pengabdian.blog">
+            <field name="name">Pengabdian Teknologi</field>
+            <field name="subtitle">Kegiatan pengabdian di bidang teknologi informasi</field>
+            <field name="description">Kumpulan kegiatan pengabdian masyarakat di bidang penerapan teknologi untuk kemajuan masyarakat</field>
+            <field name="pengabdian_scope">national</field>
+            <field name="service_field">technology</field>
+            <field name="funding_source">internal</field>
+        </record>
+        
+        <record id="pengabdian_blog_budaya" model="pengabdian.blog">
+            <field name="name">Pengabdian Budaya</field>
+            <field name="subtitle">Kegiatan pengabdian di bidang seni dan budaya</field>
+            <field name="description">Kumpulan kegiatan pengabdian masyarakat di bidang pelestarian dan pengembangan seni budaya lokal</field>
+            <field name="pengabdian_scope">regional</field>
+            <field name="service_field">culture</field>
+            <field name="funding_source">community</field>
+        </record>
+        
+        <!-- Sample Posts -->
+        <record id="pengabdian_post_sample_1" model="pengabdian.post">
+            <field name="name">Pelatihan Literasi Digital untuk Ibu Rumah Tangga</field>
+            <field name="subtitle">Meningkatkan kemampuan digital masyarakat</field>
+            <field name="blog_id" ref="pengabdian_blog_pendidikan"/>
+            <field name="coordinator">Dr. Ahmad Rahman</field>
+            <field name="team_members">Dr. Ahmad Rahman, Siti Nurhaliza, M.T., Budi Santoso, S.Kom.</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_teknologi"/>
+            <field name="implementation_date">2024-06-15</field>
+            <field name="duration_days">3</field>
+            <field name="location">Desa Sukamaju, Kabupaten Bandung</field>
+            <field name="target_participants">50 ibu rumah tangga</field>
+            <field name="status">completed</field>
+            <field name="objectives">Meningkatkan kemampuan literasi digital ibu rumah tangga untuk mendukung kegiatan ekonomi digital</field>
+            <field name="targets">80% peserta mampu mengoperasikan smartphone dan aplikasi digital dasar</field>
+            <field name="expected_outputs">Sertifikat pelatihan, materi digital, dan grup whatsapp untuk follow up</field>
+            <field name="methodology">Pelatihan interaktif dengan metode ceramah, demonstrasi, dan praktik langsung</field>
+            <field name="activities">1. Pengenalan konsep digital literacy, 2. Praktik penggunaan smartphone, 3. Penggunaan aplikasi e-commerce, 4. Pembuatan konten digital sederhana</field>
+            <field name="resources_used">Smartphone untuk praktik, laptop, proyektor, materi cetak, sertifikat</field>
+            <field name="actual_participants">45 ibu rumah tangga</field>
+            <field name="results_achieved">85% peserta berhasil menguasai materi, terbentuk 3 grup usaha kecil berbasis digital</field>
+            <field name="impact_assessment">Meningkatkan pendapatan rata-rata peserta sebesar 15-20% melalui kegiatan ekonomi digital</field>
+            <field name="beneficiaries_count">45</field>
+            <field name="villages_reached">1</field>
+            <field name="teaser">Pelatihan literasi digital untuk meningkatkan kemampuan ibu rumah tangga dalam menggunakan teknologi informasi dan komunikasi</field>
+            <field name="content">&lt;p&gt;Kegiatan ini bertujuan untuk memberdayakan ibu rumah tangga melalui peningkatan kemampuan literasi digital. Peserta mendapatkan pelatihan praktis tentang penggunaan smartphone, aplikasi e-commerce, dan media sosial untuk mendukung kegiatan ekonomi keluarga.&lt;/p&gt;&lt;p&gt;Materi yang disampaikan meliputi pengenalan konsep digital literacy, praktik penggunaan smartphone, navigasi aplikasi marketplace, serta pembuatan konten digital sederhana untuk promosi produk.&lt;/p&gt;</field>
+            <field name="preparation_date">2024-05-15</field>
+            <field name="completion_date">2024-06-15</field>
+            <field name="reporting_date">2024-07-15</field>
+            <field name="expected_outcomes">Peningkatan pendapatan keluarga melalui ekonomi digital, penguatan jaringan usaha antar ibu rumah tangga</field>
+            <field name="documentation_links">https://drive.google.com/drive/folders/digital-literacy-2024</field>
+            <field name="participant_feedback">Pelatihan sangat bermanfaat, materi mudah dipahami, fasilitator sabar dalam mendampingi</field>
+            <field name="self_evaluation">Program berhasil mencapai target, perlu evaluasi materi untuk penyesuaian dengan perkembangan teknologi</field>
+            <field name="recommendations">Perlu follow up berkala, pengembangan aplikasi khusus untuk monitoring kemajuan peserta</field>
+            <field name="thematic_area">Literasi Digital</field>
+            <field name="keywords">digital literacy, ibu rumah tangga, teknologi informasi, e-commerce, pendidikan teknologi</field>
+            <field name="partner_ids" eval="[(4, ref('partner_desa_sukamaju')), (4, ref('partner_koperasi_wanita'))]"/>
+            <field name="meta_title">Pelatihan Literasi Digital untuk Ibu Rumah Tangga</field>
+            <field name="meta_description">Pelatihan literasi digital untuk meningkatkan kemampuan ibu rumah tangga dalam menggunakan teknologi informasi dan komunikasi</field>
+            <field name="meta_keywords">digital literacy, ibu rumah tangga, teknologi informasi, e-commerce</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="pengabdian_post_sample_2" model="pengabdian.post">
+            <field name="name">Program Posyandu Lansia Terintegrasi</field>
+            <field name="subtitle">Pelayanan kesehatan holistik untuk lanjut usia</field>
+            <field name="blog_id" ref="pengabdian_blog_kesehatan"/>
+            <field name="coordinator">Dr. Maya Sari, Sp.KK</field>
+            <field name="team_members">Dr. Maya Sari, Ns. Rina Kartika, Apt. Susi Wulandari</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_kesehatan"/>
+            <field name="implementation_date">2024-07-20</field>
+            <field name="duration_days">30</field>
+            <field name="location">3 Desa di Kecamatan Cimahi Selatan</field>
+            <field name="target_participants">150 lansia</field>
+            <field name="status">ongoing</field>
+            <field name="objectives">Meningkatkan kualitas hidup lansia melalui pelayanan kesehatan terintegrasi dan edukasi gaya hidup sehat</field>
+            <field name="targets">Penurunan angka kejadian penyakit degeneratif sebesar 20%, peningkatan kesadaran hidup sehat 80%</field>
+            <field name="expected_outputs">Posyandu lansia berkelanjutan, kader kesehatan terlatih, buku panduan kesehatan lansia</field>
+            <field name="methodology">Pendekatan partisipatif dengan melibatkan kader kesehatan setempat dan keluarga lansia</field>
+            <field name="activities">Pemeriksaan kesehatan rutin, edukasi nutrisi, senam lansia, konseling psikologis, pembentukan kelompok dukungan sebaya</field>
+            <field name="resources_used">Alat kesehatan dasar, obat-obatan, bahan edukasi, tenaga medis volunteer</field>
+            <field name="actual_participants">120 lansia</field>
+            <field name="results_achieved">80% lansia rutin kontrol kesehatan, terbentuk 5 kelompok senam lansia</field>
+            <field name="impact_assessment">Penurunan angka hipertensi sebesar 15%, peningkatan aktivitas fisik lansia</field>
+            <field name="sustainability_plan">Pelatihan kader kesehatan desa untuk melanjutkan program secara mandiri</field>
+            <field name="beneficiaries_count">120</field>
+            <field name="villages_reached">3</field>
+            <field name="sustainability_score">8.5</field>
+            <field name="teaser">Program kesehatan terintegrasi untuk lansia dengan pendekatan holistik meliputi pemeriksaan kesehatan, edukasi gaya hidup sehat, dan pembentukan kelompok dukungan</field>
+            <field name="content">&lt;p&gt;Program Posyandu Lansia Terintegrasi merupakan kegiatan pengabdian yang fokus pada pemberian pelayanan kesehatan holistik untuk lanjut usia. Program ini melibatkan pemeriksaan kesehatan rutin, edukasi nutrisi, senam lansia, konseling psikologis, serta pembentukan kelompok dukungan sebaya.&lt;/p&gt;&lt;p&gt;Kegiatan dilaksanakan di 3 desa dengan melibatkan kader kesehatan setempat dan keluarga lansia untuk memastikan keberlanjutan program.&lt;/p&gt;</field>
+            <field name="preparation_date">2024-06-20</field>
+            <field name="completion_date">2024-09-20</field>
+            <field name="reporting_date">2024-10-20</field>
+            <field name="expected_outcomes">Peningkatan kualitas hidup lansia, pengurangan angka penyakit degeneratif, terbentuknya sistem kesehatan lansia mandiri</field>
+            <field name="documentation_links">https://photos.google.com/album/posyandu-lansia</field>
+            <field name="participant_feedback">Program sangat membantu kesehatan kami, senam rutin membuat badan lebih sehat, edukasi nutrisi sangat berguna</field>
+            <field name="self_evaluation">Program berhasil menjangkau target, kader kesehatan aktif terlibat, perlu perluasan ke desa lain</field>
+            <field name="recommendations">Perlu penguatan kapasitas kader kesehatan, pengembangan aplikasi monitoring kesehatan lansia</field>
+            <field name="thematic_area">Kesehatan Lansia</field>
+            <field name="keywords">kesehatan lansia, posyandu, edukasi kesehatan, kader kesehatan, penyakit degeneratif</field>
+            <field name="partner_ids" eval="[(4, ref('partner_rs_harapan'))]"/>
+            <field name="meta_title">Program Posyandu Lansia Terintegrasi</field>
+            <field name="meta_description">Program kesehatan terintegrasi untuk lansia dengan pendekatan holistik meliputi pemeriksaan kesehatan, edukasi gaya hidup sehat, dan pembentukan kelompok dukungan</field>
+            <field name="meta_keywords">kesehatan lansia, posyandu, edukasi kesehatan, kader kesehatan</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="pengabdian_post_sample_3" model="pengabdian.post">
+            <field name="name">Pengembangan Pertanian Organik di Lahan Marginal</field>
+            <field name="subtitle">Meningkatkan produktivitas lahan dengan sistem pertanian berkelanjutan</field>
+            <field name="blog_id" ref="pengabdian_blog_pertanian"/>
+            <field name="coordinator">Ir. Sumarno, MM</field>
+            <field name="team_members">Ir. Sumarno, Dr. Ir. Rina Permata, M.Si., Ahmad Hidayat, S.P.</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_pertanian"/>
+            <field name="implementation_date">2024-05-10</field>
+            <field name="duration_days">90</field>
+            <field name="location">Desa Ciparay, Kabupaten Bandung</field>
+            <field name="target_participants">30 petani</field>
+            <field name="status">completed</field>
+            <field name="objectives">Meningkatkan produktivitas lahan marginal melalui sistem pertanian organik dan diversifikasi tanaman</field>
+            <field name="targets">Peningkatan produktivitas lahan sebesar 40%, pendapatan petani meningkat 25%</field>
+            <field name="expected_outputs">Demo plot pertanian organik, buku panduan, kelompok tani terbentuk</field>
+            <field name="methodology">Participatory Rural Appraisal (PRA) dan pendampingan intensif selama siklus tanam</field>
+            <field name="activities">Pelatihan pembuatan pupuk organik, teknik konservasi tanah, diversifikasi tanaman, pengelolaan hama terpadu</field>
+            <field name="resources_used">Bibit unggul, pupuk organik, alat pertanian sederhana, bahan edukasi</field>
+            <field name="actual_participants">28 petani</field>
+            <field name="results_achieved">Produktivitas padi meningkat 35%, pendapatan petani naik 22%, terbentuk kelompok tani mandiri</field>
+            <field name="impact_assessment">Pengurangan penggunaan pestisida kimia 70%, peningkatan kesadaran lingkungan</field>
+            <field name="sustainability_plan">Pendampingan berkelanjutan oleh dinas pertanian setempat</field>
+            <field name="beneficiaries_count">28</field>
+            <field name="villages_reached">1</field>
+            <field name="sustainability_score">9.0</field>
+            <field name="teaser">Pengembangan sistem pertanian organik di lahan marginal dengan pendekatan partisipatif untuk meningkatkan produktivitas dan keberlanjutan</field>
+            <field name="content">&lt;p&gt;Kegiatan ini fokus pada pengembangan pertanian organik di lahan marginal melalui pendekatan Participatory Rural Appraisal (PRA). Petani mendapatkan pendampingan intensif dalam siklus tanam padi organik, mulai dari persiapan lahan hingga panen.&lt;/p&gt;&lt;p&gt;Materi meliputi pembuatan pupuk organik, teknik konservasi tanah, diversifikasi tanaman, serta pengelolaan hama terpadu ramah lingkungan.&lt;/p&gt;</field>
+            <field name="preparation_date">2024-04-10</field>
+            <field name="completion_date">2024-07-10</field>
+            <field name="reporting_date">2024-08-10</field>
+            <field name="expected_outcomes">Peningkatan produktivitas lahan, pengurangan penggunaan pestisida kimia, terbentuknya kelompok tani mandiri</field>
+            <field name="documentation_links">https://youtube.com/playlist/organic-farming</field>
+            <field name="participant_feedback">Teknik pertanian organik sangat bermanfaat, hasil panen lebih sehat, pendapatan meningkat</field>
+            <field name="self_evaluation">Program berhasil meningkatkan produktivitas, petani antusias, perlu pendampingan lanjutan</field>
+            <field name="recommendations">Perlu pengembangan kemitraan dengan off-taker, penguatan kelembagaan kelompok tani</field>
+            <field name="thematic_area">Pertanian Organik</field>
+            <field name="keywords">pertanian organik, lahan marginal, pupuk organik, konservasi tanah, kelompok tani</field>
+            <field name="partner_ids" eval="[(4, ref('partner_dinas_pertanian'))]"/>
+            <field name="meta_title">Pengembangan Pertanian Organik di Lahan Marginal</field>
+            <field name="meta_description">Pengembangan sistem pertanian organik di lahan marginal dengan pendekatan partisipatif untuk meningkatkan produktivitas dan keberlanjutan</field>
+            <field name="meta_keywords">pertanian organik, lahan marginal, pupuk organik, konservasi tanah</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="pengabdian_post_sample_4" model="pengabdian.post">
+            <field name="name">Pemberdayaan UMKM melalui Digitalisasi Pemasaran</field>
+            <field name="subtitle">Transformasi bisnis UMKM ke era digital</field>
+            <field name="blog_id" ref="pengabdian_blog_ekonomi"/>
+            <field name="coordinator">Dr. Budi Santoso, SE., MM</field>
+            <field name="team_members">Dr. Budi Santoso, Nina Amelia, S.Kom., MM., Rudi Hartono, ST.</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_ekonomi"/>
+            <field name="implementation_date">2024-08-05</field>
+            <field name="duration_days">45</field>
+            <field name="location">Kota Cimahi dan Kabupaten Bandung</field>
+            <field name="target_participants">25 UMKM</field>
+            <field name="status">ongoing</field>
+            <field name="objectives">Meningkatkan daya saing UMKM melalui digitalisasi pemasaran dan manajemen bisnis online</field>
+            <field name="targets">80% UMKM memiliki toko online, peningkatan penjualan 30%</field>
+            <field name="expected_outputs">Toko online beroperasi, konten pemasaran digital, sistem manajemen penjualan</field>
+            <field name="methodology">Pelatihan blended learning dengan pendampingan intensif</field>
+            <field name="activities">Workshop digital marketing, pembuatan website/toko online, fotografi produk, manajemen media sosial</field>
+            <field name="resources_used">Aplikasi e-commerce, kamera, software editing, materi pelatihan</field>
+            <field name="actual_participants">22 UMKM</field>
+            <field name="results_achieved">18 UMKM berhasil membuat toko online, peningkatan penjualan awal 15%</field>
+            <field name="impact_assessment">Diversifikasi kanal pemasaran, perluasan jangkauan pasar, peningkatan nilai tambah produk</field>
+            <field name="sustainability_plan">Pembentukan komunitas UMKM digital untuk sharing knowledge</field>
+            <field name="beneficiaries_count">22</field>
+            <field name="villages_reached">0</field>
+            <field name="sustainability_score">7.5</field>
+            <field name="teaser">Transformasi bisnis UMKM ke era digital melalui digitalisasi pemasaran dan manajemen online untuk meningkatkan daya saing</field>
+            <field name="content">&lt;p&gt;Program pemberdayaan UMKM melalui digitalisasi mencakup pelatihan digital marketing, pembuatan toko online, fotografi produk, serta manajemen media sosial. Pendekatan blended learning dengan pendampingan intensif selama 45 hari.&lt;/p&gt;&lt;p&gt;UMKM peserta mendapatkan bimbingan praktis dalam mengelola bisnis online, mulai dari pembuatan konten hingga analisis performa penjualan.&lt;/p&gt;</field>
+            <field name="preparation_date">2024-07-05</field>
+            <field name="completion_date">2024-08-19</field>
+            <field name="reporting_date">2024-09-05</field>
+            <field name="expected_outcomes">UMKM memiliki kemampuan digital marketing, peningkatan penjualan melalui kanal online, terbentuknya komunitas UMKM digital</field>
+            <field name="documentation_links">https://instagram.com/umkm_digital_cimahi</field>
+            <field name="participant_feedback">Pelatihan sangat membantu, sekarang bisa jualan online, penjualan meningkat signifikan</field>
+            <field name="self_evaluation">Program berhasil mencapai target, UMKM aktif menggunakan platform digital, perlu program lanjutan</field>
+            <field name="recommendations">Perlu pengembangan marketplace khusus UMKM lokal, pelatihan advanced digital marketing</field>
+            <field name="thematic_area">Digitalisasi UMKM</field>
+            <field name="keywords">UMKM, digital marketing, e-commerce, toko online, media sosial</field>
+            <field name="meta_title">Pemberdayaan UMKM melalui Digitalisasi Pemasaran</field>
+            <field name="meta_description">Transformasi bisnis UMKM ke era digital melalui digitalisasi pemasaran dan manajemen online untuk meningkatkan daya saing</field>
+            <field name="meta_keywords">UMKM, digital marketing, e-commerce, toko online</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="pengabdian_post_sample_5" model="pengabdian.post">
+            <field name="name">Rehabilitasi Hutan Mangrove untuk Mitigasi Bencana</field>
+            <field name="subtitle">Pelestarian ekosistem mangrove sebagai benteng alami</field>
+            <field name="blog_id" ref="pengabdian_blog_lingkungan"/>
+            <field name="coordinator">Dr. Ir. Rina Permata, M.Si.</field>
+            <field name="team_members">Dr. Ir. Rina Permata, Ahmad Hidayat, S.P., Maya Sari, S.Hut.</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_lingkungan"/>
+            <field name="implementation_date">2024-04-15</field>
+            <field name="duration_days">60</field>
+            <field name="location">Pantai Muara Gembong, Bekasi</field>
+            <field name="target_participants">100 masyarakat pesisir</field>
+            <field name="status">completed</field>
+            <field name="objectives">Rehabilitasi ekosistem mangrove untuk mitigasi bencana abrasi dan tsunami</field>
+            <field name="targets">Penanaman 2000 bibit mangrove, pembentukan 2 kelompok pengelola mangrove</field>
+            <field name="expected_outputs">Hutan mangrove terbentuk, sistem monitoring, panduan pengelolaan</field>
+            <field name="methodology">Participatory Coastal Resource Assessment dengan pendekatan community-based</field>
+            <field name="activities">Sosialisasi pentingnya mangrove, penanaman bibit, pemantauan pertumbuhan, pelatihan pengelolaan</field>
+            <field name="resources_used">Bibit mangrove, alat tanam, bahan edukasi, tenaga ahli lingkungan</field>
+            <field name="actual_participants">85 masyarakat</field>
+            <field name="results_achieved">Berhasil tanam 1800 bibit mangrove, survival rate 75%, terbentuk kelompok pengelola</field>
+            <field name="impact_assessment">Pengurangan abrasi pantai, peningkatan biodiversitas, sumber pendapatan alternatif nelayan</field>
+            <field name="sustainability_plan">Pembentukan badan pengelola mangrove desa dengan dukungan LSM</field>
+            <field name="beneficiaries_count">85</field>
+            <field name="villages_reached">1</field>
+            <field name="sustainability_score">8.0</field>
+            <field name="teaser">Rehabilitasi ekosistem mangrove sebagai benteng alami terhadap abrasi pantai dan tsunami dengan pendekatan community-based</field>
+            <field name="content">&lt;p&gt;Kegiatan rehabilitasi mangrove melibatkan masyarakat pesisir dalam penanaman 2000 bibit mangrove dan pembentukan kelompok pengelola. Pendekatan participatory coastal resource assessment digunakan untuk memastikan keberlanjutan program.&lt;/p&gt;&lt;p&gt;Masyarakat mendapatkan pelatihan pengelolaan mangrove dan alternatif pendapatan dari ekosistem mangrove yang terbentuk.&lt;/p&gt;</field>
+            <field name="preparation_date">2024-03-15</field>
+            <field name="completion_date">2024-06-15</field>
+            <field name="reporting_date">2024-07-15</field>
+            <field name="expected_outcomes">Terbentuknya hutan mangrove produktif, pengurangan risiko bencana, peningkatan pendapatan masyarakat pesisir</field>
+            <field name="documentation_links">https://drive.google.com/drive/folders/mangrove-rehab-2024, https://youtube.com/playlist/mangrove-conservation</field>
+            <field name="participant_feedback">Program mangrove sangat bermanfaat, abrasi pantai berkurang, ada penghasilan tambahan dari hasil mangrove</field>
+            <field name="self_evaluation">Program berhasil menanam bibit dengan survival rate tinggi, masyarakat aktif terlibat</field>
+            <field name="recommendations">Perlu monitoring jangka panjang, pengembangan ekowisata mangrove</field>
+            <field name="thematic_area">Konservasi Mangrove</field>
+            <field name="keywords">mangrove, rehabilitasi, mitigasi bencana, abrasi pantai, ekosistem pesisir</field>
+            <field name="partner_ids" eval="[(4, ref('partner_lsm_hijaukan'))]"/>
+            <field name="meta_title">Rehabilitasi Hutan Mangrove untuk Mitigasi Bencana</field>
+            <field name="meta_description">Rehabilitasi ekosistem mangrove sebagai benteng alami terhadap abrasi pantai dan tsunami dengan pendekatan community-based</field>
+            <field name="meta_keywords">mangrove, rehabilitasi, mitigasi bencana, abrasi pantai</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="pengabdian_post_sample_6" model="pengabdian.post">
+            <field name="name">Pelestarian Seni Tari Tradisional Sunda</field>
+            <field name="subtitle">Menyelamatkan warisan budaya melalui pendidikan generasi muda</field>
+            <field name="blog_id" ref="pengabdian_blog_budaya"/>
+            <field name="coordinator">Prof. Dr. H. Dadang Sunendar, M.Pd.</field>
+            <field name="team_members">Prof. Dr. H. Dadang Sunendar, Dra. Siti Nurhaliza, M.Sn., Ahmad Rahman, S.Sn.</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_budaya"/>
+            <field name="implementation_date">2024-09-01</field>
+            <field name="duration_days">120</field>
+            <field name="location">5 Sekolah Dasar di Kabupaten Bandung</field>
+            <field name="target_participants">200 siswa SD</field>
+            <field name="status">ongoing</field>
+            <field name="objectives">Melestarikan seni tari tradisional Sunda melalui pendidikan ekstrakurikuler di sekolah dasar</field>
+            <field name="targets">80% siswa mampu menari jaipong dasar, pembentukan sanggar seni di 3 sekolah</field>
+            <field name="expected_outputs">Pertunjukan seni akhir tahun, buku panduan tari, dokumentasi video</field>
+            <field name="methodology">Pendidikan seni berbasis proyek dengan pendekatan bermain sambil belajar</field>
+            <field name="activities">Pelatihan tari jaipong, penciptaan karya baru, pertunjukan, dokumentasi budaya</field>
+            <field name="resources_used">Musik tradisional, kostum tari, ruang pertunjukan, tenaga pengajar seni</field>
+            <field name="actual_participants">180 siswa</field>
+            <field name="results_achieved">150 siswa aktif belajar tari, berhasil pentas di 2 sekolah</field>
+            <field name="impact_assessment">Peningkatan kecintaan siswa pada budaya lokal, penguatan identitas daerah</field>
+            <field name="sustainability_plan">Pelatihan guru seni sekolah untuk melanjutkan program</field>
+            <field name="beneficiaries_count">180</field>
+            <field name="villages_reached">0</field>
+            <field name="sustainability_score">8.5</field>
+            <field name="teaser">Pelestarian seni tari tradisional Sunda melalui pendidikan ekstrakurikuler di sekolah dasar untuk menyelamatkan warisan budaya</field>
+            <field name="content">&lt;p&gt;Program pelestarian seni tari Sunda di 5 sekolah dasar dengan pendekatan bermain sambil belajar. Siswa mendapatkan pelatihan tari jaipong, penciptaan karya baru, serta pertunjukan seni akhir tahun.&lt;/p&gt;&lt;p&gt;Program melibatkan seniman lokal dan guru seni sekolah untuk memastikan keberlanjutan kegiatan.&lt;/p&gt;</field>
+            <field name="preparation_date">2024-08-01</field>
+            <field name="completion_date">2024-11-01</field>
+            <field name="reporting_date">2024-12-01</field>
+            <field name="expected_outcomes">Siswa menguasai tari jaipong dasar, terbentuk sanggar seni di sekolah, peningkatan kecintaan budaya lokal</field>
+            <field name="documentation_links">https://drive.google.com/drive/folders/tari-sunda-2024, https://youtube.com/playlist/tari-tradisional</field>
+            <field name="participant_feedback">Belajar tari sangat menyenangkan, sekarang bisa tampil di acara sekolah, bangga dengan budaya Sunda</field>
+            <field name="self_evaluation">Program berhasil menjangkau siswa, antusiasme tinggi, perlu pengembangan materi lanjutan</field>
+            <field name="recommendations">Perlu pengembangan festival seni antar sekolah, pelatihan guru seni lebih intensif</field>
+            <field name="thematic_area">Pelestarian Budaya</field>
+            <field name="keywords">tari sunda, jaipong, pelestarian budaya, pendidikan seni, ekstrakurikuler</field>
+            <field name="partner_ids" eval="[(4, ref('partner_universitas_pendidikan'))]"/>
+            <field name="meta_title">Pelestarian Seni Tari Tradisional Sunda</field>
+            <field name="meta_description">Pelestarian seni tari tradisional Sunda melalui pendidikan ekstrakurikuler di sekolah dasar untuk menyelamatkan warisan budaya</field>
+            <field name="meta_keywords">tari sunda, jaipong, pelestarian budaya, pendidikan seni</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="pengabdian_post_sample_7" model="pengabdian.post">
+            <field name="name">Pengembangan Aplikasi Mobile untuk Monitoring Kesehatan Ibu Hamil</field>
+            <field name="subtitle">Inovasi teknologi untuk pelayanan kesehatan maternal</field>
+            <field name="blog_id" ref="pengabdian_blog_teknologi"/>
+            <field name="coordinator">Dr. Nina Amelia, S.Kom., MM.</field>
+            <field name="team_members">Dr. Nina Amelia, Rudi Hartono, ST., Dr. Maya Sari, Sp.KK.</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_multidisiplin"/>
+            <field name="implementation_date">2024-03-01</field>
+            <field name="duration_days">180</field>
+            <field name="location">3 Puskesmas di Kabupaten Bandung</field>
+            <field name="target_participants">300 ibu hamil</field>
+            <field name="status">ongoing</field>
+            <field name="objectives">Mengembangkan dan mengimplementasikan aplikasi mobile untuk monitoring kesehatan ibu hamil secara real-time</field>
+            <field name="targets">Aplikasi digunakan oleh 80% ibu hamil di wilayah sasaran, penurunan angka komplikasi kehamilan 15%</field>
+            <field name="expected_outputs">Aplikasi mobile berfungsi, manual pengguna, laporan implementasi</field>
+            <field name="methodology">Research and Development dengan pendekatan user-centered design</field>
+            <field name="activities">Analisis kebutuhan, desain UI/UX, pengembangan aplikasi, testing, pelatihan pengguna, monitoring implementasi</field>
+            <field name="resources_used">Developer tools, server hosting, smartphone untuk testing, tenaga kesehatan</field>
+            <field name="actual_participants">250 ibu hamil</field>
+            <field name="results_achieved">Aplikasi berhasil dikembangkan, 200 ibu hamil aktif menggunakan, feedback positif dari pengguna</field>
+            <field name="impact_assessment">Peningkatan akses pelayanan kesehatan, deteksi dini komplikasi, pengurangan biaya transportasi</field>
+            <field name="sustainability_plan">Integrasi dengan sistem kesehatan nasional, pelatihan kader kesehatan</field>
+            <field name="beneficiaries_count">250</field>
+            <field name="villages_reached">0</field>
+            <field name="sustainability_score">9.5</field>
+            <field name="teaser">Pengembangan aplikasi mobile untuk monitoring kesehatan ibu hamil secara real-time dengan pendekatan user-centered design</field>
+            <field name="content">&lt;p&gt;Aplikasi mobile untuk monitoring kesehatan ibu hamil dikembangkan dengan Research and Development approach. Aplikasi mencakup fitur tracking kondisi kesehatan, reminder kontrol kehamilan, dan komunikasi dengan tenaga kesehatan.&lt;/p&gt;&lt;p&gt;Program melibatkan 3 puskesmas sebagai pilot project dengan pendampingan intensif selama 6 bulan.&lt;/p&gt;</field>
+            <field name="preparation_date">2024-02-01</field>
+            <field name="completion_date">2024-08-01</field>
+            <field name="reporting_date">2024-09-01</field>
+            <field name="expected_outcomes">Aplikasi berfungsi optimal, peningkatan kepatuhan kontrol kehamilan, pengurangan angka komplikasi</field>
+            <field name="documentation_links">https://github.com/health-monitoring-app</field>
+            <field name="participant_feedback">Aplikasi sangat membantu, mudah digunakan, reminder kontrol sangat berguna</field>
+            <field name="self_evaluation">Aplikasi berhasil dikembangkan sesuai kebutuhan, feedback positif dari pengguna</field>
+            <field name="recommendations">Perlu pengembangan fitur telemedicine, integrasi dengan sistem kesehatan nasional</field>
+            <field name="thematic_area">Teknologi Kesehatan</field>
+            <field name="keywords">aplikasi mobile, kesehatan ibu hamil, monitoring maternal, telemedicine, user-centered design</field>
+            <field name="meta_title">Pengembangan Aplikasi Mobile untuk Monitoring Kesehatan Ibu Hamil</field>
+            <field name="meta_description">Pengembangan aplikasi mobile untuk monitoring kesehatan ibu hamil secara real-time dengan pendekatan user-centered design</field>
+            <field name="meta_keywords">aplikasi mobile, kesehatan ibu hamil, monitoring maternal</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="pengabdian_post_sample_8" model="pengabdian.post">
+            <field name="name">Program Pengentasan Kemiskinan melalui Budidaya Jamur Tiram</field>
+            <field name="subtitle">Diversifikasi usaha petani untuk meningkatkan pendapatan</field>
+            <field name="blog_id" ref="pengabdian_blog_ekonomi"/>
+            <field name="coordinator">Ir. Ahmad Hidayat, S.P.</field>
+            <field name="team_members">Ir. Ahmad Hidayat, Dr. Ir. Rina Permata, M.Si., Pak Ahmad Sudirman</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_ekonomi"/>
+            <field name="implementation_date">2024-02-15</field>
+            <field name="duration_days">150</field>
+            <field name="location">Desa Sukamaju dan Desa Ciparay</field>
+            <field name="target_participants">40 keluarga petani</field>
+            <field name="status">completed</field>
+            <field name="objectives">Mengentaskan kemiskinan melalui pengembangan budidaya jamur tiram sebagai usaha sampingan petani</field>
+            <field name="targets">40 keluarga berhasil mengembangkan usaha jamur, pendapatan tambahan minimal Rp 500.000/bulan per keluarga</field>
+            <field name="expected_outputs">Rumah jamur produktif, produk olahan jamur, jaringan pemasaran</field>
+            <field name="methodology">Pendampingan intensif dengan pendekatan kelompok usaha bersama</field>
+            <field name="activities">Pelatihan budidaya jamur, pembangunan rumah jamur, pengolahan produk, pemasaran bersama</field>
+            <field name="resources_used">Bibit jamur, bahan bangunan rumah jamur, alat produksi, bahan edukasi</field>
+            <field name="actual_participants">38 keluarga</field>
+            <field name="results_achieved">35 keluarga berhasil panen jamur, pendapatan rata-rata Rp 750.000/bulan, terbentuk koperasi jamur</field>
+            <field name="impact_assessment">Pengurangan angka kemiskinan 15%, diversifikasi pendapatan, peningkatan gizi keluarga</field>
+            <field name="sustainability_plan">Pengembangan klaster jamur dengan dukungan pemerintah daerah</field>
+            <field name="beneficiaries_count">38</field>
+            <field name="villages_reached">2</field>
+            <field name="sustainability_score">8.5</field>
+            <field name="teaser">Pengembangan budidaya jamur tiram sebagai diversifikasi usaha petani untuk mengentaskan kemiskinan dan meningkatkan pendapatan</field>
+            <field name="content">&lt;p&gt;Program pengembangan budidaya jamur tiram sebagai usaha sampingan petani dengan pendampingan intensif selama 5 bulan. Petani mendapatkan pelatihan budidaya, pembangunan rumah jamur, pengolahan produk, dan pemasaran bersama.&lt;/p&gt;&lt;p&gt;Program berhasil membentuk koperasi jamur dengan sistem bagi hasil yang adil.&lt;/p&gt;</field>
+            <field name="preparation_date">2024-01-15</field>
+            <field name="completion_date">2024-06-15</field>
+            <field name="reporting_date">2024-07-15</field>
+            <field name="expected_outcomes">Petani berhasil mengembangkan usaha jamur, peningkatan pendapatan keluarga, terbentuknya klaster jamur</field>
+            <field name="documentation_links">https://drive.google.com/drive/folders/jamur-tiram-2024, https://youtube.com/playlist/mushroom-cultivation</field>
+            <field name="participant_feedback">Budidaya jamur mudah dipelajari, pendapatan tambahan cukup besar, bisa dilakukan sambil bertani</field>
+            <field name="self_evaluation">Program berhasil meningkatkan pendapatan petani, koperasi terbentuk dengan baik</field>
+            <field name="recommendations">Perlu pengembangan produk olahan jamur, kemitraan dengan restoran dan supermarket</field>
+            <field name="thematic_area">Pengentasan Kemiskinan</field>
+            <field name="keywords">jamur tiram, diversifikasi usaha, pengentasan kemiskinan, koperasi, budidaya jamur</field>
+            <field name="partner_ids" eval="[(4, ref('partner_umkm_maju'))]"/>
+            <field name="meta_title">Program Pengentasan Kemiskinan melalui Budidaya Jamur Tiram</field>
+            <field name="meta_description">Pengembangan budidaya jamur tiram sebagai diversifikasi usaha petani untuk mengentaskan kemiskinan dan meningkatkan pendapatan</field>
+            <field name="meta_keywords">jamur tiram, diversifikasi usaha, pengentasan kemiskinan</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="pengabdian_post_sample_9" model="pengabdian.post">
+            <field name="name">Pembentukan Bank Sampah untuk Pengelolaan Limbah Organik</field>
+            <field name="subtitle">Mengubah sampah menjadi sumber ekonomi masyarakat</field>
+            <field name="blog_id" ref="pengabdian_blog_lingkungan"/>
+            <field name="coordinator">Maya Sari, S.Hut.</field>
+            <field name="team_members">Maya Sari, Bu Rina Kartika, Ahmad Rahman, S.Sn.</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_lingkungan"/>
+            <field name="implementation_date">2024-01-20</field>
+            <field name="duration_days">90</field>
+            <field name="location">3 RW di Kelurahan Cimahi</field>
+            <field name="target_participants">300 KK</field>
+            <field name="status">completed</field>
+            <field name="objectives">Membentuk sistem bank sampah untuk mengelola limbah organik dan memberikan manfaat ekonomi bagi masyarakat</field>
+            <field name="targets">Pengurangan volume sampah organik 40%, pendapatan bank sampah minimal Rp 2 juta/bulan</field>
+            <field name="expected_outputs">Bank sampah beroperasi, kader pengelola terlatih, sistem pengumpulan sampah</field>
+            <field name="methodology">Community organizing dengan pendekatan partisipatif</field>
+            <field name="activities">Sosialisasi bank sampah, pelatihan pengelolaan sampah, pembentukan kelompok, monitoring operasional</field>
+            <field name="resources_used">Timbangan digital, alat pengolahan sampah, bahan edukasi, insentif awal</field>
+            <field name="actual_participants">280 KK</field>
+            <field name="results_achieved">3 bank sampah aktif beroperasi, pengurangan sampah 35%, pendapatan Rp 2,5 juta/bulan</field>
+            <field name="impact_assessment">Kesadaran lingkungan meningkat, pendapatan tambahan masyarakat, lingkungan lebih bersih</field>
+            <field name="sustainability_plan">Replikasi model ke wilayah lain, kemitraan dengan pemerintah kota</field>
+            <field name="beneficiaries_count">280</field>
+            <field name="villages_reached">0</field>
+            <field name="sustainability_score">9.0</field>
+            <field name="teaser">Pembentukan sistem bank sampah untuk mengelola limbah organik dan memberikan manfaat ekonomi bagi masyarakat</field>
+            <field name="content">&lt;p&gt;Program bank sampah di 3 RW dengan pendekatan community organizing. Masyarakat mendapatkan sosialisasi pengelolaan sampah, pelatihan kader, dan pendampingan operasional bank sampah.&lt;/p&gt;&lt;p&gt;Sistem insentif berbasis poin diterapkan untuk mendorong partisipasi masyarakat dalam pengumpulan sampah.&lt;/p&gt;</field>
+            <field name="preparation_date">2023-12-20</field>
+            <field name="completion_date">2024-03-20</field>
+            <field name="reporting_date">2024-04-20</field>
+            <field name="expected_outcomes">Bank sampah beroperasi mandiri, pengurangan volume sampah organik, peningkatan pendapatan masyarakat</field>
+            <field name="documentation_links">https://drive.google.com/drive/folders/bank-sampah-2024, https://photos.google.com/album/bank-sampah-cimahi</field>
+            <field name="participant_feedback">Bank sampah memberikan penghasilan tambahan, lingkungan lebih bersih, masyarakat lebih peduli sampah</field>
+            <field name="self_evaluation">Program berhasil mengubah perilaku masyarakat, bank sampah mandiri secara finansial</field>
+            <field name="recommendations">Perlu perluasan ke RW lain, pengembangan produk daur ulang bernilai tinggi</field>
+            <field name="thematic_area">Pengelolaan Sampah</field>
+            <field name="keywords">bank sampah, limbah organik, daur ulang, ekonomi sirkular, pengelolaan sampah</field>
+            <field name="meta_title">Pembentukan Bank Sampah untuk Pengelolaan Limbah Organik</field>
+            <field name="meta_description">Pembentukan sistem bank sampah untuk mengelola limbah organik dan memberikan manfaat ekonomi bagi masyarakat</field>
+            <field name="meta_keywords">bank sampah, limbah organik, daur ulang, ekonomi sirkular</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="pengabdian_post_sample_10" model="pengabdian.post">
+            <field name="name">Workshop Pengembangan Kurikulum Berbasis Kearifan Lokal</field>
+            <field name="subtitle">Integrasi nilai-nilai budaya dalam pendidikan formal</field>
+            <field name="blog_id" ref="pengabdian_blog_pendidikan"/>
+            <field name="coordinator">Prof. Dr. H. Dadang Sunendar, M.Pd.</field>
+            <field name="team_members">Prof. Dr. H. Dadang Sunendar, Dra. Siti Nurhaliza, M.Sn., Dr. Ahmad Rahman</field>
+            <field name="pengabdian_type_id" ref="pengabdian_type_pendidikan"/>
+            <field name="implementation_date">2024-10-01</field>
+            <field name="duration_days">30</field>
+            <field name="location">Universitas Pendidikan Indonesia</field>
+            <field name="target_participants">50 guru SD/SMP</field>
+            <field name="status">planned</field>
+            <field name="objectives">Mengembangkan kurikulum pendidikan yang mengintegrasikan kearifan lokal Sunda dalam pembelajaran</field>
+            <field name="targets">50 guru mampu mengembangkan materi ajar berbasis kearifan lokal, 20 modul ajar siap pakai</field>
+            <field name="expected_outputs">Modul kurikulum terintegrasi, panduan implementasi, komunitas guru belajar</field>
+            <field name="methodology">Workshop interaktif dengan pendekatan collaborative learning</field>
+            <field name="activities">Sharing praktik baik, pengembangan materi, simulasi pembelajaran, evaluasi dan revisi</field>
+            <field name="resources_used">Ruang workshop, bahan presentasi, konsumsi, tenaga fasilitator</field>
+            <field name="actual_participants">0</field>
+            <field name="results_achieved">Persiapan workshop selesai, materi dikembangkan, undangan disebar</field>
+            <field name="impact_assessment">Peningkatan mutu pendidikan berbasis budaya lokal, penguatan identitas siswa</field>
+            <field name="sustainability_plan">Pendampingan implementasi kurikulum di sekolah-sekolah</field>
+            <field name="beneficiaries_count">0</field>
+            <field name="villages_reached">0</field>
+            <field name="sustainability_score">0.0</field>
+            <field name="teaser">Workshop pengembangan kurikulum berbasis kearifan lokal Sunda untuk integrasi nilai budaya dalam pendidikan formal</field>
+            <field name="content">&lt;p&gt;Workshop pengembangan kurikulum berbasis kearifan lokal Sunda untuk guru SD/SMP. Program meliputi sharing praktik baik, pengembangan materi ajar, simulasi pembelajaran, dan evaluasi kurikulum.&lt;/p&gt;&lt;p&gt;Fokus utama adalah integrasi nilai-nilai budaya Sunda dalam mata pelajaran formal untuk penguatan identitas siswa.&lt;/p&gt;</field>
+            <field name="preparation_date">2024-09-15</field>
+            <field name="completion_date">2024-10-15</field>
+            <field name="reporting_date">2024-11-15</field>
+            <field name="expected_outcomes">Guru mampu mengembangkan materi ajar berbasis budaya, modul kurikulum siap pakai, terbentuk komunitas guru</field>
+            <field name="documentation_links">https://drive.google.com/drive/folders/kurikulum-budaya-2024, https://slides.google.com/workshop-kurikulum</field>
+            <field name="participant_feedback">Workshop sangat inspiratif, mendapatkan banyak ide pengembangan materi, networking dengan guru lain</field>
+            <field name="self_evaluation">Persiapan workshop selesai, materi dikembangkan, undangan disebar ke guru-guru</field>
+            <field name="recommendations">Perlu pendampingan implementasi kurikulum, pengembangan bahan ajar digital</field>
+            <field name="thematic_area">Pendidikan Budaya</field>
+            <field name="keywords">kurikulum, kearifan lokal, budaya sunda, pendidikan formal, integrasi budaya</field>
+            <field name="meta_title">Workshop Pengembangan Kurikulum Berbasis Kearifan Lokal</field>
+            <field name="meta_description">Workshop pengembangan kurikulum berbasis kearifan lokal Sunda untuk integrasi nilai budaya dalam pendidikan formal</field>
+            <field name="meta_keywords">kurikulum, kearifan lokal, budaya sunda, pendidikan formal</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <!-- Website Menu Data -->
+        <record id="website_menu_pengabdian" model="website.menu">
+            <field name="name">Pengabdian Masyarakat</field>
+            <field name="url">/pengabdian</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">55</field>
+        </record>
+
+    </data>
+</odoo>

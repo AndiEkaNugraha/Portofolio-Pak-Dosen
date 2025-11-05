@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Pengabdian Blog Views -->
+        <record id="view_pengabdian_blog_form" model="ir.ui.view">
+            <field name="name">pengabdian.blog.form</field>
+            <field name="model">pengabdian.blog</field>
+            <field name="arch" type="xml">
+                <form string="Kategori Kegiatan Pengabdian">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Nama Kategori Pengabdian"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="subtitle"/>
+                                <field name="pengabdian_scope"/>
+                                <field name="service_field"/>
+                            </group>
+                            <group>
+                                <field name="funding_source"/>
+                                <field name="post_count"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Deskripsi">
+                                <field name="description"/>
+                            </page>
+                            <page string="Kegiatan Pengabdian">
+                                <field name="pengabdian_post_ids" readonly="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pengabdian_blog_tree" model="ir.ui.view">
+            <field name="name">pengabdian.blog.tree</field>
+            <field name="model">pengabdian.blog</field>
+            <field name="arch" type="xml">
+                <list string="Kategori Kegiatan Pengabdian">
+                    <field name="name"/>
+                    <field name="subtitle"/>
+                    <field name="pengabdian_scope"/>
+                    <field name="service_field"/>
+                    <field name="funding_source"/>
+                    <field name="post_count"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Pengabdian Post Views -->
+        <record id="view_pengabdian_post_form" model="ir.ui.view">
+            <field name="name">pengabdian.post.form</field>
+            <field name="model">pengabdian.post</field>
+            <field name="arch" type="xml">
+                <form string="Kegiatan Pengabdian Masyarakat">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Judul Kegiatan Pengabdian"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="subtitle"/>
+                                <field name="blog_id"/>
+                                <field name="pengabdian_type_id"/>
+                                <field name="status"/>
+                                <field name="coordinator"/>
+                                <field name="hibah_pendanaan_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="implementation_date"/>
+                                <field name="location"/>
+                                <field name="target_participants"/>
+                                <field name="is_published"/>
+                                <field name="slug"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Cover Photo">
+                            <field name="cover_image" widget="image" class="oe_avatar" options="{'preview_image': 'cover_image', 'size': [90, 90]}"/>
+                        </group>
+                        
+                        <group string="Ringkasan">
+                            <field name="teaser" widget="text" placeholder="Ringkasan singkat kegiatan untuk preview dan website..." options="{'rows': 4}"/>
+                        </group>
+                        
+                        <group string="Deskripsi Lengkap">
+                            <field name="content" widget="html" placeholder="Deskripsikan kegiatan pengabdian secara lengkap..." options="{'rows': 10}"/>
+                        </group>
+                        
+                        <notebook>
+                            <page string="Informasi Pelaksanaan">
+                                <group>
+                                    <group string="Jadwal">
+                                        <field name="preparation_date"/>
+                                        <field name="duration_days"/>
+                                        <field name="completion_date"/>
+                                        <field name="reporting_date"/>
+                                    </group>
+                                    <group string="Tim &amp; Mitra">
+                                        <field name="team_members"/>
+                                        <field name="partner_ids" widget="many2many_tags"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Tujuan &amp; Target">
+                                <group>
+                                    <group string="Tujuan">
+                                        <field name="objectives"/>
+                                        <field name="targets"/>
+                                    </group>
+                                    <group string="Output &amp; Outcome">
+                                        <field name="expected_outputs"/>
+                                        <field name="expected_outcomes"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Pelaksanaan">
+                                <group>
+                                    <group string="Metode">
+                                        <field name="methodology"/>
+                                    </group>
+                                    <group string="Sumber Daya">
+                                        <field name="resources_used"/>
+                                    </group>
+                                </group>
+                                <separator string="Kegiatan Utama"/>
+                                <field name="activities"/>
+                            </page>
+                            
+                            <page string="Hasil &amp; Dampak">
+                                <group>
+                                    <group string="Hasil">
+                                        <field name="actual_participants"/>
+                                        <field name="results_achieved"/>
+                                        <field name="beneficiaries_count"/>
+                                        <field name="villages_reached"/>
+                                    </group>
+                                    <group string="Dampak">
+                                        <field name="impact_assessment"/>
+                                        <field name="sustainability_plan"/>
+                                        <field name="sustainability_score"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Evaluasi">
+                                <group>
+                                    <group string="Feedback">
+                                        <field name="participant_feedback"/>
+                                        <field name="self_evaluation"/>
+                                    </group>
+                                    <group string="Rekomendasi">
+                                        <field name="recommendations"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Dokumentasi">
+                                <group>
+                                    <group string="File Laporan">
+                                        <field name="report_file"/>
+                                        <field name="report_filename" invisible="1"/>
+                                    </group>
+                                    <group string="Link Dokumentasi">
+                                        <field name="documentation_links"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Klasifikasi">
+                                <group>
+                                    <group string="Kata Kunci">
+                                        <field name="keywords"/>
+                                        <field name="thematic_area"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="SEO">
+                                <group>
+                                    <field name="meta_title"/>
+                                    <field name="meta_description"/>
+                                    <field name="meta_keywords"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pengabdian_post_tree" model="ir.ui.view">
+            <field name="name">pengabdian.post.tree</field>
+            <field name="model">pengabdian.post</field>
+            <field name="arch" type="xml">
+                <list string="Kegiatan Pengabdian Masyarakat">
+                    <field name="name"/>
+                    <field name="pengabdian_type_id"/>
+                    <field name="coordinator"/>
+                    <field name="status"/>
+                    <field name="implementation_date"/>
+                    <field name="location"/>
+                    <field name="target_participants"/>
+                    <field name="is_published" string="Website"/>
+                    <field name="blog_id"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Pengabdian Type Views -->
+        <record id="view_pengabdian_type_form" model="ir.ui.view">
+            <field name="name">pengabdian.type.form</field>
+            <field name="model">pengabdian.type</field>
+            <field name="arch" type="xml">
+                <form string="Jenis Kegiatan Pengabdian">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group string="Deskripsi">
+                            <field name="description" widget="text" placeholder="Deskripsi jenis kegiatan pengabdian ini..."/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pengabdian_type_tree" model="ir.ui.view">
+            <field name="name">pengabdian.type.tree</field>
+            <field name="model">pengabdian.type</field>
+            <field name="arch" type="xml">
+                <list string="Jenis Kegiatan Pengabdian" default_order="sequence">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Pengabdian Partner Views -->
+        <record id="view_pengabdian_partner_form" model="ir.ui.view">
+            <field name="name">pengabdian.partner.form</field>
+            <field name="model">pengabdian.partner</field>
+            <field name="arch" type="xml">
+                <form string="Mitra Kegiatan Pengabdian">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="partner_type"/>
+                                <field name="website_url"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="contact_person"/>
+                                <field name="contact_email"/>
+                                <field name="contact_phone"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group string="Alamat &amp; Deskripsi">
+                            <field name="address"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pengabdian_partner_tree" model="ir.ui.view">
+            <field name="name">pengabdian.partner.tree</field>
+            <field name="model">pengabdian.partner</field>
+            <field name="arch" type="xml">
+                <list string="Mitra Kegiatan Pengabdian" default_order="sequence">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="partner_type"/>
+                    <field name="website_url"/>
+                    <field name="contact_person"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+    </data>
+</odoo>
