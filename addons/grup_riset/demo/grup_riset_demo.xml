@@ -85,7 +85,6 @@ Citra Dewi (Final Project: Recommendation System)</field>
             <field name="contact_email">ai.robotics.lab@university.ac.id</field>
             <field name="lab_space">Gedung Teknik Informatika Lantai 3, Ruang 301-305</field>
             <field name="website_url">https://ailab.university.ac.id</field>
-            <field name="social_media">https://instagram.com/ailab_university</field>
             <field name="established_year">2018</field>
             <field name="is_featured" eval="True"/>
             <field name="website_published" eval="True"/>
@@ -148,7 +147,6 @@ Fajar Ramadhan (Final Project: Asset Tracking System)</field>
             <field name="contact_email">iot.embedded@university.ac.id</field>
             <field name="lab_space">Gedung Teknik Elektro Lantai 2, Ruang 201-203</field>
             <field name="website_url">https://iotlab.university.ac.id</field>
-            <field name="social_media">https://twitter.com/iotlab_univ</field>
             <field name="established_year">2019</field>
             <field name="is_featured" eval="False"/>
             <field name="website_published" eval="True"/>
@@ -211,7 +209,6 @@ Gilang Pratama (Final Project: Incident Response System)</field>
             <field name="contact_email">cybersec.lab@university.ac.id</field>
             <field name="lab_space">Gedung Teknik Informatika Lantai 4, Ruang 401-403</field>
             <field name="website_url">https://cybersec.university.ac.id</field>
-            <field name="social_media">https://linkedin.com/company/cybersec-lab</field>
             <field name="established_year">2020</field>
             <field name="is_featured" eval="True"/>
             <field name="website_published" eval="True"/>
@@ -275,7 +272,6 @@ Agus Setiawan (Final Project: Financial Dashboard)</field>
             <field name="contact_email">datasci.center@university.ac.id</field>
             <field name="lab_space">Gedung Matematika &amp; Statistika Lantai 3, Ruang 301-306</field>
             <field name="website_url">https://datasci.university.ac.id</field>
-            <field name="social_media">https://linkedin.com/company/datasci-center</field>
             <field name="established_year">2017</field>
             <field name="is_featured" eval="False"/>
             <field name="website_published" eval="True"/>

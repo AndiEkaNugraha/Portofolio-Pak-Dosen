@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Portofolio Dosen - Grup Riset & Laboratorium',
-    'version': '1.0.0',
+    'version': '1.1.0',
     'summary': 'Manajemen Grup Riset dan Laboratorium untuk Portfolio Dosen',
     'description': """""",
     'category': 'Website/Website',
     'author': 'Andi Eka Nugraha',
-    'depends': ['base', 'website'],
+    'depends': ['base', 'website', 'proyek_penelitian'],
     'data': [
         'security/ir.model.access.csv',
         'data/grup_riset_data.xml',

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pengabdian_blog_public,pengabdian.blog.public,model_pengabdian_blog,,1,0,0,0
+access_pengabdian_blog_user,pengabdian.blog.user,model_pengabdian_blog,base.group_user,1,1,1,1
+access_pengabdian_post_public,pengabdian.post.public,model_pengabdian_post,,1,0,0,0
+access_pengabdian_post_user,pengabdian.post.user,model_pengabdian_post,base.group_user,1,1,1,1
+access_pengabdian_type_public,pengabdian.type.public,model_pengabdian_type,,1,0,0,0
+access_pengabdian_type_user,pengabdian.type.user,model_pengabdian_type,base.group_user,1,1,1,1
+access_pengabdian_partner_public,pengabdian.partner.public,model_pengabdian_partner,,1,0,0,0
+access_pengabdian_partner_user,pengabdian.partner.user,model_pengabdian_partner,base.group_user,1,1,1,1
