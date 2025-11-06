@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
         <!-- Blog Category Views -->
         <record id="view_proyek_penelitian_blog_list" model="ir.ui.view">
             <field name="name">proyek.penelitian.blog.list</field>
@@ -266,5 +264,4 @@
             </field>
         </record>
 
-    </data>
-</odoo>
+    </odoo>

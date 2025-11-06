@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Demo Data: Bimbingan Mahasiswa -->
+
+        <!-- Demo 1: Bimbingan Skripsi - Sistem Informasi -->
+        <record id="bimbingan_demo_1" model="bimbingan.mahasiswa">
+            <field name="name">Pengembangan Sistem Informasi Manajemen Inventori</field>
+            <field name="subtitle">Bimbingan Skripsi Mahasiswa Teknik Informatika</field>
+            <field name="student_name">Budi Santoso</field>
+            <field name="student_id">20210001</field>
+            <field name="student_email">budi.santoso@example.edu</field>
+            <field name="student_phone">085712345678</field>
+            <field name="study_program">Teknik Informatika</field>
+            <field name="academic_level">s1</field>
+            <field name="guidance_type">thesis</field>
+            <field name="topic">Sistem Informasi Manajemen Inventori berbasis Web</field>
+            <field name="description"><![CDATA[
+                <h3>Latar Belakang</h3>
+                <p>Pengembangan sistem informasi untuk manajemen inventori perusahaan manufaktur dengan teknologi web modern.</p>
+                
+                <h3>Tujuan</h3>
+                <ul>
+                    <li>Mendesain dan mengimplementasikan sistem inventori terintegrasi</li>
+                    <li>Meningkatkan efisiensi pengelolaan barang</li>
+                    <li>Menyediakan laporan real-time untuk manajemen</li>
+                </ul>
+                
+                <h3>Metodologi</h3>
+                <p>Penelitian menggunakan metode SDLC (System Development Life Cycle) dengan pendekatan agile development.</p>
+            ]]></field>
+            <field name="guidance_date">2025-01-15</field>
+            <field name="estimated_completion">2025-06-30</field>
+            <field name="duration_months">6</field>
+            <field name="status">active</field>
+            <field name="completion_percentage">45</field>
+            <field name="guidance_output">thesis</field>
+            <field name="guidance_notes"><![CDATA[
+                <h4>Progress Bimbingan</h4>
+                <ul>
+                    <li>✓ Sudah selesai: BAB I-III (Latar Belakang, Landasan Teori, Metodologi)</li>
+                    <li>⏳ Sedang dikerjakan: BAB IV (Implementasi Sistem)</li>
+                    <li>⏱️ Akan dikerjakan: BAB V (Pengujian & Hasil), BAB VI (Kesimpulan)</li>
+                </ul>
+                <p><strong>Catatan:</strong> Mahasiswa sudah melakukan survey ke 5 perusahaan dan sudah membuat prototype sistem.</p>
+            ]]></field>
+            <field name="meeting_count">8</field>
+            <field name="total_hours">12</field>
+            <field name="meta_title">Bimbingan Skripsi: Sistem Informasi Manajemen Inventori</field>
+            <field name="meta_keywords">skripsi, sistem informasi, inventori, web, teknik informatika</field>
+            <field name="is_published">True</field>
+        </record>
+
+        <!-- Demo 2: Bimbingan Tesis - Cybersecurity -->
+        <record id="bimbingan_demo_2" model="bimbingan.mahasiswa">
+            <field name="name">Analisis Keamanan Jaringan untuk Ransomware Detection</field>
+            <field name="subtitle">Bimbingan Tesis Mahasiswa Program Magister</field>
+            <field name="student_name">Siti Nurhaliza</field>
+            <field name="student_id">20220045</field>
+            <field name="student_email">siti.nurhaliza@example.edu</field>
+            <field name="student_phone">087654321098</field>
+            <field name="study_program">Magister Teknologi Informasi</field>
+            <field name="academic_level">s2</field>
+            <field name="guidance_type">research</field>
+            <field name="topic">Machine Learning untuk Deteksi Ransomware di Jaringan Enterprise</field>
+            <field name="description"><![CDATA[
+                <h3>Penelitian Cybersecurity</h3>
+                <p>Penelitian tentang aplikasi machine learning untuk mendeteksi dan mencegah serangan ransomware di lingkungan jaringan enterprise.</p>
+                
+                <h3>Output Penelitian</h3>
+                <ul>
+                    <li>Model machine learning untuk ransomware detection</li>
+                    <li>Publikasi di jurnal internasional</li>
+                    <li>Prototype IDS (Intrusion Detection System)</li>
+                </ul>
+            ]]></field>
+            <field name="guidance_date">2024-09-01</field>
+            <field name="estimated_completion">2025-08-31</field>
+            <field name="duration_months">12</field>
+            <field name="status">active</field>
+            <field name="completion_percentage">60</field>
+            <field name="guidance_output">publication</field>
+            <field name="guidance_notes"><![CDATA[
+                <h4>Milestone Penelitian</h4>
+                <ul>
+                    <li>✓ Dataset collection dari 3 security vendor</li>
+                    <li>✓ Model development dan testing</li>
+                    <li>⏳ Paper submission ke IEEE Security Conference</li>
+                </ul>
+            ]]></field>
+            <field name="meeting_count">12</field>
+            <field name="total_hours">18</field>
+            <field name="meta_title">Bimbingan Tesis: Ransomware Detection dengan Machine Learning</field>
+            <field name="meta_keywords">tesis, cybersecurity, machine learning, ransomware, enterprise</field>
+            <field name="is_published">True</field>
+        </record>
+
+        <!-- Demo 3: Bimbingan Akademik - Algoritma -->
+        <record id="bimbingan_demo_3" model="bimbingan.mahasiswa">
+            <field name="name">Bimbingan Mata Kuliah: Algoritma dan Struktur Data</field>
+            <field name="subtitle">Bimbingan akademik untuk pemahaman mendalam algoritma</field>
+            <field name="student_name">Andi Wijaya</field>
+            <field name="student_id">20230015</field>
+            <field name="student_email">andi.wijaya@example.edu</field>
+            <field name="student_phone">081234567890</field>
+            <field name="study_program">Teknik Informatika</field>
+            <field name="academic_level">s1</field>
+            <field name="guidance_type">course</field>
+            <field name="topic">Algoritma Sorting, Searching, dan Graph Algorithms</field>
+            <field name="description"><![CDATA[
+                <h3>Program Bimbingan Akademik</h3>
+                <p>Bimbingan khusus untuk membantu mahasiswa menguasai konsep dan implementasi algoritma fundamental.</p>
+                
+                <h3>Materi yang Dibimbing</h3>
+                <ul>
+                    <li>Sorting Algorithms (Bubble, Merge, Quick Sort)</li>
+                    <li>Searching Algorithms (Binary, Linear Search)</li>
+                    <li>Graph Algorithms (BFS, DFS, Dijkstra)</li>
+                    <li>Dynamic Programming</li>
+                </ul>
+            ]]></field>
+            <field name="guidance_date">2025-02-01</field>
+            <field name="estimated_completion">2025-06-15</field>
+            <field name="duration_months">5</field>
+            <field name="status">active</field>
+            <field name="completion_percentage">30</field>
+            <field name="guidance_output">paper</field>
+            <field name="guidance_notes"><![CDATA[
+                <h4>Progress Pembelajaran</h4>
+                <ul>
+                    <li>✓ Sorting Algorithms (selesai)</li>
+                    <li>⏳ Searching dan Graph Algorithms (sedang dikerjakan)</li>
+                    <li>⏱️ Dynamic Programming (minggu depan)</li>
+                </ul>
+                <p>Mahasiswa akan membuat paper implementasi dari setiap algoritma dengan analisis kompleksitas.</p>
+            ]]></field>
+            <field name="meeting_count">5</field>
+            <field name="total_hours">8</field>
+            <field name="meta_title">Bimbingan Akademik: Algoritma dan Struktur Data</field>
+            <field name="meta_keywords">algoritma, struktur data, sorting, searching, graph</field>
+            <field name="is_published">True</field>
+        </record>
+
+        <!-- Demo 4: Bimbingan Proyek - Mobile App -->
+        <record id="bimbingan_demo_4" model="bimbingan.mahasiswa">
+            <field name="name">Pengembangan Aplikasi Mobile untuk E-Learning</field>
+            <field name="subtitle">Bimbingan Proyek Akhir Semester</field>
+            <field name="student_name">Dewi Putri</field>
+            <field name="student_id">20230028</field>
+            <field name="student_email">dewi.putri@example.edu</field>
+            <field name="student_phone">082345678901</field>
+            <field name="study_program">Teknik Informatika</field>
+            <field name="academic_level">s1</field>
+            <field name="guidance_type">project</field>
+            <field name="topic">Mobile App Development untuk Platform E-Learning Interaktif</field>
+            <field name="description"><![CDATA[
+                <h3>Deskripsi Proyek</h3>
+                <p>Pengembangan aplikasi mobile yang memungkinkan siswa untuk mengakses materi pembelajaran, quiz, dan tracking progres belajar.</p>
+                
+                <h3>Fitur Aplikasi</h3>
+                <ul>
+                    <li>Learning Management System (LMS)</li>
+                    <li>Video streaming untuk materi pembelajaran</li>
+                    <li>Interactive Quiz dan Assessment</li>
+                    <li>Progress tracking dan analytics</li>
+                    <li>Push notification untuk reminder</li>
+                </ul>
+            ]]></field>
+            <field name="guidance_date">2025-03-01</field>
+            <field name="estimated_completion">2025-05-31</field>
+            <field name="duration_months">3</field>
+            <field name="status">active</field>
+            <field name="completion_percentage">75</field>
+            <field name="guidance_output">prototype</field>
+            <field name="guidance_notes"><![CDATA[
+                <h4>Status Pengembangan</h4>
+                <ul>
+                    <li>✓ Design dan UI/UX mockup</li>
+                    <li>✓ Backend API development (80%)</li>
+                    <li>⏳ Mobile frontend (iOS &amp; Android)</li>
+                    <li>⏱️ Testing dan deployment</li>
+                </ul>
+                <p>Target: Beta release akhir April, full release Mei 2025.</p>
+            ]]></field>
+            <field name="meeting_count">10</field>
+            <field name="total_hours">15</field>
+            <field name="meta_title">Bimbingan Proyek: E-Learning Mobile Application</field>
+            <field name="meta_keywords">proyek, mobile app, e-learning, Flutter, React Native</field>
+            <field name="is_published">True</field>
+        </record>
+
+        <!-- Demo 5: Bimbingan Selesai -->
+        <record id="bimbingan_demo_5" model="bimbingan.mahasiswa">
+            <field name="name">Sistem Database Terdistribusi untuk IoT Application</field>
+            <field name="subtitle">Bimbingan Skripsi yang Sudah Selesai (Lulus)</field>
+            <field name="student_name">Roni Setiawan</field>
+            <field name="student_id">20220010</field>
+            <field name="student_email">roni.setiawan@example.edu</field>
+            <field name="student_phone">083456789012</field>
+            <field name="study_program">Teknik Informatika</field>
+            <field name="academic_level">s1</field>
+            <field name="guidance_type">thesis</field>
+            <field name="topic">Implementasi Database Terdistribusi untuk Aplikasi IoT Real-time</field>
+            <field name="description"><![CDATA[
+                <h3>Ringkasan Skripsi</h3>
+                <p>Penelitian dan implementasi sistem database terdistribusi untuk menangani data real-time dari multiple IoT devices.</p>
+            ]]></field>
+            <field name="guidance_date">2024-03-15</field>
+            <field name="estimated_completion">2024-09-30</field>
+            <field name="duration_months">7</field>
+            <field name="status">completed</field>
+            <field name="completion_percentage">100</field>
+            <field name="guidance_output">thesis</field>
+            <field name="guidance_notes"><![CDATA[
+                <h4>Hasil Akhir</h4>
+                <p><strong>Status:</strong> LULUS dengan nilai A</p>
+                <ul>
+                    <li>✓ Semua BAB sudah diseminarkan</li>
+                    <li>✓ Sidang telah disetujui semua penguji</li>
+                    <li>✓ Skripsi sudah dicetak dan diarsipkan</li>
+                </ul>
+            ]]></field>
+            <field name="meeting_count">15</field>
+            <field name="total_hours">22</field>
+            <field name="meta_title">Bimbingan Skripsi Selesai: Distributed Database IoT</field>
+            <field name="meta_keywords">skripsi selesai, database, IoT, terdistribusi</field>
+            <field name="is_published">True</field>
+        </record>
+    </data>
+</odoo>

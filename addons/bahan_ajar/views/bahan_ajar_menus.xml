@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem 
+        id="menu_bahan_ajar_root" 
+        name="E-Learning" 
+        sequence="10"/>
+
+    <menuitem 
+        id="menu_bahan_ajar_main" 
+        name="Bahan Ajar" 
+        parent="menu_bahan_ajar_root" 
+        sequence="10"/>
+
+    <menuitem 
+        id="menu_bahan_ajar" 
+        name="Bahan Ajar" 
+        parent="menu_bahan_ajar_main" 
+        action="action_bahan_ajar_posts" 
+        sequence="1"/>
+</odoo>

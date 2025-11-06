@@ -30,7 +30,7 @@
             'profil_dosen/static/src/css/profil_style.css',
         ],
     },
-    'installable': True,
+    'installable': False,
     'application': True,
     'auto_install': False,
 }

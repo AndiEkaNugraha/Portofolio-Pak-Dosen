@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        
         <!-- Main Menu -->
         <menuitem 
             id="beranda_main_menu"
@@ -38,6 +36,4 @@
             parent="beranda_main_menu"
             action="beranda_preview_action"
             sequence="30"/>
-
-    </data>
 </odoo>

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        
         <!-- Menu Item untuk Matakuliah -->
         <menuitem id="matakuliah_menu_root" name="Mata Kuliah" icon="fa-book" sequence="20"/>
 
@@ -13,5 +11,4 @@
 
         <menuitem id="matakuliah_blog_menu" name="Kategori/Program" 
                   parent="matakuliah_menu" action="matakuliah_blog_action" sequence="20"/>
-    </data>
 </odoo>

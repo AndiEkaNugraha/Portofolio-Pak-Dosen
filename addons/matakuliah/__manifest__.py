@@ -19,9 +19,11 @@
     """,
     'category': 'Website/Website',
     'author': 'Andi Eka Nugraha',
-    'depends': ['base', 'website', 'mail'],
+    'depends': ['base', 'website', 'mail', 'website_blog'],
     'data': [
         'security/ir.model.access.csv',
+        'data/matakuliah_data.xml',
+        # 'data/website_data.xml',  # Disabled - has validation issues
         'views/matakuliah_views_clean.xml',
         'views/matakuliah_menus.xml',
         'templates/matakuliah_templates.xml',
@@ -31,7 +33,7 @@
             'matakuliah/static/src/css/style.css',
         ],
     },
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': True,
     'license': 'LGPL-3',

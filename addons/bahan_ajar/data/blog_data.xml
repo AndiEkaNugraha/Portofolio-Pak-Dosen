@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Create Blog -->
+        <record id="blog_bahan_ajar" model="blog.blog">
+            <field name="name">Bahan Ajar</field>
+            <field name="subtitle">Kumpulan Materi Pembelajaran Digital</field>
+        </record>
+
+        <!-- Blog Post 1: Python Programming PDF -->
+        <record id="blog_post_python" model="blog.post">
+            <field name="name">Panduan Dasar Python Programming</field>
+            <field name="blog_id" ref="blog_bahan_ajar"/>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="content"><![CDATA[
+                <h2>Materi Pembelajaran Python Dasar</h2>
+                <p>Panduan lengkap untuk memulai pemrograman dengan Python. Materi ini dirancang khusus untuk pemula yang ingin belajar programming dari dasar.</p>
+                
+                <h3>Daftar Isi:</h3>
+                <ul>
+                    <li>Pengenalan Python dan instalasi</li>
+                    <li>Variabel dan tipe data</li>
+                    <li>Struktur kontrol (if, loop)</li>
+                    <li>Fungsi dan modul</li>
+                    <li>Object Oriented Programming dasar</li>
+                </ul>
+                
+                <p>Materi dilengkapi dengan contoh kode praktis dan latihan soal untuk mengasah kemampuan programming Anda.</p>
+                
+                <h3>Tujuan Pembelajaran:</h3>
+                <p>Setelah menyelesaikan materi ini, Anda diharapkan dapat:</p>
+                <ul>
+                    <li>Memahami konsep dasar pemrograman Python</li>
+                    <li>Menguasai syntax dan struktur dasar Python</li>
+                    <li>Mampu membuat program sederhana dengan Python</li>
+                    <li>Memahami konsep OOP dalam Python</li>
+                </ul>
+            ]]></field>
+            <field name="file_type">pdf</field>
+            <field name="material_type">lecture</field>
+            <field name="topic">Programming Fundamentals</field>
+            <field name="target_audience">basic</field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="post_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- Blog Post 2: Database Design Video -->
+        <record id="blog_post_database" model="blog.post">
+            <field name="name">Tutorial Database Design - Normalisasi dan Optimasi</field>
+            <field name="blog_id" ref="blog_bahan_ajar"/>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="content"><![CDATA[
+                <h2>Perancangan Database yang Efektif</h2>
+                <p>Video tutorial lengkap tentang perancangan database, mulai dari konsep dasar hingga implementasi praktis.</p>
+                
+                <h3>Materi yang Dibahas:</h3>
+                <ul>
+                    <li><strong>Normalisasi Database</strong> - Proses normalisasi hingga bentuk normal ketiga (3NF)</li>
+                    <li><strong>Entity Relationship Diagram</strong> - Cara membuat dan menganalisis ERD</li>
+                    <li><strong>Optimasi Query</strong> - Teknik optimasi untuk performa database yang lebih baik</li>
+                    <li><strong>Best Practices</strong> - Panduan terbaik dalam desain database modern</li>
+                </ul>
+                
+                <p>Video ini mencakup studi kasus nyata dan demonstrasi langsung menggunakan SQL Server dan MySQL.</p>
+                
+                <h3>Durasi:</h3>
+                <p>Total durasi video: 2 jam 30 menit, dibagi menjadi beberapa segment yang mudah dipahami.</p>
+            ]]></field>
+            <field name="file_type">video</field>
+            <field name="video_url">https://www.youtube.com/watch?v=example-database</field>
+            <field name="material_type">reference</field>
+            <field name="topic">Database Management</field>
+            <field name="target_audience">intermediate</field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="post_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- Blog Post 3: UI/UX Design Resources -->
+        <record id="blog_post_uiux" model="blog.post">
+            <field name="name">Kumpulan Resources UI/UX Design - Tools dan Template Terbaik</field>
+            <field name="blog_id" ref="blog_bahan_ajar"/>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="content"><![CDATA[
+                <h2>Resources Komprehensif untuk UI/UX Design</h2>
+                <p>Daftar lengkap dan terkurasi dari sumber daya online terbaik untuk belajar dan mengembangkan skill UI/UX Design.</p>
+                
+                <h3>Kategori Resources:</h3>
+                <ul>
+                    <li><strong>Design Tools</strong> - Tools gratis dan berbayar untuk design UI/UX</li>
+                    <li><strong>Template &amp; Components</strong> - Perpustakaan template siap pakai</li>
+                    <li><strong>Style Guide &amp; Design System</strong> - Referensi design system dari perusahaan besar</li>
+                    <li><strong>Case Study</strong> - Case study dari proyek nyata dan best practices</li>
+                    <li><strong>Learning Platform</strong> - Kursus online dan tutorial gratis</li>
+                </ul>
+                
+                <h3>Tools yang Direkomendasikan:</h3>
+                <ul>
+                    <li>Figma - Design collaboration tool</li>
+                    <li>Adobe XD - Professional design tool</li>
+                    <li>Sketch - Mac-based design tool</li>
+                    <li>Framer - Interactive design tool</li>
+                </ul>
+                
+                <p>Sumber daya ini sangat berguna bagi mahasiswa dan profesional yang ingin mendalami UI/UX design.</p>
+            ]]></field>
+            <field name="file_type">link</field>
+            <field name="web_resource_url">https://example.com/uiux-resources</field>
+            <field name="material_type">supplementary</field>
+            <field name="topic">UI/UX Design</field>
+            <field name="target_audience">basic</field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="post_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- Blog Post 4: Machine Learning Introduction -->
+        <record id="blog_post_ml" model="blog.post">
+            <field name="name">Modul Machine Learning Dasar - Dari Teori hingga Implementasi</field>
+            <field name="blog_id" ref="blog_bahan_ajar"/>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="content"><![CDATA[
+                <h2>Pengenalan Machine Learning untuk Pemula</h2>
+                <p>Modul pembelajaran machine learning yang dirancang khusus untuk pemula, mencakup teori dan praktik implementasi.</p>
+                
+                <h3>Konten Modul:</h3>
+                <ul>
+                    <li><strong>Konsep Dasar</strong> - Apa itu machine learning dan aplikasinya</li>
+                    <li><strong>Supervised vs Unsupervised Learning</strong> - Perbedaan dan kapan menggunakan masing-masing</li>
+                    <li><strong>Algoritma Klasifikasi</strong> - Decision Tree, Random Forest, SVM</li>
+                    <li><strong>Algoritma Regresi</strong> - Linear Regression, Polynomial Regression</li>
+                    <li><strong>Implementasi Python</strong> - Menggunakan scikit-learn dan pandas</li>
+                </ul>
+                
+                <h3>Fitur Pembelajaran:</h3>
+                <ul>
+                    <li>15 contoh kode praktis yang dapat langsung dijalankan</li>
+                    <li>3 dataset nyata untuk latihan</li>
+                    <li>Quiz dan kuis untuk mengukur pemahaman</li>
+                    <li>Panduan troubleshooting umum</li>
+                </ul>
+                
+                <p>Dilengkapi dengan contoh kode dan dataset untuk latihan langsung.</p>
+            ]]></field>
+            <field name="file_type">pdf</field>
+            <field name="material_type">lecture</field>
+            <field name="topic">Machine Learning</field>
+            <field name="target_audience">intermediate</field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="post_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- Blog Post 5: Web Development dengan Django -->
+        <record id="blog_post_django" model="blog.post">
+            <field name="name">Membangun Web Application dengan Django Framework</field>
+            <field name="blog_id" ref="blog_bahan_ajar"/>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="content"><![CDATA[
+                <h2>Web Development dengan Django - Lengkap dari Nol hingga Deploy</h2>
+                <p>Panduan komprehensif untuk membangun web application menggunakan Django framework, dari setup awal hingga deployment ke production.</p>
+                
+                <h3>Topik Pembelajaran:</h3>
+                <ul>
+                    <li><strong>Setup Django</strong> - Instalasi dan konfigurasi Django</li>
+                    <li><strong>Models &amp; Database</strong> - Desain database dengan ORM</li>
+                    <li><strong>Views &amp; URLs</strong> - Membuat view dan routing</li>
+                    <li><strong>Templates</strong> - Template rendering dengan Jinja2</li>
+                    <li><strong>Forms &amp; Validation</strong> - Handling form dan validasi data</li>
+                    <li><strong>Authentication</strong> - User management dan permission</li>
+                    <li><strong>Deployment</strong> - Deploy ke production dengan Heroku/AWS</li>
+                </ul>
+                
+                <h3>Project Sampel:</h3>
+                <p>Tutorial ini dilengkapi dengan 3 project sampel yang berbeda tingkat kesulitannya:</p>
+                <ul>
+                    <li>Blog sederhana</li>
+                    <li>E-commerce mini</li>
+                    <li>Social network basic</li>
+                </ul>
+            ]]></field>
+            <field name="file_type">pdf</field>
+            <field name="material_type">lecture</field>
+            <field name="topic">Web Development</field>
+            <field name="target_audience">intermediate</field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="post_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- Blog Post 6: Data Visualization -->
+        <record id="blog_post_visualization" model="blog.post">
+            <field name="name">Tutorial Visualisasi Data dengan Python - Matplotlib, Seaborn &amp; Plotly</field>
+            <field name="blog_id" ref="blog_bahan_ajar"/>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="content"><![CDATA[
+                <h2>Seni Visualisasi Data dengan Python</h2>
+                <p>Pelajari cara membuat visualisasi data yang menarik dan informatif menggunakan berbagai library Python.</p>
+                
+                <h3>Library yang Dibahas:</h3>
+                <ul>
+                    <li><strong>Matplotlib</strong> - Library dasar untuk plotting</li>
+                    <li><strong>Seaborn</strong> - Visualisasi statistik yang indah</li>
+                    <li><strong>Plotly</strong> - Interactive dan web-based visualization</li>
+                    <li><strong>Bokeh</strong> - Untuk visualisasi data besar</li>
+                </ul>
+                
+                <h3>Jenis Visualisasi:</h3>
+                <ul>
+                    <li>Line Charts - Tren dan time series</li>
+                    <li>Bar Charts - Perbandingan kategori</li>
+                    <li>Scatter Plots - Hubungan antar variabel</li>
+                    <li>Heatmaps - Matriks dan korelasi</li>
+                    <li>Box Plots - Distribusi data</li>
+                    <li>Pie Charts - Proporsi dan komposisi</li>
+                </ul>
+            ]]></field>
+            <field name="file_type">video</field>
+            <field name="video_url">https://www.youtube.com/watch?v=example-visualization</field>
+            <field name="material_type">reference</field>
+            <field name="topic">Data Science</field>
+            <field name="target_audience">intermediate</field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="post_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- Blog Post 7: REST API Design -->
+        <record id="blog_post_rest_api" model="blog.post">
+            <field name="name">Panduan Lengkap REST API Design - Best Practices &amp; Security</field>
+            <field name="blog_id" ref="blog_bahan_ajar"/>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="content"><![CDATA[
+                <h2>REST API Design: From Basics to Production</h2>
+                <p>Panduan komprehensif tentang perancangan REST API yang baik, aman, dan scalable.</p>
+                
+                <h3>Materi Pembelajaran:</h3>
+                <ul>
+                    <li><strong>HTTP Methods</strong> - GET, POST, PUT, DELETE, PATCH</li>
+                    <li><strong>Status Codes</strong> - Penggunaan status code yang tepat</li>
+                    <li><strong>Resource Design</strong> - Naming convention dan structure</li>
+                    <li><strong>Authentication &amp; Authorization</strong> - JWT, OAuth2</li>
+                    <li><strong>Rate Limiting</strong> - Proteksi dari abuse</li>
+                    <li><strong>Versioning</strong> - Strategi versioning API</li>
+                    <li><strong>Documentation</strong> - Swagger &amp; OpenAPI</li>
+                    <li><strong>Testing</strong> - Unit test dan integration test</li>
+                </ul>
+                
+                <h3>Tools yang Digunakan:</h3>
+                <ul>
+                    <li>Postman - API testing dan documentation</li>
+                    <li>Swagger Editor - API design</li>
+                    <li>Thunder Client - Lightweight API client</li>
+                </ul>
+            ]]></field>
+            <field name="file_type">pdf</field>
+            <field name="material_type">reference</field>
+            <field name="topic">API Development</field>
+            <field name="target_audience">intermediate</field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="post_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- Blog Post 8: Cloud Computing dengan AWS -->
+        <record id="blog_post_aws" model="blog.post">
+            <field name="name">Pengenalan Cloud Computing - AWS Essentials untuk Developer</field>
+            <field name="blog_id" ref="blog_bahan_ajar"/>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="content"><![CDATA[
+                <h2>Cloud Computing Fundamentals dengan AWS</h2>
+                <p>Belajar cloud computing dan layanan AWS dari dasar hingga mahir.</p>
+                
+                <h3>Layanan AWS yang Dibahas:</h3>
+                <ul>
+                    <li><strong>EC2</strong> - Virtual machines (Elastic Compute Cloud)</li>
+                    <li><strong>S3</strong> - Object storage</li>
+                    <li><strong>RDS</strong> - Managed relational database</li>
+                    <li><strong>Lambda</strong> - Serverless computing</li>
+                    <li><strong>DynamoDB</strong> - NoSQL database</li>
+                    <li><strong>CloudFront</strong> - Content delivery network</li>
+                    <li><strong>IAM</strong> - Identity &amp; access management</li>
+                </ul>
+                
+                <h3>Topik Praktis:</h3>
+                <ul>
+                    <li>Setup AWS account &amp; billing alerts</li>
+                    <li>Deploy aplikasi ke EC2</li>
+                    <li>Database migration ke RDS</li>
+                    <li>Serverless application dengan Lambda</li>
+                    <li>Auto scaling &amp; load balancing</li>
+                    <li>Monitoring &amp; logging dengan CloudWatch</li>
+                </ul>
+            ]]></field>
+            <field name="file_type">video</field>
+            <field name="video_url">https://www.youtube.com/watch?v=example-aws</field>
+            <field name="material_type">lecture</field>
+            <field name="topic">Cloud Infrastructure</field>
+            <field name="target_audience">intermediate</field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="post_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- Blog Post 9: Git &amp; Version Control -->
+        <record id="blog_post_git" model="blog.post">
+            <field name="name">Mastering Git &amp; Version Control - Collaborative Development Guide</field>
+            <field name="blog_id" ref="blog_bahan_ajar"/>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="content"><![CDATA[
+                <h2>Git &amp; Version Control untuk Developer Profesional</h2>
+                <p>Panduan lengkap menggunakan Git untuk kolaborasi tim dan manajemen versi kode.</p>
+                
+                <h3>Dasar Git:</h3>
+                <ul>
+                    <li>Repository setup &amp; initialization</li>
+                    <li>Staging, committing, &amp; pushing</li>
+                    <li>Branching &amp; merging strategies</li>
+                    <li>Resolving conflicts</li>
+                    <li>Tags &amp; releases</li>
+                </ul>
+                
+                <h3>Workflow Strategi:</h3>
+                <ul>
+                    <li><strong>Git Flow</strong> - Untuk project besar</li>
+                    <li><strong>GitHub Flow</strong> - Untuk continuous deployment</li>
+                    <li><strong>Trunk Based Development</strong> - Untuk DevOps</li>
+                </ul>
+                
+                <h3>Kolaborasi &amp; Best Practices:</h3>
+                <ul>
+                    <li>Pull requests &amp; code review</li>
+                    <li>Commit message conventions</li>
+                    <li>.gitignore &amp; security</li>
+                    <li>CI/CD integration</li>
+                </ul>
+                
+                <p><strong>Platform:</strong> GitHub, GitLab, Bitbucket</p>
+            ]]></field>
+            <field name="file_type">link</field>
+            <field name="web_resource_url">https://example.com/git-resources</field>
+            <field name="material_type">supplementary</field>
+            <field name="topic">Development Tools</field>
+            <field name="target_audience">basic</field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="post_date" eval="datetime.now()"/>
+        </record>
+    </data>
+</odoo>

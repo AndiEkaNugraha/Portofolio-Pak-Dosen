@@ -19,7 +19,7 @@
             # Add CSS/JS assets if needed
         ],
     },
-    'installable': True,
+    'installable': False,
     'application': True,
     'auto_install': False,
     'license': 'LGPL-3',

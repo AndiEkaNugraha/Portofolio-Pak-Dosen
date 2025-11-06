@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
         <!-- Blog Categories -->
         <record id="blog_penelitian_dasar" model="proyek.penelitian.blog">
             <field name="name">Penelitian Dasar</field>
@@ -635,5 +633,4 @@ https://www.mdpi.com/2071-1050/11/20/5678</field>
 
 
 
-    </data>
-</odoo>
+    </odoo>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="view_bimbingan_mahasiswa_list" model="ir.ui.view">
+        <field name="name">bimbingan.mahasiswa.list</field>
+        <field name="model">bimbingan.mahasiswa</field>
+        <field name="arch" type="xml">
+            <list string="Bimbingan Mahasiswa" default_order="guidance_date desc">
+                <field name="name"/>
+                <field name="student_name"/>
+                <field name="student_id"/>
+                <field name="guidance_type"/>
+                <field name="status" widget="badge" decoration-success="status=='completed'" decoration-info="status=='active'" decoration-warning="status=='on_hold'"/>
+                <field name="completion_percentage" widget="progress_bar"/>
+                <field name="guidance_date"/>
+                <field name="is_published" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_bimbingan_mahasiswa_form" model="ir.ui.view">
+        <field name="name">bimbingan.mahasiswa.form</field>
+        <field name="model">bimbingan.mahasiswa</field>
+        <field name="arch" type="xml">
+            <form string="Bimbingan Mahasiswa">
+                <header>
+                    <button name="action_mark_completed" string="Mark as Completed" type="object" class="btn-success"/>
+                    <button name="action_mark_active" string="Mark as Active" type="object" class="btn-info"/>
+                    <button name="action_hold" string="Put on Hold" type="object" class="btn-warning"/>
+                    <field name="status" widget="statusbar" statusbar_visible="active,completed,on_hold,pending"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Judul Bimbingan"/>
+                        </h1>
+                        <h4>
+                            <field name="subtitle" placeholder="Sub Judul (Opsional)"/>
+                        </h4>
+                    </div>
+
+                    <notebook>
+                        <!-- Tab 1: Informasi Mahasiswa -->
+                        <page string="Informasi Mahasiswa">
+                            <group>
+                                <group string="Data Diri Mahasiswa">
+                                    <field name="student_name" required="True"/>
+                                    <field name="student_id" required="True"/>
+                                    <field name="student_email"/>
+                                    <field name="student_phone"/>
+                                </group>
+                                <group string="Program Akademik">
+                                    <field name="study_program" required="True"/>
+                                    <field name="academic_level" required="True"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Tab 2: Detail Bimbingan -->
+                        <page string="Detail Bimbingan">
+                            <group>
+                                <group string="Informasi Bimbingan">
+                                    <field name="guidance_type" required="True"/>
+                                    <field name="topic" required="True"/>
+                                    <field name="guidance_output"/>
+                                </group>
+                                <group string="Jadwal &amp; Durasi">
+                                    <field name="guidance_date" required="True"/>
+                                    <field name="estimated_completion"/>
+                                    <field name="duration_months"/>
+                                </group>
+                            </group>
+                            <separator string="Deskripsi Bimbingan"/>
+                            <field name="description" widget="html"/>
+                        </page>
+
+                        <!-- Tab 3: Progress &amp; Hasil -->
+                        <page string="Progress &amp; Hasil">
+                            <group>
+                                <group string="Status Progress">
+                                    <field name="completion_percentage" widget="progress_bar"/>
+                                    <field name="meeting_count"/>
+                                    <field name="total_hours"/>
+                                </group>
+                                <group string="Statistik">
+                                    <field name="is_published"/>
+                                </group>
+                            </group>
+                            <separator string="Catatan &amp; Hasil Bimbingan"/>
+                            <field name="guidance_notes" widget="html"/>
+                        </page>
+
+                        <!-- Tab 4: SEO &amp; Publikasi -->
+                        <page string="SEO &amp; Publikasi">
+                            <group>
+                                <field name="slug"/>
+                                <field name="website_url" readonly="1"/>
+                            </group>
+                            <separator string="Meta Tags untuk SEO"/>
+                            <group>
+                                <field name="meta_title" placeholder="Akan auto-generate jika kosong"/>
+                                <field name="meta_keywords" placeholder="Pisahkan dengan koma"/>
+                            </group>
+                            <field name="meta_description" placeholder="Akan auto-generate jika kosong"/>
+                            <group>
+                                <field name="is_published"/>
+                            </group>
+                        </page>
+
+                        <!-- Tab 5: Audit -->
+                        <page string="Audit Info">
+                            <group>
+                                <group>
+                                    <field name="create_date" readonly="1"/>
+                                    <field name="create_uid" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="write_date" readonly="1"/>
+                                    <field name="write_uid" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search/Filter View -->
+    <record id="view_bimbingan_mahasiswa_search" model="ir.ui.view">
+        <field name="name">bimbingan.mahasiswa.search</field>
+        <field name="model">bimbingan.mahasiswa</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="student_name"/>
+                <field name="student_id"/>
+                <field name="topic"/>
+                <field name="study_program"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action Window -->
+    <record id="action_bimbingan_mahasiswa" model="ir.actions.act_window">
+        <field name="name">Bimbingan Mahasiswa</field>
+        <field name="res_model">bimbingan.mahasiswa</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_bimbingan_mahasiswa_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Buat bimbingan mahasiswa pertama Anda!
+            </p>
+            <p>
+                Kelola informasi bimbingan untuk setiap mahasiswa yang Anda bimbing,
+                termasuk tracking progress, output, dan publikasi hasil bimbingan.
+            </p>
+        </field>
+    </record>
+</odoo>

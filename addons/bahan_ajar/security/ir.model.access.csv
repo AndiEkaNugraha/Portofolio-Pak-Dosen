@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_blog_post_website_designer_bahan,blog.post website designer bahan,website_blog.model_blog_post,website.group_website_designer,1,1,1,1
+access_blog_post_public_bahan,blog.post public bahan,website_blog.model_blog_post,base.group_public,1,0,0,0

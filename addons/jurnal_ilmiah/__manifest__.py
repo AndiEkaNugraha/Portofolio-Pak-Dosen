@@ -14,7 +14,7 @@
         'templates/jurnal_templates.xml',
         'views/jurnal_menus.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': True,
     'license': 'LGPL-3',

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        
         <!-- Security Access Rules -->
         <record id="access_pengabdian_blog_public" model="ir.model.access">
             <field name="name">pengabdian.blog.public</field>
@@ -755,5 +753,4 @@
             <field name="sequence">55</field>
         </record>
 
-    </data>
-</odoo>
+    </odoo>

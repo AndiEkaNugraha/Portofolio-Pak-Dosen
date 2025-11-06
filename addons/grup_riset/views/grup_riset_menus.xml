@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        
         <!-- Main Menu -->
         <menuitem 
             id="grup_riset_main_menu"
@@ -25,5 +24,5 @@
             action="grup_riset_blog_action"
             sequence="20"/>
 
-    </data>
+        </data>
 </odoo>

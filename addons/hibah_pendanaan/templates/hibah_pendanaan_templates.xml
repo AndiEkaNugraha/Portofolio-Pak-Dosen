@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
         <!-- Main Index Template -->
         <template id="grants_index" name="Hibah &amp; Pendanaan">
             <t t-call="website.layout">
@@ -676,5 +674,4 @@
             </t>
         </template>
 
-    </data>
-</odoo>
+    </odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Website menu untuk Bimbingan Mahasiswa -->
+        <record id="menu_bimbingan_mahasiswa" model="website.menu">
+            <field name="name">Bimbingan Mahasiswa</field>
+            <field name="url">/bimbingan-mahasiswa</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">60</field>
+        </record>
+    </data>
+</odoo>

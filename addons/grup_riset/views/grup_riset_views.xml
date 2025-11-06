@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
         <!-- Grup Riset Blog Views -->
         <record id="view_grup_riset_blog_form" model="ir.ui.view">
             <field name="name">grup.riset.blog.form</field>
@@ -229,5 +227,4 @@
             </field>
         </record>
 
-    </data>
-</odoo>
+    </odoo>

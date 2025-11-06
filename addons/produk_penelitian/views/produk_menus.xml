@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        
         <!-- Actions -->
         <record id="action_produk_post" model="ir.actions.act_window">
             <field name="name">Produk Penelitian</field>
@@ -48,5 +47,5 @@
             <field name="sequence">40</field>
         </record>
         
-    </data>
+        </data>
 </odoo>

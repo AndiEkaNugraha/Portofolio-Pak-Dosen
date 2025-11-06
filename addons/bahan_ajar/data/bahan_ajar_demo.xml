@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- PDF Document Examples -->
+        <record id="bahan_ajar_1" model="bahan.ajar.post">
+            <field name="name">Panduan Dasar Python Programming</field>
+            <field name="description"><![CDATA[
+                <h3>Materi Pembelajaran Python Dasar</h3>
+                <p>Panduan lengkap untuk memulai pemrograman dengan Python. Mencakup:</p>
+                <ul>
+                    <li>Pengenalan Python dan instalasi</li>
+                    <li>Variabel dan tipe data</li>
+                    <li>Struktur kontrol (if, loop)</li>
+                    <li>Fungsi dan modul</li>
+                    <li>Object Oriented Programming dasar</li>
+                </ul>
+                <p>Cocok untuk pemula yang ingin belajar programming.</p>
+            ]]></field>
+            <field name="file_type">pdf</field>
+            <field name="topic">Programming Fundamentals</field>
+            <field name="tags">python,programming,beginner</field>
+            <field name="state">published</field>
+            <field name="website_published" eval="True"/>
+            <field name="sequence">1</field>
+        </record>
+
+        <!-- Video Content Example -->
+        <record id="bahan_ajar_2" model="bahan.ajar.post">
+            <field name="name">Tutorial Database Design</field>
+            <field name="description"><![CDATA[
+                <h3>Perancangan Database yang Efektif</h3>
+                <p>Video tutorial lengkap tentang perancangan database, meliputi:</p>
+                <ul>
+                    <li>Normalisasi database</li>
+                    <li>Entity Relationship Diagram</li>
+                    <li>Optimasi query</li>
+                    <li>Best practices dalam desain database</li>
+                </ul>
+                <p>Video ini akan membantu Anda memahami konsep fundamental dalam perancangan database.</p>
+            ]]></field>
+            <field name="file_type">video</field>
+            <field name="video_url">https://www.youtube.com/watch?v=example</field>
+            <field name="topic">Database Management</field>
+            <field name="tags">database,sql,design</field>
+            <field name="state">published</field>
+            <field name="website_published" eval="True"/>
+            <field name="sequence">2</field>
+        </record>
+
+        <!-- Web Resource Example -->
+        <record id="bahan_ajar_3" model="bahan.ajar.post">
+            <field name="name">Resources UI/UX Design</field>
+            <field name="description"><![CDATA[
+                <h3>Kumpulan Resource untuk UI/UX Design</h3>
+                <p>Daftar lengkap sumber daya online untuk belajar UI/UX Design:</p>
+                <ul>
+                    <li>Tool design gratis dan berbayar</li>
+                    <li>Template dan komponen UI</li>
+                    <li>Panduan style dan design system</li>
+                    <li>Case study dari projek nyata</li>
+                </ul>
+                <p>Sumber daya ini sangat berguna bagi mahasiswa yang ingin mendalami UI/UX design.</p>
+            ]]></field>
+            <field name="file_type">link</field>
+            <field name="web_resource_url">https://example.com/uiux-resources</field>
+            <field name="topic">UI/UX Design</field>
+            <field name="tags">design,ui,ux,resources</field>
+            <field name="state">published</field>
+            <field name="website_published" eval="True"/>
+            <field name="sequence">3</field>
+        </record>
+
+        <!-- Another PDF Example -->
+        <record id="bahan_ajar_4" model="bahan.ajar.post">
+            <field name="name">Modul Machine Learning Dasar</field>
+            <field name="description"><![CDATA[
+                <h3>Pengenalan Machine Learning</h3>
+                <p>Modul pembelajaran machine learning untuk pemula, mencakup:</p>
+                <ul>
+                    <li>Konsep dasar machine learning</li>
+                    <li>Supervised vs Unsupervised Learning</li>
+                    <li>Algoritma dasar klasifikasi dan regresi</li>
+                    <li>Implementasi dengan Python dan scikit-learn</li>
+                </ul>
+                <p>Dilengkapi dengan contoh kode dan dataset untuk latihan.</p>
+            ]]></field>
+            <field name="file_type">pdf</field>
+            <field name="topic">Machine Learning</field>
+            <field name="tags">AI,ML,python,data-science</field>
+            <field name="state">published</field>
+            <field name="website_published" eval="True"/>
+            <field name="sequence">4</field>
+        </record>
+    </data>
+</odoo>

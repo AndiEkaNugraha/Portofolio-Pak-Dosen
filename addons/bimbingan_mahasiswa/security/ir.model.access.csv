@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bimbingan_mahasiswa_public,bimbingan.mahasiswa.public,model_bimbingan_mahasiswa,,1,0,0,0
+access_bimbingan_mahasiswa_user,bimbingan.mahasiswa.user,model_bimbingan_mahasiswa,base.group_user,1,1,1,1
+access_bimbingan_mahasiswa_admin,bimbingan.mahasiswa.admin,model_bimbingan_mahasiswa,base.group_erp_manager,1,1,1,1

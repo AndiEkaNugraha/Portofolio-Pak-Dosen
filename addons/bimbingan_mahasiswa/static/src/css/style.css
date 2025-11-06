@@ -1,0 +1,123 @@
+/* Bimbingan Mahasiswa Styles */
+
+.bimbingan-card {
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.bimbingan-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.bimbingan-status-badge {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 20px;
+}
+
+.bimbingan-progress-container {
+    margin: 1rem 0;
+}
+
+.bimbingan-progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.student-info-box {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.guidance-type-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.bimbingan-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.bimbingan-header h1 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.bimbingan-header .lead {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.progress-detail {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.stat-box h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.stat-box small {
+    color: #6c757d;
+    display: block;
+}
+
+.guidance-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.guidance-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.guidance-content ul, 
+.guidance-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.guidance-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bimbingan-card {
+        margin-bottom: 1rem;
+    }
+
+    .bimbingan-header {
+        padding: 1rem;
+    }
+
+    .bimbingan-header h1 {
+        font-size: 1.75rem;
+    }
+}

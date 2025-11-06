@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        
         <!-- Main Menu -->
         <menuitem
             id="profil_dosen_menu"
@@ -10,5 +9,5 @@
             sequence="20"
             web_icon="profil_dosen,static/description/icon.png"/>
 
-    </data>
+        </data>
 </odoo>

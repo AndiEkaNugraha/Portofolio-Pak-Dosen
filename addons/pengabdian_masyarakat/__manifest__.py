@@ -14,7 +14,7 @@
         'templates/pengabdian_templates.xml',
         'views/pengabdian_menus.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': True,
     'license': 'LGPL-3',

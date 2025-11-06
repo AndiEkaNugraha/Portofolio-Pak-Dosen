@@ -4,8 +4,11 @@ from odoo import models, fields
 
 class MatakuliahBlog(models.Model):
     _name = 'matakuliah.blog'
-    _inherit = 'blog.blog'
     _description = 'Kategori Mata Kuliah'
+    _inherit = ['mail.thread']
+
+    name = fields.Char(string='Nama Kategori', required=True)
+    subtitle = fields.Char(string='Sub Judul')
 
     # Kategori mata kuliah yang diampu dosen
     program_studi = fields.Char(string='Program Studi', size=128, required=True)

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
         <!-- Blog Category Views -->
         <record id="view_hibah_budget_line_tree" model="ir.ui.view">
             <field name="name">hibah.budget.line.tree</field>
@@ -217,5 +215,4 @@
             </field>
         </record>
 
-    </data>
-</odoo>
+    </odoo>

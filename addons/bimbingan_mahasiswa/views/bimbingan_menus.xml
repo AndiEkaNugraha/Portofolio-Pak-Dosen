@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <!-- Main Menu Backend -->
+        <menuitem 
+            id="menu_bimbingan_root" 
+            name="Bimbingan Mahasiswa" 
+            sequence="40"/>
+
+        <!-- List Menu Backend -->
+        <menuitem 
+            id="menu_bimbingan_posts" 
+            name="Daftar Bimbingan" 
+            parent="menu_bimbingan_root" 
+            action="action_bimbingan_mahasiswa"
+            sequence="10"/>
+</odoo>

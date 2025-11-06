@@ -14,7 +14,7 @@
         'templates/grup_riset_templates.xml',
         'views/grup_riset_menus.xml',
     ],
-    'installable': True,
+    'installable': False,
     'application': True,
     'auto_install': False,
     'license': 'LGPL-3',

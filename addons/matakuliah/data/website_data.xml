@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
         <!-- Website Page -->
         <record id="mata_kuliah_page" model="website.page">
             <field name="name">Mata Kuliah</field>
@@ -20,5 +19,4 @@
             <field name="sequence">20</field>
             <field name="page_id" ref="mata_kuliah_page"/>
         </record>
-    </data>
-</odoo>
+    </odoo>

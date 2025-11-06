@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        
         <!-- Beranda Profile Tree View -->
         <record id="beranda_profile_tree_view" model="ir.ui.view">
             <field name="name">beranda.profile.tree</field>
@@ -217,5 +215,4 @@
             </field>
         </record>
 
-    </data>
-</odoo>
+    </odoo>

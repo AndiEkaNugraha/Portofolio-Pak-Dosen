@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Main Bimbingan Index Page -->
+        <template id="bimbingan_index" name="Informasi Bimbingan Mahasiswa">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <!-- Page Header -->
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h1 class="display-4 fw-bold">Bimbingan Mahasiswa</h1>
+                                    <p class="lead">Informasi lengkap tentang mahasiswa yang sedang dibimbing</p>
+                                    <a href="/bimbingan-mahasiswa/form" class="btn btn-primary mt-3">
+                                        <i class="fa fa-plus"></i> Tambah Bimbingan Baru
+                                    </a>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Statistik</h5>
+                                            <div class="row text-center">
+                                                <div class="col-6">
+                                                    <h4 class="text-primary"><span t-esc="total_count"/></h4>
+                                                    <small class="text-muted">Total Bimbingan</small>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h4 class="text-success"><span t-esc="active_count"/></h4>
+                                                    <small class="text-muted">Aktif</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Search and Filters -->
+                    <section class="py-4 border-bottom">
+                        <div class="container">
+                            <form method="get" class="row g-3">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="search"
+                                           placeholder="Cari mahasiswa, topik, atau program studi..."
+                                           t-att-value="search"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="guidance_type" class="form-select">
+                                        <option value="">Semua Jenis</option>
+                                        <option value="thesis" t-att-selected="guidance_type == 'thesis' and 'selected' or None">Skripsi/Tesis</option>
+                                        <option value="project" t-att-selected="guidance_type == 'project' and 'selected' or None">Proyek</option>
+                                        <option value="research" t-att-selected="guidance_type == 'research' and 'selected' or None">Riset</option>
+                                        <option value="academic" t-att-selected="guidance_type == 'academic' and 'selected' or None">Akademik</option>
+                                        <option value="course" t-att-selected="guidance_type == 'course' and 'selected' or None">Mata Kuliah</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="status" class="form-select">
+                                        <option value="">Semua Status</option>
+                                        <option value="active" t-att-selected="status == 'active' and 'selected' or None">Aktif</option>
+                                        <option value="completed" t-att-selected="status == 'completed' and 'selected' or None">Selesai</option>
+                                        <option value="on_hold" t-att-selected="status == 'on_hold' and 'selected' or None">On Hold</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="fa fa-search"/> Cari
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- Content -->
+                    <div class="container py-5">
+                        <div class="row">
+                            <t t-if="not posts">
+                                <div class="col-12">
+                                    <div class="alert alert-info text-center">
+                                        <h4>Belum ada informasi bimbingan yang dipublikasikan</h4>
+                                        <p>Silakan kembali lagi nanti untuk melihat update terbaru.</p>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <t t-if="posts">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <t t-foreach="posts" t-as="post">
+                                            <div class="col-md-6 col-lg-4 mb-4">
+                                                <div class="card h-100 shadow-sm">
+                                                    <!-- Card Header with Status Badge -->
+                                                    <div class="card-header bg-light border-bottom">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <span t-if="post.status == 'active'" class="badge bg-success">Aktif</span>
+                                                            <span t-elif="post.status == 'completed'" class="badge bg-primary">Selesai</span>
+                                                            <span t-elif="post.status == 'on_hold'" class="badge bg-warning">On Hold</span>
+                                                            <span t-else="" class="badge bg-secondary">Pending</span>
+                                                            <small class="text-muted" t-esc="post.guidance_type.replace('_', ' ').title()"/>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-body">
+                                                        <!-- Title -->
+                                                        <h5 class="card-title">
+                                                            <a t-att-href="post.website_url" class="text-decoration-none">
+                                                                <t t-esc="post.name"/>
+                                                            </a>
+                                                        </h5>
+
+                                                        <!-- Student Info -->
+                                                        <div class="mb-3">
+                                                            <p class="mb-1">
+                                                                <i class="fa fa-user text-primary"/>
+                                                                <strong t-esc="post.student_name"/>
+                                                            </p>
+                                                            <small class="text-muted" t-esc="post.student_id"/>
+                                                        </div>
+
+                                                        <!-- Topic -->
+                                                        <p class="mb-2">
+                                                            <i class="fa fa-book text-info"/>
+                                                            <small t-esc="post.topic"/>
+                                                        </p>
+
+                                                        <!-- Progress Bar -->
+                                                        <div class="mb-3">
+                                                            <small class="text-muted d-block mb-1">
+                                                                Progress: <strong t-esc="post.completion_percentage"/>%
+                                                            </small>
+                                                            <div class="progress" style="height: 8px;">
+                                                                <div class="progress-bar" t-att-style="'width: ' + str(post.completion_percentage) + '%'"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Date Info -->
+                                                        <p class="mb-0">
+                                                            <small class="text-muted">
+                                                                <i class="fa fa-calendar"/>
+                                                                <t t-esc="post.guidance_date.strftime('%d %b %Y')"/>
+                                                            </small>
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="card-footer bg-white">
+                                                        <a t-att-href="post.website_url" class="btn btn-sm btn-outline-primary w-100">
+                                                            <i class="fa fa-arrow-right"/> Lihat Detail
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Bimbingan Detail Page -->
+        <template id="bimbingan_detail" name="Detail Bimbingan Mahasiswa">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <!-- Page Header -->
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/bimbingan-mahasiswa">Bimbingan Mahasiswa</a></li>
+                                    <li class="breadcrumb-item active" t-esc="post.name"/>
+                                </ol>
+                            </nav>
+                            <h1 class="display-5 fw-bold" t-esc="post.name"/>
+                            <p class="lead text-muted" t-if="post.subtitle" t-esc="post.subtitle"/>
+                        </div>
+                    </section>
+
+                    <!-- Main Content -->
+                    <div class="container py-5">
+                        <div class="row">
+                            <!-- Main Content Column -->
+                            <div class="col-lg-8">
+                                <!-- Status Card -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Status Bimbingan</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Status:</strong></p>
+                                                <p>
+                                                    <span t-if="post.status == 'active'" class="badge bg-success">Aktif</span>
+                                                    <span t-elif="post.status == 'completed'" class="badge bg-primary">Selesai</span>
+                                                    <span t-elif="post.status == 'on_hold'" class="badge bg-warning">On Hold</span>
+                                                    <span t-else="" class="badge bg-secondary">Pending</span>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Persentase Penyelesaian:</strong></p>
+                                                <p><span t-esc="post.completion_percentage"/>%</p>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 25px;">
+                                            <div class="progress-bar" t-att-style="'width: ' + str(post.completion_percentage) + '%'" role="progressbar">
+                                                <small><span t-esc="post.completion_percentage"/>%</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Informasi Mahasiswa -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Informasi Mahasiswa</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Nama Mahasiswa:</strong></p>
+                                                <p t-esc="post.student_name"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>NIM/NPM:</strong></p>
+                                                <p t-esc="post.student_id"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Program Studi:</strong></p>
+                                                <p t-esc="post.study_program"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Jenjang:</strong></p>
+                                                <p t-esc="post.academic_level.upper()"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6" t-if="post.student_email">
+                                                <p class="mb-1"><strong>Email:</strong></p>
+                                                <p><a t-att-href="'mailto:' + post.student_email" t-esc="post.student_email"/></p>
+                                            </div>
+                                            <div class="col-md-6" t-if="post.student_phone">
+                                                <p class="mb-1"><strong>Telepon:</strong></p>
+                                                <p t-esc="post.student_phone"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Detail Bimbingan -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Detail Bimbingan</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Jenis Bimbingan:</strong></p>
+                                                <p t-esc="post.guidance_type.replace('_', ' ').title()"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Tema/Topik:</strong></p>
+                                                <p t-esc="post.topic"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Tanggal Mulai:</strong></p>
+                                                <p t-esc="post.guidance_date.strftime('%d %B %Y')"/>
+                                            </div>
+                                            <div class="col-md-6" t-if="post.estimated_completion">
+                                                <p class="mb-1"><strong>Target Selesai:</strong></p>
+                                                <p t-esc="post.estimated_completion.strftime('%d %B %Y')"/>
+                                            </div>
+                                        </div>
+                                        <t t-if="post.duration_months">
+                                            <p class="mb-0">
+                                                <strong>Durasi:</strong> <t t-esc="post.duration_months"/> bulan
+                                            </p>
+                                        </t>
+                                    </div>
+                                </div>
+
+                                <!-- Deskripsi Lengkap -->
+                                <div class="card mb-4" t-if="post.description">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Deskripsi Bimbingan</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div t-field="post.description" class="content"/>
+                                    </div>
+                                </div>
+
+                                <!-- Catatan &amp; Hasil -->
+                                <div class="card mb-4" t-if="post.guidance_notes">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Catatan &amp; Hasil Bimbingan</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div t-field="post.guidance_notes" class="content"/>
+                                    </div>
+                                </div>
+
+                                <!-- Statistik Bimbingan -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Statistik Bimbingan</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Jumlah Pertemuan:</strong></p>
+                                                <h4 class="text-primary"><span t-esc="post.meeting_count"/></h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Total Jam Bimbingan:</strong></p>
+                                                <h4 class="text-info"><span t-esc="post.total_hours"/> jam</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sidebar -->
+                            <div class="col-lg-4">
+                                <!-- Info Card -->
+                                <div class="card sticky-top" style="top: 20px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title mb-3">Informasi Singkat</h5>
+                                        
+                                        <div class="mb-3 pb-3 border-bottom">
+                                            <small class="text-muted">Jenis Bimbingan</small>
+                                            <p class="mb-0 fw-bold" t-esc="post.guidance_type.replace('_', ' ').title()"/>
+                                        </div>
+
+                                        <div class="mb-3 pb-3 border-bottom" t-if="post.guidance_output">
+                                            <small class="text-muted">Output Bimbingan</small>
+                                            <p class="mb-0 fw-bold" t-esc="post.guidance_output.replace('_', ' ').title()"/>
+                                        </div>
+
+                                        <div class="mb-3 pb-3 border-bottom">
+                                            <small class="text-muted">Status</small>
+                                            <p class="mb-0">
+                                                <span t-if="post.status == 'active'" class="badge bg-success">Aktif</span>
+                                                <span t-elif="post.status == 'completed'" class="badge bg-primary">Selesai</span>
+                                                <span t-elif="post.status == 'on_hold'" class="badge bg-warning">On Hold</span>
+                                                <span t-else="" class="badge bg-secondary">Pending</span>
+                                            </p>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <small class="text-muted">Progress</small>
+                                            <div class="progress" style="height: 10px;">
+                                                <div class="progress-bar" t-att-style="'width: ' + str(post.completion_percentage) + '%'"></div>
+                                            </div>
+                                            <small class="text-muted d-block mt-1"><span t-esc="post.completion_percentage"/>%</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tags/Keywords Card -->
+                                <div class="card mt-3" t-if="post.topic">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Tags</h6>
+                                        <p>
+                                            <span class="badge bg-light text-dark" t-esc="post.study_program"/>
+                                            <span class="badge bg-light text-dark" t-esc="post.guidance_type.replace('_', ' ').title()"/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Form Template untuk Add Bimbingan -->
+        <template id="bimbingan_form" name="Form Tambah Bimbingan Mahasiswa">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <!-- Page Header -->
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <h1 class="display-4 fw-bold">Tambah Bimbingan Mahasiswa</h1>
+                            <p class="lead">Isi form di bawah untuk menambah data bimbingan baru</p>
+                        </div>
+                    </section>
+
+                    <!-- Form Section -->
+                    <section class="py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 mx-auto">
+                                    <!-- Error Message -->
+                                    <div t-if="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>Error!</strong> <span t-esc="error"/>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    </div>
+
+                                    <!-- Form Sederhana -->
+                                    <form method="post" action="/bimbingan-mahasiswa/form/submit">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">Judul Bimbingan <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control form-control-lg" name="name" placeholder="Contoh: Sistem Manajemen Inventori" t-att-value="values.get('name', '')" required="required"/>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">Nama Mahasiswa <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="student_name" placeholder="Nama lengkap" t-att-value="values.get('student_name', '')" required="required"/>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">NIM/NPM <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="student_id" placeholder="20210001" t-att-value="values.get('student_id', '')" required="required"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Program Studi <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="study_program" placeholder="Teknik Informatika" t-att-value="values.get('study_program', '')" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Jenis Bimbingan <span class="text-danger">*</span></label>
+                                                <select class="form-select" name="guidance_type" required="required">
+                                                    <option value="">-- Pilih --</option>
+                                                    <t t-foreach="guidance_type_options" t-as="opt">
+                                                        <option t-att-value="opt[0]" t-att-selected="values.get('guidance_type') == opt[0]" t-esc="opt[1]"/>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Tema/Topik <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="topic" placeholder="Tema utama" t-att-value="values.get('topic', '')" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">Tanggal Mulai <span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" name="guidance_date" t-att-value="values.get('guidance_date', '')" required="required"/>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Status</label>
+                                                <select class="form-select" name="status">
+                                                    <t t-foreach="status_options" t-as="opt">
+                                                        <option t-att-value="opt[0]" t-att-selected="values.get('status') == opt[0]" t-esc="opt[1]"/>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Persentase Penyelesaian (%)</label>
+                                                <input type="number" class="form-control" name="completion_percentage" min="0" max="100" placeholder="0" t-att-value="values.get('completion_percentage', '')"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" name="is_published" id="is_published" t-att-checked="values.get('is_published')"/>
+                                            <label class="form-check-label" for="is_published">
+                                                <strong>Publish ke Website</strong>
+                                            </label>
+                                        </div>
+
+                                        <!-- Action Buttons -->
+                                        <div class="d-flex gap-2">
+                                            <button type="submit" class="btn btn-primary btn-lg">
+                                                <i class="fa fa-save"></i> Simpan
+                                            </button>
+                                            <a href="/bimbingan-mahasiswa" class="btn btn-secondary btn-lg">
+                                                Kembali
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </odoo>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data>
     
     <!-- Main Menu -->
     <menuitem id="menu_jurnal_root" name="Jurnal Ilmiah" sequence="50"/>
@@ -34,4 +35,5 @@
         <field name="sequence">50</field>
     </record>
 
+    </data>
 </odoo>

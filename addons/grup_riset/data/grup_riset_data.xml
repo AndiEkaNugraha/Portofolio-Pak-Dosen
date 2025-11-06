@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
         <!-- Blog Categories -->
         <record id="blog_grup_riset_ai" model="grup.riset.blog">
             <field name="name">Artificial Intelligence &amp; Machine Learning</field>
@@ -719,5 +717,4 @@ Fitri Lestari (Final Project: VR Interface)</field>
             <field name="sequence">30</field>
         </record>
 
-    </data>
-</odoo>
+    </odoo>

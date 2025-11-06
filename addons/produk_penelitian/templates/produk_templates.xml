@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
         <!-- Main Produk Index Page -->
         <template id="produk_index" name="Produk Penelitian">
             <t t-call="website.layout">
@@ -568,5 +566,4 @@
             </t>
         </template>
 
-    </data>
-</odoo>
+    </odoo>

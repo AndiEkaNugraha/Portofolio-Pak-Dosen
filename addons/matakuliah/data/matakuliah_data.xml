@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
         <!-- Blog categories untuk mata kuliah -->
         <record id="matakuliah_blog_programming" model="matakuliah.blog">
             <field name="name">Teknik Pemrograman</field>
@@ -32,5 +31,4 @@
             <field name="status_course">wajib</field>
             <field name="website_published">False</field>
         </record>
-    </data>
-</odoo>
+    </odoo>

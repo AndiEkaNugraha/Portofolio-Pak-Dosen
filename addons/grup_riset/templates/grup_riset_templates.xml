@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
         <!-- Halaman Utama Grup Riset -->
         <template id="grup_riset_index" name="Grup Riset &amp; Laboratorium">
             <t t-call="website.layout">
@@ -550,5 +548,4 @@
             </t>
         </template>
 
-    </data>
-</odoo>
+    </odoo>

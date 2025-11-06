@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="view_bahan_ajar_list" model="ir.ui.view">
+        <field name="name">blog.post.list.bahan.ajar</field>
+        <field name="model">blog.post</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <list string="Teaching Materials" default_order="sequence,name">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="topic"/>
+                <field name="material_type"/>
+                <field name="target_audience"/>
+                <field name="file_type"/>
+                <field name="estimated_time"/>
+                <field name="download_count"/>
+                <field name="website_published"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Extend Blog Post Form View -->
+    <record id="view_blog_post_form_inherit_bahan_ajar" model="ir.ui.view">
+        <field name="name">blog.post.form.bahan.ajar</field>
+        <field name="model">blog.post</field>
+        <field name="inherit_id" ref="website_blog.view_blog_post_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Bahan Ajar Details">
+                    <group>
+                        <group string="Basic Information">
+                            <field name="topic"/>
+                            <field name="material_type"/>
+                            <field name="target_audience"/>
+                            <field name="estimated_time" widget="float_time"/>
+                            <field name="is_downloadable"/>
+                            <field name="download_count"/>
+                        </group>
+                        <group string="Content">
+                            <field name="file_type"/>
+                            <field name="pdf_file" filename="pdf_filename" 
+                                   invisible="file_type != 'pdf'"
+                                   required="file_type == 'pdf'"/>
+                            <field name="pdf_filename" invisible="1"/>
+                            <field name="video_url" 
+                                   invisible="file_type != 'video'"
+                                   required="file_type == 'video'"/>
+                            <field name="web_resource_url"
+                                   invisible="file_type != 'link'"
+                                   required="file_type == 'link'"/>
+                        </group>
+                    </group>
+                    <group string="Educational Details">
+                        <field name="learning_objectives" placeholder="What students will learn from this material..."/>
+                        <field name="prerequisites" placeholder="Required knowledge or materials before studying this content..."/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Simple Form View for New records -->
+    <record id="view_blog_post_form_simple_bahan_ajar" model="ir.ui.view">
+        <field name="name">blog.post.form.simple.bahan.ajar</field>
+        <field name="model">blog.post</field>
+        <field name="priority">3</field>
+        <field name="arch" type="xml">
+            <form string="Teaching Material">
+                <sheet>
+                    <group>
+                        <field name="name" required="1" placeholder="e.g., Introduction to Python"/>
+                        <field name="blog_id" required="1"/>
+                        <field name="author_id" required="1"/>
+                    </group>
+                    <group>
+                        <field name="topic" required="1" placeholder="e.g., Programming"/>
+                        <field name="material_type" required="1"/>
+                        <field name="file_type" required="1"/>
+                    </group>
+                    <group>
+                        <field name="target_audience" required="1"/>
+                        <field name="estimated_time"/>
+                        <field name="is_downloadable"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="view_bahan_ajar_kanban" model="ir.ui.view">
+        <field name="name">blog.post.kanban.bahan.ajar</field>
+        <field name="model">blog.post</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <kanban default_order="sequence" 
+                   class="o_kanban_small_column"
+                   quick_create="false">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="topic"/>
+                <field name="material_type"/>
+                <field name="target_audience"/>
+                <field name="file_type"/>
+                <field name="estimated_time"/>
+                <field name="download_count"/>
+                <field name="website_published"/>
+                <templates>
+                    <t t-name="card">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_title mb4">
+                                    <field name="name"/>
+                                </div>
+                                <div class="o_kanban_record_subtitle mb4">
+                                    <field name="topic"/>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span class="badge badge-pill" 
+                                              t-attf-class="badge-#{record.website_published.raw_value ? 'success' : 'danger'}">
+                                            <t t-if="record.website_published.raw_value">Published</t>
+                                            <t t-else="">Not Published</t>
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <span class="badge badge-info">
+                                            <field name="material_type"/>
+                                        </span>
+                                        <span t-if="record.download_count.raw_value > 0" 
+                                              class="badge badge-secondary ml-2">
+                                            <i class="fa fa-download"/> <field name="download_count"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_bahan_ajar_search" model="ir.ui.view">
+        <field name="name">blog.post.search.bahan.ajar</field>
+        <field name="model">blog.post</field>
+        <field name="arch" type="xml">
+            <search string="Search Teaching Materials">
+                <field name="name"/>
+                <field name="topic"/>
+                <field name="learning_objectives"/>
+                <field name="prerequisites"/>
+                <separator/>
+                <filter string="Published" name="published" domain="[('website_published', '=', True)]"/>
+                <filter string="Downloadable" name="downloadable" domain="[('is_downloadable', '=', True)]"/>
+                <separator/>
+                <filter string="Material Type" name="group_material_type" context="{'group_by': 'material_type'}"/>
+                <filter string="Target Level" name="group_target" context="{'group_by': 'target_audience'}"/>
+                <filter string="Content Type" name="group_file_type" context="{'group_by': 'file_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Main Action -->
+    <record id="action_bahan_ajar_posts" model="ir.actions.act_window">
+        <field name="name">Bahan Ajar</field>
+        <field name="res_model">blog.post</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="view_ids" eval="[(6, 0, [ref('view_bahan_ajar_kanban'), ref('view_bahan_ajar_list'), ref('view_blog_post_form_simple_bahan_ajar')])]"/>
+        <field name="search_view_id" ref="view_bahan_ajar_search"/>
+        <field name="context">{
+            'search_default_group_material_type': 1,
+            'default_file_type': 'link',
+            'default_material_type': 'lecture',
+            'default_target_audience': 'basic'
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first teaching material!
+            </p>
+            <p>
+                Add lecture notes, assignments, references or other educational materials.
+            </p>
+        </field>
+    </record>
+
+    <!-- Extend Blog Post Tree View -->
+    <record id="view_blog_post_list_inherit_bahan_ajar" model="ir.ui.view">
+        <field name="name">blog.post.list.bahan.ajar</field>
+        <field name="model">blog.post</field>
+        <field name="inherit_id" ref="website_blog.view_blog_post_list"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="file_type"/>
+                <field name="topic"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

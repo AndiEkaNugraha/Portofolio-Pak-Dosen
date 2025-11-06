@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
         <!-- Main Pengabdian Index Page -->
         <template id="pengabdian_index" name="Kegiatan Pengabdian Masyarakat">
             <t t-call="website.layout">
@@ -689,5 +687,4 @@
             </t>
         </template>
 
-    </data>
-</odoo>
+    </odoo>

@@ -7,6 +7,9 @@ class MatakuliahPost(models.Model):
     _name = 'matakuliah.post'
     _description = 'Mata Kuliah'
     _inherit = ['mail.thread', 'website.published.mixin']
+    
+    name = fields.Char(string='Nama', required=True)
+    blog_id = fields.Many2one('matakuliah.blog', string='Kategori Mata Kuliah', required=True, ondelete='cascade')
     _order = 'course_code'
 
     # ===== INFORMASI DASAR MATA KULIAH =====
@@ -118,6 +121,27 @@ class MatakuliahPost(models.Model):
         ('course_code_unique', 'unique(course_code)', 'Kode mata kuliah harus unik!'),
         ('slug_unique', 'unique(slug)', 'URL slug harus unik!'),
     ]
+
+    @api.model
+    def default_get(self, fields_list):
+        """Set default values for new records"""
+        res = super().default_get(fields_list)
+        
+        # Get or create default blog for matakuliah
+        blog_model = self.env['matakuliah.blog']
+        blog = blog_model.search([], limit=1)
+        if not blog:
+            # Create default blog if none exists
+            blog = blog_model.create({
+                'name': 'Mata Kuliah - Default',
+                'program_studi': 'Program Studi',
+                'jenis_program': 'regular'
+            })
+        
+        if blog:
+            res['blog_id'] = blog.id
+        
+        return res
 
     @api.model_create_multi
     def create(self, vals_list):

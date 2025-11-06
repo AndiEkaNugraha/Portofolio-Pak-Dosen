@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Template untuk menampilkan metadata blog post -->
+        <template id="blog_post_metadata" name="Blog Post Metadata" inherit_id="website_blog.blog_post_complete">
+            <xpath expr="//div[contains(@class, 'o_wblog_post_title')]" position="after">
+                <div class="mt-4 mb-4">
+                    <div t-if="blog_post.learning_objectives" class="mb-3">
+                        <h4>Tujuan Pembelajaran</h4>
+                        <div t-field="blog_post.learning_objectives"/>
+                    </div>
+                    <div t-if="blog_post.prerequisites" class="mb-3">
+                        <h4>Prasyarat</h4>
+                        <div t-field="blog_post.prerequisites"/>
+                    </div>
+                </div>
+                
+                <div class="mt-4" t-if="blog_post.file_type">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Unduh/Akses Materi</h5>
+                            <div t-if="blog_post.file_type == 'pdf' and blog_post.pdf_file">
+                                <a t-attf-href="/web/content/blog.post/#{blog_post.id}/pdf_file/#{blog_post.pdf_filename}" 
+                                   class="btn btn-primary" target="_blank">
+                                    <i class="fa fa-download"/> Unduh PDF
+                                </a>
+                            </div>
+                            <div t-if="blog_post.file_type == 'video' and blog_post.video_url">
+                                <a t-att-href="blog_post.video_url" class="btn btn-danger" target="_blank">
+                                    <i class="fa fa-play"/> Tonton Video
+                                </a>
+                            </div>
+                            <div t-if="blog_post.file_type == 'link' and blog_post.web_resource_url">
+                                <a t-att-href="blog_post.web_resource_url" class="btn btn-success" target="_blank">
+                                    <i class="fa fa-external-link"/> Akses Resource
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+        <!-- Website Menu Item untuk Bahan Ajar -->
+        <record id="menu_bahan_ajar_blog" model="website.menu">
+            <field name="name">Bahan Ajar</field>
+            <field name="url">/blog/bahan-ajar-1</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">50</field>
+        </record>
+
+        <!-- Form Template untuk Add Bahan Ajar -->
+        <template id="bahan_ajar_form" name="Form Tambah Bahan Ajar">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <!-- Page Header -->
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <h1 class="display-4 fw-bold">Tambah Bahan Ajar</h1>
+                            <p class="lead">Isi form di bawah untuk menambah materi pembelajaran baru</p>
+                        </div>
+                    </section>
+
+                    <!-- Form Section -->
+                    <section class="py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 mx-auto">
+                                    <!-- Error Message -->
+                                    <div t-if="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>Error!</strong> <span t-esc="error"/>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    </div>
+
+                                    <!-- Form Sederhana -->
+                                    <form method="post" action="/bahan-ajar/form/submit">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">Judul Materi <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control form-control-lg" name="name" 
+                                                   placeholder="Contoh: Pengenalan Python" t-att-value="values.get('name', '')" required="required"/>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Jenis Materi <span class="text-danger">*</span></label>
+                                                <select class="form-select" name="material_type" required="required">
+                                                    <option value="">-- Pilih --</option>
+                                                    <t t-foreach="material_type_options" t-as="opt">
+                                                        <option t-att-value="opt[0]" t-att-selected="values.get('material_type') == opt[0]" t-esc="opt[1]"/>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Tipe File <span class="text-danger">*</span></label>
+                                                <select class="form-select" name="file_type" required="required">
+                                                    <option value="">-- Pilih --</option>
+                                                    <option value="pdf" t-att-selected="values.get('file_type') == 'pdf'">PDF</option>
+                                                    <option value="video" t-att-selected="values.get('file_type') == 'video'">Video</option>
+                                                    <option value="link" t-att-selected="values.get('file_type') == 'link'">Link Online</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">Topik <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="topic" 
+                                                   placeholder="Topik utama materi" t-att-value="values.get('topic', '')" required="required"/>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Target Audiens</label>
+                                                <input type="text" class="form-control" name="target_audience" 
+                                                       placeholder="Contoh: Mahasiswa Tahun 1" t-att-value="values.get('target_audience', '')"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Estimasi Waktu (Jam)</label>
+                                                <input type="number" class="form-control" name="estimated_time" 
+                                                       min="0" step="0.5" placeholder="2" t-att-value="values.get('estimated_time', '')"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">URL/Link Konten (untuk Video/Link)</label>
+                                            <input type="url" class="form-control" name="content_url" 
+                                                   placeholder="https://..." t-att-value="values.get('content_url', '')"/>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">Deskripsi Materi</label>
+                                            <textarea class="form-control" name="teaser" rows="3" 
+                                                     placeholder="Penjelasan singkat tentang materi..."></textarea>
+                                        </div>
+
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" name="is_published" id="is_published" 
+                                                   t-att-checked="values.get('is_published')"/>
+                                            <label class="form-check-label" for="is_published">
+                                                <strong>Publish ke Website</strong>
+                                            </label>
+                                        </div>
+
+                                        <!-- Action Buttons -->
+                                        <div class="d-flex gap-2">
+                                            <button type="submit" class="btn btn-primary btn-lg">
+                                                <i class="fa fa-save"></i> Simpan
+                                            </button>
+                                            <a href="/blog/bahan-ajar-1" class="btn btn-secondary btn-lg">
+                                                Kembali
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </odoo>

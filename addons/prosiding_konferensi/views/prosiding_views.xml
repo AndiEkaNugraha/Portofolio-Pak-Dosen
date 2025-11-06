@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        
         <!-- Prosiding Blog Views -->
         <record id="view_prosiding_blog_form" model="ir.ui.view">
             <field name="name">prosiding.blog.form</field>
@@ -221,5 +219,4 @@
             </field>
         </record>
 
-    </data>
-</odoo>
+    </odoo>

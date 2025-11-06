@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        
         <!-- Main Prosiding Index Page -->
         <template id="prosiding_index" name="Prosiding Konferensi">
             <t t-call="website.layout">
@@ -445,5 +443,4 @@
             </t>
         </template>
 
-    </data>
-</odoo>
+    </odoo>

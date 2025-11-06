@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        
         <!-- Kategori Mata Kuliah - List View -->
         <record id="matakuliah_blog_list_view" model="ir.ui.view">
             <field name="name">matakuliah.blog.list</field>
             <field name="model">matakuliah.blog</field>
+            <field name="priority">20</field>
             <field name="arch" type="xml">
                 <list string="Kategori Mata Kuliah">
                     <field name="name"/>
@@ -18,6 +17,7 @@
         <record id="matakuliah_blog_form_view" model="ir.ui.view">
             <field name="name">matakuliah.blog.form</field>
             <field name="model">matakuliah.blog</field>
+            <field name="priority">20</field>
             <field name="arch" type="xml">
                 <form string="Kategori Mata Kuliah">
                     <sheet>
@@ -48,6 +48,7 @@
         <record id="matakuliah_post_list_view" model="ir.ui.view">
             <field name="name">matakuliah.post.list</field>
             <field name="model">matakuliah.post</field>
+            <field name="priority">20</field>
             <field name="arch" type="xml">
                 <list string="Daftar Mata Kuliah">
                     <field name="course_code"/>
@@ -61,15 +62,17 @@
         <record id="matakuliah_post_form_view" model="ir.ui.view">
             <field name="name">matakuliah.post.form</field>
             <field name="model">matakuliah.post</field>
+            <field name="priority">20</field>
             <field name="arch" type="xml">
                 <form string="Mata Kuliah">
                     <sheet>
                         <group>
-                            <field name="blog_id"/>
-                            <field name="course_code"/>
-                            <field name="course_name"/>
+                            <field name="blog_id" required="1"/>
+                            <field name="course_code" required="1"/>
+                            <field name="course_name" required="1"/>
                             <field name="credits"/>
-                            <field name="slug"/>
+                            <field name="course_type"/>
+                            <field name="slug" required="1"/>
                             <field name="website_published"/>
                         </group>
                     </sheet>
@@ -88,6 +91,6 @@
             <field name="name">Daftar Mata Kuliah</field>
             <field name="res_model">matakuliah.post</field>
             <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="matakuliah_post_search_view"/>
         </record>
-    </data>
-</odoo>
+    </odoo>

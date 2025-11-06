@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        
         <!-- Main Menu -->
         <menuitem id="menu_prosiding_main" 
                   name="Prosiding Konferensi" 
@@ -35,5 +34,5 @@
             <field name="sequence">40</field>
         </record>
 
-    </data>
+        </data>
 </odoo>

@@ -14,7 +14,7 @@
         'templates/produk_templates.xml',
         'views/produk_menus.xml',
     ],
-    'installable': True,
+    'installable': False,
     'application': True,
     'auto_install': False,
     'license': 'LGPL-3',

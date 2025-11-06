@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        
         <!-- Actions -->
         <record id="action_hibah_pendanaan_blog" model="ir.actions.act_window">
             <field name="name">Kategori Hibah &amp; Pendanaan</field>
@@ -58,5 +57,5 @@
             <field name="sequence">40</field>
         </record>
         
-    </data>
+        </data>
 </odoo>

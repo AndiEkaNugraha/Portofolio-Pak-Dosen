@@ -1,0 +1,48 @@
+/* Styling untuk card bahan ajar */
+.material-card {
+    transition: all 0.3s ease;
+}
+
+.material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Badge styling */
+.badge.bg-primary {
+    background-color: #007bff !important;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.badge.bg-success {
+    background-color: #28a745 !important;
+}
+
+/* Video container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* PDF download button */
+.btn-download {
+    transition: all 0.2s ease;
+}
+
+.btn-download:hover {
+    transform: scale(1.05);
+}
