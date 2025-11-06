@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_jadwal_konsultasi_root"
+        name="Jadwal Konsultasi"
+        sequence="50"/>
+
+    <menuitem
+        id="menu_jadwal_konsultasi_main"
+        name="Jadwal Konsultasi"
+        parent="menu_jadwal_konsultasi_root"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_jadwal_konsultasi"
+        name="Jadwal Konsultasi"
+        parent="menu_jadwal_konsultasi_main"
+        action="jadwal_konsultasi_action"
+        sequence="1"/>
+</odoo>

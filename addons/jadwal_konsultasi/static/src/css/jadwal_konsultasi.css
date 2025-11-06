@@ -1,0 +1,379 @@
+/* Jadwal Konsultasi Styling */
+
+/* List View Styles */
+.o_jadwal_konsultasi_list {
+    margin-top: 2rem;
+}
+
+.o_jadwal_konsultasi_card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #007bff;
+}
+
+.o_jadwal_konsultasi_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.o_jadwal_konsultasi_card.kuota-penuh {
+    border-left-color: #ffc107;
+    opacity: 0.8;
+}
+
+.o_jadwal_konsultasi_card.tidak-aktif {
+    border-left-color: #dc3545;
+    opacity: 0.7;
+}
+
+.o_jadwal_konsultasi_card.tersedia {
+    border-left-color: #28a745;
+}
+
+/* Header Styles */
+.o_jadwal_konsultasi_header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.o_jadwal_konsultasi_header h1 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.o_jadwal_konsultasi_header .lead {
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+
+/* Filter Styles */
+.o_jadwal_filter {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.o_jadwal_filter-group {
+    margin-bottom: 1rem;
+}
+
+.o_jadwal_filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.o_jadwal_filter label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.o_jadwal_filter select {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* Hari & Jam Display */
+.o_jadwal_hari {
+    font-weight: 600;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.o_jadwal_jam {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.o_jadwal_jam i {
+    margin-right: 0.5rem;
+}
+
+/* Badge Styles */
+.badge-jenis {
+    background-color: #667eea;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.badge-jenis.akademik {
+    background-color: #3498db;
+}
+
+.badge-jenis.penelitian {
+    background-color: #e74c3c;
+}
+
+.badge-jenis.skripsi {
+    background-color: #f39c12;
+}
+
+.badge-jenis.karir {
+    background-color: #27ae60;
+}
+
+.badge-jenis.mentor {
+    background-color: #9b59b6;
+}
+
+.badge-jenis.umum {
+    background-color: #34495e;
+}
+
+/* Lokasi Icons */
+.o_jadwal_lokasi {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.o_jadwal_lokasi i {
+    font-size: 1.2rem;
+    color: #667eea;
+}
+
+.o_jadwal_lokasi a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.o_jadwal_lokasi a:hover {
+    text-decoration: underline;
+}
+
+/* Kuota/Capacity Bar */
+.o_jadwal_kuota {
+    margin: 1rem 0;
+}
+
+.o_jadwal_kuota-text {
+    font-size: 0.9rem;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.o_jadwal_kuota-bar {
+    height: 24px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #e9ecef;
+}
+
+.o_jadwal_kuota-bar .progress-bar {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.o_jadwal_kuota-bar.kuota-penuh .progress-bar {
+    background: linear-gradient(90deg, #ffc107 0%, #ff9800 100%);
+}
+
+.o_jadwal_kuota-bar.kuota-kosong .progress-bar {
+    background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+}
+
+/* Status Badge */
+.o_jadwal_status {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.o_jadwal_status.aktif {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.o_jadwal_status.penuh {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.o_jadwal_status.tidak-aktif {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Detail View */
+.o_jadwal_detail_header {
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.o_jadwal_detail_header h1 {
+    color: #333;
+    font-weight: 600;
+}
+
+.o_jadwal_detail_section {
+    margin-bottom: 2rem;
+}
+
+.o_jadwal_detail_section h5 {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.o_jadwal_detail_info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.o_jadwal_detail_info li {
+    padding: 0.5rem 0;
+    color: #495057;
+}
+
+.o_jadwal_detail_info strong {
+    color: #333;
+    font-weight: 600;
+    min-width: 120px;
+    display: inline-block;
+}
+
+/* Booking Sidebar */
+.o_jadwal_booking_card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.o_jadwal_booking_card h5 {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.o_jadwal_booking_status {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.o_jadwal_booking_status.available {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.o_jadwal_booking_status.full {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.o_jadwal_booking_status.inactive {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.o_jadwal_booking_button {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.o_jadwal_booking_button.btn-primary {
+    background-color: #667eea;
+    color: white;
+}
+
+.o_jadwal_booking_button.btn-primary:hover {
+    background-color: #5568d3;
+}
+
+.o_jadwal_booking_button:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .o_jadwal_konsultasi_header {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .o_jadwal_konsultasi_header h1 {
+        font-size: 1.5rem;
+    }
+
+    .o_jadwal_filter {
+        padding: 1rem;
+    }
+
+    .o_jadwal_detail_info strong {
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+
+    .o_jadwal_booking_card {
+        position: static;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .o_jadwal_konsultasi_card {
+        margin-bottom: 1rem;
+    }
+
+    .o_jadwal_konsultasi_header {
+        padding: 1rem;
+    }
+
+    .o_jadwal_konsultasi_header h1 {
+        font-size: 1.25rem;
+    }
+
+    .o_jadwal_filter {
+        padding: 0.75rem;
+    }
+
+    .badge-jenis {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.6rem;
+    }
+
+    .o_jadwal_kuota-bar {
+        height: 20px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .o_jadwal_filter,
+    .o_jadwal_booking_card,
+    .btn {
+        display: none;
+    }
+
+    .o_jadwal_konsultasi_card {
+        page-break-inside: avoid;
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+    }
+}

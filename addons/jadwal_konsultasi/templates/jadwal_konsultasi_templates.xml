@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template: Halaman List Jadwal Konsultasi -->
+    <template id="jadwal_konsultasi_list" name="Jadwal Konsultasi List" key="jadwal_konsultasi.list">
+        <t t-call="website.layout">
+            <div id="wrap" class="container mt-4">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="mb-4">Jadwal Konsultasi Dosen</h1>
+                        <p class="lead">Silakan pilih jadwal konsultasi yang sesuai dengan kebutuhan Anda</p>
+                    </div>
+                </div>
+
+                <!-- Filter Section -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Filter Jadwal</h5>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Jenis Konsultasi</label>
+                                        <select class="form-control" id="filter_jenis">
+                                            <option value="">Semua</option>
+                                            <option value="akademik">Akademik</option>
+                                            <option value="penelitian">Penelitian</option>
+                                            <option value="skripsi">Skripsi</option>
+                                            <option value="karir">Karir</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Hari</label>
+                                        <select class="form-control" id="filter_hari">
+                                            <option value="">Semua Hari</option>
+                                            <option value="0">Senin</option>
+                                            <option value="1">Selasa</option>
+                                            <option value="2">Rabu</option>
+                                            <option value="3">Kamis</option>
+                                            <option value="4">Jumat</option>
+                                            <option value="5">Sabtu</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Tipe Lokasi</label>
+                                        <select class="form-control" id="filter_lokasi">
+                                            <option value="">Semua</option>
+                                            <option value="ruangan">Ruangan</option>
+                                            <option value="online">Online</option>
+                                            <option value="hybrid">Hybrid</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jadwal List -->
+                <div class="row">
+                    <t t-foreach="schedules" t-as="schedule">
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <!-- Header -->
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="card-title mb-0">
+                                        <t t-out="schedule.name"/>
+                                    </h5>
+                                </div>
+
+                                <!-- Body -->
+                                <div class="card-body">
+                                    <!-- Hari &amp; Jam -->
+                                    <div class="mb-3">
+                                        <strong>Jadwal:</strong>
+                                        <p class="mb-0">
+                                            <i class="fa fa-calendar"></i>
+                                            <t t-out="schedule.get_hari_display()"/><br/>
+                                            <i class="fa fa-clock-o"></i>
+                                            <t t-out="schedule.get_jam_mulai_display()"/> - <t t-out="schedule.get_jam_selesai_display()"/>
+                                        </p>
+                                    </div>
+
+                                    <!-- Jenis Konsultasi -->
+                                    <div class="mb-3">
+                                        <strong>Jenis:</strong>
+                                        <p class="mb-0">
+                                            <span class="badge badge-info">
+                                                <t t-out="dict(schedule._fields['jenis_konsultasi'].selection).get(schedule.jenis_konsultasi, schedule.jenis_konsultasi)"/>
+                                            </span>
+                                        </p>
+                                    </div>
+
+                                    <!-- Lokasi -->
+                                    <div class="mb-3">
+                                        <strong>Lokasi:</strong>
+                                        <p class="mb-0">
+                                            <t t-if="schedule.tipe_lokasi == 'ruangan'">
+                                                <i class="fa fa-map-marker"></i> <t t-out="schedule.lokasi_ruangan"/>
+                                            </t>
+                                            <t t-elif="schedule.tipe_lokasi == 'online'">
+                                                <i class="fa fa-video-camera"></i> <a t-att-href="schedule.lokasi_online" target="_blank">Online</a>
+                                            </t>
+                                            <t t-else="">
+                                                <i class="fa fa-sitemap"></i> Hybrid
+                                            </t>
+                                        </p>
+                                    </div>
+
+                                    <!-- Kuota -->
+                                    <div class="mb-3">
+                                        <strong>Kuota:</strong>
+                                        <p class="mb-0">
+                                            <t t-out="schedule.kuota_tersedia"/> / <t t-out="schedule.kapasitas_maksimal"/> tempat tersedia
+                                        </p>
+                                        <div class="progress" style="height: 20px;">
+                                            <div class="progress-bar" role="progressbar" t-att-style="'width: ' + str(100 * (schedule.kapasitas_maksimal - schedule.kuota_tersedia) // max(1, schedule.kapasitas_maksimal)) + '%'" t-att-aria-valuenow="schedule.kapasitas_maksimal - schedule.kuota_tersedia" aria-valuemin="0" t-att-aria-valuemax="schedule.kapasitas_maksimal"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div class="mb-3">
+                                        <t t-if="not schedule.is_active">
+                                            <span class="badge badge-danger">Tidak Aktif</span>
+                                        </t>
+                                        <t t-elif="schedule.is_kuota_penuh()">
+                                            <span class="badge badge-warning">Kuota Penuh</span>
+                                        </t>
+                                        <t t-else="">
+                                            <span class="badge badge-success">Tersedia</span>
+                                        </t>
+                                    </div>
+                                </div>
+
+                                <!-- Footer -->
+                                <div class="card-footer">
+                                    <a t-att-href="'/jadwal-konsultasi/' + schedule.slug" class="btn btn-primary btn-sm btn-block">
+                                        <i class="fa fa-info-circle"></i> Lihat Detail
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- Empty State -->
+                <t t-if="not schedules">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="alert alert-info">
+                                <h5>Belum ada jadwal konsultasi</h5>
+                                <p>Jadwal konsultasi akan ditampilkan di sini. Silakan kembali lagi kemudian.</p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- Template: Detail Jadwal Konsultasi -->
+    <template id="jadwal_konsultasi_detail" name="Jadwal Konsultasi Detail" key="jadwal_konsultasi.detail">
+        <t t-call="website.layout">
+            <div id="wrap" class="container mt-4">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1><t t-out="schedule.name"/></h1>
+                                
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <h5>Informasi Jadwal</h5>
+                                        <ul class="list-unstyled">
+                                            <li><strong>Hari:</strong> <t t-out="schedule.get_hari_display()"/></li>
+                                            <li><strong>Jam:</strong> <t t-out="schedule.get_jam_mulai_display()"/> - <t t-out="schedule.get_jam_selesai_display()"/></li>
+                                            <li><strong>Durasi Slot:</strong> <t t-out="schedule.durasi_slot"/> menit</li>
+                                            <li><strong>Jenis:</strong> <t t-out="dict(schedule._fields['jenis_konsultasi'].selection).get(schedule.jenis_konsultasi)"/></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Lokasi Konsultasi</h5>
+                                        <t t-if="schedule.tipe_lokasi == 'ruangan'">
+                                            <p><i class="fa fa-map-marker"></i> <t t-out="schedule.lokasi_ruangan"/></p>
+                                        </t>
+                                        <t t-elif="schedule.tipe_lokasi == 'online'">
+                                            <p><i class="fa fa-video-camera"></i> <a t-att-href="schedule.lokasi_online" target="_blank">Buka Link Online</a></p>
+                                        </t>
+                                        <t t-else="">
+                                            <p><i class="fa fa-sitemap"></i> Hybrid</p>
+                                            <p><strong>Ruangan:</strong> <t t-out="schedule.lokasi_ruangan"/></p>
+                                            <p><strong>Online:</strong> <a t-att-href="schedule.lokasi_online" target="_blank">Buka Link</a></p>
+                                        </t>
+                                    </div>
+                                </div>
+
+                                <!-- Deskripsi -->
+                                <div class="mt-4">
+                                    <h5>Deskripsi</h5>
+                                    <div t-out="schedule.description" class="text-muted"/>
+                                </div>
+
+                                <!-- Syarat &amp; Persiapan -->
+                                <div class="row mt-4" t-if="schedule.syarat_konsultasi or schedule.persiapan_mahasiswa">
+                                    <div class="col-md-6" t-if="schedule.syarat_konsultasi">
+                                        <h5>Syarat &amp; Ketentuan</h5>
+                                        <div t-out="schedule.syarat_konsultasi"/>
+                                    </div>
+                                    <div class="col-md-6" t-if="schedule.persiapan_mahasiswa">
+                                        <h5>Persiapan Mahasiswa</h5>
+                                        <div t-out="schedule.persiapan_mahasiswa"/>
+                                    </div>
+                                </div>
+
+                                <!-- Kuota -->
+                                <div class="mt-4 alert alert-info">
+                                    <h5>Ketersediaan</h5>
+                                    <p>Kuota tersedia: <strong><t t-out="schedule.kuota_tersedia"/></strong> dari <strong><t t-out="schedule.kapasitas_maksimal"/></strong></p>
+                                    <div class="progress" style="height: 25px;">
+                                        <div class="progress-bar" role="progressbar" t-att-style="'width: ' + str(100 * (schedule.kapasitas_maksimal - schedule.kuota_tersedia) // max(1, schedule.kapasitas_maksimal)) + '%'" t-att-aria-valuenow="schedule.kapasitas_maksimal - schedule.kuota_tersedia" aria-valuemin="0" t-att-aria-valuemax="schedule.kapasitas_maksimal">
+                                            <t t-out="schedule.kapasitas_maksimal - schedule.kuota_tersedia"/> / <t t-out="schedule.kapasitas_maksimal"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card sticky-top">
+                            <div class="card-body">
+                                <h5>Booking Konsultasi</h5>
+                                <t t-if="not schedule.is_active">
+                                    <div class="alert alert-danger">Jadwal tidak aktif</div>
+                                </t>
+                                <t t-elif="schedule.is_kuota_penuh()">
+                                    <div class="alert alert-warning">Kuota sudah penuh</div>
+                                </t>
+                                <t t-else="">
+                                    <p>Status: <span class="badge badge-success">Tersedia</span></p>
+                                    <p class="mt-3">Untuk melakukan booking, silakan hubungi dosen melalui:</p>
+                                    <ul>
+                                        <li>Email</li>
+                                        <li>WhatsApp</li>
+                                        <li>Atau datang langsung sesuai jadwal</li>
+                                    </ul>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <a href="/jadwal-konsultasi" class="btn btn-secondary">
+                            <i class="fa fa-arrow-left"></i> Kembali ke Daftar Jadwal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

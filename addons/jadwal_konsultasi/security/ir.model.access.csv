@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_jadwal_konsultasi_user,Jadwal Konsultasi - User,base.model_jadwal_konsultasi,base.group_user,1,0,0,0
+access_jadwal_konsultasi_manager,Jadwal Konsultasi - Manager,base.model_jadwal_konsultasi,base.group_erp_manager,1,1,1,1
+access_jadwal_konsultasi_system,Jadwal Konsultasi - System,base.model_jadwal_konsultasi,base.group_system_user,1,1,1,1

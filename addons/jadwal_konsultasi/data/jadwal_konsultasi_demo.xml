@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Demo: Jadwal Konsultasi Senin -->
+        <record id="jadwal_konsultasi_senin_pagi" model="jadwal.konsultasi">
+            <field name="name">Konsultasi Akademik - Senin Pagi</field>
+            <field name="hari_konsultasi">0</field>
+            <field name="jam_mulai">10.0</field>
+            <field name="jam_selesai">12.0</field>
+            <field name="jenis_konsultasi">akademik</field>
+            <field name="tipe_lokasi">ruangan</field>
+            <field name="lokasi_ruangan">Ruang Dosen B-304</field>
+            <field name="kapasitas_maksimal">5</field>
+            <field name="description">Konsultasi untuk masalah akademik, mata kuliah, dan tugas</field>
+            <field name="syarat_konsultasi">
+                &lt;ul&gt;
+                    &lt;li&gt;Datang tepat waktu&lt;/li&gt;
+                    &lt;li&gt;Membawa buku/catatan yang relevan&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="website_published">1</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Demo: Jadwal Konsultasi Rabu -->
+        <record id="jadwal_konsultasi_rabu_sore" model="jadwal.konsultasi">
+            <field name="name">Konsultasi Skripsi - Rabu Sore</field>
+            <field name="hari_konsultasi">2</field>
+            <field name="jam_mulai">14.0</field>
+            <field name="jam_selesai">16.0</field>
+            <field name="jenis_konsultasi">skripsi</field>
+            <field name="tipe_lokasi">hybrid</field>
+            <field name="lokasi_ruangan">Ruang Dosen B-304</field>
+            <field name="lokasi_online">https://meet.google.com/xxxxx</field>
+            <field name="kapasitas_maksimal">3</field>
+            <field name="description">Bimbingan skripsi untuk mahasiswa S1 dan S2</field>
+            <field name="syarat_konsultasi">
+                &lt;ul&gt;
+                    &lt;li&gt;Sudah menentukan topik skripsi&lt;/li&gt;
+                    &lt;li&gt;Membawa proposal atau draft awal&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="website_published">1</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Demo: Jadwal Konsultasi Jumat Online -->
+        <record id="jadwal_konsultasi_jumat_online" model="jadwal.konsultasi">
+            <field name="name">Konsultasi Penelitian Online - Jumat</field>
+            <field name="hari_konsultasi">4</field>
+            <field name="jam_mulai">13.0</field>
+            <field name="jam_selesai">14.30</field>
+            <field name="jenis_konsultasi">penelitian</field>
+            <field name="tipe_lokasi">online</field>
+            <field name="lokasi_online">https://zoom.us/j/xxxxx</field>
+            <field name="kapasitas_maksimal">10</field>
+            <field name="description">Diskusi topik penelitian dan metodologi penelitian</field>
+            <field name="persiapan_mahasiswa">
+                &lt;ul&gt;
+                    &lt;li&gt;Siapkan pertanyaan penelitian&lt;/li&gt;
+                    &lt;li&gt;Siapkan referensi jurnal terkait&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="website_published">1</field>
+            <field name="sequence">30</field>
+        </record>
+    </data>
+</odoo>

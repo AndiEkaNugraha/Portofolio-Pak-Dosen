@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Jadwal Konsultasi Views -->
+    
+    <!-- Kanban View -->
+    <record id="jadwal_konsultasi_kanban_view" model="ir.ui.view">
+        <field name="name">Jadwal Konsultasi - Kanban</field>
+        <field name="model">jadwal.konsultasi</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_card">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('jadwal.konsultasi', 'image_128', record.id.raw_value)" alt="Jadwal Konsultasi"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <h4 class="o_kanban_record_title">
+                                    <a type="open"><field name="name"/></a>
+                                </h4>
+                                <div>
+                                    <span class="badge"><field name="hari_konsultasi"/></span>
+                                    <span class="badge"><field name="jam_mulai"/></span>
+                                </div>
+                                <div class="text-muted">
+                                    <field name="jenis_konsultasi"/>
+                                </div>
+                                <div>
+                                    <field name="lokasi_ruangan" t-if="record.tipe_lokasi.raw_value == 'ruangan'"/>
+                                    <field name="lokasi_online" t-if="record.tipe_lokasi.raw_value == 'online'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="jadwal_konsultasi_list_view" model="ir.ui.view">
+        <field name="name">Jadwal Konsultasi - List</field>
+        <field name="model">jadwal.konsultasi</field>
+        <field name="arch" type="xml">
+            <list string="Jadwal Konsultasi">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="hari_konsultasi"/>
+                <field name="jam_mulai"/>
+                <field name="jam_selesai"/>
+                <field name="jenis_konsultasi"/>
+                <field name="tipe_lokasi"/>
+                <field name="kapasitas_maksimal"/>
+                <field name="kuota_tersedia"/>
+                <field name="is_active"/>
+                <field name="website_published"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="jadwal_konsultasi_form_view" model="ir.ui.view">
+        <field name="name">Jadwal Konsultasi - Form</field>
+        <field name="model">jadwal.konsultasi</field>
+        <field name="arch" type="xml">
+            <form string="Jadwal Konsultasi">
+                <header>
+                    <button name="track_view" type="object" class="oe_stat_button" icon="fa-eye">
+                        <field name="view_count" widget="statinfo" string="Views"/>
+                    </button>
+                    <field name="website_published" widget="website_redirect_button" invisible="1"/>
+                </header>
+                
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Judul Jadwal"/>
+                        <h1><field name="name" required="1"/></h1>
+                    </div>
+
+                    <notebook>
+                        <!-- Tab 1: Informasi Dasar -->
+                        <page string="Informasi Dasar" name="info_dasar">
+                            <group>
+                                <group>
+                                    <field name="sequence"/>
+                                    <field name="is_active" widget="boolean_toggle"/>
+                                    <field name="website_published" widget="boolean_toggle"/>
+                                </group>
+                                <group>
+                                    <field name="jenis_konsultasi" required="1"/>
+                                    <field name="slug"/>
+                                    <field name="website_url" readonly="1"/>
+                                </group>
+                            </group>
+                            
+                            <label for="description" string="Deskripsi &amp; Catatan"/>
+                            <field name="description" nolabel="1" widget="html" options="{'style':true}"/>
+                        </page>
+
+                        <!-- Tab 2: Jadwal & Waktu -->
+                        <page string="Jadwal &amp; Waktu" name="jadwal_waktu">
+                            <group>
+                                <group string="Hari dan Jam">
+                                    <field name="hari_konsultasi" required="1"/>
+                                    <field name="jam_mulai" required="1" widget="float_time"/>
+                                    <field name="jam_selesai" required="1" widget="float_time"/>
+                                    <field name="durasi_slot"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Tab 3: Lokasi -->
+                        <page string="Lokasi Konsultasi" name="lokasi">
+                            <group>
+                                <field name="tipe_lokasi" required="1" widget="radio"/>
+                                <group col="2">
+                                    <field name="lokasi_ruangan" invisible="tipe_lokasi not in ('ruangan', 'hybrid')" required="tipe_lokasi in ('ruangan', 'hybrid')"/>
+                                    <field name="lokasi_online" invisible="tipe_lokasi not in ('online', 'hybrid')" required="tipe_lokasi in ('online', 'hybrid')"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Tab 4: Kapasitas & Kuota -->
+                        <page string="Kapasitas &amp; Kuota" name="kapasitas">
+                            <group>
+                                <group string="Manajemen Kuota">
+                                    <field name="kapasitas_maksimal" required="1"/>
+                                    <field name="peserta_terdaftar" readonly="1"/>
+                                    <field name="kuota_tersedia" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Tab 5: Persyaratan -->
+                        <page string="Syarat &amp; Persiapan" name="syarat">
+                            <label for="syarat_konsultasi" string="Syarat/Ketentuan Konsultasi"/>
+                            <field name="syarat_konsultasi" nolabel="1" widget="html" options="{'style':true}"/>
+                            
+                            <label for="persiapan_mahasiswa" string="Persiapan Mahasiswa"/>
+                            <field name="persiapan_mahasiswa" nolabel="1" widget="html" options="{'style':true}"/>
+                        </page>
+
+                        <!-- Tab 6: Metadata -->
+                        <page string="Metadata &amp; SEO" name="metadata">
+                            <group>
+                                <group string="Informasi Sistem">
+                                    <field name="tanggal_dibuat" readonly="1"/>
+                                    <field name="tanggal_diubah" readonly="1"/>
+                                    <field name="view_count" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="jadwal_konsultasi_search_view" model="ir.ui.view">
+        <field name="name">Jadwal Konsultasi - Search</field>
+        <field name="model">jadwal.konsultasi</field>
+        <field name="arch" type="xml">
+            <search string="Jadwal Konsultasi">
+                <field name="name" string="Judul atau Lokasi"/>
+                <field name="jenis_konsultasi"/>
+                <field name="hari_konsultasi"/>
+                <field name="tipe_lokasi"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="jadwal_konsultasi_action" model="ir.actions.act_window">
+        <field name="name">Jadwal Konsultasi</field>
+        <field name="res_model">jadwal.konsultasi</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="jadwal_konsultasi_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Belum ada jadwal konsultasi. Mari buat yang baru!
+            </p>
+        </field>
+    </record>
+</odoo>
