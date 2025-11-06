@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Main Acara Index Page -->
+        <template id="acara_index" name="Acara Dosen">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <!-- Page Header -->
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h1 class="display-4 fw-bold">Acara Dosen</h1>
+                                    <p class="lead">Kumpulan acara dan kegiatan yang telah diikuti</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Statistik</h5>
+                                            <div class="row text-center">
+                                                <div class="col-6">
+                                                    <h4 class="text-primary"><t t-esc="stats.get('total_acara', 0)"/></h4>
+                                                    <small class="text-muted">Total Acara</small>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h4 class="text-success"><t t-esc="stats.get('completed_count', 0)"/></h4>
+                                                    <small class="text-muted">Selesai</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Search and Filters -->
+                    <section class="py-4 border-bottom">
+                        <div class="container">
+                            <form method="get" class="row g-3">
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name="search"
+                                           placeholder="Cari judul, penyelenggara, atau lokasi..."
+                                           t-att-value="search"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="category_id" class="form-select">
+                                        <option value="">Semua Kategori</option>
+                                        <t t-foreach="categories" t-as="category">
+                                            <option t-att-value="category.id"
+                                                    t-att-selected="category_id == category.id and 'selected' or None">
+                                                <t t-esc="category.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="acara_type_id" class="form-select">
+                                        <option value="">Semua Jenis</option>
+                                        <t t-foreach="acara_types" t-as="acara_type">
+                                            <option t-att-value="acara_type.id"
+                                                    t-att-selected="acara_type_id == acara_type.id and 'selected' or None">
+                                                <t t-esc="acara_type.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="role" class="form-select">
+                                        <option value="">Semua Peran</option>
+                                        <option value="speaker" t-att-selected="role == 'speaker' and 'selected' or None">Pembicara</option>
+                                        <option value="moderator" t-att-selected="role == 'moderator' and 'selected' or None">Moderator</option>
+                                        <option value="jury" t-att-selected="role == 'jury' and 'selected' or None">Juri</option>
+                                        <option value="organizer" t-att-selected="role == 'organizer' and 'selected' or None">Penyelenggara</option>
+                                        <option value="participant" t-att-selected="role == 'participant' and 'selected' or None">Peserta</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-search"/> Cari
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- Content -->
+                    <div class="container py-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <t t-if="not posts">
+                                    <div class="alert alert-info text-center">
+                                        <h4>Belum ada acara yang dipublikasikan</h4>
+                                        <p>Silakan kembali lagi nanti untuk melihat update terbaru.</p>
+                                    </div>
+                                </t>
+
+                                <t t-if="posts">
+                                    <div class="row">
+                                        <t t-foreach="posts" t-as="post">
+                                            <div class="col-md-6 col-lg-4 mb-4">
+                                                <div class="card h-100">
+                                                    <t t-if="post.cover_image">
+                                                        <img t-att-src="'/web/image/acara.post/%s/cover_image' % post.id" class="card-img-top" alt="Cover" style="height: 200px; object-fit: cover;"/>
+                                                    </t>
+                                                    <div class="card-body">
+                                                        <span class="badge bg-primary mb-2"><t t-esc="post.acara_type_id.name"/></span>
+                                                        <h5 class="card-title">
+                                                            <a t-att-href="'/acara/detail/%s' % post.slug" class="text-decoration-none">
+                                                                <t t-esc="post.name"/>
+                                                            </a>
+                                                        </h5>
+                                                        <p class="text-muted small mb-2">
+                                                            <i class="fa fa-user-circle"/> Peran: <t t-esc="dict(post._fields['role'].selection).get(post.role, post.role)"/><br/>
+                                                            <i class="fa fa-calendar"/> Tanggal: <t t-esc="post.event_date"/><br/>
+                                                            <i class="fa fa-map-marker"/> <t t-esc="post.location"/>
+                                                        </p>
+                                                        <t t-if="post.teaser_text">
+                                                            <p class="card-text text-muted small">
+                                                                <t t-esc="post.teaser_text[:150]"/>...
+                                                            </p>
+                                                        </t>
+                                                        <div class="mt-2">
+                                                            <span class="badge" t-att-class="'badge bg-' + ('success' if post.status == 'completed' else 'warning' if post.status == 'ongoing' else 'info' if post.status == 'upcoming' else 'secondary')">
+                                                                <t t-esc="dict(post._fields['status'].selection).get(post.status, post.status)"/>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <small class="text-muted">
+                                                            <t t-esc="post.blog_id.name"/> • <t t-esc="post.organizer"/>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Acara Category Page -->
+        <template id="acara_category" name="Kategori Acara">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <h1 class="display-4 fw-bold"><t t-esc="blog.name"/></h1>
+                            <p class="lead"><t t-esc="blog.subtitle or 'Kumpulan acara dosen'"/></p>
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h4 class="text-primary"><t t-esc="blog.post_count"/></h4>
+                                            <small class="text-muted">Total Acara</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h4 class="text-info"><t t-esc="dict(blog._fields['acara_scope'].selection).get(blog.acara_scope, blog.acara_scope)"/></h4>
+                                            <small class="text-muted">Cakupan</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h4 class="text-success"><t t-esc="dict(blog._fields['event_type'].selection).get(blog.event_type, blog.event_type) if blog.event_type else 'Semua'"/></h4>
+                                            <small class="text-muted">Jenis Utama</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="container py-5">
+                        <div class="row">
+                            <t t-foreach="posts" t-as="post">
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <div class="card h-100">
+                                        <t t-if="post.cover_image">
+                                            <img t-att-src="'/web/image/acara.post/%s/cover_image' % post.id" class="card-img-top" alt="Cover" style="height: 200px; object-fit: cover;"/>
+                                        </t>
+                                        <div class="card-body">
+                                            <span class="badge bg-primary mb-2"><t t-esc="post.acara_type_id.name"/></span>
+                                            <h5 class="card-title">
+                                                <a t-att-href="'/acara/detail/%s' % post.slug" class="text-decoration-none">
+                                                    <t t-esc="post.name"/>
+                                                </a>
+                                            </h5>
+                                            <p class="text-muted small mb-2">
+                                                <i class="fa fa-user-circle"/> Peran: <t t-esc="dict(post._fields['role'].selection).get(post.role, post.role)"/><br/>
+                                                <i class="fa fa-calendar"/> Tanggal: <t t-esc="post.event_date"/><br/>
+                                                <i class="fa fa-map-marker"/> <t t-esc="post.location"/>
+                                            </p>
+                                            <t t-if="post.teaser_text">
+                                                <p class="card-text text-muted small">
+                                                    <t t-esc="post.teaser_text[:150]"/>...
+                                                </p>
+                                            </t>
+                                        </div>
+                                        <div class="card-footer bg-transparent">
+                                            <small class="text-muted">
+                                                <t t-esc="post.organizer"/>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Acara Detail Page -->
+        <template id="acara_detail" name="Detail Acara Dosen">
+            <t t-call="website.layout">
+                <div id="wrap" class="bg-light">
+                    <!-- Breadcrumb -->
+                    <section class="bg-white py-3 border-bottom">
+                        <div class="container">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0">
+                                    <li class="breadcrumb-item"><a href="/acara"><i class="fa fa-home"/> Acara Dosen</a></li>
+                                    <li class="breadcrumb-item"><a t-att-href="'/acara/kategori/%s' % post.blog_id.id"><t t-esc="post.blog_id.name"/></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><t t-esc="post.name[:50]"/></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </section>
+
+                    <!-- Main Content -->
+                    <div class="container py-4">
+                        <div class="row">
+                            <!-- Main Content Column -->
+                            <div class="col-lg-8 mb-4">
+                                <!-- Cover Image -->
+                                <t t-if="post.cover_image">
+                                    <div class="card mb-4 shadow-sm">
+                                        <img t-att-src="'/web/image/acara.post/%s/cover_image' % post.id" 
+                                             class="card-img-top" 
+                                             alt="Cover Image" 
+                                             style="max-height: 450px; object-fit: cover;"/>
+                                    </div>
+                                </t>
+
+                                <!-- Title and Meta -->
+                                <div class="card mb-4 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <span class="badge bg-primary me-2">
+                                                <i class="fa fa-folder-o"/> <t t-esc="post.acara_type_id.name"/>
+                                            </span>
+                                            <span t-att-class="'badge bg-' + ('success' if post.status == 'completed' else 'warning' if post.status == 'ongoing' else 'info' if post.status == 'upcoming' else 'secondary')">
+                                                <i class="fa fa-flag"/> <t t-esc="dict(post._fields['status'].selection).get(post.status, post.status)"/>
+                                            </span>
+                                            <span class="badge bg-info me-2">
+                                                <i class="fa fa-user-circle"/> <t t-esc="dict(post._fields['role'].selection).get(post.role, post.role)"/>
+                                            </span>
+                                        </div>
+
+                                        <h1 class="display-5 fw-bold mb-3"><t t-esc="post.name"/></h1>
+                                        
+                                        <t t-if="post.subtitle">
+                                            <p class="lead text-muted mb-4"><t t-esc="post.subtitle"/></p>
+                                        </t>
+
+                                        <div class="row text-muted small mb-3">
+                                            <div class="col-md-6">
+                                                <p class="mb-2"><i class="fa fa-calendar text-primary"/> <strong>Tanggal Acara:</strong> 
+                                                    <t t-esc="post.event_date" t-options="{'widget': 'date', 'format': 'd MMMM yyyy'}"/>
+                                                    <t t-if="post.event_end_date">
+                                                        - <t t-esc="post.event_end_date" t-options="{'widget': 'date', 'format': 'd MMMM yyyy'}"/>
+                                                    </t>
+                                                </p>
+                                                <p class="mb-2"><i class="fa fa-map-marker text-primary"/> <strong>Lokasi:</strong> <t t-esc="post.location"/></p>
+                                                <p class="mb-2"><i class="fa fa-building text-primary"/> <strong>Penyelenggara:</strong> <t t-esc="post.organizer"/></p>
+                                                <t t-if="post.co_organizer">
+                                                    <p class="mb-2"><i class="fa fa-handshake-o text-primary"/> <strong>Co-Penyelenggara:</strong> <t t-esc="post.co_organizer"/></p>
+                                                </t>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-2"><i class="fa fa-desktop text-primary"/> <strong>Format:</strong> 
+                                                    <t t-esc="dict(post._fields['event_format'].selection).get(post.event_format, post.event_format)"/>
+                                                </p>
+                                                <t t-if="post.duration_hours">
+                                                    <p class="mb-2"><i class="fa fa-clock-o text-primary"/> <strong>Durasi:</strong> <t t-esc="post.duration_hours"/> jam</p>
+                                                </t>
+                                                <t t-if="post.duration_days > 1">
+                                                    <p class="mb-2"><i class="fa fa-calendar-check-o text-primary"/> <strong>Durasi:</strong> <t t-esc="post.duration_days"/> hari</p>
+                                                </t>
+                                                <p class="mb-2"><i class="fa fa-tag text-primary"/> <strong>Kategori:</strong> <t t-esc="post.blog_id.name"/></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Online Event Details -->
+                                <t t-if="post.event_format in ['online', 'hybrid']">
+                                    <div class="card mb-4 shadow-sm border-info">
+                                        <div class="card-header bg-info text-white">
+                                            <h5 class="mb-0"><i class="fa fa-laptop"/> Informasi Online</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="post.online_platform">
+                                                <p class="mb-2"><strong>Platform:</strong> <t t-esc="post.online_platform"/></p>
+                                            </t>
+                                            <t t-if="post.meeting_link">
+                                                <p class="mb-0">
+                                                    <strong>Link Meeting:</strong> 
+                                                    <a t-att-href="post.meeting_link" target="_blank" class="btn btn-sm btn-outline-info">
+                                                        <i class="fa fa-external-link"/> Join Meeting
+                                                    </a>
+                                                </p>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Summary -->
+                                <t t-if="post.teaser_text">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-align-left text-primary"/> Ringkasan</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.teaser_text"/></p>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Objectives -->
+                                <t t-if="post.objectives">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-bullseye text-primary"/> Tujuan Acara</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.objectives"/></p>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Topics/Materials -->
+                                <t t-if="post.topics">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-book text-primary"/> Topik/Materi</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.topics"/></p>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Full Description -->
+                                <t t-if="post.description_html">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-file-text text-primary"/> Deskripsi Lengkap</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div t-field="post.description_html" class="o_website_editor_content"/>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Results & Outcomes (if completed) -->
+                                <t t-if="post.status == 'completed' and (post.outcomes or post.actual_participants > 0)">
+                                    <div class="card mb-4 shadow-sm border-success">
+                                        <div class="card-header bg-success text-white">
+                                            <h5 class="mb-0"><i class="fa fa-trophy"/> Hasil &amp; Dampak Acara</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="post.actual_participants > 0">
+                                                <div class="alert alert-info">
+                                                    <strong><i class="fa fa-users"/> Jumlah Peserta Aktual:</strong> <t t-esc="post.actual_participants"/> orang
+                                                </div>
+                                            </t>
+
+                                            <t t-if="post.outcomes">
+                                                <h6 class="text-success">Hasil/Output yang Dicapai</h6>
+                                                <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.outcomes"/></p>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Feedback & Impact -->
+                                <t t-if="post.feedback or post.impact">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-comments text-primary"/> Feedback &amp; Dampak</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="post.feedback">
+                                                <h6 class="text-primary">Feedback/Refleksi</h6>
+                                                <p style="white-space: pre-line;"><t t-esc="post.feedback"/></p>
+                                            </t>
+                                            <t t-if="post.impact">
+                                                <h6 class="text-primary mt-3">Dampak/Pengaruh</h6>
+                                                <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.impact"/></p>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Documentation & Files -->
+                                <t t-if="post.documentation_links or post.certificate_file or post.presentation_file">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-file text-primary"/> Dokumentasi &amp; File</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="post.documentation_links">
+                                                <div class="mb-2">
+                                                    <div>Link Dokumentasi:</div>
+                                                    <a t-att-href="post.documentation_links" target="_blank" class="btn btn-outline-primary btn-sm mt-1">
+                                                        <i class="fa fa-external-link"/> Lihat Dokumentasi
+                                                    </a>
+                                                </div>
+                                            </t>
+                                            <t t-if="post.certificate_file">
+                                                <div class="mb-2">
+                                                    <div>Sertifikat:</div>
+                                                    <a t-att-href="'/web/content/acara.post/%s/certificate_file?download=true' % post.id" 
+                                                       target="_blank" class="btn btn-outline-success btn-sm mt-1">
+                                                        <i class="fa fa-download"/> Unduh Sertifikat
+                                                    </a>
+                                                </div>
+                                            </t>
+                                            <t t-if="post.presentation_file">
+                                                <div class="mb-0">
+                                                    <div>File Presentasi/Materi:</div>
+                                                    <a t-att-href="'/web/content/acara.post/%s/presentation_file?download=true' % post.id" 
+                                                       target="_blank" class="btn btn-outline-success btn-sm mt-1">
+                                                        <i class="fa fa-download"/> Unduh Materi
+                                                    </a>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <!-- Sidebar -->
+                            <div class="col-lg-4">
+                                <!-- Quick Info -->
+                                <div class="card mb-4 shadow-sm">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0"><i class="fa fa-info-circle"/> Informasi Acara</h5>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Kategori</small>
+                                            <p class="mb-0"><strong><t t-esc="post.blog_id.name"/></strong></p>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Jenis Acara</small>
+                                            <p class="mb-0"><strong><t t-esc="post.acara_type_id.name"/></strong></p>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Peran Dosen</small>
+                                            <p class="mb-0"><strong><t t-esc="dict(post._fields['role'].selection).get(post.role, post.role)"/></strong></p>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Status</small>
+                                            <p class="mb-0">
+                                                <span t-att-class="'badge bg-' + ('success' if post.status == 'completed' else 'warning' if post.status == 'ongoing' else 'info' if post.status == 'upcoming' else 'secondary')">
+                                                    <t t-esc="dict(post._fields['status'].selection).get(post.status, post.status)"/>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <t t-if="post.satisfaction_rating">
+                                            <li class="list-group-item">
+                                                <small class="text-muted">Rating Kepuasan</small>
+                                                <p class="mb-0">
+                                                    <t t-foreach="range(1, int(post.satisfaction_rating) + 1)" t-as="star">
+                                                        <i class="fa fa-star text-warning"/>
+                                                    </t>
+                                                    <t t-foreach="range(int(post.satisfaction_rating) + 1, 6)" t-as="empty_star">
+                                                        <i class="fa fa-star-o text-warning"/>
+                                                    </t>
+                                                    (<t t-esc="post.satisfaction_rating"/>/5)
+                                                </p>
+                                            </li>
+                                        </t>
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Tahun Acara</small>
+                                            <p class="mb-0"><t t-esc="post.event_year"/></p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Organizer Info -->
+                                <div class="card mb-4 shadow-sm">
+                                    <div class="card-header bg-white">
+                                        <h5 class="mb-0"><i class="fa fa-building text-info"/> Penyelenggara</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="mb-2">
+                                            <strong><t t-esc="post.organizer"/></strong>
+                                            <t t-if="post.organizer_website">
+                                                <br/>
+                                                <a t-att-href="post.organizer_website" target="_blank" class="btn btn-sm btn-outline-info mt-2">
+                                                    <i class="fa fa-external-link"/> Website
+                                                </a>
+                                            </t>
+                                        </p>
+                                        <t t-if="post.co_organizer">
+                                            <hr/>
+                                            <p class="mb-0">
+                                                <small class="text-muted">Co-Penyelenggara:</small><br/>
+                                                <strong><t t-esc="post.co_organizer"/></strong>
+                                                <t t-if="post.co_organizer_website">
+                                                    <br/>
+                                                    <a t-att-href="post.co_organizer_website" target="_blank" class="btn btn-sm btn-outline-info mt-2">
+                                                        <i class="fa fa-external-link"/> Website
+                                                    </a>
+                                                </t>
+                                            </p>
+                                        </t>
+                                    </div>
+                                </div>
+
+                                <!-- Target Audience -->
+                                <t t-if="post.target_audience">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-users text-warning"/> Target Peserta</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="small mb-0"><t t-esc="post.target_audience"/></p>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Keywords -->
+                                <t t-if="post.keywords">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-tags text-secondary"/> Kata Kunci</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0">
+                                                <t t-foreach="post.keywords.split(',')" t-as="keyword">
+                                                    <span class="badge bg-light text-dark me-1 mb-1"><t t-esc="keyword.strip()"/></span>
+                                                </t>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Related Posts -->
+                                <t t-if="related_posts">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-link text-primary"/> Acara Terkait</h5>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <t t-foreach="related_posts" t-as="related">
+                                                <li class="list-group-item">
+                                                    <a t-att-href="'/acara/detail/%s-%s' % (related.slug, related.id)" class="text-decoration-none">
+                                                        <strong><t t-esc="related.name[:60]"/><t t-if="len(related.name) > 60">...</t></strong>
+                                                    </a>
+                                                    <br/>
+                                                    <small class="text-muted">
+                                                        <i class="fa fa-calendar"/> <t t-esc="related.event_date" t-options="{'widget': 'date', 'format': 'd MMM yyyy'}"/>
+                                                    </small>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+        
+    </data>
+</odoo>

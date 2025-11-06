@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Acara Types -->
+        <record id="acara_type_penyuluhan" model="acara.type">
+            <field name="name">Penyuluhan</field>
+            <field name="code">PENYULUHAN</field>
+            <field name="description">Kegiatan penyuluhan kepada masyarakat</field>
+            <field name="sequence">10</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_type_webinar" model="acara.type">
+            <field name="name">Webinar</field>
+            <field name="code">WEBINAR</field>
+            <field name="description">Seminar online melalui platform digital</field>
+            <field name="sequence">20</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_type_workshop" model="acara.type">
+            <field name="name">Workshop</field>
+            <field name="code">WORKSHOP</field>
+            <field name="description">Pelatihan praktis dan interaktif</field>
+            <field name="sequence">30</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_type_juri" model="acara.type">
+            <field name="name">Juri/Penilai</field>
+            <field name="code">JURI</field>
+            <field name="description">Menjadi penilai atau juri dalam kompetisi/acara</field>
+            <field name="sequence">40</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_type_seminar" model="acara.type">
+            <field name="name">Seminar</field>
+            <field name="code">SEMINAR</field>
+            <field name="description">Presentasi dan diskusi ilmiah</field>
+            <field name="sequence">50</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_type_konferensi" model="acara.type">
+            <field name="name">Konferensi</field>
+            <field name="code">KONFERENSI</field>
+            <field name="description">Pertemuan akademik berskala besar</field>
+            <field name="sequence">60</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_type_pelatihan" model="acara.type">
+            <field name="name">Pelatihan</field>
+            <field name="code">PELATIHAN</field>
+            <field name="description">Kegiatan pelatihan dan pengembangan kompetensi</field>
+            <field name="sequence">70</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_type_moderator" model="acara.type">
+            <field name="name">Moderator</field>
+            <field name="code">MODERATOR</field>
+            <field name="description">Bertindak sebagai moderator dalam diskusi atau acara</field>
+            <field name="sequence">80</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_type_pembicara" model="acara.type">
+            <field name="name">Pembicara</field>
+            <field name="code">PEMBICARA</field>
+            <field name="description">Bertindak sebagai pembicara utama</field>
+            <field name="sequence">90</field>
+            <field name="active">1</field>
+        </record>
+        
+        <!-- Blog Categories -->
+        <record id="acara_blog_penyuluhan" model="acara.blog">
+            <field name="name">Penyuluhan Masyarakat</field>
+            <field name="subtitle">Kegiatan penyuluhan kepada masyarakat</field>
+            <field name="description">Kumpulan kegiatan penyuluhan yang dilakukan dosen</field>
+            <field name="acara_scope">national</field>
+            <field name="event_type">speaker</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_blog_webinar" model="acara.blog">
+            <field name="name">Webinar &amp; Seminar Online</field>
+            <field name="subtitle">Kegiatan webinar dan seminar online</field>
+            <field name="description">Kumpulan kegiatan webinar dan seminar yang diikuti/diisi dosen</field>
+            <field name="acara_scope">international</field>
+            <field name="event_type">webinar</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_blog_juri" model="acara.blog">
+            <field name="name">Juri &amp; Penilai</field>
+            <field name="subtitle">Kegiatan sebagai juri atau penilai</field>
+            <field name="description">Kumpulan kegiatan dimana dosen bertindak sebagai juri atau penilai</field>
+            <field name="acara_scope">regional</field>
+            <field name="event_type">jury</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_blog_seminar" model="acara.blog">
+            <field name="name">Seminar &amp; Konferensi</field>
+            <field name="subtitle">Kegiatan seminar dan konferensi akademik</field>
+            <field name="description">Kumpulan kegiatan seminar dan konferensi yang diikuti dosen sebagai pembicara atau peserta</field>
+            <field name="acara_scope">international</field>
+            <field name="event_type">conference</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_blog_workshop" model="acara.blog">
+            <field name="name">Workshop &amp; Pelatihan</field>
+            <field name="subtitle">Kegiatan workshop dan pelatihan profesional</field>
+            <field name="description">Kumpulan kegiatan workshop dan pelatihan yang diikuti atau diselenggarakan dosen</field>
+            <field name="acara_scope">national</field>
+            <field name="event_type">workshop</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_blog_pendidikan" model="acara.blog">
+            <field name="name">Pendidikan &amp; Pengajaran</field>
+            <field name="subtitle">Kegiatan pendidikan dan pengajaran tambahan</field>
+            <field name="description">Kumpulan kegiatan pendidikan dan pengajaran di luar tugas pokok</field>
+            <field name="acara_scope">regional</field>
+            <field name="event_type">education</field>
+            <field name="active">1</field>
+        </record>
+        
+        <!-- Sample Posts -->
+        <record id="acara_post_sample_1" model="acara.post">
+            <field name="name">Workshop Optimalisasi Media Sosial untuk Pemasaran Produk Lokal</field>
+            <field name="subtitle">Strategi praktis memanfaatkan Instagram, TikTok, dan Facebook untuk UMKM</field>
+            <field name="blog_id" ref="acara_blog_penyuluhan"/>
+            <field name="role">speaker</field>
+            <field name="acara_type_id" ref="acara_type_penyuluhan"/>
+            <field name="event_date">2024-08-22</field>
+            <field name="duration_hours">4.5</field>
+            <field name="location">Gedung BAPPEDA Kabupaten Bogor, Ruang Seminar Lantai 3</field>
+            <field name="organizer">Dinas Koperasi dan UKM Kabupaten Bogor</field>
+            <field name="organizer_website">https://diskopukm.bogorkab.go.id</field>
+            <field name="co_organizer">Komunitas Pengusaha Muda Bogor</field>
+            <field name="event_format">offline</field>
+            <field name="target_audience">60 pelaku UMKM produk lokal (makanan, kerajinan, fashion)</field>
+            <field name="actual_participants">58</field>
+            <field name="status">completed</field>
+            <field name="topics">Strategi konten Instagram Reels, optimasi algoritma TikTok, Facebook Ads untuk UMKM, storytelling produk lokal, fotografi produk dengan smartphone, analitik media sosial</field>
+            <field name="objectives">Membekali pelaku UMKM dengan keterampilan praktis dalam memanfaatkan media sosial untuk meningkatkan penjualan dan brand awareness produk lokal khas Bogor</field>
+            <field name="outcomes">92% peserta berhasil membuat konten video pertama untuk Instagram Reels dan TikTok. 15 UMKM melaporkan peningkatan engagement hingga 300% dalam 2 minggu. 8 UMKM mendapat pesanan dari luar kota setelah konten viral.</field>
+            <field name="teaser_text">Workshop intensif yang mengajarkan teknik praktis mengoptimalkan Instagram, TikTok, dan Facebook untuk memasarkan produk lokal. Dari strategi konten hingga analisis performa dengan studi kasus nyata dari UMKM sukses di Bogor.</field>
+            <field name="description_html">&lt;h3&gt;Tentang Workshop&lt;/h3&gt;&lt;p&gt;Workshop ini dirancang khusus untuk pelaku UMKM produk lokal Bogor yang ingin meningkatkan penjualan melalui media sosial. Dengan pendekatan praktis dan langsung aplikatif, peserta dibimbing membuat konten menarik menggunakan smartphone.&lt;/p&gt;&lt;h4&gt;Materi yang Dibahas:&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;Memahami algoritma Instagram Reels dan TikTok untuk jangkauan maksimal&lt;/li&gt;&lt;li&gt;Teknik storytelling produk yang menarik dan autentik&lt;/li&gt;&lt;li&gt;Cara membuat foto dan video produk berkualitas dengan smartphone&lt;/li&gt;&lt;li&gt;Strategi posting yang efektif dan waktu optimal&lt;/li&gt;&lt;li&gt;Pengenalan Facebook Ads dengan budget minimal&lt;/li&gt;&lt;li&gt;Mengukur performa dan ROI dari media sosial&lt;/li&gt;&lt;/ul&gt;&lt;h4&gt;Praktik Langsung:&lt;/h4&gt;&lt;p&gt;Setiap peserta membawa produknya dan langsung praktik membuat konten video singkat, diedit dengan aplikasi gratis, dan diposting saat workshop berlangsung. Hasilnya beberapa konten langsung mendapat respons positif dari audiens.&lt;/p&gt;</field>
+            <field name="cover_image_filename">workshop_medsos_umkm_bogor.jpg</field>
+            <field name="documentation_links">https://drive.google.com/drive/folders/umkm-medsos-workshop-2024</field>
+            <field name="presentation_filename">Materi_Workshop_Media_Sosial_UMKM.pdf</field>
+            <field name="certificate_filename">Sertifikat_Workshop_Medsos_UMKM.pdf</field>
+            <field name="feedback">Materinya sangat aplikatif! Saya langsung bisa praktik dan konten saya di-like banyak orang. Terima kasih pak, omzet saya naik 50% dalam sebulan! (Bu Siti - Dodol Bogor Asli)</field>
+            <field name="impact">Dari 58 peserta, 35 UMKM melaporkan peningkatan penjualan online dalam sebulan pertama. Total GMV yang dihasilkan dari konten yang dibuat mencapai Rp 125 juta dalam 30 hari. 3 produk UMKM menjadi trending topic lokal di TikTok.</field>
+            <field name="satisfaction_rating">5</field>
+            <field name="keywords">media sosial, UMKM, Instagram, TikTok, digital marketing, produk lokal, Bogor</field>
+            <field name="website_meta_title">Workshop Media Sosial untuk UMKM Bogor - Instagram, TikTok, Facebook</field>
+            <field name="website_meta_description">Workshop intensif optimalisasi Instagram, TikTok, dan Facebook untuk pemasaran produk lokal UMKM Bogor. Strategi konten praktis dari ahli digital marketing.</field>
+            <field name="website_meta_keywords">workshop media sosial, UMKM Bogor, Instagram Reels, TikTok marketing, digital marketing UMKM, produk lokal</field>
+            <field name="website_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_post_sample_2" model="acara.post">
+            <field name="name">Webinar Internasional: AI and Machine Learning in Healthcare Systems</field>
+            <field name="subtitle">Keynote speaker pada webinar internasional tentang penerapan AI di sistem kesehatan</field>
+            <field name="blog_id" ref="acara_blog_webinar"/>
+            <field name="role">speaker</field>
+            <field name="acara_type_id" ref="acara_type_webinar"/>
+            <field name="event_date">2024-09-18</field>
+            <field name="duration_hours">3.0</field>
+            <field name="location">Virtual Conference (Broadcast dari Studio Universitas Pakuan)</field>
+            <field name="organizer">International Medical Informatics Association (IMIA)</field>
+            <field name="organizer_website">https://www.imia-medinfo.org</field>
+            <field name="co_organizer">World Health Organization (WHO)</field>
+            <field name="co_organizer_website">https://www.who.int</field>
+            <field name="event_format">online</field>
+            <field name="online_platform">Zoom Webinar Pro + YouTube Live Streaming</field>
+            <field name="meeting_link">https://imia.zoom.us/webinar/ai-healthcare-2024</field>
+            <field name="target_audience">1500 profesional kesehatan dan peneliti AI dari 45 negara</field>
+            <field name="actual_participants">1347</field>
+            <field name="status">completed</field>
+            <field name="topics">Deep learning untuk diagnosa medis, prediksi penyakit dengan machine learning, etika AI dalam healthcare, implementasi AI di rumah sakit, telemedicine berbasis AI, Natural Language Processing untuk rekam medis elektronik</field>
+            <field name="objectives">Berbagi penelitian terkini tentang implementasi AI dan ML dalam sistem kesehatan, serta mendiskusikan tantangan dan peluang adopsi teknologi AI di negara berkembang</field>
+            <field name="outcomes">Keynote session mendapat 4.9/5 rating dari peserta. Terjalin kolaborasi penelitian dengan 3 universitas di Jerman, Singapura, dan Australia. Paper dipublikasikan di jurnal terindeks Scopus Q1.</field>
+            <field name="teaser_text">Sebagai keynote speaker internasional, saya mempresentasikan hasil penelitian 3 tahun tentang implementasi sistem AI untuk deteksi dini kanker serviks di Indonesia dengan akurasi 94.7%, yang telah digunakan di 15 rumah sakit</field>
+            <field name="description_html">&lt;h3&gt;Keynote Presentation: AI-Powered Early Detection System for Cervical Cancer in Low-Resource Settings&lt;/h3&gt;&lt;p&gt;Presentasi ini mengangkat hasil penelitian kolaboratif antara Universitas Pakuan dengan Kementerian Kesehatan RI dalam mengembangkan sistem deteksi dini kanker serviks berbasis AI yang dapat digunakan di daerah dengan keterbatasan tenaga patolog.&lt;/p&gt;&lt;h4&gt;Highlights Penelitian:&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;Dataset: 45,000 citra Pap smear dari 15 rumah sakit di Indonesia&lt;/li&gt;&lt;li&gt;Model: Deep Learning CNN dengan arsitektur EfficientNet-B7&lt;/li&gt;&lt;li&gt;Akurasi: 94.7% (melebihi akurasi rata-rata patolog junior 87%)&lt;/li&gt;&lt;li&gt;Deployment: Berhasil diimplementasikan di 15 Puskesmas dan RS&lt;/li&gt;&lt;li&gt;Impact: Mengurangi waktu diagnosis dari 2 minggu menjadi 15 menit&lt;/li&gt;&lt;/ul&gt;&lt;h4&gt;International Collaboration:&lt;/h4&gt;&lt;p&gt;Setelah presentasi, saya mendapat undangan dari Technical University of Munich untuk research visit dan joint publication. WHO Asia-Pacific juga tertarik untuk pilot project di 5 negara ASEAN.&lt;/p&gt;&lt;h4&gt;Media Coverage:&lt;/h4&gt;&lt;p&gt;Penelitian ini diliput oleh Medical News Today, IEEE Spectrum, dan beberapa media internasional lainnya.&lt;/p&gt;</field>
+            <field name="cover_image_filename">webinar_ai_healthcare_imia.jpg</field>
+            <field name="documentation_links">https://youtube.com/watch?v=imia-ai-healthcare-2024</field>
+            <field name="presentation_filename">Keynote_AI_Healthcare_IMIA_2024.pdf</field>
+            <field name="certificate_filename">Certificate_Keynote_Speaker_IMIA.pdf</field>
+            <field name="feedback">Outstanding presentation! The practical implementation in low-resource settings is exactly what developing countries need. Your research methodology is rigorous and the results are impressive. (Prof. Dr. James Chen - Stanford Medical School)</field>
+            <field name="impact">Penelitian menjadi trending topic di komunitas medical informatics internasional. Mendapat 3 penawaran research grant dari Horizon Europe, NIH, dan Singapore A*STAR dengan total value €750,000. Paper dikutip 47 kali dalam 2 bulan pertama.</field>
+            <field name="satisfaction_rating">5</field>
+            <field name="keywords">artificial intelligence, machine learning, healthcare, deep learning, medical informatics, cancer detection, IMIA, international webinar</field>
+            <field name="website_meta_title">Keynote Speaker: AI &amp; ML in Healthcare - IMIA International Webinar</field>
+            <field name="website_meta_description">Keynote presentation tentang sistem AI untuk deteksi dini kanker serviks di Indonesia pada webinar internasional IMIA dengan 1,347 peserta dari 45 negara.</field>
+            <field name="website_meta_keywords">AI healthcare, machine learning medical, keynote speaker, IMIA, cancer detection, deep learning, international webinar</field>
+            <field name="website_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_post_sample_3" model="acara.post">
+            <field name="name">Juri Kompetisi Inovasi Teknologi Mahasiswa Nasional 2024</field>
+            <field name="subtitle">Menilai 87 karya inovasi dari 35 perguruan tinggi se-Indonesia</field>
+            <field name="blog_id" ref="acara_blog_juri"/>
+            <field name="role">jury</field>
+            <field name="acara_type_id" ref="acara_type_juri"/>
+            <field name="event_date">2024-10-05</field>
+            <field name="event_end_date">2024-10-07</field>
+            <field name="duration_hours">20.0</field>
+            <field name="location">Jakarta Convention Center (JCC), Hall A-B</field>
+            <field name="organizer">Kementerian Pendidikan, Kebudayaan, Riset dan Teknologi RI</field>
+            <field name="organizer_website">https://www.kemdikbud.go.id</field>
+            <field name="co_organizer">Badan Riset dan Inovasi Nasional (BRIN)</field>
+            <field name="co_organizer_website">https://www.brin.go.id</field>
+            <field name="event_format">offline</field>
+            <field name="target_audience">350 mahasiswa peserta, 15 juri dari berbagai bidang keahlian</field>
+            <field name="actual_participants">342</field>
+            <field name="status">completed</field>
+            <field name="topics">IoT dan smart city solutions, teknologi kesehatan, renewable energy, pertanian modern, industri kreatif berbasis teknologi, AI dan data science applications</field>
+            <field name="objectives">Menilai dan memberikan feedback konstruktif terhadap inovasi teknologi karya mahasiswa, serta memilih karya terbaik yang layak dikembangkan dan didanai untuk implementasi</field>
+            <field name="outcomes">Berhasil menilai 87 karya dengan objektif dan adil. 15 karya terpilih mendapat pendanaan Rp 50 juta untuk pengembangan prototype. 3 karya mendapat penawaran kerjasama dari industri. 1 startup dibentuk dari karya juara 1.</field>
+            <field name="teaser_text">Pengalaman 3 hari menjadi juri kompetisi inovasi teknologi mahasiswa tingkat nasional, menilai puluhan karya kreatif dan berpotensi tinggi untuk dikomersialisasi. Dari smart farming hingga medical devices inovatif</field>
+            <field name="description_html">&lt;h3&gt;Peran sebagai Ketua Panel Juri Kategori IoT &amp; Smart Systems&lt;/h3&gt;&lt;p&gt;Sebagai Ketua Panel Juri untuk kategori IoT dan Smart Systems, saya bertanggung jawab menilai 28 karya dari aspek inovasi, kelayakan teknis, potensi pasar, dan dampak sosial. Kompetisi ini diikuti oleh mahasiswa dari 35 perguruan tinggi terkemuka di Indonesia.&lt;/p&gt;&lt;h4&gt;Karya-karya Impressive yang Dinilai:&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Smart Aquaponics System:&lt;/strong&gt; Sistem aquaponik otomatis berbasis IoT dengan AI untuk optimasi nutrisi (ITS Surabaya)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Wearable Fall Detection untuk Lansia:&lt;/strong&gt; Device monitoring yang otomatis mendeteksi jatuh dan mengirim alert (ITB)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Smart Parking Berbasis Computer Vision:&lt;/strong&gt; Sistem parkir pintar dengan deteksi plat nomor otomatis (UGM)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;IoT-Based Flood Early Warning:&lt;/strong&gt; Sistem peringatan dini banjir terintegrasi dengan BMKG (UI)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Smart Waste Management:&lt;/strong&gt; Tempat sampah pintar dengan sortir otomatis dan monitoring penuh (Unpak - Juara 1!)&lt;/li&gt;&lt;/ul&gt;&lt;h4&gt;Kriteria Penilaian:&lt;/h4&gt;&lt;ol&gt;&lt;li&gt;Tingkat Inovasi dan Originalitas (25%)&lt;/li&gt;&lt;li&gt;Kelayakan Teknis dan Implementasi (25%)&lt;/li&gt;&lt;li&gt;Potensi Pasar dan Skalabilitas (20%)&lt;/li&gt;&lt;li&gt;Dampak Sosial dan Lingkungan (20%)&lt;/li&gt;&lt;li&gt;Presentasi dan Komunikasi (10%)&lt;/li&gt;&lt;/ol&gt;&lt;h4&gt;Highlight Kegiatan:&lt;/h4&gt;&lt;p&gt;Selain penilaian formal, kami juga mengadakan mentor session dengan para finalis untuk memberikan masukan pengembangan. Senang sekali karya dari Unpak (mahasiswa bimbingan saya!) berhasil meraih Juara 1 dengan sistem Smart Waste Management yang sangat aplikatif.&lt;/p&gt;</field>
+            <field name="cover_image_filename">juri_kompetisi_inovasi_kemendikbud.jpg</field>
+            <field name="documentation_links">https://drive.google.com/kompetisi-inovasi-nasional-2024</field>
+            <field name="certificate_filename">Sertifikat_Juri_Kompetisi_Inovasi_Kemendikbud.pdf</field>
+            <field name="feedback">Feedback dari juri sangat membangun! Masukan Pak Dosen tentang aspek user experience dan sustainability membuat kami langsung revisi prototype. Alhamdulillah menang juara 1! (Tim Smart Waste Management - Unpak)</field>
+            <field name="impact">Dari 15 karya pemenang, 8 berhasil mendapat pendanaan lanjutan dari investor angel. 3 karya telah diimplementasikan di pilot project pemerintah daerah. 1 startup (dari juara 1) telah mendapat valuasi Rp 2 miliar setelah 3 bulan.</field>
+            <field name="satisfaction_rating">5</field>
+            <field name="keywords">juri, kompetisi inovasi, IoT, smart systems, mahasiswa, startup, kemendikbud, BRIN</field>
+            <field name="website_meta_title">Juri Kompetisi Inovasi Teknologi Mahasiswa Nasional - Kemendikbud &amp; BRIN</field>
+            <field name="website_meta_description">Ketua Panel Juri IoT &amp; Smart Systems pada kompetisi inovasi teknologi mahasiswa tingkat nasional, menilai 87 karya dari 35 perguruan tinggi se-Indonesia.</field>
+            <field name="website_meta_keywords">juri kompetisi, inovasi teknologi, IoT, smart systems, kemendikbud, BRIN, mahasiswa, startup</field>
+            <field name="website_published">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="acara_post_sample_4" model="acara.post">
+            <field name="name">International Workshop: Design Thinking for Digital Product Innovation</field>
+            <field name="subtitle">Co-facilitator workshop 5 hari dengan peserta dari 8 negara ASEAN</field>
+            <field name="blog_id" ref="acara_blog_workshop"/>
+            <field name="role">organizer</field>
+            <field name="acara_type_id" ref="acara_type_workshop"/>
+            <field name="event_date">2024-07-22</field>
+            <field name="event_end_date">2024-07-26</field>
+            <field name="duration_hours">35.0</field>
+            <field name="location">Bali Nusa Dua Convention Center &amp; Sofitel Bali Nusa Dua Beach Resort</field>
+            <field name="organizer">ASEAN Foundation</field>
+            <field name="organizer_website">https://aseanfoundation.org</field>
+            <field name="co_organizer">Stanford d.school Asia-Pacific &amp; Universitas Pakuan</field>
+            <field name="co_organizer_website">https://dschool.stanford.edu</field>
+            <field name="event_format">offline</field>
+            <field name="target_audience">45 innovators, entrepreneurs, dan educators dari Indonesia, Thailand, Vietnam, Singapura, Malaysia, Filipina, Myanmar, dan Kamboja</field>
+            <field name="actual_participants">42</field>
+            <field name="status">completed</field>
+            <field name="topics">Human-centered design, design thinking methodology, rapid prototyping, user research and empathy mapping, ideation techniques, MVP development, pitch deck preparation, go-to-market strategy</field>
+            <field name="objectives">Membekali participants dengan metodologi design thinking untuk menciptakan solusi digital inovatif yang solving real problems di ASEAN. Memfasilitasi cross-cultural collaboration dan knowledge exchange antar negara ASEAN.</field>
+            <field name="outcomes">42 peserta menghasilkan 9 digital product concepts yang validated dengan user testing. 3 tim mendapat seed funding dari ASEAN Innovation Fund senilai USD 50,000. 2 products berhasil launching dalam 3 bulan. Terbentuk ASEAN Innovators Network dengan 500+ members.</field>
+            <field name="teaser_text">Lima hari immersive workshop dengan metodologi Stanford d.school, memfasilitasi peserta dari 8 negara ASEAN menciptakan solusi digital inovatif. Dari empathy mapping hingga pitching ke investors. Project terbaik: HealthConnect - telemedicine platform untuk remote areas in ASEAN</field>
+            <field name="description_html">&lt;h3&gt;Tentang Workshop Internasional&lt;/h3&gt;&lt;p&gt;Workshop intensif 5 hari ini menggabungkan teori design thinking dengan praktik langsung. Setiap hari dirancang untuk membawa peserta melalui tahapan lengkap dari empathize, define, ideate, prototype, hingga test - dengan real users dari komunitas lokal Bali.&lt;/p&gt;&lt;h4&gt;Day-by-Day Overview:&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Day 1 - Empathize:&lt;/strong&gt; Field research di 5 lokasi berbeda (traditional market, tourism area, hospital, school, rural village). Teams melakukan user interviews dengan 100+ users untuk understanding pain points.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Day 2 - Define:&lt;/strong&gt; Synthesis research findings, persona creation, problem framing, dan How Might We statements. Masing-masing team defined clear problem statement yang will guide their solution.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Day 3 - Ideate:&lt;/strong&gt; Brainstorming sessions dengan 100+ ideas generated. Menggunakan voting dan evaluation matrix untuk narrowing down menjadi top 3 concepts per team. Rapid sketching dan storyboarding.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Day 4 - Prototype:&lt;/strong&gt; Build low-fidelity prototypes using Figma, Marvel, atau bahkan paper prototypes. Team berhasil create clickable prototypes yang siap di-test.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Day 5 - Test &amp; Pitch:&lt;/strong&gt; User testing session dengan 50 real users dari Bali. Iterate based on feedback. Final pitch competition di depan panel of investors dan ASEAN Foundation representatives.&lt;/p&gt;&lt;h4&gt;Best Projects:&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;HealthConnect (Winner):&lt;/strong&gt; Telemedicine platform dengan offline-capable features untuk remote areas. Got USD 50K seed funding.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;FarmTech:&lt;/strong&gt; AI-powered crop disease detection untuk smallholder farmers di ASEAN.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;EduBridge:&lt;/strong&gt; Peer-to-peer learning platform connecting students across ASEAN countries.&lt;/li&gt;&lt;/ul&gt;&lt;h4&gt;Special Guests &amp; Mentors:&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;Dr. Sarah Chen (Stanford d.school) - Design Thinking Expert&lt;/li&gt;&lt;li&gt;Ahmad Zaky (Gojek VP Product) - Product Development&lt;/li&gt;&lt;li&gt;Lisa Tanaka (500 Startups Partner) - Venture Capital Perspective&lt;/li&gt;&lt;/ul&gt;</field>
+            <field name="cover_image_filename">workshop_design_thinking_asean_bali.jpg</field>
+            <field name="documentation_links">https://aseanfoundation.org/design-thinking-workshop-2024</field>
+            <field name="presentation_filename">Design_Thinking_Workshop_Materials_Complete.pdf</field>
+            <field name="certificate_filename">Certificate_Co-Facilitator_ASEAN_Workshop.pdf</field>
+            <field name="feedback">This workshop completely changed how I approach problem-solving! The hands-on methodology and cross-cultural collaboration were invaluable. Our HealthConnect project is now launching in 3 countries. Thank you for the amazing facilitation! (Nguyen Thi Mai - Vietnam Innovator)</field>
+            <field name="impact">Workshop menghasilkan 9 validated digital product concepts. 3 products secured seed funding total USD 150K. 2 products successfully launched dan serving 10,000+ users across ASEAN. Alumni network terbentuk dengan quarterly meetups dan continuous collaboration. 5 participants menjadi design thinking trainers di negaranya masing-masing.</field>
+            <field name="satisfaction_rating">5</field>
+            <field name="keywords">design thinking, workshop internasional, ASEAN, Stanford d.school, innovation, digital product, startup, Bali</field>
+            <field name="website_meta_title">International Workshop Design Thinking - ASEAN Foundation &amp; Stanford d.school</field>
+            <field name="website_meta_description">Workshop intensif 5 hari design thinking untuk digital product innovation dengan peserta dari 8 negara ASEAN, metodologi Stanford d.school, di Bali.</field>
+            <field name="website_meta_keywords">design thinking workshop, ASEAN Foundation, Stanford d.school, innovation, digital product, startup incubation, international workshop</field>
+            <field name="website_published">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="acara_post_sample_5" model="acara.post">
+            <field name="name">Seminar Nasional: Blockchain Technology and Its Impact on Indonesian Economy</field>
+            <field name="subtitle">Invited speaker pada seminar nasional blockchain dan ekonomi digital</field>
+            <field name="blog_id" ref="acara_blog_seminar"/>
+            <field name="role">speaker</field>
+            <field name="acara_type_id" ref="acara_type_seminar"/>
+            <field name="event_date">2024-10-28</field>
+            <field name="duration_hours">6.0</field>
+            <field name="location">Auditorium Gedung Bank Indonesia, Jakarta Pusat</field>
+            <field name="organizer">Bank Indonesia &amp; Asosiasi Fintech Indonesia</field>
+            <field name="organizer_website">https://www.bi.go.id</field>
+            <field name="co_organizer">Universitas Indonesia - Fakultas Ekonomi dan Bisnis</field>
+            <field name="co_organizer_website">https://feb.ui.ac.id</field>
+            <field name="event_format">hybrid</field>
+            <field name="online_platform">Zoom + YouTube Live</field>
+            <field name="meeting_link">https://zoom.us/bi-blockchain-seminar-2024</field>
+            <field name="target_audience">500 peserta (250 offline, 250 online): ekonom, praktisi fintech, akademisi, regulator, startup founders</field>
+            <field name="actual_participants">487</field>
+            <field name="status">completed</field>
+            <field name="topics">Teknologi blockchain dan distributed ledger, cryptocurrency dan regulasi di Indonesia, smart contracts applications, Central Bank Digital Currency (CBDC), blockchain untuk supply chain dan traceability, keamanan dan privacy dalam blockchain, future of fintech in Indonesia</field>
+            <field name="objectives">Memberikan pemahaman komprehensif tentang teknologi blockchain dan dampaknya terhadap ekonomi Indonesia. Memfasilitasi diskusi antara regulator, praktisi, dan akademisi untuk pengembangan ekosistem fintech yang sehat</field>
+            <field name="outcomes">Seminar menghasilkan policy recommendations untuk Bank Indonesia terkait regulasi blockchain. 3 startup fintech mendapat mentoring dari panel speakers. Forum diskusi menghasilkan 15 collaboration opportunities antara academia dan industry. Proceeding seminar diterbitkan dengan ISBN</field>
+            <field name="teaser_text">Seminar bergengsi dengan 487 peserta membahas peran blockchain dalam transformasi ekonomi digital Indonesia. Sesi saya mengupas studi kasus implementasi blockchain untuk supply chain transparency di 5 UMKM eksportir Indonesia dengan peningkatan trust score hingga 85%</field>
+            <field name="description_html">&lt;h3&gt;Presentation: Blockchain for Supply Chain Transparency - Indonesia Case Studies&lt;/h3&gt;&lt;p&gt;Sebagai invited speaker, saya mempresentasikan hasil implementasi teknologi blockchain untuk meningkatkan transparansi dan traceability pada supply chain 5 UMKM eksportir produk Indonesia (kopi, kakao, kerajinan tangan, tekstil, rempah-rempah).&lt;/p&gt;&lt;h4&gt;Implementasi Pilot Project:&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Platform:&lt;/strong&gt; Hyperledger Fabric untuk private blockchain network&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Participants:&lt;/strong&gt; 5 UMKM eksportir, 12 suppliers, 3 logistics providers, 8 international buyers&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Duration:&lt;/strong&gt; 6 months pilot project (Jan-Jun 2024)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Tech Stack:&lt;/strong&gt; Hyperledger Fabric, Node.js, React, PostgreSQL, IPFS for documents&lt;/li&gt;&lt;/ul&gt;&lt;h4&gt;Key Results:&lt;/h4&gt;&lt;ol&gt;&lt;li&gt;&lt;strong&gt;Trust Score:&lt;/strong&gt; Meningkat 85% based on buyer surveys&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Transaction Time:&lt;/strong&gt; Reduced dari 3 hari menjadi 2 jam untuk verification&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Export Value:&lt;/strong&gt; Meningkat rata-rata 40% karena premium pricing&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Dispute Resolution:&lt;/strong&gt; Reduced 60% karena immutable records&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Counterfeit Prevention:&lt;/strong&gt; 100% authentic products tracked&lt;/li&gt;&lt;/ol&gt;&lt;h4&gt;Panel Discussion Highlights:&lt;/h4&gt;&lt;p&gt;Setelah presentasi, saya join panel discussion dengan:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Dr. Filianingsih Hendarta (Deputi Gubernur BI)&lt;/li&gt;&lt;li&gt;Adrian Gunadi (Managing Director Tokocrypto)&lt;/li&gt;&lt;li&gt;Prof. Rhenald Kasali (UI - Guru Besar Manajemen)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Diskusi membahas regulatory framework, adoption challenges, dan roadmap CBDC Indonesia.&lt;/p&gt;</field>
+            <field name="cover_image_filename">seminar_blockchain_bank_indonesia.jpg</field>
+            <field name="documentation_links">https://youtube.com/bi-blockchain-seminar-proceedings</field>
+            <field name="presentation_filename">Blockchain_Supply_Chain_Indonesia_Case_Studies.pdf</field>
+            <field name="certificate_filename">Certificate_Speaker_BI_Blockchain_Seminar.pdf</field>
+            <field name="feedback">Implementasi blockchain untuk UMKM yang Anda presentasikan sangat aplikatif dan memberikan solusi nyata. Bank Indonesia tertarik untuk scale up project ini ke lebih banyak UMKM eksportir. (Dr. Filianingsih Hendarta - Deputi Gubernur Bank Indonesia)</field>
+            <field name="impact">Project mendapat pendanaan Rp 2.5 miliar dari Kementerian Koperasi untuk scale up ke 50 UMKM eksportir. 3 buyers internasional (dari Jepang, Singapura, dan Belanda) commit untuk partnership jangka panjang. Media nasional (Kompas, Bisnis Indonesia, Kontan) meliput inovasi ini. Paper diterbitkan di International Journal of Supply Chain Management (Scopus Q2)</field>
+            <field name="satisfaction_rating">5</field>
+            <field name="keywords">blockchain, cryptocurrency, fintech, supply chain, Bank Indonesia, CBDC, smart contracts, ekonomi digital</field>
+            <field name="website_meta_title">Seminar Nasional Blockchain Technology - Bank Indonesia - Invited Speaker</field>
+            <field name="website_meta_description">Invited speaker pada seminar nasional blockchain dan ekonomi digital di Bank Indonesia, membahas implementasi blockchain untuk supply chain transparency UMKM eksportir Indonesia.</field>
+            <field name="website_meta_keywords">blockchain Indonesia, Bank Indonesia, fintech, supply chain, cryptocurrency regulation, CBDC, smart contracts, ekonomi digital</field>
+            <field name="website_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="acara_post_sample_6" model="acara.post">
+            <field name="name">Moderator Panel Diskusi Internasional: Sustainable Smart Cities in Southeast Asia</field>
+            <field name="subtitle">Memfasilitasi diskusi 5 pakar internasional tentang pengembangan kota pintar berkelanjutan di ASEAN</field>
+            <field name="blog_id" ref="acara_blog_webinar"/>
+            <field name="role">moderator</field>
+            <field name="acara_type_id" ref="acara_type_moderator"/>
+            <field name="event_date">2024-12-10</field>
+            <field name="duration_hours">3.5</field>
+            <field name="location">Hybrid Event - Singapore Management University &amp; Virtual</field>
+            <field name="organizer">ASEAN Smart Cities Network (ASCN)</field>
+            <field name="organizer_website">https://asean.org/asean/asean-smart-cities-network</field>
+            <field name="co_organizer">Singapore Management University - Lee Kuan Yew Centre for Innovative Cities</field>
+            <field name="co_organizer_website">https://lkycic.smu.edu.sg</field>
+            <field name="event_format">hybrid</field>
+            <field name="online_platform">Webex Events + LinkedIn Live</field>
+            <field name="meeting_link">https://webex.com/ascn-sustainable-cities-panel</field>
+            <field name="target_audience">850 peserta: policymakers, urban planners, tech companies, academics dari 26 negara</field>
+            <field name="actual_participants">812</field>
+            <field name="status">completed</field>
+            <field name="topics">Smart city frameworks, IoT infrastructure, data governance, citizen engagement platforms, green technology integration, transportation systems, energy management, waste management solutions, digital inclusion, funding models for smart city projects</field>
+            <field name="objectives">Memfasilitasi dialog konstruktif antara pakar dari berbagai negara untuk sharing best practices dan challenges dalam membangun smart cities yang sustainable di ASEAN region</field>
+            <field name="outcomes">Panel menghasilkan ASEAN Smart Cities Framework 2025-2030 yang diadopsi oleh 15 kota pilot. 8 bilateral cooperation agreements ditandatangani antara cities. 3 tech companies commit USD 50M investment untuk smart city infrastructure di Indonesia</field>
+            <field name="teaser_text">Sebagai moderator panel bergengsi dengan 812 peserta internasional, memfasilitasi diskusi 5 pakar dunia tentang masa depan sustainable smart cities di ASEAN. Dari Singapore's success story hingga Jakarta's challenges, menghasilkan actionable framework untuk 26 kota di region</field>
+            <field name="description_html">&lt;h3&gt;Panel Internasional yang Prestisius&lt;/h3&gt;&lt;p&gt;Saya dipercaya sebagai moderator untuk panel diskusi internasional yang dihadiri oleh decision makers dan thought leaders dari 26 negara. Panel ini bagian dari ASEAN Smart Cities Summit 2024 yang menjadi rujukan policy making di region.&lt;/p&gt;&lt;h4&gt;Distinguished Panelists:&lt;/h4&gt;&lt;ol&gt;&lt;li&gt;&lt;strong&gt;Dr. Cheong Koon Hean&lt;/strong&gt; - CEO, Housing &amp; Development Board Singapore - Membahas integrated urban planning Singapore&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Prof. Carlo Ratti&lt;/strong&gt; - Director, MIT Senseable City Lab - Sharing vision tentang future of urban living&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Ir. Basuki Hadimuljono&lt;/strong&gt; - Menteri PUPR Indonesia - Presenting IKN Nusantara smart city initiatives&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Dr. Passakorn Prathombutr&lt;/strong&gt; - Secretary General, Digital Economy Promotion Agency Thailand - Thailand 4.0 smart city roadmap&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Dato' Sri Dr. Ahmad Zahid Hamidi&lt;/strong&gt; - Special Advisor on Smart Cities, Malaysia - Cyberjaya and Putrajaya case studies&lt;/li&gt;&lt;/ol&gt;&lt;h4&gt;Key Discussion Points:&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Part 1 - Current State &amp; Challenges (45 min):&lt;/strong&gt; Setiap panelist presentasi 8 menit tentang current initiatives dan main challenges di negaranya. Emerging themes: funding gaps, digital divide, data privacy concerns, inter-agency coordination.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Part 2 - Technology &amp; Innovation (60 min):&lt;/strong&gt; Deep dive ke teknologi enablers seperti 5G, IoT sensors, AI analytics, digital twin cities. Prof. Ratti showcase MIT projects yang applicable untuk ASEAN context. Diskusi heated tentang technology transfer dan local capacity building.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Part 3 - Sustainability &amp; Resilience (45 min):&lt;/strong&gt; Focus on green technology, renewable energy integration, disaster resilience, climate adaptation. Singapore's HDB sharing impressive data: 95% reduction in energy consumption melalui smart systems. Jakarta's flood management system using AI prediction juga mendapat apresiasi.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Part 4 - Q&amp;A &amp; Audience Engagement (60 min):&lt;/strong&gt; Saya facilitate 25 pertanyaan dari audience yang sangat engaged. Topics range from practical implementation issues hingga philosophical questions about privacy vs efficiency trade-offs.&lt;/p&gt;&lt;h4&gt;Highlight Moments:&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;Passionate debate antara Dr. Cheong dan Prof. Ratti tentang balance between central planning vs organic development&lt;/li&gt;&lt;li&gt;Menteri Basuki announcing Indonesia's commitment untuk invest USD 500M in smart city infrastructure&lt;/li&gt;&lt;li&gt;Breakthrough moment ketika 3 mayors commit to pilot joint smart city project&lt;/li&gt;&lt;/ul&gt;&lt;h4&gt;Framework yang Dihasilkan:&lt;/h4&gt;&lt;p&gt;Post-panel, kami facilitate working group yang produce &quot;ASEAN Smart Cities Framework 2025-2030&quot; covering 7 pillars: Infrastructure, Governance, Economy, Environment, Living, People, Mobility.&lt;/p&gt;</field>
+            <field name="cover_image_filename">panel_smart_cities_asean_singapore.jpg</field>
+            <field name="documentation_links">https://asean.org/smart-cities-summit-2024-proceedings</field>
+            <field name="certificate_filename">Certificate_Panel_Moderator_ASCN_Summit.pdf</field>
+            <field name="feedback">Excellent moderation! You managed the diverse perspectives brilliantly and kept the discussion focused yet dynamic. The framework document is already being referenced by multiple cities. (Dr. Cheong Koon Hean - CEO HDB Singapore)</field>
+            <field name="impact">ASEAN Smart Cities Framework adopted by 15 pilot cities representing 85M citizens. Indonesia's Ministry PUPR allocate Rp 7.5 triliun untuk smart city development 2025-2027. 8 MoUs signed antara cities untuk technology sharing. Panel recording viewed 45,000+ times, trending #1 di LinkedIn Indonesia untuk 3 hari. Paper proceedings download 12,000+ kali.</field>
+            <field name="satisfaction_rating">5</field>
+            <field name="keywords">moderator, panel discussion, smart cities, ASEAN, sustainable urban development, IoT, Singapore, international conference</field>
+            <field name="website_meta_title">Panel Moderator: Sustainable Smart Cities ASEAN - Singapore Management University</field>
+            <field name="website_meta_description">Moderator panel diskusi internasional tentang pengembangan smart cities berkelanjutan di ASEAN dengan 5 pakar dunia dan 812 peserta dari 26 negara.</field>
+            <field name="website_meta_keywords">smart cities ASEAN, panel moderator, sustainable urban development, Singapore SMU, IoT infrastructure, urban planning</field>
+            <field name="website_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <!-- Website Menu Data -->
+        <record id="website_menu_acara" model="website.menu">
+            <field name="name">Acara Dosen</field>
+            <field name="url">/acara</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">60</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_acara_blog_public,acara.blog.public,model_acara_blog,,1,0,0,0
+access_acara_blog_user,acara.blog.user,model_acara_blog,base.group_user,1,1,1,1
+access_acara_post_public,acara.post.public,model_acara_post,,1,0,0,0
+access_acara_post_user,acara.post.user,model_acara_post,base.group_user,1,1,1,1
+access_acara_type_public,acara.type.public,model_acara_type,,1,0,0,0
+access_acara_type_user,acara.type.user,model_acara_type,base.group_user,1,1,1,1

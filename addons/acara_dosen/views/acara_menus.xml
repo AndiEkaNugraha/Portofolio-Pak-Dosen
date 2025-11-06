@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Main Menu -->
+        <record id="menu_acara_main" model="ir.ui.menu">
+            <field name="name">Acara Dosen</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <!-- Acara Post Menu dan Actions -->
+        <record id="action_acara_post" model="ir.actions.act_window">
+            <field name="name">Daftar Acara Dosen</field>
+            <field name="res_model">acara.post</field>
+            <field name="view_mode">list,form,kanban</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan acara pertama Anda!
+                </p>
+                <p>
+                    Kelola daftar acara yang diisi dosen seperti penyuluhan, webinar, workshop, dan sebagai juri.
+                </p>
+            </field>
+        </record>
+
+        <record id="menu_acara_post" model="ir.ui.menu">
+            <field name="name">Daftar Acara</field>
+            <field name="parent_id" ref="menu_acara_main"/>
+            <field name="action" ref="action_acara_post"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Separate actions for different acara roles -->
+        <record id="action_acara_speaker" model="ir.actions.act_window">
+            <field name="name">Sebagai Pembicara</field>
+            <field name="res_model">acara.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('role', '=', 'speaker')]</field>
+            <field name="context">{'default_role': 'speaker'}</field>
+        </record>
+
+        <record id="action_acara_jury" model="ir.actions.act_window">
+            <field name="name">Sebagai Juri</field>
+            <field name="res_model">acara.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('role', '=', 'jury')]</field>
+            <field name="context">{'default_role': 'jury'}</field>
+        </record>
+
+        <record id="action_acara_moderator" model="ir.actions.act_window">
+            <field name="name">Sebagai Moderator</field>
+            <field name="res_model">acara.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('role', '=', 'moderator')]</field>
+            <field name="context">{'default_role': 'moderator'}</field>
+        </record>
+
+        <!-- Configuration Menu -->
+        <record id="menu_acara_config" model="ir.ui.menu">
+            <field name="name">Konfigurasi</field>
+            <field name="parent_id" ref="menu_acara_main"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="menu_acara_blog_config" model="ir.ui.menu">
+            <field name="name">Kategori Acara</field>
+            <field name="parent_id" ref="menu_acara_config"/>
+            <field name="action" ref="action_acara_blog"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Master Data Actions -->
+        <record id="action_acara_type" model="ir.actions.act_window">
+            <field name="name">Jenis Acara</field>
+            <field name="res_model">acara.type</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan jenis acara baru!
+                </p>
+                <p>
+                    Kelola jenis-jenis acara seperti Penyuluhan, Webinar, Workshop, Juri, Seminar.
+                </p>
+            </field>
+        </record>
+
+        <!-- Master Data Menus -->
+        <record id="menu_acara_type" model="ir.ui.menu">
+            <field name="name">Jenis Acara</field>
+            <field name="parent_id" ref="menu_acara_config"/>
+            <field name="action" ref="action_acara_type"/>
+            <field name="sequence">20</field>
+        </record>
+
+    </data>
+</odoo>
