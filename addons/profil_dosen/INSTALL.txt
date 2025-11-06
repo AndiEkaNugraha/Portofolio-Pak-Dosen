@@ -1,0 +1,60 @@
+🚀 QUICK INSTALLATION GUIDE
+==========================
+
+## 3 LANGKAH INSTALASI
+
+### STEP 1: Copy Plugin
+```
+Copy folder "profil_dosen" ke:
+/path/to/odoo/addons/
+```
+
+### STEP 2: Restart Odoo
+```
+Restart atau reload Odoo service
+```
+
+### STEP 3: Install via Odoo UI
+```
+1. Open Odoo di browser
+2. Go to: Apps
+3. Search: "Profil Dosen"
+4. Click: Install
+```
+
+## ✅ Done!
+
+Sekarang menu "Profil Dosen" tersedia di sidebar.
+
+---
+
+## MULAI GUNAKAN
+
+### Buat Kategori:
+```
+Profil Dosen → Kategori Profil → Create
+```
+
+### Buat Profile Dosen:
+```
+Profil Dosen → Data Profil Dosen → Create
+```
+
+### Lihat di Website:
+```
+http://your-domain/profil
+```
+
+---
+
+## 📚 DOKUMENTASI
+
+- **00_START_HERE.md** - Overview lengkap
+- **IMPLEMENTATION_GUIDE.md** - Panduan detail
+- **TESTING_DATA.md** - Contoh data
+- **CONFIGURATION.md** - Setup & config
+- **FILE_STRUCTURE.md** - Daftar file
+
+---
+
+**Questions?** Baca dokumentasi yang disediakan!

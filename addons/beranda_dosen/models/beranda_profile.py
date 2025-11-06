@@ -127,10 +127,15 @@ class BerandaProfile(models.Model):
             if record.short_bio and len(record.short_bio) > 200:
                 raise UserError("Bio singkat tidak boleh lebih dari 200 karakter.")
     
-    @api.model
     def create(self, vals):
-        if not vals.get('slug') and vals.get('name'):
-            vals['slug'] = self._generate_slug(vals['name'])
+        # Handle both single dict and list of dicts (vals_list from @api.model behavior)
+        if isinstance(vals, list):
+            for val in vals:
+                if not val.get('slug') and val.get('name'):
+                    val['slug'] = self._generate_slug(val['name'])
+        else:
+            if not vals.get('slug') and vals.get('name'):
+                vals['slug'] = self._generate_slug(vals['name'])
         return super(BerandaProfile, self).create(vals)
     
     def write(self, vals):

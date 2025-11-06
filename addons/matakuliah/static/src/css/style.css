@@ -1,0 +1,17 @@
+.course-card {
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-title {
+    color: #333;
+    font-weight: bold;
+}
+
+.course-code {
+    color: #666;
+    font-size: 0.9em;
+}
