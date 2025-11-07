@@ -243,7 +243,6 @@
                                         <!-- Document URL -->
                                         <t t-if="post.document_url">
                                             <div class="alert alert-info mb-0 mt-3" role="alert">
-                                                <i class="fa fa-file-text-o"/> <strong>Akses Dokumen:</strong>
                                                 <a t-att-href="post.document_url" target="_blank" class="alert-link ms-2">
                                                     <i class="fa fa-external-link"/> Lihat/Download Dokumen yang Direview
                                                 </a>
