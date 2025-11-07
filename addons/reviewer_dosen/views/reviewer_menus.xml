@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Main Menu -->
+        <record id="menu_reviewer_main" model="ir.ui.menu">
+            <field name="name">Aktivitas Reviewer</field>
+            <field name="sequence">36</field>
+        </record>
+
+        <!-- Reviewer Post Menu dan Actions -->
+        <record id="action_reviewer_post" model="ir.actions.act_window">
+            <field name="name">Aktivitas Review</field>
+            <field name="res_model">reviewer.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan aktivitas review pertama Anda!
+                </p>
+                <p>
+                    Kelola daftar aktivitas review seperti review jurnal, buku, penelitian, dan konferensi.
+                </p>
+            </field>
+        </record>
+
+        <record id="menu_reviewer_post" model="ir.ui.menu">
+            <field name="name">Daftar Aktivitas Review</field>
+            <field name="parent_id" ref="menu_reviewer_main"/>
+            <field name="action" ref="action_reviewer_post"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Separate actions for different review types -->
+        <record id="action_reviewer_journal" model="ir.actions.act_window">
+            <field name="name">Review Jurnal Ilmiah</field>
+            <field name="res_model">reviewer.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('reviewer_type_id.code', '=', 'JURNAL')]</field>
+            <field name="context">{'default_reviewer_type_id': ref('reviewer_type_jurnal')}</field>
+        </record>
+
+        <record id="action_reviewer_book" model="ir.actions.act_window">
+            <field name="name">Review Buku/Naskah</field>
+            <field name="res_model">reviewer.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('reviewer_type_id.code', '=', 'BUKU')]</field>
+            <field name="context">{'default_reviewer_type_id': ref('reviewer_type_buku')}</field>
+        </record>
+
+        <record id="action_reviewer_conference" model="ir.actions.act_window">
+            <field name="name">Review Artikel Konferensi</field>
+            <field name="res_model">reviewer.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('reviewer_type_id.code', '=', 'KONF')]</field>
+            <field name="context">{'default_reviewer_type_id': ref('reviewer_type_konferensi')}</field>
+        </record>
+
+        <record id="action_reviewer_research" model="ir.actions.act_window">
+            <field name="name">Review Penelitian</field>
+            <field name="res_model">reviewer.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('reviewer_type_id.code', '=', 'PENEL')]</field>
+            <field name="context">{'default_reviewer_type_id': ref('reviewer_type_penelitian')}</field>
+        </record>
+
+        <record id="action_reviewer_thesis" model="ir.actions.act_window">
+            <field name="name">Review Tugas Akhir/Disertasi</field>
+            <field name="res_model">reviewer.post</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('reviewer_type_id.code', '=', 'TA')]</field>
+            <field name="context">{'default_reviewer_type_id': ref('reviewer_type_tugas_akhir')}</field>
+        </record>
+
+        <!-- Configuration Menu -->
+        <record id="menu_reviewer_config" model="ir.ui.menu">
+            <field name="name">Konfigurasi</field>
+            <field name="parent_id" ref="menu_reviewer_main"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Reviewer Blog Menu -->
+        <record id="action_reviewer_blog" model="ir.actions.act_window">
+            <field name="name">Kategori Review</field>
+            <field name="res_model">reviewer.blog</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Buat kategori review pertama Anda!
+                </p>
+                <p>
+                    Kategori review membantu mengorganisir aktivitas berdasar jenis, level, dan bidang ilmu.
+                </p>
+            </field>
+        </record>
+
+        <record id="menu_reviewer_blog_config" model="ir.ui.menu">
+            <field name="name">Kategori Review</field>
+            <field name="parent_id" ref="menu_reviewer_config"/>
+            <field name="action" ref="action_reviewer_blog"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Master Data Actions -->
+        <record id="action_reviewer_type" model="ir.actions.act_window">
+            <field name="name">Jenis Review</field>
+            <field name="res_model">reviewer.type</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan jenis review baru!
+                </p>
+                <p>
+                    Kelola jenis-jenis aktivitas review seperti Jurnal, Buku, Penelitian, Konferensi, dll.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_reviewer_publisher" model="ir.actions.act_window">
+            <field name="name">Penerbit/Institusi</field>
+            <field name="res_model">reviewer.publisher</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tambahkan penerbit/institusi baru!
+                </p>
+                <p>
+                    Kelola daftar penerbit jurnal, konferensi, dan institusi penelitian.
+                </p>
+            </field>
+        </record>
+
+        <!-- Master Data Menus -->
+        <record id="menu_reviewer_type" model="ir.ui.menu">
+            <field name="name">Jenis Review</field>
+            <field name="parent_id" ref="menu_reviewer_config"/>
+            <field name="action" ref="action_reviewer_type"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="menu_reviewer_publisher" model="ir.ui.menu">
+            <field name="name">Penerbit/Institusi</field>
+            <field name="parent_id" ref="menu_reviewer_config"/>
+            <field name="action" ref="action_reviewer_publisher"/>
+            <field name="sequence">30</field>
+        </record>
+
+    </data>
+</odoo>

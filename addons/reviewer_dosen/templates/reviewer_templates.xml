@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Main Reviewer Index Page -->
+        <template id="reviewer_index" name="Aktivitas Reviewer">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <!-- Page Header -->
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h1 class="display-4 fw-bold">Aktivitas Reviewer</h1>
+                                    <p class="lead">Kumpulan aktivitas review terhadap berbagai publikasi dan karya ilmiah</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Statistik</h5>
+                                            <div class="row text-center">
+                                                <div class="col-6 mb-3">
+                                                    <h4 class="text-primary"><t t-esc="stats.get('total_reviews', 0)"/></h4>
+                                                    <small class="text-muted">Total Review</small>
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <h4 class="text-success"><t t-esc="stats.get('completed_count', 0)"/></h4>
+                                                    <small class="text-muted">Selesai</small>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h4 class="text-info"><t t-esc="stats.get('international_count', 0)"/></h4>
+                                                    <small class="text-muted">Internasional</small>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h4 class="text-warning"><t t-esc="stats.get('accept_count', 0)"/></h4>
+                                                    <small class="text-muted">Accepted</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Search and Filters -->
+                    <section class="py-4 border-bottom">
+                        <div class="container">
+                            <form method="get" class="row g-3">
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name="search"
+                                           placeholder="Cari judul, penulis..."
+                                           t-att-value="search"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="category_id" class="form-select">
+                                        <option value="">Semua Kategori</option>
+                                        <t t-foreach="categories" t-as="category">
+                                            <option t-att-value="category.id"
+                                                    t-att-selected="category_id == category.id and 'selected' or None">
+                                                <t t-esc="category.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="reviewer_type_id" class="form-select">
+                                        <option value="">Semua Jenis</option>
+                                        <t t-foreach="reviewer_types" t-as="reviewer_type">
+                                            <option t-att-value="reviewer_type.id"
+                                                    t-att-selected="reviewer_type_id == reviewer_type.id and 'selected' or None">
+                                                <t t-esc="reviewer_type.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="review_level" class="form-select">
+                                        <option value="">Semua Level</option>
+                                        <option value="international" t-att-selected="review_level == 'international' and 'selected' or None">Internasional</option>
+                                        <option value="regional" t-att-selected="review_level == 'regional' and 'selected' or None">Regional</option>
+                                        <option value="national" t-att-selected="review_level == 'national' and 'selected' or None">Nasional</option>
+                                        <option value="local" t-att-selected="review_level == 'local' and 'selected' or None">Lokal</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="fa fa-search"/> Cari
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- Content -->
+                    <div class="container py-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <t t-if="not posts">
+                                    <div class="alert alert-info text-center">
+                                        <h4>Belum ada aktivitas review yang dipublikasikan</h4>
+                                        <p>Silakan kembali lagi nanti untuk melihat update terbaru.</p>
+                                    </div>
+                                </t>
+
+                                <t t-if="posts">
+                                    <div class="row">
+                                        <t t-foreach="posts" t-as="post">
+                                            <div class="col-md-6 col-lg-4 mb-4">
+                                                <div class="card h-100">
+                                                    <t t-if="post.cover_image">
+                                                        <img t-att-src="'/web/image/reviewer.post/%s/cover_image' % post.id" class="card-img-top" alt="Cover" style="height: 200px; object-fit: cover;"/>
+                                                    </t>
+                                                    <div class="card-body">
+                                                        <span class="badge bg-primary mb-2"><t t-esc="post.reviewer_type_id.name"/></span>
+                                                        <span t-if="post.blog_id.review_level == 'international'" class="badge bg-info mb-2 ms-1">Internasional</span>
+                                                        <h5 class="card-title">
+                                                            <a t-att-href="'/reviewer/detail/%s-%s' % (post.slug, post.id)" class="text-decoration-none">
+                                                                <t t-esc="post.name"/>
+                                                            </a>
+                                                        </h5>
+                                                        <p class="text-muted small mb-2">
+                                                            <i class="fa fa-user"/> <strong>Penulis:</strong> <t t-esc="post.author_name"/><br/>
+                                                            <i class="fa fa-calendar"/> <strong>Review:</strong> <t t-esc="post.review_date"/><br/>
+                                                            <t t-if="post.journal_conference_name">
+                                                                <i class="fa fa-book"/> <strong>Publikasi:</strong> <t t-esc="post.journal_conference_name"/>
+                                                            </t>
+                                                        </p>
+                                                        <t t-if="post.teaser">
+                                                            <p class="card-text text-muted small">
+                                                                <t t-esc="post.teaser[:120]"/>...
+                                                            </p>
+                                                        </t>
+                                                        <div class="mt-2">
+                                                            <span class="badge" t-att-class="'badge bg-' + ('success' if post.review_status == 'completed' else 'warning' if post.review_status == 'in_progress' else 'info' if post.review_status == 'invited' else 'secondary')">
+                                                                <t t-esc="dict(post._fields['review_status'].selection).get(post.review_status, post.review_status)"/>
+                                                            </span>
+                                                            <t t-if="post.review_result">
+                                                                <span class="badge ms-1" t-att-class="'badge bg-' + ('success' if post.review_result == 'accept' else 'info' if post.review_result == 'minor_revision' else 'warning' if post.review_result == 'major_revision' else 'danger' if post.review_result == 'reject' else 'primary')">
+                                                                    <t t-esc="dict(post._fields['review_result'].selection).get(post.review_result, post.review_result)"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <small class="text-muted">
+                                                            <t t-esc="post.blog_id.name"/>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Reviewer Detail Page -->
+        <template id="reviewer_detail" name="Detail Aktivitas Review">
+            <t t-call="website.layout">
+                <div id="wrap" class="bg-light">
+                    <!-- Breadcrumb -->
+                    <section class="bg-white py-3 border-bottom">
+                        <div class="container">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0">
+                                    <li class="breadcrumb-item"><a href="/reviewer"><i class="fa fa-home"/> Aktivitas Reviewer</a></li>
+                                    <li class="breadcrumb-item"><a t-att-href="'/reviewer/kategori/%s' % post.blog_id.id"><t t-esc="post.blog_id.name"/></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><t t-esc="post.name[:50]"/></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </section>
+
+                    <!-- Main Content -->
+                    <div class="container py-4">
+                        <div class="row">
+                            <!-- Main Content Column -->
+                            <div class="col-lg-8 mb-4">
+                                <!-- Cover Image -->
+                                <t t-if="post.cover_image">
+                                    <div class="card mb-4 shadow-sm">
+                                        <img t-att-src="'/web/image/reviewer.post/%s/cover_image' % post.id" 
+                                             class="card-img-top" 
+                                             alt="Cover Image" 
+                                             style="max-height: 450px; object-fit: cover;"/>
+                                    </div>
+                                </t>
+
+                                <!-- Title and Meta -->
+                                <div class="card mb-4 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <span class="badge bg-primary me-2">
+                                                <i class="fa fa-folder-o"/> <t t-esc="post.reviewer_type_id.name"/>
+                                            </span>
+                                            <span t-att-class="'badge bg-' + ('success' if post.review_status == 'completed' else 'warning' if post.review_status == 'in_progress' else 'info' if post.review_status == 'invited' else 'secondary')">
+                                                <i class="fa fa-flag"/> <t t-esc="dict(post._fields['review_status'].selection).get(post.review_status, post.review_status)"/>
+                                            </span>
+                                            <t t-if="post.review_result">
+                                                <span class="badge ms-1" t-att-class="'badge bg-' + ('success' if post.review_result == 'accept' else 'info' if post.review_result == 'minor_revision' else 'warning' if post.review_result == 'major_revision' else 'danger' if post.review_result == 'reject' else 'primary')">
+                                                    <i class="fa fa-check-circle"/> <t t-esc="dict(post._fields['review_result'].selection).get(post.review_result, post.review_result)"/>
+                                                </span>
+                                            </t>
+                                            <t t-if="post.blog_id.review_level == 'international'">
+                                                <span class="badge bg-info ms-1">
+                                                    <i class="fa fa-globe"/> Internasional
+                                                </span>
+                                            </t>
+                                        </div>
+
+                                        <h1 class="display-5 fw-bold mb-3"><t t-esc="post.name"/></h1>
+                                        
+                                        <t t-if="post.subtitle">
+                                            <p class="lead text-muted mb-4"><t t-esc="post.subtitle"/></p>
+                                        </t>
+
+                                        <div class="row text-muted small mb-3">
+                                            <div class="col-md-6">
+                                                <p class="mb-2"><i class="fa fa-user text-primary"/> <strong>Penulis:</strong> <t t-esc="post.author_name"/></p>
+                                                <t t-if="post.author_affiliation">
+                                                    <p class="mb-2"><i class="fa fa-university text-primary"/> <strong>Afiliasi:</strong> <t t-esc="post.author_affiliation"/></p>
+                                                </t>
+                                                <t t-if="post.author_country">
+                                                    <p class="mb-2"><i class="fa fa-map-marker text-primary"/> <strong>Negara:</strong> <t t-esc="post.author_country"/></p>
+                                                </t>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-2"><i class="fa fa-calendar text-primary"/> <strong>Tanggal Review:</strong> <t t-esc="post.review_date" t-options="{'widget': 'date', 'format': 'd MMMM yyyy'}"/></p>
+                                                <t t-if="post.journal_conference_name">
+                                                    <p class="mb-2"><i class="fa fa-book text-primary"/> <strong>Publikasi:</strong> <t t-esc="post.journal_conference_name"/></p>
+                                                </t>
+                                                <t t-if="post.review_round">
+                                                    <p class="mb-2"><i class="fa fa-refresh text-primary"/> <strong>Putaran:</strong> <t t-esc="dict(post._fields['review_round'].selection).get(post.review_round, post.review_round)"/></p>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Document URL -->
+                                        <t t-if="post.document_url">
+                                            <div class="alert alert-info mb-0 mt-3" role="alert">
+                                                <i class="fa fa-file-text-o"/> <strong>Akses Dokumen:</strong>
+                                                <a t-att-href="post.document_url" target="_blank" class="alert-link ms-2">
+                                                    <i class="fa fa-external-link"/> Lihat/Download Dokumen yang Direview
+                                                </a>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+
+                                <!-- Full Description -->
+                                <t t-if="post.content">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-body">
+                                            <div t-field="post.content" class="o_website_editor_content"/>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Review Focus Areas -->
+                                <t t-if="post.review_focus_areas">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-crosshairs text-primary"/> Area Fokus Review</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.review_focus_areas"/></p>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Evaluation -->
+                                <t t-if="post.strengths or post.weaknesses">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-balance-scale text-primary"/> Evaluasi</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="post.strengths">
+                                                <h6 class="text-success"><i class="fa fa-thumbs-up"/> Kelebihan</h6>
+                                                <div t-field="post.strengths" class="o_website_editor_content"/>
+                                            </t>
+                                            <t t-if="post.weaknesses">
+                                                <h6 class="text-warning mt-3"><i class="fa fa-exclamation-triangle"/> Kelemahan</h6>
+                                                <div t-field="post.weaknesses" class="o_website_editor_content"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Recommendations -->
+                                <t t-if="post.recommendations">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-lightbulb-o text-primary"/> Rekomendasi</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div t-field="post.recommendations" class="o_website_editor_content"/>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Reviewer Comments -->
+                                <t t-if="post.reviewer_comments">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-comment text-primary"/> Catatan Reviewer</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div t-field="post.reviewer_comments" class="o_website_editor_content"/>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Documentation -->
+                                <t t-if="post.review_document or post.certificate_file">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-file text-primary"/> Dokumentasi</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="post.review_document">
+                                                <div class="mb-2">
+                                                    <a t-att-href="'/reviewer/download/%s' % post.id" target="_blank" class="btn btn-outline-primary btn-sm">
+                                                        <i class="fa fa-download"/> Unduh Dokumen Review
+                                                    </a>
+                                                </div>
+                                            </t>
+                                            <t t-if="post.certificate_file">
+                                                <div>
+                                                    <a t-att-href="'/reviewer/certificate/%s' % post.id" target="_blank" class="btn btn-outline-success btn-sm">
+                                                        <i class="fa fa-certificate"/> Unduh Sertifikat Review
+                                                    </a>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <!-- Sidebar -->
+                            <div class="col-lg-4">
+                                <!-- Quick Info -->
+                                <div class="card mb-4 shadow-sm">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0"><i class="fa fa-info-circle"/> Informasi Review</h5>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Kategori</small>
+                                            <p class="mb-0"><strong><t t-esc="post.blog_id.name"/></strong></p>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Jenis Review</small>
+                                            <p class="mb-0"><strong><t t-esc="post.reviewer_type_id.name"/></strong></p>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <small class="text-muted">Level</small>
+                                            <p class="mb-0">
+                                                <span class="badge bg-info">
+                                                    <t t-esc="dict(post.blog_id._fields['review_level'].selection).get(post.blog_id.review_level, post.blog_id.review_level)"/>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <t t-if="post.review_method">
+                                            <li class="list-group-item">
+                                                <small class="text-muted">Metode Review</small>
+                                                <p class="mb-0"><t t-esc="dict(post._fields['review_method'].selection).get(post.review_method, post.review_method)"/></p>
+                                            </li>
+                                        </t>
+                                        <t t-if="post.review_submission_date">
+                                            <li class="list-group-item">
+                                                <small class="text-muted">Tanggal Submit</small>
+                                                <p class="mb-0"><t t-esc="post.review_submission_date" t-options="{'widget': 'date', 'format': 'd MMM yyyy'}"/></p>
+                                            </li>
+                                        </t>
+                                        <t t-if="post.review_completion_date">
+                                            <li class="list-group-item">
+                                                <small class="text-muted">Tanggal Selesai</small>
+                                                <p class="mb-0"><t t-esc="post.review_completion_date" t-options="{'widget': 'date', 'format': 'd MMM yyyy'}"/></p>
+                                            </li>
+                                        </t>
+                                        <t t-if="post.review_duration_days > 0">
+                                            <li class="list-group-item">
+                                                <small class="text-muted">Durasi Review</small>
+                                                <p class="mb-0"><strong><t t-esc="post.review_duration_days"/> hari</strong></p>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+
+                                <!-- Publisher Info -->
+                                <t t-if="post.publisher_id">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-building text-success"/> Penerbit/Institusi</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6><t t-esc="post.publisher_id.name"/></h6>
+                                            <p class="small text-muted mb-2"><t t-esc="dict(post.publisher_id._fields['publisher_type'].selection).get(post.publisher_id.publisher_type, post.publisher_id.publisher_type)"/></p>
+                                            <t t-if="post.publisher_id.country">
+                                                <p class="small mb-2"><i class="fa fa-map-marker"/> <t t-esc="post.publisher_id.country"/></p>
+                                            </t>
+                                            <t t-if="post.publisher_id.website_url">
+                                                <a t-att-href="post.publisher_id.website_url" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fa fa-external-link"/> Kunjungi Website
+                                                </a>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Workload -->
+                                <t t-if="post.actual_hours or post.review_score">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-line-chart text-warning"/> Beban Kerja</h5>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <t t-if="post.review_score">
+                                                <li class="list-group-item">
+                                                    <small class="text-muted">Skor Review</small>
+                                                    <p class="mb-0"><strong><t t-esc="post.review_score"/></strong>/10</p>
+                                                </li>
+                                            </t>
+                                            <t t-if="post.actual_hours">
+                                                <li class="list-group-item">
+                                                    <small class="text-muted">Waktu Review</small>
+                                                    <p class="mb-0"><strong><t t-esc="post.actual_hours"/></strong> jam</p>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                </t>
+
+                                <!-- Keywords & Classification -->
+                                <t t-if="post.keywords">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-tags text-secondary"/> Kata Kunci</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="post.keywords">
+                                                <p class="mb-0">
+                                                    <t t-foreach="post.keywords.split(',')" t-as="keyword">
+                                                        <span class="badge bg-light text-dark me-1 mb-1"><t t-esc="keyword.strip()"/></span>
+                                                    </t>
+                                                </p>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Related Posts -->
+                                <t t-if="related_posts">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-link text-primary"/> Aktivitas Terkait</h5>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <t t-foreach="related_posts" t-as="related">
+                                                <li class="list-group-item">
+                                                    <a t-att-href="'/reviewer/detail/%s-%s' % (related.slug, related.id)" class="text-decoration-none">
+                                                        <strong><t t-esc="related.name[:60]"/><t t-if="len(related.name) > 60">...</t></strong>
+                                                    </a>
+                                                    <br/>
+                                                    <small class="text-muted">
+                                                        <i class="fa fa-calendar"/> <t t-esc="related.review_date" t-options="{'widget': 'date', 'format': 'd MMM yyyy'}"/>
+                                                    </small>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Reviewer Category Page -->
+        <template id="reviewer_category" name="Kategori Review">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <section class="bg-light py-5">
+                        <div class="container">
+                            <h1 class="display-4 fw-bold"><t t-esc="blog.name"/></h1>
+                            <p class="lead"><t t-esc="blog.subtitle or 'Kumpulan aktivitas review'"/></p>
+                            <div class="row mt-4">
+                                <div class="col-md-3">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h4 class="text-primary"><t t-esc="blog.post_count"/></h4>
+                                            <small class="text-muted">Total Review</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h4 class="text-info"><t t-esc="blog.review_level"/></h4>
+                                            <small class="text-muted">Level</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h4 class="text-success"><t t-esc="blog.review_type"/></h4>
+                                            <small class="text-muted">Jenis</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h4 class="text-warning"><t t-esc="blog.review_field"/></h4>
+                                            <small class="text-muted">Bidang</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="container py-5">
+                        <div class="row">
+                            <t t-foreach="posts" t-as="post">
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <div class="card h-100">
+                                        <t t-if="post.cover_image">
+                                            <img t-att-src="'/web/image/reviewer.post/%s/cover_image' % post.id" class="card-img-top" alt="Cover" style="height: 200px; object-fit: cover;"/>
+                                        </t>
+                                        <div class="card-body">
+                                            <span class="badge bg-primary mb-2"><t t-esc="post.reviewer_type_id.name"/></span>
+                                            <h5 class="card-title">
+                                                <a t-att-href="'/reviewer/detail/%s-%s' % (post.slug, post.id)" class="text-decoration-none">
+                                                    <t t-esc="post.name"/>
+                                                </a>
+                                            </h5>
+                                            <p class="text-muted small mb-2">
+                                                <i class="fa fa-user"/> <t t-esc="post.author_name"/><br/>
+                                                <i class="fa fa-calendar"/> <t t-esc="post.review_date"/><br/>
+                                                <t t-if="post.journal_conference_name">
+                                                    <i class="fa fa-book"/> <t t-esc="post.journal_conference_name"/>
+                                                </t>
+                                            </p>
+                                            <t t-if="post.teaser">
+                                                <p class="card-text text-muted small">
+                                                    <t t-esc="post.teaser[:120]"/>...
+                                                </p>
+                                            </t>
+                                        </div>
+                                        <div class="card-footer bg-transparent">
+                                            <small class="text-muted">
+                                                <t t-if="post.review_result">
+                                                    <t t-esc="dict(post._fields['review_result'].selection).get(post.review_result, post.review_result)"/>
+                                                </t>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

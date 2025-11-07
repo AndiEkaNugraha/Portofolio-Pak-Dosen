@@ -298,7 +298,6 @@
                                                 <t t-if="post.duration_days > 1">
                                                     <p class="mb-2"><i class="fa fa-calendar-check-o text-primary"/> <strong>Durasi:</strong> <t t-esc="post.duration_days"/> hari</p>
                                                 </t>
-                                                <p class="mb-2"><i class="fa fa-tag text-primary"/> <strong>Kategori:</strong> <t t-esc="post.blog_id.name"/></p>
                                             </div>
                                         </div>
                                     </div>
@@ -326,14 +325,11 @@
                                     </div>
                                 </t>
 
-                                <!-- Summary -->
-                                <t t-if="post.teaser_text">
+                                <!-- Full Description -->
+                                <t t-if="post.description_html">
                                     <div class="card mb-4 shadow-sm">
-                                        <div class="card-header bg-white">
-                                            <h5 class="mb-0"><i class="fa fa-align-left text-primary"/> Ringkasan</h5>
-                                        </div>
                                         <div class="card-body">
-                                            <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.teaser_text"/></p>
+                                            <div t-field="post.description_html" class="o_website_editor_content"/>
                                         </div>
                                     </div>
                                 </t>
@@ -358,18 +354,6 @@
                                         </div>
                                         <div class="card-body">
                                             <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.topics"/></p>
-                                        </div>
-                                    </div>
-                                </t>
-
-                                <!-- Full Description -->
-                                <t t-if="post.description_html">
-                                    <div class="card mb-4 shadow-sm">
-                                        <div class="card-header bg-white">
-                                            <h5 class="mb-0"><i class="fa fa-file-text text-primary"/> Deskripsi Lengkap</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <div t-field="post.description_html" class="o_website_editor_content"/>
                                         </div>
                                     </div>
                                 </t>

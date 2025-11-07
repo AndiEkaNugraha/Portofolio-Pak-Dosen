@@ -1,0 +1,1559 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        
+        
+        <record id="reviewer_type_jurnal" model="reviewer.type">
+            <field name="name">Review Jurnal Ilmiah</field>
+            <field name="code">JURNAL</field>
+            <field name="description">Review artikel jurnal ilmiah untuk publikasi</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="reviewer_type_buku" model="reviewer.type">
+            <field name="name">Review Buku/Naskah</field>
+            <field name="code">BUKU</field>
+            <field name="description">Review buku atau naskah untuk publikasi</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <record id="reviewer_type_konferensi" model="reviewer.type">
+            <field name="name">Review Artikel Konferensi</field>
+            <field name="code">KONF</field>
+            <field name="description">Review paper untuk konferensi ilmiah</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <record id="reviewer_type_penelitian" model="reviewer.type">
+            <field name="name">Review Penelitian</field>
+            <field name="code">PENEL</field>
+            <field name="description">Review proposal atau laporan penelitian</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <record id="reviewer_type_proposal" model="reviewer.type">
+            <field name="name">Review Proposal Penelitian</field>
+            <field name="code">PROP</field>
+            <field name="description">Review proposal penelitian untuk funding atau ijin penelitian</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <record id="reviewer_type_tugas_akhir" model="reviewer.type">
+            <field name="name">Review Tugas Akhir/Disertasi</field>
+            <field name="code">TA</field>
+            <field name="description">Review tugas akhir, tesis, atau disertasi mahasiswa</field>
+            <field name="sequence">60</field>
+        </record>
+        
+        <record id="reviewer_type_hibah" model="reviewer.type">
+            <field name="name">Review Hibah/Grant</field>
+            <field name="code">HIBAH</field>
+            <field name="description">Review proposal hibah atau grant penelitian</field>
+            <field name="sequence">70</field>
+        </record>
+        
+        <record id="reviewer_type_lainnya" model="reviewer.type">
+            <field name="name">Review Lainnya</field>
+            <field name="code">OTHER</field>
+            <field name="description">Jenis review lainnya</field>
+            <field name="sequence">90</field>
+        </record>
+        
+        
+        <record id="reviewer_type_textbook" model="reviewer.type">
+            <field name="name">Review Buku Ajar</field>
+            <field name="code">BUKU_AJAR</field>
+            <field name="description">Review buku ajar, modul, dan bahan pembelajaran akademik</field>
+            <field name="sequence">75</field>
+        </record>
+        
+        <record id="reviewer_type_software" model="reviewer.type">
+            <field name="name">Review Software Akademik</field>
+            <field name="code">SOFTWARE</field>
+            <field name="description">Review software pembelajaran, aplikasi mobile, dan tools akademik</field>
+            <field name="sequence">80</field>
+        </record>
+        
+        <record id="reviewer_type_curriculum" model="reviewer.type">
+            <field name="name">Review Kurikulum</field>
+            <field name="code">KURIKULUM</field>
+            <field name="description">Review kurikulum program studi dan mata kuliah</field>
+            <field name="sequence">85</field>
+        </record>
+        
+        
+        <record id="publisher_ieee" model="reviewer.publisher">
+            <field name="name">IEEE (Institute of Electrical and Electronics Engineers)</field>
+            <field name="publisher_type">journal</field>
+            <field name="country">United States</field>
+            <field name="website_url">https://www.ieee.org</field>
+            <field name="email">support@ieee.org</field>
+            <field name="description">Leading publisher of technical literature in electrical engineering, computer science, and electronics</field>
+            <field name="indexing_info">Scopus, Web of Science, Q1-Q2 journals</field>
+        </record>
+        
+        <record id="publisher_elsevier" model="reviewer.publisher">
+            <field name="name">Elsevier</field>
+            <field name="publisher_type">journal</field>
+            <field name="country">Netherlands</field>
+            <field name="website_url">https://www.elsevier.com</field>
+            <field name="description">Major publisher of scientific and technical literature</field>
+            <field name="indexing_info">Scopus, Web of Science</field>
+        </record>
+        
+        <record id="publisher_springer" model="reviewer.publisher">
+            <field name="name">Springer Nature</field>
+            <field name="publisher_type">publisher</field>
+            <field name="country">Germany</field>
+            <field name="website_url">https://www.springer.com</field>
+            <field name="description">Academic book publisher and journal publisher</field>
+            <field name="indexing_info">Scopus, Web of Science</field>
+        </record>
+        
+        <record id="publisher_acm" model="reviewer.publisher">
+            <field name="name">ACM (Association for Computing Machinery)</field>
+            <field name="publisher_type">conference</field>
+            <field name="country">United States</field>
+            <field name="website_url">https://www.acm.org</field>
+            <field name="description">Leading scientific society for computing</field>
+            <field name="indexing_info">Scopus, Web of Science, DBLP</field>
+        </record>
+        
+        <record id="publisher_itb" model="reviewer.publisher">
+            <field name="name">Institut Teknologi Bandung</field>
+            <field name="publisher_type">university</field>
+            <field name="country">Indonesia</field>
+            <field name="website_url">https://www.itb.ac.id</field>
+            <field name="description">Leading technical university in Indonesia</field>
+        </record>
+        
+        <record id="publisher_ugm" model="reviewer.publisher">
+            <field name="name">Universitas Gadjah Mada</field>
+            <field name="publisher_type">university</field>
+            <field name="country">Indonesia</field>
+            <field name="website_url">https://www.ugm.ac.id</field>
+            <field name="description">Premier university in Indonesia</field>
+        </record>
+        
+        <record id="publisher_kemendikbud" model="reviewer.publisher">
+            <field name="name">Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi</field>
+            <field name="publisher_type">funding_agency</field>
+            <field name="country">Indonesia</field>
+            <field name="website_url">https://www.kemdikbud.go.id</field>
+            <field name="description">Ministry of Education, Culture, Research, and Technology of Indonesia</field>
+        </record>
+        
+        <record id="publisher_mdpi" model="reviewer.publisher">
+            <field name="name">MDPI (Multidisciplinary Digital Publishing Institute)</field>
+            <field name="publisher_type">journal</field>
+            <field name="country">Switzerland</field>
+            <field name="website_url">https://www.mdpi.com</field>
+            <field name="description">Open access scholarly publisher</field>
+            <field name="indexing_info">Scopus, Web of Science, DOAJ</field>
+        </record>
+        
+        
+        <record id="publisher_wiley" model="reviewer.publisher">
+            <field name="name">Wiley-Blackwell</field>
+            <field name="publisher_type">journal</field>
+            <field name="country">United States</field>
+            <field name="website_url">https://www.wiley.com</field>
+            <field name="email">support@wiley.com</field>
+            <field name="description">Leading publisher of academic journals and books in science, technology, and medicine</field>
+            <field name="indexing_info">Scopus, Web of Science, Q1-Q2 journals</field>
+        </record>
+        
+        <record id="publisher_taylor_francis" model="reviewer.publisher">
+            <field name="name">Taylor &amp; Francis</field>
+            <field name="publisher_type">publisher</field>
+            <field name="country">United Kingdom</field>
+            <field name="website_url">https://www.taylorandfrancis.com</field>
+            <field name="description">International academic publisher with strong presence in social sciences and humanities</field>
+            <field name="indexing_info">Scopus, Web of Science</field>
+        </record>
+        
+        <record id="publisher_ieee_computer" model="reviewer.publisher">
+            <field name="name">IEEE Computer Society</field>
+            <field name="publisher_type">conference</field>
+            <field name="country">United States</field>
+            <field name="website_url">https://www.computer.org</field>
+            <field name="description">Professional society for computer science and information technology</field>
+            <field name="indexing_info">Scopus, DBLP, Citeseer</field>
+        </record>
+        
+        <record id="publisher_universitas_indonesia" model="reviewer.publisher">
+            <field name="name">Universitas Indonesia</field>
+            <field name="publisher_type">university</field>
+            <field name="country">Indonesia</field>
+            <field name="website_url">https://www.ui.ac.id</field>
+            <field name="description">Leading public university in Indonesia with strong research programs</field>
+        </record>
+        
+        <record id="publisher_ipb" model="reviewer.publisher">
+            <field name="name">Institut Pertanian Bogor</field>
+            <field name="publisher_type">university</field>
+            <field name="country">Indonesia</field>
+            <field name="website_url">https://www.ipb.ac.id</field>
+            <field name="description">Agricultural university with strong computer science and information technology programs</field>
+        </record>
+        
+        <record id="publisher_brin" model="reviewer.publisher">
+            <field name="name">Badan Riset dan Inovasi Nasional (BRIN)</field>
+            <field name="publisher_type">funding_agency</field>
+            <field name="country">Indonesia</field>
+            <field name="website_url">https://www.brin.go.id</field>
+            <field name="description">National Research and Innovation Agency of Indonesia</field>
+        </record>
+        
+        
+        <record id="reviewer_blog_journal_international" model="reviewer.blog">
+            <field name="name">Review Jurnal Internasional</field>
+            <field name="subtitle">Review artikel jurnal internasional bereputasi</field>
+            <field name="description">Kumpulan aktivitas review artikel jurnal internasional yang terindeks Scopus, Web of Science, dan database bereputasi lainnya</field>
+            <field name="review_level">international</field>
+            <field name="review_type">journal</field>
+            <field name="review_field">computer_science</field>
+            <field name="indexing_status">scopus</field>
+        </record>
+        
+        <record id="reviewer_blog_journal_national" model="reviewer.blog">
+            <field name="name">Review Jurnal Nasional</field>
+            <field name="subtitle">Review artikel jurnal nasional terakreditasi</field>
+            <field name="description">Kumpulan aktivitas review artikel jurnal nasional yang terakreditasi SINTA</field>
+            <field name="review_level">national</field>
+            <field name="review_type">journal</field>
+            <field name="review_field">multidisciplinary</field>
+            <field name="indexing_status">sinta</field>
+        </record>
+        
+        <record id="reviewer_blog_conference" model="reviewer.blog">
+            <field name="name">Review Konferensi Internasional</field>
+            <field name="subtitle">Review paper konferensi internasional</field>
+            <field name="description">Kumpulan aktivitas review paper untuk konferensi internasional bergengsi</field>
+            <field name="review_level">international</field>
+            <field name="review_type">conference</field>
+            <field name="review_field">information_technology</field>
+            <field name="indexing_status">scopus</field>
+        </record>
+        
+        <record id="reviewer_blog_book" model="reviewer.blog">
+            <field name="name">Review Buku</field>
+            <field name="subtitle">Review buku dan naskah ilmiah</field>
+            <field name="description">Kumpulan aktivitas review buku dan naskah untuk publikasi</field>
+            <field name="review_level">international</field>
+            <field name="review_type">book</field>
+            <field name="review_field">computer_science</field>
+            <field name="indexing_status">other</field>
+        </record>
+        
+        <record id="reviewer_blog_thesis" model="reviewer.blog">
+            <field name="name">Review Tugas Akhir</field>
+            <field name="subtitle">Review tugas akhir dan disertasi</field>
+            <field name="description">Kumpulan aktivitas review tugas akhir mahasiswa S1, S2, dan S3</field>
+            <field name="review_level">national</field>
+            <field name="review_type">thesis</field>
+            <field name="review_field">engineering</field>
+            <field name="indexing_status">non_indexed</field>
+        </record>
+        
+        <record id="reviewer_blog_grant" model="reviewer.blog">
+            <field name="name">Review Proposal Hibah</field>
+            <field name="subtitle">Review proposal hibah penelitian</field>
+            <field name="description">Kumpulan aktivitas review proposal hibah penelitian untuk berbagai skema pendanaan</field>
+            <field name="review_level">national</field>
+            <field name="review_type">grant</field>
+            <field name="review_field">multidisciplinary</field>
+            <field name="indexing_status">non_indexed</field>
+        </record>
+        
+        
+        <record id="reviewer_blog_research_proposal" model="reviewer.blog">
+            <field name="name">Review Proposal Penelitian</field>
+            <field name="subtitle">Review proposal penelitian internal universitas</field>
+            <field name="description">Kumpulan aktivitas review proposal penelitian internal universitas dan lembaga</field>
+            <field name="review_level">national</field>
+            <field name="review_type">proposal</field>
+            <field name="review_field">computer_science</field>
+            <field name="indexing_status">non_indexed</field>
+        </record>
+        
+        <record id="reviewer_blog_textbook" model="reviewer.blog">
+            <field name="name">Review Buku Ajar</field>
+            <field name="subtitle">Review buku ajar dan bahan ajar</field>
+            <field name="description">Kumpulan aktivitas review buku ajar, modul pembelajaran, dan bahan ajar akademik</field>
+            <field name="review_level">national</field>
+            <field name="review_type">book</field>
+            <field name="review_field">information_technology</field>
+            <field name="indexing_status">non_indexed</field>
+        </record>
+        
+        <record id="reviewer_blog_software" model="reviewer.blog">
+            <field name="name">Review Software Akademik</field>
+            <field name="subtitle">Review software dan aplikasi akademik</field>
+            <field name="description">Kumpulan aktivitas review software pembelajaran, aplikasi mobile, dan tools akademik</field>
+            <field name="review_level">national</field>
+            <field name="review_type">other</field>
+            <field name="review_field">engineering</field>
+            <field name="indexing_status">non_indexed</field>
+        </record>
+        
+        
+        <record id="reviewer_post_sample_1" model="reviewer.post">
+            <field name="name">Machine Learning Approaches for Network Intrusion Detection: A Comprehensive Survey</field>
+            <field name="slug">machine-learning-approaches-for-network-intrusion-detection-a-comprehensive-survey</field><field name="subtitle">Review artikel tentang machine learning untuk deteksi intrusi jaringan</field>
+            <field name="blog_id" ref="reviewer_blog_journal_international" />
+            <field name="reviewer_type_id" ref="reviewer_type_jurnal" />
+            <field name="author_name">Dr. Ahmad Prakoso, Prof. Siti Nurhaliza</field>
+            <field name="author_affiliation">Universitas Indonesia</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_ieee" />
+            <field name="journal_conference_name">IEEE Access</field>
+            <field name="review_date">2024-08-15</field>
+            <field name="review_submission_date">2024-08-01</field>
+            <field name="review_completion_date">2024-08-15</field>
+            <field name="review_round">1</field>
+            <field name="review_method">double_blind</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">minor_revision</field>
+            <field name="review_score">7.5</field>
+            <field name="review_focus_areas">Metodologi penelitian, analisis eksperimental, komparasi dengan state-of-the-art, novelty dan kontribusi</field>
+            <field name="strengths">
+                &lt;p&gt;Paper ini menyajikan &lt;strong&gt;survey komprehensif&lt;/strong&gt; tentang pendekatan machine learning untuk deteksi intrusi jaringan dengan analisis mendalam terhadap berbagai algoritma. Berikut kelebihan utama:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Struktur paper &lt;em&gt;sangat baik&lt;/em&gt; dengan pembahasan yang sistematis&lt;/li&gt;
+                    &lt;li&gt;Evaluasi performa algoritma dilakukan dengan dataset standar yang relevan (NSL-KDD, UNSW-NB15, CIC-IDS2017)&lt;/li&gt;
+                    &lt;li&gt;Analisis mendalam terhadap berbagai algoritma ML (Decision Trees, Random Forest, SVM, Neural Networks, Deep Learning)&lt;/li&gt;
+                    &lt;li&gt;Pembahasan trade-off antara accuracy dan computational cost&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;p&gt;Beberapa area yang perlu diperbaiki:&lt;/p&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;&lt;strong&gt;Referensi terbaru:&lt;/strong&gt; Beberapa referensi terbaru (2023-2024) masih kurang&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Analisis computational cost:&lt;/strong&gt; Perbandingan computational cost antar algoritma perlu diperdalam&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Implementasi real-time:&lt;/strong&gt; Diskusi tentang implementasi real-time perlu ditambahkan&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Deployment considerations:&lt;/strong&gt; Aspek praktis deployment di production environment belum dibahas&lt;/li&gt;
+                &lt;/ol&gt;
+            </field>
+            <field name="recommendations">
+                &lt;h5&gt;Rekomendasi Revisi:&lt;/h5&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;Tambahkan &lt;strong&gt;referensi terbaru&lt;/strong&gt; (minimal 10 paper dari 2023-2024)&lt;/li&gt;
+                    &lt;li&gt;Perluas analisis &lt;em&gt;computational complexity&lt;/em&gt; dengan perbandingan memory usage dan processing time&lt;/li&gt;
+                    &lt;li&gt;Tambahkan diskusi tentang &lt;strong&gt;deployment dan implementasi praktis&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Perbaiki beberapa typo pada bagian hasil eksperimen&lt;/li&gt;
+                    &lt;li&gt;Tambahkan &lt;strong&gt;tabel perbandingan komprehensif&lt;/strong&gt; di conclusion yang merangkum semua findings&lt;/li&gt;
+                &lt;/ol&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Paper ini memiliki kualitas baik dan memberikan kontribusi signifikan sebagai survey paper. Dengan revisi yang disarankan, paper ini layak untuk dipublikasikan di IEEE Access.&lt;/p&gt;
+                &lt;p&gt;Recommended: Accept with Minor Revision&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">8</field>
+            <field name="actual_hours">7.5</field>
+            <field name="keywords">machine learning, intrusion detection, network security, deep learning, cyber security</field>
+            <field name="teaser">Review artikel survey komprehensif tentang pendekatan machine learning untuk deteksi intrusi jaringan. Paper memiliki kualitas baik dengan pembahasan sistematis, direkomendasikan minor revision.</field>
+            <field name="content">&lt;p&gt;Artikel ini merupakan comprehensive survey paper yang membahas berbagai pendekatan machine learning untuk network intrusion detection. Paper ini menganalisis algoritma-algoritma utama seperti Decision Trees, Random Forest, SVM, Neural Networks, dan Deep Learning approaches.&lt;/p&gt;&lt;p&gt;Penulis melakukan evaluasi performa menggunakan dataset standar seperti NSL-KDD, UNSW-NB15, dan CIC-IDS2017. Hasil eksperimen menunjukkan bahwa deep learning approaches memberikan akurasi lebih tinggi namun dengan computational cost yang lebih besar.&lt;/p&gt;</field>
+            <field name="meta_title">Machine Learning Approaches for Network Intrusion Detection: A Comprehensive Survey</field>
+            <field name="meta_description">Review artikel survey komprehensif tentang pendekatan machine learning untuk deteksi intrusi jaringan. Paper memiliki kualitas baik dengan pembahasan sistematis, direkomendasikan minor revision.</field>
+            <field name="meta_keywords">machine learning, intrusion detection, network security, deep learning, cyber security</field>
+            <field name="document_url">https://ieeexplore.ieee.org/document/12345678</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="reviewer_post_sample_2" model="reviewer.post">
+            <field name="name">Blockchain Technology for Supply Chain Traceability: Implementation and Challenges</field>
+            <field name="slug">blockchain-technology-for-supply-chain-traceability-implementation-and-challenges</field><field name="subtitle">Review artikel tentang implementasi blockchain untuk supply chain</field>
+            <field name="blog_id" ref="reviewer_blog_journal_international" />
+            <field name="reviewer_type_id" ref="reviewer_type_jurnal" />
+            <field name="author_name">Dr. Budi Santoso, Dr. Rina Kartika</field>
+            <field name="author_affiliation">Institut Teknologi Bandung</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_elsevier" />
+            <field name="journal_conference_name">Computers in Industry</field>
+            <field name="review_date">2024-07-20</field>
+            <field name="review_submission_date">2024-07-05</field>
+            <field name="review_completion_date">2024-07-20</field>
+            <field name="review_round">1</field>
+            <field name="review_method">double_blind</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">accept</field>
+            <field name="review_score">8.5</field>
+            <field name="review_focus_areas">Novelty, implementasi praktis, evaluasi performa, analisis challenges dan limitations</field>
+            <field name="strengths">
+                &lt;h5&gt;Kelebihan Utama:&lt;/h5&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;Implementasi Praktis:&lt;/strong&gt; Paper menyajikan implementasi praktis blockchain untuk supply chain traceability dengan studi kasus nyata di industri manufaktur&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Evaluasi Komprehensif:&lt;/strong&gt; Analisis performa sistem sangat detail dengan pengukuran:
+                        &lt;ul&gt;
+                            &lt;li&gt;Throughput: 1000 TPS&lt;/li&gt;
+                            &lt;li&gt;Latency: 2 detik rata-rata&lt;/li&gt;
+                            &lt;li&gt;Scalability testing dengan berbagai beban&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Diskusi Mendalam:&lt;/strong&gt; Pembahasan tentang challenges dan solutions sangat komprehensif&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Writing Quality:&lt;/strong&gt; Paper &lt;em&gt;well-written&lt;/em&gt; dan mudah dipahami&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;p&gt;&lt;span style="color: #28a745;"&gt;&lt;strong&gt;✓ Tidak ada kelemahan signifikan yang ditemukan.&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;Paper sudah memenuhi standar publikasi jurnal &lt;strong&gt;Q1&lt;/strong&gt; dengan kualitas excellent.&lt;/p&gt;
+            </field>
+            <field name="recommendations">
+                &lt;p&gt;Paper ini sudah &lt;strong&gt;sangat baik&lt;/strong&gt; dan siap untuk publikasi. Hanya ada beberapa &lt;em&gt;minor typos&lt;/em&gt; yang perlu diperbaiki pada bagian references.&lt;/p&gt;
+                &lt;p&gt;&lt;span style="color: #28a745; font-size: 1.1em;"&gt;✓ &lt;strong&gt;Recommended: ACCEPT&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Excellent paper dengan kontribusi praktis yang signifikan. Implementasi blockchain yang disajikan dapat menjadi referensi untuk penelitian lanjutan di bidang blockchain dan supply chain, implementasi praktis di industri, dan teaching material untuk courses terkait.&lt;/p&gt;
+                &lt;p&gt;Impact Factor jurnal (10.0) sangat sesuai dengan kualitas paper ini.&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">6</field>
+            <field name="actual_hours">5.5</field>
+            <field name="keywords">blockchain, supply chain, traceability, distributed ledger, smart contracts</field>
+            <field name="teaser">Review artikel implementasi blockchain untuk supply chain traceability. Paper berkualitas excellent dengan implementasi praktis dan evaluasi komprehensif, direkomendasikan accept.</field>
+            <field name="content">&lt;p&gt;Paper ini menyajikan implementasi praktis blockchain technology untuk supply chain traceability dengan studi kasus pada industri manufaktur. Sistem yang dikembangkan menggunakan Hyperledger Fabric dengan smart contracts untuk otomasi proses verifikasi.&lt;/p&gt;&lt;p&gt;Evaluasi performa menunjukkan sistem mampu menangani 1000 TPS dengan latency rata-rata 2 detik. Paper juga membahas challenges dalam implementasi seperti interoperability, scalability, dan privacy concerns beserta solusinya.&lt;/p&gt;</field>
+            <field name="meta_title">Blockchain Technology for Supply Chain Traceability: Implementation and Challenges</field>
+            <field name="meta_description">Review artikel implementasi blockchain untuk supply chain traceability. Paper berkualitas excellent dengan implementasi praktis dan evaluasi komprehensif, direkomendasikan accept.</field>
+            <field name="meta_keywords">blockchain, supply chain, traceability, distributed ledger, smart contracts</field>
+            <field name="document_url">https://www.sciencedirect.com/science/article/pii/S0166361521002345</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        
+        <record id="reviewer_post_sample_3" model="reviewer.post">
+            <field name="name">Deep Learning for Medical Image Segmentation Using Attention Mechanisms</field>
+            <field name="slug">deep-learning-for-medical-image-segmentation-using-attention-mechanisms</field><field name="subtitle">Review paper konferensi tentang deep learning untuk medical imaging</field>
+            <field name="blog_id" ref="reviewer_blog_conference" />
+            <field name="reviewer_type_id" ref="reviewer_type_konferensi" />
+            <field name="author_name">Dr. Maya Sari, Prof. Ahmad Hidayat</field>
+            <field name="author_affiliation">Universitas Gadjah Mada</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_acm" />
+            <field name="journal_conference_name">ACM SIGGRAPH Asia 2024</field>
+            <field name="review_date">2024-09-10</field>
+            <field name="review_submission_date">2024-08-25</field>
+            <field name="review_completion_date">2024-09-10</field>
+            <field name="review_round">1</field>
+            <field name="review_method">double_blind</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">major_revision</field>
+            <field name="review_score">6.5</field>
+            <field name="review_focus_areas">Novelty architecture, experimental results, comparison with state-of-the-art, ablation study</field>
+            <field name="strengths">
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;Promising Results:&lt;/strong&gt; Proposed attention mechanism menunjukkan hasil yang &lt;em&gt;promising&lt;/em&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Good Motivation:&lt;/strong&gt; Motivasi dan problem formulation dijelaskan dengan baik&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Comprehensive Dataset:&lt;/strong&gt; Evaluasi menggunakan dataset komprehensif:
+                        &lt;ul&gt;
+                            &lt;li&gt;MRI images&lt;/li&gt;
+                            &lt;li&gt;CT scan images&lt;/li&gt;
+                            &lt;li&gt;X-ray images&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;h5 style="color: #dc3545;"&gt;⚠ Area yang Perlu Perbaikan Substansial:&lt;/h5&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;&lt;strong&gt;Novelty Terbatas:&lt;/strong&gt; Attention mechanism yang diusulkan &lt;em&gt;mirip dengan existing works&lt;/em&gt;, perlu penjelasan perbedaan yang lebih jelas&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Ablation Study:&lt;/strong&gt; Kurang mendalam, perlu analisis per komponen&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Comparison Methods:&lt;/strong&gt; Hanya dibandingkan dengan 3 baseline methods, perlu ditambah minimal 5-7 SOTA methods&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Statistical Tests:&lt;/strong&gt; Statistical significance test belum dilakukan (t-test, Wilcoxon test)&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Implementation Details:&lt;/strong&gt; Beberapa details masih &lt;em&gt;unclear&lt;/em&gt;, terutama hyperparameter settings&lt;/li&gt;
+                &lt;/ol&gt;
+            </field>
+            <field name="recommendations">
+                &lt;h5&gt;Rekomendasi untuk Major Revision:&lt;/h5&gt;
+                &lt;table border="1" style="width: 100%; border-collapse: collapse;"&gt;
+                    &lt;tr style="background-color: #f8f9fa;"&gt;
+                        &lt;th style="padding: 8px;"&gt;No&lt;/th&gt;
+                        &lt;th style="padding: 8px;"&gt;Area&lt;/th&gt;
+                        &lt;th style="padding: 8px;"&gt;Action Required&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;1&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Novelty&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Perkuat dengan menjelaskan perbedaan signifikan dengan existing attention mechanisms&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;2&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Ablation Study&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Tambahkan untuk setiap komponen attention&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;3&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Comparison&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Tambahkan comparison dengan minimal 5-7 state-of-the-art methods&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;4&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Statistical Tests&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Lakukan t-test dan Wilcoxon test&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;5&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Details&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Perjelas implementation details dan hyperparameter settings&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;6&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Visualization&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Tambahkan visualization attention maps&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Status: MAJOR REVISION REQUIRED&lt;/p&gt;
+                &lt;p&gt;Paper memiliki potensi namun perlu perbaikan substansial sebelum dapat diterima di konferensi bergengsi seperti SIGGRAPH Asia.&lt;/p&gt;
+                &lt;p&gt;Recommendation: Resubmit after major revision&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">6</field>
+            <field name="actual_hours">6</field>
+            <field name="keywords">deep learning, medical image segmentation, attention mechanism, convolutional neural networks, healthcare</field>
+            <field name="teaser">Review paper konferensi ACM SIGGRAPH Asia 2024 tentang deep learning untuk medical image segmentation. Paper memiliki potensi namun perlu major revision untuk memperkuat novelty dan menambah eksperimen.</field>
+            <field name="content">&lt;p&gt;Paper ini mengusulkan attention mechanism baru untuk medical image segmentation menggunakan deep learning. Architecture yang diusulkan menggabungkan U-Net dengan multi-scale attention modules.&lt;/p&gt;&lt;p&gt;Eksperimen dilakukan pada dataset MRI, CT scan, dan X-ray dengan hasil yang promising. Namun novelty masih terbatas dan perlu eksperimen tambahan untuk memperkuat contribution.&lt;/p&gt;</field>
+            <field name="meta_title">Deep Learning for Medical Image Segmentation Using Attention Mechanisms</field>
+            <field name="meta_description">Review paper konferensi ACM SIGGRAPH Asia 2024 tentang deep learning untuk medical image segmentation. Paper memiliki potensi namun perlu major revision untuk memperkuat novelty dan menambah eksperimen.</field>
+            <field name="meta_keywords">deep learning, medical image segmentation, attention mechanism, convolutional neural networks, healthcare</field>
+            <field name="document_url">https://dl.acm.org/doi/10.1145/1234567.1234567</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        
+        <record id="reviewer_post_sample_4" model="reviewer.post">
+            <field name="name">Sistem Informasi Manajemen Perpustakaan Berbasis Web dengan Teknologi Cloud Computing</field>
+            <field name="slug">sistem-informasi-manajemen-perpustakaan-berbasis-web-dengan-teknologi-cloud-computing</field><field name="subtitle">Review artikel jurnal nasional tentang sistem perpustakaan</field>
+            <field name="blog_id" ref="reviewer_blog_journal_national" />
+            <field name="reviewer_type_id" ref="reviewer_type_jurnal" />
+            <field name="author_name">Nina Amelia, S.Kom., M.T., Rudi Hartono, S.T.</field>
+            <field name="author_affiliation">Universitas Padjadjaran</field>
+            <field name="author_country">Indonesia</field>
+            <field name="journal_conference_name">Jurnal Teknologi Informasi dan Ilmu Komputer (JTIIK) - SINTA 2</field>
+            <field name="review_date">2024-06-15</field>
+            <field name="review_submission_date">2024-06-01</field>
+            <field name="review_completion_date">2024-06-15</field>
+            <field name="review_round">1</field>
+            <field name="review_method">double_blind</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">minor_revision</field>
+            <field name="review_score">7.0</field>
+            <field name="review_focus_areas">Metodologi pengembangan sistem, arsitektur cloud, pengujian sistem, contribution dan novelty</field>
+            <field name="strengths">
+                &lt;h5&gt;Kelebihan Paper:&lt;/h5&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;Fitur Komprehensif:&lt;/strong&gt; Sistem yang dikembangkan mencakup fitur lengkap untuk manajemen perpustakaan:
+                        &lt;ul&gt;
+                            &lt;li&gt;Cataloging&lt;/li&gt;
+                            &lt;li&gt;Circulation&lt;/li&gt;
+                            &lt;li&gt;Member management&lt;/li&gt;
+                            &lt;li&gt;Reporting&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Cloud Computing:&lt;/strong&gt; Implementasi dengan AWS dijelaskan dengan baik (EC2, RDS, S3)&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;User Interface:&lt;/strong&gt; Design modern dan &lt;em&gt;user-friendly&lt;/em&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; Dilakukan dengan comprehensive test cases&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;h5 style="color: #856404;"&gt;Area yang Perlu Diperbaiki:&lt;/h5&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;&lt;strong&gt;Tinjauan Pustaka:&lt;/strong&gt; Perlu diperkuat dengan referensi terbaru (2022-2024)&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Analisis Perbandingan:&lt;/strong&gt; Comparison dengan existing library systems kurang mendalam&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Performance Testing:&lt;/strong&gt; Metrics perlu ditambahkan:
+                        &lt;ul&gt;
+                            &lt;li&gt;Response time&lt;/li&gt;
+                            &lt;li&gt;Throughput&lt;/li&gt;
+                            &lt;li&gt;Concurrent users handling&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Security Analysis:&lt;/strong&gt; Pembahasan security measures belum detail&lt;/li&gt;
+                &lt;/ol&gt;
+            </field>
+            <field name="recommendations">
+                &lt;h5&gt;Rekomendasi Revisi Minor:&lt;/h5&gt;
+                &lt;div style="padding-left: 20px;"&gt;
+                    &lt;p&gt;&lt;strong&gt;1. Literature Review:&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p style="padding-left: 20px;"&gt;Tambahkan minimal 10 referensi terbaru (2022-2024) tentang cloud-based library systems&lt;/p&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;2. Comparative Analysis:&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p style="padding-left: 20px;"&gt;Perkuat analisis perbandingan dengan existing library systems (KOHA, Evergreen, etc.)&lt;/p&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;3. Performance Testing:&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p style="padding-left: 20px;"&gt;Tambahkan performance testing results dengan grafik untuk response time, throughput, dan concurrent users&lt;/p&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;4. Security:&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p style="padding-left: 20px;"&gt;Perluas pembahasan security measures dan authentication mechanism&lt;/p&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;5. Abstract:&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p style="padding-left: 20px;"&gt;Perbaiki penulisan abstrak (terlalu panjang, maksimal 250 kata)&lt;/p&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;6. Future Works:&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p style="padding-left: 20px;"&gt;Tambahkan section untuk future research directions&lt;/p&gt;
+                &lt;/div&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Paper ini menyajikan implementasi sistem perpustakaan yang baik dengan teknologi cloud computing. Sistem yang dikembangkan memiliki fitur lengkap dan user interface yang modern.&lt;/p&gt;
+                &lt;p&gt;Dengan revisi yang disarankan, paper layak dipublikasikan di jurnal SINTA 2.&lt;/p&gt;
+                &lt;p&gt;Recommended: Accept with Minor Revision&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">4</field>
+            <field name="actual_hours">4</field>
+            <field name="keywords">sistem informasi, perpustakaan, cloud computing, web application, AWS</field>
+            <field name="teaser">Review artikel jurnal nasional SINTA 2 tentang sistem informasi manajemen perpustakaan berbasis cloud. Sistem yang dikembangkan komprehensif, direkomendasikan minor revision untuk memperkuat analisis dan testing.</field>
+            <field name="content">&lt;p&gt;Artikel ini menyajikan pengembangan sistem informasi perpustakaan berbasis web dengan deployment di AWS cloud. Sistem mencakup fitur cataloging, circulation, member management, dan reporting.&lt;/p&gt;&lt;p&gt;Pengembangan menggunakan Laravel framework dengan MySQL database. Cloud deployment memberikan keunggulan scalability dan accessibility. Testing menunjukkan sistem berjalan dengan baik.&lt;/p&gt;</field>
+            <field name="meta_title">Sistem Informasi Manajemen Perpustakaan Berbasis Web dengan Teknologi Cloud Computing</field>
+            <field name="meta_description">Review artikel jurnal nasional SINTA 2 tentang sistem informasi manajemen perpustakaan berbasis cloud. Sistem yang dikembangkan komprehensif, direkomendasikan minor revision untuk memperkuat analisis dan testing.</field>
+            <field name="meta_keywords">sistem informasi, perpustakaan, cloud computing, web application, AWS</field>
+            <field name="document_url">https://journal.unpad.ac.id/jtiik/article/12345</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        
+        <record id="reviewer_post_sample_5" model="reviewer.post">
+            <field name="name">Artificial Intelligence: A Modern Approach (4th Edition)</field>
+            <field name="slug">artificial-intelligence-a-modern-approach-4th-edition</field><field name="subtitle">Review buku teks AI terbitan Springer</field>
+            <field name="blog_id" ref="reviewer_blog_book" />
+            <field name="reviewer_type_id" ref="reviewer_type_buku" />
+            <field name="author_name">Prof. Stuart Russell, Prof. Peter Norvig</field>
+            <field name="author_affiliation">University of California, Berkeley</field>
+            <field name="author_country">United States</field>
+            <field name="publisher_id" ref="publisher_springer" />
+            <field name="journal_conference_name">Springer Computer Science Series</field>
+            <field name="review_date">2024-05-10</field>
+            <field name="review_submission_date">2024-04-15</field>
+            <field name="review_completion_date">2024-05-10</field>
+            <field name="review_round">final</field>
+            <field name="review_method">open</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">accept</field>
+            <field name="review_score">9.5</field>
+            <field name="review_focus_areas">Content comprehensiveness, pedagogical approach, currency of material, examples and exercises, technical accuracy</field>
+            <field name="strengths">
+                &lt;h4 style="color: #28a745;"&gt;⭐ Masterpiece in AI Education&lt;/h4&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;Comprehensive Coverage:&lt;/strong&gt; Buku ini merupakan &lt;em&gt;masterpiece&lt;/em&gt; dalam bidang AI dengan coverage yang sangat komprehensif (28 chapters)&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Up-to-date Material:&lt;/strong&gt; Penambahan materi penting:
+                        &lt;ul&gt;
+                            &lt;li&gt;Deep Learning &amp;amp; Neural Networks&lt;/li&gt;
+                            &lt;li&gt;Transformer Networks&lt;/li&gt;
+                            &lt;li&gt;Generative Adversarial Networks (GANs)&lt;/li&gt;
+                            &lt;li&gt;Advanced Reinforcement Learning&lt;/li&gt;
+                            &lt;li&gt;Modern AI Applications&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Pedagogical Excellence:&lt;/strong&gt; Explanation yang &lt;em&gt;clear&lt;/em&gt; dengan contoh-contoh yang relevan&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Exercise Design:&lt;/strong&gt; Problems yang challenging dan well-designed untuk setiap chapter&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Technical Accuracy:&lt;/strong&gt; Sangat tinggi dengan referensi terkini&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;p&gt;&lt;span style="color: #28a745; font-size: 1.1em;"&gt;&lt;strong&gt;✓ Tidak ada kelemahan signifikan&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;Buku ini sudah merupakan &lt;strong&gt;standard reference&lt;/strong&gt; di bidang AI selama lebih dari 25 tahun.&lt;/p&gt;
+            </field>
+            <field name="recommendations">
+                &lt;div style="background-color: #d4edda; padding: 15px; border-radius: 5px;"&gt;
+                    &lt;h5 style="color: #155724;"&gt;✓ Ready for Publication&lt;/h5&gt;
+                    &lt;p&gt;Buku ini &lt;strong&gt;excellent&lt;/strong&gt; dan siap untuk publikasi. Hanya ada beberapa &lt;em&gt;minor typos&lt;/em&gt; yang perlu diperbaiki:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Chapter 12, page 347: typo pada equation (5.7)&lt;/li&gt;
+                        &lt;li&gt;Chapter 15, page 456: formatting issue pada algorithm pseudocode&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Ini adalah edisi terbaik dari buku AI yang sudah menjadi standard textbook selama lebih dari 25 tahun. Update pada edisi ke-4 sangat signifikan dengan penambahan modern AI topics.&lt;/p&gt;
+                
+                &lt;p&gt;Target Audience:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Undergraduate students: Comprehensive introduction to AI&lt;/li&gt;
+                    &lt;li&gt;Graduate students: In-depth coverage of advanced topics&lt;/li&gt;
+                    &lt;li&gt;Researchers: Excellent reference material&lt;/li&gt;
+                    &lt;li&gt;Practitioners: Practical insights and applications&lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;This book will remain the standard AI textbook for years to come.&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">40</field>
+            <field name="actual_hours">45</field>
+            <field name="keywords">artificial intelligence, machine learning, deep learning, reinforcement learning, natural language processing, computer vision</field>
+            <field name="teaser">Review buku teks Artificial Intelligence: A Modern Approach edisi ke-4 terbitan Springer. Buku masterpiece dengan content komprehensif dan up-to-date, highly recommended sebagai standard textbook AI.</field>
+            <field name="content">&lt;p&gt;Edisi ke-4 dari buku klasik AI ini menambahkan materi-materi terbaru seperti deep learning, transformer networks, GANs, advanced reinforcement learning, dan aplikasi AI modern. Total 28 chapters dengan organization yang excellent.&lt;/p&gt;&lt;p&gt;Setiap chapter dilengkapi dengan exercises yang challenging, historical notes, dan bibliographic notes yang komprehensif. Buku ini cocok untuk undergraduate dan graduate courses, serta sebagai reference bagi researcher dan practitioner.&lt;/p&gt;</field>
+            <field name="meta_title">Artificial Intelligence: A Modern Approach (4th Edition) - Book Review</field>
+            <field name="meta_description">Review buku teks Artificial Intelligence: A Modern Approach edisi ke-4 terbitan Springer. Buku masterpiece dengan content komprehensif dan up-to-date, highly recommended sebagai standard textbook AI.</field>
+            <field name="meta_keywords">artificial intelligence, machine learning, deep learning, reinforcement learning, natural language processing, computer vision</field>
+            <field name="document_url">https://www.springer.com/gp/book/9780134610993</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        
+        <record id="reviewer_post_sample_6" model="reviewer.post">
+            <field name="name">Optimasi Algoritma Genetic untuk Penjadwalan Mata Kuliah Menggunakan Parallel Computing</field>
+            <field name="slug">optimasi-algoritma-genetic-untuk-penjadwalan-mata-kuliah-menggunakan-parallel-computing</field><field name="subtitle">Review tesis magister teknik informatika</field>
+            <field name="blog_id" ref="reviewer_blog_thesis" />
+            <field name="reviewer_type_id" ref="reviewer_type_tugas_akhir" />
+            <field name="author_name">Ahmad Fauzi, S.Kom.</field>
+            <field name="author_affiliation">Institut Teknologi Bandung</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_itb" />
+            <field name="journal_conference_name">Program Magister Teknik Informatika - ITB</field>
+            <field name="review_date">2024-10-05</field>
+            <field name="review_submission_date">2024-09-20</field>
+            <field name="review_completion_date">2024-10-05</field>
+            <field name="review_round">1</field>
+            <field name="review_method">open</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">conditional_accept</field>
+            <field name="review_score">7.5</field>
+            <field name="review_focus_areas">Problem formulation, algorithm design, implementation, experimental evaluation, writing quality</field>
+            <field name="strengths">
+                &lt;h5&gt;Kelebihan Tesis:&lt;/h5&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;Problem Formulation:&lt;/strong&gt; Formulasi masalah penjadwalan mata kuliah dengan constraints lengkap dan jelas&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Implementation:&lt;/strong&gt; Parallel genetic algorithm menggunakan &lt;strong&gt;OpenMP&lt;/strong&gt; dijelaskan dengan detail yang baik&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Comprehensive Experiments:&lt;/strong&gt; Eksperimen dengan berbagai ukuran dataset (50-200 mata kuliah)&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Significant Results:&lt;/strong&gt; &lt;em&gt;Speedup 3.5x&lt;/em&gt; dengan 4 threads menunjukkan efektivitas parallelization&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Writing Quality:&lt;/strong&gt; Penulisan tesis sistematis dan mudah dipahami&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;h5 style="color: #856404;"&gt;Area yang Perlu Diperbaiki:&lt;/h5&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;&lt;strong&gt;Literature Review:&lt;/strong&gt; Tinjauan pustaka tentang parallel genetic algorithms perlu diperdalam, terutama terkait:
+                        &lt;ul&gt;
+                            &lt;li&gt;Island models&lt;/li&gt;
+                            &lt;li&gt;Master-slave parallelization&lt;/li&gt;
+                            &lt;li&gt;Hybrid parallel approaches&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Complexity Analysis:&lt;/strong&gt; Analisis kompleksitas waktu algorithm belum detail (Big-O notation)&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Method Comparison:&lt;/strong&gt; Perbandingan hanya dengan sequential GA, belum dengan metode lain:
+                        &lt;ul&gt;
+                            &lt;li&gt;PSO (Particle Swarm Optimization)&lt;/li&gt;
+                            &lt;li&gt;ACO (Ant Colony Optimization)&lt;/li&gt;
+                            &lt;li&gt;Simulated Annealing&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Scalability:&lt;/strong&gt; Diskusi tentang scalability untuk dataset sangat besar (&amp;gt;500 mata kuliah) perlu ditambahkan&lt;/li&gt;
+                &lt;/ol&gt;
+            </field>
+            <field name="recommendations">
+                &lt;h5&gt;Rekomendasi untuk Revisi:&lt;/h5&gt;
+                &lt;table border="1" style="width: 100%; border-collapse: collapse; margin-top: 10px;"&gt;
+                    &lt;tr style="background-color: #e9ecef;"&gt;
+                        &lt;th style="padding: 8px; text-align: left;"&gt;No&lt;/th&gt;
+                        &lt;th style="padding: 8px; text-align: left;"&gt;Item&lt;/th&gt;
+                        &lt;th style="padding: 8px; text-align: left;"&gt;Detail&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;1&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Literature Review&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Perluas dengan 5-7 paper tentang parallel GAs&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;2&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Complexity Analysis&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Tambahkan analisis time complexity dengan Big-O notation&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;3&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Method Comparison&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Lakukan comparison dengan minimal 2 metode optimization lain (PSO, Simulated Annealing)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;4&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Scalability&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Tambahkan diskusi dan eksperimen scalability analysis&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;5&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Mathematical Notation&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Perbaiki notasi pada Chapter 3 (consistency issues)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;6&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;&lt;strong&gt;Future Works&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Tambahkan discussion tentang limitations dan future research directions&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+                &lt;p style="margin-top: 15px;"&gt;&lt;strong&gt;Dengan perbaikan ini, tesis dapat diajukan untuk sidang akhir.&lt;/strong&gt;&lt;/p&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Evaluasi Keseluruhan&lt;/p&gt;
+                &lt;p&gt;Tesis ini menunjukkan pemahaman yang baik tentang genetic algorithms dan parallel computing. Implementation solid dan eksperimen well-designed.&lt;/p&gt;
+                
+                &lt;p&gt;Kontribusi Utama:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Parallel GA implementation menggunakan OpenMP&lt;/li&gt;
+                    &lt;li&gt;Speedup 3.5x pada 4 threads&lt;/li&gt;
+                    &lt;li&gt;Solution quality comparable dengan sequential version&lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;Status: Conditional Accept&lt;/p&gt;
+                &lt;p&gt;Dengan revisi yang disarankan, tesis layak untuk dipertahankan di sidang akhir.&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">12</field>
+            <field name="actual_hours">10</field>
+            <field name="keywords">genetic algorithm, course scheduling, parallel computing, OpenMP, optimization</field>
+            <field name="teaser">Review tesis magister tentang optimasi algoritma genetic untuk penjadwalan mata kuliah dengan parallel computing. Implementation solid dengan hasil eksperimen bagus, direkomendasikan conditional accept dengan revisi minor.</field>
+            <field name="content">&lt;p&gt;Tesis ini membahas pengembangan algoritma genetic untuk menyelesaikan masalah penjadwalan mata kuliah dengan berbagai constraints (waktu dosen, ruangan, preferensi, dll). Untuk mempercepat komputasi, diimplementasikan parallel genetic algorithm menggunakan OpenMP.&lt;/p&gt;&lt;p&gt;Eksperimen dilakukan dengan dataset dari 5 program studi dengan jumlah mata kuliah 50-200. Hasil menunjukkan speedup 3.5x dengan 4 threads dan kualitas solusi yang comparable dengan sequential version.&lt;/p&gt;</field>
+            <field name="meta_title">Optimasi Algoritma Genetic untuk Penjadwalan Mata Kuliah Menggunakan Parallel Computing</field>
+            <field name="meta_description">Review tesis magister tentang optimasi algoritma genetic untuk penjadwalan mata kuliah dengan parallel computing. Implementation solid dengan hasil eksperimen bagus, direkomendasikan conditional accept dengan revisi minor.</field>
+            <field name="meta_keywords">genetic algorithm, course scheduling, parallel computing, OpenMP, optimization</field>
+            <field name="document_url">https://repository.itb.ac.id/handle/123456789/12345</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        
+        <record id="reviewer_post_sample_7" model="reviewer.post">
+            <field name="name">Pengembangan Sistem Early Warning untuk Bencana Banjir Berbasis IoT dan Machine Learning</field>
+            <field name="slug">pengembangan-sistem-early-warning-untuk-bencana-banjir-berbasis-iot-dan-machine-learning</field><field name="subtitle">Review proposal hibah penelitian Dikti</field>
+            <field name="blog_id" ref="reviewer_blog_grant" />
+            <field name="reviewer_type_id" ref="reviewer_type_hibah" />
+            <field name="author_name">Dr. Budi Santoso, M.T., Tim Peneliti</field>
+            <field name="author_affiliation">Universitas Gadjah Mada</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_kemendikbud" />
+            <field name="journal_conference_name">Hibah Penelitian Terapan Unggulan Perguruan Tinggi (PTUPT)</field>
+            <field name="review_date">2024-04-20</field>
+            <field name="review_submission_date">2024-04-05</field>
+            <field name="review_completion_date">2024-04-20</field>
+            <field name="review_round">1</field>
+            <field name="review_method">open</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">accept</field>
+            <field name="review_score">8.0</field>
+            <field name="review_focus_areas">Research objectives, methodology, feasibility, innovation, impact, team capability, budget justification</field>
+            <field name="strengths">
+                &lt;h4 style="color: #28a745;"&gt;✓ Proposal Excellent - Highly Recommended&lt;/h4&gt;
+                
+                &lt;div style="margin-bottom: 15px;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;1. Relevance &amp;amp; Importance&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Topik &lt;strong&gt;sangat relevan&lt;/strong&gt; dengan kebutuhan mitigasi bencana di Indonesia, terutama mengingat frekuensi banjir yang tinggi di berbagai daerah.&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin-bottom: 15px;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;2. Research Objectives&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Objectives &lt;em&gt;jelas dan measurable&lt;/em&gt;&lt;/li&gt;
+                        &lt;li&gt;Timeline realistis (24 bulan)&lt;/li&gt;
+                        &lt;li&gt;Deliverables well-defined&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin-bottom: 15px;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;3. Methodology Excellence&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Metodologi &lt;strong&gt;well-designed&lt;/strong&gt; menggabungkan:&lt;/p&gt;
+                    &lt;table border="1" style="width: 100%; border-collapse: collapse; margin-top: 5px;"&gt;
+                        &lt;tr style="background-color: #e9ecef;"&gt;
+                            &lt;th style="padding: 8px;"&gt;Component&lt;/th&gt;
+                            &lt;th style="padding: 8px;"&gt;Technology&lt;/th&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Sensors&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Water level, rainfall, weather sensors&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Data Processing&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Real-time processing dengan stream processing&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Prediction&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Machine Learning models (LSTM, Random Forest)&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Notification&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;SMS, mobile app, web dashboard&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin-bottom: 15px;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;4. Team Capability&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Tim peneliti &lt;strong&gt;kompeten&lt;/strong&gt; dengan track record:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;5 publikasi internasional dalam 3 tahun terakhir&lt;/li&gt;
+                        &lt;li&gt;2 penelitian sebelumnya di bidang IoT dan disaster management&lt;/li&gt;
+                        &lt;li&gt;Kolaborasi dengan BNPB dan BPBD&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin-bottom: 15px;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;5. Innovation &amp;amp; Impact&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;strong&gt;Innovation tinggi:&lt;/strong&gt; Integrasi IoT + ML + Real-time processing&lt;/li&gt;
+                        &lt;li&gt;&lt;strong&gt;Potential impact:&lt;/strong&gt; Dapat menyelamatkan nyawa dan mengurangi kerugian ekonomi&lt;/li&gt;
+                        &lt;li&gt;&lt;strong&gt;Scalability:&lt;/strong&gt; Dapat di-deploy di berbagai lokasi rawan banjir&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div&gt;
+                    &lt;h5&gt;&lt;strong&gt;6. Budget&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Budget allocation &lt;em&gt;reasonable dan well-justified&lt;/em&gt; dengan rincian lengkap untuk:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Hardware &amp;amp; sensors&lt;/li&gt;
+                        &lt;li&gt;Software development&lt;/li&gt;
+                        &lt;li&gt;Field testing&lt;/li&gt;
+                        &lt;li&gt;Publication &amp;amp; dissemination&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;p style="color: #856404;"&gt;&lt;strong&gt;⚠ Minor Areas for Improvement:&lt;/strong&gt;&lt;/p&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;&lt;strong&gt;Risk Analysis:&lt;/strong&gt; Bisa diperdalam dengan risk matrix dan mitigation strategies yang lebih detail&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Sustainability:&lt;/strong&gt; Plan setelah project selesai (maintenance, operational cost) perlu dijelaskan lebih detail&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;p&gt;&lt;em&gt;Note: Ini bukan kelemahan fatal, hanya area yang bisa diperkuat.&lt;/em&gt;&lt;/p&gt;
+            </field>
+            <field name="recommendations">
+                &lt;div style="background-color: #d4edda; padding: 15px; border-radius: 5px;"&gt;
+                    &lt;h5 style="color: #155724;"&gt;📋 Minor Revisions Needed:&lt;/h5&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;1. Risk Analysis &amp;amp; Mitigation&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p style="padding-left: 20px;"&gt;Perluas risk analysis dengan:&lt;/p&gt;
+                    &lt;ul style="padding-left: 40px;"&gt;
+                        &lt;li&gt;Risk probability &amp;amp; impact matrix&lt;/li&gt;
+                        &lt;li&gt;Detailed mitigation strategies untuk setiap risk&lt;/li&gt;
+                        &lt;li&gt;Contingency plans&lt;/li&gt;
+                    &lt;/ul&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;2. Sustainability Plan&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p style="padding-left: 20px;"&gt;Tambahkan detail tentang:&lt;/p&gt;
+                    &lt;ul style="padding-left: 40px;"&gt;
+                        &lt;li&gt;Long-term maintenance strategy&lt;/li&gt;
+                        &lt;li&gt;Operational cost estimation&lt;/li&gt;
+                        &lt;li&gt;Partnership untuk sustainability (BPBD, local government)&lt;/li&gt;
+                        &lt;li&gt;Revenue model (jika applicable)&lt;/li&gt;
+                    &lt;/ul&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;3. Dissemination Strategy&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p style="padding-left: 20px;"&gt;Jelaskan rencana dissemination:&lt;/p&gt;
+                    &lt;ul style="padding-left: 40px;"&gt;
+                        &lt;li&gt;Target: 2 publikasi internasional (Q1/Q2)&lt;/li&gt;
+                        &lt;li&gt;1 patent application&lt;/li&gt;
+                        &lt;li&gt;Workshop untuk stakeholders&lt;/li&gt;
+                        &lt;li&gt;Technology transfer plan&lt;/li&gt;
+                    &lt;/ul&gt;
+                    
+                    &lt;hr style="margin: 15px 0;"/&gt;
+                    &lt;p style="font-size: 1.1em; color: #155724;"&gt;&lt;strong&gt;✓ Dengan revisi minor ini, proposal sangat layak didanai dengan expected high impact.&lt;/strong&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;HIGHLY RECOMMENDED FOR FUNDING&lt;/p&gt;
+                
+                &lt;p&gt;Proposal penelitian yang excellent dengan topik sangat relevan untuk Indonesia. Tim peneliti kompeten dan metodologi sound.&lt;/p&gt;
+                
+                &lt;p&gt;Expected Outcomes:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Technical: Prototype early warning system yang ready for deployment&lt;/li&gt;
+                    &lt;li&gt;Scientific: 2 publikasi internasional (target Q1/Q2)&lt;/li&gt;
+                    &lt;li&gt;Innovation: 1 patent application&lt;/li&gt;
+                    &lt;li&gt;Social Impact: Implementasi di 3 lokasi rawan banjir&lt;/li&gt;
+                    &lt;li&gt;Community: Training untuk BPBD dan masyarakat&lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;Funding Recommendation: ACCEPT&lt;/p&gt;
+                &lt;p&gt;Priority Level: HIGH&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">8</field>
+            <field name="actual_hours">8</field>
+            <field name="keywords">early warning system, flood disaster, IoT, machine learning, disaster mitigation</field>
+            <field name="teaser">Review proposal hibah PTUPT tentang pengembangan early warning system bencana banjir berbasis IoT dan ML. Proposal excellent dengan topik relevan dan metodologi solid, highly recommended untuk didanai.</field>
+            <field name="content">&lt;p&gt;Proposal ini mengusulkan pengembangan sistem early warning untuk bencana banjir yang mengintegrasikan IoT sensors (water level, rainfall, weather), real-time data processing, dan machine learning untuk prediksi banjir.&lt;/p&gt;&lt;p&gt;Sistem akan deployed di 3 lokasi rawan banjir dengan dashboard monitoring dan notification system untuk authorities dan masyarakat. Target: akurasi prediksi 85%, lead time warning minimal 2 jam, publikasi 2 paper international, dan 1 paten.&lt;/p&gt;</field>
+            <field name="meta_title">Pengembangan Sistem Early Warning untuk Bencana Banjir Berbasis IoT dan Machine Learning</field>
+            <field name="meta_description">Review proposal hibah PTUPT tentang pengembangan early warning system bencana banjir berbasis IoT dan ML. Proposal excellent dengan topik relevan dan metodologi solid, highly recommended untuk didanai.</field>
+            <field name="meta_keywords">early warning system, flood disaster, IoT, machine learning, disaster mitigation</field>
+            <field name="document_url">https://proposal.kemdikbud.go.id/12345</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        
+        <record id="reviewer_post_sample_8" model="reviewer.post">
+            <field name="name">Sentiment Analysis on Social Media Using Transformer-based Models: A Comparative Study</field>
+            <field name="slug">sentiment-analysis-on-social-media-using-transformer-based-models-a-comparative-study</field><field name="subtitle">Review artikel NLP untuk sentiment analysis</field>
+            <field name="blog_id" ref="reviewer_blog_journal_international" />
+            <field name="reviewer_type_id" ref="reviewer_type_jurnal" />
+            <field name="author_name">Dr. Siti Nurhaliza, Ahmad Prakoso, M.Kom.</field>
+            <field name="author_affiliation">Universitas Padjadjaran</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_mdpi" />
+            <field name="journal_conference_name">Applied Sciences (MDPI)</field>
+            <field name="review_date">2024-09-25</field>
+            <field name="review_submission_date">2024-09-10</field>
+            <field name="review_completion_date">2024-09-25</field>
+            <field name="review_round">2</field>
+            <field name="review_method">double_blind</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">accept</field>
+            <field name="review_score">8.0</field>
+            <field name="review_focus_areas">Comparative analysis methodology, experimental design, statistical analysis, contribution dan novelty</field>
+            <field name="strengths">
+                &lt;h5 style="color: #28a745;"&gt;✓ Excellent Revision - All Concerns Addressed&lt;/h5&gt;
+                
+                &lt;p&gt;Paper ini (&lt;strong&gt;Review Round 2&lt;/strong&gt;) sudah &lt;em&gt;mengakomodasi semua feedback&lt;/em&gt; dari review round 1 dengan sangat baik.&lt;/p&gt;
+                
+                &lt;div style="margin: 15px 0;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;1. Comprehensive Comparative Study&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Comparison terhadap 8 transformer models:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;BERT (Bidirectional Encoder Representations from Transformers)&lt;/li&gt;
+                        &lt;li&gt;RoBERTa (Robustly Optimized BERT)&lt;/li&gt;
+                        &lt;li&gt;ALBERT (A Lite BERT)&lt;/li&gt;
+                        &lt;li&gt;XLNet&lt;/li&gt;
+                        &lt;li&gt;DistilBERT&lt;/li&gt;
+                        &lt;li&gt;ELECTRA&lt;/li&gt;
+                        &lt;li&gt;DeBERTa&lt;/li&gt;
+                        &lt;li&gt;T5 (Text-to-Text Transfer Transformer)&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin: 15px 0;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;2. Multi-Domain Evaluation&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Eksperimen dilakukan pada 5 datasets berbeda:&lt;/p&gt;
+                    &lt;table border="1" style="width: 100%; border-collapse: collapse;"&gt;
+                        &lt;tr style="background-color: #e9ecef;"&gt;
+                            &lt;th style="padding: 8px;"&gt;Dataset&lt;/th&gt;
+                            &lt;th style="padding: 8px;"&gt;Domain&lt;/th&gt;
+                            &lt;th style="padding: 8px;"&gt;Size&lt;/th&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Twitter&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;General social media&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;100K samples&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Facebook&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Product reviews&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;85K samples&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Reddit&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Discussion forums&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;75K samples&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;YouTube&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Video comments&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;90K samples&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Instagram&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Image captions&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;65K samples&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin: 15px 0;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;3. Statistical Analysis&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Statistical significance test dilakukan dengan &lt;em&gt;proper methodology&lt;/em&gt;:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Paired t-test untuk accuracy comparison&lt;/li&gt;
+                        &lt;li&gt;Wilcoxon signed-rank test untuk non-parametric analysis&lt;/li&gt;
+                        &lt;li&gt;P-value &amp;lt; 0.05 untuk significance level&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin: 15px 0;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;4. Trade-off Analysis&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Analysis mendalam terhadap &lt;strong&gt;computational efficiency vs accuracy trade-off&lt;/strong&gt;:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Inference speed (samples/second)&lt;/li&gt;
+                        &lt;li&gt;Memory consumption&lt;/li&gt;
+                        &lt;li&gt;Training time&lt;/li&gt;
+                        &lt;li&gt;Model size&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin: 15px 0;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;5. Visualization Quality&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Results visualization &lt;em&gt;clear dan informative&lt;/em&gt; dengan:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Bar charts untuk accuracy comparison&lt;/li&gt;
+                        &lt;li&gt;Scatter plots untuk speed vs accuracy trade-off&lt;/li&gt;
+                        &lt;li&gt;Heatmaps untuk confusion matrices&lt;/li&gt;
+                        &lt;li&gt;Box plots untuk statistical distribution&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;p&gt;&lt;span style="color: #28a745; font-size: 1.1em;"&gt;&lt;strong&gt;✓ No Significant Weaknesses&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;All previous concerns from Round 1 have been addressed properly:&lt;/p&gt;
+                &lt;ul style="color: #28a745;"&gt;
+                    &lt;li&gt;✓ Added 3 more transformer models for comparison&lt;/li&gt;
+                    &lt;li&gt;✓ Extended experiments to 5 datasets across different domains&lt;/li&gt;
+                    &lt;li&gt;✓ Included comprehensive statistical significance tests&lt;/li&gt;
+                    &lt;li&gt;✓ Added detailed computational efficiency analysis&lt;/li&gt;
+                    &lt;li&gt;✓ Improved visualization quality&lt;/li&gt;
+                    &lt;li&gt;✓ Enhanced discussion section with practical insights&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="recommendations">
+                &lt;div style="background-color: #d4edda; padding: 20px; border-radius: 8px; border: 2px solid #28a745;"&gt;
+                    &lt;h4 style="color: #155724; text-align: center;"&gt;✓ READY FOR PUBLICATION&lt;/h4&gt;
+                    
+                    &lt;p style="font-size: 1.05em;"&gt;Paper sudah &lt;strong&gt;excellent&lt;/strong&gt; dan siap untuk publikasi.&lt;/p&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;Minor formatting adjustments:&lt;/strong&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Adjust table 3 formatting untuk comply dengan journal style&lt;/li&gt;
+                        &lt;li&gt;Fix figure 7 caption (minor typo)&lt;/li&gt;
+                        &lt;li&gt;Update references format untuk consistency&lt;/li&gt;
+                    &lt;/ul&gt;
+                    
+                    &lt;p style="margin-top: 15px; text-align: center; font-size: 1.15em;"&gt;&lt;strong&gt;Recommendation: ACCEPT&lt;/strong&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Round 2 Review Summary&lt;/p&gt;
+                
+                &lt;p&gt;Authors telah melakukan revisi excellent dan menjawab semua concerns dari round 1 dengan thoroughness yang sangat baik.&lt;/p&gt;
+                
+                &lt;p&gt;Key Improvements from Round 1:&lt;/p&gt;
+                &lt;table border="1" style="width: 100%; border-collapse: collapse;"&gt;
+                    &lt;tr style="background-color: #e9ecef;"&gt;
+                        &lt;th style="padding: 8px;"&gt;Aspect&lt;/th&gt;
+                        &lt;th style="padding: 8px;"&gt;Round 1&lt;/th&gt;
+                        &lt;th style="padding: 8px;"&gt;Round 2&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;Models compared&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;5 models&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;8 models (+60%)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;Datasets&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;2 datasets&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;5 datasets (+150%)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;Statistical tests&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;None&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Complete (t-test, Wilcoxon)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;Efficiency analysis&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Basic&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Comprehensive&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+                
+                &lt;p&gt;Key Findings:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Highest Accuracy: RoBERTa &amp; XLNet (91-93%)&lt;/li&gt;
+                    &lt;li&gt;Best Trade-off: DistilBERT (88% accuracy, 2x faster inference)&lt;/li&gt;
+                    &lt;li&gt;Most Efficient: DistilBERT &amp; ALBERT (lower memory, faster)&lt;/li&gt;
+                    &lt;li&gt;Statistical Confirmation: All differences statistically significant (p &lt; 0.05)&lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;Paper ini memberikan valuable insights tentang performance comparison transformer models untuk sentiment analysis yang akan sangat bermanfaat untuk researchers dalam memilih model yang sesuai, practitioners dalam production deployment, dan students sebagai learning material.&lt;/p&gt;
+                
+                &lt;p&gt;Strongly Recommended for Acceptance&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">5</field>
+            <field name="actual_hours">4.5</field>
+            <field name="keywords">sentiment analysis, natural language processing, transformer, BERT, social media analytics</field>
+            <field name="teaser">Review round 2 artikel tentang sentiment analysis menggunakan transformer models. Revisi excellent, semua feedback round 1 sudah diakomodasi dengan baik, recommended accept.</field>
+            <field name="content">&lt;p&gt;Ini adalah review round 2 setelah authors melakukan major revision. Paper melakukan comprehensive comparative study terhadap 8 transformer-based models untuk sentiment analysis pada social media data (Twitter, Facebook, Reddit, YouTube, Instagram).&lt;/p&gt;&lt;p&gt;Results menunjukkan RoBERTa dan XLNet memberikan accuracy tertinggi (91-93%), namun computational cost tinggi. DistilBERT menawarkan trade-off terbaik dengan accuracy 88% dan inference speed 2x lebih cepat. Statistical tests confirm significance of results.&lt;/p&gt;</field>
+            <field name="meta_title">Sentiment Analysis on Social Media Using Transformer-based Models: A Comparative Study</field>
+            <field name="meta_description">Review round 2 artikel tentang sentiment analysis menggunakan transformer models. Revisi excellent, semua feedback round 1 sudah diakomodasi dengan baik, recommended accept.</field>
+            <field name="meta_keywords">sentiment analysis, natural language processing, transformer, BERT, social media analytics</field>
+            <field name="document_url">https://www.mdpi.com/2076-3417/14/1/123</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        
+        <record id="reviewer_post_sample_9" model="reviewer.post">
+            <field name="name">Development of Mobile Learning Application for Computer Programming Education</field>
+            <field name="slug">development-of-mobile-learning-application-for-computer-programming-education</field><field name="subtitle">Review aplikasi mobile learning untuk pembelajaran programming</field>
+            <field name="blog_id" ref="reviewer_blog_software" />
+            <field name="reviewer_type_id" ref="reviewer_type_software" />
+            <field name="author_name">Dr. Ahmad Hidayat, S.Kom., M.T.</field>
+            <field name="author_affiliation">Universitas Telkom</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_universitas_indonesia" />
+            <field name="journal_conference_name">Universitas Indonesia - Software Review Program</field>
+            <field name="review_date">2024-11-15</field>
+            <field name="review_submission_date">2024-11-01</field>
+            <field name="review_completion_date">2024-11-15</field>
+            <field name="review_round">1</field>
+            <field name="review_method">open</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">minor_revision</field>
+            <field name="review_score">7.5</field>
+            <field name="review_focus_areas">User interface design, functionality, educational content, technical implementation, usability testing</field>
+            <field name="strengths">
+                &lt;h5&gt;Kelebihan Aplikasi:&lt;/h5&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;UI/UX Design:&lt;/strong&gt; Interface yang &lt;em&gt;user-friendly&lt;/em&gt; dengan navigasi intuitif&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Content Quality:&lt;/strong&gt; Materi programming disusun secara sistematis dari basic hingga advanced&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Interactive Features:&lt;/strong&gt; Code editor dengan syntax highlighting dan real-time compilation&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Multi-platform:&lt;/strong&gt; Support Android dan iOS dengan responsive design&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Gamification:&lt;/strong&gt; Sistem poin, badge, dan leaderboard yang menarik&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;h5&gt;Area Perlu Perbaikan:&lt;/h5&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;&lt;strong&gt;Offline Capability:&lt;/strong&gt; Fitur offline learning perlu diperbaiki, saat ini masih terbatas&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Assessment System:&lt;/strong&gt; Sistem evaluasi perlu lebih variatif (quiz, coding challenges, projects)&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Performance:&lt;/strong&gt; Loading time untuk materi kompleks masih cukup lama&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Localization:&lt;/strong&gt; Support bahasa Indonesia perlu diperbaiki&lt;/li&gt;
+                &lt;/ol&gt;
+            </field>
+            <field name="recommendations">
+                &lt;h5&gt;Rekomendasi Revisi:&lt;/h5&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;Tambahkan &lt;strong&gt;offline download&lt;/strong&gt; untuk semua materi dan quiz&lt;/li&gt;
+                    &lt;li&gt;Perluas sistem assessment dengan &lt;em&gt;coding challenges&lt;/em&gt; dan project-based learning&lt;/li&gt;
+                    &lt;li&gt;Optimalkan performance dengan lazy loading dan caching&lt;/li&gt;
+                    &lt;li&gt;Perbaiki localization dan tambahkan content moderation untuk bahasa Indonesia&lt;/li&gt;
+                    &lt;li&gt;Tambahkan &lt;strong&gt;progress tracking&lt;/strong&gt; yang lebih detail untuk setiap mahasiswa&lt;/li&gt;
+                &lt;/ol&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Aplikasi mobile learning ini memiliki potensi besar untuk meningkatkan pembelajaran programming di Indonesia. Dengan revisi yang disarankan, aplikasi ini akan menjadi tools yang sangat berguna untuk mahasiswa dan dosen.&lt;/p&gt;
+                &lt;p&gt;Recommended: Accept with Minor Revision&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">6</field>
+            <field name="actual_hours">5.5</field>
+            <field name="keywords">mobile learning, programming education, Android app, iOS app, gamification</field>
+            <field name="teaser">Review aplikasi mobile learning untuk pembelajaran programming. Aplikasi memiliki UI yang baik dan content berkualitas, direkomendasikan minor revision untuk meningkatkan offline capability dan assessment system.</field>
+            <field name="content">&lt;p&gt;Aplikasi mobile learning ini dikembangkan untuk membantu mahasiswa belajar programming dengan pendekatan yang lebih interaktif. Aplikasi menyediakan materi dari basic programming concepts hingga advanced topics seperti data structures dan algorithms.&lt;/p&gt;&lt;p&gt;Fitur utama meliputi code editor, quiz interaktif, progress tracking, dan gamification elements. Aplikasi sudah diuji pada 200+ mahasiswa dengan feedback positif terkait user experience.&lt;/p&gt;</field>
+            <field name="meta_title">Development of Mobile Learning Application for Computer Programming Education</field>
+            <field name="meta_description">Review aplikasi mobile learning untuk pembelajaran programming. Aplikasi memiliki UI yang baik dan content berkualitas, direkomendasikan minor revision untuk meningkatkan offline capability dan assessment system.</field>
+            <field name="meta_keywords">mobile learning, programming education, Android app, iOS app, gamification</field>
+            <field name="document_url">https://play.google.com/store/apps/details?id=com.example.programmingapp</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="reviewer_post_sample_10" model="reviewer.post">
+            <field name="name">Buku Ajar: Algoritma dan Struktur Data untuk Pemula</field>
+            <field name="slug">buku-ajar-algoritma-dan-struktur-data-untuk-pemula</field><field name="subtitle">Review buku ajar algoritma dan struktur data</field>
+            <field name="blog_id" ref="reviewer_blog_textbook" />
+            <field name="reviewer_type_id" ref="reviewer_type_textbook" />
+            <field name="author_name">Prof. Dr. Ir. Budi Santoso, M.T.</field>
+            <field name="author_affiliation">Institut Teknologi Sepuluh Nopember</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_itb" />
+            <field name="journal_conference_name">Penerbit ITB - Buku Ajar Series</field>
+            <field name="review_date">2024-10-20</field>
+            <field name="review_submission_date">2024-09-15</field>
+            <field name="review_completion_date">2024-10-20</field>
+            <field name="review_round">final</field>
+            <field name="review_method">open</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">accept</field>
+            <field name="review_score">8.5</field>
+            <field name="review_focus_areas">Content accuracy, pedagogical approach, examples quality, exercise design, language clarity</field>
+            <field name="strengths">
+                &lt;h4 style="color: #28a745;"&gt;✓ Buku Ajar Berkualitas Tinggi&lt;/h4&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;Content Structure:&lt;/strong&gt; Penyajian materi yang &lt;em&gt;sistematis&lt;/em&gt; dari konsep dasar hingga advanced&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Examples:&lt;/strong&gt; Contoh-contoh yang relevan dengan konteks Indonesia dan dunia nyata&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Visual Aids:&lt;/strong&gt; Ilustrasi, flowchart, dan diagram yang membantu pemahaman&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Exercises:&lt;/strong&gt; Latihan yang beragam dari basic hingga challenging problems&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; Bahasa yang jelas dan mudah dipahami mahasiswa pemula&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Code Examples:&lt;/strong&gt; Implementasi dalam bahasa C, Java, dan Python&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;p&gt;&lt;span style="color: #28a745;"&gt;&lt;strong&gt;✓ Minor Issues Only&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;&lt;strong&gt;References:&lt;/strong&gt; Beberapa referensi perlu update ke edisi terbaru&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Advanced Topics:&lt;/strong&gt; Bisa ditambahkan bab tentang competitive programming&lt;/li&gt;
+                &lt;/ol&gt;
+            </field>
+            <field name="recommendations">
+                &lt;div style="background-color: #d4edda; padding: 15px; border-radius: 5px;"&gt;
+                    &lt;h5 style="color: #155724;"&gt;✓ Ready for Publication&lt;/h5&gt;
+                    &lt;p&gt;Buku ajar ini sudah &lt;strong&gt;sangat baik&lt;/strong&gt; dan siap untuk publikasi. Hanya perlu perbaikan minor:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Update beberapa referensi ke edisi 2023-2024&lt;/li&gt;
+                        &lt;li&gt;Tambahkan lampiran tentang competitive programming basics&lt;/li&gt;
+                        &lt;li&gt;Perbaiki beberapa typo pada code examples&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Highly Recommended Textbook&lt;/p&gt;
+                &lt;p&gt;Buku ajar ini merupakan kontribusi berharga untuk pendidikan computer science di Indonesia. Penyajian materi yang sistematis dan contoh-contoh yang relevan membuat buku ini sangat cocok untuk mahasiswa pemula.&lt;/p&gt;
+                
+                &lt;p&gt;Target Audience:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Mahasiswa S1 Informatika/Sistem Informasi&lt;/li&gt;
+                    &lt;li&gt;Peserta kursus programming&lt;/li&gt;
+                    &lt;li&gt;Guru SMK jurusan RPL&lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;Buku ini akan menjadi standard textbook untuk mata kuliah Algoritma dan Struktur Data.&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">12</field>
+            <field name="actual_hours">10</field>
+            <field name="keywords">algoritma, struktur data, buku ajar, programming, computer science education</field>
+            <field name="teaser">Review buku ajar Algoritma dan Struktur Data untuk pemula. Buku berkualitas tinggi dengan content sistematis dan examples relevan, highly recommended untuk mahasiswa pemula.</field>
+            <field name="content">&lt;p&gt;Buku ajar ini membahas konsep algoritma dan struktur data dari basic hingga advanced dengan pendekatan yang pedagogis. Setiap chapter dilengkapi dengan teori, contoh implementasi dalam 3 bahasa pemrograman (C, Java, Python), dan latihan soal.&lt;/p&gt;&lt;p&gt;Buku terdiri dari 15 chapters yang mencakup sorting algorithms, searching, trees, graphs, hash tables, dan advanced data structures. Ditujukan untuk mahasiswa semester 2-4 program studi informatika.&lt;/p&gt;</field>
+            <field name="meta_title">Buku Ajar: Algoritma dan Struktur Data untuk Pemula</field>
+            <field name="meta_description">Review buku ajar Algoritma dan Struktur Data untuk pemula. Buku berkualitas tinggi dengan content sistematis dan examples relevan, highly recommended untuk mahasiswa pemula.</field>
+            <field name="meta_keywords">algoritma, struktur data, buku ajar, programming, computer science education</field>
+            <field name="document_url">https://penerbit.itb.ac.id/book/algoritma-struktur-data</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="reviewer_post_sample_11" model="reviewer.post">
+            <field name="name">Kurikulum Program Studi Informatika 2024</field>
+            <field name="slug">kurikulum-program-studi-informatika-2024</field><field name="subtitle">Review kurikulum program studi informatika</field>
+            <field name="blog_id" ref="reviewer_blog_research_proposal" />
+            <field name="reviewer_type_id" ref="reviewer_type_curriculum" />
+            <field name="author_name">Tim Kurikulum Program Studi Informatika</field>
+            <field name="author_affiliation">Universitas Gadjah Mada</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_kemendikbud" />
+            <field name="journal_conference_name">Kementerian Pendidikan - Kurikulum Review Program</field>
+            <field name="review_date">2024-12-01</field>
+            <field name="review_submission_date">2024-10-15</field>
+            <field name="review_completion_date">2024-12-01</field>
+            <field name="review_round">1</field>
+            <field name="review_method">open</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">conditional_accept</field>
+            <field name="review_score">8.0</field>
+            <field name="review_focus_areas">Curriculum relevance, industry alignment, learning outcomes, course sequencing, assessment methods</field>
+            <field name="strengths">
+                &lt;h5&gt;Kelebihan Kurikulum:&lt;/h5&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;Industry Alignment:&lt;/strong&gt; Kurikulum sudah &lt;em&gt;well-aligned&lt;/em&gt; dengan kebutuhan industri 4.0&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Modern Topics:&lt;/strong&gt; Inclusion of AI, ML, IoT, cloud computing, dan cybersecurity&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Project-Based Learning:&lt;/strong&gt; Emphasis pada capstone projects dan industry internships&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Soft Skills:&lt;/strong&gt; Integration of communication, teamwork, dan entrepreneurship skills&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Flexibility:&lt;/strong&gt; Elective courses yang memberikan fleksibilitas minat mahasiswa&lt;/li&gt;
+                &lt;/ul&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;h5&gt;Area Perlu Perbaikan:&lt;/h5&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;&lt;strong&gt;Mathematics Foundation:&lt;/strong&gt; Beberapa prerequisite mathematics perlu diperkuat&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Practical Experience:&lt;/strong&gt; Lab hours untuk programming courses perlu ditingkatkan&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Assessment Balance:&lt;/strong&gt; Perlu lebih balance antara theoretical dan practical assessment&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Emerging Technologies:&lt;/strong&gt; Coverage untuk blockchain dan quantum computing masih terbatas&lt;/li&gt;
+                &lt;/ol&gt;
+            </field>
+            <field name="recommendations">
+                &lt;h5&gt;Rekomendasi Revisi:&lt;/h5&gt;
+                &lt;table border="1" style="width: 100%; border-collapse: collapse; margin-top: 10px;"&gt;
+                    &lt;tr style="background-color: #e9ecef;"&gt;
+                        &lt;th style="padding: 8px; text-align: left;"&gt;Area&lt;/th&gt;
+                        &lt;th style="padding: 8px; text-align: left;"&gt;Current&lt;/th&gt;
+                        &lt;th style="padding: 8px; text-align: left;"&gt;Recommended&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;Mathematics&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;3 courses&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;4 courses (add Discrete Math 2)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;Lab Hours&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;2 hours/week&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;4 hours/week for core programming&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;Assessment&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;70% exam, 30% project&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;50% exam, 50% project/practical&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td style="padding: 8px;"&gt;Emerging Tech&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Basic coverage&lt;/td&gt;
+                        &lt;td style="padding: 8px;"&gt;Dedicated elective courses&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;Curriculum Review Summary&lt;/p&gt;
+                &lt;p&gt;Kurikulum ini menunjukkan modern approach yang relevan dengan perkembangan teknologi terkini. Dengan revisi yang disarankan, kurikulum ini akan menghasilkan lulusan yang competitive di era digital.&lt;/p&gt;
+                
+                &lt;p&gt;Strengths:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Industry 4.0 ready curriculum&lt;/li&gt;
+                    &lt;li&gt;Balanced theory and practice&lt;/li&gt;
+                    &lt;li&gt;Soft skills integration&lt;/li&gt;
+                    &lt;li&gt;Flexible learning paths&lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;Status: Conditional Accept&lt;/p&gt;
+                &lt;p&gt;Dengan perbaikan yang disarankan, kurikulum layak diimplementasikan.&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">16</field>
+            <field name="actual_hours">14</field>
+            <field name="keywords">kurikulum, informatika, computer science, education, industry alignment</field>
+            <field name="teaser">Review kurikulum program studi informatika 2024. Kurikulum modern dengan alignment industri yang baik, direkomendasikan conditional accept dengan penambahan lab hours dan emerging technologies.</field>
+            <field name="content">&lt;p&gt;Kurikulum program studi informatika ini dirancang untuk 8 semester dengan total 144 SKS. Struktur kurikulum mencakup 40% basic sciences, 35% core computer science, 15% electives, dan 10% soft skills dan project work.&lt;/p&gt;&lt;p&gt;Fokus utama adalah mempersiapkan lulusan yang kompeten di bidang software development, data science, cybersecurity, dan emerging technologies. Kurikulum sudah di-align dengan kebutuhan industri dan standar internasional.&lt;/p&gt;</field>
+            <field name="meta_title">Kurikulum Program Studi Informatika 2024</field>
+            <field name="meta_description">Review kurikulum program studi informatika 2024. Kurikulum modern dengan alignment industri yang baik, direkomendasikan conditional accept dengan penambahan lab hours dan emerging technologies.</field>
+            <field name="meta_keywords">kurikulum, informatika, computer science, education, industry alignment</field>
+            <field name="document_url">https://kurikulum.kemdikbud.go.id/informatika-2024</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        <record id="reviewer_post_sample_12" model="reviewer.post">
+            <field name="name">Proposal Penelitian: Implementasi Machine Learning untuk Deteksi Cyber Attack pada IoT Networks</field>
+            <field name="slug">proposal-penelitian-implementasi-machine-learning-untuk-deteksi-cyber-attack-pada-iot-networks</field><field name="subtitle">Review proposal penelitian machine learning untuk cybersecurity IoT</field>
+            <field name="blog_id" ref="reviewer_blog_research_proposal" />
+            <field name="reviewer_type_id" ref="reviewer_type_penelitian" />
+            <field name="author_name">Dr. Rina Kartika, S.T., M.T., Dr. Ahmad Prakoso, S.Kom., M.Kom.</field>
+            <field name="author_affiliation">Universitas Indonesia</field>
+            <field name="author_country">Indonesia</field>
+            <field name="publisher_id" ref="publisher_brin" />
+            <field name="journal_conference_name">BRIN - Fundamental Research Grant</field>
+            <field name="review_date">2024-11-30</field>
+            <field name="review_submission_date">2024-11-01</field>
+            <field name="review_completion_date">2024-11-30</field>
+            <field name="review_round">1</field>
+            <field name="review_method">double_blind</field>
+            <field name="review_status">completed</field>
+            <field name="review_result">accept</field>
+            <field name="review_score">8.5</field>
+            <field name="review_focus_areas">Research novelty, methodology soundness, feasibility, potential impact, team capability</field>
+            <field name="strengths">
+                &lt;h4 style="color: #28a745;"&gt;✓ Excellent Research Proposal&lt;/h4&gt;
+                
+                &lt;div style="margin-bottom: 15px;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;1. Research Novelty&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Proposal menawarkan &lt;strong&gt;novel approach&lt;/strong&gt; dengan kombinasi:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Edge computing untuk real-time processing&lt;/li&gt;
+                        &lt;li&gt;Federated learning untuk privacy preservation&lt;/li&gt;
+                        &lt;li&gt;Multi-modal data fusion (network traffic + device behavior)&lt;/li&gt;
+                        &lt;li&gt;Adaptive ML models untuk berbagai jenis IoT devices&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin-bottom: 15px;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;2. Methodology Excellence&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Metodologi yang &lt;em&gt;comprehensive dan sound&lt;/em&gt;:&lt;/p&gt;
+                    &lt;table border="1" style="width: 100%; border-collapse: collapse;"&gt;
+                        &lt;tr style="background-color: #e9ecef;"&gt;
+                            &lt;th style="padding: 8px;"&gt;Phase&lt;/th&gt;
+                            &lt;th style="padding: 8px;"&gt;Activities&lt;/th&gt;
+                            &lt;th style="padding: 8px;"&gt;Timeline&lt;/th&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Phase 1&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Data collection &amp;amp; preprocessing&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Months 1-4&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Phase 2&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Model development &amp;amp; training&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Months 5-12&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Phase 3&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Testing &amp;amp; validation&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Months 13-18&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="padding: 8px;"&gt;Phase 4&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Deployment &amp;amp; evaluation&lt;/td&gt;
+                            &lt;td style="padding: 8px;"&gt;Months 19-24&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                &lt;/div&gt;
+                
+                &lt;div style="margin-bottom: 15px;"&gt;
+                    &lt;h5&gt;&lt;strong&gt;3. Team Capability&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;p&gt;Tim peneliti dengan &lt;strong&gt;proven track record&lt;/strong&gt;:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;15+ publications in cybersecurity and ML&lt;/li&gt;
+                        &lt;li&gt;3 patents in IoT security&lt;/li&gt;
+                        &lt;li&gt;Previous collaboration with industry partners&lt;/li&gt;
+                        &lt;li&gt;Experience in funded research projects&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div&gt;
+                    &lt;h5&gt;&lt;strong&gt;4. Expected Impact&lt;/strong&gt;&lt;/h5&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;strong&gt;Scientific:&lt;/strong&gt; Advance knowledge in IoT cybersecurity&lt;/li&gt;
+                        &lt;li&gt;&lt;strong&gt;Practical:&lt;/strong&gt; Protect critical IoT infrastructure&lt;/li&gt;
+                        &lt;li&gt;&lt;strong&gt;Economic:&lt;/strong&gt; Reduce cyber attack costs for industry&lt;/li&gt;
+                        &lt;li&gt;&lt;strong&gt;Social:&lt;/strong&gt; Enhance cybersecurity awareness&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            </field>
+            <field name="weaknesses">
+                &lt;p style="color: #856404;"&gt;&lt;strong&gt;⚠ Minor Concerns:&lt;/strong&gt;&lt;/p&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;&lt;strong&gt;Data Availability:&lt;/strong&gt; Access to real IoT network data perlu lebih detail&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Scalability:&lt;/strong&gt; Testing pada large-scale networks perlu diperjelas&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;p&gt;&lt;em&gt;Note: These are not critical issues and can be addressed during implementation.&lt;/em&gt;&lt;/p&gt;
+            </field>
+            <field name="recommendations">
+                &lt;div style="background-color: #d4edda; padding: 20px; border-radius: 8px;"&gt;
+                    &lt;h4 style="color: #155724; text-align: center;"&gt;✓ STRONGLY RECOMMENDED FOR FUNDING&lt;/h4&gt;
+                    
+                    &lt;p style="font-size: 1.05em;"&gt;Proposal penelitian yang &lt;strong&gt;excellent&lt;/strong&gt; dengan novelty tinggi dan metodologi yang sound. Tim peneliti kompeten dengan track record yang baik.&lt;/p&gt;
+                    
+                    &lt;p&gt;&lt;strong&gt;Minor clarifications needed:&lt;/strong&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Detail data acquisition strategy&lt;/li&gt;
+                        &lt;li&gt;Scalability testing plan&lt;/li&gt;
+                        &lt;li&gt;Risk mitigation for data privacy&lt;/li&gt;
+                    &lt;/ul&gt;
+                    
+                    &lt;p style="margin-top: 15px; text-align: center; font-size: 1.15em;"&gt;&lt;strong&gt;Recommendation: APPROVE FUNDING&lt;/strong&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            </field>
+            <field name="reviewer_comments">
+                &lt;p&gt;FUNDING RECOMMENDATION: APPROVED&lt;/p&gt;
+                
+                &lt;p&gt;Proposal ini memiliki semua elemen yang dibutuhkan untuk penelitian fundamental berkualitas tinggi. Kombinasi machine learning dan IoT cybersecurity sangat relevan dengan tantangan saat ini.&lt;/p&gt;
+                
+                &lt;p&gt;Expected Outcomes:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Scientific Contribution: Novel ML framework untuk IoT security&lt;/li&gt;
+                    &lt;li&gt;Publications: Target 8+ papers in Q1/Q2 journals&lt;/li&gt;
+                    &lt;li&gt;Technology: Open-source security toolkit&lt;/li&gt;
+                    &lt;li&gt;Industry Impact: Partnership dengan 3+ companies&lt;/li&gt;
+                    &lt;li&gt;Human Resources: Training 5 PhD students&lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;Funding Priority: HIGH&lt;/p&gt;
+                &lt;p&gt;Budget: Rp 2.5 billion (24 months)&lt;/p&gt;
+            </field>
+            <field name="estimated_hours">10</field>
+            <field name="actual_hours">9</field>
+            <field name="keywords">machine learning, IoT security, cyber attack detection, federated learning, edge computing</field>
+            <field name="teaser">Review proposal penelitian BRIN tentang ML untuk deteksi cyber attack pada IoT networks. Proposal excellent dengan novelty tinggi dan metodologi sound, strongly recommended for funding.</field>
+            <field name="content">&lt;p&gt;Proposal penelitian ini mengembangkan framework machine learning untuk deteksi cyber attack pada IoT networks dengan pendekatan federated learning dan edge computing. Penelitian akan mengumpulkan data dari berbagai jenis IoT devices dan mengembangkan adaptive ML models.&lt;/p&gt;&lt;p&gt;Metodologi mencakup data collection dari smart home, industrial IoT, dan healthcare IoT systems. Model akan diuji pada real-world scenarios dengan fokus pada real-time detection dan minimal false positives.&lt;/p&gt;</field>
+            <field name="meta_title">Proposal Penelitian: Implementasi Machine Learning untuk Deteksi Cyber Attack pada IoT Networks</field>
+            <field name="meta_description">Review proposal penelitian BRIN tentang ML untuk deteksi cyber attack pada IoT networks. Proposal excellent dengan novelty tinggi dan metodologi sound, strongly recommended for funding.</field>
+            <field name="meta_keywords">machine learning, IoT security, cyber attack detection, federated learning, edge computing</field>
+            <field name="document_url">https://proposal.brin.go.id/ml-iot-security-2024</field>
+            <field name="is_published">1</field>
+            <field name="active">1</field>
+        </record>
+        
+        
+        <record id="website_menu_reviewer" model="website.menu">
+            <field name="name">Aktivitas Reviewer</field>
+            <field name="url">/reviewer</field>
+            <field name="parent_id" ref="website.main_menu" />
+            <field name="sequence">56</field>
+        </record>
+
+    </data>
+</odoo>
