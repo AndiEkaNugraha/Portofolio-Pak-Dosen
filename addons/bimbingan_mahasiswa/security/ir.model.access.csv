@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_guidance_request_user,guidance.request.user,model_guidance_request,base.group_user,1,0,0,0
+access_guidance_request_portal,guidance.request.portal,model_guidance_request,base.group_portal,1,0,1,0
+access_guidance_request_admin,guidance.request.admin,model_guidance_request,base.group_user,1,1,1,1
+access_guidance_note_admin,guidance.note.admin,model_guidance_note,base.group_user,1,1,1,1
+access_guidance_note_portal,guidance.note.portal,model_guidance_note,base.group_portal,1,0,1,0

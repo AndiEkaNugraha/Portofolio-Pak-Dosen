@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Portal My Guidance List -->
+        <template id="portal_my_guidance" name="My Guidance Requests">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Pengajuan Bimbingan</t>
+                </t>
+
+                <div class="oe_structure">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Daftar Pengajuan Bimbingan</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <a href="/my/guidance/submit" class="btn btn-primary mb-3">
+                                        <i class="fa fa-plus"></i> Ajukan Bimbingan Baru
+                                    </a>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Jenis Bimbingan</th>
+                                                <th>Deskripsi</th>
+                                                <th>Status</th>
+                                                <th>Tanggal Pengajuan</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="guidance_requests" t-as="guidance">
+                                                <tr>
+                                                    <td>
+                                                        <t t-set="type_map" t-value="{'akademik': 'Bimbingan Akademik', 'skripsi': 'Bimbingan Skripsi', 'tesis': 'Bimbingan Tesis', 'disertasi': 'Bimbingan Disertasi', 'lainnya': 'Bimbingan Lainnya'}"/>
+                                                        <t t-esc="type_map.get(guidance.guidance_type, guidance.guidance_type)"/>
+                                                    </td>
+                                                    <td><t t-esc="guidance.description[:50]"/>...</td>
+                                                    <td>
+                                                        <span t-attf-class="label label-{{ {'draft': 'default', 'submitted': 'info', 'approved': 'success', 'rejected': 'danger'}.get(guidance.status, 'default') }}">
+                                                            <t t-set="status_map" t-value="{'draft': 'Draft', 'submitted': 'Diajukan', 'approved': 'Disetujui', 'rejected': 'Ditolak'}"/>
+                                                            <t t-esc="status_map.get(guidance.status, guidance.status)"/>
+                                                        </span>
+                                                    </td>
+                                                    <td><t t-esc="guidance.submission_date.strftime('%d/%m/%Y')"/></td>
+                                                    <td>
+                                                        <a t-attf-href="/my/guidance/{{guidance.id}}" class="btn btn-sm btn-default">Lihat Detail</a>
+                                                        <t t-if="guidance.status in ['draft', 'submitted']">
+                                                            <a t-attf-href="/my/guidance/edit/{{guidance.id}}" class="btn btn-sm btn-warning">Edit</a>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                    <t t-call="portal.pager">
+                                        <t t-set="url" t-value="'/my/guidance'"/>
+                                        <t t-set="url_args" t-value="{}"/>
+                                        <t t-set="step" t-value="10"/>
+                                        <t t-set="total" t-value="guidance_count"/>
+                                        <t t-set="page" t-value="pager['page']"/>
+                                        <t t-set="scope" t-value="5"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Portal Guidance Detail -->
+        <template id="portal_guidance_detail" name="Guidance Request Detail">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Detail Pengajuan Bimbingan</t>
+                </t>
+
+                <div class="oe_structure">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Detail Pengajuan Bimbingan</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Jenis Bimbingan:</strong>
+                                            <t t-set="type_map" t-value="{'akademik': 'Bimbingan Akademik', 'skripsi': 'Bimbingan Skripsi', 'tesis': 'Bimbingan Tesis', 'disertasi': 'Bimbingan Disertasi', 'lainnya': 'Bimbingan Lainnya'}"/>
+                                            <p><t t-esc="type_map.get(guidance.guidance_type, guidance.guidance_type)"/></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Status:</strong>
+                                            <p>
+                                                <span t-attf-class="label label-{{ {'draft': 'default', 'submitted': 'info', 'approved': 'success', 'rejected': 'danger'}.get(guidance.status, 'default') }}">
+                                                    <t t-set="status_map" t-value="{'draft': 'Draft', 'submitted': 'Diajukan', 'approved': 'Disetujui', 'rejected': 'Ditolak'}"/>
+                                                    <t t-esc="status_map.get(guidance.status, guidance.status)"/>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Tanggal Pengajuan:</strong>
+                                            <p><t t-esc="guidance.submission_date.strftime('%d/%m/%Y %H:%M')"/></p>
+                                        </div>
+                                        <div class="col-md-6" t-if="guidance.guidance_date">
+                                            <strong>Tanggal Bimbingan:</strong>
+                                            <p><t t-esc="guidance.guidance_date.strftime('%d/%m/%Y %H:%M')"/></p>
+                                        </div>
+                                    </div>
+                                    <div class="row" t-if="guidance.approval_date">
+                                        <div class="col-md-6">
+                                            <strong>Tanggal Persetujuan/Ditolakan:</strong>
+                                            <p><t t-esc="guidance.approval_date.strftime('%d/%m/%Y %H:%M')"/></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <strong>Deskripsi:</strong>
+                                            <p><t t-esc="guidance.description"/></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <strong>Lampiran/Dokumen:</strong>
+                                            <t t-if="attachments">
+                                                <ul class="list-unstyled">
+                                                    <li t-foreach="attachments" t-as="attachment" class="mb-2">
+                                                        <i class="fa fa-file-o"></i>
+                                                        <a t-attf-href="/my/guidance/attachment/#{attachment.id}" class="ml-2">
+                                                            <t t-esc="attachment.name"/>
+                                                        </a>
+                                                        <small class="text-muted ml-2">
+                                                            (<t t-esc="'%.2f' % (attachment.file_size / 1024.0) if attachment.file_size else 0"/> KB)
+                                                        </small>
+                                                    </li>
+                                                </ul>
+                                            </t>
+                                            <t t-else="">
+                                                <p class="text-muted"><i class="fa fa-info-circle"></i> Tidak ada lampiran</p>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Komentar Section -->
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <h4><strong>Komentar Bimbingan</strong></h4>
+                                            <hr/>
+                                            
+                                            <!-- Display existing comments -->
+                                            <div class="comments-list mb-4">
+                                                <t t-if="guidance.notes_ids">
+                                                    <t t-foreach="guidance.notes_ids" t-as="note">
+                                                        <div class="card mb-3">
+                                                            <div class="card-header bg-light">
+                                                                <strong><i class="fa fa-user"></i> <t t-esc="note.create_uid.name"/></strong>
+                                                                <small class="text-muted float-right">
+                                                                    <i class="fa fa-clock-o"></i> <t t-esc="note.create_date.strftime('%d/%m/%Y %H:%M')"/>
+                                                                </small>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="note-content">
+                                                                    <t t-raw="note.note"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </t>
+                                                </t>
+                                                <t t-else="">
+                                                    <div class="alert alert-info">
+                                                        <i class="fa fa-info-circle"></i> Belum ada komentar untuk pengajuan ini.
+                                                    </div>
+                                                </t>
+                                            </div>
+                                            
+                                            <!-- Add new comment form -->
+                                            <div class="card">
+                                                <div class="card-header bg-primary text-white">
+                                                    <strong><i class="fa fa-comment"></i> Tambah Komentar Baru</strong>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form t-attf-action="/my/guidance/comment/#{guidance.id}" method="post" enctype="multipart/form-data">
+                                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                        <div class="form-group">
+                                                            <label for="comment">Komentar:</label>
+                                                            <textarea name="comment" id="comment" class="form-control" rows="5" required="required" placeholder="Tulis komentar Anda di sini..."></textarea>
+                                                            <small class="form-text text-muted mt-2">
+                                                                <i class="fa fa-info-circle"></i> 
+                                                                Anda bisa menggunakan HTML untuk format teks (bold, italic, dll).
+                                                            </small>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="fa fa-paper-plane"></i> Kirim Komentar
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <a href="/my/guidance" class="btn btn-default">
+                                                <i class="fa fa-arrow-left"></i> Kembali ke Daftar
+                                            </a>
+                                            <t t-if="guidance.status in ['draft', 'submitted']">
+                                                <a t-attf-href="/my/guidance/edit/{{guidance.id}}" class="btn btn-warning">
+                                                    <i class="fa fa-edit"></i> Edit Pengajuan
+                                                </a>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom CSS for comments -->
+                <style>
+                    .note-content {
+                        min-height: 50px;
+                        word-wrap: break-word;
+                    }
+                    .note-content img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                    .comments-list .card {
+                        border-left: 3px solid #007bff;
+                    }
+                </style>
+            </t>
+        </template>
+
+        <!-- Portal Edit Guidance -->
+        <template id="portal_guidance_edit" name="Edit Guidance Request">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Edit Pengajuan Bimbingan</t>
+                </t>
+
+                <div class="oe_structure">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Edit Pengajuan Bimbingan</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form t-attf-action="/my/guidance/edit/#{guidance.id}" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                        <div class="form-group mb-2">
+                                            <label for="guidance_date">Tanggal Bimbingan</label>
+                                            <input type="datetime-local" name="guidance_date" class="form-control" t-att-value="guidance.guidance_date and guidance.guidance_date.strftime('%Y-%m-%dT%H:%M')"/>
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <label for="description">Deskripsi Pengajuan</label>
+                                            <textarea name="description" class="form-control" rows="5" required="required"><t t-esc="guidance.description"/></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group mb-2" t-if="attachments">
+                                            <label>Lampiran Saat Ini:</label>
+                                            <div class="list-group">
+                                                <div t-foreach="attachments" t-as="attachment" class="list-group-item">
+                                                    <div class="d-flex gap-2">
+                                                        <div class="col">
+                                                            <i class="fa fa-file-o"></i>
+                                                            <a t-attf-href="/my/guidance/attachment/#{attachment.id}" class="ml-2">
+                                                                <t t-esc="attachment.name"/>
+                                                            </a>
+                                                            <small class="text-muted ml-2">
+                                                                (<t t-esc="'%.2f' % (attachment.file_size / 1024.0) if attachment.file_size else 0"/> KB)
+                                                            </small>
+                                                        </div>
+                                                        <div class="text-right">
+                                                            <a t-attf-href="/my/guidance/attachment/delete/#{attachment.id}" 
+                                                               class="btn btn-danger btn-sm"
+                                                               onclick="return confirm('Apakah Anda yakin ingin menghapus file ini?');">
+                                                                <i class="fa fa-trash"></i> Hapus
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group  mb-2">
+                                            <label for="attachments">Tambah Lampiran Baru (opsional)</label>
+                                            <input type="file" name="attachments" class="form-control" multiple="multiple"/>
+                                            <small class="form-text text-muted">Upload file tambahan jika diperlukan</small>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                        <a t-attf-href="/my/guidance/{{guidance.id}}" class="btn btn-default">Batal</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Portal Submit Guidance -->
+        <template id="portal_guidance_submit" name="Submit Guidance Request">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Ajukan Bimbingan</t>
+                </t>
+
+                <div class="oe_structure">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Form Pengajuan Bimbingan</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form action="/my/guidance/submit" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                        <div class="form-group">
+                                            <label for="guidance_type">Jenis Bimbingan</label>
+                                            <select name="guidance_type" class="form-control" required="required">
+                                                <option value="akademik">Bimbingan Akademik</option>
+                                                <option value="skripsi">Bimbingan Skripsi</option>
+                                                <option value="tesis">Bimbingan Tesis</option>
+                                                <option value="disertasi">Bimbingan Disertasi</option>
+                                                <option value="lainnya">Bimbingan Lainnya</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="guidance_date">Tanggal Bimbingan (opsional)</label>
+                                            <input type="datetime-local" name="guidance_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description">Deskripsi Pengajuan</label>
+                                            <textarea name="description" class="form-control" rows="5" required="required" placeholder="Jelaskan detail pengajuan bimbingan Anda..."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="attachments">Lampiran (opsional)</label>
+                                            <input type="file" name="attachments" class="form-control" multiple="multiple"/>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Ajukan</button>
+                                        <a href="/my/guidance" class="btn btn-default">Batal</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Extend Portal Sidebar -->
+        <template id="portal_my_home_guidance" inherit_id="portal.portal_my_home" customize_show="True" name="Portal My Home Guidance">
+            <xpath expr="//div[hasclass('o_portal_my_home')]" position="inside">
+                <t t-set="guidance_count" t-value="guidance_count or 0"/>
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <a href="/my/guidance" class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fa fa-graduation-cap fa-2x text-primary mb-2"></i>
+                            <h5 class="card-title">Pengajuan Bimbingan</h5>
+                            <p class="card-text">Kelola pengajuan bimbingan Anda</p>
+                            <span class="badge badge-primary" t-if="guidance_count > 0">
+                                <t t-esc="guidance_count"/> Pengajuan
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

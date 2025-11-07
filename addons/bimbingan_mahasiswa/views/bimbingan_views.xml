@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- List View -->
+        <record id="view_guidance_request_tree" model="ir.ui.view">
+            <field name="name">guidance.request.list</field>
+            <field name="model">guidance.request</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="student_id"/>
+                    <field name="guidance_type"/>
+                    <field name="guidance_date"/>
+                    <field name="description"/>
+                    <field name="status"/>
+                    <field name="submission_date"/>
+                    <field name="approval_date"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_guidance_request_form" model="ir.ui.view">
+            <field name="name">guidance.request.form</field>
+            <field name="model">guidance.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_approve" string="Setujui" type="object" 
+                                invisible="status != 'submitted'" class="btn-primary"/>
+                        <button name="action_reject" string="Tolak" type="object" 
+                                invisible="status != 'submitted'" class="btn-danger"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="guidance_type"/>
+                        </group>
+                        <group>
+                            <field name="submission_date"/>
+                            <field name="guidance_date"/>
+                            <field name="approval_date"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </group>
+                        <notebook>
+                            <page string="Komentar Bimbingan">
+                                <field name="notes_ids">
+                                    <list>
+                                        <field name="create_date"/>
+                                        <field name="create_uid"/>
+                                        <field name="note" widget="html"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_guidance_request" model="ir.actions.act_window">
+            <field name="name">Pengajuan Bimbingan</field>
+            <field name="res_model">guidance.request</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Guidance Note Tree View -->
+        <record id="view_guidance_note_tree" model="ir.ui.view">
+            <field name="name">guidance.note.tree</field>
+            <field name="model">guidance.note</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="create_date"/>
+                    <field name="create_uid"/>
+                    <field name="note" widget="html"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Guidance Note Form View -->
+        <record id="view_guidance_note_form" model="ir.ui.view">
+            <field name="name">guidance.note.form</field>
+            <field name="model">guidance.note</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="guidance_id" invisible="1"/>
+                            <field name="create_uid" readonly="1"/>
+                            <field name="create_date" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="note" widget="html"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Configuration Form View -->
+        <record id="view_bimbingan_config_settings" model="ir.ui.view">
+            <field name="name">bimbingan.config.settings.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form string="Konfigurasi Email Notifikasi" class="oe_form_configuration">
+                    <sheet>
+                        <div class="app_settings_block">
+                            <h2>Pengaturan Email Notifikasi Bimbingan</h2>
+                            <group>
+                                <group>
+                                    <field name="bimbingan_notification_email_enabled" string="Aktifkan Notifikasi Email"/>
+                                </group>
+                            </group>
+                            <group invisible="not bimbingan_notification_email_enabled">
+                                <group>
+                                    <field name="bimbingan_notification_email" 
+                                           placeholder="email.dosen@university.edu" 
+                                           string="Email Penerima"/>
+                                </group>
+                            </group>
+                            <separator string="Template Email" invisible="not bimbingan_notification_email_enabled"/>
+                            <group invisible="not bimbingan_notification_email_enabled">
+                                <group string="Email Pengajuan Baru">
+                                    <field name="bimbingan_new_subject" 
+                                           placeholder="Pengajuan Bimbingan Baru"
+                                           string="Subject"/>
+                                    <field name="bimbingan_new_body" 
+                                           placeholder="Ada pengajuan bimbingan baru dari mahasiswa..."
+                                           string="Isi Email"/>
+                                </group>
+                                <group string="Email Perubahan Status">
+                                    <field name="bimbingan_status_subject" 
+                                           placeholder="Status Bimbingan Diubah"
+                                           string="Subject"/>
+                                    <field name="bimbingan_status_body" 
+                                           placeholder="Status pengajuan bimbingan telah diubah..."
+                                           string="Isi Email"/>
+                                </group>
+                                <group string="Email Komentar Baru">
+                                    <field name="bimbingan_comment_subject" 
+                                           placeholder="Komentar Baru pada Bimbingan"
+                                           string="Subject"/>
+                                    <field name="bimbingan_comment_body" 
+                                           placeholder="Ada komentar baru pada pengajuan bimbingan..."
+                                           string="Isi Email"/>
+                                </group>
+                            </group>
+                            <div class="text-muted mt16" invisible="not bimbingan_notification_email_enabled">
+                                <p><strong>Variabel yang tersedia (gunakan format: $variabel):</strong></p>
+                                <ul>
+                                    <li>$student_name - Nama mahasiswa</li>
+                                    <li>$guidance_type - Jenis bimbingan</li>
+                                    <li>$guidance_date - Tanggal bimbingan</li>
+                                    <li>$description - Deskripsi pengajuan</li>
+                                    <li>$status - Status pengajuan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </sheet>
+                    <footer>
+                        <button string="Simpan" type="object" name="execute" class="btn-primary"/>
+                        <button string="Batal" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Configuration Action -->
+        <record id="action_bimbingan_config_settings" model="ir.actions.act_window">
+            <field name="name">Konfigurasi Email</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_bimbingan_config_settings"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
