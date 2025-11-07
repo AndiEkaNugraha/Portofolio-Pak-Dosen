@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Academic Years -->
+        <record id="academic_year_2022_2023" model="academic.year">
+            <field name="name">2022/2023</field>
+            <field name="start_year">2022</field>
+            <field name="end_year">2023</field>
+        </record>
+
+        <record id="academic_year_2023_2024" model="academic.year">
+            <field name="name">2023/2024</field>
+            <field name="start_year">2023</field>
+            <field name="end_year">2024</field>
+        </record>
+
+        <record id="academic_year_2024_2025" model="academic.year">
+            <field name="name">2024/2025</field>
+            <field name="start_year">2024</field>
+            <field name="end_year">2025</field>
+        </record>
+
+        <record id="academic_year_2025_2026" model="academic.year">
+            <field name="name">2025/2026</field>
+            <field name="start_year">2025</field>
+            <field name="end_year">2026</field>
+        </record>
+
+        <!-- Default Course Categories -->
+        <record id="mata_kuliah_blog_undergraduate" model="mata_kuliah.blog">
+            <field name="name">Mata Kuliah Sarjana</field>
+            <field name="subtitle">Mata kuliah program sarjana (S1)</field>
+            <field name="course_level">undergraduate</field>
+            <field name="faculty">Fakultas Ilmu Komputer</field>
+        </record>
+
+        <record id="mata_kuliah_blog_graduate" model="mata_kuliah.blog">
+            <field name="name">Mata Kuliah Magister</field>
+            <field name="subtitle">Mata kuliah program magister (S2)</field>
+            <field name="course_level">graduate</field>
+            <field name="faculty">Program Pascasarjana</field>
+        </record>
+
+        <record id="mata_kuliah_blog_doctoral" model="mata_kuliah.blog">
+            <field name="name">Mata Kuliah Doktor</field>
+            <field name="subtitle">Mata kuliah program doktor (S3)</field>
+            <field name="course_level">doctoral</field>
+            <field name="faculty">Program Doktor</field>
+        </record>
+
+        <!-- Undergraduate Courses -->
+        <record id="mata_kuliah_post_pemrograman_dasar" model="mata_kuliah.post">
+            <field name="name">Pemrograman Dasar</field>
+            <field name="subtitle">Dasar-dasar pemrograman menggunakan bahasa C</field>
+            <field name="blog_id" ref="mata_kuliah_blog_undergraduate"/>
+            <field name="slug">pemrograman-dasar</field>
+            <field name="course_code">IF101</field>
+            <field name="semester">1</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2024_2025')), (4, ref('academic_year_2025_2026'))]"/>
+            <field name="sks">3</field>
+            <field name="course_type">mandatory</field>
+            <field name="teaser">Mata kuliah ini memperkenalkan konsep dasar pemrograman komputer menggunakan bahasa C sebagai bahasa pemrograman utama.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Mata kuliah Pemrograman Dasar merupakan mata kuliah wajib semester 1 yang memberikan fondasi kuat dalam pemrograman komputer. Mahasiswa akan belajar konsep-konsep fundamental programming menggunakan bahasa C.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami konsep dasar algoritma dan pemrograman&lt;/li&gt;
+&lt;li&gt;Mampu menulis program sederhana dalam bahasa C&lt;/li&gt;
+&lt;li&gt;Memahami struktur kontrol dan fungsi&lt;/li&gt;
+&lt;li&gt;Mampu melakukan debugging program&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pengenalan Algoritma dan Pemrograman&lt;/li&gt;
+&lt;li&gt;Bahasa Pemrograman C&lt;/li&gt;
+&lt;li&gt;Variabel dan Tipe Data&lt;/li&gt;
+&lt;li&gt;Operator dan Ekspresi&lt;/li&gt;
+&lt;li&gt;Struktur Kontrol (if-else, loop)&lt;/li&gt;
+&lt;li&gt;Array dan String&lt;/li&gt;
+&lt;li&gt;Fungsi dan Prosedur&lt;/li&gt;
+&lt;li&gt;Pointer dan Alokasi Memori&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="prerequisites">Tidak ada</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu mengembangkan program sederhana menggunakan bahasa C dan memahami konsep dasar pemrograman&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup pengenalan algoritma, bahasa pemrograman C, struktur kontrol, array, fungsi, dan pointer. Mahasiswa akan belajar melalui teori dan praktikum programming.&lt;/p&gt;</field>
+            <field name="assessment_methods">Tugas: 30%, UTS: 30%, UAS: 40%</field>
+            <field name="max_students">40</field>
+            <field name="typical_students">35</field>
+            <field name="student_satisfaction">4.2</field>
+            <field name="course_rating">4.1</field>
+            <field name="meta_title">Pemrograman Dasar - IF101</field>
+            <field name="meta_description">Mata kuliah wajib semester 1 program sarjana. Belajar dasar pemrograman dengan bahasa C.</field>
+            <field name="meta_keywords">pemrograman dasar, bahasa C, IF101, algoritma</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="mata_kuliah_post_struktur_data" model="mata_kuliah.post">
+            <field name="name">Struktur Data dan Algoritma</field>
+            <field name="subtitle">Konsep dan implementasi struktur data serta algoritma fundamental</field>
+            <field name="blog_id" ref="mata_kuliah_blog_undergraduate"/>
+            <field name="slug">struktur-data-algoritma</field>
+            <field name="course_code">IF201</field>
+            <field name="semester">3</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2023_2024')), (4, ref('academic_year_2024_2025'))]"/>
+            <field name="sks">4</field>
+            <field name="course_type">mandatory</field>
+            <field name="prerequisites">Pemrograman Dasar (IF101)</field>
+            <field name="teaser">Mata kuliah ini membahas berbagai struktur data dan algoritma yang fundamental dalam ilmu komputer.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Struktur Data dan Algoritma merupakan mata kuliah inti yang membekali mahasiswa dengan pengetahuan fundamental tentang struktur data dan algoritma yang efisien. Mata kuliah ini menekankan pada analisis kompleksitas dan implementasi praktis.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami berbagai struktur data (array, linked list, stack, queue, tree, graph)&lt;/li&gt;
+&lt;li&gt;Mampu menganalisis kompleksitas waktu dan ruang algoritma&lt;/li&gt;
+&lt;li&gt;Mampu mengimplementasikan algoritma sorting dan searching&lt;/li&gt;
+&lt;li&gt;Memahami konsep rekursi dan algoritma divide and conquer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Array dan Linked List&lt;/li&gt;
+&lt;li&gt;Stack dan Queue&lt;/li&gt;
+&lt;li&gt;Tree (Binary Tree, BST, AVL Tree)&lt;/li&gt;
+&lt;li&gt;Graph dan Graph Traversal&lt;/li&gt;
+&lt;li&gt;Sorting Algorithms (Bubble, Quick, Merge, Heap)&lt;/li&gt;
+&lt;li&gt;Searching Algorithms (Binary Search, Hashing)&lt;/li&gt;
+&lt;li&gt;Dynamic Programming&lt;/li&gt;
+&lt;li&gt;Complexity Analysis&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu mengimplementasikan berbagai struktur data dan algoritma dengan kompleksitas yang optimal&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup array, linked list, stack, queue, tree, graph, sorting algorithms, searching algorithms, dan analisis kompleksitas algoritma.&lt;/p&gt;</field>
+            <field name="assessment_methods">Tugas Programming: 40%, UTS: 25%, UAS: 35%</field>
+            <field name="max_students">35</field>
+            <field name="typical_students">32</field>
+            <field name="student_satisfaction">4.5</field>
+            <field name="course_rating">4.4</field>
+            <field name="meta_title">Struktur Data dan Algoritma - IF201</field>
+            <field name="meta_description">Mata kuliah wajib semester 3. Belajar struktur data dan algoritma fundamental dalam ilmu komputer.</field>
+            <field name="meta_keywords">struktur data, algoritma, IF201, complexity analysis</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="mata_kuliah_post_machine_learning" model="mata_kuliah.post">
+            <field name="name">Machine Learning</field>
+            <field name="subtitle">Teknik dan aplikasi pembelajaran mesin dalam data science</field>
+            <field name="blog_id" ref="mata_kuliah_blog_undergraduate"/>
+            <field name="slug">machine-learning</field>
+            <field name="course_code">IF305</field>
+            <field name="semester">5</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2025_2026')), (4, ref('academic_year_2024_2025'))]"/>
+            <field name="sks">3</field>
+            <field name="course_type">elective</field>
+            <field name="prerequisites">Statistika (IF204), Struktur Data (IF201)</field>
+            <field name="teaser">Mata kuliah ini memperkenalkan konsep machine learning dan aplikasinya dalam menyelesaikan masalah dunia nyata.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Machine Learning merupakan mata kuliah pilihan yang membahas teknik pembelajaran mesin modern. Mahasiswa akan belajar dari supervised learning hingga deep learning dengan fokus pada aplikasi praktis.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami konsep dasar machine learning&lt;/li&gt;
+&lt;li&gt;Mampu mengimplementasikan algoritma ML menggunakan Python&lt;/li&gt;
+&lt;li&gt;Memahami evaluasi dan validasi model&lt;/li&gt;
+&lt;li&gt;Mampu menerapkan ML pada kasus dunia nyata&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Introduction to Machine Learning&lt;/li&gt;
+&lt;li&gt;Linear Regression and Classification&lt;/li&gt;
+&lt;li&gt;Decision Trees and Random Forest&lt;/li&gt;
+&lt;li&gt;Support Vector Machines&lt;/li&gt;
+&lt;li&gt;Neural Networks and Deep Learning&lt;/li&gt;
+&lt;li&gt;Unsupervised Learning (K-means, PCA)&lt;/li&gt;
+&lt;li&gt;Model Evaluation and Validation&lt;/li&gt;
+&lt;li&gt;ML Project Implementation&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu mengembangkan dan menerapkan model machine learning untuk menyelesaikan masalah data science&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup supervised learning, unsupervised learning, neural networks, model evaluation, dan implementasi ML menggunakan Python.&lt;/p&gt;</field>
+            <field name="assessment_methods">Proyek ML: 40%, Tugas: 30%, UAS: 30%</field>
+            <field name="max_students">30</field>
+            <field name="typical_students">28</field>
+            <field name="student_satisfaction">4.7</field>
+            <field name="course_rating">4.6</field>
+            <field name="meta_title">Machine Learning - IF305</field>
+            <field name="meta_description">Mata kuliah pilihan semester 5. Belajar teknik machine learning dan aplikasi dalam data science.</field>
+            <field name="meta_keywords">machine learning, data science, IF305, Python, AI</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Graduate Courses -->
+        <record id="mata_kuliah_post_advanced_ml" model="mata_kuliah.post">
+            <field name="name">Advanced Machine Learning</field>
+            <field name="subtitle">Teknik lanjutan dalam machine learning dan deep learning</field>
+            <field name="blog_id" ref="mata_kuliah_blog_graduate"/>
+            <field name="slug">advanced-machine-learning</field>
+            <field name="course_code">CS501</field>
+            <field name="semester">1</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2024_2025')), (4, ref('academic_year_2025_2026'))]"/>
+            <field name="sks">3</field>
+            <field name="course_type">mandatory</field>
+            <field name="prerequisites">Machine Learning (undergraduate level)</field>
+            <field name="teaser">Mata kuliah lanjutan yang membahas teknik advanced dalam machine learning dan deep learning untuk mahasiswa magister.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Advanced Machine Learning merupakan mata kuliah inti program magister yang membahas teknik-teknik canggih dalam machine learning. Fokus pada research-oriented learning dengan emphasis pada mathematical foundations dan implementation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami teori matematika di balik algoritma ML&lt;/li&gt;
+&lt;li&gt;Mampu mengembangkan algoritma ML custom&lt;/li&gt;
+&lt;li&gt;Memahami advanced deep learning architectures&lt;/li&gt;
+&lt;li&gt;Mampu melakukan research dalam bidang ML&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Mathematical Foundations of ML&lt;/li&gt;
+&lt;li&gt;Advanced Optimization Techniques&lt;/li&gt;
+&lt;li&gt;Deep Learning Architectures (CNN, RNN, Transformer)&lt;/li&gt;
+&lt;li&gt;Reinforcement Learning&lt;/li&gt;
+&lt;li&gt;Generative Models (GANs, VAEs)&lt;/li&gt;
+&lt;li&gt;Bayesian Machine Learning&lt;/li&gt;
+&lt;li&gt;ML Research Methodology&lt;/li&gt;
+&lt;li&gt;Advanced Topics (Meta-learning, Few-shot Learning)&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu mengembangkan research dalam bidang machine learning dan menerapkan teknik advanced untuk menyelesaikan masalah kompleks&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup mathematical foundations, deep learning architectures, reinforcement learning, generative models, dan metodologi penelitian ML.&lt;/p&gt;</field>
+            <field name="assessment_methods">Research Paper: 40%, Project: 30%, Final Exam: 30%</field>
+            <field name="max_students">20</field>
+            <field name="typical_students">18</field>
+            <field name="student_satisfaction">4.8</field>
+            <field name="course_rating">4.7</field>
+            <field name="meta_title">Advanced Machine Learning - CS501</field>
+            <field name="meta_description">Mata kuliah magister semester 1. Teknik lanjutan machine learning dan deep learning.</field>
+            <field name="meta_keywords">advanced ML, deep learning, CS501, research, magister</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Additional Graduate Course -->
+        <record id="mata_kuliah_post_financial_economics" model="mata_kuliah.post">
+            <field name="name">Financial Economics</field>
+            <field name="subtitle">Teori ekonomi keuangan dan aplikasi dalam pasar modal</field>
+            <field name="blog_id" ref="mata_kuliah_blog_graduate"/>
+            <field name="slug">financial-economics</field>
+            <field name="course_code">ECO501</field>
+            <field name="semester">1</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2022_2023')), (4, ref('academic_year_2023_2024'))]"/>
+            <field name="sks">3</field>
+            <field name="course_type">mandatory</field>
+            <field name="prerequisites">Microeconomics, Statistics (undergraduate level)</field>
+            <field name="teaser">Mata kuliah lanjutan yang membahas teori ekonomi keuangan dan aplikasinya dalam pengambilan keputusan investasi.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Financial Economics merupakan mata kuliah magister yang mengintegrasikan teori ekonomi dengan praktik keuangan. Fokus pada pemodelan matematis dan analisis empiris pasar keuangan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami teori portfolio modern&lt;/li&gt;
+&lt;li&gt;Mampu memodelkan harga aset&lt;/li&gt;
+&lt;li&gt;Memahami derivative pricing&lt;/li&gt;
+&lt;li&gt;Mampu melakukan analisis risiko keuangan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Utility Theory and Risk Aversion&lt;/li&gt;
+&lt;li&gt;Portfolio Theory (Markowitz)&lt;/li&gt;
+&lt;li&gt;Capital Asset Pricing Model (CAPM)&lt;/li&gt;
+&lt;li&gt;Efficient Market Hypothesis&lt;/li&gt;
+&lt;li&gt;Arbitrage Pricing Theory&lt;/li&gt;
+&lt;li&gt;Option Pricing (Black-Scholes)&lt;/li&gt;
+&lt;li&gt;Fixed Income Securities&lt;/li&gt;
+&lt;li&gt;Risk Management&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu menganalisis pasar keuangan menggunakan model ekonomi matematis dan menerapkan teori dalam pengambilan keputusan investasi&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup teori portfolio, CAPM, efficient market hypothesis, option pricing, dan manajemen risiko keuangan.&lt;/p&gt;</field>
+            <field name="assessment_methods">Research Paper: 40%, Problem Sets: 30%, Final Exam: 30%</field>
+            <field name="max_students">25</field>
+            <field name="typical_students">22</field>
+            <field name="student_satisfaction">4.6</field>
+            <field name="course_rating">4.5</field>
+            <field name="meta_title">Financial Economics - ECO501</field>
+            <field name="meta_description">Mata kuliah magister semester 1. Teori ekonomi keuangan dan pasar modal.</field>
+            <field name="meta_keywords">financial economics, portfolio theory, CAPM, ECO501, magister</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Additional Undergraduate Courses from Various Fields -->
+
+        <!-- Economics Faculty -->
+        <record id="mata_kuliah_post_ekonomi_mikro" model="mata_kuliah.post">
+            <field name="name">Ekonomi Mikro</field>
+            <field name="subtitle">Teori dan aplikasi ekonomi mikro dalam pengambilan keputusan</field>
+            <field name="blog_id" ref="mata_kuliah_blog_undergraduate"/>
+            <field name="slug">ekonomi-mikro</field>
+            <field name="course_code">ECO101</field>
+            <field name="semester">1</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2025_2026')), (4, ref('academic_year_2024_2025'))]"/>
+            <field name="sks">3</field>
+            <field name="course_type">mandatory</field>
+            <field name="teaser">Mata kuliah ini memperkenalkan konsep dasar ekonomi mikro dan aplikasinya dalam kehidupan sehari-hari.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Ekonomi Mikro merupakan mata kuliah dasar yang membekali mahasiswa dengan pemahaman fundamental tentang perilaku konsumen dan produsen, serta mekanisme pasar. Mata kuliah ini menjadi dasar untuk memahami teori ekonomi modern.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami konsep permintaan, penawaran, dan keseimbangan pasar&lt;/li&gt;
+&lt;li&gt;Mampu menganalisis elastisitas harga dan pendapatan&lt;/li&gt;
+&lt;li&gt;Memahami teori produksi dan biaya&lt;/li&gt;
+&lt;li&gt;Mampu menerapkan konsep ekonomi mikro dalam kasus dunia nyata&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pengenalan Ekonomi Mikro&lt;/li&gt;
+&lt;li&gt;Teori Permintaan dan Penawaran&lt;/li&gt;
+&lt;li&gt;Elastisitas&lt;/li&gt;
+&lt;li&gt;Teori Konsumen&lt;/li&gt;
+&lt;li&gt;Teori Produsen dan Biaya Produksi&lt;/li&gt;
+&lt;li&gt;Struktur Pasar (Persaingan Sempurna, Monopoli)&lt;/li&gt;
+&lt;li&gt;Kegagalan Pasar&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="prerequisites">Matematika Dasar</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu menganalisis perilaku ekonomi mikro dan menerapkan konsep-konsep ekonomi dalam pengambilan keputusan&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup teori permintaan-penawaran, elastisitas, teori konsumen dan produsen, serta struktur pasar yang berbeda.&lt;/p&gt;</field>
+            <field name="assessment_methods">Tugas: 25%, Quiz: 25%, UTS: 25%, UAS: 25%</field>
+            <field name="max_students">60</field>
+            <field name="typical_students">55</field>
+            <field name="student_satisfaction">4.0</field>
+            <field name="course_rating">3.9</field>
+            <field name="meta_title">Ekonomi Mikro - ECO101</field>
+            <field name="meta_description">Mata kuliah wajib semester 1. Belajar konsep dasar ekonomi mikro dan aplikasinya.</field>
+            <field name="meta_keywords">ekonomi mikro, permintaan penawaran, ECO101, teori konsumen</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Law Faculty -->
+        <record id="mata_kuliah_post_hukum_pidana" model="mata_kuliah.post">
+            <field name="name">Hukum Pidana</field>
+            <field name="subtitle">Prinsip-prinsip hukum pidana dan penerapannya dalam sistem peradilan</field>
+            <field name="blog_id" ref="mata_kuliah_blog_undergraduate"/>
+            <field name="slug">hukum-pidana</field>
+            <field name="course_code">LAW201</field>
+            <field name="semester">3</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2024_2025')), (4, ref('academic_year_2023_2024'))]"/>
+            <field name="sks">4</field>
+            <field name="course_type">mandatory</field>
+            <field name="teaser">Mata kuliah ini membahas asas-asas hukum pidana dan implementasinya dalam praktik peradilan pidana.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Hukum Pidana merupakan mata kuliah inti dalam pendidikan hukum yang membahas teori dan praktik hukum pidana. Mahasiswa akan mempelajari KUHP dan yurisprudensi terkait.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami asas-asas hukum pidana&lt;/li&gt;
+&lt;li&gt;Mampu menganalisis unsur-unsur tindak pidana&lt;/li&gt;
+&lt;li&gt;Memahami sistem peradilan pidana&lt;/li&gt;
+&lt;li&gt;Mampu menerapkan hukum pidana dalam kasus konkret&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pengantar Hukum Pidana&lt;/li&gt;
+&lt;li&gt;Asas-Asas Hukum Pidana&lt;/li&gt;
+&lt;li&gt;Unsur-Unsur Tindak Pidana&lt;/li&gt;
+&lt;li&gt;Teori Pertanggungjawaban Pidana&lt;/li&gt;
+&lt;li&gt;Sistem Pemidanaan&lt;/li&gt;
+&lt;li&gt;Hukum Pidana Khusus&lt;/li&gt;
+&lt;li&gt;Proses Peradilan Pidana&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="prerequisites">Pengantar Hukum Indonesia</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu menganalisis dan menerapkan hukum pidana dalam konteks peradilan dan masyarakat&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup asas hukum pidana, unsur tindak pidana, sistem pemidanaan, dan proses peradilan pidana.&lt;/p&gt;</field>
+            <field name="assessment_methods">Tugas Kasus: 30%, UTS: 30%, UAS: 40%</field>
+            <field name="max_students">50</field>
+            <field name="typical_students">45</field>
+            <field name="student_satisfaction">4.3</field>
+            <field name="course_rating">4.2</field>
+            <field name="meta_title">Hukum Pidana - LAW201</field>
+            <field name="meta_description">Mata kuliah wajib semester 3. Belajar asas dan penerapan hukum pidana.</field>
+            <field name="meta_keywords">hukum pidana, KUHP, LAW201, peradilan pidana</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Medical Faculty -->
+        <record id="mata_kuliah_post_anatomi_manusia" model="mata_kuliah.post">
+            <field name="name">Anatomi Manusia</field>
+            <field name="subtitle">Struktur dan fungsi sistem organ tubuh manusia</field>
+            <field name="blog_id" ref="mata_kuliah_blog_undergraduate"/>
+            <field name="slug">anatomi-manusia</field>
+            <field name="course_code">MED101</field>
+            <field name="semester">1</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2022_2023')), (4, ref('academic_year_2023_2024'))]"/>
+            <field name="sks">4</field>
+            <field name="course_type">mandatory</field>
+            <field name="teaser">Mata kuliah ini mempelajari struktur anatomi tubuh manusia dan hubungannya dengan fungsi fisiologis.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Anatomi Manusia merupakan mata kuliah dasar kedokteran yang membahas struktur tubuh manusia secara sistematis. Mata kuliah ini menjadi fondasi untuk memahami patologi dan klinik.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami terminologi anatomi&lt;/li&gt;
+&lt;li&gt;Mampu mengidentifikasi struktur anatomi utama&lt;/li&gt;
+&lt;li&gt;Memahami hubungan struktur-fungsi organ&lt;/li&gt;
+&lt;li&gt;Mampu melakukan pemeriksaan fisik dasar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Sistem Muskuloskeletal&lt;/li&gt;
+&lt;li&gt;Sistem Kardiovaskular&lt;/li&gt;
+&lt;li&gt;Sistem Respirasi&lt;/li&gt;
+&lt;li&gt;Sistem Pencernaan&lt;/li&gt;
+&lt;li&gt;Sistem Urinarius&lt;/li&gt;
+&lt;li&gt;Sistem Reproduksi&lt;/li&gt;
+&lt;li&gt;Sistem Endokrin&lt;/li&gt;
+&lt;li&gt;Sistem Nervosus&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="prerequisites">Biologi Dasar</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu mengidentifikasi dan memahami struktur anatomi manusia serta hubungannya dengan fungsi fisiologis&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup anatomi sistem muskuloskeletal, kardiovaskular, respirasi, pencernaan, urinarius, reproduksi, endokrin, dan nervosus.&lt;/p&gt;</field>
+            <field name="assessment_methods">Praktikum: 40%, Teori UTS: 20%, Teori UAS: 30%, Tugas: 10%</field>
+            <field name="max_students">80</field>
+            <field name="typical_students">75</field>
+            <field name="student_satisfaction">4.1</field>
+            <field name="course_rating">4.0</field>
+            <field name="meta_title">Anatomi Manusia - MED101</field>
+            <field name="meta_description">Mata kuliah wajib semester 1. Belajar struktur dan fungsi tubuh manusia.</field>
+            <field name="meta_keywords">anatomi manusia, sistem organ, MED101, fisiologi</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Business Faculty -->
+        <record id="mata_kuliah_post_manajemen_pemasaran" model="mata_kuliah.post">
+            <field name="name">Manajemen Pemasaran</field>
+            <field name="subtitle">Strategi dan taktik pemasaran dalam bisnis modern</field>
+            <field name="blog_id" ref="mata_kuliah_blog_undergraduate"/>
+            <field name="slug">manajemen-pemasaran</field>
+            <field name="course_code">MKT301</field>
+            <field name="semester">5</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2025_2026')), (4, ref('academic_year_2024_2025'))]"/>
+            <field name="sks">3</field>
+            <field name="course_type">elective</field>
+            <field name="teaser">Mata kuliah ini membahas konsep dan aplikasi manajemen pemasaran dalam konteks bisnis global.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Manajemen Pemasaran merupakan mata kuliah yang membekali mahasiswa dengan pengetahuan dan keterampilan dalam merencanakan dan mengimplementasikan strategi pemasaran yang efektif.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami konsep dasar pemasaran&lt;/li&gt;
+&lt;li&gt;Mampu menganalisis pasar dan konsumen&lt;/li&gt;
+&lt;li&gt;Mampu merancang strategi pemasaran terpadu&lt;/li&gt;
+&lt;li&gt;Memahami digital marketing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pengenalan Manajemen Pemasaran&lt;/li&gt;
+&lt;li&gt;Analisis Pasar dan Konsumen&lt;/li&gt;
+&lt;li&gt;Segmentasi, Targeting, Positioning&lt;/li&gt;
+&lt;li&gt;Product Management&lt;/li&gt;
+&lt;li&gt;Pricing Strategies&lt;/li&gt;
+&lt;li&gt;Distribution Channels&lt;/li&gt;
+&lt;li&gt;Promotion Mix&lt;/li&gt;
+&lt;li&gt;Digital Marketing&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="prerequisites">Manajemen Dasar, Ekonomi Mikro</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu merancang dan mengimplementasikan strategi pemasaran yang efektif untuk berbagai jenis produk dan jasa&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup analisis pasar, STP, bauran pemasaran 4P, dan strategi pemasaran digital.&lt;/p&gt;</field>
+            <field name="assessment_methods">Proyek Pemasaran: 40%, Case Study: 30%, UAS: 30%</field>
+            <field name="max_students">45</field>
+            <field name="typical_students">42</field>
+            <field name="student_satisfaction">4.4</field>
+            <field name="course_rating">4.3</field>
+            <field name="meta_title">Manajemen Pemasaran - MKT301</field>
+            <field name="meta_description">Mata kuliah pilihan semester 5. Belajar strategi dan taktik pemasaran modern.</field>
+            <field name="meta_keywords">manajemen pemasaran, marketing strategy, MKT301, digital marketing</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Doctoral Courses -->
+        <record id="mata_kuliah_post_ai_research" model="mata_kuliah.post">
+            <field name="name">AI Research Methodology</field>
+            <field name="subtitle">Metodologi penelitian dalam kecerdasan buatan</field>
+            <field name="blog_id" ref="mata_kuliah_blog_doctoral"/>
+            <field name="slug">ai-research-methodology</field>
+            <field name="course_code">AI701</field>
+            <field name="semester">1</field>
+            <field name="academic_year_ids" eval="[(4, ref('academic_year_2023_2024')), (4, ref('academic_year_2024_2025'))]"/>
+            <field name="sks">3</field>
+            <field name="course_type">mandatory</field>
+            <field name="prerequisites">Advanced Machine Learning (master level)</field>
+            <field name="teaser">Mata kuliah untuk mahasiswa doktor yang fokus pada metodologi penelitian dalam bidang kecerdasan buatan.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Deskripsi Mata Kuliah&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;AI Research Methodology dirancang khusus untuk mahasiswa program doktor yang akan melakukan penelitian dalam bidang kecerdasan buatan. Mata kuliah ini membekali mahasiswa dengan framework metodologis yang komprehensif untuk penelitian AI.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capaian Pembelajaran:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Memahami metodologi penelitian AI yang rigor&lt;/li&gt;
+&lt;li&gt;Mampu merancang eksperimen penelitian AI&lt;/li&gt;
+&lt;li&gt;Memahami etika dan reproducibility dalam AI research&lt;/li&gt;
+&lt;li&gt;Mampu menulis paper untuk jurnal top-tier&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Topik Pokok:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Scientific Method in AI Research&lt;/li&gt;
+&lt;li&gt;Research Design and Hypothesis Formulation&lt;/li&gt;
+&lt;li&gt;Experimental Methodology in AI&lt;/li&gt;
+&lt;li&gt;Statistical Analysis for AI Experiments&lt;/li&gt;
+&lt;li&gt;Reproducibility and Open Science&lt;/li&gt;
+&lt;li&gt;Ethics in AI Research&lt;/li&gt;
+&lt;li&gt;Writing Research Papers&lt;/li&gt;
+&lt;li&gt;Peer Review Process&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="learning_objectives">&lt;p&gt;Mahasiswa mampu merancang dan mengeksekusi penelitian AI yang berkualitas tinggi sesuai standar internasional&lt;/p&gt;</field>
+            <field name="syllabus_summary">&lt;p&gt;Mata kuliah ini mencakup metodologi penelitian AI, experimental design, statistical analysis, reproducibility, ethics, dan writing research papers.&lt;/p&gt;</field>
+            <field name="assessment_methods">Research Proposal: 50%, Literature Review: 30%, Presentation: 20%</field>
+            <field name="max_students">15</field>
+            <field name="typical_students">12</field>
+            <field name="student_satisfaction">4.9</field>
+            <field name="course_rating">4.8</field>
+            <field name="meta_title">AI Research Methodology - AI701</field>
+            <field name="meta_description">Mata kuliah doktor semester 1. Metodologi penelitian dalam kecerdasan buatan.</field>
+            <field name="meta_keywords">AI research, methodology, AI701, doctoral, reproducibility</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- Course Textbooks and Resources -->
+
+        <!-- Textbooks for Pemrograman Dasar -->
+        <record id="textbook_pemrograman_dasar_1" model="course.textbook">
+            <field name="name">C How to Program</field>
+            <field name="author">Paul Deitel, Harvey Deitel</field>
+            <field name="publisher">Pearson</field>
+            <field name="year">2015</field>
+            <field name="isbn">978-0133976892</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_pemrograman_dasar"/>
+        </record>
+
+        <record id="textbook_pemrograman_dasar_2" model="course.textbook">
+            <field name="name">The C Programming Language</field>
+            <field name="author">Brian Kernighan, Dennis Ritchie</field>
+            <field name="publisher">Prentice Hall</field>
+            <field name="year">1988</field>
+            <field name="isbn">978-0131103627</field>
+            <field name="sequence">2</field>
+            <field name="course_id" ref="mata_kuliah_post_pemrograman_dasar"/>
+        </record>
+
+        <!-- Resources for Pemrograman Dasar -->
+        <record id="resource_pemrograman_dasar_1" model="course.resource">
+            <field name="name">Online C Compiler</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://www.onlinegdb.com/online_c_compiler</field>
+            <field name="description">Compiler C online untuk latihan programming</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_pemrograman_dasar"/>
+        </record>
+
+        <record id="resource_pemrograman_dasar_2" model="course.resource">
+            <field name="name">Code::Blocks IDE</field>
+            <field name="resource_type">software</field>
+            <field name="url">https://www.codeblocks.org/</field>
+            <field name="description">Integrated Development Environment untuk bahasa C</field>
+            <field name="sequence">2</field>
+            <field name="course_id" ref="mata_kuliah_post_pemrograman_dasar"/>
+        </record>
+
+        <!-- Textbooks for Struktur Data -->
+        <record id="textbook_struktur_data_1" model="course.textbook">
+            <field name="name">Introduction to Algorithms</field>
+            <field name="author">Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein</field>
+            <field name="publisher">MIT Press</field>
+            <field name="year">2022</field>
+            <field name="isbn">978-0262033848</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_struktur_data"/>
+        </record>
+
+        <!-- Resources for Struktur Data -->
+        <record id="resource_struktur_data_1" model="course.resource">
+            <field name="name">LeetCode</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://leetcode.com/</field>
+            <field name="description">Platform untuk latihan algoritma dan struktur data</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_struktur_data"/>
+        </record>
+
+        <record id="resource_struktur_data_2" model="course.resource">
+            <field name="name">Visualgo</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://visualgo.net/</field>
+            <field name="description">Visualisasi algoritma dan struktur data</field>
+            <field name="sequence">2</field>
+            <field name="course_id" ref="mata_kuliah_post_struktur_data"/>
+        </record>
+
+        <!-- Textbooks for Machine Learning -->
+        <record id="textbook_machine_learning_1" model="course.textbook">
+            <field name="name">The Elements of Statistical Learning</field>
+            <field name="author">Trevor Hastie, Robert Tibshirani, Jerome Friedman</field>
+            <field name="publisher">Springer</field>
+            <field name="year">2017</field>
+            <field name="isbn">978-0387848570</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_machine_learning"/>
+        </record>
+
+        <!-- Resources for Machine Learning -->
+        <record id="resource_machine_learning_1" model="course.resource">
+            <field name="name">scikit-learn</field>
+            <field name="resource_type">software</field>
+            <field name="url">https://scikit-learn.org/</field>
+            <field name="description">Library machine learning untuk Python</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_machine_learning"/>
+        </record>
+
+        <record id="resource_machine_learning_2" model="course.resource">
+            <field name="name">Kaggle</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://www.kaggle.com/</field>
+            <field name="description">Platform kompetisi dan dataset machine learning</field>
+            <field name="sequence">2</field>
+            <field name="course_id" ref="mata_kuliah_post_machine_learning"/>
+        </record>
+
+        <!-- Textbooks for Advanced ML -->
+        <record id="textbook_advanced_ml_1" model="course.textbook">
+            <field name="name">Probabilistic Machine Learning: An Introduction</field>
+            <field name="author">Kevin P. Murphy</field>
+            <field name="publisher">MIT Press</field>
+            <field name="year">2022</field>
+            <field name="isbn">978-0262046824</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_advanced_ml"/>
+        </record>
+
+        <!-- Resources for Advanced ML -->
+        <record id="resource_advanced_ml_1" model="course.resource">
+            <field name="name">PyTorch</field>
+            <field name="resource_type">software</field>
+            <field name="url">https://pytorch.org/</field>
+            <field name="description">Framework deep learning untuk penelitian</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_advanced_ml"/>
+        </record>
+
+        <record id="resource_advanced_ml_2" model="course.resource">
+            <field name="name">arXiv</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://arxiv.org/</field>
+            <field name="description">Repository paper penelitian AI dan ML</field>
+            <field name="sequence">2</field>
+            <field name="course_id" ref="mata_kuliah_post_advanced_ml"/>
+        </record>
+
+        <!-- Textbooks for AI Research -->
+        <record id="textbook_ai_research_1" model="course.textbook">
+            <field name="name">Deep Learning</field>
+            <field name="author">Ian Goodfellow, Yoshua Bengio, Aaron Courville</field>
+            <field name="publisher">MIT Press</field>
+            <field name="year">2016</field>
+            <field name="isbn">978-0262035613</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_ai_research"/>
+        </record>
+
+        <!-- Textbooks and Resources for Additional Courses -->
+
+        <!-- Textbooks for Ekonomi Mikro -->
+        <record id="textbook_ekonomi_mikro_1" model="course.textbook">
+            <field name="name">Microeconomics</field>
+            <field name="author">Robert S. Pindyck, Daniel L. Rubinfeld</field>
+            <field name="publisher">Pearson</field>
+            <field name="year">2018</field>
+            <field name="isbn">978-0134519531</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_ekonomi_mikro"/>
+        </record>
+
+        <!-- Resources for Ekonomi Mikro -->
+        <record id="resource_ekonomi_mikro_1" model="course.resource">
+            <field name="name">Investopedia</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://www.investopedia.com/</field>
+            <field name="description">Sumber referensi ekonomi dan keuangan</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_ekonomi_mikro"/>
+        </record>
+
+        <!-- Textbooks for Hukum Pidana -->
+        <record id="textbook_hukum_pidana_1" model="course.textbook">
+            <field name="name">KUHP dan KUHAP Lengkap</field>
+            <field name="author">Tim Redaksi</field>
+            <field name="publisher">Sinar Grafika</field>
+            <field name="year">2022</field>
+            <field name="isbn">978-9790075456</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_hukum_pidana"/>
+        </record>
+
+        <!-- Resources for Hukum Pidana -->
+        <record id="resource_hukum_pidana_1" model="course.resource">
+            <field name="name">Mahkamah Agung RI</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://www.mahkamahagung.go.id/</field>
+            <field name="description">Sumber yurisprudensi dan putusan pengadilan</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_hukum_pidana"/>
+        </record>
+
+        <!-- Textbooks for Anatomi Manusia -->
+        <record id="textbook_anatomi_1" model="course.textbook">
+            <field name="name">Anatomy &amp; Physiology: The Unity of Form and Function</field>
+            <field name="author">Kenneth S. Saladin</field>
+            <field name="publisher">McGraw-Hill</field>
+            <field name="year">2018</field>
+            <field name="isbn">978-0073403717</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_anatomi_manusia"/>
+        </record>
+
+        <!-- Resources for Anatomi Manusia -->
+        <record id="resource_anatomi_1" model="course.resource">
+            <field name="name">Visible Body</field>
+            <field name="resource_type">software</field>
+            <field name="url">https://www.visiblebody.com/</field>
+            <field name="description">Software 3D anatomi interaktif</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_anatomi_manusia"/>
+        </record>
+
+        <record id="resource_anatomi_2" model="course.resource">
+            <field name="name">Anatomy.tv</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://www.anatomy.tv/</field>
+            <field name="description">Database anatomi dengan video dan gambar</field>
+            <field name="sequence">2</field>
+            <field name="course_id" ref="mata_kuliah_post_anatomi_manusia"/>
+        </record>
+
+        <!-- Textbooks for Manajemen Pemasaran -->
+        <record id="textbook_pemasaran_1" model="course.textbook">
+            <field name="name">Marketing Management</field>
+            <field name="author">Philip Kotler, Kevin Keller</field>
+            <field name="publisher">Pearson</field>
+            <field name="year">2019</field>
+            <field name="isbn">978-0133856460</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_manajemen_pemasaran"/>
+        </record>
+
+        <!-- Resources for Manajemen Pemasaran -->
+        <record id="resource_pemasaran_1" model="course.resource">
+            <field name="name">HubSpot Academy</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://academy.hubspot.com/</field>
+            <field name="description">Kursus pemasaran digital gratis</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_manajemen_pemasaran"/>
+        </record>
+
+        <record id="resource_pemasaran_2" model="course.resource">
+            <field name="name">Google Analytics Academy</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://analytics.google.com/analytics/academy/</field>
+            <field name="description">Sertifikasi Google Analytics untuk analisis pemasaran</field>
+            <field name="sequence">2</field>
+            <field name="course_id" ref="mata_kuliah_post_manajemen_pemasaran"/>
+        </record>
+
+        <!-- Textbooks for Financial Economics -->
+        <record id="textbook_financial_economics_1" model="course.textbook">
+            <field name="name">Asset Pricing</field>
+            <field name="author">John H. Cochrane</field>
+            <field name="publisher">Princeton University Press</field>
+            <field name="year">2005</field>
+            <field name="isbn">978-0691121376</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_financial_economics"/>
+        </record>
+
+        <!-- Resources for Financial Economics -->
+        <record id="resource_financial_economics_1" model="course.resource">
+            <field name="name">Yahoo Finance</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://finance.yahoo.com/</field>
+            <field name="description">Data pasar saham dan analisis keuangan</field>
+            <field name="sequence">1</field>
+            <field name="course_id" ref="mata_kuliah_post_financial_economics"/>
+        </record>
+
+        <record id="resource_financial_economics_2" model="course.resource">
+            <field name="name">Federal Reserve Economic Data (FRED)</field>
+            <field name="resource_type">website</field>
+            <field name="url">https://fred.stlouisfed.org/</field>
+            <field name="description">Database ekonomi makro dan data keuangan</field>
+            <field name="sequence">2</field>
+            <field name="course_id" ref="mata_kuliah_post_financial_economics"/>
+        </record>
+
+    </data>
+</odoo>

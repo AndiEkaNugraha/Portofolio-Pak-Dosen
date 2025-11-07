@@ -1,0 +1,21 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_academic_year_public,academic.year public,model_academic_year,base.group_public,1,0,0,0
+access_academic_year_portal,academic.year portal,model_academic_year,base.group_portal,1,0,0,0
+access_academic_year_user,academic.year user,model_academic_year,base.group_user,1,0,0,0
+access_academic_year_author,academic.year author,model_academic_year,base.group_system,1,1,1,1
+access_mata_kuliah_blog_public,mata_kuliah.blog public,model_mata_kuliah_blog,base.group_public,1,0,0,0
+access_mata_kuliah_blog_portal,mata_kuliah.blog portal,model_mata_kuliah_blog,base.group_portal,1,0,0,0
+access_mata_kuliah_blog_user,mata_kuliah.blog user,model_mata_kuliah_blog,base.group_user,1,0,0,0
+access_mata_kuliah_blog_author,mata_kuliah.blog author,model_mata_kuliah_blog,base.group_system,1,1,1,1
+access_mata_kuliah_post_public,mata_kuliah.post public,model_mata_kuliah_post,base.group_public,1,0,0,0
+access_mata_kuliah_post_portal,mata_kuliah.post portal,model_mata_kuliah_post,base.group_portal,1,0,0,0
+access_mata_kuliah_post_user,mata_kuliah.post user,model_mata_kuliah_post,base.group_user,1,0,0,0
+access_mata_kuliah_post_author,mata_kuliah.post author,model_mata_kuliah_post,base.group_system,1,1,1,1
+access_course_textbook_public,course.textbook public,model_course_textbook,base.group_public,1,0,0,0
+access_course_textbook_portal,course.textbook portal,model_course_textbook,base.group_portal,1,0,0,0
+access_course_textbook_user,course.textbook user,model_course_textbook,base.group_user,1,0,0,0
+access_course_textbook_author,course.textbook author,model_course_textbook,base.group_system,1,1,1,1
+access_course_resource_public,course.resource public,model_course_resource,base.group_public,1,0,0,0
+access_course_resource_portal,course.resource portal,model_course_resource,base.group_portal,1,0,0,0
+access_course_resource_user,course.resource user,model_course_resource,base.group_user,1,0,0,0
+access_course_resource_author,course.resource author,model_course_resource,base.group_system,1,1,1,1

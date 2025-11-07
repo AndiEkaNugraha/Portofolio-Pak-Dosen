@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Academic Years -->
+        <record id="academic_year_2024_2025" model="academic.year">
+            <field name="name">2024/2025</field>
+            <field name="start_year">2024</field>
+            <field name="end_year">2025</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="academic_year_2023_2024" model="academic.year">
+            <field name="name">2023/2024</field>
+            <field name="start_year">2023</field>
+            <field name="end_year">2024</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="academic_year_2022_2023" model="academic.year">
+            <field name="name">2022/2023</field>
+            <field name="start_year">2022</field>
+            <field name="end_year">2023</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="academic_year_2021_2022" model="academic.year">
+            <field name="name">2021/2022</field>
+            <field name="start_year">2021</field>
+            <field name="end_year">2022</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="academic_year_2020_2021" model="academic.year">
+            <field name="name">2020/2021</field>
+            <field name="start_year">2020</field>
+            <field name="end_year">2021</field>
+            <field name="is_active">False</field>
+        </record>
+
+        <record id="academic_year_2019_2020" model="academic.year">
+            <field name="name">2019/2020</field>
+            <field name="start_year">2019</field>
+            <field name="end_year">2020</field>
+            <field name="is_active">False</field>
+        </record>
+
+        <record id="academic_year_2018_2019" model="academic.year">
+            <field name="name">2018/2019</field>
+            <field name="start_year">2018</field>
+            <field name="end_year">2019</field>
+            <field name="is_active">False</field>
+        </record>
+
+    </data>
+</odoo>

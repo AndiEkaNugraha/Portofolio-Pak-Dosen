@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_matakuliah_blog_user,matakuliah.blog user,matakuliah.model_matakuliah_blog,base.group_user,1,0,0,0
-access_matakuliah_blog_manager,matakuliah.blog manager,matakuliah.model_matakuliah_blog,base.group_system,1,1,1,1
-access_matakuliah_post_user,matakuliah.post user,matakuliah.model_matakuliah_post,base.group_user,1,0,0,0
-access_matakuliah_post_manager,matakuliah.post manager,matakuliah.model_matakuliah_post,base.group_system,1,1,1,1

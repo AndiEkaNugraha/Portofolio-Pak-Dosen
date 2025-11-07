@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Mata Kuliah Blog Views - Custom form view -->
+    <record id="view_mata_kuliah_blog_form_custom" model="ir.ui.view">
+        <field name="name">mata_kuliah.blog.form.custom</field>
+        <field name="model">mata_kuliah.blog</field>
+        <field name="arch" type="xml">
+            <form string="Kategori Mata Kuliah">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nama Kategori Mata Kuliah..." required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="subtitle" placeholder="Deskripsi singkat kategori..."/>
+                    </group>
+                    <group>
+                        <group string="Informasi Kategori">
+                            <field name="course_level" required="1"/>
+                            <field name="faculty"/>
+                            <field name="post_count" readonly="1"/>
+                        </group>
+                        <group string="Status">
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Mata Kuliah Post Views - Custom form view -->
+    <record id="view_mata_kuliah_post_form_custom" model="ir.ui.view">
+        <field name="name">mata_kuliah.post.form.custom</field>
+        <field name="model">mata_kuliah.post</field>
+        <field name="arch" type="xml">
+            <form string="Mata Kuliah">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nama Mata Kuliah..." required="1"/>
+                        </h1>
+                        <field name="subtitle" placeholder="Deskripsi singkat..."/>
+                    </div>
+
+                    <group>
+                        <group string="Informasi Dasar">
+                            <field name="blog_id" required="1"/>
+                            <field name="course_code" required="1"/>
+                            <field name="semester" required="1"/>
+                            <field name="academic_year_ids" required="1" widget="many2many_tags"/>
+                            <field name="sks" required="1"/>
+                            <field name="course_type"/>
+                            <field name="website_published" string="Tampilkan di Website" help="Publikasikan mata kuliah ini di website publik"/>
+                        </group>
+                        <group string="Status">
+                            <field name="active" string="Status Aktif" help="Aktifkan/nonaktifkan record ini di sistem"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Konten" name="content">
+                            <group>
+                                <field name="teaser" string="Ringkasan"
+                                       placeholder="Ringkasan singkat mata kuliah..."
+                                       help="Ringkasan singkat mata kuliah untuk preview"/>
+                                <field name="content" string="Deskripsi Lengkap" widget="html"
+                                       help="Deskripsi lengkap mata kuliah, silabus, atau informasi lainnya"/>
+                            </group>
+                        </page>
+
+                        <page string="SEO &amp; Metadata" name="seo">
+                            <group>
+                                <group string="SEO">
+                                    <field name="slug" placeholder="url-slug-mata-kuliah"
+                                           help="URL slug yang SEO-friendly. Kosongkan untuk generate otomatis dari nama mata kuliah. Hanya huruf kecil, angka, dan tanda hubung (-)"/>
+                                    <field name="meta_title"/>
+                                    <field name="meta_description" widget="text"/>
+                                    <field name="meta_keywords"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Detail Pengajaran" name="teaching_details">
+                            <group>
+                                <group string="Informasi Akademik">
+                                    <field name="prerequisites"/>
+                                    <field name="learning_objectives"/>
+                                    <field name="assessment_methods"/>
+                                    <field name="max_students"/>
+                                    <field name="typical_students"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Materi &amp; Sumber" name="materials">
+                            <group string="Buku Referensi">
+                                <field name="textbook_ids">
+                                    <list string="Buku Referensi" editable="bottom">
+                                        <field name="sequence"/>
+                                        <field name="name" required="1"/>
+                                        <field name="author"/>
+                                        <field name="publisher"/>
+                                        <field name="year"/>
+                                        <field name="isbn"/>
+                                    </list>
+                                    <form string="Buku Referensi">
+                                        <group>
+                                            <field name="name" required="1"/>
+                                            <field name="author"/>
+                                            <field name="publisher"/>
+                                            <field name="year"/>
+                                            <field name="isbn"/>
+                                            <field name="sequence"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                            <group string="Sumber Belajar Tambahan">
+                                <field name="resource_ids">
+                                    <list string="Sumber Belajar" editable="bottom">
+                                        <field name="sequence"/>
+                                        <field name="name" required="1"/>
+                                        <field name="resource_type"/>
+                                        <field name="url"/>
+                                        <field name="description"/>
+                                    </list>
+                                    <form string="Sumber Belajar">
+                                        <group>
+                                            <field name="name" required="1"/>
+                                            <field name="resource_type"/>
+                                            <field name="url"/>
+                                            <field name="description"/>
+                                            <field name="sequence"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                            <group string="Lainnya">
+                                <field name="syllabus_summary"/>
+                                <field name="student_satisfaction"/>
+                                <field name="course_rating"/>
+                            </group>
+                            
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree views -->
+    <record id="view_mata_kuliah_blog_tree" model="ir.ui.view">
+        <field name="name">mata_kuliah.blog.tree</field>
+        <field name="model">mata_kuliah.blog</field>
+        <field name="arch" type="xml">
+            <list string="Kategori Mata Kuliah">
+                <field name="name"/>
+                <field name="course_level"/>
+                <field name="faculty"/>
+                <field name="post_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mata_kuliah_post_tree" model="ir.ui.view">
+        <field name="name">mata_kuliah.post.tree</field>
+        <field name="model">mata_kuliah.post</field>
+        <field name="arch" type="xml">
+            <list string="Entri Mata Kuliah">
+                <field name="name"/>
+                <field name="course_code"/>
+                <field name="semester"/>
+                <field name="sks"/>
+                <field name="course_type"/>
+                <field name="website_published" string="Di Website" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_mata_kuliah_blog" model="ir.actions.act_window">
+        <field name="name">Kategori Mata Kuliah</field>
+        <field name="res_model">mata_kuliah.blog</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_mata_kuliah_blog_tree"/>
+    </record>
+
+    <record id="action_mata_kuliah_post" model="ir.actions.act_window">
+        <field name="name">Daftar Mata Kuliah</field>
+        <field name="res_model">mata_kuliah.post</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_mata_kuliah_post_tree"/>
+    </record>
+
+</odoo>

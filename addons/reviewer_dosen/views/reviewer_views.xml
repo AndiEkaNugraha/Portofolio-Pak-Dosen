@@ -132,17 +132,11 @@
                             </page>
                             
                             <page string="Evaluasi">
-                                <group string="Kelebihan">
-                                    <field name="strengths" widget="html" placeholder="Jelaskan kelebihan dari karya yang direview..." nolabel="1"/>
-                                </group>
-                                <group string="Kelemahan">
-                                    <field name="weaknesses" widget="html" placeholder="Jelaskan kelemahan yang perlu diperbaiki..." nolabel="1"/>
-                                </group>
-                                <group string="Rekomendasi">
-                                    <field name="recommendations" widget="html" placeholder="Berikan rekomendasi untuk perbaikan..." nolabel="1"/>
-                                </group>
-                                <group string="Catatan Reviewer">
-                                    <field name="reviewer_comments" widget="html" placeholder="Catatan atau komentar tambahan reviewer..." nolabel="1"/>
+                                <group>
+                                    <field name="strengths" widget="html" placeholder="Jelaskan kelebihan dari karya yang direview..." />
+                                    <field name="weaknesses" widget="html" placeholder="Jelaskan kelemahan yang perlu diperbaiki..." />
+                                    <field name="recommendations" widget="html" placeholder="Berikan rekomendasi untuk perbaikan..." />
+                                    <field name="reviewer_comments" widget="html" placeholder="Catatan atau komentar tambahan reviewer..." />
                                 </group>
                             </page>
                             
