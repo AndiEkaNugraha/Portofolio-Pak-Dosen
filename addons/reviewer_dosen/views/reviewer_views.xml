@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Reviewer Blog Views -->
+        <record id="view_reviewer_blog_form" model="ir.ui.view">
+            <field name="name">reviewer.blog.form</field>
+            <field name="model">reviewer.blog</field>
+            <field name="arch" type="xml">
+                <form string="Kategori Aktivitas Review">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Nama Kategori Review"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="subtitle"/>
+                                <field name="review_level"/>
+                                <field name="review_type"/>
+                            </group>
+                            <group>
+                                <field name="review_field"/>
+                                <field name="indexing_status"/>
+                                <field name="post_count"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Deskripsi">
+                                <field name="description"/>
+                            </page>
+                            <page string="Aktivitas Review">
+                                <field name="reviewer_post_ids" readonly="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_reviewer_blog_tree" model="ir.ui.view">
+            <field name="name">reviewer.blog.tree</field>
+            <field name="model">reviewer.blog</field>
+            <field name="arch" type="xml">
+                <list string="Kategori Aktivitas Review">
+                    <field name="name"/>
+                    <field name="subtitle"/>
+                    <field name="review_level"/>
+                    <field name="review_type"/>
+                    <field name="review_field"/>
+                    <field name="post_count"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Reviewer Post Views -->
+        <record id="view_reviewer_post_form" model="ir.ui.view">
+            <field name="name">reviewer.post.form</field>
+            <field name="model">reviewer.post</field>
+            <field name="arch" type="xml">
+                <form string="Aktivitas Review">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Judul Karya yang Direview"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="subtitle"/>
+                                <field name="blog_id"/>
+                                <field name="reviewer_type_id"/>
+                                <field name="review_status"/>
+                                <field name="review_result"/>
+                            </group>
+                            <group>
+                                <field name="review_date"/>
+                                <field name="author_name"/>
+                                <field name="journal_conference_name"/>
+                                <field name="is_published"/>
+                                <field name="slug"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Cover Photo">
+                            <field name="cover_image" widget="image" class="oe_avatar" options="{'preview_image': 'cover_image', 'size': [90, 90]}"/>
+                        </group>
+                        
+                        <group string="Ringkasan">
+                            <field name="teaser" widget="text" placeholder="Ringkasan singkat aktivitas review..." options="{'rows': 4}"/>
+                        </group>
+                        
+                        <group string="Deskripsi Lengkap">
+                            <field name="content" widget="html" placeholder="Deskripsikan aktivitas review secara lengkap..." options="{'rows': 10}"/>
+                        </group>
+                        
+                        <notebook>
+                            <page string="Informasi Penulis &amp; Penerbit">
+                                <group>
+                                    <group string="Penulis/Peneliti">
+                                        <field name="author_name"/>
+                                        <field name="author_affiliation"/>
+                                        <field name="author_country"/>
+                                    </group>
+                                    <group string="Penerbit/Institusi">
+                                        <field name="publisher_id"/>
+                                        <field name="journal_conference_name"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Detail Review">
+                                <group>
+                                    <group string="Tanggal &amp; Jadwal">
+                                        <field name="review_submission_date"/>
+                                        <field name="review_date"/>
+                                        <field name="review_completion_date"/>
+                                        <field name="review_duration_days"/>
+                                    </group>
+                                    <group string="Metode &amp; Putaran">
+                                        <field name="review_method"/>
+                                        <field name="review_round"/>
+                                        <field name="review_score"/>
+                                    </group>
+                                </group>
+                                
+                                <separator string="Area Fokus Review"/>
+                                <field name="review_focus_areas" widget="text"/>
+                            </page>
+                            
+                            <page string="Evaluasi">
+                                <group string="Kelebihan">
+                                    <field name="strengths" widget="html" placeholder="Jelaskan kelebihan dari karya yang direview..." nolabel="1"/>
+                                </group>
+                                <group string="Kelemahan">
+                                    <field name="weaknesses" widget="html" placeholder="Jelaskan kelemahan yang perlu diperbaiki..." nolabel="1"/>
+                                </group>
+                                <group string="Rekomendasi">
+                                    <field name="recommendations" widget="html" placeholder="Berikan rekomendasi untuk perbaikan..." nolabel="1"/>
+                                </group>
+                                <group string="Catatan Reviewer">
+                                    <field name="reviewer_comments" widget="html" placeholder="Catatan atau komentar tambahan reviewer..." nolabel="1"/>
+                                </group>
+                            </page>
+                            
+                            <page string="Beban Kerja &amp; Dokumentasi">
+                                <group>
+                                    <group string="Beban Kerja">
+                                        <field name="estimated_hours"/>
+                                        <field name="actual_hours"/>
+                                    </group>
+                                    <group string="Link Dokumen">
+                                        <field name="document_url" widget="url" placeholder="https://example.com/document.pdf"/>
+                                    </group>
+                                </group>
+                                
+                                <group>
+                                    <group string="Dokumen Review">
+                                        <field name="review_document" filename="review_document_filename"/>
+                                        <field name="review_document_filename" invisible="1"/>
+                                    </group>
+                                    <group string="Sertifikat Review">
+                                        <field name="certificate_file" filename="certificate_filename"/>
+                                        <field name="certificate_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                                
+                                <group string="Kata Kunci">
+                                    <field name="keywords" placeholder="Contoh: machine learning, computer vision, deep learning"/>
+                                </group>
+                            </page>
+                            
+                            <page string="SEO">
+                                <group>
+                                    <field name="meta_title"/>
+                                    <field name="meta_description"/>
+                                    <field name="meta_keywords"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_reviewer_post_tree" model="ir.ui.view">
+            <field name="name">reviewer.post.tree</field>
+            <field name="model">reviewer.post</field>
+            <field name="arch" type="xml">
+                <list string="Aktivitas Review">
+                    <field name="name"/>
+                    <field name="reviewer_type_id"/>
+                    <field name="author_name"/>
+                    <field name="journal_conference_name"/>
+                    <field name="review_status"/>
+                    <field name="review_result"/>
+                    <field name="review_date"/>
+                    <field name="is_published" string="Website"/>
+                    <field name="blog_id"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Reviewer Type Views -->
+        <record id="view_reviewer_type_form" model="ir.ui.view">
+            <field name="name">reviewer.type.form</field>
+            <field name="model">reviewer.type</field>
+            <field name="arch" type="xml">
+                <form string="Jenis Aktivitas Review">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group string="Deskripsi">
+                            <field name="description" widget="text" placeholder="Deskripsi jenis aktivitas review..."/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_reviewer_type_tree" model="ir.ui.view">
+            <field name="name">reviewer.type.tree</field>
+            <field name="model">reviewer.type</field>
+            <field name="arch" type="xml">
+                <list string="Jenis Aktivitas Review" default_order="sequence">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Reviewer Publisher Views -->
+        <record id="view_reviewer_publisher_form" model="ir.ui.view">
+            <field name="name">reviewer.publisher.form</field>
+            <field name="model">reviewer.publisher</field>
+            <field name="arch" type="xml">
+                <form string="Penerbit/Institusi">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="publisher_type"/>
+                                <field name="country"/>
+                                <field name="website_url"/>
+                            </group>
+                            <group>
+                                <field name="email"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group string="Alamat">
+                            <field name="address" widget="text"/>
+                        </group>
+                        <group string="Deskripsi">
+                            <field name="description" widget="text"/>
+                        </group>
+                        <group string="Informasi Indexing">
+                            <field name="indexing_info" widget="text" placeholder="Informasi indexing seperti Scopus, WoS, dll..."/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_reviewer_publisher_tree" model="ir.ui.view">
+            <field name="name">reviewer.publisher.tree</field>
+            <field name="model">reviewer.publisher</field>
+            <field name="arch" type="xml">
+                <list string="Penerbit/Institusi">
+                    <field name="name"/>
+                    <field name="publisher_type"/>
+                    <field name="country"/>
+                    <field name="website_url"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+    </data>
+</odoo>

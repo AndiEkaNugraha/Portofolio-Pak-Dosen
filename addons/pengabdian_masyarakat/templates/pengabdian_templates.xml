@@ -193,11 +193,19 @@
                                                 <t t-if="post.duration_days">
                                                     <p class="mb-2"><i class="fa fa-clock-o text-primary"/> <strong>Durasi:</strong> <t t-esc="post.duration_days"/> hari</p>
                                                 </t>
-                                                <p class="mb-2"><i class="fa fa-tag text-primary"/> <strong>Kategori:</strong> <t t-esc="post.blog_id.name"/></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Full Description -->
+                                <t t-if="post.content">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-body">
+                                            <div t-field="post.content" class="o_website_editor_content"/>
+                                        </div>
+                                    </div>
+                                </t>
 
                                 <!-- Team Members -->
                                 <t t-if="post.team_members">
@@ -207,18 +215,6 @@
                                         </div>
                                         <div class="card-body">
                                             <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.team_members"/></p>
-                                        </div>
-                                    </div>
-                                </t>
-
-                                <!-- Summary -->
-                                <t t-if="post.teaser">
-                                    <div class="card mb-4 shadow-sm">
-                                        <div class="card-header bg-white">
-                                            <h5 class="mb-0"><i class="fa fa-align-left text-primary"/> Ringkasan</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.teaser"/></p>
                                         </div>
                                     </div>
                                 </t>
@@ -254,18 +250,6 @@
                                                 <h6 class="text-primary mt-3">Outcome yang Diharapkan</h6>
                                                 <p class="mb-0" style="white-space: pre-line;"><t t-esc="post.expected_outcomes"/></p>
                                             </t>
-                                        </div>
-                                    </div>
-                                </t>
-
-                                <!-- Full Description -->
-                                <t t-if="post.content">
-                                    <div class="card mb-4 shadow-sm">
-                                        <div class="card-header bg-white">
-                                            <h5 class="mb-0"><i class="fa fa-file-text text-primary"/> Deskripsi Lengkap</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <div t-field="post.content" class="o_website_editor_content"/>
                                         </div>
                                     </div>
                                 </t>
