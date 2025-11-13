@@ -7,9 +7,10 @@ from odoo.addons.portal.controllers.portal import CustomerPortal
 
 class HibahPendanaanController(http.Controller):
 
-    @http.route(['/hibah-pendanaan', '/hibah-pendanaan/page/<int:page>'], type='http', auth="public", website=True)
+    @http.route(['/hibah-pendanaan', '/hibah-pendanaan/page/<int:page>'], type='http', auth="public", website=True, sitemap=True)
     def hibah_pendanaan_index(self, page=1, search='', category=None, status=None, **kwargs):
         """Display list of grants and funding"""
+        
         domain = [('website_published', '=', True)]
         
         # Search filter
@@ -29,7 +30,7 @@ class HibahPendanaanController(http.Controller):
             domain.append(('status', '=', status))
         
         # Get grants
-        grants = request.env['hibah.pendanaan.post'].search(domain, order='start_date desc')
+        grants = request.env['hibah.pendanaan.post'].sudo().search(domain, order='start_date desc')
         
         # Pagination
         grants_per_page = 12
@@ -45,16 +46,16 @@ class HibahPendanaanController(http.Controller):
         grants = grants[(page-1) * grants_per_page:page * grants_per_page]
         
         # Get categories for filter
-        categories = request.env['hibah.pendanaan.blog'].search([('website_published', '=', True)])
+        categories = request.env['hibah.pendanaan.blog'].sudo().search([('website_published', '=', True)])
         
         # Get featured grants
-        featured_grants = request.env['hibah.pendanaan.post'].search([
+        featured_grants = request.env['hibah.pendanaan.post'].sudo().search([
             ('website_published', '=', True),
             ('is_featured', '=', True)
         ], limit=3, order='start_date desc')
         
         # Get status options
-        status_options = request.env['hibah.pendanaan.post']._fields['status'].selection
+        status_options = request.env['hibah.pendanaan.post'].sudo()._fields['status'].selection
         
         values = {
             'grants': grants,
@@ -70,10 +71,11 @@ class HibahPendanaanController(http.Controller):
         
         return request.render('hibah_pendanaan.grants_index', values)
 
-    @http.route(['/hibah-pendanaan/<slug>'], type='http', auth="public", website=True)
+    @http.route(['/hibah-pendanaan/<slug>'], type='http', auth="public", website=True, sitemap=True)
     def hibah_pendanaan_detail(self, slug, **kwargs):
         """Display grant detail page"""
-        grant = request.env['hibah.pendanaan.post'].search([
+        
+        grant = request.env['hibah.pendanaan.post'].sudo().search([
             ('slug', '=', slug),
             ('website_published', '=', True)
         ], limit=1)
@@ -82,7 +84,7 @@ class HibahPendanaanController(http.Controller):
             return request.not_found()
         
         # Get related grants (same category, exclude current)
-        related_grants = request.env['hibah.pendanaan.post'].search([
+        related_grants = request.env['hibah.pendanaan.post'].sudo().search([
             ('blog_id', '=', grant.blog_id.id),
             ('website_published', '=', True),
             ('id', '!=', grant.id)
@@ -95,12 +97,12 @@ class HibahPendanaanController(http.Controller):
         
         return request.render('hibah_pendanaan.grant_detail', values)
 
-    @http.route(['/hibah-pendanaan/category/<int:category_id>'], type='http', auth="public", website=True)
+    @http.route(['/hibah-pendanaan/category/<int:category_id>'], type='http', auth="public", website=True, sitemap=True)
     def hibah_pendanaan_category(self, category_id, page=1, **kwargs):
         """Display grants by category"""
         return self.hibah_pendanaan_index(page=page, category=str(category_id), **kwargs)
 
-    @http.route(['/hibah-pendanaan/status/<status>'], type='http', auth="public", website=True)
+    @http.route(['/hibah-pendanaan/status/<status>'], type='http', auth="public", website=True, sitemap=True)
     def hibah_pendanaan_status(self, status, page=1, **kwargs):
         """Display grants by status"""
         return self.hibah_pendanaan_index(page=page, status=status, **kwargs)
@@ -114,7 +116,7 @@ class HibahPendanaanController(http.Controller):
     def hibah_pendanaan_api(self, **kwargs):
         """API endpoint for grants data"""
         domain = [('website_published', '=', True)]
-        grants = request.env['hibah.pendanaan.post'].search(domain)
+        grants = request.env['hibah.pendanaan.post'].sudo().search(domain)
         
         result = []
         for grant in grants:

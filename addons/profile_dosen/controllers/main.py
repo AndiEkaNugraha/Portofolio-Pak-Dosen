@@ -11,14 +11,14 @@ class ProfileController(http.Controller):
         """Profile page - Display main profile directly"""
         
         # Get the main published profile (should be only one)
-        post = request.env['profile.post'].search([
+        post = request.env['profile.post'].sudo().search([
             ('is_published', '=', True),
             ('blog_id.is_main_profile', '=', True)
         ], limit=1)
         
         # If no main profile found, get the first published profile
         if not post:
-            post = request.env['profile.post'].search([
+            post = request.env['profile.post'].sudo().search([
                 ('is_published', '=', True)
             ], order='sequence, id desc', limit=1)
         
@@ -56,8 +56,8 @@ class ProfileController(http.Controller):
         # Limit to 9 items per category for profile page
         try:
             # Publications (Jurnal Ilmiah)
-            values['publications_count'] = request.env['jurnal.post'].search_count([('is_published', '=', True)])
-            values['publications'] = request.env['jurnal.post'].search(
+            values['publications_count'] = request.env['jurnal.post'].sudo().search_count([('is_published', '=', True)])
+            values['publications'] = request.env['jurnal.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='publication_date desc', 
                 limit=9
@@ -68,8 +68,8 @@ class ProfileController(http.Controller):
             
         try:
             # Books (Buku Karya)
-            values['books_count'] = request.env['buku.post'].search_count([('is_published', '=', True)])
-            values['books'] = request.env['buku.post'].search(
+            values['books_count'] = request.env['buku.post'].sudo().search_count([('is_published', '=', True)])
+            values['books'] = request.env['buku.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='publication_year desc', 
                 limit=9
@@ -80,8 +80,8 @@ class ProfileController(http.Controller):
             
         try:
             # Patents/HKI
-            values['patents_count'] = request.env['hki.post'].search_count([('is_published', '=', True)])
-            values['patents'] = request.env['hki.post'].search(
+            values['patents_count'] = request.env['hki.post'].sudo().search_count([('is_published', '=', True)])
+            values['patents'] = request.env['hki.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='application_date desc', 
                 limit=9
@@ -96,8 +96,8 @@ class ProfileController(http.Controller):
             
         try:
             # Research Projects
-            values['projects_count'] = request.env['proyek.penelitian.post'].search_count([('is_published', '=', True)])
-            values['projects'] = request.env['proyek.penelitian.post'].search(
+            values['projects_count'] = request.env['proyek.penelitian.post'].sudo().search_count([('is_published', '=', True)])
+            values['projects'] = request.env['proyek.penelitian.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='start_date desc', 
                 limit=9
@@ -108,8 +108,8 @@ class ProfileController(http.Controller):
             
         try:
             # Community Service
-            values['community_count'] = request.env['pengabdian.post'].search_count([('is_published', '=', True)])
-            values['community'] = request.env['pengabdian.post'].search(
+            values['community_count'] = request.env['pengabdian.post'].sudo().search_count([('is_published', '=', True)])
+            values['community'] = request.env['pengabdian.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='implementation_date desc', 
                 limit=9
@@ -120,8 +120,8 @@ class ProfileController(http.Controller):
             
         try:
             # Conferences
-            values['conferences_count'] = request.env['prosiding.post'].search_count([('is_published', '=', True)])
-            values['conferences'] = request.env['prosiding.post'].search(
+            values['conferences_count'] = request.env['prosiding.post'].sudo().search_count([('is_published', '=', True)])
+            values['conferences'] = request.env['prosiding.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='conference_date desc', 
                 limit=9
@@ -132,8 +132,8 @@ class ProfileController(http.Controller):
             
         try:
             # Grants (Hibah Pendanaan) - uses website_published field
-            values['grants_count'] = request.env['hibah.pendanaan.post'].search_count([('website_published', '=', True)])
-            values['grants'] = request.env['hibah.pendanaan.post'].search(
+            values['grants_count'] = request.env['hibah.pendanaan.post'].sudo().search_count([('website_published', '=', True)])
+            values['grants'] = request.env['hibah.pendanaan.post'].sudo().search(
                 [('website_published', '=', True)], 
                 order='start_date desc', 
                 limit=9
@@ -144,8 +144,8 @@ class ProfileController(http.Controller):
             
         try:
             # Products (Produk Penelitian)
-            values['products_count'] = request.env['produk.post'].search_count([('is_published', '=', True)])
-            values['products'] = request.env['produk.post'].search(
+            values['products_count'] = request.env['produk.post'].sudo().search_count([('is_published', '=', True)])
+            values['products'] = request.env['produk.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='create_date desc', 
                 limit=9
@@ -156,8 +156,8 @@ class ProfileController(http.Controller):
             
         try:
             # Research Groups (Grup Riset)
-            values['groups_count'] = request.env['grup.riset.post'].search_count([('is_published', '=', True)])
-            values['groups'] = request.env['grup.riset.post'].search(
+            values['groups_count'] = request.env['grup.riset.post'].sudo().search_count([('is_published', '=', True)])
+            values['groups'] = request.env['grup.riset.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='create_date desc', 
                 limit=9
@@ -168,8 +168,8 @@ class ProfileController(http.Controller):
             
         try:
             # Acara Dosen
-            values['events_count'] = request.env['acara.post'].search_count([('is_published', '=', True)])
-            values['events'] = request.env['acara.post'].search(
+            values['events_count'] = request.env['acara.post'].sudo().search_count([('is_published', '=', True)])
+            values['events'] = request.env['acara.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='event_date desc', 
                 limit=9
@@ -180,8 +180,8 @@ class ProfileController(http.Controller):
             
         try:
             # Reviewer Activities
-            values['reviewer_count'] = request.env['reviewer.post'].search_count([('is_published', '=', True)])
-            values['reviewer'] = request.env['reviewer.post'].search(
+            values['reviewer_count'] = request.env['reviewer.post'].sudo().search_count([('is_published', '=', True)])
+            values['reviewer'] = request.env['reviewer.post'].sudo().search(
                 [('is_published', '=', True)], 
                 order='review_date desc', 
                 limit=9
@@ -205,19 +205,19 @@ class ProfileController(http.Controller):
         # Research chart data (groups + projects + grants)
         research_years_found = []
         try:
-            group = request.env['grup.riset.post'].search([('is_published', '=', True)], order='create_date asc', limit=1)
+            group = request.env['grup.riset.post'].sudo().search([('is_published', '=', True)], order='create_date asc', limit=1)
             if group and group.create_date:
                 research_years_found.append(group.create_date.year)
         except:
             pass
         try:
-            project = request.env['proyek.penelitian.post'].search([('is_published', '=', True)], order='start_date asc', limit=1)
+            project = request.env['proyek.penelitian.post'].sudo().search([('is_published', '=', True)], order='start_date asc', limit=1)
             if project and project.start_date:
                 research_years_found.append(project.start_date.year)
         except:
             pass
         try:
-            grant = request.env['hibah.pendanaan.post'].search([('website_published', '=', True)], order='start_date asc', limit=1)
+            grant = request.env['hibah.pendanaan.post'].sudo().search([('website_published', '=', True)], order='start_date asc', limit=1)
             if grant and grant.start_date:
                 research_years_found.append(grant.start_date.year)
         except:
@@ -228,19 +228,19 @@ class ProfileController(http.Controller):
         for year in research_years:
             count = 0
             # Count groups created in this year
-            count += request.env['grup.riset.post'].search_count([
+            count += request.env['grup.riset.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('create_date', '>=', f'{year}-01-01'),
                 ('create_date', '<=', f'{year}-12-31')
             ])
             # Count projects started in this year
-            count += request.env['proyek.penelitian.post'].search_count([
+            count += request.env['proyek.penelitian.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('start_date', '>=', date(year, 1, 1)),
                 ('start_date', '<=', date(year, 12, 31))
             ])
             # Count grants in this year
-            count += request.env['hibah.pendanaan.post'].search_count([
+            count += request.env['hibah.pendanaan.post'].sudo().search_count([
                 ('website_published', '=', True),
                 ('start_date', '>=', date(year, 1, 1)),
                 ('start_date', '<=', date(year, 12, 31))
@@ -255,31 +255,31 @@ class ProfileController(http.Controller):
         # Publications chart data (journals + conferences + books + iprs + products)
         publications_years_found = []
         try:
-            journal = request.env['jurnal.post'].search([('is_published', '=', True)], order='publication_year asc', limit=1)
+            journal = request.env['jurnal.post'].sudo().search([('is_published', '=', True)], order='publication_year asc', limit=1)
             if journal and journal.publication_year:
                 publications_years_found.append(journal.publication_year)
         except:
             pass
         try:
-            conf = request.env['prosiding.post'].search([('is_published', '=', True)], order='conference_date asc', limit=1)
+            conf = request.env['prosiding.post'].sudo().search([('is_published', '=', True)], order='conference_date asc', limit=1)
             if conf and conf.conference_date:
                 publications_years_found.append(conf.conference_date.year)
         except:
             pass
         try:
-            book = request.env['buku.post'].search([('is_published', '=', True)], order='publication_year asc', limit=1)
+            book = request.env['buku.post'].sudo().search([('is_published', '=', True)], order='publication_year asc', limit=1)
             if book and book.publication_year:
                 publications_years_found.append(book.publication_year)
         except:
             pass
         try:
-            hki = request.env['hki.post'].search([('is_published', '=', True)], order='registration_date asc', limit=1)
+            hki = request.env['hki.post'].sudo().search([('is_published', '=', True)], order='registration_date asc', limit=1)
             if hki and hki.registration_date:
                 publications_years_found.append(hki.registration_date.year)
         except:
             pass
         try:
-            prod = request.env['produk.post'].search([('is_published', '=', True)], order='development_date asc', limit=1)
+            prod = request.env['produk.post'].sudo().search([('is_published', '=', True)], order='development_date asc', limit=1)
             if prod and prod.development_date:
                 publications_years_found.append(prod.development_date.year)
         except:
@@ -290,29 +290,29 @@ class ProfileController(http.Controller):
         for year in publications_years:
             count = 0
             # Count journal articles
-            count += request.env['jurnal.post'].search_count([
+            count += request.env['jurnal.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('publication_year', '=', year)
             ])
             # Count conferences
-            count += request.env['prosiding.post'].search_count([
+            count += request.env['prosiding.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('conference_date', '>=', date(year, 1, 1)),
                 ('conference_date', '<=', date(year, 12, 31))
             ])
             # Count books
-            count += request.env['buku.post'].search_count([
+            count += request.env['buku.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('publication_year', '=', year)
             ])
             # Count HKI
-            count += request.env['hki.post'].search_count([
+            count += request.env['hki.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('registration_date', '>=', date(year, 1, 1)),
                 ('registration_date', '<=', date(year, 12, 31))
             ])
             # Count products
-            count += request.env['produk.post'].search_count([
+            count += request.env['produk.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('development_date', '>=', date(year, 1, 1)),
                 ('development_date', '<=', date(year, 12, 31))
@@ -327,13 +327,13 @@ class ProfileController(http.Controller):
         # Community chart data (community services + events)
         community_years_found = []
         try:
-            comm = request.env['pengabdian.post'].search([('is_published', '=', True)], order='implementation_date asc', limit=1)
+            comm = request.env['pengabdian.post'].sudo().search([('is_published', '=', True)], order='implementation_date asc', limit=1)
             if comm and comm.implementation_date:
                 community_years_found.append(comm.implementation_date.year)
         except:
             pass
         try:
-            event = request.env['acara.post'].search([('is_published', '=', True)], order='event_date asc', limit=1)
+            event = request.env['acara.post'].sudo().search([('is_published', '=', True)], order='event_date asc', limit=1)
             if event and event.event_date:
                 community_years_found.append(event.event_date.year)
         except:
@@ -344,13 +344,13 @@ class ProfileController(http.Controller):
         for year in community_years:
             count = 0
             # Count community services
-            count += request.env['pengabdian.post'].search_count([
+            count += request.env['pengabdian.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('implementation_date', '>=', date(year, 1, 1)),
                 ('implementation_date', '<=', date(year, 12, 31))
             ])
             # Count events
-            count += request.env['acara.post'].search_count([
+            count += request.env['acara.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('event_date', '>=', date(year, 1, 1)),
                 ('event_date', '<=', date(year, 12, 31))
@@ -365,7 +365,7 @@ class ProfileController(http.Controller):
         # Reviewer chart data
         reviewer_years_found = []
         try:
-            rev = request.env['reviewer.post'].search([('is_published', '=', True)], order='review_date asc', limit=1)
+            rev = request.env['reviewer.post'].sudo().search([('is_published', '=', True)], order='review_date asc', limit=1)
             if rev and rev.review_date:
                 reviewer_years_found.append(rev.review_date.year)
         except:
@@ -374,7 +374,7 @@ class ProfileController(http.Controller):
         reviewer_years = get_years_for_category(min(reviewer_years_found) if reviewer_years_found else None)
         reviewer_data = []
         for year in reviewer_years:
-            count = request.env['reviewer.post'].search_count([
+            count = request.env['reviewer.post'].sudo().search_count([
                 ('is_published', '=', True),
                 ('review_date', '>=', date(year, 1, 1)),
                 ('review_date', '<=', date(year, 12, 31))
@@ -393,13 +393,13 @@ class ProfileController(http.Controller):
         """Display CV page"""
         
         # Get the main profile
-        post = request.env['profile.post'].search([
+        post = request.env['profile.post'].sudo().search([
             ('is_published', '=', True),
             ('blog_id.is_main_profile', '=', True)
         ], limit=1)
         
         if not post:
-            post = request.env['profile.post'].search([
+            post = request.env['profile.post'].sudo().search([
                 ('is_published', '=', True)
             ], order='sequence, id desc', limit=1)
         
@@ -432,13 +432,13 @@ class ProfileController(http.Controller):
         """Download CV document"""
 
         # Get the main profile
-        post = request.env['profile.post'].search([
+        post = request.env['profile.post'].sudo().search([
             ('is_published', '=', True),
             ('blog_id.is_main_profile', '=', True)
         ], limit=1)
         
         if not post:
-            post = request.env['profile.post'].search([
+            post = request.env['profile.post'].sudo().search([
                 ('is_published', '=', True)
             ], order='sequence, id desc', limit=1)
 
@@ -453,7 +453,7 @@ class ProfileController(http.Controller):
                 })
                 cv_generator.generate_cv()
                 # Reload post to get updated cv_document
-                post = request.env['profile.post'].browse(post.id)
+                post = request.env['profile.post'].sudo().browse(post.id)
             except Exception as e:
                 # If generation fails, return error page
                 return request.render('website.404', {'message': 'Gagal generate CV. Silakan coba lagi.'})

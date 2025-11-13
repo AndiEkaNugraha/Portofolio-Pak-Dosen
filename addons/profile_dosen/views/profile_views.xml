@@ -157,25 +157,23 @@
                             
                             <page string="CV &amp; Download">
                                 <group>
-                                    <group string="Generate CV">
-                                        <div class="alert alert-info" role="alert">
-                                            <h4><i class="fa fa-info-circle"/> Cara Generate CV:</h4>
-                                            <ol>
-                                                <li>Pastikan data profile sudah lengkap (pendidikan, pekerjaan, dll)</li>
-                                                <li>Pilih template CV default di atas (jika belum)</li>
-                                                <li>Klik button <strong>"Generate CV"</strong> di header</li>
-                                                <li>Pilih template yang diinginkan (opsional)</li>
-                                                <li>CV akan tersimpan di bawah ini</li>
-                                            </ol>
-                                            <p class="text-warning"><i class="fa fa-exclamation-triangle"/> <strong>Penting:</strong> Jika Anda edit template CV di menu Configuration, Anda harus <strong>generate ulang CV</strong> untuk melihat perubahannya!</p>
-                                        </div>
-                                    </group>
+                                    <div class="col-md-12 alert alert-info">
+                                        <h4><i class="fa fa-info-circle"/> Cara Generate CV:</h4>
+                                        <ol>
+                                            <li>Pastikan data profile sudah lengkap (pendidikan, pekerjaan, dll)</li>
+                                            <li>Pilih template CV default di atas (jika belum)</li>
+                                            <li>Klik button <strong>"Generate CV"</strong> di header</li>
+                                            <li>Pilih template yang diinginkan (opsional)</li>
+                                            <li>CV akan tersimpan di bawah ini</li>
+                                        </ol>
+                                        <p class="text-warning"><i class="fa fa-exclamation-triangle"/> <strong>Penting:</strong> Jika Anda edit template CV di menu Configuration, Anda harus <strong>generate ulang CV</strong> untuk melihat perubahannya!</p>
+                                    </div>
+                                </group>
+                                <group>
                                     <group string="CV Terakhir">
                                         <field name="cv_generated_date" readonly="1"/>
                                         <field name="default_cv_template_id"/>
                                     </group>
-                                </group>
-                                <group>
                                     <group string="Dokumen CV">
                                         <field name="cv_document" filename="cv_document_filename"/>
                                         <field name="cv_document_filename" invisible="1"/>

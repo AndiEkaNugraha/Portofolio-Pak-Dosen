@@ -1,7 +1,10 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hibah_pendanaan_blog_user,hibah.pendanaan.blog user,model_hibah_pendanaan_blog,base.group_user,1,1,1,1
+access_hibah_pendanaan_blog_portal,hibah.pendanaan.blog portal,model_hibah_pendanaan_blog,base.group_portal,1,0,0,0
 access_hibah_pendanaan_blog_public,hibah.pendanaan.blog public,model_hibah_pendanaan_blog,base.group_public,1,0,0,0
 access_hibah_pendanaan_post_user,hibah.pendanaan.post user,model_hibah_pendanaan_post,base.group_user,1,1,1,1
+access_hibah_pendanaan_post_portal,hibah.pendanaan.post portal,model_hibah_pendanaan_post,base.group_portal,1,0,0,0
 access_hibah_pendanaan_post_public,hibah.pendanaan.post public,model_hibah_pendanaan_post,base.group_public,1,0,0,0
 access_hibah_budget_line_user,hibah.budget.line user,model_hibah_budget_line,base.group_user,1,1,1,1
+access_hibah_budget_line_portal,hibah.budget.line portal,model_hibah_budget_line,base.group_portal,1,0,0,0
 access_hibah_budget_line_public,hibah.budget.line public,model_hibah_budget_line,base.group_public,1,0,0,0

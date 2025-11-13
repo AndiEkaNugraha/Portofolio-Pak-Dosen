@@ -6,7 +6,7 @@ from odoo.http import request
 
 class BukuController(http.Controller):
 
-    @http.route(['/buku', '/buku/page/<int:page>'], type='http', auth="public", website=True)
+    @http.route(['/buku', '/buku/page/<int:page>'], type='http', auth="public", website=True, sitemap=True)
     def buku_index(self, page=1, **kw):
         """Buku listing page"""
         
@@ -42,15 +42,15 @@ class BukuController(http.Controller):
                 pass
         
         # Get categories and book types for filter
-        categories = request.env['buku.blog'].search([])
+        categories = request.env['buku.blog'].sudo().search([])
         
         # Get unique publication years for filter
-        all_books = request.env['buku.post'].search([('is_published', '=', True)], order='publication_year desc')
+        all_books = request.env['buku.post'].sudo().search([('is_published', '=', True)], order='publication_year desc')
         years = sorted(list(set(book.publication_year for book in all_books if book.publication_year)), reverse=True)
         
         # Pagination setup
         POST_PER_PAGE = 12
-        total_posts = request.env['buku.post'].search_count(domain)
+        total_posts = request.env['buku.post'].sudo().search_count(domain)
         pager = request.website.pager(
             url='/buku',
             url_args=kw,
@@ -60,7 +60,7 @@ class BukuController(http.Controller):
         )
         
         # Get posts for current page
-        posts = request.env['buku.post'].search(
+        posts = request.env['buku.post'].sudo().search(
             domain, 
             order='publication_year desc, id desc',
             limit=POST_PER_PAGE,
@@ -68,7 +68,7 @@ class BukuController(http.Controller):
         )
         
         # Statistics
-        published_books = request.env['buku.post'].search([('is_published', '=', True)])
+        published_books = request.env['buku.post'].sudo().search([('is_published', '=', True)])
         stats = {
             'total_books': len(published_books),
             'published_books': len(published_books.filtered(lambda p: p.status == 'published')),
@@ -87,11 +87,12 @@ class BukuController(http.Controller):
         
         return request.render('buku_karya.buku_index', values)
 
-    @http.route(['/buku/detail/<string:slug>'], type='http', auth="public", website=True)
+    @http.route(['/buku/detail/<string:slug>'], type='http', auth="public", website=True, sitemap=True)
     def buku_detail(self, slug, **kw):
         """Book detail page"""
+        
         # Try to find by slug first
-        post = request.env['buku.post'].search([
+        post = request.env['buku.post'].sudo().search([
             ('slug', '=', slug), 
             ('is_published', '=', True)
         ], limit=1)
@@ -100,7 +101,7 @@ class BukuController(http.Controller):
         if not post:
             try:
                 post_id = int(slug.split('-')[-1]) if '-' in slug else int(slug)
-                post = request.env['buku.post'].search([
+                post = request.env['buku.post'].sudo().search([
                     ('id', '=', post_id),
                     ('is_published', '=', True)
                 ], limit=1)
@@ -111,15 +112,15 @@ class BukuController(http.Controller):
             return request.not_found()
         
         # Get related books (same category, different book)
-        related_books = request.env['buku.post'].search([
+        related_books = request.env['buku.post'].sudo().search([
             ('blog_id', '=', post.blog_id.id),
             ('id', '!=', post.id),
             ('is_published', '=', True)
         ], limit=4, order='publication_year desc')
         
         # Get books by same author
-        author_books = request.env['buku.post'].search([
-            ('authors', 'ilike', post.authors.split(',')[0].strip()),
+        author_books = request.env['buku.post'].sudo().search([
+            ('authors', 'ilike', post.authors.split(',')[0].strip() if post.authors else ''),
             ('id', '!=', post.id),
             ('is_published', '=', True)
         ], limit=4, order='publication_year desc')
@@ -133,10 +134,11 @@ class BukuController(http.Controller):
         
         return request.render('buku_karya.buku_detail', values)
 
-    @http.route(['/buku/penulis/<string:author_name>'], type='http', auth="public", website=True)
+    @http.route(['/buku/penulis/<string:author_name>'], type='http', auth="public", website=True, sitemap=True)
     def buku_by_author(self, author_name, **kw):
         """Books by author page"""
-        posts = request.env['buku.post'].search([
+        
+        posts = request.env['buku.post'].sudo().search([
             '|',
             ('authors', 'ilike', author_name),
             ('co_authors', 'ilike', author_name),
@@ -151,10 +153,11 @@ class BukuController(http.Controller):
         
         return request.render('buku_karya.buku_index', values)
 
-    @http.route(['/buku/tahun/<int:year>'], type='http', auth="public", website=True)
+    @http.route(['/buku/tahun/<int:year>'], type='http', auth="public", website=True, sitemap=True)
     def buku_by_year(self, year, **kw):
         """Books by publication year"""
-        posts = request.env['buku.post'].search([
+        
+        posts = request.env['buku.post'].sudo().search([
             ('publication_year', '=', year),
             ('is_published', '=', True)
         ], order='publication_year desc')
