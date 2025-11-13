@@ -22,6 +22,13 @@
         'templates/bimbingan_templates.xml',
         'views/bimbingan_menus.xml',
     ],
+    'assets': {
+        'web.assets_frontend': [
+            '/bimbingan_mahasiswa/static/lib/summernote/summernote-lite.js',
+            '/bimbingan_mahasiswa/static/lib/summernote/summernote-lite.css',
+            '/bimbingan_mahasiswa/static/src/js/comment_editor.js',
+        ],
+    },
     'installable': True,
     'auto_install': False,
     'application': True,
