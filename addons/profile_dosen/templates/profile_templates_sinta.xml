@@ -25,8 +25,8 @@
                     }
                     
                     body {
-                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-                        background: var(--sinta-bg);
+                        /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; */
+                        /* background: var(--sinta-bg); */
                     }
                     
                     /* Profile Header Card */
@@ -459,13 +459,13 @@
                         transition: all 0.3s;
                     }
                     
-                    .btn-primary {
+                    .profile-page .btn-primary {
                         background: var(--sinta-primary);
                         border-color: var(--sinta-primary);
                         color: white;
                     }
                     
-                    .btn-primary:hover {
+                    .profile-page .btn-primary:hover {
                         background: var(--sinta-secondary);
                         border-color: var(--sinta-secondary);
                         color: white;
@@ -523,7 +523,7 @@
                 <!-- Chart.js Library -->
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
                 
-                <div id="wrap" class="oe_structure">
+                <div id="wrap" class="oe_structure profile-page">
                     <div class="container" style="max-width: 1200px; padding: 20px;">
                         
                         <!-- Profile Header Card -->
