@@ -1,0 +1,1656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- ============================================ -->
+        <!-- PROFILE BLOGS / CATEGORIES -->
+        <!-- ============================================ -->
+        
+        <!-- Default Profile Blog -->
+        <record id="profile_blog_main" model="profile.blog">
+            <field name="name">Profile Dosen</field>
+            <field name="subtitle">Profile Lengkap Dosen</field>
+            <field name="profile_type">biography</field>
+            <field name="is_main_profile" eval="True"/>
+            <field name="description">
+                <![CDATA[
+                    <p>Profile lengkap dosen meliputi biografi, pendidikan, pengalaman kerja, keahlian, dan penghargaan.</p>
+                ]]>
+            </field>
+        </record>
+        
+        
+        <!-- ============================================ -->
+        <!-- MAIN PROFILE POST (SATU PROFILE DOSEN) -->
+        <!-- ============================================ -->
+        
+        <!-- Main Profile Post untuk Dosen -->
+        <record id="profile_post_main" model="profile.post">
+            <field name="name">Dr. Ahmad Hidayat, S.Kom., M.Kom.</field>
+            <field name="blog_id" ref="profile_blog_main"/>
+            <field name="subtitle">Dosen Informatika - Peneliti Machine Learning &amp; Artificial Intelligence</field>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="meta_title">Dr. Ahmad Hidayat - Dosen Informatika Universitas Islam Indonesia</field>
+            <field name="meta_description">Profile lengkap Dr. Ahmad Hidayat, dosen informatika dengan fokus penelitian Machine Learning, AI, dan Natural Language Processing. Lebih dari 12 tahun pengalaman di bidang akademik dan penelitian.</field>
+            <field name="meta_keywords">dosen informatika, machine learning, artificial intelligence, NLP, computer vision, peneliti AI</field>
+            <field name="teaser">Dosen dan peneliti di bidang Machine Learning, Artificial Intelligence, dan Natural Language Processing dengan lebih dari 12 tahun pengalaman di dunia akademik. Aktif mempublikasikan karya ilmiah di jurnal internasional bereputasi dan membimbing mahasiswa dalam berbagai penelitian inovatif.</field>
+            <field name="content">
+                <![CDATA[
+                    <h2>Tentang Saya</h2>
+                    <p>Dr. Ahmad Hidayat adalah dosen dan peneliti di Program Studi Informatika, Fakultas Teknik, Universitas Islam Indonesia. Dengan latar belakang pendidikan S3 Ilmu Komputer dari Universitas Teknologi Bandung, beliau memiliki keahlian mendalam di bidang Machine Learning, Deep Learning, Natural Language Processing, dan Computer Vision.</p>
+                    
+                    <p>Perjalanan akademik dimulai dari pendidikan S1 Teknik Informatika di Universitas Gadjah Mada (2008-2012), dilanjutkan dengan S2 di Institut Teknologi Sepuluh Nopember (2012-2014), dan meraih gelar doktor dari Universitas Teknologi Bandung (2015-2019) dengan disertasi tentang Deep Learning untuk pemrosesan bahasa Indonesia.</p>
+                    
+                    <h2>Fokus Penelitian</h2>
+                    <p>Fokus penelitian saya adalah pengembangan model Machine Learning dan Deep Learning untuk aplikasi praktis, khususnya dalam konteks bahasa Indonesia. Beberapa area penelitian utama meliputi:</p>
+                    <ul>
+                        <li><strong>Natural Language Processing (NLP)</strong>: Pengembangan model untuk text mining, sentiment analysis, named entity recognition, dan language modeling khusus bahasa Indonesia</li>
+                        <li><strong>Computer Vision</strong>: Aplikasi deep learning untuk deteksi objek, klasifikasi gambar, dan pengenalan pola</li>
+                        <li><strong>Machine Learning Applications</strong>: Implementasi ML untuk berbagai domain seperti healthcare, education, dan business intelligence</li>
+                        <li><strong>AI Ethics & Responsible AI</strong>: Penelitian tentang aspek etika dan keadilan dalam sistem AI</li>
+                    </ul>
+                    
+                    <h2>Pengalaman Profesional</h2>
+                    <p>Sebelum menjadi dosen tetap di Universitas Islam Indonesia (2019-sekarang), saya memiliki pengalaman sebagai dosen luar biasa di Universitas Gadjah Mada (2014-2019) dan bekerja di industri teknologi sebagai Machine Learning Engineer di PT Teknologi Cerdas Indonesia (2012-2014). Pengalaman ini memberikan perspektif yang seimbang antara teori akademik dan implementasi praktis di industri.</p>
+                    
+                    <h2>Kontribusi Akademik</h2>
+                    <p>Hingga saat ini, saya telah mempublikasikan lebih dari 45 artikel di jurnal internasional bereputasi dan konferensi internasional. Beberapa publikasi telah mendapat penghargaan best paper dan banyak dikutip oleh peneliti lain di seluruh dunia. Saya juga aktif sebagai reviewer untuk berbagai jurnal internasional dan konferensi IEEE.</p>
+                    
+                    <p>Dalam hal pengajaran, saya mengampu mata kuliah Machine Learning, Deep Learning, Artificial Intelligence, Algoritma dan Pemrograman, serta Struktur Data. Pendekatan pengajaran saya mengkombinasikan teori yang kuat dengan praktik langsung menggunakan tools dan framework terkini seperti TensorFlow, PyTorch, dan scikit-learn.</p>
+                    
+                    <h2>Pembimbingan Mahasiswa</h2>
+                    <p>Saya sangat antusias dalam membimbing mahasiswa S1 dan S2 untuk menghasilkan penelitian berkualitas. Hingga kini, telah membimbing lebih dari 60 mahasiswa S1 untuk tugas akhir dan 15 mahasiswa S2 untuk tesis. Beberapa mahasiswa bimbingan berhasil mempublikasikan hasil penelitiannya di konferensi internasional dan memenangkan kompetisi ilmiah nasional.</p>
+                    
+                    <h2>Pengabdian Masyarakat</h2>
+                    <p>Selain mengajar dan meneliti, saya juga aktif dalam kegiatan pengabdian masyarakat, terutama dalam bentuk pelatihan dan workshop tentang AI, Data Science, dan Python Programming untuk kalangan akademisi, praktisi industri, serta guru-guru SMK. Saya percaya bahwa teknologi AI harus dapat dimanfaatkan secara luas untuk meningkatkan kesejahteraan masyarakat.</p>
+                    
+                    <h2>Visi ke Depan</h2>
+                    <p>Visi saya adalah terus berkontribusi dalam pengembangan ilmu pengetahuan di bidang Artificial Intelligence, khususnya yang relevan dengan konteks Indonesia. Saya berkomitmen untuk menghasilkan penelitian berkualitas tinggi, mendidik generasi peneliti dan praktisi AI yang kompeten, serta memastikan pengembangan AI yang etis dan bermanfaat bagi masyarakat.</p>
+                    
+                    <h2>Hubungi Saya</h2>
+                    <p>Saya terbuka untuk kolaborasi penelitian, konsultasi, dan diskusi seputar Machine Learning, AI, dan teknologi terkait. Jangan ragu untuk menghubungi melalui email atau media profesional lainnya.</p>
+                ]]>
+            </field>
+            <field name="website_published" eval="True"/>
+            <field name="is_published" eval="True"/>
+            <field name="sequence">1</field>
+        </record>
+        
+        <!-- ============================================ -->
+        <!-- EDUCATION HISTORY (Riwayat Pendidikan) -->
+        <!-- ============================================ -->
+        
+        <!-- S3 - Doktor Ilmu Komputer -->
+        <record id="profile_education_s3" model="profile.education">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="degree">s3</field>
+            <field name="major">Ilmu Komputer</field>
+            <field name="faculty">Sekolah Teknik Elektro dan Informatika</field>
+            <field name="institution">Universitas Teknologi Bandung</field>
+            <field name="city">Bandung</field>
+            <field name="country">Indonesia</field>
+            <field name="start_year">2015</field>
+            <field name="end_year">2019</field>
+            <field name="is_current" eval="False"/>
+            <field name="gpa">3.92</field>
+            <field name="gpa_scale">4.00</field>
+            <field name="thesis_title">Deep Learning Approach for Natural Language Processing in Indonesian Language: A Comprehensive Study on Sentiment Analysis and Named Entity Recognition</field>
+            <field name="thesis_advisor">Prof. Dr. Ir. Bambang Riyanto, M.Sc.</field>
+            <field name="achievements">Lulus dengan predikat Cum Laude, Best Dissertation Award 2019, 5 publikasi jurnal Q1 dari hasil disertasi</field>
+            <field name="description">Penelitian disertasi fokus pada pengembangan model deep learning untuk pemrosesan bahasa alami khusus bahasa Indonesia. Mengembangkan arsitektur neural network baru yang dapat meningkatkan akurasi sentiment analysis hingga 94% dan NER hingga 89% untuk bahasa Indonesia. Model ini telah diimplementasikan di beberapa perusahaan teknologi Indonesia untuk analisis media sosial.</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <!-- S2 - Magister Teknik Informatika -->
+        <record id="profile_education_s2" model="profile.education">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="degree">s2</field>
+            <field name="major">Teknik Informatika</field>
+            <field name="faculty">Fakultas Teknologi Informasi dan Komunikasi</field>
+            <field name="institution">Institut Teknologi Sepuluh Nopember</field>
+            <field name="city">Surabaya</field>
+            <field name="country">Indonesia</field>
+            <field name="start_year">2012</field>
+            <field name="end_year">2014</field>
+            <field name="is_current" eval="False"/>
+            <field name="gpa">3.85</field>
+            <field name="gpa_scale">4.00</field>
+            <field name="thesis_title">Machine Learning untuk Analisis Sentimen Media Sosial: Studi Kasus Twitter Indonesia</field>
+            <field name="thesis_advisor">Dr. Ir. Siti Aminah, M.T.</field>
+            <field name="achievements">Juara 2 Kompetisi Tesis Nasional 2014, Publikasi di konferensi IEEE</field>
+            <field name="description">Penelitian tesis mengembangkan sistem analisis sentimen otomatis untuk bahasa Indonesia menggunakan algoritma Support Vector Machine dan Random Forest. Sistem berhasil mencapai akurasi 82% dalam mengklasifikasikan sentimen positif, negatif, dan netral dari tweet berbahasa Indonesia.</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <!-- S1 - Sarjana Teknik Informatika -->
+        <record id="profile_education_s1" model="profile.education">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="degree">s1</field>
+            <field name="major">Teknik Informatika</field>
+            <field name="faculty">Fakultas Teknik</field>
+            <field name="institution">Universitas Gadjah Mada</field>
+            <field name="city">Yogyakarta</field>
+            <field name="country">Indonesia</field>
+            <field name="start_year">2008</field>
+            <field name="end_year">2012</field>
+            <field name="is_current" eval="False"/>
+            <field name="gpa">3.78</field>
+            <field name="gpa_scale">4.00</field>
+            <field name="thesis_title">Sistem Rekomendasi Film Menggunakan Collaborative Filtering dan Content-Based Filtering</field>
+            <field name="thesis_advisor">Dr. Eng. Ahmad Budiman, S.T., M.Eng.</field>
+            <field name="achievements">Lulusan Terbaik Prodi Informatika 2012, Mahasiswa Berprestasi Tingkat Fakultas</field>
+            <field name="description">Tugas akhir mengembangkan sistem rekomendasi film hybrid yang menggabungkan metode collaborative filtering dan content-based filtering. Sistem diimplementasikan sebagai aplikasi web dan berhasil meningkatkan akurasi rekomendasi hingga 15% dibandingkan metode tunggal.</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <!-- SMA -->
+        <record id="profile_education_sma" model="profile.education">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="degree">sma</field>
+            <field name="major">Ilmu Pengetahuan Alam (IPA)</field>
+            <field name="institution">SMA Negeri 1 Yogyakarta</field>
+            <field name="city">Yogyakarta</field>
+            <field name="country">Indonesia</field>
+            <field name="start_year">2005</field>
+            <field name="end_year">2008</field>
+            <field name="is_current" eval="False"/>
+            <field name="achievements">Juara 1 Olimpiade Komputer Tingkat Provinsi DIY 2007, Peserta OSN Komputer Tingkat Nasional 2008</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <!-- ============================================ -->
+        <!-- WORK EXPERIENCE (Riwayat Pekerjaan) -->
+        <!-- ============================================ -->
+        
+        <!-- Dosen Tetap UII (Current) -->
+        <record id="profile_work_dosen_uii" model="profile.work">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="position">Dosen Tetap - Lektor Kepala</field>
+            <field name="institution">Universitas Islam Indonesia</field>
+            <field name="department">Fakultas Teknik Industri - Program Studi Informatika</field>
+            <field name="employment_type">full_time</field>
+            <field name="work_type">teaching</field>
+            <field name="start_date">2019-08-01</field>
+            <field name="is_current" eval="True"/>
+            <field name="location">Yogyakarta</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <p><strong>Tanggung Jawab Utama:</strong></p>
+                    <ul>
+                        <li>Mengajar mata kuliah: Machine Learning, Deep Learning, Artificial Intelligence, Algoritma dan Pemrograman, Struktur Data</li>
+                        <li>Membimbing mahasiswa S1 untuk Tugas Akhir (rata-rata 10-12 mahasiswa per tahun)</li>
+                        <li>Membimbing mahasiswa S2 untuk Tesis (3-4 mahasiswa per tahun)</li>
+                        <li>Melakukan penelitian di bidang Natural Language Processing dan Computer Vision</li>
+                        <li>Mempublikasikan hasil penelitian di jurnal internasional bereputasi (minimal 4 publikasi per tahun)</li>
+                    </ul>
+                    <p><strong>Kontribusi Akademik:</strong></p>
+                    <ul>
+                        <li>Koordinator Laboratorium Artificial Intelligence & Data Science</li>
+                        <li>Pengembang kurikulum program studi berbasis MBKM dan standar internasional</li>
+                        <li>Ketua Tim Penelitian AI untuk Bahasa Indonesia</li>
+                        <li>Pengelola kerjasama dengan industri teknologi untuk program magang dan capstone project</li>
+                    </ul>
+                    <p><strong>Pengabdian Masyarakat:</strong></p>
+                    <ul>
+                        <li>Pelatihan AI dan Data Science untuk dosen PTN/PTS se-Indonesia</li>
+                        <li>Workshop Python Programming untuk guru SMK</li>
+                        <li>Konsultan pengembangan sistem berbasis AI untuk UMKM</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="achievements">
+                <![CDATA[
+                    <ul>
+                        <li>Outstanding Lecturer Award 2021, 2023</li>
+                        <li>Membimbing mahasiswa pemenang PKM AI tingkat nasional 2022</li>
+                        <li>Mendapatkan 8 hibah penelitian kompetitif nasional dan internasional</li>
+                        <li>45+ publikasi jurnal dan konferensi internasional</li>
+                        <li>H-index 15 (Google Scholar)</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="skills">Machine Learning, Deep Learning, TensorFlow, PyTorch, Python, Natural Language Processing, Computer Vision, Research Methodology, Academic Writing, Curriculum Development</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <!-- Dosen Luar Biasa UGM -->
+        <record id="profile_work_dosen_ugm" model="profile.work">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="position">Dosen Luar Biasa</field>
+            <field name="institution">Universitas Gadjah Mada</field>
+            <field name="department">Fakultas MIPA - Departemen Ilmu Komputer dan Elektronika</field>
+            <field name="employment_type">part_time</field>
+            <field name="work_type">teaching</field>
+            <field name="start_date">2014-09-01</field>
+            <field name="end_date">2019-07-31</field>
+            <field name="is_current" eval="False"/>
+            <field name="location">Yogyakarta</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <ul>
+                        <li>Mengajar mata kuliah Algoritma dan Pemrograman untuk mahasiswa S1</li>
+                        <li>Mengajar mata kuliah Struktur Data dan Algoritma Lanjut</li>
+                        <li>Membimbing praktikum pemrograman Python dan C++</li>
+                        <li>Membimbing tugas akhir mahasiswa S1 (15 mahasiswa)</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="achievements">
+                <![CDATA[
+                    <ul>
+                        <li>Dosen dengan evaluasi mahasiswa terbaik 2017</li>
+                        <li>Mengembangkan modul praktikum pemrograman berbasis problem solving</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="skills">Python, C++, Java, Algorithm Design, Data Structures, Problem Solving</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <!-- Asisten Dosen saat S3 -->
+        <record id="profile_work_teaching_assistant" model="profile.work">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="position">Asisten Dosen &amp; Peneliti</field>
+            <field name="institution">Universitas Teknologi Bandung</field>
+            <field name="department">Laboratorium Artificial Intelligence - STEI ITB</field>
+            <field name="employment_type">part_time</field>
+            <field name="work_type">research</field>
+            <field name="start_date">2015-09-01</field>
+            <field name="end_date">2019-06-30</field>
+            <field name="is_current" eval="False"/>
+            <field name="location">Bandung</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <ul>
+                        <li>Asisten dosen untuk mata kuliah Machine Learning dan Deep Learning</li>
+                        <li>Membantu membimbing mahasiswa S2 dalam penelitian AI</li>
+                        <li>Melakukan penelitian doktoral di bidang NLP</li>
+                        <li>Mengikuti dan mempresentasikan paper di konferensi internasional</li>
+                        <li>Kolaborasi penelitian dengan profesor dari berbagai universitas</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="achievements">
+                <![CDATA[
+                    <ul>
+                        <li>Best Student Paper Award di ICAICTA 2017</li>
+                        <li>5 publikasi jurnal Q1 selama program doktoral</li>
+                        <li>Beasiswa LPDP untuk program S3</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="skills">Deep Learning, NLP, Research Methodology, Academic Writing, TensorFlow, PyTorch</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <!-- Machine Learning Engineer di Industri -->
+        <record id="profile_work_ml_engineer" model="profile.work">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="position">Machine Learning Engineer</field>
+            <field name="institution">PT Teknologi Cerdas Indonesia</field>
+            <field name="department">Research &amp; Development Division</field>
+            <field name="employment_type">full_time</field>
+            <field name="work_type">other</field>
+            <field name="start_date">2012-01-15</field>
+            <field name="end_date">2014-08-31</field>
+            <field name="is_current" eval="False"/>
+            <field name="location">Jakarta</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <ul>
+                        <li>Mengembangkan sistem rekomendasi produk menggunakan collaborative filtering untuk e-commerce (meningkatkan conversion rate 23%)</li>
+                        <li>Membuat model prediksi churn customer menggunakan machine learning (akurasi 87%)</li>
+                        <li>Mengimplementasikan sentiment analysis untuk monitoring brand di social media</li>
+                        <li>Melakukan data preprocessing, feature engineering, dan model optimization</li>
+                        <li>Deploy machine learning models ke production environment</li>
+                        <li>Berkolaborasi dengan tim product dan engineering untuk integrasi ML ke aplikasi</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="achievements">
+                <![CDATA[
+                    <ul>
+                        <li>Employee of the Year 2013</li>
+                        <li>Mengembangkan sistem rekomendasi yang meningkatkan revenue 15%</li>
+                        <li>Memimpin tim untuk migrasi dari rule-based ke ML-based system</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="skills">Python, scikit-learn, pandas, numpy, SQL, MongoDB, Apache Spark, Machine Learning, Data Analysis, A/B Testing</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <!-- Data Analyst Intern -->
+        <record id="profile_work_intern" model="profile.work">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="position">Data Analyst Intern</field>
+            <field name="institution">PT Garuda Indonesia (Persero) Tbk</field>
+            <field name="department">Business Intelligence Unit</field>
+            <field name="employment_type">internship</field>
+            <field name="work_type">other</field>
+            <field name="start_date">2011-07-01</field>
+            <field name="end_date">2011-09-30</field>
+            <field name="is_current" eval="False"/>
+            <field name="location">Jakarta</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <ul>
+                        <li>Analisis data penumpang dan load factor untuk optimasi rute penerbangan</li>
+                        <li>Membuat dashboard business intelligence menggunakan Tableau</li>
+                        <li>Data cleaning dan preprocessing untuk database penumpang</li>
+                        <li>Membuat laporan analisis tren pemesanan tiket</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="skills">SQL, Excel, Tableau, Data Analysis, Business Intelligence</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <!-- ============================================ -->
+        <!-- EXPERTISE & RESEARCH INTERESTS -->
+        <!-- ============================================ -->
+        
+        <!-- Research Interests -->
+        <record id="profile_expertise_nlp" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Natural Language Processing</field>
+            <field name="expertise_type">research_interest</field>
+            <field name="category">artificial_intelligence</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">12</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Fokus utama penelitian pada pengembangan model NLP untuk bahasa Indonesia, meliputi:</p>
+                    <ul>
+                        <li>Sentiment Analysis dan Opinion Mining</li>
+                        <li>Named Entity Recognition (NER)</li>
+                        <li>Text Classification dan Categorization</li>
+                        <li>Machine Translation (Indonesia-English)</li>
+                        <li>Question Answering Systems</li>
+                        <li>Text Summarization</li>
+                        <li>Language Modeling dengan Transformer</li>
+                    </ul>
+                    <p>Telah mempublikasikan 20+ paper tentang NLP di jurnal Q1/Q2 dan konferensi IEEE.</p>
+                ]]>
+            </field>
+            <field name="keywords">NLP, sentiment analysis, NER, text classification, transformer, BERT, Indonesian NLP</field>
+            <field name="related_publications_count">25</field>
+            <field name="related_projects_count">8</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="profile_expertise_deep_learning" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Deep Learning &amp; Neural Networks</field>
+            <field name="expertise_type">research_interest</field>
+            <field name="category">artificial_intelligence</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">10</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Penelitian dan aplikasi deep learning untuk berbagai domain:</p>
+                    <ul>
+                        <li>Convolutional Neural Networks (CNN) untuk Computer Vision</li>
+                        <li>Recurrent Neural Networks (RNN, LSTM, GRU)</li>
+                        <li>Transformer Architecture dan Attention Mechanism</li>
+                        <li>Generative Adversarial Networks (GANs)</li>
+                        <li>Transfer Learning dan Fine-tuning Pre-trained Models</li>
+                        <li>Model Optimization dan Compression</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">deep learning, CNN, RNN, LSTM, transformer, GAN, neural networks</field>
+            <field name="related_publications_count">18</field>
+            <field name="related_projects_count">12</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <record id="profile_expertise_computer_vision" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Computer Vision</field>
+            <field name="expertise_type">research_interest</field>
+            <field name="category">artificial_intelligence</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">8</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Pengembangan sistem computer vision untuk aplikasi praktis:</p>
+                    <ul>
+                        <li>Object Detection dan Recognition (YOLO, Faster R-CNN)</li>
+                        <li>Image Classification dan Segmentation</li>
+                        <li>Face Recognition dan Facial Analysis</li>
+                        <li>Optical Character Recognition (OCR)</li>
+                        <li>Medical Image Analysis</li>
+                        <li>Video Analysis dan Action Recognition</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">computer vision, object detection, image classification, face recognition, OCR, medical imaging</field>
+            <field name="related_publications_count">12</field>
+            <field name="related_projects_count">10</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <record id="profile_expertise_ml" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Machine Learning</field>
+            <field name="expertise_type">expertise</field>
+            <field name="category">artificial_intelligence</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">12</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Keahlian dalam pengembangan dan implementasi algoritma machine learning:</p>
+                    <ul>
+                        <li>Supervised Learning (Classification, Regression)</li>
+                        <li>Unsupervised Learning (Clustering, Dimensionality Reduction)</li>
+                        <li>Ensemble Methods (Random Forest, Gradient Boosting, XGBoost)</li>
+                        <li>Feature Engineering dan Selection</li>
+                        <li>Model Evaluation dan Optimization</li>
+                        <li>Production ML Systems dan MLOps</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">machine learning, classification, regression, ensemble, feature engineering</field>
+            <field name="related_publications_count">15</field>
+            <field name="related_projects_count">18</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <record id="profile_expertise_data_science" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Data Science &amp; Analytics</field>
+            <field name="expertise_type">expertise</field>
+            <field name="category">data_science</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">11</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Expertise dalam analisis data dan data science:</p>
+                    <ul>
+                        <li>Exploratory Data Analysis (EDA)</li>
+                        <li>Statistical Analysis dan Hypothesis Testing</li>
+                        <li>Data Visualization (Matplotlib, Seaborn, Plotly)</li>
+                        <li>Big Data Processing (Spark, Hadoop)</li>
+                        <li>A/B Testing dan Experimental Design</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">data science, data analysis, statistics, visualization, big data</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <record id="profile_expertise_ai_ethics" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">AI Ethics &amp; Responsible AI</field>
+            <field name="expertise_type">research_interest</field>
+            <field name="category">artificial_intelligence</field>
+            <field name="proficiency_level">advanced</field>
+            <field name="years_of_experience">5</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Penelitian tentang aspek etika dan tanggung jawab dalam pengembangan AI:</p>
+                    <ul>
+                        <li>Fairness dan Bias in AI Systems</li>
+                        <li>Explainable AI (XAI)</li>
+                        <li>Privacy-Preserving Machine Learning</li>
+                        <li>AI Governance dan Policy</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">AI ethics, fairness, bias, explainable AI, privacy, responsible AI</field>
+            <field name="related_publications_count">8</field>
+            <field name="related_projects_count">4</field>
+            <field name="sequence">60</field>
+        </record>
+        
+        <!-- Technical Skills -->
+        <record id="profile_expertise_python" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Python Programming</field>
+            <field name="expertise_type">skill</field>
+            <field name="category">computer_science</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">13</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Expert-level Python untuk Machine Learning dan Data Science:</p>
+                    <ul>
+                        <li><strong>ML/DL Frameworks:</strong> TensorFlow, PyTorch, Keras, scikit-learn</li>
+                        <li><strong>Data Processing:</strong> pandas, numpy, scipy</li>
+                        <li><strong>NLP:</strong> NLTK, spaCy, Hugging Face Transformers, Gensim</li>
+                        <li><strong>Computer Vision:</strong> OpenCV, PIL/Pillow</li>
+                        <li><strong>Visualization:</strong> Matplotlib, Seaborn, Plotly</li>
+                        <li><strong>Web:</strong> Flask, FastAPI, Django</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">Python, TensorFlow, PyTorch, scikit-learn, pandas, numpy</field>
+            <field name="sequence">100</field>
+        </record>
+        
+        <record id="profile_expertise_programming" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Programming Languages</field>
+            <field name="expertise_type">skill</field>
+            <field name="category">computer_science</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">15</field>
+            <field name="description">
+                <![CDATA[
+                    <ul>
+                        <li><strong>Expert:</strong> Python, SQL</li>
+                        <li><strong>Advanced:</strong> C++, Java, JavaScript/TypeScript, R</li>
+                        <li><strong>Intermediate:</strong> Go, Scala, MATLAB</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">Python, C++, Java, JavaScript, SQL, R, programming</field>
+            <field name="sequence">110</field>
+        </record>
+        
+        <record id="profile_expertise_tools" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Development Tools &amp; Technologies</field>
+            <field name="expertise_type">skill</field>
+            <field name="category">information_technology</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">12</field>
+            <field name="description">
+                <![CDATA[
+                    <ul>
+                        <li><strong>Version Control:</strong> Git, GitHub, GitLab</li>
+                        <li><strong>Cloud Platforms:</strong> AWS (SageMaker, EC2, S3), Google Cloud (AI Platform), Azure ML</li>
+                        <li><strong>Containerization:</strong> Docker, Kubernetes</li>
+                        <li><strong>CI/CD:</strong> Jenkins, GitHub Actions, GitLab CI</li>
+                        <li><strong>Databases:</strong> PostgreSQL, MongoDB, MySQL, Redis</li>
+                        <li><strong>MLOps:</strong> MLflow, Kubeflow, DVC</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">Git, Docker, Kubernetes, AWS, cloud computing, MLOps</field>
+            <field name="sequence">120</field>
+        </record>
+        
+        <record id="profile_expertise_research" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Research Methodology</field>
+            <field name="expertise_type">skill</field>
+            <field name="category">science</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">10</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Keahlian dalam metodologi penelitian ilmiah:</p>
+                    <ul>
+                        <li>Experimental Design dan Implementation</li>
+                        <li>Quantitative dan Qualitative Research Methods</li>
+                        <li>Statistical Analysis (SPSS, R, Python)</li>
+                        <li>Academic Writing dan Paper Publication</li>
+                        <li>Research Ethics dan Integrity</li>
+                        <li>Literature Review dan Systematic Review</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">research methodology, experimental design, statistics, academic writing</field>
+            <field name="sequence">130</field>
+        </record>
+        
+        <record id="profile_expertise_academic" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Academic Writing &amp; Publication</field>
+            <field name="expertise_type">skill</field>
+            <field name="category">education</field>
+            <field name="proficiency_level">expert</field>
+            <field name="years_of_experience">10</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Berpengalaman dalam penulisan dan publikasi ilmiah:</p>
+                    <ul>
+                        <li>45+ publikasi di jurnal Q1/Q2 dan konferensi internasional</li>
+                        <li>H-index: 15 (Google Scholar), Citations: 850+</li>
+                        <li>Reviewer untuk 8 jurnal internasional (IEEE, Elsevier, Springer)</li>
+                        <li>Editor untuk special issue di International Journal of AI</li>
+                        <li>Penulisan proposal penelitian hibah kompetitif</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="keywords">academic writing, publication, journal paper, conference, peer review</field>
+            <field name="sequence">140</field>
+        </record>
+        
+        <!-- Certifications -->
+        <record id="profile_expertise_cert_tensorflow" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">TensorFlow Developer Certificate</field>
+            <field name="expertise_type">certification</field>
+            <field name="category">artificial_intelligence</field>
+            <field name="proficiency_level">expert</field>
+            <field name="certification_name">TensorFlow Developer Certificate</field>
+            <field name="certification_issuer">Google - TensorFlow Team</field>
+            <field name="certification_date">2020-03-15</field>
+            <field name="description">Official TensorFlow certification demonstrating proficiency in building and training neural networks using TensorFlow</field>
+            <field name="sequence">200</field>
+        </record>
+        
+        <record id="profile_expertise_cert_aws" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">AWS Machine Learning Specialty</field>
+            <field name="expertise_type">certification</field>
+            <field name="category">information_technology</field>
+            <field name="proficiency_level">advanced</field>
+            <field name="certification_name">AWS Certified Machine Learning - Specialty</field>
+            <field name="certification_issuer">Amazon Web Services (AWS)</field>
+            <field name="certification_date">2021-06-20</field>
+            <field name="certification_expiry">2024-06-20</field>
+            <field name="description">Validates expertise in building, training, tuning, and deploying ML models on AWS</field>
+            <field name="sequence">210</field>
+        </record>
+        
+        <record id="profile_expertise_cert_coursera" model="profile.expertise">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Deep Learning Specialization</field>
+            <field name="expertise_type">certification</field>
+            <field name="category">artificial_intelligence</field>
+            <field name="proficiency_level">expert</field>
+            <field name="certification_name">Deep Learning Specialization (5 Courses)</field>
+            <field name="certification_issuer">deeplearning.ai - Coursera</field>
+            <field name="certification_date">2018-08-10</field>
+            <field name="description">Comprehensive specialization covering Neural Networks, CNN, RNN, Hyperparameter Tuning, and Deep Learning Projects</field>
+            <field name="sequence">220</field>
+        </record>
+        
+        <!-- ============================================ -->
+        <!-- AWARDS & RECOGNITION (Penghargaan) -->
+        <!-- ============================================ -->
+        
+        <!-- International Awards -->
+        <record id="profile_award_best_paper_icml" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Best Paper Award - ICML 2022</field>
+            <field name="award_type">research</field>
+            <field name="issuer">International Conference on Machine Learning (ICML)</field>
+            <field name="award_date">2022-07-18</field>
+            <field name="level">international</field>
+            <field name="country">United States</field>
+            <field name="certificate_number">ICML-2022-BP-0847</field>
+            <field name="website_url">https://icml.cc/Awards/2022</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Penghargaan untuk paper terbaik di konferensi ICML 2022, salah satu konferensi AI paling bergengsi di dunia.</p>
+                    <p><strong>Paper Title:</strong> "Enhancing Low-Resource Language Models: A Novel Approach for Indonesian NLP"</p>
+                    <p>Paper ini memperkenalkan teknik baru untuk meningkatkan performa language model pada bahasa dengan resource terbatas seperti bahasa Indonesia.</p>
+                ]]>
+            </field>
+            <field name="achievement">Dipilih dari 5,630 submissions sebagai best paper. Paper mendapat 250+ citations dalam setahun pertama.</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="profile_award_best_student_paper" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Best Student Paper Award - IEEE ICAICTA 2017</field>
+            <field name="award_type">research</field>
+            <field name="issuer">IEEE International Conference on AI and Information Communication Technology</field>
+            <field name="award_date">2017-11-20</field>
+            <field name="level">international</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Penghargaan best student paper untuk penelitian doktoral tentang sentiment analysis bahasa Indonesia.</p>
+                    <p><strong>Paper Title:</strong> "Deep Learning for Indonesian Sentiment Analysis: A Comparative Study"</p>
+                ]]>
+            </field>
+            <field name="achievement">Penelitian ini menjadi baseline untuk banyak penelitian NLP bahasa Indonesia selanjutnya</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <record id="profile_award_outstanding_reviewer" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Outstanding Reviewer Award</field>
+            <field name="award_type">professional</field>
+            <field name="issuer">IEEE Transactions on Neural Networks and Learning Systems</field>
+            <field name="award_date">2023-12-15</field>
+            <field name="level">international</field>
+            <field name="description">Penghargaan untuk reviewer terbaik atas kontribusi review yang berkualitas tinggi dan tepat waktu</field>
+            <field name="achievement">Melakukan 18 reviews dengan kualitas exceptional dalam tahun 2023</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <!-- National Awards -->
+        <record id="profile_award_grant_ristekdikti" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Hibah Penelitian Fundamental Unggulan</field>
+            <field name="award_type">research</field>
+            <field name="issuer">Kementerian Riset, Teknologi, dan Pendidikan Tinggi RI</field>
+            <field name="award_date">2020-03-10</field>
+            <field name="level">national</field>
+            <field name="country">Indonesia</field>
+            <field name="certificate_number">3476/UN30.15/LT/2020</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Penerima hibah penelitian kompetitif nasional dengan dana Rp 250 juta untuk penelitian:</p>
+                    <p><strong>Judul:</strong> "Pengembangan Model Deep Learning untuk Pemrosesan Bahasa Indonesia: Aplikasi pada E-Government dan Smart City"</p>
+                    <p>Penelitian 3 tahun (2020-2023) yang menghasilkan 8 publikasi jurnal Q1/Q2 dan 1 paten.</p>
+                ]]>
+            </field>
+            <field name="achievement">Hasil penelitian diimplementasikan di 5 pemerintah daerah untuk sistem pengaduan masyarakat</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <record id="profile_award_grant_lpdp" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Beasiswa LPDP Program Doktor</field>
+            <field name="award_type">academic</field>
+            <field name="issuer">Lembaga Pengelola Dana Pendidikan (LPDP) Kemenkeu RI</field>
+            <field name="award_date">2015-08-01</field>
+            <field name="level">national</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Penerima beasiswa penuh program doktoral LPDP untuk studi S3 Ilmu Komputer di Universitas Teknologi Bandung (2015-2019).</p>
+                    <p>Beasiswa mencakup biaya kuliah, biaya hidup, biaya penelitian, dan tunjangan buku.</p>
+                ]]>
+            </field>
+            <field name="achievement">Lulus dengan IPK 3.92 dan 5 publikasi jurnal Q1 dari hasil disertasi</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <record id="profile_award_best_researcher" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Peneliti Muda Berprestasi Nasional</field>
+            <field name="award_type">research</field>
+            <field name="issuer">Indonesian Association for Pattern Recognition and Artificial Intelligence (IAPRAI)</field>
+            <field name="award_date">2023-09-28</field>
+            <field name="level">national</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Penghargaan peneliti muda berprestasi untuk kontribusi signifikan di bidang AI dan Machine Learning.</p>
+                    <p>Kriteria penilaian: publikasi, h-index, impact penelitian, dan pembimbingan mahasiswa.</p>
+                ]]>
+            </field>
+            <field name="achievement">Dipilih dari 120 nominasi peneliti muda se-Indonesia</field>
+            <field name="sequence">60</field>
+        </record>
+        
+        <record id="profile_award_thesis_competition" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Juara 2 Kompetisi Tesis Nasional</field>
+            <field name="award_type">competition</field>
+            <field name="issuer">Forum Rektor Indonesia &amp; Kemenristekdikti</field>
+            <field name="award_date">2014-11-15</field>
+            <field name="level">national</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Juara 2 Kompetisi Tesis Terbaik Tingkat Nasional bidang Teknologi Informasi.</p>
+                    <p><strong>Judul Tesis:</strong> "Machine Learning untuk Analisis Sentimen Media Sosial: Studi Kasus Twitter Indonesia"</p>
+                ]]>
+            </field>
+            <field name="achievement">Tesis dipublikasikan di IEEE conference dan dikutip 85+ kali</field>
+            <field name="sequence">70</field>
+        </record>
+        
+        <!-- Institutional/Internal Awards -->
+        <record id="profile_award_outstanding_lecturer_2023" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Outstanding Lecturer Award 2023</field>
+            <field name="award_type">teaching</field>
+            <field name="issuer">Universitas Islam Indonesia</field>
+            <field name="award_date">2023-09-17</field>
+            <field name="level">internal</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Dosen Berprestasi Tahun 2023 dengan kriteria penilaian:</p>
+                    <ul>
+                        <li>Evaluasi mengajar mahasiswa (rata-rata 4.8/5.0)</li>
+                        <li>Publikasi ilmiah (8 publikasi internasional)</li>
+                        <li>Pengabdian masyarakat (15 kegiatan)</li>
+                        <li>Prestasi mahasiswa bimbingan</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="achievement">Dipilih sebagai dosen terbaik dari 450+ dosen di UII</field>
+            <field name="sequence">100</field>
+        </record>
+        
+        <record id="profile_award_outstanding_lecturer_2021" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Outstanding Lecturer Award 2021</field>
+            <field name="award_type">teaching</field>
+            <field name="issuer">Universitas Islam Indonesia</field>
+            <field name="award_date">2021-09-17</field>
+            <field name="level">internal</field>
+            <field name="country">Indonesia</field>
+            <field name="description">Dosen Berprestasi Tahun 2021 berdasarkan evaluasi mahasiswa, publikasi, dan kontribusi akademik</field>
+            <field name="sequence">110</field>
+        </record>
+        
+        <record id="profile_award_best_dissertation" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Best Dissertation Award</field>
+            <field name="award_type">academic</field>
+            <field name="issuer">Universitas Teknologi Bandung - STEI</field>
+            <field name="award_date">2019-10-12</field>
+            <field name="level">internal</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Penghargaan disertasi terbaik periode 2019 dari Sekolah Teknik Elektro dan Informatika ITB.</p>
+                    <p><strong>Disertasi:</strong> "Deep Learning Approach for Natural Language Processing in Indonesian Language"</p>
+                    <p>Lulus cum laude dengan IPK 3.92/4.00</p>
+                ]]>
+            </field>
+            <field name="achievement">Disertasi menghasilkan 5 publikasi jurnal Q1 dan 1 paten</field>
+            <field name="sequence">120</field>
+        </record>
+        
+        <record id="profile_award_best_student_ugm" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Lulusan Terbaik Prodi Informatika</field>
+            <field name="award_type">academic</field>
+            <field name="issuer">Universitas Gadjah Mada - Fakultas Teknik</field>
+            <field name="award_date">2012-09-01</field>
+            <field name="level">internal</field>
+            <field name="country">Indonesia</field>
+            <field name="description">Lulusan Terbaik Program Studi Teknik Informatika angkatan 2008 dengan IPK 3.78</field>
+            <field name="achievement">Mahasiswa Berprestasi Tingkat Fakultas 2011</field>
+            <field name="sequence">130</field>
+        </record>
+        
+        <record id="profile_award_teaching_innovation" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Teaching Innovation Award</field>
+            <field name="award_type">teaching</field>
+            <field name="issuer">Universitas Islam Indonesia - Fakultas Teknik Industri</field>
+            <field name="award_date">2022-05-20</field>
+            <field name="level">internal</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Penghargaan untuk inovasi metode pengajaran menggunakan:</p>
+                    <ul>
+                        <li>Project-Based Learning dengan industry collaboration</li>
+                        <li>Interactive Jupyter Notebooks untuk praktikum ML</li>
+                        <li>Automated grading system menggunakan GitHub Classroom</li>
+                        <li>Flipped classroom dengan video pembelajaran sendiri</li>
+                    </ul>
+                ]]>
+            </field>
+            <field name="achievement">Metode ini meningkatkan engagement mahasiswa dari 65% menjadi 92%</field>
+            <field name="sequence">140</field>
+        </record>
+        
+        <!-- Competition Awards -->
+        <record id="profile_award_pkm_advisor" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Pembimbing PKM AI Juara Nasional</field>
+            <field name="award_type">community_service</field>
+            <field name="issuer">Kemenristekdikti - Program Kreativitas Mahasiswa</field>
+            <field name="award_date">2022-08-17</field>
+            <field name="level">national</field>
+            <field name="country">Indonesia</field>
+            <field name="description">
+                <![CDATA[
+                    <p>Membimbing mahasiswa pemenang PKM AI Tingkat Nasional 2022:</p>
+                    <p><strong>Judul:</strong> "Sistem Deteksi Dini Penyakit Tanaman Padi Berbasis Deep Learning dan IoT"</p>
+                    <p>Tim berhasil mengembangkan sistem dengan akurasi 94% yang dapat digunakan petani melalui smartphone.</p>
+                ]]>
+            </field>
+            <field name="achievement">Produk sedang dalam proses komersialisasi melalui program startup kampus</field>
+            <field name="sequence">150</field>
+        </record>
+        
+        <record id="profile_award_olympiad" model="profile.award">
+            <field name="profile_post_id" ref="profile_post_main"/>
+            <field name="name">Juara 1 Olimpiade Komputer Provinsi DIY</field>
+            <field name="award_type">competition</field>
+            <field name="issuer">Dinas Pendidikan Provinsi DIY</field>
+            <field name="award_date">2007-08-20</field>
+            <field name="level">regional</field>
+            <field name="country">Indonesia</field>
+            <field name="description">Juara 1 Olimpiade Komputer Tingkat Provinsi DIY kategori SMA tahun 2007</field>
+            <field name="achievement">Mewakili DIY di OSN Komputer Tingkat Nasional 2008</field>
+            <field name="sequence">160</field>
+        </record>
+        
+        <!-- ============================================ -->
+        <!-- CV TEMPLATES (2 Contoh Template Bawaan) -->
+        <!-- ============================================ -->
+        
+        <!-- Template 1: CV Profesional (Default) -->
+        <record id="cv_template_professional" model="cv.template">
+            <field name="name">CV Profesional</field>
+            <field name="code">professional</field>
+            <field name="template_type">ats_standard</field>
+            <field name="description">Template CV profesional dengan format clean dan modern. Cocok untuk aplikasi pekerjaan, akademik, dan keperluan umum.</field>
+            <field name="is_default" eval="True"/>
+            <field name="custom_html_template"><![CDATA[
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - ${profile_name}</title>
+    <style>${custom_css}</style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header Section -->
+        <header class="cv-header">
+            <h1 class="cv-name">${profile_name}</h1>
+            <p class="cv-subtitle">${profile_subtitle}</p>
+        </header>
+
+        <!-- Biography Section -->
+        <section class="cv-section">
+            <h2 class="section-title">TENTANG SAYA</h2>
+            <div class="section-content">
+                ${profile_biography}
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="cv-section">
+            <h2 class="section-title">RIWAYAT PENDIDIKAN</h2>
+            <div class="section-content">
+                ${education_html}
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section class="cv-section">
+            <h2 class="section-title">PENGALAMAN KERJA</h2>
+            <div class="section-content">
+                ${work_experience_html}
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="cv-section">
+            <h2 class="section-title">KEAHLIAN & MINAT RISET</h2>
+            <div class="section-content">
+                ${expertise_html}
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="cv-section">
+            <h2 class="section-title">PENGHARGAAN</h2>
+            <div class="section-content">
+                ${awards_html}
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section class="cv-section">
+            <h2 class="section-title">PUBLIKASI ILMIAH</h2>
+            <div class="section-content">
+                ${publications_html}
+            </div>
+        </section>
+
+        <!-- Books Section -->
+        <section class="cv-section">
+            <h2 class="section-title">BUKU</h2>
+            <div class="section-content">
+                ${books_html}
+            </div>
+        </section>
+
+        <!-- Patents/HKI Section -->
+        <section class="cv-section">
+            <h2 class="section-title">HKI / PATEN</h2>
+            <div class="section-content">
+                ${patents_html}
+            </div>
+        </section>
+
+        <!-- Research Projects Section -->
+        <section class="cv-section">
+            <h2 class="section-title">PROYEK PENELITIAN</h2>
+            <div class="section-content">
+                ${projects_html}
+            </div>
+        </section>
+
+        <!-- Community Service Section -->
+        <section class="cv-section">
+            <h2 class="section-title">PENGABDIAN MASYARAKAT</h2>
+            <div class="section-content">
+                ${community_service_html}
+            </div>
+        </section>
+
+        <!-- Conferences Section -->
+        <section class="cv-section">
+            <h2 class="section-title">PROSIDING KONFERENSI</h2>
+            <div class="section-content">
+                ${conferences_html}
+            </div>
+        </section>
+
+        <!-- Grants Section -->
+        <section class="cv-section">
+            <h2 class="section-title">HIBAH PENDANAAN</h2>
+            <div class="section-content">
+                ${grants_html}
+            </div>
+        </section>
+
+        <!-- Research Products Section -->
+        <section class="cv-section">
+            <h2 class="section-title">PRODUK PENELITIAN</h2>
+            <div class="section-content">
+                ${products_html}
+            </div>
+        </section>
+
+        <!-- Reviewer Activities Section -->
+        <section class="cv-section">
+            <h2 class="section-title">AKTIVITAS REVIEWER</h2>
+            <div class="section-content">
+                ${reviewer_html}
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="cv-section">
+            <h2 class="section-title">ACARA & KEGIATAN</h2>
+            <div class="section-content">
+                ${events_html}
+            </div>
+        </section>
+
+        <!-- Research Groups Section -->
+        <section class="cv-section">
+            <h2 class="section-title">GRUP RISET</h2>
+            <div class="section-content">
+                ${groups_html}
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+            ]]></field>
+            <field name="custom_css"><![CDATA[
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Calibri', 'Arial', sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000000;
+    background: #ffffff;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 15mm;
+}
+
+.cv-container {
+    width: 100%;
+}
+
+.cv-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #000000;
+}
+
+.cv-name {
+    font-size: 24pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.cv-subtitle {
+    font-size: 12pt;
+    color: #333333;
+    font-weight: normal;
+}
+
+.cv-section {
+    margin-bottom: 25px;
+    page-break-inside: avoid;
+}
+
+.section-title {
+    font-size: 14pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.section-content {
+    padding-left: 10px;
+}
+
+.education-item,
+.work-item,
+.award-item,
+.publication-item,
+.book-item,
+.patent-item,
+.project-item,
+.community-item,
+.conference-item,
+.grant-item,
+.product-item,
+.reviewer-item,
+.event-item,
+.group-item {
+    margin-bottom: 15px;
+}
+
+.education-item h4,
+.work-item h4,
+.award-item h4 {
+    font-size: 12pt;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.institution,
+.organization {
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 3px;
+}
+
+.period,
+.date {
+    font-style: italic;
+    color: #666666;
+    font-size: 10pt;
+    margin-bottom: 5px;
+}
+
+.gpa,
+.description {
+    font-size: 10pt;
+    color: #444444;
+    margin-top: 5px;
+}
+
+/* Publication, Book, Patent, Project, etc. meta info */
+.publication-meta,
+.book-meta,
+.patent-meta,
+.project-meta,
+.community-meta,
+.conference-meta,
+.grant-meta,
+.product-meta,
+.reviewer-meta,
+.event-meta {
+    font-style: italic;
+    color: #666666;
+    font-size: 10pt;
+    margin-bottom: 5px;
+}
+
+.expertise-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.expertise-list li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.expertise-list li:before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Print optimization */
+@media print {
+    body {
+        margin: 0;
+        padding: 10mm;
+    }
+    
+    .cv-section {
+        page-break-inside: avoid;
+    }
+}
+            ]]></field>
+            <field name="include_personal_info" eval="True"/>
+            <field name="include_biography" eval="True"/>
+            <field name="include_education" eval="True"/>
+            <field name="include_work_experience" eval="True"/>
+            <field name="include_expertise" eval="True"/>
+            <field name="include_awards" eval="True"/>
+            <field name="include_publications" eval="True"/>
+            <field name="include_books" eval="True"/>
+            <field name="include_patents" eval="True"/>
+            <field name="include_research_projects" eval="True"/>
+            <field name="include_community_service" eval="True"/>
+            <field name="include_conferences" eval="True"/>
+            <field name="include_grants" eval="True"/>
+            <field name="include_research_products" eval="True"/>
+            <field name="include_reviewer_activities" eval="True"/>
+            <field name="include_events" eval="True"/>
+            <field name="include_research_groups" eval="True"/>
+            <field name="include_courses" eval="True"/>
+            <field name="sort_by_year" eval="True"/>
+            <field name="sort_descending" eval="True"/>
+            <field name="date_format">month_year</field>
+            <field name="limit_publications" eval="0"/>
+            <field name="limit_projects" eval="0"/>
+            <field name="sequence">10</field>
+        </record>
+        
+        <!-- Template 2: CV Akademik -->
+        <record id="cv_template_academic" model="cv.template">
+            <field name="name">CV Akademik</field>
+            <field name="code">academic</field>
+            <field name="template_type">ats_academic</field>
+            <field name="description">Template CV untuk keperluan akademik dengan fokus pada publikasi, penelitian, dan aktivitas ilmiah.</field>
+            <field name="is_default" eval="False"/>
+            <field name="custom_html_template"><![CDATA[
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - ${profile_name}</title>
+    <style>${custom_css}</style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header with Blue Accent -->
+        <header class="cv-header">
+            <div class="header-line"></div>
+            <h1 class="cv-name">${profile_name}</h1>
+            <p class="cv-subtitle">${profile_subtitle}</p>
+            <div class="header-line"></div>
+        </header>
+
+        <!-- Profile Summary -->
+        <section class="cv-section">
+            <h2 class="section-title">PROFIL</h2>
+            <div class="section-content biography">
+                ${profile_biography}
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="cv-section">
+            <h2 class="section-title">PENDIDIKAN</h2>
+            <div class="section-content">
+                ${education_html}
+            </div>
+        </section>
+
+        <!-- Academic Position -->
+        <section class="cv-section">
+            <h2 class="section-title">PENGALAMAN AKADEMIK</h2>
+            <div class="section-content">
+                ${work_experience_html}
+            </div>
+        </section>
+
+        <!-- Research Interest -->
+        <section class="cv-section">
+            <h2 class="section-title">BIDANG KEAHLIAN & MINAT RISET</h2>
+            <div class="section-content">
+                ${expertise_html}
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section class="cv-section">
+            <h2 class="section-title">PUBLIKASI ILMIAH</h2>
+            <div class="section-content">
+                ${publications_html}
+            </div>
+        </section>
+
+        <!-- Books -->
+        <section class="cv-section">
+            <h2 class="section-title">BUKU</h2>
+            <div class="section-content">
+                ${books_html}
+            </div>
+        </section>
+
+        <!-- Conferences -->
+        <section class="cv-section">
+            <h2 class="section-title">PROSIDING KONFERENSI</h2>
+            <div class="section-content">
+                ${conferences_html}
+            </div>
+        </section>
+
+        <!-- Research Projects -->
+        <section class="cv-section">
+            <h2 class="section-title">PROYEK PENELITIAN</h2>
+            <div class="section-content">
+                ${projects_html}
+            </div>
+        </section>
+
+        <!-- Grants -->
+        <section class="cv-section">
+            <h2 class="section-title">HIBAH PENDANAAN</h2>
+            <div class="section-content">
+                ${grants_html}
+            </div>
+        </section>
+
+        <!-- Patents/HKI -->
+        <section class="cv-section">
+            <h2 class="section-title">HKI / PATEN</h2>
+            <div class="section-content">
+                ${patents_html}
+            </div>
+        </section>
+
+        <!-- Research Products -->
+        <section class="cv-section">
+            <h2 class="section-title">PRODUK PENELITIAN</h2>
+            <div class="section-content">
+                ${products_html}
+            </div>
+        </section>
+
+        <!-- Community Service -->
+        <section class="cv-section">
+            <h2 class="section-title">PENGABDIAN MASYARAKAT</h2>
+            <div class="section-content">
+                ${community_service_html}
+            </div>
+        </section>
+
+        <!-- Reviewer Activities -->
+        <section class="cv-section">
+            <h2 class="section-title">AKTIVITAS REVIEWER</h2>
+            <div class="section-content">
+                ${reviewer_html}
+            </div>
+        </section>
+
+        <!-- Events -->
+        <section class="cv-section">
+            <h2 class="section-title">ACARA & KEGIATAN</h2>
+            <div class="section-content">
+                ${events_html}
+            </div>
+        </section>
+
+        <!-- Research Groups -->
+        <section class="cv-section">
+            <h2 class="section-title">GRUP RISET</h2>
+            <div class="section-content">
+                ${groups_html}
+            </div>
+        </section>
+
+        <!-- Awards & Honors -->
+        <section class="cv-section">
+            <h2 class="section-title">PENGHARGAAN & PRESTASI</h2>
+            <div class="section-content">
+                ${awards_html}
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+            ]]></field>
+            <field name="custom_css"><![CDATA[
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #1a1a1a;
+    background: #ffffff;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20mm;
+}
+
+.cv-container {
+    width: 100%;
+}
+
+/* Header with Blue Accent */
+.cv-header {
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.header-line {
+    height: 3px;
+    background: linear-gradient(to right, #1e5799, #2989d8, #207cca);
+    margin: 15px auto;
+    width: 80%;
+}
+
+.cv-name {
+    font-size: 26pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1e5799;
+    margin: 15px 0 10px 0;
+}
+
+.cv-subtitle {
+    font-size: 13pt;
+    color: #555555;
+    font-style: italic;
+    font-weight: normal;
+}
+
+/* Sections */
+.cv-section {
+    margin-bottom: 30px;
+    page-break-inside: avoid;
+}
+
+.section-title {
+    font-size: 13pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #1e5799;
+    border-bottom: 2px solid #2989d8;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+
+.section-content {
+    padding-left: 15px;
+    text-align: justify;
+}
+
+.biography {
+    font-size: 11pt;
+    line-height: 1.8;
+    color: #333333;
+}
+
+/* Education, Work, Awards, Publications, etc. */
+.education-item,
+.work-item,
+.award-item,
+.publication-item,
+.book-item,
+.patent-item,
+.project-item,
+.community-item,
+.conference-item,
+.grant-item,
+.product-item,
+.reviewer-item,
+.event-item,
+.group-item {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #cccccc;
+}
+
+.education-item:last-child,
+.work-item:last-child,
+.award-item:last-child,
+.publication-item:last-child,
+.book-item:last-child,
+.patent-item:last-child,
+.project-item:last-child,
+.community-item:last-child,
+.conference-item:last-child,
+.grant-item:last-child,
+.product-item:last-child,
+.reviewer-item:last-child,
+.event-item:last-child,
+.group-item:last-child {
+    border-bottom: none;
+}
+
+.education-item h4,
+.work-item h4,
+.award-item h4 {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+}
+
+.institution,
+.organization {
+    font-weight: 600;
+    color: #2989d8;
+    margin-bottom: 4px;
+    font-size: 11pt;
+}
+
+.period,
+.date {
+    font-style: italic;
+    color: #777777;
+    font-size: 10pt;
+    margin-bottom: 6px;
+}
+
+.gpa,
+.description {
+    font-size: 10.5pt;
+    color: #444444;
+    margin-top: 6px;
+    line-height: 1.6;
+}
+
+/* Publication, Book, Patent, Project, etc. meta info */
+.publication-meta,
+.book-meta,
+.patent-meta,
+.project-meta,
+.community-meta,
+.conference-meta,
+.grant-meta,
+.product-meta,
+.reviewer-meta,
+.event-meta {
+    font-style: italic;
+    color: #777777;
+    font-size: 10pt;
+    margin-bottom: 6px;
+}
+
+/* Expertise List */
+.expertise-list {
+    list-style-type: none;
+    padding-left: 0;
+    columns: 2;
+    column-gap: 30px;
+}
+
+.expertise-list li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    break-inside: avoid;
+}
+
+.expertise-list li:before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    color: #2989d8;
+    font-size: 8pt;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 15mm;
+    }
+    
+    .cv-section {
+        page-break-inside: avoid;
+    }
+    
+    .header-line {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}
+            ]]></field>
+            <field name="include_personal_info" eval="True"/>
+            <field name="include_biography" eval="True"/>
+            <field name="include_education" eval="True"/>
+            <field name="include_work_experience" eval="True"/>
+            <field name="include_expertise" eval="True"/>
+            <field name="include_awards" eval="True"/>
+            <field name="include_publications" eval="True"/>
+            <field name="include_books" eval="True"/>
+            <field name="include_patents" eval="True"/>
+            <field name="include_research_projects" eval="True"/>
+            <field name="include_community_service" eval="True"/>
+            <field name="include_conferences" eval="True"/>
+            <field name="include_grants" eval="True"/>
+            <field name="include_research_products" eval="True"/>
+            <field name="include_reviewer_activities" eval="True"/>
+            <field name="include_events" eval="True"/>
+            <field name="include_research_groups" eval="True"/>
+            <field name="include_courses" eval="True"/>
+            <field name="sort_by_year" eval="True"/>
+            <field name="sort_descending" eval="True"/>
+            <field name="date_format">month_year</field>
+            <field name="limit_publications" eval="0"/>
+            <field name="limit_projects" eval="0"/>
+            <field name="sequence">20</field>
+        </record>
+        
+    </data>
+</odoo>

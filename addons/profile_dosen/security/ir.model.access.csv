@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_profile_blog,access_profile_blog,model_profile_blog,base.group_user,1,1,1,1
+access_profile_post,access_profile_post,model_profile_post,base.group_user,1,1,1,1
+access_profile_education,access_profile_education,model_profile_education,base.group_user,1,1,1,1
+access_profile_work,access_profile_work,model_profile_work,base.group_user,1,1,1,1
+access_profile_award,access_profile_award,model_profile_award,base.group_user,1,1,1,1
+access_profile_expertise,access_profile_expertise,model_profile_expertise,base.group_user,1,1,1,1
+access_cv_template,access_cv_template,model_cv_template,base.group_user,1,1,1,1
+access_cv_generator,access_cv_generator,model_cv_generator,base.group_user,1,1,1,1
+access_profile_blog_public,access_profile_blog_public,model_profile_blog,base.group_public,1,0,0,0
+access_profile_post_public,access_profile_post_public,model_profile_post,base.group_public,1,0,0,0
+access_profile_education_public,access_profile_education_public,model_profile_education,base.group_public,1,0,0,0
+access_profile_work_public,access_profile_work_public,model_profile_work,base.group_public,1,0,0,0
+access_profile_award_public,access_profile_award_public,model_profile_award,base.group_public,1,0,0,0
+access_profile_expertise_public,access_profile_expertise_public,model_profile_expertise,base.group_public,1,0,0,0
+access_cv_template_public,access_cv_template_public,model_cv_template,base.group_public,1,0,0,0

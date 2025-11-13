@@ -1,0 +1,1486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Website Menu -->
+        <record id="menu_profile_website" model="website.menu">
+            <field name="name">Profile</field>
+            <field name="url">/profile</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">40</field>
+        </record>
+        
+        <!-- SINTA-Style Profile Page with Tabs -->
+        <template id="profile_main_sinta" name="Profile Dosen - SINTA Style" priority="99">
+            <t t-call="website.layout">
+                <style>
+                    /* SINTA-Inspired Styles */
+                    :root {
+                        --sinta-primary: #0066cc;
+                        --sinta-secondary: #004d99;
+                        --sinta-accent: #ff9900;
+                        --sinta-success: #28a745;
+                        --sinta-bg: #f5f7fa;
+                        --sinta-border: #dee2e6;
+                    }
+                    
+                    body {
+                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+                        background: var(--sinta-bg);
+                    }
+                    
+                    /* Profile Header Card */
+                    .profile-header-card {
+                        background: white;
+                        border-radius: 8px;
+                        padding: 30px;
+                        margin-bottom: 20px;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                    }
+                    
+                    .profile-main-info {
+                        display: flex;
+                        gap: 30px;
+                        align-items: flex-start;
+                    }
+                    
+                    .profile-photo {
+                        width: 120px;
+                        height: 120px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        border: 4px solid #e8eef5;
+                        flex-shrink: 0;
+                    }
+                    
+                    .profile-photo-placeholder {
+                        width: 120px;
+                        height: 120px;
+                        border-radius: 50%;
+                        background: linear-gradient(135deg, var(--sinta-primary) 0%, var(--sinta-secondary) 100%);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-size: 3rem;
+                        flex-shrink: 0;
+                    }
+                    
+                    .profile-details h1 {
+                        font-size: 2rem;
+                        font-weight: 600;
+                        color: #2c3e50;
+                        margin: 0 0 8px 0;
+                    }
+                    
+                    .profile-meta {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 20px;
+                        font-size: 0.95rem;
+                        color: #6c757d;
+                        margin-top: 12px;
+                    }
+                    
+                    .profile-meta i {
+                        color: var(--sinta-primary);
+                        margin-right: 5px;
+                    }
+                    
+                    .download-cv-btn {
+                        background: var(--sinta-primary);
+                        color: white;
+                        padding: 10px 24px;
+                        border-radius: 6px;
+                        text-decoration: none;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-weight: 500;
+                        margin-top: 15px;
+                        transition: background 0.3s;
+                    }
+                    
+                    .download-cv-btn:hover {
+                        background: var(--sinta-secondary);
+                        color: white;
+                        text-decoration: none;
+                    }
+                    
+                    /* Summary Stats Bar */
+                    .summary-stats {
+                        background: white;
+                        border-radius: 8px;
+                        padding: 0;
+                        margin-bottom: 20px;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                        overflow: hidden;
+                    }
+                    
+                    .stats-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                        border-bottom: 2px solid var(--sinta-border);
+                    }
+                    
+                    .stat-item {
+                        padding: 25px 15px;
+                        text-align: center;
+                        border-right: 1px solid var(--sinta-border);
+                        transition: background 0.2s;
+                    }
+                    
+                    .stat-item:last-child {
+                        border-right: none;
+                    }
+                    
+                    .stat-item:hover {
+                        background: #f8f9fa;
+                    }
+                    
+                    .stat-icon {
+                        font-size: 2rem;
+                        color: var(--sinta-accent);
+                        margin-bottom: 10px;
+                    }
+                    
+                    .stat-number {
+                        font-size: 1.8rem;
+                        font-weight: 700;
+                        color: #2c3e50;
+                        display: block;
+                        line-height: 1;
+                        margin-bottom: 8px;
+                    }
+                    
+                    .stat-label {
+                        font-size: 0.9rem;
+                        color: #6c757d;
+                        font-weight: 500;
+                    }
+                    
+                    /* Tab Navigation - Like SINTA */
+                    .tab-navigation {
+                        background: white;
+                        border-radius: 8px 8px 0 0;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                        overflow-x: auto;
+                        white-space: nowrap;
+                    }
+                    
+                    .tab-nav-list {
+                        display: flex;
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    
+                    .tab-nav-item {
+                        flex: 0 0 auto;
+                    }
+                    
+                    .tab-nav-link {
+                        display: block;
+                        padding: 18px 24px;
+                        color: #6c757d;
+                        text-decoration: none;
+                        font-weight: 500;
+                        border-bottom: 3px solid transparent;
+                        transition: all 0.3s;
+                        position: relative;
+                    }
+                    
+                    .tab-nav-link:hover {
+                        color: var(--sinta-primary);
+                        text-decoration: none;
+                        background: #f8f9fa;
+                    }
+                    
+                    .tab-nav-link.active {
+                        color: var(--sinta-primary);
+                        border-bottom-color: var(--sinta-primary);
+                    }
+                    
+                    .tab-count {
+                        background: #e9ecef;
+                        color: #495057;
+                        padding: 2px 8px;
+                        border-radius: 12px;
+                        font-size: 0.85rem;
+                        margin-left: 6px;
+                        font-weight: 600;
+                    }
+                    
+                    .tab-nav-link.active .tab-count {
+                        background: var(--sinta-primary);
+                        color: white;
+                    }
+                    
+                    /* Tab Content */
+                    .tab-content-wrapper {
+                        background: white;
+                        border-radius: 0 0 8px 8px;
+                        padding: 30px;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                    }
+                    
+                    .tab-pane {
+                        display: none;
+                    }
+                    
+                    .tab-pane.active {
+                        display: block;
+                    }
+                    
+                    /* Section Title */
+                    .section-title {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        color: #2c3e50;
+                        margin-bottom: 20px;
+                        padding-bottom: 12px;
+                        border-bottom: 2px solid #e9ecef;
+                    }
+                    
+                    /* Item List - Like SINTA Publications */
+                    .item-list {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    
+                    .item-entry {
+                        padding: 20px 0;
+                        border-bottom: 1px solid #e9ecef;
+                        transition: background 0.2s;
+                    }
+                    
+                    .item-entry:last-child {
+                        border-bottom: none;
+                    }
+                    
+                    .item-entry:hover {
+                        background: #f8f9fa;
+                        margin: 0 -15px;
+                        padding: 20px 15px;
+                    }
+                    
+                    .item-title {
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        color: #2c3e50;
+                        margin-bottom: 8px;
+                        line-height: 1.5;
+                    }
+                    
+                    .item-title a {
+                        color: #2c3e50;
+                        text-decoration: none;
+                    }
+                    
+                    .item-title a:hover {
+                        color: #ff9900;
+                    }
+                    
+                    .item-meta {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 15px;
+                        font-size: 0.9rem;
+                        color: #6c757d;
+                        margin-bottom: 8px;
+                    }
+                    
+                    .item-meta-item {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                    }
+                    
+                    .item-meta i {
+                        color: #95a5a6;
+                    }
+                    
+                    .item-badges {
+                        display: flex;
+                        gap: 8px;
+                        flex-wrap: wrap;
+                        margin-top: 10px;
+                    }
+                    
+                    .item-badge {
+                        background: var(--sinta-success);
+                        color: white;
+                        padding: 3px 10px;
+                        border-radius: 4px;
+                        font-size: 0.75rem;
+                        font-weight: 600;
+                    }
+                    
+                    .item-badge.scopus { background: #27ae60; }
+                    .item-badge.wos { background: #e74c3c; }
+                    .item-badge.sinta { background: var(--sinta-primary); }
+                    
+                    /* Timeline Style */
+                    .timeline-list {
+                        position: relative;
+                        padding-left: 30px;
+                    }
+                    
+                    .timeline-list::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                        bottom: 10px;
+                        width: 2px;
+                        background: #e0e6ed;
+                    }
+                    
+                    .timeline-item {
+                        position: relative;
+                        padding: 15px 0 15px 20px;
+                    }
+                    
+                    .timeline-item::before {
+                        content: '';
+                        position: absolute;
+                        left: -35px;
+                        top: 20px;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background: var(--sinta-primary);
+                        border: 2px solid white;
+                        box-shadow: 0 0 0 2px #e0e6ed;
+                    }
+                    
+                    .timeline-year {
+                        font-size: 0.85rem;
+                        color: var(--sinta-primary);
+                        font-weight: 600;
+                        margin-bottom: 5px;
+                    }
+                    
+                    .timeline-title {
+                        font-size: 1.05rem;
+                        font-weight: 600;
+                        color: #2c3e50;
+                        margin-bottom: 5px;
+                    }
+                    
+                    .timeline-subtitle {
+                        font-size: 0.95rem;
+                        color: #6c757d;
+                        margin-bottom: 3px;
+                    }
+                    
+                    /* Card Grid */
+                    .card-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                        gap: 20px;
+                    }
+                    
+                    .grid-card {
+                        background: white;
+                        border: 1px solid #e0e6ed;
+                        border-radius: 8px;
+                        padding: 20px;
+                        transition: all 0.3s;
+                        text-decoration: none;
+                        color: inherit;
+                        display: block;
+                    }
+                    
+                    .grid-card:hover {
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        border-color: #ff9900;
+                        text-decoration: none;
+                        color: inherit;
+                        transform: translateY(-2px);
+                    }
+                    
+                    .grid-card-title {
+                        font-size: 1rem;
+                        font-weight: 600;
+                        color: #2c3e50;
+                        margin-bottom: 10px;
+                        line-height: 1.4;
+                    }
+                    
+                    .grid-card-meta {
+                        font-size: 0.85rem;
+                        color: #6c757d;
+                        margin-bottom: 10px;
+                    }
+                    
+                    /* Skills/Tags */
+                    .skill-tags {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                    }
+                    
+                    .skill-tag {
+                        background: #e9ecef;
+                        color: #495057;
+                        padding: 8px 16px;
+                        border-radius: 20px;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                        transition: all 0.3s;
+                    }
+                    
+                    .skill-tag:hover {
+                        background: var(--sinta-primary);
+                        color: white;
+                    }
+                    
+                    /* Empty State */
+                    .empty-state {
+                        text-align: center;
+                        padding: 60px 20px;
+                        color: #6c757d;
+                    }
+                    
+                    .empty-state i {
+                        font-size: 4rem;
+                        color: #dee2e6;
+                        margin-bottom: 20px;
+                    }
+                    
+                    /* View All Button */
+                    .btn-lg {
+                        padding: 12px 32px;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        border-radius: 6px;
+                        transition: all 0.3s;
+                    }
+                    
+                    .btn-primary {
+                        background: var(--sinta-primary);
+                        border-color: var(--sinta-primary);
+                        color: white;
+                    }
+                    
+                    .btn-primary:hover {
+                        background: var(--sinta-secondary);
+                        border-color: var(--sinta-secondary);
+                        color: white;
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(0,102,204,0.3);
+                    }
+                    
+                    /* Chart Container */
+                    .chart-container {
+                        background: white;
+                        border-radius: 8px;
+                        padding: 25px;
+                        margin-bottom: 30px;
+                        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                    }
+                    
+                    .chart-title {
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        color: #2c3e50;
+                        margin-bottom: 20px;
+                        text-align: center;
+                    }
+                    
+                    .chart-canvas {
+                        max-height: 300px;
+                    }
+                    
+                    /* Responsive */
+                    @media (max-width: 768px) {
+                        .profile-main-info {
+                            flex-direction: column;
+                            text-align: center;
+                        }
+                        
+                        .profile-photo, .profile-photo-placeholder {
+                            margin: 0 auto;
+                        }
+                        
+                        .stats-grid {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                        
+                        .tab-nav-link {
+                            padding: 15px 18px;
+                            font-size: 0.9rem;
+                        }
+                        
+                        .card-grid {
+                            grid-template-columns: 1fr;
+                        }
+                    }
+                </style>
+                
+                <!-- Chart.js Library -->
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+                
+                <div id="wrap" class="oe_structure">
+                    <div class="container" style="max-width: 1200px; padding: 20px;">
+                        
+                        <!-- Profile Header Card -->
+                        <div class="profile-header-card">
+                            <div class="profile-main-info">
+                                <!-- Photo -->
+                                <div>
+                                    <t t-if="post.cover_image">
+                                        <img t-att-src="'data:image/png;base64,%s' % post.cover_image.decode('utf-8')"
+                                             class="profile-photo"
+                                             t-att-alt="post.name"/>
+                                    </t>
+                                    <t t-else="">
+                                        <div class="profile-photo-placeholder">
+                                            <i class="fa fa-user"/>
+                                        </div>
+                                    </t>
+                                </div>
+                                
+                                <!-- Details -->
+                                <div class="profile-details" style="flex: 1;">
+                                    <h1><t t-esc="post.name"/></h1>
+                                    <t t-if="post.subtitle">
+                                        <p style="color: #6c757d; margin: 0; font-size: 1.1rem;"><t t-esc="post.subtitle"/></p>
+                                    </t>
+                                    
+                                    <div class="profile-meta">
+                                        <t t-if="work_experience">
+                                            <div>
+                                                <i class="fa fa-building"/>
+                                                <t t-esc="work_experience[0].institution"/>
+                                            </div>
+                                        </t>
+                                        <t t-if="education">
+                                            <div>
+                                                <i class="fa fa-graduation-cap"/>
+                                                <t t-esc="dict(education[0]._fields['degree'].selection)[education[0].degree]"/>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <a href="/profile/download-cv" class="download-cv-btn">
+                                        <i class="fa fa-download"/>
+                                        <span>Download CV</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Summary Stats Bar -->
+                        <div class="summary-stats">
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-icon"><i class="fa fa-file-text-o"/></div>
+                                    <span class="stat-number"><t t-esc="publications_count or 0"/></span>
+                                    <div class="stat-label">Articles</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-icon"><i class="fa fa-users"/></div>
+                                    <span class="stat-number"><t t-esc="conferences_count or 0"/></span>
+                                    <div class="stat-label">Proceedings</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-icon"><i class="fa fa-book"/></div>
+                                    <span class="stat-number"><t t-esc="books_count or 0"/></span>
+                                    <div class="stat-label">Books</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-icon"><i class="fa fa-certificate"/></div>
+                                    <span class="stat-number"><t t-esc="patents_count or 0"/></span>
+                                    <div class="stat-label">IPRs</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-icon"><i class="fa fa-flask"/></div>
+                                    <span class="stat-number"><t t-esc="projects_count or 0"/></span>
+                                    <div class="stat-label">Projects</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-icon"><i class="fa fa-sign-language"/></div>
+                                    <span class="stat-number"><t t-esc="grants_count or 0"/></span>
+                                    <div class="stat-label">Grants</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-icon"><i class="fa fa-heart"/></div>
+                                    <span class="stat-number"><t t-esc="community_count or 0"/></span>
+                                    <div class="stat-label">Community</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-icon"><i class="fa fa-cube"/></div>
+                                    <span class="stat-number"><t t-esc="products_count or 0"/></span>
+                                    <div class="stat-label">Products</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tab Navigation -->
+                        <nav class="tab-navigation">
+                            <ul class="tab-nav-list">
+                                <li class="tab-nav-item">
+                                    <a href="#about" class="tab-nav-link active" data-toggle="tab">
+                                        <i class="fa fa-user-circle"/> About
+                                    </a>
+                                </li>
+                                <li class="tab-nav-item">
+                                    <a href="#research" class="tab-nav-link" data-toggle="tab">
+                                        <i class="fa fa-flask"/> Riset &amp; Penelitian
+                                        <span class="tab-count"><t t-esc="(groups_count or 0) + (projects_count or 0) + (grants_count or 0)"/></span>
+                                    </a>
+                                </li>
+                                <li class="tab-nav-item">
+                                    <a href="#publications" class="tab-nav-link" data-toggle="tab">
+                                        <i class="fa fa-book"/> Publikasi &amp; Karya
+                                        <span class="tab-count"><t t-esc="(publications_count or 0) + (conferences_count or 0) + (books_count or 0) + (patents_count or 0) + (products_count or 0)"/></span>
+                                    </a>
+                                </li>
+                                <li class="tab-nav-item">
+                                    <a href="#community" class="tab-nav-link" data-toggle="tab">
+                                        <i class="fa fa-heart"/> Pengabdian Masyarakat
+                                        <span class="tab-count"><t t-esc="(community_count or 0) + (events_count or 0)"/></span>
+                                    </a>
+                                </li>
+                                <li class="tab-nav-item">
+                                    <a href="#reviewer" class="tab-nav-link" data-toggle="tab">
+                                        <i class="fa fa-check-square-o"/> Reviewer Activities
+                                        <span class="tab-count"><t t-esc="reviewer_count or 0"/></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        
+                        <!-- Tab Content -->
+                        <div class="tab-content-wrapper">
+                            <div class="tab-content">
+                                
+                                <!-- About Tab -->
+                                <div id="about" class="tab-pane active">
+                                    <!-- About Section -->
+                                    <t t-if="post.content or post.teaser">
+                                        <div class="mb-4">
+                                            <div style="line-height: 1.8; color: #495057;">
+                                                <t t-if="post.content">
+                                                    <t t-raw="post.content"/>
+                                                </t>
+                                                <t t-elif="post.teaser">
+                                                    <p><t t-esc="post.teaser"/></p>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </t>
+                                    
+                                    <div class="row">
+                                        <!-- Education -->
+                                        <div class="col-md-6">
+                                            <t t-if="education">
+                                                <div class="mb-4">
+                                                    <h2 class="section-title">Education</h2>
+                                                    <div class="timeline-list">
+                                                        <t t-foreach="education" t-as="edu">
+                                                            <div class="timeline-item">
+                                                                <div class="timeline-year">
+                                                                    <t t-esc="edu.start_year"/> - <t t-esc="edu.end_year or 'Present'"/>
+                                                                </div>
+                                                                <div class="timeline-title">
+                                                                    <t t-esc="dict(edu._fields['degree'].selection)[edu.degree]"/>
+                                                                </div>
+                                                                <div class="timeline-subtitle"><t t-esc="edu.major"/></div>
+                                                                <div class="timeline-subtitle"><t t-esc="edu.institution"/></div>
+                                                            </div>
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </div>
+                                        
+                                        <!-- Work Experience -->
+                                        <div class="col-md-6">
+                                            <t t-if="work_experience">
+                                                <div class="mb-4">
+                                                    <h2 class="section-title">Work Experience</h2>
+                                                    <div class="timeline-list">
+                                                        <t t-foreach="work_experience" t-as="work">
+                                                            <div class="timeline-item">
+                                                                <div class="timeline-year">
+                                                                    <t t-esc="work.start_date.year if work.start_date else ''"/> - 
+                                                                    <t t-esc="work.end_date.year if work.end_date else 'Present'"/>
+                                                                </div>
+                                                                <div class="timeline-title"><t t-esc="work.position"/></div>
+                                                                <div class="timeline-subtitle"><t t-esc="work.institution"/></div>
+                                                            </div>
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Expertise -->
+                                    <t t-if="expertise">
+                                        <div class="mb-4">
+                                            <h2 class="section-title">Areas of Expertise</h2>
+                                            <div class="skill-tags">
+                                                <t t-foreach="expertise" t-as="exp">
+                                                    <span class="skill-tag"><t t-esc="exp.name"/></span>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </t>
+                                    
+                                    <!-- Awards -->
+                                    <t t-if="awards">
+                                        <div class="mb-4">
+                                            <h2 class="section-title">Awards &amp; Honors</h2>
+                                            <div class="timeline-list">
+                                                <t t-foreach="awards" t-as="award">
+                                                    <div class="timeline-item">
+                                                        <div class="timeline-year">
+                                                            <t t-esc="award.award_date.year if award.award_date else ''"/>
+                                                        </div>
+                                                        <div class="timeline-title"><t t-esc="award.name"/></div>
+                                                        <div class="timeline-subtitle"><t t-esc="award.issuer"/></div>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                                
+                                <!-- Riset & Penelitian Tab -->
+                                <div id="research" class="tab-pane">
+                                    <!-- Chart Section -->
+                                    <div class="chart-container">
+                                        <div class="chart-title">Latest number of activities</div>
+                                        <canvas id="researchChart" class="chart-canvas"></canvas>
+                                    </div>
+                                    
+                                    <!-- Research Groups Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Research Groups
+                                        </h3>
+                                        <t t-if="groups">
+                                            <div class="card-grid">
+                                                <t t-foreach="groups" t-as="group">
+                                                    <a t-attf-href="/grup-riset/detail/#{group.slug}" class="grid-card">
+                                                        <t t-if="group.group_photo">
+                                                            <img t-att-src="'data:image/png;base64,%s' % group.group_photo.decode('utf-8')" 
+                                                                 style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px; margin-bottom: 15px;"
+                                                                 t-att-alt="group.name"/>
+                                                        </t>
+                                                        <h4 class="grid-card-title"><t t-esc="group.name"/></h4>
+                                                        <div class="grid-card-meta">
+                                                            <t t-if="group.teaser">
+                                                                <t t-esc="group.teaser[:80]"/>...
+                                                            </t>
+                                                        </div>
+                                                    </a>
+                                                </t>
+                                            </div>
+                                            <div class="text-center mt-4">
+                                                <a href="/grup-riset" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All Groups (<t t-esc="groups_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-group"/>
+                                                <p>Belum ada grup riset</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Research Projects Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Research Projects
+                                        </h3>
+                                        <t t-if="projects">
+                                            <ul class="item-list">
+                                                <t t-foreach="projects" t-as="project">
+                                                    <li class="item-entry">
+                                                        <h4 class="item-title">
+                                                            <a t-attf-href="/proyek/detail/#{project.slug}">
+                                                                <t t-esc="project.name"/>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="item-meta">
+                                                            <t t-if="project.start_date">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-calendar"/>
+                                                                    <t t-esc="project.start_date.year"/> - 
+                                                                    <t t-esc="project.end_date.year if project.end_date else 'Ongoing'"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                            <div class="text-center mt-4">
+                                                <a href="/proyek" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All Projects (<t t-esc="projects_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-flask"/>
+                                                <p>Belum ada proyek penelitian</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Research Grants Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Research Grants &amp; Funding
+                                        </h3>
+                                        <t t-if="grants">
+                                            <ul class="item-list">
+                                                <t t-foreach="grants" t-as="grant">
+                                                    <li class="item-entry">
+                                                        <h4 class="item-title">
+                                                            <a t-attf-href="/hibah/detail/#{grant.slug}">
+                                                                <t t-esc="grant.name"/>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="item-meta">
+                                                            <t t-if="grant.funding_source">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-institution"/>
+                                                                    <t t-esc="grant.funding_source"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-if="grant.funding_year">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-calendar"/>
+                                                                    <t t-esc="grant.funding_year"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                            <div class="text-center mt-4">
+                                                <a href="/hibah" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All Grants (<t t-esc="grants_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-sign-language"/>
+                                                <p>Belum ada hibah pendanaan</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                                
+                                <!-- Publikasi & Karya Tab -->
+                                <div id="publications" class="tab-pane">
+                                    <!-- Chart Section -->
+                                    <div class="chart-container">
+                                        <div class="chart-title">Latest number of activities</div>
+                                        <canvas id="publicationsChart" class="chart-canvas"></canvas>
+                                    </div>
+                                    
+                                    <!-- Journal Articles Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Journal Articles
+                                        </h3>
+                                        <t t-if="publications">
+                                            <ul class="item-list">
+                                                <t t-foreach="publications" t-as="pub">
+                                                    <li class="item-entry">
+                                                        <h4 class="item-title">
+                                                            <a t-attf-href="/jurnal/detail/#{pub.slug}">
+                                                                <t t-esc="pub.name"/>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="item-meta">
+                                                            <span class="item-meta-item">
+                                                                <i class="fa fa-calendar"/>
+                                                                <t t-esc="pub.publication_year or ''"/>
+                                                            </span>
+                                                            <t t-if="pub.journal_name">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-book"/>
+                                                                    <t t-esc="pub.journal_name"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-if="pub.authors">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-user"/>
+                                                                    <t t-esc="pub.authors"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                        <t t-if="pub.scopus_indexed or pub.wos_indexed or pub.sinta_indexed">
+                                                            <div class="item-badges">
+                                                                <t t-if="pub.scopus_indexed">
+                                                                    <span class="item-badge scopus">Scopus</span>
+                                                                </t>
+                                                                <t t-if="pub.wos_indexed">
+                                                                    <span class="item-badge wos">WoS</span>
+                                                                </t>
+                                                                <t t-if="pub.sinta_indexed">
+                                                                    <span class="item-badge sinta">SINTA</span>
+                                                                </t>
+                                                            </div>
+                                                        </t>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                            <div class="text-center mt-4">
+                                                <a href="/jurnal" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All Articles (<t t-esc="publications_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-file-text-o"/>
+                                                <p>Belum ada publikasi jurnal</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Conference Proceedings Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Conference Proceedings
+                                        </h3>
+                                        <t t-if="conferences">
+                                            <ul class="item-list">
+                                                <t t-foreach="conferences" t-as="conf">
+                                                    <li class="item-entry">
+                                                        <h4 class="item-title">
+                                                            <a t-attf-href="/prosiding/detail/#{conf.slug}">
+                                                                <t t-esc="conf.name"/>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="item-meta">
+                                                            <t t-if="conf.conference_name">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-institution"/>
+                                                                    <t t-esc="conf.conference_name"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-if="conf.conference_date">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-calendar"/>
+                                                                    <t t-esc="conf.conference_date.year"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                            <div class="text-center mt-4">
+                                                <a href="/prosiding" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All Proceedings (<t t-esc="conferences_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-users"/>
+                                                <p>Belum ada prosiding konferensi</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Books Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Books
+                                        </h3>
+                                        <t t-if="books">
+                                            <ul class="item-list">
+                                                <t t-foreach="books" t-as="book">
+                                                    <li class="item-entry">
+                                                        <h4 class="item-title">
+                                                            <a t-attf-href="/buku/detail/#{book.slug}">
+                                                                <t t-esc="book.name"/>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="item-meta">
+                                                            <t t-if="book.publisher_id">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-building"/>
+                                                                    <t t-esc="book.publisher_id.name"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-elif="book.publisher_name">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-building"/>
+                                                                    <t t-esc="book.publisher_name"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-if="book.publication_year">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-calendar"/>
+                                                                    <t t-esc="book.publication_year"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-if="book.isbn">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-barcode"/>
+                                                                    ISBN: <t t-esc="book.isbn"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                            <div class="text-center mt-4">
+                                                <a href="/buku" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All Books (<t t-esc="books_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-book"/>
+                                                <p>Belum ada buku karya</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- IPR / Patents Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Intellectual Property Rights
+                                        </h3>
+                                        <t t-if="iprs">
+                                            <ul class="item-list">
+                                                <t t-foreach="iprs" t-as="ipr">
+                                                    <li class="item-entry">
+                                                        <h4 class="item-title">
+                                                            <a t-attf-href="/hki/detail/#{ipr.slug}">
+                                                                <t t-esc="ipr.name"/>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="item-meta">
+                                                            <t t-if="ipr.hki_type_id">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-tag"/>
+                                                                    <t t-esc="ipr.hki_type_id.name"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-if="ipr.registration_number">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-hashtag"/>
+                                                                    <t t-esc="ipr.registration_number"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-if="ipr.registration_date">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-calendar"/>
+                                                                    <t t-esc="ipr.registration_date.year"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                            <div class="text-center mt-4">
+                                                <a href="/hki" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All IPRs (<t t-esc="iprs_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-certificate"/>
+                                                <p>Belum ada HKI/Paten</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Research Products Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Research Products
+                                        </h3>
+                                        <t t-if="products">
+                                            <ul class="item-list">
+                                                <t t-foreach="products" t-as="product">
+                                                    <li class="item-entry">
+                                                        <h4 class="item-title">
+                                                            <a t-attf-href="/produk/detail/#{product.slug}">
+                                                                <t t-esc="product.name"/>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="item-meta">
+                                                            <t t-if="product.produk_type_id">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-tag"/>
+                                                                    <t t-esc="product.produk_type_id.name"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-if="product.development_date">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-calendar"/>
+                                                                    <t t-esc="product.development_date.year"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                            <div class="text-center mt-4">
+                                                <a href="/produk" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All Products (<t t-esc="products_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-cube"/>
+                                                <p>Belum ada produk penelitian</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                                
+                                <!-- Community Services Tab -->
+                                <div id="community" class="tab-pane">
+                                    <!-- Chart Section -->
+                                    <div class="chart-container">
+                                        <div class="chart-title">Latest number of activities</div>
+                                        <canvas id="communityChart" class="chart-canvas"></canvas>
+                                    </div>
+                                    
+                                    <!-- Community Services Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Community Services
+                                        </h3>
+                                        <t t-if="community">
+                                            <ul class="item-list">
+                                                <t t-foreach="community" t-as="comm">
+                                                    <li class="item-entry">
+                                                        <h4 class="item-title">
+                                                            <a t-attf-href="/pengabdian/detail/#{comm.slug}">
+                                                                <t t-esc="comm.name"/>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="item-meta">
+                                                            <t t-if="comm.implementation_date">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-calendar"/>
+                                                                    <t t-esc="comm.implementation_date.year"/>
+                                                                </span>
+                                                            </t>
+                                                            <t t-if="comm.location">
+                                                                <span class="item-meta-item">
+                                                                    <i class="fa fa-map-marker"/>
+                                                                    <t t-esc="comm.location"/>
+                                                                </span>
+                                                            </t>
+                                                        </div>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                            <div class="text-center mt-4">
+                                                <a href="/pengabdian" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All Services (<t t-esc="community_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-heart"/>
+                                                <p>Belum ada pengabdian masyarakat</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Events Section -->
+                                    <div class="mb-5">
+                                        <h3 style="font-size: 1.3rem; color: #0066cc; margin-bottom: 20px; font-weight: 600;">
+                                            Events &amp; Activities
+                                        </h3>
+                                        <t t-if="events">
+                                            <div class="card-grid">
+                                                <t t-foreach="events" t-as="event">
+                                                    <a t-attf-href="/acara/detail/#{event.slug}" class="grid-card">
+                                                        <t t-if="event.cover_image">
+                                                            <img t-att-src="'data:image/png;base64,%s' % event.cover_image.decode('utf-8')" 
+                                                                 style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px; margin-bottom: 15px;"
+                                                                 t-att-alt="event.name"/>
+                                                        </t>
+                                                        <h4 class="grid-card-title"><t t-esc="event.name"/></h4>
+                                                        <div class="grid-card-meta">
+                                                            <t t-if="event.event_date">
+                                                                <i class="fa fa-calendar"/>
+                                                                <t t-esc="event.event_date.strftime('%d %B %Y')"/>
+                                                            </t>
+                                                            <t t-if="event.location">
+                                                                <br/><i class="fa fa-map-marker"/>
+                                                                <t t-esc="event.location"/>
+                                                            </t>
+                                                        </div>
+                                                    </a>
+                                                </t>
+                                            </div>
+                                            <div class="text-center mt-4">
+                                                <a href="/acara" class="btn btn-primary btn-lg">
+                                                    <i class="fa fa-list"/> View All Events (<t t-esc="events_count"/>)
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="empty-state">
+                                                <i class="fa fa-calendar"/>
+                                                <p>Belum ada acara</p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                                
+                                <!-- Reviewer Activities Tab -->
+                                <div id="reviewer" class="tab-pane">
+                                    <!-- Chart Section -->
+                                    <div class="chart-container">
+                                        <div class="chart-title">Latest number of activities</div>
+                                        <canvas id="reviewerChart" class="chart-canvas"></canvas>
+                                    </div>
+
+                                    <t t-if="reviewer">
+                                        <ul class="item-list">
+                                            <t t-foreach="reviewer" t-as="rev">
+                                                <li class="item-entry">
+                                                    <h3 class="item-title">
+                                                        <a t-attf-href="/reviewer/detail/#{rev.slug}">
+                                                            <t t-esc="rev.name"/>
+                                                        </a>
+                                                    </h3>
+                                                    <div class="item-meta">
+                                                        <t t-if="rev.journal_conference_name">
+                                                            <span class="item-meta-item">
+                                                                <i class="fa fa-book"/>
+                                                                <t t-esc="rev.journal_conference_name"/>
+                                                            </span>
+                                                        </t>
+                                                        <t t-if="rev.review_date">
+                                                            <span class="item-meta-item">
+                                                                <i class="fa fa-calendar"/>
+                                                                <t t-esc="rev.review_date.year"/>
+                                                            </span>
+                                                        </t>
+                                                    </div>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                        <div class="text-center mt-4">
+                                            <a href="/reviewer" class="btn btn-primary btn-lg">
+                                                <i class="fa fa-list"/> View All Activities (<t t-esc="reviewer_count"/>)
+                                            </a>
+                                        </div>
+                                    </t>
+                                    <t t-else="">
+                                        <div class="empty-state">
+                                            <i class="fa fa-check-square-o"/>
+                                            <p>Belum ada aktivitas reviewer</p>
+                                        </div>
+                                    </t>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- JavaScript for Tab Switching -->
+                <script type="text/javascript">
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Get all tab links
+                        var tabLinks = document.querySelectorAll('.tab-nav-link');
+                        
+                        tabLinks.forEach(function(link) {
+                            link.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                
+                                // Remove active class from all tabs and panes
+                                document.querySelectorAll('.tab-nav-link').forEach(function(l) {
+                                    l.classList.remove('active');
+                                });
+                                document.querySelectorAll('.tab-pane').forEach(function(p) {
+                                    p.classList.remove('active');
+                                });
+                                
+                                // Add active class to clicked tab
+                                this.classList.add('active');
+                                
+                                // Show corresponding content
+                                var targetId = this.getAttribute('href').substring(1);
+                                var targetPane = document.getElementById(targetId);
+                                if (targetPane) {
+                                    targetPane.classList.add('active');
+                                }
+                                
+                                // Scroll to top of content
+                                var tabNav = document.querySelector('.tab-navigation');
+                                if (tabNav) {
+                                    window.scrollTo({
+                                        top: tabNav.offsetTop - 20,
+                                        behavior: 'smooth'
+                                    });
+                                }
+                            });
+                        });
+                    });
+                    
+                    // Initialize Charts
+                    function createActivityChart(canvasId, data, label) {
+                        var ctx = document.getElementById(canvasId);
+                        if (!ctx) return;
+                        
+                        new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: data.labels,
+                                datasets: [{
+                                    label: label,
+                                    data: data.values,
+                                    borderColor: '#28a745',
+                                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                                    fill: true,
+                                    tension: 0.4,
+                                    pointRadius: 4,
+                                    pointBackgroundColor: '#28a745',
+                                    pointBorderColor: '#fff',
+                                    pointBorderWidth: 2
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: true,
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    },
+                                    tooltip: {
+                                        backgroundColor: 'rgba(0,0,0,0.8)',
+                                        padding: 12,
+                                        titleFont: {
+                                            size: 14
+                                        },
+                                        bodyFont: {
+                                            size: 13
+                                        }
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        ticks: {
+                                            stepSize: 1,
+                                            font: {
+                                                size: 11
+                                            }
+                                        },
+                                        grid: {
+                                            color: 'rgba(0,0,0,0.05)'
+                                        }
+                                    },
+                                    x: {
+                                        ticks: {
+                                            font: {
+                                                size: 11
+                                            }
+                                        },
+                                        grid: {
+                                            display: false
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Create charts with real data from controller
+                    // Research chart
+                    createActivityChart('researchChart', {
+                        labels: <t t-esc="research_chart['labels']"/>,
+                        values: <t t-esc="research_chart['data']"/>
+                    }, 'Research Activities');
+                    
+                    // Publications chart
+                    createActivityChart('publicationsChart', {
+                        labels: <t t-esc="publications_chart['labels']"/>,
+                        values: <t t-esc="publications_chart['data']"/>
+                    }, 'Publications');
+                    
+                    // Community chart
+                    createActivityChart('communityChart', {
+                        labels: <t t-esc="community_chart['labels']"/>,
+                        values: <t t-esc="community_chart['data']"/>
+                    }, 'Community Services');
+                    
+                    // Reviewer chart
+                    createActivityChart('reviewerChart', {
+                        labels: <t t-esc="reviewer_chart['labels']"/>,
+                        values: <t t-esc="reviewer_chart['data']"/>
+                    }, 'Reviewer Activities');
+                </script>
+            </t>
+        </template>
+        
+        <!-- Empty Profile Page -->
+        <template id="profile_empty" name="Profile Dosen - Empty">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container text-center">
+                            <h1>Profile Belum Tersedia</h1>
+                            <p class="lead">Silakan lengkapi data profile dosen melalui backend Odoo.</p>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        
+        <!-- CV View Page -->
+        <template id="profile_cv_view" name="Profile Dosen - CV View">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <section class="pt-3 pb-3">
+                        <div class="container-fluid">
+                            <div class="row mb-3">
+                                <div class="col-12 text-right">
+                                    <a href="/profile/download-cv" class="btn btn-primary">
+                                        <i class="fa fa-download"/> Download CV
+                                    </a>
+                                    <a href="/profile" class="btn btn-secondary">
+                                        <i class="fa fa-arrow-left"/> Kembali ke Profile
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body" style="background: white; padding: 40px;">
+                                            <t t-raw="cv_html"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        
+    </data>
+</odoo>

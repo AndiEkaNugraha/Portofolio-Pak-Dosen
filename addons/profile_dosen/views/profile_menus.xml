@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Main Menu -->
+        <menuitem id="menu_profile_root" 
+                  name="Profile Dosen" 
+                  sequence="50"/>
+        
+        <!-- Profile Sub-menus -->
+        <menuitem id="menu_profile_management" 
+                  name="Profile" 
+                  parent="menu_profile_root" 
+                  sequence="10"/>
+        
+        <!-- Profile Posts (Not used - kept for reference) -->
+        <record id="action_profile_post" model="ir.actions.act_window">
+            <field name="name">Profile Dosen Saya</field>
+            <field name="res_model">profile.post</field>
+            <field name="view_mode">form</field>
+            <field name="target">current</field>
+            <field name="context">{
+                'default_author_id': uid, 
+                'default_blog_id': ref('profile_blog_main'),
+                'create': False,
+                'delete': False
+            }</field>
+            <field name="domain">[('author_id', '=', uid)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Profile Anda belum dibuat
+                </p>
+                <p>
+                    Gunakan menu "Profile Saya" untuk membuat dan mengelola profile Anda.
+                </p>
+            </field>
+        </record>
+        
+        <!-- Action to open/create user's profile -->
+        <record id="action_my_profile" model="ir.actions.server">
+            <field name="name">My Profile</field>
+            <field name="model_id" ref="model_profile_post"/>
+            <field name="state">code</field>
+            <field name="code">
+# Find or create profile for current user
+profile = env['profile.post'].search([('author_id', '=', uid)], limit=1)
+if not profile:
+    # Get default blog
+    blog = env.ref('profile_dosen.profile_blog_main', raise_if_not_found=False)
+    profile = env['profile.post'].create({
+        'name': env.user.name,
+        'author_id': uid,
+        'blog_id': blog.id if blog else False,
+    })
+
+action = {
+    'type': 'ir.actions.act_window',
+    'res_model': 'profile.post',
+    'view_mode': 'form',
+    'res_id': profile.id,
+    'target': 'current',
+}
+            </field>
+        </record>
+        
+        <menuitem id="menu_profile_post" 
+                  name="Profile Saya" 
+                  parent="menu_profile_management" 
+                  action="action_my_profile" 
+                  sequence="10"/>
+        
+        <!-- Menu "Semua Profile (Admin)" dan "Kategori Profile" dihapus -->
+        <!-- Karena ini portfolio 1 dosen saja, tidak perlu multi-profile -->
+        
+        <!-- Menu Riwayat Pendidikan, Pekerjaan, Keahlian, Penghargaan dihapus -->
+        <!-- Sudah ada sebagai tab di dalam form "Profile Saya" -->
+        
+        <!-- Configuration Menu -->
+        <menuitem id="menu_profile_config" 
+                  name="Configuration" 
+                  parent="menu_profile_root" 
+                  sequence="90"/>
+        
+        <!-- CV Templates -->
+        <record id="action_cv_template" model="ir.actions.act_window">
+            <field name="name">Template CV</field>
+            <field name="res_model">cv.template</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <menuitem id="menu_cv_template" 
+                  name="Template CV" 
+                  parent="menu_profile_config" 
+                  action="action_cv_template" 
+                  sequence="10"/>
+        
+    </data>
+</odoo>
