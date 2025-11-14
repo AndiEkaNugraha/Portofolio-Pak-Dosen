@@ -177,7 +177,7 @@
                                     <option value="specialization" t-att-selected="course_type == 'specialization'">Keahlian</option>
                                 </select>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <select name="sks" class="form-select">
                                     <option value="">Semua SKS</option>
                                     <t t-foreach="sks_options" t-as="sks_val">
@@ -185,6 +185,13 @@
                                             <t t-esc="sks_val"/> SKS
                                         </option>
                                     </t>
+                                </select>
+                            </div>
+                            <div class="col-md-1">
+                                <select name="sortby" class="form-select">
+                                    <option value="name" t-att-selected="sortby == 'name'">Urutkan: Nama</option>
+                                    <option value="course_code" t-att-selected="sortby == 'course_code'">Urutkan: Kode</option>
+                                    <option value="sks" t-att-selected="sortby == 'sks'">Urutkan: SKS</option>
                                 </select>
                             </div>
                             <div class="col-md-1">

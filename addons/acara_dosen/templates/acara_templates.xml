@@ -77,7 +77,14 @@
                                     </select>
                                 </div>
                                 <div class="col-md-2">
-                                    <button type="submit" class="btn btn-primary">
+                                    <select name="sortby" class="form-select">
+                                        <option value="name" t-att-selected="sortby == 'name'">Urutkan: Nama</option>
+                                        <option value="date" t-att-selected="sortby == 'date'">Urutkan: Tanggal</option>
+                                        <option value="status" t-att-selected="sortby == 'status'">Urutkan: Status</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="submit" class="btn btn-primary w-100">
                                         <i class="fa fa-search"/> Cari
                                     </button>
                                 </div>
@@ -138,6 +145,12 @@
                                     </div>
                                 </t>
                             </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <!-- Pagination -->
+                            <t t-if="pager">
+                                <t t-call="website.pager"/>
+                            </t>
                         </div>
                     </div>
                 </div>

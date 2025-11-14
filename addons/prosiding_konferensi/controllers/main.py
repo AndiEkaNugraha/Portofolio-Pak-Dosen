@@ -8,7 +8,7 @@ from odoo.addons.website.controllers.main import QueryURL
 class ProsidingController(http.Controller):
 
     @http.route(['/prosiding', '/prosiding/page/<int:page>'], type='http', auth="public", website=True)
-    def prosiding_index(self, page=1, search='', category_id=None, indexing=None, year=None, publisher=None, **kw):
+    def prosiding_index(self, page=1, sortby='name', search='', category_id=None, indexing=None, year=None, publisher=None, **kw):
         """Main proceeding listing page - berbeda dari /blog"""
         
         domain = []
@@ -49,26 +49,31 @@ class ProsidingController(http.Controller):
         if year:
             domain.append(('conference_year', '=', int(year)))
         
+        # Sorting
+        order = 'name'
+        if sortby == 'name':
+            order = 'name'
+        elif sortby == 'date':
+            order = 'conference_date desc'
+        elif sortby == 'year':
+            order = 'conference_year desc'
+        
         # Get data
         ProsidingPost = request.env['prosiding.post']
         ProsidingBlog = request.env['prosiding.blog']
         
-        posts = ProsidingPost.search(domain, order='conference_date desc')
-        categories = ProsidingBlog.search([])
-        
         # Pagination
-        posts_per_page = 10
-        total_posts = len(posts)
-        pager = request.website.pager(
+        total = ProsidingPost.search_count(domain)
+        page_detail = request.website.pager(
             url='/prosiding',
-            url_args={'search': search, 'category_id': category_id, 'indexing': indexing, 'year': year, 'publisher': publisher},
-            total=total_posts,
+            url_args={'sortby': sortby, 'search': search, 'category_id': category_id, 'indexing': indexing, 'year': year, 'publisher': publisher},
+            total=total,
             page=page,
-            step=posts_per_page
+            step=12,
         )
         
-        offset = (page - 1) * posts_per_page
-        posts_paginated = posts[offset:offset + posts_per_page]
+        posts = ProsidingPost.search(domain, order=order, limit=12, offset=page_detail['offset'])
+        categories = ProsidingBlog.search([])
         
         # Get filter options
         years = ProsidingPost.search([]).mapped('conference_year')
@@ -78,8 +83,9 @@ class ProsidingController(http.Controller):
         publishers = sorted(list(set([p for p in publishers if p])))
         
         # Get counts for statistics
+        all_posts = request.env['prosiding.post'].search([])
         stats = {
-            'total_papers': len(posts),
+            'total_papers': len(all_posts),
             'ieee_papers': ProsidingPost.search_count([('ieee_indexed', '=', True)]),
             'acm_papers': ProsidingPost.search_count([('acm_indexed', '=', True)]),
             'scopus_papers': ProsidingPost.search_count([('scopus_indexed', '=', True)]),
@@ -87,9 +93,9 @@ class ProsidingController(http.Controller):
         }
         
         values = {
-            'posts': posts_paginated,
+            'posts': posts,
             'categories': categories,
-            'pager': pager,
+            'pager': page_detail,
             'search': search,
             'category_id': int(category_id) if category_id else None,
             'indexing': indexing,
@@ -98,6 +104,7 @@ class ProsidingController(http.Controller):
             'years': years,
             'publishers': publishers,
             'stats': stats,
+            'sortby': sortby,
             'page_name': 'prosiding_index',
         }
         

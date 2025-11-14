@@ -39,7 +39,7 @@
                     <section class="py-4 border-bottom">
                         <div class="container">
                             <form method="get" class="row g-3">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <input type="text" class="form-control" name="search" 
                                            placeholder="Cari judul, penulis, atau konferensi..." 
                                            t-att-value="search"/>
@@ -76,6 +76,13 @@
                                     </select>
                                 </div>
                                 <div class="col-md-2">
+                                    <select name="sortby" class="form-select">
+                                        <option value="name" t-att-selected="sortby == 'name'">Urutkan: Nama</option>
+                                        <option value="date" t-att-selected="sortby == 'date'">Urutkan: Tanggal</option>
+                                        <option value="year" t-att-selected="sortby == 'year'">Urutkan: Tahun</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
                                     <button type="submit" class="btn btn-primary w-100">
                                         <i class="fa fa-search"/>
                                     </button>

@@ -8,7 +8,7 @@ from odoo.addons.website.controllers.main import QueryURL
 class JurnalController(http.Controller):
 
     @http.route(['/jurnal', '/jurnal/page/<int:page>'], type='http', auth="public", website=True)
-    def jurnal_index(self, page=1, search='', category_id=None, indexing=None, year=None, publisher=None, **kw):
+    def jurnal_index(self, page=1, sortby='name', search='', category_id=None, indexing=None, year=None, publisher=None, **kw):
         """Main journal listing page - berbeda dari /blog"""
         
         domain = []
@@ -47,26 +47,31 @@ class JurnalController(http.Controller):
         if year:
             domain.append(('publication_year', '=', int(year)))
         
+        # Sorting
+        order = 'name'
+        if sortby == 'name':
+            order = 'name'
+        elif sortby == 'date':
+            order = 'publication_date desc'
+        elif sortby == 'year':
+            order = 'publication_year desc'
+        
         # Get data
         JurnalPost = request.env['jurnal.post']
         JurnalBlog = request.env['jurnal.blog']
         
-        posts = JurnalPost.search(domain, order='publication_date desc')
-        categories = JurnalBlog.search([])
-        
         # Pagination
-        posts_per_page = 12
-        total_posts = len(posts)
-        pager = request.website.pager(
+        total = JurnalPost.search_count(domain)
+        page_detail = request.website.pager(
             url='/jurnal',
-            url_args={'search': search, 'category_id': category_id, 'indexing': indexing, 'year': year, 'publisher': publisher},
-            total=total_posts,
+            url_args={'sortby': sortby, 'search': search, 'category_id': category_id, 'indexing': indexing, 'year': year, 'publisher': publisher},
+            total=total,
             page=page,
-            step=posts_per_page
+            step=12,
         )
         
-        offset = (page - 1) * posts_per_page
-        posts_paginated = posts[offset:offset + posts_per_page]
+        posts = JurnalPost.search(domain, order=order, limit=12, offset=page_detail['offset'])
+        categories = JurnalBlog.search([])
         
         # Get filter options
         years = JurnalPost.search([]).mapped('publication_year')
@@ -76,8 +81,9 @@ class JurnalController(http.Controller):
         publishers = sorted(list(set([p for p in publishers if p])))
         
         # Get counts for statistics
+        all_posts = JurnalPost.search([])
         stats = {
-            'total_articles': len(posts),
+            'total_articles': len(all_posts),
             'scopus_articles': JurnalPost.search_count([('scopus_indexed', '=', True)]),
             'wos_articles': JurnalPost.search_count([('wos_indexed', '=', True)]),
             'sinta_articles': JurnalPost.search_count([('sinta_indexed', '=', True)]),
@@ -86,9 +92,9 @@ class JurnalController(http.Controller):
         }
         
         values = {
-            'posts': posts_paginated,
+            'posts': posts,
             'categories': categories,
-            'pager': pager,
+            'pager': page_detail,
             'search': search,
             'category_id': int(category_id) if category_id else None,
             'indexing': indexing,
@@ -97,6 +103,7 @@ class JurnalController(http.Controller):
             'years': years,
             'publishers': publishers,
             'stats': stats,
+            'sortby': sortby,
         }
         
         return request.render('jurnal_ilmiah.jurnal_index', values)

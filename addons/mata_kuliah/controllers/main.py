@@ -22,7 +22,7 @@ class MataKuliahController(http.Controller):
 
     @http.route(['/mata-kuliah/tahun/<int:year_id>', '/mata-kuliah/tahun/<int:year_id>/page/<int:page>'], 
                 type='http', auth="public", website=True)
-    def mata_kuliah_index(self, year_id, page=1, search='', category_id=None, semester=None, course_type=None, sks=None, **kw):
+    def mata_kuliah_index(self, year_id, page=1, search='', category_id=None, semester=None, course_type=None, sks=None, sortby='name', **kw):
         """Course listing page for specific academic year"""
         
         AcademicYear = request.env['academic.year']
@@ -63,7 +63,15 @@ class MataKuliahController(http.Controller):
         if sks:
             domain.append(('sks', '=', int(sks)))
         
-        posts = MataKuliahPost.search(domain, order='name asc')
+        # Sorting
+        sort_options = {
+            'name': 'name asc',
+            'course_code': 'course_code asc',
+            'sks': 'sks asc',
+        }
+        order_by = sort_options.get(sortby, 'name asc')
+        
+        posts = MataKuliahPost.search(domain, order=order_by)
         categories = MataKuliahBlog.search([])
         
         # Pagination
@@ -71,7 +79,7 @@ class MataKuliahController(http.Controller):
         total_posts = len(posts)
         pager = request.website.pager(
             url=f'/mata-kuliah/tahun/{year_id}',
-            url_args={'search': search, 'category_id': category_id, 'semester': semester, 'course_type': course_type, 'sks': sks},
+            url_args={'search': search, 'category_id': category_id, 'semester': semester, 'course_type': course_type, 'sks': sks, 'sortby': sortby},
             total=total_posts,
             page=page,
             step=posts_per_page
@@ -86,9 +94,10 @@ class MataKuliahController(http.Controller):
         sks_options = sorted(list(set(MataKuliahPost.search([]).mapped('sks'))))
         
         # Get counts for statistics
+        all_posts_year = MataKuliahPost.search([('academic_year_ids', 'in', [year_id])])
         stats = {
-            'total_courses': len(posts),
-            'active_courses': len(posts),  # All courses in this academic year are considered active
+            'total_courses': len(all_posts_year),
+            'active_courses': len(all_posts_year),  # All courses in this academic year are considered active
             'mandatory_courses': MataKuliahPost.search_count([('academic_year_ids', 'in', [year_id]), ('course_type', '=', 'mandatory')]),
             'elective_courses': MataKuliahPost.search_count([('academic_year_ids', 'in', [year_id]), ('course_type', '=', 'elective')]),
             'total_sks': sum(MataKuliahPost.search([('academic_year_ids', 'in', [year_id])]).mapped('sks')),
@@ -104,6 +113,7 @@ class MataKuliahController(http.Controller):
             'semester': semester,
             'course_type': course_type,
             'sks': int(sks) if sks else None,
+            'sortby': sortby,
             'semesters': semesters,
             'course_types': course_types,
             'sks_options': sks_options,

@@ -16,6 +16,7 @@ class ReviewerController(http.Controller):
         reviewer_type_id = kw.get('reviewer_type_id', '')
         review_level = kw.get('review_level', '')
         review_result = kw.get('review_result', '')
+        sortby = kw.get('sortby', 'name')
         
         # Base domain for published posts
         domain = [('is_published', '=', True)]
@@ -48,12 +49,31 @@ class ReviewerController(http.Controller):
         if review_result:
             domain += [('review_result', '=', review_result)]
         
+        # Sorting
+        order = 'name'
+        if sortby == 'name':
+            order = 'name'
+        elif sortby == 'date':
+            order = 'review_date desc'
+        elif sortby == 'status':
+            order = 'review_status'
+        
         # Get categories and reviewer types for filter
         categories = request.env['reviewer.blog'].search([])
         reviewer_types = request.env['reviewer.type'].search([('active', '=', True)], order='sequence')
         
+        # Pagination
+        total = request.env['reviewer.post'].search_count(domain)
+        page_detail = request.website.pager(
+            url='/reviewer',
+            url_args={'sortby': sortby, 'search': search, 'category_id': category_id, 'reviewer_type_id': reviewer_type_id, 'review_level': review_level, 'review_result': review_result},
+            total=total,
+            page=page,
+            step=12,
+        )
+        
         # Get reviewer posts
-        posts = request.env['reviewer.post'].search(domain, order='review_date desc')
+        posts = request.env['reviewer.post'].search(domain, order=order, limit=12, offset=page_detail['offset'])
         
         # Statistics
         all_posts = request.env['reviewer.post'].search([('is_published', '=', True)])
@@ -67,6 +87,7 @@ class ReviewerController(http.Controller):
         
         values = {
             'posts': posts,
+            'pager': page_detail,
             'categories': categories,
             'reviewer_types': reviewer_types,
             'stats': stats,
@@ -75,6 +96,7 @@ class ReviewerController(http.Controller):
             'reviewer_type_id': reviewer_type_id and int(reviewer_type_id) or '',
             'review_level': review_level,
             'review_result': review_result,
+            'sortby': sortby,
         }
         
         return request.render('reviewer_dosen.reviewer_index', values)

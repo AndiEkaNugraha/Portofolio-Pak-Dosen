@@ -74,16 +74,6 @@
                                 </select>
                             </div>
                             <div class="col-md-2">
-                                <select name="publisher" class="form-select">
-                                    <option value="">Semua Penerbit</option>
-                                    <t t-foreach="publishers" t-as="pub">
-                                        <option t-att-value="pub" t-att-selected="publisher == pub">
-                                            <t t-esc="pub"/>
-                                        </option>
-                                    </t>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
                                 <select name="year" class="form-select">
                                     <option value="">Semua Tahun</option>
                                     <t t-foreach="years" t-as="yr">
@@ -91,6 +81,13 @@
                                             <t t-esc="yr"/>
                                         </option>
                                     </t>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <select name="sortby" class="form-select">
+                                    <option value="name" t-att-selected="sortby == 'name'">Urutkan: Nama</option>
+                                    <option value="date" t-att-selected="sortby == 'date'">Urutkan: Tanggal</option>
+                                    <option value="year" t-att-selected="sortby == 'year'">Urutkan: Tahun</option>
                                 </select>
                             </div>
                             <div class="col-md-1">

@@ -7,7 +7,7 @@ from odoo.http import request
 class HkiController(http.Controller):
 
     @http.route(['/hki', '/hki/page/<int:page>'], type='http', auth="public", website=True)
-    def hki_index(self, page=1, **kw):
+    def hki_index(self, page=1, sortby='name', search='', filterby='all', **kw):
         """HKI dan Paten listing page"""
         
         # Get search parameters
@@ -40,12 +40,31 @@ class HkiController(http.Controller):
             except ValueError:
                 pass
         
+        # Sorting
+        order = 'name'
+        if sortby == 'name':
+            order = 'name'
+        elif sortby == 'date':
+            order = 'application_date desc'
+        elif sortby == 'type':
+            order = 'hki_type_id'
+        
         # Get categories and HKI types for filter
         categories = request.env['hki.blog'].search([])
         hki_types = request.env['hki.type'].search([('active', '=', True)], order='sequence')
         
+        # Pagination
+        total = request.env['hki.post'].search_count(domain)
+        page_detail = request.website.pager(
+            url='/hki',
+            url_args={'sortby': sortby, 'search': search, 'category_id': category_id, 'hki_type_id': hki_type_id},
+            total=total,
+            page=page,
+            step=12,
+        )
+        
         # Get HKI posts
-        posts = request.env['hki.post'].search(domain, order='application_date desc')
+        posts = request.env['hki.post'].search(domain, order=order, limit=12, offset=page_detail['offset'])
         
         # Statistics
         all_posts = request.env['hki.post'].search([('is_published', '=', True)])
@@ -58,12 +77,14 @@ class HkiController(http.Controller):
         
         values = {
             'posts': posts,
+            'pager': page_detail,
             'categories': categories,
             'hki_types': hki_types,
             'stats': stats,
             'search': search,
             'category_id': category_id and int(category_id) or '',
             'hki_type_id': hki_type_id and int(hki_type_id) or '',
+            'sortby': sortby,
         }
         
         return request.render('hki_paten.hki_index', values)

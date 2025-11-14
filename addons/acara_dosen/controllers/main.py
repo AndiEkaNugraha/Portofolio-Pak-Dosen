@@ -15,6 +15,7 @@ class AcaraController(http.Controller):
         category_id = kw.get('category_id', '')
         acara_type_id = kw.get('acara_type_id', '')
         role = kw.get('role', '')
+        sortby = kw.get('sortby', 'name')
 
         # Base domain for published posts
         domain = [('website_published', '=', True)]
@@ -43,14 +44,33 @@ class AcaraController(http.Controller):
 
         if role:
             domain += [('role', '=', role)]
-
+        
+        # Sorting
+        order = 'name'
+        if sortby == 'name':
+            order = 'name'
+        elif sortby == 'date':
+            order = 'event_date desc'
+        elif sortby == 'status':
+            order = 'status'
+        
         # Get categories and acara types for filter
         categories = request.env['acara.blog'].search([('active', '=', True)])
         acara_types = request.env['acara.type'].search([('active', '=', True)], order='sequence')
-
+        
+        # Pagination
+        total = request.env['acara.post'].search_count(domain)
+        page_detail = request.website.pager(
+            url='/acara',
+            url_args={'sortby': sortby, 'search': search, 'category_id': category_id, 'acara_type_id': acara_type_id, 'role': role},
+            total=total,
+            page=page,
+            step=12,
+        )
+        
         # Get acara posts
-        posts = request.env['acara.post'].search(domain, order='event_date desc')
-
+        posts = request.env['acara.post'].search(domain, order=order, limit=12, offset=page_detail['offset'])
+        
         # Statistics
         all_posts = request.env['acara.post'].search([('website_published', '=', True)])
         stats = {
@@ -59,9 +79,10 @@ class AcaraController(http.Controller):
             'ongoing_count': len(all_posts.filtered(lambda p: p.status == 'ongoing')),
             'upcoming_count': len(all_posts.filtered(lambda p: p.status == 'upcoming')),
         }
-
+        
         values = {
             'posts': posts,
+            'pager': page_detail,
             'categories': categories,
             'acara_types': acara_types,
             'stats': stats,
@@ -69,8 +90,9 @@ class AcaraController(http.Controller):
             'category_id': category_id and int(category_id) or '',
             'acara_type_id': acara_type_id and int(acara_type_id) or '',
             'role': role,
+            'sortby': sortby,
         }
-
+        
         return request.render('acara_dosen.acara_index', values)
 
     @http.route([

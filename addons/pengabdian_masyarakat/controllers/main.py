@@ -14,6 +14,7 @@ class PengabdianController(http.Controller):
         search = kw.get('search', '')
         category_id = kw.get('category_id', '')
         pengabdian_type_id = kw.get('pengabdian_type_id', '')
+        sortby = kw.get('sortby', 'name')
         
         # Base domain for published posts
         domain = [('is_published', '=', True)]
@@ -40,12 +41,31 @@ class PengabdianController(http.Controller):
             except ValueError:
                 pass
         
+        # Sorting
+        order = 'name'
+        if sortby == 'name':
+            order = 'name'
+        elif sortby == 'date':
+            order = 'implementation_date desc'
+        elif sortby == 'status':
+            order = 'status'
+        
         # Get categories and pengabdian types for filter
         categories = request.env['pengabdian.blog'].search([])
         pengabdian_types = request.env['pengabdian.type'].search([('active', '=', True)], order='sequence')
         
+        # Pagination
+        total = request.env['pengabdian.post'].search_count(domain)
+        page_detail = request.website.pager(
+            url='/pengabdian',
+            url_args={'sortby': sortby, 'search': search, 'category_id': category_id, 'pengabdian_type_id': pengabdian_type_id},
+            total=total,
+            page=page,
+            step=12,
+        )
+        
         # Get pengabdian posts
-        posts = request.env['pengabdian.post'].search(domain, order='implementation_date desc')
+        posts = request.env['pengabdian.post'].search(domain, order=order, limit=12, offset=page_detail['offset'])
         
         # Statistics
         all_posts = request.env['pengabdian.post'].search([('is_published', '=', True)])
@@ -57,12 +77,14 @@ class PengabdianController(http.Controller):
         
         values = {
             'posts': posts,
+            'pager': page_detail,
             'categories': categories,
             'pengabdian_types': pengabdian_types,
             'stats': stats,
             'search': search,
             'category_id': category_id and int(category_id) or '',
             'pengabdian_type_id': pengabdian_type_id and int(pengabdian_type_id) or '',
+            'sortby': sortby,
         }
         
         return request.render('pengabdian_masyarakat.pengabdian_index', values)
