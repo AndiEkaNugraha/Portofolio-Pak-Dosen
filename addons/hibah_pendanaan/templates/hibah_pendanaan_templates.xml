@@ -47,14 +47,20 @@
                                 <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" 
                                         data-bs-toggle="dropdown">
                                     <i class="fa fa-filter"/> Filter Kategori
+                                    <t t-if="current_category">
+                                        <span class="badge bg-secondary ms-1">
+                                            <t t-foreach="categories" t-as="cat">
+                                                <t t-if="str(cat.id) == current_category" t-esc="cat.name"/>
+                                            </t>
+                                        </span>
+                                    </t>
                                 </button>
                                 <ul class="dropdown-menu w-100">
-                                    <li><a class="dropdown-item" 
-                                          t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('status') and 'status=' + current_filters.get('status') + '&amp;' or '')">Semua Kategori</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') or '') + (current_filters.get('status') and ((current_filters.get('search') and '&amp;' or '') + 'status=' + current_filters.get('status')) or '')">Semua Kategori</a></li>
                                     <t t-foreach="categories" t-as="category">
                                         <li>
                                             <a class="dropdown-item" 
-                                               t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('status') and 'status=' + current_filters.get('status') + '&amp;' or '') + 'category=' + str(category.id)"
+                                               t-att-href="'/hibah-pendanaan?category=' + str(category.id) + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('status') and '&amp;status=' + current_filters.get('status') or '')"
                                                t-esc="category.name"/>
                                         </li>
                                     </t>
@@ -66,24 +72,28 @@
                                 <button class="btn btn-outline-info dropdown-toggle w-100" type="button" 
                                         data-bs-toggle="dropdown">
                                     <i class="fa fa-tasks"/> Filter Status
+                                    <t t-if="current_status">
+                                        <span class="badge bg-info ms-1">
+                                            <t t-if="current_status == 'proposal'">Tahap Proposal</t>
+                                            <t t-elif="current_status == 'approved'">Disetujui</t>
+                                            <t t-elif="current_status == 'active'">Sedang Berjalan</t>
+                                            <t t-elif="current_status == 'completed'">Selesai</t>
+                                            <t t-elif="current_status == 'suspended'">Ditunda</t>
+                                            <t t-elif="current_status == 'cancelled'">Dibatalkan</t>
+                                            <t t-elif="current_status == 'extended'">Diperpanjang</t>
+                                            <t t-else="" t-esc="current_status"/>
+                                        </span>
+                                    </t>
                                 </button>
                                 <ul class="dropdown-menu w-100">
-                                    <li><a class="dropdown-item" 
-                                          t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('category') and 'category=' + current_filters.get('category') + '&amp;' or '')">Semua Status</a></li>
-                                    <li><a class="dropdown-item" 
-                                          t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('category') and 'category=' + current_filters.get('category') + '&amp;' or '') + 'status=proposal'">Tahap Proposal</a></li>
-                                    <li><a class="dropdown-item" 
-                                          t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('category') and 'category=' + current_filters.get('category') + '&amp;' or '') + 'status=approved'">Disetujui</a></li>
-                                    <li><a class="dropdown-item" 
-                                          t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('category') and 'category=' + current_filters.get('category') + '&amp;' or '') + 'status=active'">Sedang Berjalan</a></li>
-                                    <li><a class="dropdown-item" 
-                                          t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('category') and 'category=' + current_filters.get('category') + '&amp;' or '') + 'status=completed'">Selesai</a></li>
-                                    <li><a class="dropdown-item" 
-                                          t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('category') and 'category=' + current_filters.get('category') + '&amp;' or '') + 'status=suspended'">Ditunda</a></li>
-                                    <li><a class="dropdown-item" 
-                                          t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('category') and 'category=' + current_filters.get('category') + '&amp;' or '') + 'status=cancelled'">Dibatalkan</a></li>
-                                    <li><a class="dropdown-item" 
-                                          t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') + '&amp;' or '') + (current_filters.get('category') and 'category=' + current_filters.get('category') + '&amp;' or '') + 'status=extended'">Diperpanjang</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') or '') + (current_filters.get('category') and ((current_filters.get('search') and '&amp;' or '') + 'category=' + current_filters.get('category')) or '')">Semua Status</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/hibah-pendanaan?status=proposal' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')">Tahap Proposal</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/hibah-pendanaan?status=approved' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')">Disetujui</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/hibah-pendanaan?status=active' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')">Sedang Berjalan</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/hibah-pendanaan?status=completed' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')">Selesai</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/hibah-pendanaan?status=suspended' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')">Ditunda</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/hibah-pendanaan?status=cancelled' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')">Dibatalkan</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/hibah-pendanaan?status=extended' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')">Diperpanjang</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -239,23 +249,91 @@
                                     <h6 class="mb-0"><i class="fa fa-list"/> Kategori</h6>
                                 </div>
                                 <div class="card-body">
+                                    <a t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') or '') + (current_filters.get('status') and ((current_filters.get('search') and '&amp;' or '') + 'status=' + current_filters.get('status')) or '')" class="list-group-item list-group-item-action border-0">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <span>Semua Kategori</span>
+                                            <t t-if="not current_category">
+                                                <span class="badge bg-primary">Aktif</span>
+                                            </t>
+                                        </div>
+                                    </a>
                                     <t t-foreach="categories" t-as="category">
-                                        <a href="#" class="list-group-item list-group-item-action border-0">
+                                        <a t-att-href="'/hibah-pendanaan?category=' + str(category.id) + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('status') and '&amp;status=' + current_filters.get('status') or '')" class="list-group-item list-group-item-action border-0">
                                             <div class="d-flex justify-content-between align-items-start">
                                                 <span t-esc="category.name"/>
-                                                <span class="badge bg-light text-dark" t-esc="category.post_count"/>
+                                                <div>
+                                                    <span class="badge bg-light text-dark me-1" t-esc="category.post_count"/>
+                                                    <t t-if="str(category.id) == current_category">
+                                                        <span class="badge bg-primary">Aktif</span>
+                                                    </t>
+                                                </div>
                                             </div>
                                         </a>
                                     </t>
                                 </div>
                             </div>
+
+                            <!-- Status Filter -->
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="fa fa-tasks"/> Filter Status</h6>
+                                </div>
+                                <div class="card-body">
+                                    <a t-att-href="'/hibah-pendanaan?' + (current_filters.get('search') and 'search=' + current_filters.get('search') or '') + (current_filters.get('category') and ((current_filters.get('search') and '&amp;' or '') + 'category=' + current_filters.get('category')) or '')" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-list text-muted"/> Semua Status
+                                        <t t-if="not current_status">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
+                                    </a>
+                                    <a t-att-href="'/hibah-pendanaan?status=proposal' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-clock text-warning"/> Tahap Proposal
+                                        <t t-if="current_status == 'proposal'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
+                                    </a>
+                                    <a t-att-href="'/hibah-pendanaan?status=approved' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-check-circle text-primary"/> Disetujui
+                                        <t t-if="current_status == 'approved'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
+                                    </a>
+                                    <a t-att-href="'/hibah-pendanaan?status=active' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-play-circle text-success"/> Sedang Berjalan
+                                        <t t-if="current_status == 'active'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
+                                    </a>
+                                    <a t-att-href="'/hibah-pendanaan?status=completed' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-check-circle text-info"/> Selesai
+                                        <t t-if="current_status == 'completed'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
+                                    </a>
+                                    <a t-att-href="'/hibah-pendanaan?status=suspended' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-pause-circle text-secondary"/> Ditunda
+                                        <t t-if="current_status == 'suspended'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
+                                    </a>
+                                    <a t-att-href="'/hibah-pendanaan?status=cancelled' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-times-circle text-danger"/> Dibatalkan
+                                        <t t-if="current_status == 'cancelled'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
+                                    </a>
+                                    <a t-att-href="'/hibah-pendanaan?status=extended' + (current_filters.get('search') and '&amp;search=' + current_filters.get('search') or '') + (current_filters.get('category') and '&amp;category=' + current_filters.get('category') or '')" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-forward text-info"/> Diperpanjang
+                                        <t t-if="current_status == 'extended'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </t>
         </template>
-
         <!-- Detail Page Template -->
         <template id="grant_detail" name="Detail Hibah &amp; Pendanaan">
             <t t-call="website.layout">
@@ -687,9 +765,8 @@
                                 </div>
                             </t>
 
-                            
+                        </div>
                     </div>
-                </div>
 
             </t>
         </template>

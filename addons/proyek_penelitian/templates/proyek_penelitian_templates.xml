@@ -36,6 +36,12 @@
                                 <input type="text" name="search" class="form-control me-2" 
                                        placeholder="Cari proyek, peneliti, atau kata kunci..." 
                                        t-att-value="search_term or ''"/>
+                                <t t-if="current_category">
+                                    <input type="hidden" name="category" t-att-value="current_category"/>
+                                </t>
+                                <t t-if="current_status">
+                                    <input type="hidden" name="status" t-att-value="current_status"/>
+                                </t>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-search"/>
                                 </button>
@@ -46,13 +52,16 @@
                                 <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" 
                                         data-bs-toggle="dropdown">
                                     <i class="fa fa-filter"/> Filter Kategori
+                                    <t t-if="current_category">
+                                        <span class="badge bg-secondary ms-1" t-esc="current_category"/>
+                                    </t>
                                 </button>
                                 <ul class="dropdown-menu w-100">
-                                    <li><a class="dropdown-item" href="/proyek-penelitian">Semua Kategori</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/proyek-penelitian?' + (current_status and 'status=' + current_status or '') + (search_term and ((current_status and '&amp;' or '') + 'search=' + search_term) or '')">Semua Kategori</a></li>
                                     <t t-foreach="categories" t-as="category">
                                         <li>
                                             <a class="dropdown-item" 
-                                               t-att-href="'/proyek-penelitian?category=' + category.name"
+                                               t-att-href="'/proyek-penelitian?category=' + category.name + (current_status and '&amp;status=' + current_status or '') + (search_term and '&amp;search=' + search_term or '')"
                                                t-esc="category.name"/>
                                         </li>
                                     </t>
@@ -64,12 +73,20 @@
                                 <button class="btn btn-outline-info dropdown-toggle w-100" type="button" 
                                         data-bs-toggle="dropdown">
                                     <i class="fa fa-tasks"/> Filter Status
+                                    <t t-if="current_status">
+                                        <span class="badge bg-info ms-1">
+                                            <t t-if="current_status == 'active'">Sedang Berjalan</t>
+                                            <t t-elif="current_status == 'completed'">Selesai</t>
+                                            <t t-elif="current_status == 'proposal'">Tahap Proposal</t>
+                                            <t t-else="" t-esc="current_status"/>
+                                        </span>
+                                    </t>
                                 </button>
                                 <ul class="dropdown-menu w-100">
-                                    <li><a class="dropdown-item" href="/proyek-penelitian">Semua Status</a></li>
-                                    <li><a class="dropdown-item" href="/proyek-penelitian?status=active">Sedang Berjalan</a></li>
-                                    <li><a class="dropdown-item" href="/proyek-penelitian?status=completed">Selesai</a></li>
-                                    <li><a class="dropdown-item" href="/proyek-penelitian?status=proposal">Tahap Proposal</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/proyek-penelitian?' + (current_category and 'category=' + current_category or '') + (search_term and ((current_category and '&amp;' or '') + 'search=' + search_term) or '')">Semua Status</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/proyek-penelitian?status=active' + (current_category and '&amp;category=' + current_category or '') + (search_term and '&amp;search=' + search_term or '')">Sedang Berjalan</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/proyek-penelitian?status=completed' + (current_category and '&amp;category=' + current_category or '') + (search_term and '&amp;search=' + search_term or '')">Selesai</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/proyek-penelitian?status=proposal' + (current_category and '&amp;category=' + current_category or '') + (search_term and '&amp;search=' + search_term or '')">Tahap Proposal</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -228,11 +245,24 @@
                                     <h6 class="mb-0"><i class="fa fa-list"/> Kategori</h6>
                                 </div>
                                 <div class="card-body">
+                                    <a t-att-href="'/proyek-penelitian?' + (current_status and 'status=' + current_status or '') + (search_term and ((current_status and '&amp;' or '') + 'search=' + search_term) or '')" class="list-group-item list-group-item-action border-0">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <span>Semua Kategori</span>
+                                            <t t-if="not current_category">
+                                                <span class="badge bg-primary">Aktif</span>
+                                            </t>
+                                        </div>
+                                    </a>
                                     <t t-foreach="categories" t-as="category">
-                                        <a href="#" class="list-group-item list-group-item-action border-0">
+                                        <a t-att-href="'/proyek-penelitian?category=' + category.name + (current_status and '&amp;status=' + current_status or '') + (search_term and '&amp;search=' + search_term or '')" class="list-group-item list-group-item-action border-0">
                                             <div class="d-flex justify-content-between align-items-start">
                                                 <span t-esc="category.name"/>
-                                                <span class="badge bg-light text-dark" t-esc="category.post_count"/>
+                                                <div>
+                                                    <span class="badge bg-light text-dark me-1" t-esc="category.post_count"/>
+                                                    <t t-if="current_category == category.name">
+                                                        <span class="badge bg-primary">Aktif</span>
+                                                    </t>
+                                                </div>
                                             </div>
                                         </a>
                                     </t>
@@ -245,14 +275,29 @@
                                     <h6 class="mb-0"><i class="fa fa-tasks"/> Filter Status</h6>
                                 </div>
                                 <div class="card-body">
-                                    <a href="/proyek-penelitian?status=active" class="list-group-item list-group-item-action border-0">
+                                    <a t-att-href="'/proyek-penelitian?' + (current_category and 'category=' + current_category or '') + (search_term and ((current_category and '&amp;' or '') + 'search=' + search_term) or '')" class="list-group-item list-group-item-action border-0">
+                                        <i class="fa fa-list text-muted"/> Semua Status
+                                        <t t-if="not current_status">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
+                                    </a>
+                                    <a t-att-href="'/proyek-penelitian?status=active' + (current_category and '&amp;category=' + current_category or '') + (search_term and '&amp;search=' + search_term or '')" class="list-group-item list-group-item-action border-0">
                                         <i class="fa fa-play-circle text-success"/> Sedang Berjalan
+                                        <t t-if="current_status == 'active'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
                                     </a>
-                                    <a href="/proyek-penelitian?status=completed" class="list-group-item list-group-item-action border-0">
+                                    <a t-att-href="'/proyek-penelitian?status=completed' + (current_category and '&amp;category=' + current_category or '') + (search_term and '&amp;search=' + search_term or '')" class="list-group-item list-group-item-action border-0">
                                         <i class="fa fa-check-circle text-info"/> Selesai
+                                        <t t-if="current_status == 'completed'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
                                     </a>
-                                    <a href="/proyek-penelitian?status=proposal" class="list-group-item list-group-item-action border-0">
+                                    <a t-att-href="'/proyek-penelitian?status=proposal' + (current_category and '&amp;category=' + current_category or '') + (search_term and '&amp;search=' + search_term or '')" class="list-group-item list-group-item-action border-0">
                                         <i class="fa fa-clock text-warning"/> Tahap Proposal
+                                        <t t-if="current_status == 'proposal'">
+                                            <span class="badge bg-primary float-end">Aktif</span>
+                                        </t>
                                     </a>
                                 </div>
                             </div>

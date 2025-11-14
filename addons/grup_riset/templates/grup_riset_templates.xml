@@ -36,6 +36,9 @@
                                 <input type="text" name="search" class="form-control me-2" 
                                        placeholder="Cari grup riset, penelitian, atau kata kunci..." 
                                        t-att-value="search_term or ''"/>
+                                <t t-if="current_category">
+                                    <input type="hidden" name="category" t-att-value="current_category"/>
+                                </t>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-search"/>
                                 </button>
@@ -46,13 +49,16 @@
                                 <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" 
                                         data-bs-toggle="dropdown">
                                     <i class="fa fa-filter"/> Filter Kategori
+                                    <t t-if="current_category">
+                                        <span class="badge bg-secondary ms-1" t-esc="current_category"/>
+                                    </t>
                                 </button>
                                 <ul class="dropdown-menu w-100">
-                                    <li><a class="dropdown-item" href="/grup-riset">Semua Kategori</a></li>
+                                    <li><a class="dropdown-item" t-att-href="'/grup-riset?' + (search_term and 'search=' + search_term or '')">Semua Kategori</a></li>
                                     <t t-foreach="categories" t-as="category">
                                         <li>
                                             <a class="dropdown-item" 
-                                               t-att-href="'/grup-riset?category=' + category.name"
+                                               t-att-href="'/grup-riset?category=' + category.name + (search_term and '&amp;search=' + search_term or '')"
                                                t-esc="category.name"/>
                                         </li>
                                     </t>
@@ -183,11 +189,24 @@
                                     <h6 class="mb-0"><i class="fa fa-list"/> Kategori</h6>
                                 </div>
                                 <div class="card-body">
+                                    <a t-att-href="'/grup-riset?' + (search_term and 'search=' + search_term or '')" class="list-group-item list-group-item-action border-0">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <span>Semua Kategori</span>
+                                            <t t-if="not current_category">
+                                                <span class="badge bg-primary">Aktif</span>
+                                            </t>
+                                        </div>
+                                    </a>
                                     <t t-foreach="categories" t-as="category">
-                                        <a href="#" class="list-group-item list-group-item-action border-0">
+                                        <a t-att-href="'/grup-riset?category=' + category.name + (search_term and '&amp;search=' + search_term or '')" class="list-group-item list-group-item-action border-0">
                                             <div class="d-flex justify-content-between align-items-start">
                                                 <span t-esc="category.name"/>
-                                                <span class="badge bg-light text-dark" t-esc="category.post_count"/>
+                                                <div>
+                                                    <span class="badge bg-light text-dark me-1" t-esc="category.post_count"/>
+                                                    <t t-if="current_category == category.name">
+                                                        <span class="badge bg-primary">Aktif</span>
+                                                    </t>
+                                                </div>
                                             </div>
                                         </a>
                                     </t>

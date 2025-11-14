@@ -32,7 +32,7 @@ class ProyekPenelitianController(http.Controller):
             domain += [('status', '=', status)]
         
         # Get posts with pagination
-        posts_per_page = 12
+        posts_per_page = 6
         total_posts = ProyekPost.sudo().search_count(domain)
         
         pager = request.website.pager(
