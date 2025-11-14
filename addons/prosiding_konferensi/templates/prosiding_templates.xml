@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <button type="submit" class="btn btn-primary w-100">
-                                        <i class="fa fa-search"/> Cari
+                                        <i class="fa fa-search"/>
                                     </button>
                                 </div>
                             </form>
@@ -151,9 +151,10 @@
                                         </div>
                                     </t>
                                 </div>
-                                
-                                <!-- Pagination -->
-                                <t t-call="website.pager"/>
+                                <div class="d-flex justify-content-center mt-4">
+                                    <!-- Pagination -->
+                                    <t t-call="website.pager"/>
+                                </div>
                             </t>
                         </div>
                     </section>

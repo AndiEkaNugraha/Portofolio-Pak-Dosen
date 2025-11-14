@@ -15,7 +15,8 @@ class HibahPendanaanController(http.Controller):
         
         # Search filter
         if search:
-            domain.append(['|', '|', '|', ('name', 'ilike', search), ('teaser', 'ilike', search), ('funding_agency', 'ilike', search), ('grant_scheme', 'ilike', search)])
+            search_domain = ['|', ('name', 'ilike', search), '|', ('teaser', 'ilike', search), '|', ('funding_agency', 'ilike', search), ('grant_scheme', 'ilike', search)]
+            domain.extend(search_domain)
         
         # Category filter
         if category:
@@ -33,7 +34,7 @@ class HibahPendanaanController(http.Controller):
         grants = request.env['hibah.pendanaan.post'].sudo().search(domain, order='start_date desc')
         
         # Pagination
-        grants_per_page = 12
+        grants_per_page = 6
         total_grants = len(grants)
         pager = request.website.pager(
             url='/hibah-pendanaan',
@@ -62,9 +63,14 @@ class HibahPendanaanController(http.Controller):
             'categories': categories,
             'featured_grants': featured_grants,
             'status_options': status_options,
-            'search': search,
-            'current_category': int(category) if category else None,
+            'search_term': search,
+            'current_category': category,
             'current_status': status,
+            'current_filters': {
+                'search': search,
+                'category': category,
+                'status': status,
+            },
             'pager': pager,
             'total_grants': total_grants,
         }

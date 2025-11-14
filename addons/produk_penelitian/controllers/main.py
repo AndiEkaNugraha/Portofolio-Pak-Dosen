@@ -18,10 +18,14 @@ class ProdukPenelitianController(http.Controller):
         
         # Filter berdasarkan pencarian
         if search:
-            domain += ['|', '|', 
+            domain += ['|', '|', '|', '|', '|', '|',
                       ('name', 'ilike', search),
-                      ('description', 'ilike', search),
-                      ('tag_ids.name', 'ilike', search)]
+                      ('subtitle', 'ilike', search),
+                      ('teaser', 'ilike', search),
+                      ('principal_investigator', 'ilike', search),
+                      ('team_members', 'ilike', search),
+                      ('meta_keywords', 'ilike', search),
+                      ('technology_ids.name', 'ilike', search)]
         
         # Filter berdasarkan kategori
         if filterby != 'all':

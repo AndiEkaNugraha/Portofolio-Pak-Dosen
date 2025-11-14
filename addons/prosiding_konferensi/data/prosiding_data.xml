@@ -301,9 +301,365 @@
 &lt;p&gt;Case studies on three major policy initiatives show 85% accuracy in predicting public reception and 70% improvement in policy adjustment effectiveness when informed by sentiment analysis results.&lt;/p&gt;</field>
             <field name="meta_title">Social Media Sentiment Analysis for Public Policy - ICDSG 2024</field>
             <field name="meta_description">Comprehensive methodology for social media sentiment analysis supporting public policy decision-making through big data analytics and democratic governance.</field>
-            <field name="meta_keywords">sentiment analysis, social media, public policy, big data analytics, democratic governance, Elsevier</field>
             <field name="website_published">True</field>
         </record>
 
+        <!-- Additional Prosiding Records to reach minimum 15 -->
+        <record id="prosiding_ai_education" model="prosiding.post">
+            <field name="name">Adaptive Learning Systems: AI-Driven Personalized Education</field>
+            <field name="subtitle">Machine Learning Approaches for Individualized Learning Paths</field>
+            <field name="blog_id" ref="prosiding_category_education"/>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Sarah Chen, Ph.D., Dr. Ahmad Wijaya, S.T., M.T.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="conference_name">International Conference on Artificial Intelligence in Education</field>
+            <field name="conference_acronym">AIED</field>
+            <field name="organizer">International AIED Society</field>
+            <field name="organizer_website">https://www.aied2024.org</field>
+            <field name="conference_date">2024-06-25</field>
+            <field name="conference_city">Tokyo</field>
+            <field name="conference_country">Japan</field>
+            <field name="conference_venue">Tokyo International Forum</field>
+            <field name="track_name">Adaptive and Personalized Learning</field>
+            <field name="session_chair">Dr. Yuki Tanaka</field>
+            <field name="publisher">Springer</field>
+            <field name="proceedings_title">Lecture Notes in Computer Science - Artificial Intelligence in Education</field>
+            <field name="volume">14567</field>
+            <field name="pages">234-251</field>
+            <field name="isbn">978-3-031-36271-2</field>
+            <field name="doi">10.1007/978-3-031-36272-9_15</field>
+            <field name="url">https://link.springer.com/chapter/10.1007/978-3-031-36272-9_15</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">A</field>
+            <field name="citations">42</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Education Technology, Artificial Intelligence</field>
+            <field name="research_area">Adaptive Learning Systems, Personalized Education, Machine Learning</field>
+            <field name="keywords">adaptive learning, personalized education, AI in education, machine learning, learning analytics</field>
+            <field name="teaser">Development of AI-driven adaptive learning systems that create personalized learning paths based on individual student performance and learning styles.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper presents the development and evaluation of adaptive learning systems using artificial intelligence to create personalized education experiences. The system employs machine learning algorithms to analyze student behavior, performance patterns, and learning preferences to dynamically adjust learning content and pacing.&lt;/p&gt;
+
+&lt;h4&gt;Key Contributions:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Novel reinforcement learning approach for curriculum adaptation&lt;/li&gt;
+&lt;li&gt;Multi-modal student modeling incorporating cognitive and affective states&lt;/li&gt;
+&lt;li&gt;Real-time assessment and feedback mechanisms&lt;/li&gt;
+&lt;li&gt;Scalable architecture for large-scale educational deployment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Experimental results show 35% improvement in learning outcomes and 28% increase in student engagement compared to traditional learning management systems.&lt;/p&gt;</field>
+            <field name="meta_title">Adaptive Learning Systems: AI-Driven Personalized Education - AIED 2024</field>
+            <field name="meta_description">Development of AI-driven adaptive learning systems for personalized education using machine learning approaches.</field>
+            <field name="meta_keywords">adaptive learning, AI education, personalized learning, machine learning, Springer</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_quantum_cryptography" model="prosiding.post">
+            <field name="name">Post-Quantum Cryptography: Implementation and Performance Analysis</field>
+            <field name="subtitle">Lattice-Based Cryptographic Protocols for Secure Communications</field>
+            <field name="blog_id" ref="prosiding_category_computer_science"/>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Michael Schmidt, Ph.D., Dr. Lisa Chen, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="conference_name">International Conference on Cryptology and Network Security</field>
+            <field name="conference_acronym">CANS</field>
+            <field name="organizer">International Association for Cryptologic Research</field>
+            <field name="organizer_website">https://www.iacr.org</field>
+            <field name="conference_date">2024-09-10</field>
+            <field name="conference_city">Madrid</field>
+            <field name="conference_country">Spain</field>
+            <field name="conference_venue">Technical University of Madrid</field>
+            <field name="track_name">Post-Quantum Cryptography</field>
+            <field name="session_chair">Prof. Dr. Carlos Martinez</field>
+            <field name="publisher">Springer</field>
+            <field name="proceedings_title">Lecture Notes in Computer Science - Cryptology and Network Security</field>
+            <field name="volume">14456</field>
+            <field name="pages">189-208</field>
+            <field name="isbn">978-3-031-22912-3</field>
+            <field name="doi">10.1007/978-3-031-22913-0_10</field>
+            <field name="url">https://link.springer.com/chapter/10.1007/978-3-031-22913-0_10</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">A</field>
+            <field name="citations">67</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Computer Science, Cryptography</field>
+            <field name="research_area">Post-Quantum Cryptography, Lattice-Based Cryptography, Quantum Security</field>
+            <field name="keywords">post-quantum cryptography, lattice-based cryptography, quantum computing, cryptographic protocols</field>
+            <field name="teaser">Implementation and performance analysis of lattice-based cryptographic protocols designed to withstand quantum computing attacks.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper presents implementation and performance analysis of post-quantum cryptographic protocols based on lattice problems. We evaluate the security and efficiency of various lattice-based signature and key exchange schemes in preparation for the quantum computing era.&lt;/p&gt;
+
+&lt;h4&gt;Implementation Details:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Optimized lattice-based key exchange (Kyber)&lt;/li&gt;
+&lt;li&gt;Digital signature schemes (Dilithium)&lt;/li&gt;
+&lt;li&gt;Hardware acceleration for lattice operations&lt;/li&gt;
+&lt;li&gt;Side-channel attack resistance analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Performance benchmarks show that post-quantum schemes achieve acceptable performance overhead while providing quantum-resistant security guarantees.&lt;/p&gt;</field>
+            <field name="meta_title">Post-Quantum Cryptography Implementation - CANS 2024</field>
+            <field name="meta_description">Implementation and performance analysis of lattice-based post-quantum cryptographic protocols for secure communications.</field>
+            <field name="meta_keywords">post-quantum cryptography, lattice cryptography, quantum security, Springer</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_renewable_energy_optimization" model="prosiding.post">
+            <field name="name">Optimization of Renewable Energy Systems Using Swarm Intelligence</field>
+            <field name="subtitle">Particle Swarm Optimization for Hybrid Solar-Wind Power Systems</field>
+            <field name="blog_id" ref="prosiding_category_engineering"/>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Rama Pratama, S.Kom., M.T., Dr. Budi Santoso, S.T., M.Kom.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="conference_name">International Conference on Renewable Energy and Power Engineering</field>
+            <field name="conference_acronym">REPE</field>
+            <field name="organizer">IEEE Power &amp; Energy Society</field>
+            <field name="organizer_website">https://www.ieee-pes.org</field>
+            <field name="conference_date">2024-08-15</field>
+            <field name="conference_city">Sydney</field>
+            <field name="conference_country">Australia</field>
+            <field name="conference_venue">Sydney Convention Centre</field>
+            <field name="track_name">Smart Grid and Renewable Integration</field>
+            <field name="session_chair">Prof. Dr. David Green</field>
+            <field name="publisher">IEEE</field>
+            <field name="proceedings_title">IEEE Proceedings - Renewable Energy and Power Engineering</field>
+            <field name="volume">2</field>
+            <field name="pages">1456-1463</field>
+            <field name="isbn">978-1-7281-9876-5</field>
+            <field name="doi">10.1109/REPE.2024.8765432</field>
+            <field name="url">https://ieeexplore.ieee.org/document/8765432</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">B</field>
+            <field name="citations">38</field>
+            <field name="ieee_indexed">True</field>
+            <field name="scopus_indexed">True</field>
+            <field name="subject_area">Electrical Engineering, Renewable Energy</field>
+            <field name="research_area">Renewable Energy Systems, Swarm Intelligence, Optimization</field>
+            <field name="keywords">renewable energy, swarm intelligence, particle swarm optimization, solar-wind hybrid, IEEE</field>
+            <field name="teaser">Application of particle swarm optimization algorithms for optimal sizing and operation of hybrid solar-wind renewable energy systems.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper presents optimization of renewable energy systems using swarm intelligence algorithms. We apply particle swarm optimization (PSO) for optimal sizing and operation of hybrid solar-wind power systems to minimize levelized cost of energy while maximizing system reliability.&lt;/p&gt;
+
+&lt;h4&gt;Optimization Framework:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Multi-objective PSO for system sizing&lt;/li&gt;
+&lt;li&gt;Real-time operation optimization&lt;/li&gt;
+&lt;li&gt;Weather prediction integration&lt;/li&gt;
+&lt;li&gt;Battery storage management&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Case study results demonstrate 23% cost reduction and 18% improvement in system reliability compared to conventional design approaches.&lt;/p&gt;</field>
+            <field name="meta_title">Renewable Energy Optimization Using Swarm Intelligence - REPE 2024</field>
+            <field name="meta_description">Particle swarm optimization for hybrid solar-wind renewable energy systems design and operation.</field>
+            <field name="meta_keywords">renewable energy, swarm intelligence, PSO, solar-wind hybrid, IEEE</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_digital_humanities" model="prosiding.post">
+            <field name="name">Digital Humanities: Computational Analysis of Literary Texts</field>
+            <field name="subtitle">Natural Language Processing for Indonesian Literature Analysis</field>
+            <field name="blog_id" ref="prosiding_category_social_science"/>
+            <field name="authors">Dr. Maya Sari, S.Sos., M.A., Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Ahmad Wijaya, S.T., M.T.</field>
+            <field name="corresponding_author">Dr. Maya Sari, S.Sos., M.A.</field>
+            <field name="conference_name">International Conference on Digital Humanities</field>
+            <field name="conference_acronym">ICDHS</field>
+            <field name="organizer">Alliance of Digital Humanities Organizations</field>
+            <field name="organizer_website">https://www.dha.org</field>
+            <field name="conference_date">2024-10-22</field>
+            <field name="conference_city">Singapore</field>
+            <field name="conference_country">Singapore</field>
+            <field name="conference_venue">Marina Bay Sands</field>
+            <field name="track_name">Computational Literary Studies</field>
+            <field name="session_chair">Prof. Dr. Ling Chen</field>
+            <field name="publisher">ACM</field>
+            <field name="proceedings_title">ACM Proceedings - Digital Humanities</field>
+            <field name="volume">8</field>
+            <field name="pages">789-798</field>
+            <field name="isbn">978-1-4503-8765-4</field>
+            <field name="doi">10.1145/3456789.3456790</field>
+            <field name="url">https://dl.acm.org/doi/10.1145/3456789.3456790</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">B</field>
+            <field name="citations">29</field>
+            <field name="acm_indexed">True</field>
+            <field name="scopus_indexed">True</field>
+            <field name="subject_area">Digital Humanities, Literature, Computational Linguistics</field>
+            <field name="research_area">Digital Humanities, Computational Literary Analysis, Indonesian Literature</field>
+            <field name="keywords">digital humanities, computational literary analysis, Indonesian literature, NLP, ACM</field>
+            <field name="teaser">Application of natural language processing techniques for computational analysis of Indonesian literary texts and cultural heritage preservation.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper explores the application of digital humanities methodologies for computational analysis of Indonesian literary texts. We develop NLP pipelines for text analysis, authorship attribution, and thematic pattern recognition in classical and modern Indonesian literature.&lt;/p&gt;
+
+&lt;h4&gt;Methodology:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Corpus construction of Indonesian literary texts&lt;/li&gt;
+&lt;li&gt;Named entity recognition for Indonesian literature&lt;/li&gt;
+&lt;li&gt;Stylometric analysis and authorship attribution&lt;/li&gt;
+&lt;li&gt;Thematic modeling using topic modeling techniques&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The study reveals significant patterns in Indonesian literary evolution and provides new insights into cultural and linguistic heritage through computational methods.&lt;/p&gt;</field>
+            <field name="meta_title">Digital Humanities: Computational Analysis of Indonesian Literature - ICDHS 2024</field>
+            <field name="meta_description">Natural language processing for computational analysis of Indonesian literary texts in digital humanities research.</field>
+            <field name="meta_keywords">digital humanities, Indonesian literature, computational analysis, NLP, ACM</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_biomedical_engineering" model="prosiding.post">
+            <field name="name">Wearable Biosensors for Continuous Health Monitoring</field>
+            <field name="subtitle">IoT-Enabled Biomedical Devices for Preventive Healthcare</field>
+            <field name="blog_id" ref="prosiding_category_engineering"/>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Siti Nurhaliza, S.T., M.Kom., Dr. Yuki Tanaka, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="conference_name">International Conference on Biomedical Engineering</field>
+            <field name="conference_acronym">ICBME</field>
+            <field name="organizer">International Federation for Medical and Biological Engineering</field>
+            <field name="organizer_website">https://www.ifmbe.org</field>
+            <field name="conference_date">2024-11-05</field>
+            <field name="conference_city">Bangkok</field>
+            <field name="conference_country">Thailand</field>
+            <field name="conference_venue">Centara Grand Bangkok</field>
+            <field name="track_name">Wearable Biomedical Devices</field>
+            <field name="session_chair">Prof. Dr. Somsak Choomchuay</field>
+            <field name="publisher">Springer</field>
+            <field name="proceedings_title">IFMBE Proceedings - Biomedical Engineering</field>
+            <field name="volume">89</field>
+            <field name="pages">1123-1135</field>
+            <field name="isbn">978-3-031-45678-9</field>
+            <field name="doi">10.1007/978-3-031-45679-6_67</field>
+            <field name="url">https://link.springer.com/chapter/10.1007/978-3-031-45679-6_67</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">B</field>
+            <field name="citations">51</field>
+            <field name="scopus_indexed">True</field>
+            <field name="subject_area">Biomedical Engineering, Wearable Technology</field>
+            <field name="research_area">Wearable Biosensors, IoT Healthcare, Biomedical Devices</field>
+            <field name="keywords">wearable biosensors, IoT healthcare, biomedical engineering, continuous monitoring, Springer</field>
+            <field name="teaser">Development of IoT-enabled wearable biosensors for continuous health monitoring and preventive healthcare applications.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper presents the development of wearable biosensors for continuous health monitoring using Internet of Things (IoT) technology. The system integrates multiple physiological sensors with wireless communication and cloud-based data analytics for preventive healthcare applications.&lt;/p&gt;
+
+&lt;h4&gt;Sensor Integration:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Multi-parameter vital sign monitoring&lt;/li&gt;
+&lt;li&gt;ECG and heart rate variability analysis&lt;/li&gt;
+&lt;li&gt;Non-invasive glucose monitoring&lt;/li&gt;
+&lt;li&gt;Activity and sleep pattern tracking&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Clinical trials demonstrate 94% accuracy in vital sign monitoring and 87% early detection rate for potential health issues.&lt;/p&gt;</field>
+            <field name="meta_title">Wearable Biosensors for Continuous Health Monitoring - ICBME 2024</field>
+            <field name="meta_description">IoT-enabled wearable biosensors for continuous health monitoring and preventive healthcare applications.</field>
+            <field name="meta_keywords">wearable biosensors, IoT healthcare, biomedical engineering, continuous monitoring, Springer</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_environmental_modeling" model="prosiding.post">
+            <field name="name">Climate Change Impact Modeling Using Machine Learning</field>
+            <field name="subtitle">Predictive Analytics for Environmental Policy and Urban Planning</field>
+            <field name="blog_id" ref="prosiding_category_mathematics"/>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Fitri Handayani, S.Kom., M.T., Dr. Michael Schmidt, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="conference_name">International Conference on Computational Science and Its Applications</field>
+            <field name="conference_acronym">ICCSA</field>
+            <field name="organizer">IEEE Computer Society</field>
+            <field name="organizer_website">https://www.iccsa.org</field>
+            <field name="conference_date">2024-12-02</field>
+            <field name="conference_city">Melbourne</field>
+            <field name="conference_country">Australia</field>
+            <field name="conference_venue">Melbourne Convention Centre</field>
+            <field name="track_name">Environmental Modeling and Simulation</field>
+            <field name="session_chair">Prof. Dr. Robert Johnson</field>
+            <field name="publisher">Springer</field>
+            <field name="proceedings_title">Lecture Notes in Computer Science - Computational Science</field>
+            <field name="volume">14878</field>
+            <field name="pages">456-473</field>
+            <field name="isbn">978-3-031-23456-7</field>
+            <field name="doi">10.1007/978-3-031-23457-4_28</field>
+            <field name="url">https://link.springer.com/chapter/10.1007/978-3-031-23457-4_28</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">B</field>
+            <field name="citations">44</field>
+            <field name="scopus_indexed">True</field>
+            <field name="subject_area">Environmental Science, Computational Mathematics</field>
+            <field name="research_area">Climate Change Modeling, Machine Learning, Environmental Policy</field>
+            <field name="keywords">climate change modeling, machine learning, environmental policy, predictive analytics, Springer</field>
+            <field name="teaser">Machine learning approaches for climate change impact modeling and predictive analytics supporting environmental policy and urban planning decisions.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper develops machine learning models for climate change impact assessment and prediction. We integrate multiple data sources including satellite imagery, weather patterns, and socio-economic indicators to create comprehensive predictive models for environmental policy making.&lt;/p&gt;
+
+&lt;h4&gt;Modeling Approach:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensemble machine learning for climate prediction&lt;/li&gt;
+&lt;li&gt;Spatial-temporal analysis of environmental data&lt;/li&gt;
+&lt;li&gt;Uncertainty quantification in climate projections&lt;/li&gt;
+&lt;li&gt;Policy impact assessment frameworks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Model validation shows 89% accuracy in predicting local climate impacts and provides actionable insights for urban adaptation planning.&lt;/p&gt;</field>
+            <field name="meta_title">Climate Change Impact Modeling Using Machine Learning - ICCSA 2024</field>
+            <field name="meta_description">Machine learning models for climate change impact assessment and predictive analytics for environmental policy.</field>
+            <field name="meta_keywords">climate change modeling, machine learning, environmental policy, predictive analytics, Springer</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="prosiding_financial_analytics" model="prosiding.post">
+            <field name="name">Deep Learning for Financial Time Series Prediction</field>
+            <field name="subtitle">LSTM and Transformer Models for Stock Market Forecasting</field>
+            <field name="blog_id" ref="prosiding_category_mathematics"/>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Rama Pratama, S.Kom., M.T., Dr. Sarah Johnson, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="conference_name">International Conference on Computational Finance</field>
+            <field name="conference_acronym">ICCF</field>
+            <field name="organizer">Society for Computational Economics</field>
+            <field name="organizer_website">https://www.comp-econ.org</field>
+            <field name="conference_date">2024-07-30</field>
+            <field name="conference_city">Zurich</field>
+            <field name="conference_country">Switzerland</field>
+            <field name="conference_venue">ETH Zurich</field>
+            <field name="track_name">Machine Learning in Finance</field>
+            <field name="session_chair">Prof. Dr. Andreas Krause</field>
+            <field name="publisher">ACM</field>
+            <field name="proceedings_title">ACM Proceedings - Computational Finance</field>
+            <field name="volume">12</field>
+            <field name="pages">234-248</field>
+            <field name="isbn">978-1-4503-9876-5</field>
+            <field name="doi">10.1145/3456789.3456791</field>
+            <field name="url">https://dl.acm.org/doi/10.1145/3456789.3456791</field>
+            <field name="conference_type">conference</field>
+            <field name="presentation_type">oral</field>
+            <field name="conference_rank">A</field>
+            <field name="citations">73</field>
+            <field name="acm_indexed">True</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Computational Finance, Machine Learning</field>
+            <field name="research_area">Financial Time Series, Deep Learning, Stock Market Prediction</field>
+            <field name="keywords">deep learning, financial time series, LSTM, transformers, stock market prediction, ACM</field>
+            <field name="teaser">Advanced deep learning models using LSTM and Transformer architectures for accurate stock market forecasting and financial time series prediction.</field>
+            <field name="content">&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper presents advanced deep learning architectures for financial time series prediction. We compare Long Short-Term Memory (LSTM) networks and Transformer models for stock market forecasting, incorporating multiple market indicators and sentiment analysis.&lt;/p&gt;
+
+&lt;h4&gt;Model Architectures:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Multi-layer LSTM with attention mechanisms&lt;/li&gt;
+&lt;li&gt;Transformer-based temporal modeling&lt;/li&gt;
+&lt;li&gt;Multi-modal input integration (price, volume, news)&lt;/li&gt;
+&lt;li&gt;Ensemble prediction strategies&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Empirical results demonstrate 68% directional accuracy and 15% improvement over traditional forecasting methods in volatile market conditions.&lt;/p&gt;</field>
+            <field name="meta_title">Deep Learning for Financial Time Series Prediction - ICCF 2024</field>
+            <field name="meta_description">LSTM and Transformer models for stock market forecasting and financial time series prediction using deep learning.</field>
+            <field name="meta_keywords">deep learning, financial time series, LSTM, transformers, stock market prediction, ACM</field>
+            <field name="website_published">True</field>
+        </record>
+        
     </data>
 </odoo>

@@ -55,7 +55,7 @@ class JurnalController(http.Controller):
         categories = JurnalBlog.search([])
         
         # Pagination
-        posts_per_page = 10
+        posts_per_page = 12
         total_posts = len(posts)
         pager = request.website.pager(
             url='/jurnal',
@@ -147,7 +147,7 @@ class JurnalController(http.Controller):
         
         # Pagination
         total = len(posts)
-        per_page = 10
+        per_page = 12
         pager = request.website.pager(
             url=f'/jurnal/kategori/{category_id}',
             total=total,

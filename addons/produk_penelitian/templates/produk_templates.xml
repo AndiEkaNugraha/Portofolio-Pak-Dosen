@@ -68,15 +68,8 @@
                                     </select>
                                 </div>
                                 <div class="col-md-2">
-                                    <select name="sortby" class="form-select">
-                                        <option value="name" t-att-selected="sortby == 'name'">Urutkan Nama</option>
-                                        <option value="date" t-att-selected="sortby == 'date'">Urutkan Tanggal</option>
-                                        <option value="trl" t-att-selected="sortby == 'trl'">Urutkan TRL</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-search"/> Cari
+                                        <i class="fa fa-search"/>
                                     </button>
                                 </div>
                             </form>
@@ -184,11 +177,12 @@
                                             </div>
                                         </t>
                                     </div>
-                                    
-                                    <!-- Pagination -->
-                                    <t t-if="pager">
-                                        <t t-call="website.pager"/>
-                                    </t>
+                                    <div class="d-flex justify-content-center mt-4">
+                                        <!-- Pagination -->
+                                        <t t-if="pager">
+                                            <t t-call="website.pager"/>
+                                        </t>
+                                    </div>
                                 </t>
                                 <t t-else="">
                                     <div class="col-12 text-center py-5">

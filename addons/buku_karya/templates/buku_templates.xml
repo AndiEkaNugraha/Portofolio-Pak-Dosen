@@ -211,11 +211,12 @@
                                             </div>
                                         </t>
                                     </div>
-                                    
-                                    <!-- Pagination -->
-                                    <t t-if="pager">
-                                        <t t-call="website.pager"/>
-                                    </t>
+                                    <div class="d-flex justify-content-center mt-4">
+                                        <!-- Pagination -->
+                                        <t t-if="pager">
+                                            <t t-call="website.pager"/>
+                                        </t>
+                                    </div>
                                 </t>
                             </div>
                         </div>

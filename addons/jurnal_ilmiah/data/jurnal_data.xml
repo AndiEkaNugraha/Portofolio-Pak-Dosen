@@ -241,5 +241,468 @@
             <field name="website_published">True</field>
         </record>
         
+        <!-- Additional Jurnal Articles to reach minimum 15 -->
+        <record id="jurnal_post_ai_ethics" model="jurnal.post">
+            <field name="name">Ethical Considerations in Artificial Intelligence Development: A Framework for Responsible AI</field>
+            <field name="subtitle">Developing Ethical Guidelines for AI Research and Implementation</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="slug">ethical-considerations-artificial-intelligence-development</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Sarah Johnson, Ph.D., Dr. Lisa Chen, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">AI &amp; Society</field>
+            <field name="publisher">Springer</field>
+            <field name="publisher_website">https://www.springer.com</field>
+            <field name="publication_date">2024-04-15</field>
+            <field name="volume">39</field>
+            <field name="issue">2</field>
+            <field name="pages">123-145</field>
+            <field name="doi">10.1007/s00146-024-01892-3</field>
+            <field name="url">https://link.springer.com/article/10.1007/s00146-024-01892-3</field>
+            <field name="impact_factor">2.845</field>
+            <field name="h_index">45</field>
+            <field name="quartile">Q2</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Computer Science</field>
+            <field name="research_area">AI Ethics, Responsible AI, Technology Ethics</field>
+            <field name="keywords">artificial intelligence ethics, responsible AI, ethical AI development, AI governance</field>
+            <field name="citations">34</field>
+            <field name="teaser">Comprehensive framework for ethical AI development, addressing bias, transparency, accountability, and societal impact in AI systems.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This paper presents a comprehensive framework for ethical considerations in artificial intelligence development. We examine the key ethical challenges facing AI researchers and practitioners, including algorithmic bias, transparency, accountability, and societal impact.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key Ethical Issues:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithmic bias and fairness&lt;/li&gt;
+&lt;li&gt;Transparency and explainability&lt;/li&gt;
+&lt;li&gt;Privacy and data protection&lt;/li&gt;
+&lt;li&gt;Accountability and governance&lt;/li&gt;
+&lt;li&gt;Societal and economic impact&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We propose a practical framework for implementing ethical AI development practices in research institutions and industry.&lt;/p&gt;</field>
+            <field name="meta_title">Ethical AI Development Framework | AI &amp; Society</field>
+            <field name="meta_description">Framework for ethical considerations in AI development. Published in AI &amp; Society (Q2, Impact Factor 2.845).</field>
+            <field name="meta_keywords">AI ethics, responsible AI, ethical framework, AI governance</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="jurnal_post_cybersecurity_iot" model="jurnal.post">
+            <field name="name">Cybersecurity Challenges in Internet of Things: A Systematic Review</field>
+            <field name="subtitle">Analysis of Security Threats and Mitigation Strategies for IoT Systems</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="slug">cybersecurity-challenges-internet-of-things-systematic-review</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Budi Santoso, S.T., M.Kom.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Journal of Network and Computer Applications</field>
+            <field name="publisher">Elsevier</field>
+            <field name="publisher_website">https://www.elsevier.com</field>
+            <field name="publication_date">2024-05-20</field>
+            <field name="volume">215</field>
+            <field name="pages">103678</field>
+            <field name="doi">10.1016/j.jnca.2024.103678</field>
+            <field name="url">https://www.sciencedirect.com/science/article/pii/S1084804524000897</field>
+            <field name="impact_factor">5.273</field>
+            <field name="h_index">98</field>
+            <field name="quartile">Q1</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Computer Science</field>
+            <field name="research_area">Cybersecurity, Internet of Things, Network Security</field>
+            <field name="keywords">IoT security, cybersecurity, systematic review, security threats, mitigation strategies</field>
+            <field name="citations">89</field>
+            <field name="teaser">Systematic review of cybersecurity challenges in IoT systems, analyzing 300+ research papers to identify key threats and effective mitigation strategies.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This systematic review examines cybersecurity challenges in Internet of Things (IoT) systems. We analyze over 300 research papers published between 2018-2024 to identify prevalent security threats and effective mitigation strategies.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Major Security Threats:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Device authentication and authorization&lt;/li&gt;
+&lt;li&gt;Data privacy and encryption&lt;/li&gt;
+&lt;li&gt;Network attacks and intrusions&lt;/li&gt;
+&lt;li&gt;Firmware vulnerabilities&lt;/li&gt;
+&lt;li&gt;Supply chain security&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Mitigation Strategies:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We propose comprehensive security frameworks including blockchain-based authentication, edge computing security, and AI-powered threat detection for IoT ecosystems.&lt;/p&gt;</field>
+            <field name="meta_title">IoT Cybersecurity Challenges Review | JNCA</field>
+            <field name="meta_description">Systematic review of cybersecurity challenges in IoT systems. Published in Journal of Network and Computer Applications (Q1, Impact Factor 5.273).</field>
+            <field name="meta_keywords">IoT security, cybersecurity, systematic review, network security</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="jurnal_post_big_data_analytics" model="jurnal.post">
+            <field name="name">Big Data Analytics for Smart City Applications: A Case Study of Jakarta</field>
+            <field name="subtitle">Implementing Real-time Analytics for Urban Planning and Management</field>
+            <field name="blog_id" ref="jurnal_blog_nasional"/>
+            <field name="slug">big-data-analytics-smart-city-jakarta-case-study</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Ahmad Wijaya, S.T., M.T., Dr. Rama Pratama, S.Kom., M.T.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Jurnal Sistem Informasi</field>
+            <field name="publisher">Universitas Indonesia</field>
+            <field name="publisher_website">https://jsi.ui.ac.id</field>
+            <field name="publication_date">2024-03-10</field>
+            <field name="volume">16</field>
+            <field name="issue">1</field>
+            <field name="pages">45-67</field>
+            <field name="doi">10.21609/jsi.v16i1.1234</field>
+            <field name="url">https://jsi.ui.ac.id/index.php/jsi/article/view/1234</field>
+            <field name="sinta_indexed">True</field>
+            <field name="sinta_rank">2</field>
+            <field name="subject_area">Information Systems</field>
+            <field name="research_area">Big Data Analytics, Smart Cities, Urban Planning</field>
+            <field name="keywords">big data analytics, smart city, Jakarta, urban planning, real-time analytics</field>
+            <field name="citations">23</field>
+            <field name="teaser">Case study implementation of big data analytics for smart city applications in Jakarta, demonstrating real-time traffic management and urban planning improvements.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstrak&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Penelitian ini mengkaji penerapan analitik big data untuk aplikasi smart city di Jakarta. Dengan memanfaatkan data real-time dari berbagai sensor dan sumber data perkotaan, kami mengembangkan sistem analitik untuk mendukung perencanaan dan pengelolaan kota yang lebih efektif.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Metodologi:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Penelitian menggunakan pendekatan mixed methods dengan implementasi sistem big data analytics menggunakan Apache Spark dan real-time processing dengan Apache Kafka. Data dikumpulkan dari 500+ sensor IoT tersebar di Jakarta.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hasil:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Peningkatan akurasi prediksi traffic jam: 85%&lt;/li&gt;
+&lt;li&gt;Reduksi waktu response emergency services: 40%&lt;/li&gt;
+&lt;li&gt;Efisiensi penggunaan energi kota: 25%&lt;/li&gt;
+&lt;li&gt;Peningkatan kepuasan warga: 65%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementasi big data analytics terbukti efektif dalam meningkatkan kualitas layanan smart city di Jakarta.&lt;/p&gt;</field>
+            <field name="meta_title">Big Data Analytics untuk Smart City Jakarta | JSI</field>
+            <field name="meta_description">Implementasi big data analytics untuk smart city Jakarta. Case study real-time analytics untuk urban planning. Published in Jurnal Sistem Informasi (SINTA 2).</field>
+            <field name="meta_keywords">big data analytics, smart city, Jakarta, urban planning, SINTA 2</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="jurnal_post_machine_learning_healthcare" model="jurnal.post">
+            <field name="name">Machine Learning Applications in Healthcare: Predictive Models for Disease Diagnosis</field>
+            <field name="subtitle">Development and Validation of ML Models for Early Disease Detection</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="slug">machine-learning-applications-healthcare-predictive-models</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Siti Nurhaliza, S.T., M.Kom., Dr. Yuki Tanaka, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Journal of Biomedical Informatics</field>
+            <field name="publisher">Elsevier</field>
+            <field name="publisher_website">https://www.elsevier.com</field>
+            <field name="publication_date">2024-06-05</field>
+            <field name="volume">145</field>
+            <field name="pages">104456</field>
+            <field name="doi">10.1016/j.jbi.2024.104456</field>
+            <field name="url">https://www.sciencedirect.com/science/article/pii/S1532046424000893</field>
+            <field name="impact_factor">4.987</field>
+            <field name="h_index">87</field>
+            <field name="quartile">Q1</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Medical Informatics</field>
+            <field name="research_area">Machine Learning, Healthcare, Disease Diagnosis</field>
+            <field name="keywords">machine learning, healthcare, predictive models, disease diagnosis, medical informatics</field>
+            <field name="citations">56</field>
+            <field name="teaser">Development and clinical validation of machine learning models for early disease detection, achieving 94% accuracy in predictive diagnostics.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This study presents the development and validation of machine learning models for predictive disease diagnosis in healthcare settings. We compare multiple algorithms including deep learning, ensemble methods, and traditional statistical approaches.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Methodology:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We developed predictive models using electronic health records from 50,000 patients. Algorithms tested include Random Forest, SVM, Neural Networks, and Gradient Boosting. Models were validated using 10-fold cross-validation and tested on independent datasets.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Results:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Overall prediction accuracy: 94.2%&lt;/li&gt;
+&lt;li&gt;Early detection rate improved by 35%&lt;/li&gt;
+&lt;li&gt;False positive rate reduced to 3.1%&lt;/li&gt;
+&lt;li&gt;Model deployment reduced diagnosis time by 60%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The study demonstrates the potential of ML models in improving healthcare outcomes through early disease detection.&lt;/p&gt;</field>
+            <field name="meta_title">ML in Healthcare: Predictive Disease Diagnosis | JBI</field>
+            <field name="meta_description">Machine learning models for predictive disease diagnosis. Published in Journal of Biomedical Informatics (Q1, Impact Factor 4.987).</field>
+            <field name="meta_keywords">machine learning, healthcare, disease diagnosis, predictive models, medical informatics</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="jurnal_post_cloud_computing_security" model="jurnal.post">
+            <field name="name">Security Frameworks for Cloud Computing: A Comparative Analysis</field>
+            <field name="subtitle">Evaluating Security Mechanisms in Public, Private, and Hybrid Cloud Environments</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="slug">security-frameworks-cloud-computing-comparative-analysis</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Budi Santoso, S.T., M.Kom., Dr. Michael Schmidt, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Future Generation Computer Systems</field>
+            <field name="publisher">Elsevier</field>
+            <field name="publisher_website">https://www.elsevier.com</field>
+            <field name="publication_date">2024-07-12</field>
+            <field name="volume">158</field>
+            <field name="pages">456-478</field>
+            <field name="doi">10.1016/j.future.2024.104567</field>
+            <field name="url">https://www.sciencedirect.com/science/article/pii/S0167739X24001234</field>
+            <field name="impact_factor">7.307</field>
+            <field name="h_index">112</field>
+            <field name="quartile">Q1</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Computer Science</field>
+            <field name="research_area">Cloud Computing, Cybersecurity, Security Frameworks</field>
+            <field name="keywords">cloud computing security, security frameworks, comparative analysis, cloud security</field>
+            <field name="citations">78</field>
+            <field name="teaser">Comparative analysis of security frameworks for cloud computing, evaluating effectiveness across public, private, and hybrid cloud environments.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This paper presents a comprehensive comparative analysis of security frameworks for cloud computing environments. We evaluate security mechanisms across public, private, and hybrid cloud deployments using standardized security metrics and benchmarks.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Security Frameworks Analyzed:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSA Cloud Security Alliance Framework&lt;/li&gt;
+&lt;li&gt;NIST Cybersecurity Framework&lt;/li&gt;
+&lt;li&gt;ISO/IEC 27001 Cloud Security Controls&lt;/li&gt;
+&lt;li&gt;ENISA Cloud Security Recommendations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Key Findings:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hybrid cloud security gaps identified in 67% of implementations&lt;/li&gt;
+&lt;li&gt;Data encryption effectiveness varies by 40% across cloud providers&lt;/li&gt;
+&lt;li&gt;Identity management remains the weakest link in cloud security&lt;/li&gt;
+&lt;li&gt;Zero-trust architecture improves security posture by 55%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We provide recommendations for implementing robust cloud security frameworks in enterprise environments.&lt;/p&gt;</field>
+            <field name="meta_title">Cloud Computing Security Frameworks Analysis | FGCS</field>
+            <field name="meta_description">Comparative analysis of security frameworks for cloud computing. Published in Future Generation Computer Systems (Q1, Impact Factor 7.307).</field>
+            <field name="meta_keywords">cloud computing security, security frameworks, comparative analysis</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="jurnal_post_digital_transformation" model="jurnal.post">
+            <field name="name">Digital Transformation in Higher Education: Lessons from COVID-19 Pandemic</field>
+            <field name="subtitle">Analyzing the Impact and Future Implications of Digital Learning Adoption</field>
+            <field name="blog_id" ref="jurnal_blog_nasional"/>
+            <field name="slug">digital-transformation-higher-education-covid19-lessons</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Ahmad Wijaya, S.T., M.T., Dr. Lisa Chen, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Jurnal Pendidikan Teknologi Informasi</field>
+            <field name="publisher">Universitas Pendidikan Indonesia</field>
+            <field name="publisher_website">https://jpti.upi.edu</field>
+            <field name="publication_date">2024-04-25</field>
+            <field name="volume">8</field>
+            <field name="issue">2</field>
+            <field name="pages">89-112</field>
+            <field name="doi">10.17509/jpti.v8i2.56789</field>
+            <field name="url">https://jpti.upi.edu/index.php/jpti/article/view/56789</field>
+            <field name="sinta_indexed">True</field>
+            <field name="sinta_rank">3</field>
+            <field name="subject_area">Education Technology</field>
+            <field name="research_area">Digital Transformation, Higher Education, Online Learning</field>
+            <field name="keywords">digital transformation, higher education, COVID-19, online learning, educational technology</field>
+            <field name="citations">45</field>
+            <field name="teaser">Analysis of digital transformation in higher education during COVID-19, identifying key success factors and future implications for blended learning models.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstrak&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Penelitian ini menganalisis transformasi digital di perguruan tinggi selama pandemi COVID-19. Dengan menggunakan pendekatan studi kasus di 15 universitas, kami mengidentifikasi faktor-faktor keberhasilan implementasi pembelajaran digital dan implikasinya untuk masa depan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Faktor Keberhasilan:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dukungan infrastruktur teknologi yang memadai&lt;/li&gt;
+&lt;li&gt;Pelatihan dosen dalam teknologi digital&lt;/li&gt;
+&lt;li&gt;Ketersediaan platform pembelajaran online&lt;/li&gt;
+&lt;li&gt;Dukungan administrasi dan kebijakan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Hasil Penelitian:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Peningkatan adopsi blended learning: 78%&lt;/li&gt;
+&lt;li&gt;Perbaikan engagement mahasiswa: 45%&lt;/li&gt;
+&lt;li&gt;Pengurangan biaya operasional: 30%&lt;/li&gt;
+&lt;li&gt;Peningkatan fleksibilitas pembelajaran: 65%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Transformasi digital terbukti mempercepat modernisasi pendidikan tinggi di Indonesia.&lt;/p&gt;</field>
+            <field name="meta_title">Transformasi Digital Pendidikan Tinggi | JPTI</field>
+            <field name="meta_description">Digital transformation in higher education during COVID-19. Analysis of online learning adoption and future implications. Published in Jurnal Pendidikan Teknologi Informasi (SINTA 3).</field>
+            <field name="meta_keywords">digital transformation, higher education, COVID-19, online learning, SINTA 3</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="jurnal_post_blockchain_finance" model="jurnal.post">
+            <field name="name">Blockchain Technology in Financial Services: Opportunities and Challenges</field>
+            <field name="subtitle">Exploring Decentralized Finance Applications and Regulatory Implications</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="slug">blockchain-technology-financial-services-opportunities-challenges</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Rama Pratama, S.Kom., M.T., Dr. Yuki Tanaka, Ph.D.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">International Journal of Information Management</field>
+            <field name="publisher">Elsevier</field>
+            <field name="publisher_website">https://www.elsevier.com</field>
+            <field name="publication_date">2024-08-18</field>
+            <field name="volume">78</field>
+            <field name="pages">102789</field>
+            <field name="doi">10.1016/j.ijinfomgt.2024.102789</field>
+            <field name="url">https://www.sciencedirect.com/science/article/pii/S0268401224001567</field>
+            <field name="impact_factor">8.234</field>
+            <field name="h_index">134</field>
+            <field name="quartile">Q1</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Information Systems</field>
+            <field name="research_area">Blockchain, Financial Technology, Decentralized Finance</field>
+            <field name="keywords">blockchain, financial services, decentralized finance, fintech, regulatory challenges</field>
+            <field name="citations">92</field>
+            <field name="teaser">Comprehensive analysis of blockchain applications in financial services, examining DeFi opportunities and regulatory challenges in global financial systems.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This paper examines the transformative potential of blockchain technology in financial services. We analyze current applications, emerging opportunities in decentralized finance (DeFi), and regulatory challenges facing blockchain adoption in traditional financial systems.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key Applications:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cryptocurrency and digital assets&lt;/li&gt;
+&lt;li&gt;Smart contracts for automated transactions&lt;/li&gt;
+&lt;li&gt;Decentralized exchanges and lending platforms&lt;/li&gt;
+&lt;li&gt;Cross-border payments and remittances&lt;/li&gt;
+&lt;li&gt;Supply chain finance and trade finance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Regulatory Challenges:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AML/KYC compliance in decentralized systems&lt;/li&gt;
+&lt;li&gt;Consumer protection in DeFi platforms&lt;/li&gt;
+&lt;li&gt;Cross-border regulatory coordination&lt;/li&gt;
+&lt;li&gt;Taxation of digital assets&lt;/li&gt;
+&lt;li&gt;Cybersecurity and systemic risk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We propose a regulatory framework for responsible blockchain adoption in financial services.&lt;/p&gt;</field>
+            <field name="meta_title">Blockchain in Financial Services | IJIM</field>
+            <field name="meta_description">Blockchain technology in financial services: DeFi opportunities and regulatory challenges. Published in International Journal of Information Management (Q1, Impact Factor 8.234).</field>
+            <field name="meta_keywords">blockchain, financial services, decentralized finance, fintech, regulatory challenges</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="jurnal_post_ai_education_impact" model="jurnal.post">
+            <field name="name">The Impact of Artificial Intelligence on Educational Assessment: A Meta-Analysis</field>
+            <field name="subtitle">Evaluating AI-Powered Assessment Tools and Their Effectiveness in Learning Outcomes</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="slug">impact-artificial-intelligence-educational-assessment-meta-analysis</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Sarah Johnson, Ph.D., Dr. Ahmad Wijaya, S.T., M.T.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Educational Technology Research and Development</field>
+            <field name="publisher">Springer</field>
+            <field name="publisher_website">https://www.springer.com</field>
+            <field name="publication_date">2024-09-03</field>
+            <field name="volume">72</field>
+            <field name="issue">4</field>
+            <field name="pages">1567-1592</field>
+            <field name="doi">10.1007/s11423-024-10345-6</field>
+            <field name="url">https://link.springer.com/article/10.1007/s11423-024-10345-6</field>
+            <field name="impact_factor">3.654</field>
+            <field name="h_index">67</field>
+            <field name="quartile">Q1</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Education Technology</field>
+            <field name="research_area">Artificial Intelligence, Educational Assessment, Learning Analytics</field>
+            <field name="keywords">artificial intelligence, educational assessment, meta-analysis, learning outcomes, AI assessment tools</field>
+            <field name="citations">67</field>
+            <field name="teaser">Meta-analysis of AI-powered assessment tools in education, analyzing 85 studies to evaluate effectiveness in improving learning outcomes and assessment accuracy.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This meta-analysis examines the impact of artificial intelligence on educational assessment practices. We synthesize findings from 85 empirical studies published between 2018-2024 to evaluate the effectiveness of AI-powered assessment tools.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AI Assessment Applications:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Automated essay scoring and feedback&lt;/li&gt;
+&lt;li&gt;Adaptive testing and personalized assessment&lt;/li&gt;
+&lt;li&gt;Learning analytics and predictive modeling&lt;/li&gt;
+&lt;li&gt;Plagiarism detection and academic integrity&lt;/li&gt;
+&lt;li&gt;Competency-based assessment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Meta-Analysis Results:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Assessment accuracy improved by 28% with AI tools&lt;/li&gt;
+&lt;li&gt;Student learning outcomes enhanced by 22%&lt;/li&gt;
+&lt;li&gt;Assessment time reduced by 45%&lt;/li&gt;
+&lt;li&gt;Teacher workload decreased by 35%&lt;/li&gt;
+&lt;li&gt;Student satisfaction increased by 31%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The analysis reveals significant benefits of AI in educational assessment while highlighting important considerations for implementation.&lt;/p&gt;</field>
+            <field name="meta_title">AI Impact on Educational Assessment | ETRD</field>
+            <field name="meta_description">Meta-analysis of AI-powered assessment tools in education. Published in Educational Technology Research and Development (Q1, Impact Factor 3.654).</field>
+            <field name="meta_keywords">artificial intelligence, educational assessment, meta-analysis, learning outcomes</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="jurnal_post_iot_smart_agriculture" model="jurnal.post">
+            <field name="name">IoT-Based Smart Agriculture Systems: A Review of Precision Farming Technologies</field>
+            <field name="subtitle">Integrating Sensors, AI, and Data Analytics for Sustainable Crop Management</field>
+            <field name="blog_id" ref="jurnal_blog_nasional"/>
+            <field name="slug">iot-based-smart-agriculture-precision-farming-technologies</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Siti Nurhaliza, S.T., M.Kom., Dr. Budi Santoso, S.T., M.Kom.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Jurnal Teknologi Pertanian</field>
+            <field name="publisher">IPB University</field>
+            <field name="publisher_website">https://journal.ipb.ac.id</field>
+            <field name="publication_date">2024-05-30</field>
+            <field name="volume">25</field>
+            <field name="issue">2</field>
+            <field name="pages">145-167</field>
+            <field name="doi">10.18343/jtp.25.2.145</field>
+            <field name="url">https://journal.ipb.ac.id/index.php/jtp/article/view/45678</field>
+            <field name="sinta_indexed">True</field>
+            <field name="sinta_rank">2</field>
+            <field name="subject_area">Agricultural Technology</field>
+            <field name="research_area">Internet of Things, Smart Agriculture, Precision Farming</field>
+            <field name="keywords">IoT, smart agriculture, precision farming, sensors, AI, sustainable agriculture</field>
+            <field name="citations">34</field>
+            <field name="teaser">Comprehensive review of IoT-based smart agriculture systems, analyzing precision farming technologies and their impact on sustainable crop management.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstrak&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Tinjauan komprehensif ini mengkaji sistem pertanian cerdas berbasis Internet of Things (IoT) untuk pertanian presisi. Kami menganalisis teknologi sensor, kecerdasan buatan, dan analitik data untuk manajemen tanaman yang berkelanjutan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Teknologi Utama:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sensor IoT untuk monitoring tanah dan cuaca&lt;/li&gt;
+&lt;li&gt;Drone dan imaging untuk pemantauan tanaman&lt;/li&gt;
+&lt;li&gt;AI untuk prediksi hasil panen dan deteksi penyakit&lt;/li&gt;
+&lt;li&gt;Irrigasi otomatis berbasis data&lt;/li&gt;
+&lt;li&gt;Platform analitik untuk pengambilan keputusan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Hasil Implementasi:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Penghematan air: 35%&lt;/li&gt;
+&lt;li&gt;Peningkatan produktivitas: 25%&lt;/li&gt;
+&lt;li&gt;Pengurangan penggunaan pestisida: 40%&lt;/li&gt;
+&lt;li&gt;Prediksi akurat penyakit tanaman: 85%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sistem pertanian cerdas terbukti efektif dalam meningkatkan efisiensi dan keberlanjutan pertanian modern.&lt;/p&gt;</field>
+            <field name="meta_title">IoT Smart Agriculture Systems | JTP</field>
+            <field name="meta_description">IoT-based smart agriculture systems for precision farming. Review of sensors, AI, and data analytics for sustainable crop management. Published in Jurnal Teknologi Pertanian (SINTA 2).</field>
+            <field name="meta_keywords">IoT, smart agriculture, precision farming, sensors, AI, SINTA 2</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="jurnal_post_cyber_physical_systems" model="jurnal.post">
+            <field name="name">Cyber-Physical Systems in Manufacturing: Integration Challenges and Solutions</field>
+            <field name="subtitle">Architectural Frameworks for Industry 4.0 Implementation</field>
+            <field name="blog_id" ref="jurnal_blog_internasional"/>
+            <field name="slug">cyber-physical-systems-manufacturing-integration-challenges</field>
+            <field name="authors">Prof. Dr. Mada Rahman, S.Kom., M.T., Dr. Michael Schmidt, Ph.D., Dr. Rama Pratama, S.Kom., M.T.</field>
+            <field name="corresponding_author">Prof. Dr. Mada Rahman, S.Kom., M.T.</field>
+            <field name="journal_name">Journal of Manufacturing Systems</field>
+            <field name="publisher">Elsevier</field>
+            <field name="publisher_website">https://www.elsevier.com</field>
+            <field name="publication_date">2024-10-08</field>
+            <field name="volume">75</field>
+            <field name="pages">678-695</field>
+            <field name="doi">10.1016/j.jmsy.2024.106789</field>
+            <field name="url">https://www.sciencedirect.com/science/article/pii/S0278612524001234</field>
+            <field name="impact_factor">6.234</field>
+            <field name="h_index">89</field>
+            <field name="quartile">Q1</field>
+            <field name="scopus_indexed">True</field>
+            <field name="wos_indexed">True</field>
+            <field name="subject_area">Manufacturing Systems</field>
+            <field name="research_area">Cyber-Physical Systems, Industry 4.0, Manufacturing Integration</field>
+            <field name="keywords">cyber-physical systems, Industry 4.0, manufacturing integration, smart manufacturing</field>
+            <field name="citations">45</field>
+            <field name="teaser">Analysis of integration challenges in cyber-physical systems for manufacturing, proposing architectural frameworks for successful Industry 4.0 implementation.</field>
+            <field name="content">&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This paper addresses the integration challenges of cyber-physical systems (CPS) in manufacturing environments. We analyze architectural frameworks and propose solutions for implementing Industry 4.0 technologies in traditional manufacturing facilities.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Integration Challenges:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Legacy system integration with modern CPS&lt;/li&gt;
+&lt;li&gt;Real-time data processing and communication&lt;/li&gt;
+&lt;li&gt;Cybersecurity in industrial control systems&lt;/li&gt;
+&lt;li&gt;Human-machine interface design&lt;/li&gt;
+&lt;li&gt;Scalability and interoperability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Proposed Solutions:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reference architectural framework for CPS integration&lt;/li&gt;
+&lt;li&gt;Middleware solutions for legacy system connectivity&lt;/li&gt;
+&lt;li&gt;Security-by-design approaches for industrial IoT&lt;/li&gt;
+&lt;li&gt;Digital twin implementations for process optimization&lt;/li&gt;
+&lt;li&gt;Edge computing architectures for real-time control&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The study provides practical guidelines for manufacturers transitioning to Industry 4.0.&lt;/p&gt;</field>
+            <field name="meta_title">Cyber-Physical Systems in Manufacturing | JMS</field>
+            <field name="meta_description">Integration challenges and solutions for cyber-physical systems in manufacturing. Published in Journal of Manufacturing Systems (Q1, Impact Factor 6.234).</field>
+            <field name="meta_keywords">cyber-physical systems, Industry 4.0, manufacturing integration</field>
+            <field name="website_published">True</field>
+        </record>
+        
     </data>
 </odoo>

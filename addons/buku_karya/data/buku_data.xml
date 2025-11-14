@@ -529,5 +529,334 @@
             <field name="meta_keywords">hukum bisnis, internasional, kontrak, arbitrase, WTO</field>
         </record>
 
+        <record id="sample_book_9" model="buku.post">
+            <field name="name">Ekonomi Makro: Teori dan Aplikasi</field>
+            <field name="authors">Dr. Rudi Hartono, M.Ec</field>
+            <field name="co_authors">Prof. Siti Aminah, Ph.D</field>
+            <field name="editors">Dr. Budi Setiawan, M.Ec, Prof. Lina Marlina, Ph.D</field>
+            <field name="blog_id" ref="book_category_textbook"/>
+            <field name="publisher_id" ref="publisher_ugm_press"/>
+            <field name="publication_year">2024</field>
+            <field name="publication_month">4</field>
+            <field name="publication_date">2024-04-12</field>
+            <field name="isbn">978-602-386-999-5</field>
+            <field name="doi">10.3333/macro.econ.2024</field>
+            <field name="dewey_classification">339</field>
+            <field name="pages">400</field>
+            <field name="edition">Edisi Kedua</field>
+            <field name="language">id</field>
+            <field name="scientific_field">economics</field>
+            <field name="academic_level">undergraduate</field>
+            <field name="subject">Ekonomi Makro</field>
+            <field name="keywords">ekonomi makro, pertumbuhan ekonomi, inflasi, kebijakan moneter</field>
+            <field name="book_url">https://example.com/book9</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">92</field>
+            <field name="print_run">2200</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Buku Terbaik Ekonomi 2024</field>
+            <field name="teaser">Buku teks ekonomi makro yang mengintegrasikan teori klasik dengan aplikasi praktis dalam konteks Indonesia.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Buku teks ekonomi makro yang mengintegrasikan teori klasik dengan aplikasi praktis. Fokus pada pemahaman konsep ekonomi makro dalam konteks pembangunan Indonesia.</p>
+                <p>Bab-bab utama:</p>
+                <ul>
+                    <li>Pengenalan Ekonomi Makro</li>
+                    <li>Pertumbuhan Ekonomi</li>
+                    <li>Inflasi dan Deflasi</li>
+                    <li>Kebijakan Moneter dan Fiskal</li>
+                    <li>Perdagangan Internasional</li>
+                    <li>Pembangunan Ekonomi</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">ekonomi-makro-teori-dan-aplikasi</field>
+            <field name="meta_title">Ekonomi Makro: Teori dan Aplikasi - Buku Teks Lengkap</field>
+            <field name="meta_description">Buku teks ekonomi makro dengan integrasi teori dan aplikasi praktis</field>
+            <field name="meta_keywords">ekonomi makro, pertumbuhan, inflasi, kebijakan moneter</field>
+        </record>
+
+        <record id="sample_book_10" model="buku.post">
+            <field name="name">Biologi Molekuler dan Bioteknologi</field>
+            <field name="authors">Prof. Dian Anggraini, Ph.D</field>
+            <field name="co_authors">Dr. Ahmad Fauzi, M.Si</field>
+            <field name="editors">Prof. Rina Kusuma, Ph.D, Dr. Budi Santoso, M.Si</field>
+            <field name="blog_id" ref="book_category_textbook"/>
+            <field name="publisher_id" ref="publisher_itb_press"/>
+            <field name="publication_year">2024</field>
+            <field name="publication_month">10</field>
+            <field name="publication_date">2024-10-08</field>
+            <field name="isbn">978-623-789-123-4</field>
+            <field name="doi">10.4444/mol.bio.tech.2024</field>
+            <field name="dewey_classification">572</field>
+            <field name="pages">550</field>
+            <field name="edition">Edisi Pertama</field>
+            <field name="language">id</field>
+            <field name="scientific_field">biology</field>
+            <field name="academic_level">graduate</field>
+            <field name="subject">Biologi Molekuler</field>
+            <field name="keywords">biologi molekuler, bioteknologi, DNA, rekayasa genetika</field>
+            <field name="book_url">https://example.com/book10</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">78</field>
+            <field name="print_run">1600</field>
+            <field name="teaser">Panduan komprehensif biologi molekuler dan aplikasi bioteknologi dalam penelitian modern.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Panduan komprehensif biologi molekuler dan aplikasi bioteknologi. Buku ini membahas teknik-teknik terkini dalam biologi molekuler dan penerapannya.</p>
+                <p>Materi pokok:</p>
+                <ul>
+                    <li>Struktur dan Fungsi DNA</li>
+                    <li>Replikasi dan Transkripsi</li>
+                    <li>Rekayasa Genetika</li>
+                    <li>Bioteknologi Medis</li>
+                    <li>Bioteknologi Pertanian</li>
+                    <li>Etika Bioteknologi</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">biologi-molekuler-dan-bioteknologi</field>
+            <field name="meta_title">Biologi Molekuler dan Bioteknologi - Panduan Lengkap</field>
+            <field name="meta_description">Panduan komprehensif biologi molekuler dan aplikasi bioteknologi</field>
+            <field name="meta_keywords">biologi molekuler, bioteknologi, DNA, rekayasa genetika</field>
+        </record>
+
+        <record id="sample_book_11" model="buku.post">
+            <field name="name">Statistika Terapan untuk Penelitian Sosial</field>
+            <field name="authors">Dr. Hendra Gunawan, M.Stat</field>
+            <field name="co_authors">Prof. Maya Dewi, Ph.D</field>
+            <field name="editors">Dr. Rudi Setiawan, M.Stat, Prof. Sari Indah, Ph.D</field>
+            <field name="blog_id" ref="book_category_reference"/>
+            <field name="publisher_id" ref="publisher_gramedia"/>
+            <field name="publication_year">2023</field>
+            <field name="publication_month">12</field>
+            <field name="publication_date">2023-12-01</field>
+            <field name="isbn">978-602-03-789-2</field>
+            <field name="issn">4567-8901</field>
+            <field name="doi">10.5555/applied.stats.2023</field>
+            <field name="dewey_classification">519.5</field>
+            <field name="pages">320</field>
+            <field name="edition">Edisi Ketiga</field>
+            <field name="language">id</field>
+            <field name="scientific_field">mathematics</field>
+            <field name="academic_level">graduate</field>
+            <field name="subject">Statistika Terapan</field>
+            <field name="keywords">statistika, penelitian sosial, analisis data, regresi, SPSS</field>
+            <field name="book_url">https://example.com/book11</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">145</field>
+            <field name="print_run">1900</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Buku Terbaik Statistika 2023</field>
+            <field name="teaser">Buku panduan praktis statistika terapan untuk penelitian sosial dengan contoh kasus nyata.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Buku panduan praktis statistika terapan untuk penelitian sosial. Menggunakan software SPSS dan R untuk analisis data penelitian.</p>
+                <p>Bab-bab penting:</p>
+                <ul>
+                    <li>Konsep Dasar Statistika</li>
+                    <li>Analisis Deskriptif</li>
+                    <li>Uji Hipotesis</li>
+                    <li>Analisis Regresi</li>
+                    <li>Analisis Multivariat</li>
+                    <li>Penggunaan SPSS dan R</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">statistika-terapan-untuk-penelitian-sosial</field>
+            <field name="meta_title">Statistika Terapan untuk Penelitian Sosial - Panduan Praktis</field>
+            <field name="meta_description">Buku panduan statistika terapan untuk penelitian sosial dengan software</field>
+            <field name="meta_keywords">statistika, penelitian sosial, analisis data, regresi, SPSS</field>
+        </record>
+
+        <record id="sample_book_12" model="buku.post">
+            <field name="name">Fisika Modern: Dari Relativitas hingga Kuantum</field>
+            <field name="authors">Prof. Adi Nugroho, Ph.D</field>
+            <field name="co_authors">Dr. Sari Lestari, M.Si</field>
+            <field name="editors">Prof. Budi Prasetyo, Ph.D, Dr. Maya Sari, M.Si</field>
+            <field name="blog_id" ref="book_category_textbook"/>
+            <field name="publisher_id" ref="publisher_erlangga"/>
+            <field name="publication_year">2024</field>
+            <field name="publication_month">1</field>
+            <field name="publication_date">2024-01-20</field>
+            <field name="isbn">978-602-8123-111-6</field>
+            <field name="doi">10.6666/modern.physics.2024</field>
+            <field name="dewey_classification">530.12</field>
+            <field name="pages">460</field>
+            <field name="edition">Edisi Pertama</field>
+            <field name="language">id</field>
+            <field name="scientific_field">physics</field>
+            <field name="academic_level">undergraduate</field>
+            <field name="subject">Fisika Modern</field>
+            <field name="keywords">fisika modern, relativitas, mekanika kuantum, fisika partikel</field>
+            <field name="book_url">https://example.com/book12</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">67</field>
+            <field name="print_run">1400</field>
+            <field name="teaser">Eksplorasi mendalam fisika modern dari teori relativitas Einstein hingga mekanika kuantum.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Eksplorasi mendalam fisika modern dari teori relativitas hingga mekanika kuantum. Buku ini menjelaskan konsep-konsep canggih dengan bahasa yang accessible.</p>
+                <p>Konten utama:</p>
+                <ul>
+                    <li>Teori Relativitas Khusus</li>
+                    <li>Teori Relativitas Umum</li>
+                    <li>Mekanika Kuantum</li>
+                    <li>Fisika Partikel</li>
+                    <li>Kosmologi Modern</li>
+                    <li>Aplikasi Teknologi</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">fisika-modern-dari-relativitas-hingga-kuantum</field>
+            <field name="meta_title">Fisika Modern: Dari Relativitas hingga Kuantum - Eksplorasi Mendalam</field>
+            <field name="meta_description">Eksplorasi mendalam fisika modern dari relativitas hingga mekanika kuantum</field>
+            <field name="meta_keywords">fisika modern, relativitas, mekanika kuantum, fisika partikel</field>
+        </record>
+
+        <record id="sample_book_13" model="buku.post">
+            <field name="name">Sistem Informasi Geografis untuk Analisis Lingkungan</field>
+            <field name="authors">Dr. Ahmad Rahman, M.Si</field>
+            <field name="co_authors">Prof. Siti Nurhaliza, Ph.D</field>
+            <field name="editors">Dr. Budi Santoso, M.Si, Prof. Rina Sari, Ph.D</field>
+            <field name="blog_id" ref="book_category_handbook"/>
+            <field name="publisher_id" ref="publisher_andi"/>
+            <field name="publication_year">2024</field>
+            <field name="publication_month">6</field>
+            <field name="publication_date">2024-06-15</field>
+            <field name="isbn">978-979-29-567-3</field>
+            <field name="doi">10.7777/gis.env.analysis.2024</field>
+            <field name="dewey_classification">910.285</field>
+            <field name="pages">380</field>
+            <field name="edition">Edisi Kedua</field>
+            <field name="language">id</field>
+            <field name="scientific_field">geography</field>
+            <field name="academic_level">professional</field>
+            <field name="subject">Sistem Informasi Geografis</field>
+            <field name="keywords">SIG, GIS, analisis lingkungan, pemetaan, remote sensing</field>
+            <field name="book_url">https://example.com/book13</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">89</field>
+            <field name="print_run">1100</field>
+            <field name="teaser">Handbook praktis penggunaan SIG untuk analisis lingkungan dan perencanaan wilayah.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Handbook praktis penggunaan SIG untuk analisis lingkungan. Membahas teknik-teknik GIS untuk pemantauan dan analisis lingkungan.</p>
+                <p>Bab-bab pokok:</p>
+                <ul>
+                    <li>Konsep Dasar SIG</li>
+                    <li>Penginderaan Jauh</li>
+                    <li>Analisis Spasial</li>
+                    <li>Pemodelan Lingkungan</li>
+                    <li>Aplikasi SIG dalam Konservasi</li>
+                    <li>Perencanaan Wilayah</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">sistem-informasi-geografis-untuk-analisis-lingkungan</field>
+            <field name="meta_title">Sistem Informasi Geografis untuk Analisis Lingkungan - Handbook Praktis</field>
+            <field name="meta_description">Handbook praktis penggunaan SIG untuk analisis lingkungan dan perencanaan</field>
+            <field name="meta_keywords">SIG, GIS, analisis lingkungan, pemetaan, remote sensing</field>
+        </record>
+
+        <record id="sample_book_14" model="buku.post">
+            <field name="name">Etika Profesi dan Tanggung Jawab Sosial</field>
+            <field name="authors">Prof. Hendro Wicaksono, Ph.D</field>
+            <field name="co_authors">Dr. Maya Sari, M.Psi</field>
+            <field name="editors">Prof. Ahmad Zaki, M.Si, Dr. Sari Dewi, M.Psi</field>
+            <field name="blog_id" ref="book_category_monograph"/>
+            <field name="publisher_id" ref="publisher_mizan"/>
+            <field name="publication_year">2023</field>
+            <field name="publication_month">9</field>
+            <field name="publication_date">2023-09-22</field>
+            <field name="isbn">978-602-441-234-8</field>
+            <field name="doi">10.8888/prof.ethics.2023</field>
+            <field name="dewey_classification">174</field>
+            <field name="pages">290</field>
+            <field name="edition">Edisi Pertama</field>
+            <field name="language">id</field>
+            <field name="scientific_field">philosophy</field>
+            <field name="academic_level">professional</field>
+            <field name="subject">Etika Profesi</field>
+            <field name="keywords">etika profesi, tanggung jawab sosial, kode etik, moralitas</field>
+            <field name="book_url">https://example.com/book14</field>
+            <field name="status">published</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">112</field>
+            <field name="print_run">1300</field>
+            <field name="award_received">True</field>
+            <field name="award_description">Buku Terbaik Etika 2023</field>
+            <field name="teaser">Monograf mendalam tentang etika profesi dan tanggung jawab sosial dalam berbagai bidang keprofesian.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Monograf mendalam tentang etika profesi dan tanggung jawab sosial. Membahas dilema etis dalam praktik profesional modern.</p>
+                <p>Materi utama:</p>
+                <ul>
+                    <li>Konsep Etika Profesi</li>
+                    <li>Tanggung Jawab Sosial Perusahaan</li>
+                    <li>Kode Etik Profesi</li>
+                    <li>Dilema Etis dalam Praktik</li>
+                    <li>Etika Digital</li>
+                    <li>Pendidikan Etika</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">etika-profesi-dan-tanggung-jawab-sosial</field>
+            <field name="meta_title">Etika Profesi dan Tanggung Jawab Sosial - Monograf Mendalam</field>
+            <field name="meta_description">Monograf mendalam tentang etika profesi dan tanggung jawab sosial</field>
+            <field name="meta_keywords">etika profesi, tanggung jawab sosial, kode etik, moralitas</field>
+        </record>
+
+        <record id="sample_book_15" model="buku.post">
+            <field name="name">Teknik Elektro: Dasar dan Aplikasi Industri</field>
+            <field name="authors">Dr. Rudi Hartono, M.T</field>
+            <field name="co_authors">Prof. Dian Anggraini, Ph.D</field>
+            <field name="editors">Dr. Ahmad Fauzi, M.T, Prof. Lina Marlina, Ph.D</field>
+            <field name="blog_id" ref="book_category_textbook"/>
+            <field name="publisher_id" ref="publisher_self"/>
+            <field name="publication_year">2024</field>
+            <field name="publication_month">8</field>
+            <field name="publication_date">2024-08-10</field>
+            <field name="isbn">978-623-000-456-9</field>
+            <field name="doi">10.9999/electrical.eng.2024</field>
+            <field name="dewey_classification">621.3</field>
+            <field name="pages">420</field>
+            <field name="edition">Edisi Kedua</field>
+            <field name="language">id</field>
+            <field name="scientific_field">engineering</field>
+            <field name="academic_level">undergraduate</field>
+            <field name="subject">Teknik Elektro</field>
+            <field name="keywords">teknik elektro, elektronika, sistem tenaga, kontrol otomatis</field>
+            <field name="book_url">https://example.com/book15</field>
+            <field name="status">in_press</field>
+            <field name="is_published">True</field>
+            <field name="citation_count">34</field>
+            <field name="print_run">1700</field>
+            <field name="teaser">Buku teks teknik elektro yang mencakup dasar elektronika hingga aplikasi industri terkini.</field>
+            <field name="content">
+                <![CDATA[
+                <p>Buku teks teknik elektro yang mencakup dasar elektronika hingga aplikasi industri. Mengintegrasikan teori dengan praktik industri.</p>
+                <p>Bab-bab utama:</p>
+                <ul>
+                    <li>Sirkuit Listrik Dasar</li>
+                    <li>Elektronika Daya</li>
+                    <li>Sistem Tenaga Listrik</li>
+                    <li>Kontrol Otomatis</li>
+                    <li>Instrumentasi dan Pengukuran</li>
+                    <li>Aplikasi Industri 4.0</li>
+                </ul>
+                ]]>
+            </field>
+            <field name="slug">teknik-elektro-dasar-dan-aplikasi-industri</field>
+            <field name="meta_title">Teknik Elektro: Dasar dan Aplikasi Industri - Buku Teks Lengkap</field>
+            <field name="meta_description">Buku teks teknik elektro dengan fokus pada aplikasi industri</field>
+            <field name="meta_keywords">teknik elektro, elektronika, sistem tenaga, kontrol otomatis</field>
+        </record>
+
     </data>
 </odoo>

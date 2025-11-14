@@ -711,6 +711,288 @@ Fitri Lestari (Final Project: VR Interface)</field>
             <field name="date">2024-03-30</field>
         </record>
 
+        <!-- Additional Research Groups -->
+        <record id="post_blockchain_lab" model="grup.riset.post">
+            <field name="name">Blockchain &amp; Distributed Systems Laboratory</field>
+            <field name="subtitle">Mengembangkan Teknologi Blockchain untuk Aplikasi Terdesentralisasi</field>
+            <field name="blog_id" ref="blog_grup_riset_cyber"/>
+            <field name="teaser">Laboratorium yang fokus pada pengembangan teknologi blockchain, smart contracts, dan sistem terdesentralisasi untuk berbagai aplikasi industri.</field>
+            <field name="description">&lt;p&gt;Blockchain &amp; Distributed Systems Laboratory adalah pusat penelitian yang berdedikasi untuk mengembangkan teknologi blockchain dan sistem terdesentralisasi. Didirikan pada tahun 2021, laboratorium ini telah berkontribusi dalam pengembangan aplikasi blockchain untuk finance, supply chain, dan digital identity.&lt;/p&gt;
+
+&lt;p&gt;Tim peneliti kami memiliki expertise dalam cryptography, distributed consensus algorithms, smart contract development, dan decentralized applications (dApps). Kami mengembangkan solusi blockchain untuk enterprise dan public sector.&lt;/p&gt;</field>
+            <field name="leader_name">Dr. Ir. Ahmad Rahman, M.Kom.</field>
+            <field name="leader_title">Dosen Senior Blockchain Technology</field>
+            <field name="co_leaders">Dr. Siti Nurhaliza, S.Kom., M.Kom.
+Dr. Budi Santoso, S.T., M.T.</field>
+            <field name="team_members">Dr. Rina Permata, S.Kom., M.Kom.
+Eko Prasetyo, S.T., M.T.
+Lina Kusuma, S.Kom., M.Kom.
+Andi Wijaya, S.T., M.T.</field>
+            <field name="research_focus">Penelitian kami mencakup blockchain consensus mechanisms, smart contract security, decentralized finance (DeFi) applications, supply chain traceability menggunakan blockchain, digital identity dan self-sovereign identity, dan privacy-preserving technologies dalam distributed systems.</field>
+            <field name="research_keywords">Blockchain, Distributed Systems, Smart Contracts, Cryptography, DeFi, Decentralized Applications, Digital Identity</field>
+            <field name="facilities">&lt;p&gt;Laboratorium dilengkapi dengan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Private blockchain networks (Ethereum, Hyperledger)&lt;/li&gt;
+&lt;li&gt;High-performance computing untuk mining simulation&lt;/li&gt;
+&lt;li&gt;Smart contract development environments&lt;/li&gt;
+&lt;li&gt;Cryptographic hardware security modules&lt;/li&gt;
+&lt;li&gt;Distributed system testing infrastructure&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;Ethereum Geth Nodes&lt;/li&gt;
+&lt;li&gt;Hyperledger Fabric Network&lt;/li&gt;
+&lt;li&gt;Hardware Security Modules (HSM)&lt;/li&gt;
+&lt;li&gt;Solidity Development Tools&lt;/li&gt;
+&lt;li&gt;Truffle Framework&lt;/li&gt;
+&lt;li&gt;Web3.js Libraries&lt;/li&gt;
+&lt;li&gt;Cryptographic Analysis Tools&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="phd_students">Rizki Pratama (Consensus Algorithm Optimization)
+Sari Indrawati (Smart Contract Formal Verification)</field>
+            <field name="master_students">Fitri Lestari (DeFi Protocol Design)
+Bayu Saputra (Blockchain for Supply Chain)
+Dina Purnama (Digital Identity Systems)</field>
+            <field name="undergrad_students">Rio Setiawan (Final Project: Smart Contract Development)
+Maya Sari (Final Project: Blockchain Voting System)
+Citra Dewi (Final Project: Crypto Wallet Application)</field>
+            <field name="contact_person">Dr. Ir. Ahmad Rahman, M.Kom.</field>
+            <field name="contact_email">blockchain.lab@university.ac.id</field>
+            <field name="lab_space">Gedung Teknik Informatika Lantai 5, Ruang 501-502</field>
+            <field name="website_url">https://blockchain.university.ac.id</field>
+            <field name="established_year">2021</field>
+            <field name="is_featured" eval="False"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Blockchain &amp; Distributed Systems Laboratory</field>
+            <field name="meta_description">Lab blockchain yang mengembangkan smart contracts, DeFi, dan decentralized applications untuk berbagai industri.</field>
+            <field name="meta_keywords">Blockchain, Smart Contracts, Distributed Systems, Cryptography, DeFi, Decentralized Applications</field>
+            <field name="date">2024-04-05</field>
+        </record>
+
+        <record id="post_bigdata_lab" model="grup.riset.post">
+            <field name="name">Big Data &amp; Cloud Computing Research Center</field>
+            <field name="subtitle">Mengolah dan Menganalisis Data Besar untuk Insight Bisnis</field>
+            <field name="blog_id" ref="blog_grup_riset_data"/>
+            <field name="teaser">Pusat riset yang fokus pada teknologi big data, cloud computing, dan distributed data processing untuk mengatasi tantangan data modern.</field>
+            <field name="description">&lt;p&gt;Big Data &amp; Cloud Computing Research Center adalah pusat penelitian yang berdedikasi untuk mengembangkan teknologi pengolahan data besar dan komputasi awan. Didirikan pada tahun 2020, center ini telah berkolaborasi dengan berbagai perusahaan dalam mengimplementasikan solusi big data.&lt;/p&gt;
+
+&lt;p&gt;Tim peneliti kami mengembangkan algoritma untuk distributed computing, data warehousing, real-time analytics, dan machine learning at scale. Kami memiliki expertise dalam Hadoop ecosystem, Spark, cloud platforms, dan data engineering.&lt;/p&gt;</field>
+            <field name="leader_name">Prof. Dr. Sri Wahyuni, S.Si., M.Stat.</field>
+            <field name="leader_title">Profesor Data Science dan Big Data</field>
+            <field name="co_leaders">Dr. Rahmat Hidayat, S.Kom., M.Kom.
+Dr. Lia Permatasari, S.E., M.M.</field>
+            <field name="team_members">Dr. Indra Gunawan, S.E., M.M.
+Wati Suryani, S.Si., M.Stat.
+Rio Pratama, S.Kom., M.Kom.
+Dina Sari, S.E., M.M.</field>
+            <field name="research_focus">Fokus penelitian kami meliputi distributed data processing dengan Apache Spark, real-time stream processing menggunakan Kafka dan Flink, cloud-native data architectures, data lake dan data warehouse design, scalable machine learning pipelines, dan data privacy dalam big data environments.</field>
+            <field name="research_keywords">Big Data, Cloud Computing, Distributed Computing, Data Engineering, Apache Spark, Hadoop, Real-time Analytics</field>
+            <field name="facilities">&lt;p&gt;Center dilengkapi dengan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hadoop cluster dengan 100+ nodes&lt;/li&gt;
+&lt;li&gt;Spark computing cluster&lt;/li&gt;
+&lt;li&gt;Cloud computing resources (AWS, GCP, Azure)&lt;/li&gt;
+&lt;li&gt;Data storage systems (HDFS, S3, BigQuery)&lt;/li&gt;
+&lt;li&gt;Real-time data streaming platforms&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;Cloudera Data Platform&lt;/li&gt;
+&lt;li&gt;Apache Spark Cluster&lt;/li&gt;
+&lt;li&gt;Kafka Streaming Platform&lt;/li&gt;
+&lt;li&gt;AWS EMR Clusters&lt;/li&gt;
+&lt;li&gt;Google Cloud BigQuery&lt;/li&gt;
+&lt;li&gt;Azure Synapse Analytics&lt;/li&gt;
+&lt;li&gt;Databricks Unified Analytics Platform&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="phd_students">Andi Wijaya (Scalable Machine Learning)
+Siska Purnama (Real-time Data Processing)</field>
+            <field name="master_students">Eko Hariyanto (Data Lake Architecture)
+Fitri Lestari (Cloud Data Warehousing)
+Bayu Saputra (Distributed Computing Algorithms)</field>
+            <field name="undergrad_students">Budi Santoso (Final Project: Hadoop Data Processing)
+Rina Handayani (Final Project: Spark ML Pipeline)
+Dian Purnama (Final Project: Real-time Dashboard)</field>
+            <field name="contact_person">Prof. Dr. Sri Wahyuni, S.Si., M.Stat.</field>
+            <field name="contact_email">bigdata.center@university.ac.id</field>
+            <field name="lab_space">Gedung Matematika &amp; Statistika Lantai 4, Ruang 401-405</field>
+            <field name="website_url">https://bigdata.university.ac.id</field>
+            <field name="established_year">2020</field>
+            <field name="is_featured" eval="True"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Big Data &amp; Cloud Computing Research Center</field>
+            <field name="meta_description">Pusat riset big data yang mengembangkan distributed computing, cloud analytics, dan scalable data processing solutions.</field>
+            <field name="meta_keywords">Big Data, Cloud Computing, Distributed Computing, Apache Spark, Hadoop, Data Engineering</field>
+            <field name="date">2024-04-10</field>
+        </record>
+
+        <record id="post_quantum_lab" model="grup.riset.post">
+            <field name="name">Quantum Computing &amp; Information Laboratory</field>
+            <field name="subtitle">Mengeksplorasi Komputasi Kuantum untuk Masa Depan</field>
+            <field name="blog_id" ref="blog_grup_riset_ai"/>
+            <field name="teaser">Laboratorium yang fokus pada pengembangan algoritma komputasi kuantum, quantum information theory, dan aplikasi praktis quantum computing.</field>
+            <field name="description">&lt;p&gt;Quantum Computing &amp; Information Laboratory adalah laboratorium riset terdepan dalam bidang komputasi kuantum di Indonesia. Didirikan pada tahun 2022, lab ini berkomitmen untuk mengembangkan teknologi quantum computing dan mempersiapkan generasi berikutnya untuk era quantum.&lt;/p&gt;
+
+&lt;p&gt;Tim peneliti kami terdiri dari fisikawan, computer scientist, dan mathematician yang bekerja sama dalam mengembangkan algoritma quantum, quantum simulation, dan quantum information theory. Kami memiliki akses ke quantum simulators dan berkolaborasi dengan leading quantum computing companies.&lt;/p&gt;</field>
+            <field name="leader_name">Prof. Dr. Ir. Hendra Kurniawan, M.Sc.</field>
+            <field name="leader_title">Profesor Fisika Komputasi Kuantum</field>
+            <field name="co_leaders">Dr. Eng. Ratna Sari, S.T., M.T.
+Dr. Bambang Sutrisno, S.Si., M.Si.</field>
+            <field name="team_members">Dr. Agus Priyanto, S.Si., M.Si.
+Yudi Setiawan, S.T., M.T.
+Rini Handayani, S.Si., M.Si.
+Doni Prasetya, S.T., M.T.</field>
+            <field name="research_focus">Penelitian kami mencakup quantum algorithm development (Shor, Grover, VQE), quantum machine learning, quantum cryptography dan quantum key distribution, quantum information theory, quantum simulation untuk chemistry dan materials science, serta hybrid quantum-classical computing approaches.</field>
+            <field name="research_keywords">Quantum Computing, Quantum Information, Quantum Algorithms, Quantum Machine Learning, Quantum Cryptography</field>
+            <field name="facilities">&lt;p&gt;Laboratorium dilengkapi dengan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quantum simulators (IBM Quantum, Google Cirq)&lt;/li&gt;
+&lt;li&gt;High-performance classical computers untuk simulation&lt;/li&gt;
+&lt;li&gt;Quantum optics experimental setup&lt;/li&gt;
+&lt;li&gt;Superconducting quantum device access&lt;/li&gt;
+&lt;li&gt;Quantum software development kits&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;IBM Quantum Experience Access&lt;/li&gt;
+&lt;li&gt;Google Cirq Quantum Simulator&lt;/li&gt;
+&lt;li&gt;Rigetti Quantum Cloud Access&lt;/li&gt;
+&lt;li&gt;Qiskit Development Framework&lt;/li&gt;
+&lt;li&gt;Cirq Quantum Programming Language&lt;/li&gt;
+&lt;li&gt;Quantum Optics Laboratory Equipment&lt;/li&gt;
+&lt;li&gt;High-Performance Computing Cluster&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="phd_students">Indra Wijaya (Quantum Machine Learning)
+Putri Maharani (Quantum Cryptography)</field>
+            <field name="master_students">Rian Pratama (Quantum Algorithm Design)
+Joko Susanto (Quantum Simulation)
+Ayu Purnama (Quantum Information Theory)</field>
+            <field name="undergrad_students">Budi Hartono (Final Project: Quantum Circuit Simulation)
+Sinta Maharani (Final Project: Quantum Key Distribution)
+Rio Saputra (Final Project: Quantum Search Algorithm)</field>
+            <field name="contact_person">Prof. Dr. Ir. Hendra Kurniawan, M.Sc.</field>
+            <field name="contact_email">quantum.lab@university.ac.id</field>
+            <field name="lab_space">Gedung Fisika Lantai 2, Ruang 201-204</field>
+            <field name="website_url">https://quantum.university.ac.id</field>
+            <field name="established_year">2022</field>
+            <field name="is_featured" eval="True"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Quantum Computing &amp; Information Laboratory</field>
+            <field name="meta_description">Lab komputasi kuantum yang mengembangkan algoritma quantum, quantum machine learning, dan quantum information theory.</field>
+            <field name="meta_keywords">Quantum Computing, Quantum Information, Quantum Algorithms, Quantum Machine Learning, Quantum Cryptography</field>
+            <field name="date">2024-04-15</field>
+        </record>
+
+        <record id="post_green_tech_lab" model="grup.riset.post">
+            <field name="name">Green Technology &amp; Sustainable Computing Laboratory</field>
+            <field name="subtitle">Mengembangkan Teknologi Ramah Lingkungan untuk Komputasi Berkelanjutan</field>
+            <field name="blog_id" ref="blog_grup_riset_iot"/>
+            <field name="teaser">Laboratorium yang fokus pada pengembangan teknologi hijau, energy-efficient computing, dan solusi komputasi berkelanjutan untuk mengatasi perubahan iklim.</field>
+            <field name="description">&lt;p&gt;Green Technology &amp; Sustainable Computing Laboratory adalah laboratorium riset yang berdedikasi untuk mengembangkan teknologi komputasi yang ramah lingkungan dan berkelanjutan. Didirikan pada tahun 2021, lab ini berkontribusi dalam pengembangan solusi green computing untuk data centers, IoT devices, dan edge computing.&lt;/p&gt;
+
+&lt;p&gt;Tim peneliti kami mengembangkan algoritma energy-efficient, hardware-software co-design untuk low-power systems, renewable energy integration dalam computing systems, dan carbon footprint reduction strategies dalam IT infrastructure.&lt;/p&gt;</field>
+            <field name="leader_name">Dr. Eng. Dewi Puspitasari, S.T., M.T.</field>
+            <field name="leader_title">Dosen Senior Green Computing</field>
+            <field name="co_leaders">Dr. Rina Pratiwi, S.T., M.T.
+Ir. Bambang Sutrisno, M.Kom.</field>
+            <field name="team_members">Dr. Fendi Aryanto, S.T., M.T.
+Siska Amelinda, S.Kom., M.Kom.
+Eko Susilo, S.T., M.T.
+Doni Prasetya, S.T., M.T.</field>
+            <field name="research_focus">Fokus penelitian kami meliputi energy-efficient algorithms dan data structures, green data center design dan management, sustainable IoT dan edge computing, renewable energy-powered computing systems, carbon-aware computing dan job scheduling, dan life cycle assessment untuk IT equipment.</field>
+            <field name="research_keywords">Green Computing, Sustainable Technology, Energy-Efficient Computing, Green Data Centers, Renewable Energy, Carbon Footprint</field>
+            <field name="facilities">&lt;p&gt;Laboratorium dilengkapi dengan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Energy monitoring dan measurement tools&lt;/li&gt;
+&lt;li&gt;Low-power computing platforms&lt;/li&gt;
+&lt;li&gt;Renewable energy microgrid&lt;/li&gt;
+&lt;li&gt;Thermal management systems&lt;/li&gt;
+&lt;li&gt;Carbon footprint analysis tools&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;Power Analyzers dan Energy Meters&lt;/li&gt;
+&lt;li&gt;Raspberry Pi dan Arduino Low-Power Boards&lt;/li&gt;
+&lt;li&gt;Solar Panel Arrays untuk Testing&lt;/li&gt;
+&lt;li&gt;Thermal Imaging Cameras&lt;/li&gt;
+&lt;li&gt;Carbon Footprint Calculators&lt;/li&gt;
+&lt;li&gt;Green Data Center Mockup&lt;/li&gt;
+&lt;li&gt;IoT Energy Monitoring Sensors&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="phd_students">Rizki Handoyo (Energy-Efficient Algorithms)
+Lilis Suryani (Sustainable Data Centers)</field>
+            <field name="master_students">Wahyu Santoso (Green IoT Design)
+Arif Rahman (Renewable Energy Integration)
+Lina Sari (Carbon-Aware Computing)</field>
+            <field name="undergrad_students">Adi Nugroho (Final Project: Low-Power IoT Device)
+Sari Wulandari (Final Project: Solar-Powered Computing)
+Hendri Saputra (Final Project: Energy Monitoring System)</field>
+            <field name="contact_person">Dr. Eng. Dewi Puspitasari, S.T., M.T.</field>
+            <field name="contact_email">greentech.lab@university.ac.id</field>
+            <field name="lab_space">Gedung Teknik Elektro Lantai 5, Ruang 501-503</field>
+            <field name="website_url">https://greentech.university.ac.id</field>
+            <field name="established_year">2021</field>
+            <field name="is_featured" eval="False"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Green Technology &amp; Sustainable Computing Laboratory</field>
+            <field name="meta_description">Lab green computing yang mengembangkan energy-efficient technology dan sustainable computing solutions.</field>
+            <field name="meta_keywords">Green Computing, Sustainable Technology, Energy-Efficient, Renewable Energy, Carbon Footprint</field>
+            <field name="date">2024-04-20</field>
+        </record>
+
+        <record id="post_aerospace_lab" model="grup.riset.post">
+            <field name="name">Aerospace Engineering &amp; UAV Research Laboratory</field>
+            <field name="subtitle">Mengembangkan Teknologi Penerbangan dan Sistem Udara Tak Berawak</field>
+            <field name="blog_id" ref="blog_grup_riset_robotics"/>
+            <field name="teaser">Laboratorium yang fokus pada pengembangan teknologi aerospace, unmanned aerial vehicles (UAV), dan sistem penerbangan cerdas.</field>
+            <field name="description">&lt;p&gt;Aerospace Engineering &amp; UAV Research Laboratory adalah laboratorium riset yang berdedikasi untuk mengembangkan teknologi penerbangan dan sistem udara tak berawak. Didirikan pada tahun 2018, lab ini telah berkontribusi dalam pengembangan drone technology, autonomous flight systems, dan aerospace applications.&lt;/p&gt;
+
+&lt;p&gt;Tim peneliti kami memiliki expertise dalam aerodynamics, control systems, computer vision untuk UAV, autonomous navigation, dan aerospace materials. Kami mengembangkan solusi untuk surveillance, mapping, delivery systems, dan aerospace research.&lt;/p&gt;</field>
+            <field name="leader_name">Prof. Dr. Ir. Antonius Rachmat, M.T.</field>
+            <field name="leader_title">Profesor Teknik Aerospace</field>
+            <field name="co_leaders">Dr. Ir. Joko Widodo, M.Kom.
+Dr. Sri Wahyuni, S.T., M.T.</field>
+            <field name="team_members">Dr. Rahmat Hidayat, S.T., M.T.
+Lia Permatasari, S.Kom., M.Kom.
+Indra Gunawan, S.T., M.T.
+Wati Suryani, S.T., M.T.</field>
+            <field name="research_focus">Penelitian kami mencakup autonomous UAV flight control systems, computer vision untuk obstacle avoidance dan landing, swarm drone coordination, UAV applications untuk agriculture dan environmental monitoring, aerospace materials dan lightweight structures, serta integration of AI dalam flight systems.</field>
+            <field name="research_keywords">Aerospace Engineering, UAV, Drones, Autonomous Flight, Computer Vision, Aerospace Materials</field>
+            <field name="facilities">&lt;p&gt;Laboratorium dilengkapi dengan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Indoor flight testing arena&lt;/li&gt;
+&lt;li&gt;Outdoor UAV testing field&lt;/li&gt;
+&lt;li&gt;Wind tunnel untuk aerodynamics testing&lt;/li&gt;
+&lt;li&gt;UAV assembly dan maintenance workshop&lt;/li&gt;
+&lt;li&gt;Flight simulation software&lt;/li&gt;
+&lt;li&gt;GPS dan navigation testing equipment&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="equipment_list">&lt;ul&gt;
+&lt;li&gt;DJI Matrice Series Drones&lt;/li&gt;
+&lt;li&gt;Custom-Built Autonomous UAVs&lt;/li&gt;
+&lt;li&gt;PX4 Flight Controllers&lt;/li&gt;
+&lt;li&gt;Intel RealSense Cameras&lt;/li&gt;
+&lt;li&gt;RTK GPS Systems&lt;/li&gt;
+&lt;li&gt;Wind Tunnel Equipment&lt;/li&gt;
+&lt;li&gt;Flight Simulation Software (AirSim)&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="phd_students">Andi Wijaya (Swarm UAV Coordination)
+Siska Purnama (AI-Powered Flight Control)</field>
+            <field name="master_students">Rio Pratama (Computer Vision for UAVs)
+Dina Sari (Autonomous Navigation)
+Eko Hariyanto (UAV Applications)</field>
+            <field name="undergrad_students">Budi Santoso (Final Project: Autonomous Drone)
+Rina Handayani (Final Project: UAV Mapping System)
+Dian Purnama (Final Project: Drone Delivery System)</field>
+            <field name="contact_person">Prof. Dr. Ir. Antonius Rachmat, M.T.</field>
+            <field name="contact_email">aerospace.lab@university.ac.id</field>
+            <field name="lab_space">Gedung Teknik Aerospace Lantai 1-2, Ruang 101-205</field>
+            <field name="website_url">https://aerospace.university.ac.id</field>
+            <field name="established_year">2018</field>
+            <field name="is_featured" eval="True"/>
+            <field name="website_published" eval="True"/>
+            <field name="meta_title">Aerospace Engineering &amp; UAV Research Laboratory</field>
+            <field name="meta_description">Lab aerospace yang mengembangkan UAV technology, autonomous flight systems, dan aerospace applications.</field>
+            <field name="meta_keywords">Aerospace, UAV, Drones, Autonomous Flight, Computer Vision, Aerospace Engineering</field>
+            <field name="date">2024-04-25</field>
+        </record>
+
         <!-- Website Menu -->
         <record id="menu_grup_riset_main" model="website.menu">
             <field name="name">Grup Riset</field>

@@ -450,204 +450,1307 @@
             <field name="date">2024-03-01</field>
         </record>
 
-        <!-- Budget Lines -->
-        <record id="budget_line_quantum_1" model="hibah.budget.line">
-            <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
-            <field name="sequence">1</field>
-            <field name="category">Personel</field>
-            <field name="description">Gaji peneliti utama, asisten peneliti, dan tenaga pendukung</field>
-            <field name="amount">380000000</field>
+        <!-- Additional Sample Grant Data -->
+        <record id="hibah_sample_energi_terbarukan" model="hibah.pendanaan.post">
+            <field name="name">Hibah Riset Energi Terbarukan: Pengembangan Sistem Hybrid Solar-Wind untuk Daerah Terpencil</field>
+            <field name="blog_id" ref="blog_hibah_nasional"/>
+            <field name="grant_number">143/E5/PG.02.00.PT/2024</field>
+            <field name="grant_scheme">Penelitian Terapan Unggulan Perguruan Tinggi (PTUPT)</field>
+            <field name="research_area">Energi Terbarukan</field>
+            <field name="research_focus">Pengembangan sistem energi hybrid solar-wind untuk menyediakan listrik berkelanjutan di daerah terpencil Indonesia</field>
+            <field name="keywords">renewable energy, solar-wind hybrid, off-grid electrification, sustainable energy, PTUPT, green energy</field>
+            <field name="start_date">2024-02-01</field>
+            <field name="end_date">2026-01-31</field>
+            <field name="status">active</field>
+            <field name="funding_agency">Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi</field>
+            <field name="funding_source">APBN - Direktorat Jenderal Pendidikan Tinggi</field>
+            <field name="total_amount">1200000000</field>
+            <field name="disbursed_amount">480000000</field>
+            <field name="funding_year">2024-2026</field>
+            <field name="personnel_cost">480000000</field>
+            <field name="equipment_cost">500000000</field>
+            <field name="material_cost">120000000</field>
+            <field name="travel_cost">70000000</field>
+            <field name="other_cost">30000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Hibah:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan prototype sistem energi hybrid solar-wind yang efisien&lt;/li&gt;
+&lt;li&gt;Menguji performa sistem di 3 lokasi terpencil berbeda&lt;/li&gt;
+&lt;li&gt;Mendukung elektrifikasi 500 rumah tangga di daerah terpencil&lt;/li&gt;
+&lt;li&gt;Membiayai publikasi 8 paper internasional dan 2 paten&lt;/li&gt;
+&lt;li&gt;Mendukung pengembangan SDM di bidang renewable energy&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Tim peneliti dengan latar belakang teknik elektro atau energi&lt;/li&gt;
+&lt;li&gt;Afiliasi dengan perguruan tinggi terakreditasi&lt;/li&gt;
+&lt;li&gt;Memiliki akses ke lokasi testing di daerah terpencil&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Proposal penelitian lengkap dengan metodologi&lt;/li&gt;
+&lt;li&gt;CV tim peneliti dan track record&lt;/li&gt;
+&lt;li&gt;Rencana anggaran dan timeline detail&lt;/li&gt;
+&lt;li&gt;Surat dukungan dari institusi&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2023-11-30</field>
+            <field name="reporting_requirements">&lt;p&gt;Laporan kemajuan triwulanan dan laporan akhir. Wajib melampirkan data performa sistem dan dokumentasi implementasi.&lt;/p&gt;</field>
+            <field name="contact_person">Dr. Eng. Ahmad Santoso, S.T., M.T.</field>
+            <field name="contact_email">ahmad.santoso@kemdikbud.go.id</field>
+            <field name="contact_phone">+62-21-57946103</field>
+            <field name="terms_conditions">&lt;p&gt;Dana hibah tidak dapat digunakan untuk pembelian tanah. Hasil penelitian wajib didiseminasikan dan dipublikasikan. Tim peneliti bertanggung jawab atas keamanan dan sustainability sistem yang dikembangkan.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Riset Energi Terbarukan: Sistem Hybrid Solar-Wind&lt;/h3&gt;
+&lt;p&gt;Proyek ini bertujuan mengembangkan sistem energi hybrid solar-wind yang dapat menyediakan listrik berkelanjutan untuk daerah terpencil di Indonesia. Sistem ini mengintegrasikan panel surya, turbin angin, baterai penyimpanan, dan sistem manajemen energi cerdas untuk memastikan supply listrik yang stabil sepanjang tahun.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Komponen Sistem:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Solar PV array dengan MPPT controller&lt;/li&gt;
+&lt;li&gt;Small wind turbine dengan pitch control&lt;/li&gt;
+&lt;li&gt;Battery energy storage system (BESS)&lt;/li&gt;
+&lt;li&gt;Smart energy management system&lt;/li&gt;
+&lt;li&gt;Monitoring dan data acquisition system&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Metodologi:&lt;/strong&gt; Pendekatan hybrid antara simulasi dan implementasi lapangan. Sistem akan diuji di 3 lokasi dengan kondisi geografis berbeda untuk memastikan adaptabilitas.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dampak:&lt;/strong&gt; Proyek ini akan menyediakan solusi energi bersih untuk 25% desa terpencil di Indonesia dan mengurangi ketergantungan pada generator diesel.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Prototype System:&lt;/strong&gt; 3 unit sistem hybrid solar-wind lengkap&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scientific Publications:&lt;/strong&gt; 8 paper di jurnal internasional Q2/Q3&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Paten Teknologi:&lt;/strong&gt; 2 paten untuk inovasi sistem hybrid&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Community Impact:&lt;/strong&gt; Elektrifikasi 500 rumah tangga&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Capacity Building:&lt;/strong&gt; Training 20 engineer lokal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Policy Input:&lt;/strong&gt; Rekomendasi kebijakan energi terbarukan&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Indonesia memiliki potensi energi terbarukan yang sangat besar namun belum dimanfaatkan optimal, terutama di daerah terpencil. Sistem hybrid solar-wind dapat memberikan solusi energi berkelanjutan yang ekonomis dan ramah lingkungan untuk mendukung pembangunan desa mandiri energi.&lt;/p&gt;</field>
+            <field name="project_website">https://renewable-energy-ptupt.kemdikbud.go.id</field>
+            <field name="audit_results">&lt;p&gt;Audit tahap pertama menunjukkan progress sesuai rencana. Pengadaan equipment telah selesai dan instalasi di lokasi pertama telah dimulai.&lt;/p&gt;</field>
+            <field name="teaser">Hibah PTUPT senilai Rp 1.2 miliar untuk pengembangan sistem energi hybrid solar-wind di daerah terpencil.</field>
+            <field name="slug">hibah-riset-energi-terbarukan-solar-wind</field>
+            <field name="meta_title">Hibah Riset Energi Terbarukan: Sistem Hybrid Solar-Wind | PTUPT Kemendikbud</field>
+            <field name="meta_description">Hibah PTUPT Rp 1.2 miliar untuk riset energi terbarukan. Pengembangan sistem hybrid solar-wind untuk elektrifikasi daerah terpencil. Target 500 rumah tangga dan 8 publikasi internasional.</field>
+            <field name="meta_keywords">renewable energy, solar-wind hybrid, off-grid electrification, sustainable energy, PTUPT, green energy, rural electrification</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-02-01</field>
         </record>
 
-        <record id="budget_line_quantum_2" model="hibah.budget.line">
+        <record id="hibah_sample_vaksin_covid" model="hibah.pendanaan.post">
+            <field name="name">Hibah Kolaborasi Internasional: Pengembangan Vaksin COVID-19 Generasi Kedua</field>
+            <field name="blog_id" ref="blog_hibah_internasional"/>
+            <field name="grant_number">COVID-VAX-2024-015</field>
+            <field name="grant_scheme">WHO COVID-19 Technology Access Pool</field>
+            <field name="research_area">Biomedis dan Vaksinologi</field>
+            <field name="research_focus">Kolaborasi internasional untuk pengembangan vaksin COVID-19 generasi kedua dengan teknologi mRNA dan protein subunit</field>
+            <field name="keywords">COVID-19 vaccine, mRNA technology, international collaboration, vaccine development, WHO C-TAP, biomedical research</field>
+            <field name="start_date">2024-01-15</field>
+            <field name="end_date">2026-12-31</field>
+            <field name="status">active</field>
+            <field name="funding_agency">World Health Organization (WHO) &amp; Kemenkes RI</field>
+            <field name="funding_source">COVID-19 Technology Access Pool Fund</field>
+            <field name="total_amount">2500000000</field>
+            <field name="disbursed_amount">750000000</field>
+            <field name="funding_year">2024-2026</field>
+            <field name="personnel_cost">800000000</field>
+            <field name="equipment_cost">1200000000</field>
+            <field name="material_cost">300000000</field>
+            <field name="travel_cost">150000000</field>
+            <field name="other_cost">50000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Hibah:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan vaksin COVID-19 generasi kedua dengan efikasi lebih tinggi&lt;/li&gt;
+&lt;li&gt;Memfasilitasi transfer teknologi vaksin dari negara maju ke Indonesia&lt;/li&gt;
+&lt;li&gt;Mendukung uji klinis fase 1-2 di Indonesia&lt;/li&gt;
+&lt;li&gt;Membiayai publikasi hasil riset di jurnal internasional&lt;/li&gt;
+&lt;li&gt;Mendukung capacity building di bidang vaksinologi&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Tim peneliti dengan expertise di virologi atau imunologi&lt;/li&gt;
+&lt;li&gt;Kolaborasi dengan lembaga internasional terkemuka&lt;/li&gt;
+&lt;li&gt;Akses ke fasilitas BSL-3 dan GMP&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Joint proposal dengan partner internasional&lt;/li&gt;
+&lt;li&gt;Detail transfer teknologi agreement&lt;/li&gt;
+&lt;li&gt;Rencana uji klinis dan regulatory pathway&lt;/li&gt;
+&lt;li&gt;IP sharing agreement&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2023-10-31</field>
+            <field name="reporting_requirements">&lt;p&gt;Laporan kemajuan bulanan untuk WHO dan Kemenkes. Wajib melaporkan safety data dari uji klinis secara real-time.&lt;/p&gt;</field>
+            <field name="contact_person">Dr. Maria Rodriguez</field>
+            <field name="contact_email">maria.rodriguez@who.int</field>
+            <field name="contact_phone">+41-22-791-2111</field>
+            <field name="terms_conditions">&lt;p&gt;Teknologi vaksin menjadi public good. Hasil riset wajib dibagikan melalui WHO C-TAP. Indonesia mendapat prioritas akses untuk produksi domestik.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Kolaborasi Internasional: Vaksin COVID-19 Generasi Kedua&lt;/h3&gt;
+&lt;p&gt;Proyek kolaborasi internasional ini bertujuan mengembangkan vaksin COVID-19 generasi kedua yang lebih efektif terhadap variant baru virus SARS-CoV-2. Menggunakan teknologi mRNA dan protein subunit yang telah terbukti, proyek ini akan meningkatkan efikasi vaksin dan mengurangi efek samping dibandingkan generasi pertama.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Teknologi Vaksin:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;mRNA vaccine dengan self-amplifying RNA&lt;/li&gt;
+&lt;li&gt;Protein subunit dengan adjuvant canggih&lt;/li&gt;
+&lt;li&gt;Multivalent antigen untuk multiple variants&lt;/li&gt;
+&lt;li&gt;Novel delivery system untuk mucosal immunity&lt;/li&gt;
+&lt;li&gt;AI-driven antigen design&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Kolaborasi Global:&lt;/strong&gt; Proyek ini melibatkan kolaborasi dengan lembaga riset dari AS, Eropa, dan Asia. Transfer teknologi akan dilakukan secara bertahap untuk membangun kapasitas produksi vaksin di Indonesia.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Clinical Development:&lt;/strong&gt; Uji klinis akan dilakukan di Indonesia dengan standar internasional. Proyek ini akan menghasilkan data safety dan efficacy yang komprehensif untuk regulatory approval.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vaccine Candidates:&lt;/strong&gt; 3 kandidat vaksin generasi kedua&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clinical Trials:&lt;/strong&gt; Phase 1-2 trials dengan 500+ subjek&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scientific Publications:&lt;/strong&gt; 15+ paper di jurnal top-tier&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technology Transfer:&lt;/strong&gt; Transfer mRNA production technology&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Regulatory Approval:&lt;/strong&gt; Emergency Use Authorization&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Capacity Building:&lt;/strong&gt; Training 50+ vaccine scientists&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Pandemi COVID-19 telah menunjukkan pentingnya kemandirian vaksin di tingkat nasional. Dengan munculnya variant baru virus, diperlukan vaksin generasi kedua yang lebih efektif. Kolaborasi internasional melalui WHO C-TAP memberikan kesempatan untuk transfer teknologi dan pengembangan kapasitas produksi vaksin di Indonesia.&lt;/p&gt;</field>
+            <field name="project_website">https://covid-vaccine-collaboration.who.int</field>
+            <field name="audit_results">&lt;p&gt;Audit internasional menunjukkan compliance dengan WHO standards. Pre-clinical data menunjukkan efikasi 85% terhadap variant Omicron.&lt;/p&gt;</field>
+            <field name="teaser">Hibah WHO senilai Rp 2.5 miliar untuk pengembangan vaksin COVID-19 generasi kedua dengan teknologi mRNA.</field>
+            <field name="slug">hibah-kolaborasi-vaksin-covid19-generasi-kedua</field>
+            <field name="meta_title">Hibah Kolaborasi Internasional: Vaksin COVID-19 Generasi Kedua | WHO C-TAP</field>
+            <field name="meta_description">Hibah WHO Rp 2.5 miliar untuk riset vaksin COVID-19 generasi kedua. Kolaborasi internasional, transfer teknologi mRNA, target EUA 2026.</field>
+            <field name="meta_keywords">COVID-19 vaccine, mRNA technology, international collaboration, vaccine development, WHO C-TAP, biomedical research, SARS-CoV-2</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-01-15</field>
+        </record>
+
+        <record id="hibah_sample_iot_smart_city" model="hibah.pendanaan.post">
+            <field name="name">Pendanaan Industri: Pengembangan IoT untuk Smart City Infrastructure</field>
+            <field name="blog_id" ref="blog_pendanaan_industri"/>
+            <field name="grant_number">IND-IOT-2024-022</field>
+            <field name="grant_scheme">Industry-Academia Partnership Program</field>
+            <field name="research_area">Internet of Things (IoT)</field>
+            <field name="research_focus">Pengembangan sistem IoT terintegrasi untuk smart city infrastructure dengan fokus pada traffic management dan environmental monitoring</field>
+            <field name="keywords">IoT smart city, traffic management, environmental monitoring, sensor networks, industry partnership, urban infrastructure</field>
+            <field name="start_date">2024-03-01</field>
+            <field name="end_date">2025-08-31</field>
+            <field name="status">active</field>
+            <field name="funding_agency">PT. Telkom Indonesia</field>
+            <field name="funding_source">Corporate R&amp;D Fund</field>
+            <field name="total_amount">950000000</field>
+            <field name="disbursed_amount">570000000</field>
+            <field name="funding_year">2024-2025</field>
+            <field name="personnel_cost">380000000</field>
+            <field name="equipment_cost">400000000</field>
+            <field name="material_cost">100000000</field>
+            <field name="travel_cost">50000000</field>
+            <field name="other_cost">20000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Pendanaan:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan platform IoT terintegrasi untuk smart city&lt;/li&gt;
+&lt;li&gt;Mengimplementasikan sistem di 2 kota pilot&lt;/li&gt;
+&lt;li&gt;Mendukung pengurangan congestion 25% di area pilot&lt;/li&gt;
+&lt;li&gt;Membiayai pengembangan 3 produk IoT komersial&lt;/li&gt;
+&lt;li&gt;Mendukung komersialisasi teknologi IoT lokal&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Tim dengan expertise di IoT dan embedded systems&lt;/li&gt;
+&lt;li&gt;Pengalaman implementasi IoT di skala kota&lt;/li&gt;
+&lt;li&gt;Komitmen untuk commercialization dan scaling&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Technical proposal dan system architecture&lt;/li&gt;
+&lt;li&gt;Pilot implementation plan&lt;/li&gt;
+&lt;li&gt;Business model dan go-to-market strategy&lt;/li&gt;
+&lt;li&gt;IP agreement draft&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2024-01-31</field>
+            <field name="reporting_requirements">&lt;p&gt;Monthly technical report dan quarterly business review. Wajib demonstrate working system di pilot site setiap 3 bulan.&lt;/p&gt;</field>
+            <field name="contact_person">Ir. Budi Santoso, M.T.</field>
+            <field name="contact_email">budi.santoso@telkom.co.id</field>
+            <field name="contact_phone">+62-21-1438-0000</field>
+            <field name="terms_conditions">&lt;p&gt;Intellectual property joint ownership. PT Telkom mendapat first right of refusal untuk commercialization. Project deliverables wajib scalable dan dapat direplikasi di kota lain.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Pendanaan Industri: IoT untuk Smart City Infrastructure&lt;/h3&gt;
+&lt;p&gt;Proyek kolaborasi industri-akademi ini bertujuan mengembangkan platform IoT terintegrasi untuk smart city infrastructure. Sistem ini akan mengintegrasikan sensor jaringan, edge computing, dan cloud platform untuk memberikan real-time insights yang mendukung pengambilan keputusan di kota cerdas.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Komponen Sistem IoT:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Traffic sensors dan smart traffic lights&lt;/li&gt;
+&lt;li&gt;Environmental monitoring (air quality, noise, weather)&lt;/li&gt;
+&lt;li&gt;Smart parking dan pedestrian flow sensors&lt;/li&gt;
+&lt;li&gt;Waste management dan energy monitoring&lt;/li&gt;
+&lt;li&gt;Edge computing gateways dan cloud platform&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI Integration:&lt;/strong&gt; Sistem menggunakan machine learning untuk predictive analytics, anomaly detection, dan automated decision making dalam traffic management dan environmental control.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scalability Design:&lt;/strong&gt; Platform dirancang modular sehingga dapat dengan mudah diadaptasi untuk berbagai ukuran kota dan kebutuhan spesifik.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Security &amp; Privacy:&lt;/strong&gt; Implementasi end-to-end encryption dan compliance dengan regulasi data privacy untuk data sensitif kota.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;IoT Platform:&lt;/strong&gt; Integrated smart city platform deployed di 2 kota&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Traffic Improvement:&lt;/strong&gt; 25% reduction in traffic congestion&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Commercial Products:&lt;/strong&gt; 3 IoT products launched in market&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Revenue Generation:&lt;/strong&gt; Rp 500 juta dari pilot implementation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Paten Teknologi:&lt;/strong&gt; 4 patent applications untuk IoT innovations&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Industry Partnership:&lt;/strong&gt; 5+ kota berminat untuk implementasi&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Urbanisasi yang pesat di Indonesia menuntut solusi smart city untuk mengatasi masalah transportasi, lingkungan, dan infrastruktur. Teknologi IoT dapat memberikan data real-time untuk pengambilan keputusan yang lebih baik, namun memerlukan integrasi sistem yang kompleks dan adaptasi dengan kondisi lokal.&lt;/p&gt;</field>
+            <field name="project_website">https://iot-smart-city.telkom.co.id</field>
+            <field name="audit_results">&lt;p&gt;Audit industri menunjukkan sistem berhasil diimplementasikan di kota pilot pertama dengan 15% improvement dalam traffic flow.&lt;/p&gt;</field>
+            <field name="teaser">Pendanaan industri senilai Rp 950 juta untuk pengembangan platform IoT smart city dengan PT Telkom.</field>
+            <field name="slug">pendanaan-industri-iot-smart-city</field>
+            <field name="meta_title">Pendanaan Industri: Pengembangan IoT untuk Smart City Infrastructure | PT Telkom</field>
+            <field name="meta_description">Riset kolaborasi industri Rp 950 juta dengan PT Telkom untuk IoT smart city platform. Traffic management, environmental monitoring, 25% congestion reduction.</field>
+            <field name="meta_keywords">IoT smart city, traffic management, environmental monitoring, sensor networks, industry partnership, urban infrastructure, edge computing</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-03-01</field>
+        </record>
+
+        <record id="hibah_sample_fintech_startup" model="hibah.pendanaan.post">
+            <field name="name">Hibah Inovasi Startup: Platform Fintech untuk Financial Inclusion di Daerah Rural</field>
+            <field name="blog_id" ref="blog_hibah_inovasi"/>
+            <field name="grant_number">STARTUP-FIN-2024-008</field>
+            <field name="grant_scheme">Program Inovasi Startup Teknologi Finansial</field>
+            <field name="research_area">Fintech dan Financial Technology</field>
+            <field name="research_focus">Pengembangan platform fintech yang menyediakan layanan keuangan terjangkau untuk masyarakat rural dengan integrasi AI dan mobile banking</field>
+            <field name="keywords">fintech startup, financial inclusion, rural banking, mobile payment, AI fintech, startup innovation, digital financial services</field>
+            <field name="start_date">2024-04-01</field>
+            <field name="end_date">2025-09-30</field>
+            <field name="status">active</field>
+            <field name="funding_agency">Bank Indonesia &amp; Kemenkominfo</field>
+            <field name="funding_source">Digital Innovation Fund</field>
+            <field name="total_amount">750000000</field>
+            <field name="disbursed_amount">300000000</field>
+            <field name="funding_year">2024-2025</field>
+            <field name="personnel_cost">300000000</field>
+            <field name="equipment_cost">250000000</field>
+            <field name="material_cost">100000000</field>
+            <field name="travel_cost">75000000</field>
+            <field name="other_cost">25000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Hibah:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan fintech platform untuk rural financial inclusion&lt;/li&gt;
+&lt;li&gt;Mencapai 50,000 active users di daerah rural&lt;/li&gt;
+&lt;li&gt;Mendukung transaksi Rp 50 miliar dalam 12 bulan&lt;/li&gt;
+&lt;li&gt;Membiayai partnership dengan 20+ bank daerah&lt;/li&gt;
+&lt;li&gt;Mendukung path menuju sustainability dan scaling&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Startup fintech dengan tim solid dan technical expertise&lt;/li&gt;
+&lt;li&gt;Memiliki MVP dan early traction&lt;/li&gt;
+&lt;li&gt;Komitmen untuk financial inclusion&lt;/li&gt;
+&lt;li&gt;Compliance dengan regulasi perbankan&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Business plan dan financial projections&lt;/li&gt;
+&lt;li&gt;Technical architecture dan security measures&lt;/li&gt;
+&lt;li&gt;Regulatory compliance plan&lt;/li&gt;
+&lt;li&gt;Partnership agreements draft&lt;/li&gt;
+&lt;li&gt;User acquisition strategy&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2024-02-28</field>
+            <field name="reporting_requirements">&lt;p&gt;Monthly metrics report (MAU, transaction volume, churn rate). Quarterly business review dengan Bank Indonesia. Wajib compliance audit setiap 6 bulan.&lt;/p&gt;</field>
+            <field name="contact_person">Dr. Ahmad Fauzi, M.Eng.</field>
+            <field name="contact_email">ahmad.fauzi@bi.go.id</field>
+            <field name="contact_phone">+62-21-1317-8888</field>
+            <field name="terms_conditions">&lt;p&gt;Platform wajib compliance dengan POJK fintech. Dana hibah non-dilutive. Startup wajib maintain operation di Indonesia minimal 5 tahun. Bank Indonesia berhak supervise dan evaluate impact.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Inovasi Startup: Platform Fintech untuk Financial Inclusion&lt;/h3&gt;
+&lt;p&gt;Program inkubasi startup fintech ini mendukung pengembangan platform digital yang memberikan akses layanan keuangan terjangkau untuk masyarakat rural Indonesia. Platform ini mengintegrasikan mobile banking, AI-driven credit scoring, dan payment solutions yang disesuaikan dengan kebutuhan dan kemampuan masyarakat pedesaan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fitur Platform Fintech:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mobile Banking:&lt;/strong&gt; Transfer, payment, dan savings dengan biaya rendah&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI Credit Scoring:&lt;/strong&gt; Alternative credit assessment untuk rural borrowers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Digital Payment:&lt;/strong&gt; QR payment dan offline-capable transactions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Financial Education:&lt;/strong&gt; Gamified learning untuk literasi keuangan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent Network:&lt;/strong&gt; Local agents untuk support dan onboarding&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Rural Focus:&lt;/strong&gt; Platform dirancang khusus untuk daerah dengan konektivitas terbatas, menggunakan SMS/USSD sebagai fallback dan offline-first architecture untuk transaksi penting.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Partnership Ecosystem:&lt;/strong&gt; Kolaborasi dengan bank daerah, BUMDes, dan fintech players untuk menciptakan ekosistem keuangan digital yang inklusif.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Regulatory Compliance:&lt;/strong&gt; Full compliance dengan regulasi Bank Indonesia dan OJK untuk memastikan keamanan dan kepercayaan pengguna.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Platform Launch:&lt;/strong&gt; Fintech platform dengan 50,000 active rural users&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transaction Volume:&lt;/strong&gt; Rp 50 miliar dalam transaksi digital&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Financial Inclusion:&lt;/strong&gt; 30,000 rural users mendapat akses layanan keuangan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Partnership Network:&lt;/strong&gt; 20+ bank daerah dan BUMDes partner&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Funding Achievement:&lt;/strong&gt; Series A funding Rp 10 miliar&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Social Impact:&lt;/strong&gt; Peningkatan financial literacy 40%&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technology Innovation:&lt;/strong&gt; 3 patent untuk AI fintech solutions&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Financial inclusion di Indonesia masih rendah, terutama di daerah rural dimana hanya 30% populasi memiliki akses ke layanan keuangan formal. Teknologi digital dapat menjembatani kesenjangan ini, namun memerlukan inovasi yang disesuaikan dengan kondisi infrastruktur dan budaya lokal.&lt;/p&gt;</field>
+            <field name="project_website">https://fintech-rural.bi.go.id</field>
+            <field name="audit_results">&lt;p&gt;Audit compliance menunjukkan platform memenuhi standar keamanan Bank Indonesia. Early user testing di 3 kabupaten menunjukkan adoption rate 65%.&lt;/p&gt;</field>
+            <field name="teaser">Hibah inovasi startup senilai Rp 750 juta untuk platform fintech financial inclusion di daerah rural.</field>
+            <field name="slug">hibah-startup-fintech-financial-inclusion</field>
+            <field name="meta_title">Hibah Inovasi Startup: Platform Fintech untuk Financial Inclusion | Bank Indonesia</field>
+            <field name="meta_description">Hibah startup fintech Rp 750 juta untuk financial inclusion rural. 50,000 users, Rp 50 miliar transaksi, partnership 20+ bank daerah.</field>
+            <field name="meta_keywords">fintech startup, financial inclusion, rural banking, mobile payment, AI fintech, startup innovation, digital financial services, Bank Indonesia</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-04-01</field>
+        </record>
+
+        <record id="hibah_sample_pengabdian_kesehatan" model="hibah.pendanaan.post">
+            <field name="name">Hibah Pengabdian: Program Kesehatan Jiwa di Komunitas Urban Miskin</field>
+            <field name="blog_id" ref="blog_hibah_pengabdian"/>
+            <field name="grant_number">PKM-KES-2024-034</field>
+            <field name="grant_scheme">Program Kemitraan Masyarakat Bidang Kesehatan</field>
+            <field name="research_area">Kesehatan Jiwa dan Masyarakat</field>
+            <field name="research_focus">Program pengabdian masyarakat untuk meningkatkan akses layanan kesehatan jiwa di komunitas urban miskin melalui pendekatan community-based mental health</field>
+            <field name="keywords">kesehatan jiwa, urban miskin, community mental health, pengabdian masyarakat, mental health services, PKM kesehatan</field>
+            <field name="start_date">2024-05-01</field>
+            <field name="end_date">2025-04-30</field>
+            <field name="status">active</field>
+            <field name="funding_agency">Kementerian Kesehatan RI</field>
+            <field name="funding_source">Dana Pengabdian Masyarakat Kesehatan</field>
+            <field name="total_amount">200000000</field>
+            <field name="disbursed_amount">120000000</field>
+            <field name="funding_year">2024-2025</field>
+            <field name="personnel_cost">80000000</field>
+            <field name="equipment_cost">50000000</field>
+            <field name="material_cost">40000000</field>
+            <field name="travel_cost">25000000</field>
+            <field name="other_cost">5000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Program:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mendanai layanan kesehatan jiwa untuk 500 keluarga urban miskin&lt;/li&gt;
+&lt;li&gt;Membangun 3 pusat kesehatan jiwa komunitas&lt;/li&gt;
+&lt;li&gt;Meningkatkan awareness kesehatan jiwa 40%&lt;/li&gt;
+&lt;li&gt;Melatih 50 kader kesehatan jiwa masyarakat&lt;/li&gt;
+&lt;li&gt;Membangun model sustainable community mental health&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Tim multidisiplin (psikolog, psikiater, pekerja sosial)&lt;/li&gt;
+&lt;li&gt;Pengalaman pengabdian kesehatan jiwa&lt;/li&gt;
+&lt;li&gt;Partnership dengan puskesmas dan komunitas&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Proposal pengabdian dengan baseline data kesehatan jiwa&lt;/li&gt;
+&lt;li&gt;Rencana intervensi dan monitoring&lt;/li&gt;
+&lt;li&gt;Partnership agreement dengan stakeholders&lt;/li&gt;
+&lt;li&gt;Ethical clearance untuk intervensi kesehatan&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2024-03-31</field>
+            <field name="reporting_requirements">&lt;p&gt;Laporan bulanan dengan data kuantitatif dan kualitatif. Wajib melaporkan adverse events dan ethical issues. Dokumentasi video dan foto kegiatan.&lt;/p&gt;</field>
+            <field name="contact_person">Dr. dr. Siti Nurjanah, Sp.KJ</field>
+            <field name="contact_email">siti.nurjanah@kemenkes.go.id</field>
+            <field name="contact_phone">+62-21-5290-6060</field>
+            <field name="terms_conditions">&lt;p&gt;Program wajib mengikuti standar etik kesehatan. Data pasien confidential. Hasil program wajib didiseminasikan dan direplikasi. Tim bertanggung jawab atas safety participants.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Pengabdian: Program Kesehatan Jiwa di Komunitas Urban Miskin&lt;/h3&gt;
+&lt;p&gt;Program pengabdian ini bertujuan meningkatkan akses layanan kesehatan jiwa bagi komunitas urban miskin yang sering terabaikan. Dengan pendekatan community-based mental health, program ini membangun kapasitas masyarakat untuk mengenali, mencegah, dan menangani masalah kesehatan jiwa secara dini dan tepat.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Komponen Program:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Community Screening:&lt;/strong&gt; Screening kesehatan jiwa massal dengan tools valid&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mental Health Centers:&lt;/strong&gt; 3 pusat layanan terintegrasi dengan puskesmas&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Capacity Building:&lt;/strong&gt; Training kader dan tenaga kesehatan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Psychosocial Support:&lt;/strong&gt; Group therapy dan peer support groups&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Awareness Campaign:&lt;/strong&gt; Media sosial dan komunitas education&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Target Populasi:&lt;/strong&gt; Program menargetkan 500 keluarga di 3 kelurahan urban miskin dengan fokus pada masalah kesehatan jiwa yang sering terjadi seperti depresi, anxiety, dan trauma akibat kemiskinan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pendekatan Multidisiplin:&lt;/strong&gt; Kolaborasi antara psikolog, psikiater, pekerja sosial, dan tenaga kesehatan masyarakat untuk memberikan layanan holistik.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sustainability Framework:&lt;/strong&gt; Program dirancang untuk berkelanjutan dengan pembentukan jaringan kader kesehatan jiwa dan integrasi dengan sistem kesehatan nasional.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Service Delivery:&lt;/strong&gt; 500 keluarga mendapat layanan kesehatan jiwa&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Community Centers:&lt;/strong&gt; 3 pusat kesehatan jiwa komunitas operational&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trained Cadres:&lt;/strong&gt; 50 kader kesehatan jiwa terlatih&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Awareness Increase:&lt;/strong&gt; 40% peningkatan awareness kesehatan jiwa&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Research Output:&lt;/strong&gt; 3 publikasi jurnal kesehatan masyarakat&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sustainable Model:&lt;/strong&gt; Model community mental health yang scalable&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Policy Input:&lt;/strong&gt; Rekomendasi kebijakan kesehatan jiwa urban&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Kesehatan jiwa merupakan masalah kesehatan masyarakat yang sering terabaikan, terutama di komunitas urban miskin dimana stigma sosial dan keterbatasan akses layanan kesehatan menjadi hambatan utama. Program pengabdian ini diperlukan untuk membangun model layanan kesehatan jiwa yang accessible dan sustainable di tingkat komunitas.&lt;/p&gt;</field>
+            <field name="project_website">https://pkm-kesehatan-jiwa.kemenkes.go.id</field>
+            <field name="audit_results">&lt;p&gt;Audit program menunjukkan 200 keluarga telah mendapat screening awal. Pusat kesehatan jiwa pertama telah beroperasi dengan 15 kader terlatih.&lt;/p&gt;</field>
+            <field name="teaser">Hibah pengabdian senilai Rp 200 juta untuk program kesehatan jiwa di komunitas urban miskin.</field>
+            <field name="slug">hibah-pengabdian-kesehatan-jiwa-urban-miskin</field>
+            <field name="meta_title">Hibah Pengabdian: Program Kesehatan Jiwa di Komunitas Urban Miskin | PKM Kesehatan</field>
+            <field name="meta_description">Program PKM kesehatan Rp 200 juta untuk kesehatan jiwa urban miskin. 500 keluarga, 3 pusat layanan, 50 kader terlatih, 40% awareness increase.</field>
+            <field name="meta_keywords">kesehatan jiwa, urban miskin, community mental health, pengabdian masyarakat, mental health services, PKM kesehatan, psychosocial support</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-05-01</field>
+        </record>
+
+        <record id="hibah_sample_pertanian_berkelanjutan" model="hibah.pendanaan.post">
+            <field name="name">Hibah Riset Pertanian Berkelanjutan: Smart Farming untuk Padi Organik</field>
+            <field name="blog_id" ref="blog_hibah_nasional"/>
+            <field name="grant_number">144/E5/PG.02.00.PT/2024</field>
+            <field name="grant_scheme">Penelitian Terapan Unggulan Pertanian</field>
+            <field name="research_area">Pertanian Berkelanjutan</field>
+            <field name="research_focus">Pengembangan sistem smart farming terintegrasi untuk budidaya padi organik dengan teknologi IoT dan AI untuk optimasi hasil panen</field>
+            <field name="keywords">smart farming, organic rice, IoT agriculture, sustainable agriculture, precision farming, AI crop monitoring, PTUPT pertanian</field>
+            <field name="start_date">2024-06-01</field>
+            <field name="end_date">2026-05-31</field>
+            <field name="status">active</field>
+            <field name="funding_agency">Kementerian Pertanian RI</field>
+            <field name="funding_source">Dana Riset Unggulan Pertanian</field>
+            <field name="total_amount">1100000000</field>
+            <field name="disbursed_amount">440000000</field>
+            <field name="funding_year">2024-2026</field>
+            <field name="personnel_cost">440000000</field>
+            <field name="equipment_cost">400000000</field>
+            <field name="material_cost">160000000</field>
+            <field name="travel_cost">80000000</field>
+            <field name="other_cost">20000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Hibah:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan sistem smart farming untuk padi organik&lt;/li&gt;
+&lt;li&gt;Meningkatkan produktivitas padi organik 25%&lt;/li&gt;
+&lt;li&gt;Mengimplementasikan di 10 desa pilot&lt;/li&gt;
+&lt;li&gt;Membiayai publikasi 6 paper internasional&lt;/li&gt;
+&lt;li&gt;Mendukung adopsi teknologi smart farming nasional&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Tim peneliti dengan background agronomi atau teknologi pertanian&lt;/li&gt;
+&lt;li&gt;Pengalaman riset pertanian terapan&lt;/li&gt;
+&lt;li&gt;Partnership dengan petani dan kelompok tani&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Proposal riset dengan metodologi jelas&lt;/li&gt;
+&lt;li&gt;Rencana implementasi lapangan&lt;/li&gt;
+&lt;li&gt;Partnership agreement dengan kelompok tani&lt;/li&gt;
+&lt;li&gt;Baseline data pertanian di lokasi pilot&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2024-04-30</field>
+            <field name="reporting_requirements">&lt;p&gt;Laporan kemajuan triwulanan dengan data agronomis dan teknis. Wajib melaporkan hasil panen dan feedback petani.&lt;/p&gt;</field>
+            <field name="contact_person">Dr. Ir. Ahmad Yani, M.Si.</field>
+            <field name="contact_email">ahmad.yani@pertanian.go.id</field>
+            <field name="contact_phone">+62-21-780-6200</field>
+            <field name="terms_conditions">&lt;p&gt;Hasil riset wajib didiseminasikan ke petani. Teknologi harus affordable dan sustainable. Tim bertanggung jawab atas safety dan environmental impact.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Riset Pertanian Berkelanjutan: Smart Farming untuk Padi Organik&lt;/h3&gt;
+&lt;p&gt;Proyek riset ini bertujuan mengembangkan sistem smart farming terintegrasi untuk budidaya padi organik yang berkelanjutan. Dengan mengintegrasikan teknologi IoT, AI, dan sensor canggih, sistem ini akan memberikan rekomendasi presisi untuk optimasi irigasi, pemupukan, dan pengendalian hama secara real-time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Teknologi Smart Farming:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Soil moisture dan nutrient sensors&lt;/li&gt;
+&lt;li&gt;Weather stations dan climate monitoring&lt;/li&gt;
+&lt;li&gt;Drone-based crop monitoring&lt;/li&gt;
+&lt;li&gt;AI-powered pest dan disease detection&lt;/li&gt;
+&lt;li&gt;Automated irrigation systems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Organic Farming Focus:&lt;/strong&gt; Sistem dirancang khusus untuk pertanian organik dengan rekomendasi pemupukan organik, pengendalian hama alami, dan monitoring kualitas tanah berkelanjutan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AI Integration:&lt;/strong&gt; Machine learning algorithms untuk predictive analytics, yield prediction, dan automated decision support untuk petani.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pilot Implementation:&lt;/strong&gt; Implementasi di 10 desa dengan berbagai agroekosistem untuk memastikan adaptabilitas teknologi.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Smart Farming System:&lt;/strong&gt; Platform IoT terintegrasi untuk padi organik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Yield Improvement:&lt;/strong&gt; 25% peningkatan produktivitas padi organik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scientific Publications:&lt;/strong&gt; 6 paper di jurnal pertanian internasional&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Farmer Adoption:&lt;/strong&gt; 200 petani mengadopsi teknologi smart farming&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technology Transfer:&lt;/strong&gt; Training 50 extension workers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sustainable Practices:&lt;/strong&gt; Model pertanian organik berkelanjutan&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Pertanian organik memiliki potensi besar untuk meningkatkan nilai tambah produk pertanian Indonesia, namun produktivitasnya masih rendah karena keterbatasan teknologi. Smart farming dapat menjembatani kesenjangan ini dengan memberikan data presisi dan rekomendasi yang akurat untuk optimasi budidaya.&lt;/p&gt;</field>
+            <field name="project_website">https://smart-farming-organic.pertanian.go.id</field>
+            <field name="audit_results">&lt;p&gt;Audit lapangan menunjukkan implementasi sistem di 3 desa pilot dengan hasil awal yang menjanjikan. Sensor network beroperasi dengan 95% uptime.&lt;/p&gt;</field>
+            <field name="teaser">Hibah riset pertanian senilai Rp 1.1 miliar untuk smart farming padi organik dengan IoT dan AI.</field>
+            <field name="slug">hibah-riset-pertanian-smart-farming-padi-organik</field>
+            <field name="meta_title">Hibah Riset Pertanian Berkelanjutan: Smart Farming untuk Padi Organik | Kementan</field>
+            <field name="meta_description">Hibah riset pertanian Rp 1.1 miliar untuk smart farming padi organik. IoT, AI, 25% yield increase, 10 desa pilot, 6 publikasi internasional.</field>
+            <field name="meta_keywords">smart farming, organic rice, IoT agriculture, sustainable agriculture, precision farming, AI crop monitoring, PTUPT pertanian</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-06-01</field>
+        </record>
+
+        <record id="hibah_sample_blockchain_kolaborasi" model="hibah.pendanaan.post">
+            <field name="name">Hibah Kolaborasi Blockchain: Digital Certificate Platform untuk Pendidikan Tinggi</field>
+            <field name="blog_id" ref="blog_hibah_internasional"/>
+            <field name="grant_number">BLOCK-EDU-2024-017</field>
+            <field name="grant_scheme">Blockchain for Social Good Initiative</field>
+            <field name="research_area">Blockchain dan Digital Credentials</field>
+            <field name="research_focus">Kolaborasi internasional untuk pengembangan platform blockchain-based digital certificate untuk sistem pendidikan tinggi Indonesia</field>
+            <field name="keywords">blockchain education, digital certificates, credential verification, international collaboration, blockchain social good, higher education technology</field>
+            <field name="start_date">2024-07-01</field>
+            <field name="end_date">2026-06-30</field>
+            <field name="status">active</field>
+            <field name="funding_agency">World Bank &amp; Kemdikbudristek</field>
+            <field name="funding_source">Blockchain Innovation Fund</field>
+            <field name="total_amount">1800000000</field>
+            <field name="disbursed_amount">540000000</field>
+            <field name="funding_year">2024-2026</field>
+            <field name="personnel_cost">720000000</field>
+            <field name="equipment_cost">600000000</field>
+            <field name="material_cost">300000000</field>
+            <field name="travel_cost">150000000</field>
+            <field name="other_cost">30000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Hibah:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan platform blockchain untuk digital certificates&lt;/li&gt;
+&lt;li&gt;Mengintegrasikan dengan 50 universitas Indonesia&lt;/li&gt;
+&lt;li&gt;Mendukung verifikasi ijazah internasional&lt;/li&gt;
+&lt;li&gt;Membiayai 10+ publikasi dan conference papers&lt;/li&gt;
+&lt;li&gt;Mendukung adopsi blockchain di sektor pendidikan&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Tim multidisiplin (blockchain, education, cybersecurity)&lt;/li&gt;
+&lt;li&gt;Kolaborasi dengan universitas internasional&lt;/li&gt;
+&lt;li&gt;Pengalaman blockchain implementation&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Technical proposal blockchain architecture&lt;/li&gt;
+&lt;li&gt;Integration plan dengan sistem existing&lt;/li&gt;
+&lt;li&gt;Security dan privacy framework&lt;/li&gt;
+&lt;li&gt;International collaboration agreement&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2024-05-31</field>
+            <field name="reporting_requirements">&lt;p&gt;Laporan teknis bulanan dan progress report triwulanan. Wajib security audit setiap 6 bulan dan compliance dengan data protection regulations.&lt;/p&gt;</field>
+            <field name="contact_person">Dr. Maria Sanchez</field>
+            <field name="contact_email">maria.sanchez@worldbank.org</field>
+            <field name="contact_phone">+1-202-473-1000</field>
+            <field name="terms_conditions">&lt;p&gt;Platform open-source dan interoperable. Data privacy compliance dengan GDPR dan UU PDP. Intellectual property untuk public good. Mandatory knowledge sharing dengan developing countries.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Kolaborasi Blockchain: Digital Certificate Platform untuk Pendidikan Tinggi&lt;/h3&gt;
+&lt;p&gt;Proyek kolaborasi internasional ini bertujuan mengembangkan platform blockchain untuk digital certificates yang aman, verifiable, dan interoperable untuk sistem pendidikan tinggi Indonesia. Platform ini akan mengatasi masalah pemalsuan ijazah dan memfasilitasi verifikasi kredensial pendidikan secara global.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Blockchain Architecture:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Distributed ledger untuk certificate storage&lt;/li&gt;
+&lt;li&gt;Smart contracts untuk automated verification&lt;/li&gt;
+&lt;li&gt;Decentralized identity management&lt;/li&gt;
+&lt;li&gt;Interoperable standards (W3C Verifiable Credentials)&lt;/li&gt;
+&lt;li&gt;Zero-knowledge proofs untuk privacy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Education Integration:&lt;/strong&gt; Platform terintegrasi dengan sistem informasi universitas untuk automated certificate issuance dan real-time verification oleh employers dan institutions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;International Collaboration:&lt;/strong&gt; Partnership dengan MIT, University of Edinburgh, dan universitas di Asia Tenggara untuk interoperability global.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Security &amp; Privacy:&lt;/strong&gt; Implementasi advanced cryptography dan compliance dengan international data protection standards.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Blockchain Platform:&lt;/strong&gt; Digital certificate platform untuk 50 universitas&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Certificate Issuance:&lt;/strong&gt; 100,000+ digital certificates issued&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;International Verification:&lt;/strong&gt; Real-time verification oleh 200+ institutions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Research Publications:&lt;/strong&gt; 10+ papers di blockchain dan education journals&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Global Standards:&lt;/strong&gt; Kontribusi pada W3C verifiable credentials standards&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Capacity Building:&lt;/strong&gt; Training 100+ IT staff universitas&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Sistem kredensial pendidikan saat ini rentan terhadap pemalsuan dan verifikasi yang sulit, terutama dalam konteks global. Blockchain technology menawarkan solusi untuk kredensial digital yang aman, immutable, dan easily verifiable, namun memerlukan kolaborasi internasional untuk standardisasi dan interoperability.&lt;/p&gt;</field>
+            <field name="project_website">https://blockchain-education.worldbank.org</field>
+            <field name="audit_results">&lt;p&gt;Security audit menunjukkan platform memenuhi enterprise-grade security standards. Pilot implementation di 5 universitas berhasil dengan 98% uptime.&lt;/p&gt;</field>
+            <field name="teaser">Hibah kolaborasi World Bank senilai Rp 1.8 miliar untuk platform blockchain digital certificates pendidikan tinggi.</field>
+            <field name="slug">hibah-kolaborasi-blockchain-digital-certificates</field>
+            <field name="meta_title">Hibah Kolaborasi Blockchain: Digital Certificate Platform untuk Pendidikan Tinggi | World Bank</field>
+            <field name="meta_description">Hibah blockchain Rp 1.8 miliar dengan World Bank untuk digital certificates. 50 universitas, 100,000 certificates, international verification, W3C standards.</field>
+            <field name="meta_keywords">blockchain education, digital certificates, credential verification, international collaboration, blockchain social good, higher education technology</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-07-01</field>
+        </record>
+
+        <record id="hibah_sample_material_maju" model="hibah.pendanaan.post">
+            <field name="name">Pendanaan Industri: Pengembangan Material Maju untuk Battery Lithium-Ion</field>
+            <field name="blog_id" ref="blog_pendanaan_industri"/>
+            <field name="grant_number">IND-MAT-2024-045</field>
+            <field name="grant_scheme">Advanced Materials Industry Partnership</field>
+            <field name="research_area">Material Science dan Battery Technology</field>
+            <field name="research_focus">Pengembangan material anode berbasis silikon untuk battery lithium-ion dengan performa tinggi dan biaya rendah</field>
+            <field name="keywords">advanced materials, lithium-ion battery, silicon anode, battery technology, material science, industry partnership, energy storage</field>
+            <field name="start_date">2024-08-01</field>
+            <field name="end_date">2026-01-31</field>
+            <field name="status">active</field>
+            <field name="funding_agency">PT. LG Energy Solution Indonesia</field>
+            <field name="funding_source">Battery Technology Development Fund</field>
+            <field name="total_amount">2200000000</field>
+            <field name="disbursed_amount">880000000</field>
+            <field name="funding_year">2024-2026</field>
+            <field name="personnel_cost">880000000</field>
+            <field name="equipment_cost">1000000000</field>
+            <field name="material_cost">220000000</field>
+            <field name="travel_cost">80000000</field>
+            <field name="other_cost">20000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Pendanaan:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan material anode silikon high-performance&lt;/li&gt;
+&lt;li&gt;Meningkatkan energy density battery 30%&lt;/li&gt;
+&lt;li&gt;Mengurangi production cost 20%&lt;/li&gt;
+&lt;li&gt;Membiayai 5 patent applications&lt;/li&gt;
+&lt;li&gt;Mendukung komersialisasi battery Indonesia&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Tim material scientist dengan battery expertise&lt;/li&gt;
+&lt;li&gt;Fasilitas lab material science dan battery testing&lt;/li&gt;
+&lt;li&gt;Track record dalam material development&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Technical proposal material development&lt;/li&gt;
+&lt;li&gt;Battery performance targets dan roadmap&lt;/li&gt;
+&lt;li&gt;IP strategy dan commercialization plan&lt;/li&gt;
+&lt;li&gt;Material safety data dan environmental impact&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2024-06-30</field>
+            <field name="reporting_requirements">&lt;p&gt;Monthly technical progress dan quarterly business review. Wajib demonstrate battery prototype setiap 6 bulan dengan performance metrics.&lt;/p&gt;</field>
+            <field name="contact_person">Dr. Kim Jae-hoon, Ph.D.</field>
+            <field name="contact_email">jaehoon.kim@lgensol.co.id</field>
+            <field name="contact_phone">+62-21-5080-1000</field>
+            <field name="terms_conditions">&lt;p&gt;Intellectual property joint ownership dengan revenue sharing. Technology transfer ke Indonesia mandatory. Environmental compliance dan safety standards wajib dipenuhi.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Pendanaan Industri: Material Maju untuk Battery Lithium-Ion&lt;/h3&gt;
+&lt;p&gt;Proyek kolaborasi industri-akademi ini bertujuan mengembangkan material anode berbasis silikon untuk battery lithium-ion generasi berikutnya. Material ini akan memberikan energy density yang lebih tinggi, cycle life yang lebih panjang, dan biaya produksi yang lebih kompetitif dibandingkan material grafit konvensional.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Material Innovation:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Silicon-carbon composite anode materials&lt;/li&gt;
+&lt;li&gt;Nanostructured silicon dengan enhanced stability&lt;/li&gt;
+&lt;li&gt;Advanced binders untuk cycle life improvement&lt;/li&gt;
+&lt;li&gt;Surface coating technology untuk SEI layer optimization&lt;/li&gt;
+&lt;li&gt;Scalable synthesis methods untuk mass production&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Battery Performance Targets:&lt;/strong&gt; Energy density &gt; 400 Wh/kg, cycle life &gt; 1000 cycles, cost reduction 20%, fast charging capability (&lt; 30 minutes).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Research Methodology:&lt;/strong&gt; Kombinasi computational modeling, material synthesis, electrochemical testing, dan battery prototyping dengan scale-up ke pilot production.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sustainability Focus:&lt;/strong&gt; Material menggunakan silikon lokal dan proses produksi ramah lingkungan dengan minimal waste generation.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Advanced Materials:&lt;/strong&gt; 3 kandidat material anode silikon high-performance&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Battery Prototypes:&lt;/strong&gt; 50+ prototype cells dengan performance validation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Performance Improvement:&lt;/strong&gt; 30% energy density increase, 20% cost reduction&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Intellectual Property:&lt;/strong&gt; 5 patent applications untuk material innovations&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technology Transfer:&lt;/strong&gt; Transfer production technology ke PT LG Indonesia&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Industry Impact:&lt;/strong&gt; Kontribusi pada battery manufacturing Indonesia&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Battery lithium-ion merupakan komponen kunci untuk transisi energi terbarukan dan elektrifikasi transportasi. Material anode berbasis silikon menawarkan kapasitas teoritis 10x lebih tinggi dari grafit, namun menghadapi tantangan stabilitas dan cost. Pengembangan material ini penting untuk meningkatkan kompetitivitas industri battery Indonesia.&lt;/p&gt;</field>
+            <field name="project_website">https://advanced-materials-battery.lgensol.co.id</field>
+            <field name="audit_results">&lt;p&gt;Technical audit menunjukkan material prototype mencapai 85% dari target energy density. Safety testing sesuai UN transportation regulations.&lt;/p&gt;</field>
+            <field name="teaser">Pendanaan industri senilai Rp 2.2 miliar untuk pengembangan material anode silikon battery lithium-ion.</field>
+            <field name="slug">pendanaan-industri-material-maju-battery-lithium</field>
+            <field name="meta_title">Pendanaan Industri: Pengembangan Material Maju untuk Battery Lithium-Ion | PT LG</field>
+            <field name="meta_description">Riset material maju Rp 2.2 miliar dengan PT LG untuk battery anode silikon. 30% energy density increase, 20% cost reduction, 5 patents, technology transfer.</field>
+            <field name="meta_keywords">advanced materials, lithium-ion battery, silicon anode, battery technology, material science, industry partnership, energy storage</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-08-01</field>
+        </record>
+
+        <record id="hibah_sample_edutech_inovasi" model="hibah.pendanaan.post">
+            <field name="name">Hibah Inovasi EdTech: Platform VR untuk Pembelajaran STEM Interaktif</field>
+            <field name="blog_id" ref="blog_hibah_inovasi"/>
+            <field name="grant_number">EDUTECH-VR-2024-023</field>
+            <field name="grant_scheme">Digital Education Innovation Grant</field>
+            <field name="research_area">Education Technology dan Virtual Reality</field>
+            <field name="research_focus">Pengembangan platform VR untuk pembelajaran STEM interaktif dengan fokus pada fisika dan kimia untuk siswa SMA</field>
+            <field name="keywords">VR education, STEM learning, interactive education, virtual reality, edtech innovation, physics chemistry education, immersive learning</field>
+            <field name="start_date">2024-09-01</field>
+            <field name="end_date">2025-08-31</field>
+            <field name="status">active</field>
+            <field name="funding_agency">Kementerian Kominfo &amp; Kemdikbudristek</field>
+            <field name="funding_source">Digital Innovation for Education Fund</field>
+            <field name="total_amount">900000000</field>
+            <field name="disbursed_amount">360000000</field>
+            <field name="funding_year">2024-2025</field>
+            <field name="personnel_cost">360000000</field>
+            <field name="equipment_cost">360000000</field>
+            <field name="material_cost">120000000</field>
+            <field name="travel_cost">45000000</field>
+            <field name="other_cost">15000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Hibah:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Mengembangkan platform VR untuk pembelajaran STEM&lt;/li&gt;
+&lt;li&gt;Mencapai 10,000 siswa menggunakan platform&lt;/li&gt;
+&lt;li&gt;Meningkatkan understanding konsep STEM 35%&lt;/li&gt;
+&lt;li&gt;Membiayai partnership dengan 50 sekolah&lt;/li&gt;
+&lt;li&gt;Mendukung digitalisasi pendidikan STEM&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Tim edtech dengan expertise VR dan content development&lt;/li&gt;
+&lt;li&gt;Pengalaman pendidikan STEM&lt;/li&gt;
+&lt;li&gt;Partnership dengan sekolah dan guru&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Technical proposal VR platform&lt;/li&gt;
+&lt;li&gt;Curriculum alignment plan&lt;/li&gt;
+&lt;li&gt;Learning outcome assessment framework&lt;/li&gt;
+&lt;li&gt;Scalability dan sustainability plan&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2024-07-31</field>
+            <field name="reporting_requirements">&lt;p&gt;Monthly user metrics dan quarterly learning outcome assessment. Wajib demonstrate platform functionality dan student engagement data.&lt;/p&gt;</field>
+            <field name="contact_person">Dr. Nina Karlina, M.Pd.</field>
+            <field name="contact_email">nina.karlina@kominfo.go.id</field>
+            <field name="contact_phone">+62-21-384-3700</field>
+            <field name="terms_conditions">&lt;p&gt;Platform open-source untuk educational purposes. Content harus sesuai kurikulum nasional. Privacy protection untuk data siswa wajib. Mandatory evaluation oleh Kemendikbudristek.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Inovasi EdTech: Platform VR untuk Pembelajaran STEM Interaktif&lt;/h3&gt;
+&lt;p&gt;Program inovasi edtech ini mengembangkan platform virtual reality untuk pembelajaran STEM yang interaktif dan imersif. Siswa dapat melakukan eksperimen virtual di laboratorium fisika dan kimia, eksplorasi molekul, dan simulasi fenomena alam secara real-time dengan pengalaman 3D yang mendalam.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VR Learning Modules:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Physics Lab VR:&lt;/strong&gt; Eksperimen mekanika, optik, listrik, dan magnet&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chemistry Lab VR:&lt;/strong&gt; Reaksi kimia, struktur molekul, dan analisis spektroskopi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interactive Simulations:&lt;/strong&gt; Big Bang, plate tectonics, dan quantum physics&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gamified Learning:&lt;/strong&gt; Achievement system dan collaborative experiments&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Teacher Dashboard:&lt;/strong&gt; Progress tracking dan assessment tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Accessibility Features:&lt;/strong&gt; Platform mendukung mobile VR (Cardboard), standalone VR headsets, dan PC-based VR untuk berbagai tingkat budget sekolah.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Curriculum Integration:&lt;/strong&gt; Content disesuaikan dengan kurikulum 2013 dan memiliki learning analytics untuk personalized learning paths.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Impact Measurement:&lt;/strong&gt; Pre-post assessment untuk mengukur improvement dalam conceptual understanding dan student engagement.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;VR Platform:&lt;/strong&gt; Complete STEM learning platform dengan 20+ interactive modules&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User Adoption:&lt;/strong&gt; 10,000 siswa SMA menggunakan platform&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Learning Improvement:&lt;/strong&gt; 35% increase dalam STEM conceptual understanding&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;School Partnership:&lt;/strong&gt; 50 sekolah mengintegrasikan VR learning&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Content Library:&lt;/strong&gt; 100+ VR learning experiences&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Teacher Training:&lt;/strong&gt; 200 guru terlatih VR teaching methods&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Pendidikan STEM di Indonesia menghadapi tantangan keterbatasan fasilitas laboratorium dan pengalaman hands-on. Teknologi VR menawarkan solusi untuk memberikan pengalaman belajar yang imersif dan interaktif tanpa batasan fisik, namun memerlukan konten yang sesuai kurikulum dan terukur efektivitasnya.&lt;/p&gt;</field>
+            <field name="project_website">https://vr-stem-edtech.kominfo.go.id</field>
+            <field name="audit_results">&lt;p&gt;Platform testing di 10 sekolah pilot menunjukkan 40% increase dalam student engagement. Technical performance stable dengan 99% uptime.&lt;/p&gt;</field>
+            <field name="teaser">Hibah inovasi edtech senilai Rp 900 juta untuk platform VR pembelajaran STEM interaktif.</field>
+            <field name="slug">hibah-inovasi-edtech-vr-stem-learning</field>
+            <field name="meta_title">Hibah Inovasi EdTech: Platform VR untuk Pembelajaran STEM Interaktif | Kominfo</field>
+            <field name="meta_description">Hibah edtech Rp 900 juta untuk VR STEM learning platform. 10,000 students, 35% learning improvement, 50 schools, interactive physics chemistry labs.</field>
+            <field name="meta_keywords">VR education, STEM learning, interactive education, virtual reality, edtech innovation, physics chemistry education, immersive learning</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-09-01</field>
+        </record>
+
+        <record id="hibah_sample_lingkungan_pengabdian" model="hibah.pendanaan.post">
+            <field name="name">Hibah Pengabdian Lingkungan: Restorasi Mangrove untuk Mitigasi Bencana Pesisir</field>
+            <field name="blog_id" ref="blog_hibah_pengabdian"/>
+            <field name="grant_number">PKM-LING-2024-056</field>
+            <field name="grant_scheme">Program Pengabdian Lingkungan dan Mitigasi Bencana</field>
+            <field name="research_area">Konservasi Lingkungan dan Mitigasi Bencana</field>
+            <field name="research_focus">Program pengabdian masyarakat untuk restorasi ekosistem mangrove di pesisir utara Jawa sebagai mitigasi bencana abrasi dan tsunami</field>
+            <field name="keywords">mangrove restoration, coastal disaster mitigation, environmental conservation, community engagement, PKM lingkungan, disaster risk reduction</field>
+            <field name="start_date">2024-10-01</field>
+            <field name="end_date">2025-09-30</field>
+            <field name="status">active</field>
+            <field name="funding_agency">Kementerian Lingkungan Hidup dan Kehutanan</field>
+            <field name="funding_source">Dana Pengabdian Lingkungan</field>
+            <field name="total_amount">250000000</field>
+            <field name="disbursed_amount">100000000</field>
+            <field name="funding_year">2024-2025</field>
+            <field name="personnel_cost">75000000</field>
+            <field name="equipment_cost">75000000</field>
+            <field name="material_cost">75000000</field>
+            <field name="travel_cost">20000000</field>
+            <field name="other_cost">5000000</field>
+            <field name="overhead_percentage">10</field>
+            <field name="objectives">&lt;h5&gt;Tujuan Program:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Merestorasi 10 hektar ekosistem mangrove&lt;/li&gt;
+&lt;li&gt;Mengurangi risiko abrasi pantai 30%&lt;/li&gt;
+&lt;li&gt;Meningkatkan kesadaran masyarakat 2000 orang&lt;/li&gt;
+&lt;li&gt;Membangun model community-based conservation&lt;/li&gt;
+&lt;li&gt;Mendukung kebijakan konservasi mangrove nasional&lt;/li&gt;
+&lt;/ol&gt;</field>
+            <field name="eligibility_criteria">&lt;ul&gt;
+&lt;li&gt;Tim multidisiplin (biologi, lingkungan, sosial)&lt;/li&gt;
+&lt;li&gt;Pengalaman konservasi mangrove&lt;/li&gt;
+&lt;li&gt;Partnership dengan masyarakat pesisir&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_requirements">&lt;ul&gt;
+&lt;li&gt;Proposal restorasi dengan baseline data ekosistem&lt;/li&gt;
+&lt;li&gt;Community engagement plan&lt;/li&gt;
+&lt;li&gt;Monitoring dan evaluation framework&lt;/li&gt;
+&lt;li&gt;Sustainability plan pasca-program&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="application_deadline">2024-08-31</field>
+            <field name="reporting_requirements">&lt;p&gt;Laporan bulanan dengan data ekosistem dan sosial. Wajib dokumentasi foto/video dan baseline-endline assessment. Community feedback collection mandatory.&lt;/p&gt;</field>
+            <field name="contact_person">Dr. Ir. Bambang Hero Saharjo, M.S.</field>
+            <field name="contact_email">bambang.saharjo@klhk.go.id</field>
+            <field name="contact_phone">+62-21-573-0145</field>
+            <field name="terms_conditions">&lt;p&gt;Program wajib melibatkan masyarakat lokal sebagai stakeholders utama. Restorasi menggunakan species mangrove native. Monitoring jangka panjang wajib dilakukan. Hasil program untuk public dissemination.&lt;/p&gt;</field>
+            <field name="description">&lt;h3&gt;Hibah Pengabdian Lingkungan: Restorasi Mangrove untuk Mitigasi Bencana Pesisir&lt;/h3&gt;
+&lt;p&gt;Program pengabdian ini bertujuan merestorasi ekosistem mangrove di pesisir utara Jawa yang telah rusak akibat konversi lahan dan abrasi pantai. Melalui pendekatan community-based conservation, program ini tidak hanya memulihkan ekosistem tetapi juga membangun kapasitas masyarakat dalam pengelolaan sumber daya pesisir berkelanjutan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Restorasi Activities:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mangrove Planting:&lt;/strong&gt; Penanaman 50,000 bibit mangrove species native&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Habitat Rehabilitation:&lt;/strong&gt; Pembersihan sampah dan sedimentasi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Community Nursery:&lt;/strong&gt; Pembangunan pembibitan mangrove oleh masyarakat&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Monitoring System:&lt;/strong&gt; Tracking pertumbuhan dan kesehatan mangrove&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Alternative Livelihood:&lt;/strong&gt; Pengembangan ekowisata mangrove&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Disaster Mitigation:&lt;/strong&gt; Mangrove sebagai natural barrier untuk mengurangi dampak abrasi, tsunami, dan storm surge. Program mengintegrasikan aspek konservasi dengan disaster risk reduction.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Community Empowerment:&lt;/strong&gt; Capacity building untuk 200 nelayan dan masyarakat pesisir dalam pengelolaan mangrove dan pengembangan ekonomi biru.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sustainability Framework:&lt;/strong&gt; Pembentukan kelompok pengelola mangrove mandiri dengan dukungan kebijakan dari pemerintah daerah.&lt;/p&gt;</field>
+            <field name="expected_outcomes">&lt;h4&gt;Luaran yang Diharapkan:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mangrove Restoration:&lt;/strong&gt; 10 hektar mangrove direstorasi dengan survival rate &gt; 70%&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Disaster Risk Reduction:&lt;/strong&gt; 30% pengurangan risiko abrasi di area pilot&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Community Awareness:&lt;/strong&gt; 2,000 orang teredukasi konservasi mangrove&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Economic Benefits:&lt;/strong&gt; Pendapatan masyarakat dari ekowisata Rp 50 juta/tahun&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sustainable Model:&lt;/strong&gt; 3 kelompok pengelola mangrove mandiri&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Policy Input:&lt;/strong&gt; Rekomendasi kebijakan konservasi mangrove&lt;/li&gt;
+&lt;/ul&gt;</field>
+            <field name="background">&lt;p&gt;Ekosistem mangrove di Indonesia telah mengalami penurunan drastis akibat konversi lahan untuk tambak dan infrastruktur. Mangrove memiliki peran penting dalam mitigasi bencana pesisir dan konservasi biodiversitas. Program pengabdian ini diperlukan untuk membangun model restorasi yang efektif dan berkelanjutan.&lt;/p&gt;</field>
+            <field name="project_website">https://pkm-mangrove.klhk.go.id</field>
+            <field name="audit_results">&lt;p&gt;Audit lapangan menunjukkan penanaman 15,000 bibit dengan survival rate 85%. Community engagement mencapai 500 orang dalam 2 bulan pertama.&lt;/p&gt;</field>
+            <field name="teaser">Hibah pengabdian lingkungan senilai Rp 250 juta untuk restorasi mangrove mitigasi bencana pesisir.</field>
+            <field name="slug">hibah-pengabdian-lingkungan-restorasi-mangrove</field>
+            <field name="meta_title">Hibah Pengabdian Lingkungan: Restorasi Mangrove untuk Mitigasi Bencana Pesisir | KLHK</field>
+            <field name="meta_description">Program PKM lingkungan Rp 250 juta untuk restorasi mangrove. 10 hektar, 30% abrasi reduction, 2,000 awareness, community-based conservation.</field>
+            <field name="meta_keywords">mangrove restoration, coastal disaster mitigation, environmental conservation, community engagement, PKM lingkungan, disaster risk reduction</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="date">2024-10-01</field>
+        </record>
+
+        <!-- Budget Lines for Hibah Records -->
+        <!-- Budget Lines for hibah_sample_penelitian_fundamental -->
+        <record id="budget_line_fundamental_personnel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
-            <field name="sequence">2</field>
-            <field name="category">Peralatan</field>
-            <field name="description">Komputer high-end, akses quantum simulator, dan software lisensi</field>
+            <field name="category">Personnel</field>
+            <field name="description">Research personnel salaries and stipends for quantum computing project</field>
+            <field name="amount">380000000</field>
+        </record>
+        <record id="budget_line_fundamental_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
+            <field name="category">Equipment</field>
+            <field name="description">Quantum computing hardware and laboratory equipment</field>
             <field name="amount">350000000</field>
         </record>
-
-        <record id="budget_line_quantum_3" model="hibah.budget.line">
+        <record id="budget_line_fundamental_materials" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
-            <field name="sequence">3</field>
-            <field name="category">Bahan</field>
-            <field name="description">Dataset training, cloud computing resources, dan bahan habis pakai</field>
+            <field name="category">Materials</field>
+            <field name="description">Research materials and computational resources</field>
             <field name="amount">120000000</field>
         </record>
-
-        <record id="budget_line_quantum_4" model="hibah.budget.line">
+        <record id="budget_line_fundamental_travel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
-            <field name="sequence">4</field>
-            <field name="category">Perjalanan</field>
-            <field name="description">Kunjungan ke MIT dan Oxford untuk kolaborasi riset</field>
+            <field name="category">Travel</field>
+            <field name="description">International collaboration travel and conference participation</field>
             <field name="amount">80000000</field>
         </record>
-
-        <record id="budget_line_quantum_5" model="hibah.budget.line">
+        <record id="budget_line_fundamental_other" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_penelitian_fundamental"/>
-            <field name="sequence">5</field>
-            <field name="category">Lainnya</field>
-            <field name="description">Publikasi, workshop, dan biaya administrasi</field>
+            <field name="category">Other</field>
+            <field name="description">Publication fees, software licenses, and miscellaneous expenses</field>
             <field name="amount">20000000</field>
         </record>
 
-        <record id="budget_line_robotics_1" model="hibah.budget.line">
+        <!-- Budget Lines for hibah_sample_kolaborasi_internasional -->
+        <record id="budget_line_kolaborasi_personnel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
-            <field name="sequence">1</field>
-            <field name="category">Personel</field>
-            <field name="description">Gaji tim riset Indonesia-Jepang</field>
+            <field name="category">Personnel</field>
+            <field name="description">Research team salaries for disaster robotics project</field>
             <field name="amount">600000000</field>
         </record>
-
-        <record id="budget_line_robotics_2" model="hibah.budget.line">
+        <record id="budget_line_kolaborasi_equipment" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
-            <field name="sequence">2</field>
-            <field name="category">Peralatan</field>
-            <field name="description">Robot hardware, sensor, dan equipment testing</field>
+            <field name="category">Equipment</field>
+            <field name="description">Robotics equipment and testing facilities</field>
             <field name="amount">800000000</field>
         </record>
-
-        <record id="budget_line_robotics_3" model="hibah.budget.line">
+        <record id="budget_line_kolaborasi_travel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
-            <field name="sequence">3</field>
-            <field name="category">Perjalanan</field>
-            <field name="description">Researcher exchange dan joint workshops</field>
+            <field name="category">Travel</field>
+            <field name="description">International travel for collaboration and field testing</field>
             <field name="amount">250000000</field>
         </record>
-
-        <record id="budget_line_robotics_4" model="hibah.budget.line">
+        <record id="budget_line_kolaborasi_materials" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
-            <field name="sequence">4</field>
-            <field name="category">Bahan</field>
-            <field name="description">Materials untuk prototyping dan testing</field>
+            <field name="category">Materials</field>
+            <field name="description">Robotics components and research materials</field>
             <field name="amount">100000000</field>
         </record>
-
-        <record id="budget_line_robotics_5" model="hibah.budget.line">
+        <record id="budget_line_kolaborasi_other" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_kolaborasi_internasional"/>
-            <field name="sequence">5</field>
-            <field name="category">Lainnya</field>
-            <field name="description">Overhead dan biaya administrasi</field>
+            <field name="category">Other</field>
+            <field name="description">Publication and dissemination expenses</field>
             <field name="amount">50000000</field>
         </record>
 
-        <record id="budget_line_ai_1" model="hibah.budget.line">
+        <!-- Budget Lines for hibah_sample_industri_ai -->
+        <record id="budget_line_industri_personnel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_industri_ai"/>
-            <field name="sequence">1</field>
-            <field name="category">Personel</field>
-            <field name="description">Gaji tim AI dan computer vision</field>
+            <field name="category">Personnel</field>
+            <field name="description">AI research and development team salaries</field>
             <field name="amount">320000000</field>
         </record>
-
-        <record id="budget_line_ai_2" model="hibah.budget.line">
+        <record id="budget_line_industri_equipment" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_industri_ai"/>
-            <field name="sequence">2</field>
-            <field name="category">Peralatan</field>
-            <field name="description">GPU servers, industrial cameras, dan computing infrastructure</field>
+            <field name="category">Equipment</field>
+            <field name="description">Computer vision equipment and AI hardware</field>
             <field name="amount">380000000</field>
         </record>
-
-        <record id="budget_line_ai_3" model="hibah.budget.line">
+        <record id="budget_line_industri_materials" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_industri_ai"/>
-            <field name="sequence">3</field>
-            <field name="category">Bahan</field>
-            <field name="description">Dataset training dan software licenses</field>
+            <field name="category">Materials</field>
+            <field name="description">Dataset acquisition and research materials</field>
             <field name="amount">80000000</field>
         </record>
-
-        <record id="budget_line_ai_4" model="hibah.budget.line">
+        <record id="budget_line_industri_travel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_industri_ai"/>
-            <field name="sequence">4</field>
-            <field name="category">Perjalanan</field>
-            <field name="description">Site visits dan training sessions</field>
+            <field name="category">Travel</field>
+            <field name="description">Industry collaboration and conference travel</field>
             <field name="amount">50000000</field>
         </record>
-
-        <record id="budget_line_ai_5" model="hibah.budget.line">
+        <record id="budget_line_industri_other" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_industri_ai"/>
-            <field name="sequence">5</field>
-            <field name="category">Lainnya</field>
-            <field name="description">Patent applications dan commercialization</field>
+            <field name="category">Other</field>
+            <field name="description">Software licenses and miscellaneous expenses</field>
             <field name="amount">20000000</field>
         </record>
 
-        <record id="budget_line_edutech_1" model="hibah.budget.line">
+        <!-- Budget Lines for hibah_sample_startup_grant -->
+        <record id="budget_line_startup_personnel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_startup_grant"/>
-            <field name="sequence">1</field>
-            <field name="category">Personel</field>
-            <field name="description">Development team dan content creators</field>
+            <field name="category">Personnel</field>
+            <field name="description">EdTech startup development team salaries</field>
             <field name="amount">200000000</field>
         </record>
-
-        <record id="budget_line_edutech_2" model="hibah.budget.line">
+        <record id="budget_line_startup_equipment" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_startup_grant"/>
-            <field name="sequence">2</field>
-            <field name="category">Peralatan</field>
-            <field name="description">Servers, development tools, dan cloud infrastructure</field>
+            <field name="category">Equipment</field>
+            <field name="description">Development hardware and VR equipment</field>
             <field name="amount">150000000</field>
         </record>
-
-        <record id="budget_line_edutech_3" model="hibah.budget.line">
+        <record id="budget_line_startup_materials" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_startup_grant"/>
-            <field name="sequence">3</field>
-            <field name="category">Bahan</field>
-            <field name="description">Content development dan marketing materials</field>
+            <field name="category">Materials</field>
+            <field name="description">Content development and educational materials</field>
             <field name="amount">80000000</field>
         </record>
-
-        <record id="budget_line_edutech_4" model="hibah.budget.line">
+        <record id="budget_line_startup_travel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_startup_grant"/>
-            <field name="sequence">4</field>
-            <field name="category">Perjalanan</field>
-            <field name="description">Partnership meetings dan user acquisition</field>
+            <field name="category">Travel</field>
+            <field name="description">Partnership development and user acquisition travel</field>
             <field name="amount">50000000</field>
         </record>
-
-        <record id="budget_line_edutech_5" model="hibah.budget.line">
+        <record id="budget_line_startup_other" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_startup_grant"/>
-            <field name="sequence">5</field>
-            <field name="category">Lainnya</field>
-            <field name="description">Legal, IP protection, dan contingencies</field>
+            <field name="category">Other</field>
+            <field name="description">Marketing and platform hosting expenses</field>
             <field name="amount">20000000</field>
         </record>
 
-        <record id="budget_line_umkm_1" model="hibah.budget.line">
+        <!-- Budget Lines for hibah_sample_pengabdian_masyarakat -->
+        <record id="budget_line_pengabdian_personnel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
-            <field name="sequence">1</field>
-            <field name="category">Personel</field>
-            <field name="description">Tim pengabdian dan trainer</field>
+            <field name="category">Personnel</field>
+            <field name="description">Community development team and trainers</field>
             <field name="amount">45000000</field>
         </record>
-
-        <record id="budget_line_umkm_2" model="hibah.budget.line">
+        <record id="budget_line_pengabdian_equipment" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
-            <field name="sequence">2</field>
-            <field name="category">Peralatan</field>
-            <field name="description">Laptop, projector, dan training materials</field>
+            <field name="category">Equipment</field>
+            <field name="description">Training equipment and digital tools</field>
             <field name="amount">35000000</field>
         </record>
-
-        <record id="budget_line_umkm_3" model="hibah.budget.line">
+        <record id="budget_line_pengabdian_materials" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
-            <field name="sequence">3</field>
-            <field name="category">Bahan</field>
-            <field name="description">Digital marketing tools dan e-commerce setup</field>
+            <field name="category">Materials</field>
+            <field name="description">Training materials and e-commerce setup</field>
             <field name="amount">40000000</field>
         </record>
-
-        <record id="budget_line_umkm_4" model="hibah.budget.line">
+        <record id="budget_line_pengabdian_travel" model="hibah.budget.line">
             <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
-            <field name="sequence">4</field>
-            <field name="category">Perjalanan</field>
-            <field name="description">Field visits dan training sessions</field>
+            <field name="category">Travel</field>
+            <field name="description">Field visits and community outreach</field>
+            <field name="amount">25000000</field>
+        </record>
+        <record id="budget_line_pengabdian_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
+            <field name="category">Other</field>
+            <field name="description">Community events and miscellaneous expenses</field>
+            <field name="amount">5000000</field>
+        </record>
+
+        <!-- Budget Lines for hibah_sample_energi_terbarukan -->
+        <record id="budget_line_energi_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_energi_terbarukan"/>
+            <field name="category">Personnel</field>
+            <field name="description">Renewable energy research team salaries</field>
+            <field name="amount">480000000</field>
+        </record>
+        <record id="budget_line_energi_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_energi_terbarukan"/>
+            <field name="category">Equipment</field>
+            <field name="description">Solar-wind hybrid system equipment and testing facilities</field>
+            <field name="amount">500000000</field>
+        </record>
+        <record id="budget_line_energi_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_energi_terbarukan"/>
+            <field name="category">Materials</field>
+            <field name="description">Solar panels, wind turbines, and battery components</field>
+            <field name="amount">120000000</field>
+        </record>
+        <record id="budget_line_energi_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_energi_terbarukan"/>
+            <field name="category">Travel</field>
+            <field name="description">Field testing and international collaboration travel</field>
+            <field name="amount">70000000</field>
+        </record>
+        <record id="budget_line_energi_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_energi_terbarukan"/>
+            <field name="category">Other</field>
+            <field name="description">Publication and community outreach expenses</field>
+            <field name="amount">30000000</field>
+        </record>
+
+        <!-- Budget Lines for hibah_sample_vaksin_covid -->
+        <record id="budget_line_vaksin_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_vaksin_covid"/>
+            <field name="category">Personnel</field>
+            <field name="description">Vaccine research and development team</field>
+            <field name="amount">800000000</field>
+        </record>
+        <record id="budget_line_vaksin_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_vaksin_covid"/>
+            <field name="category">Equipment</field>
+            <field name="description">BSL-3 laboratory equipment and vaccine production facilities</field>
+            <field name="amount">1200000000</field>
+        </record>
+        <record id="budget_line_vaksin_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_vaksin_covid"/>
+            <field name="category">Materials</field>
+            <field name="description">Vaccine components and research materials</field>
+            <field name="amount">300000000</field>
+        </record>
+        <record id="budget_line_vaksin_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_vaksin_covid"/>
+            <field name="category">Travel</field>
+            <field name="description">International collaboration and clinical trial travel</field>
+            <field name="amount">150000000</field>
+        </record>
+        <record id="budget_line_vaksin_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_vaksin_covid"/>
+            <field name="category">Other</field>
+            <field name="description">Regulatory compliance and publication expenses</field>
+            <field name="amount">50000000</field>
+        </record>
+
+        <!-- Budget Lines for hibah_sample_iot_smart_city -->
+        <record id="budget_line_iot_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_iot_smart_city"/>
+            <field name="category">Personnel</field>
+            <field name="description">IoT development and implementation team</field>
+            <field name="amount">380000000</field>
+        </record>
+        <record id="budget_line_iot_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_iot_smart_city"/>
+            <field name="category">Equipment</field>
+            <field name="description">IoT sensors, gateways, and monitoring equipment</field>
+            <field name="amount">400000000</field>
+        </record>
+        <record id="budget_line_iot_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_iot_smart_city"/>
+            <field name="category">Materials</field>
+            <field name="description">IoT components and development materials</field>
+            <field name="amount">100000000</field>
+        </record>
+        <record id="budget_line_iot_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_iot_smart_city"/>
+            <field name="category">Travel</field>
+            <field name="description">City implementation and partnership development travel</field>
+            <field name="amount">50000000</field>
+        </record>
+        <record id="budget_line_iot_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_iot_smart_city"/>
+            <field name="category">Other</field>
+            <field name="description">Software licenses and system integration expenses</field>
+            <field name="amount">20000000</field>
+        </record>
+
+        <!-- Budget Lines for hibah_sample_fintech_startup -->
+        <record id="budget_line_fintech_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_fintech_startup"/>
+            <field name="category">Personnel</field>
+            <field name="description">Fintech development and rural expansion team</field>
+            <field name="amount">300000000</field>
+        </record>
+        <record id="budget_line_fintech_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_fintech_startup"/>
+            <field name="category">Equipment</field>
+            <field name="description">Development servers and security equipment</field>
+            <field name="amount">250000000</field>
+        </record>
+        <record id="budget_line_fintech_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_fintech_startup"/>
+            <field name="category">Materials</field>
+            <field name="description">Digital literacy materials and agent training</field>
+            <field name="amount">100000000</field>
+        </record>
+        <record id="budget_line_fintech_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_fintech_startup"/>
+            <field name="category">Travel</field>
+            <field name="description">Rural expansion and partnership development travel</field>
+            <field name="amount">75000000</field>
+        </record>
+        <record id="budget_line_fintech_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_fintech_startup"/>
+            <field name="category">Other</field>
+            <field name="description">Regulatory compliance and marketing expenses</field>
             <field name="amount">25000000</field>
         </record>
 
-        <record id="budget_line_umkm_5" model="hibah.budget.line">
-            <field name="hibah_id" ref="hibah_sample_pengabdian_masyarakat"/>
-            <field name="sequence">5</field>
-            <field name="category">Lainnya</field>
-            <field name="description">Website development dan monitoring</field>
+        <!-- Budget Lines for hibah_sample_pengabdian_kesehatan -->
+        <record id="budget_line_kesehatan_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_kesehatan"/>
+            <field name="category">Personnel</field>
+            <field name="description">Mental health professionals and community workers</field>
+            <field name="amount">80000000</field>
+        </record>
+        <record id="budget_line_kesehatan_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_kesehatan"/>
+            <field name="category">Equipment</field>
+            <field name="description">Mental health assessment tools and community center equipment</field>
+            <field name="amount">50000000</field>
+        </record>
+        <record id="budget_line_kesehatan_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_kesehatan"/>
+            <field name="category">Materials</field>
+            <field name="description">Training materials and mental health resources</field>
+            <field name="amount">40000000</field>
+        </record>
+        <record id="budget_line_kesehatan_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_kesehatan"/>
+            <field name="category">Travel</field>
+            <field name="description">Community outreach and inter-city coordination</field>
+            <field name="amount">25000000</field>
+        </record>
+        <record id="budget_line_kesehatan_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pengabdian_kesehatan"/>
+            <field name="category">Other</field>
+            <field name="description">Community events and awareness campaigns</field>
+            <field name="amount">5000000</field>
+        </record>
+
+        <!-- Budget Lines for hibah_sample_pertanian_berkelanjutan -->
+        <record id="budget_line_pertanian_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pertanian_berkelanjutan"/>
+            <field name="category">Personnel</field>
+            <field name="description">Smart farming research and extension team</field>
+            <field name="amount">440000000</field>
+        </record>
+        <record id="budget_line_pertanian_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pertanian_berkelanjutan"/>
+            <field name="category">Equipment</field>
+            <field name="description">IoT sensors, drones, and precision farming equipment</field>
+            <field name="amount">400000000</field>
+        </record>
+        <record id="budget_line_pertanian_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pertanian_berkelanjutan"/>
+            <field name="category">Materials</field>
+            <field name="description">Organic farming materials and sensor components</field>
+            <field name="amount">160000000</field>
+        </record>
+        <record id="budget_line_pertanian_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pertanian_berkelanjutan"/>
+            <field name="category">Travel</field>
+            <field name="description">Farmer training and field implementation travel</field>
+            <field name="amount">80000000</field>
+        </record>
+        <record id="budget_line_pertanian_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_pertanian_berkelanjutan"/>
+            <field name="category">Other</field>
+            <field name="description">Publication and farmer outreach expenses</field>
+            <field name="amount">20000000</field>
+        </record>
+
+        <!-- Budget Lines for hibah_sample_blockchain_kolaborasi -->
+        <record id="budget_line_blockchain_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_blockchain_kolaborasi"/>
+            <field name="category">Personnel</field>
+            <field name="description">Blockchain development and education integration team</field>
+            <field name="amount">720000000</field>
+        </record>
+        <record id="budget_line_blockchain_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_blockchain_kolaborasi"/>
+            <field name="category">Equipment</field>
+            <field name="description">Blockchain infrastructure and security equipment</field>
+            <field name="amount">600000000</field>
+        </record>
+        <record id="budget_line_blockchain_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_blockchain_kolaborasi"/>
+            <field name="category">Materials</field>
+            <field name="description">Digital credential materials and integration tools</field>
+            <field name="amount">300000000</field>
+        </record>
+        <record id="budget_line_blockchain_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_blockchain_kolaborasi"/>
+            <field name="category">Travel</field>
+            <field name="description">International collaboration and university integration travel</field>
+            <field name="amount">150000000</field>
+        </record>
+        <record id="budget_line_blockchain_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_blockchain_kolaborasi"/>
+            <field name="category">Other</field>
+            <field name="description">Standards development and publication expenses</field>
+            <field name="amount">30000000</field>
+        </record>
+
+        <!-- Budget Lines for hibah_sample_material_maju -->
+        <record id="budget_line_material_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_material_maju"/>
+            <field name="category">Personnel</field>
+            <field name="description">Advanced materials research and battery development team</field>
+            <field name="amount">880000000</field>
+        </record>
+        <record id="budget_line_material_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_material_maju"/>
+            <field name="category">Equipment</field>
+            <field name="description">Material synthesis and battery testing equipment</field>
+            <field name="amount">1000000000</field>
+        </record>
+        <record id="budget_line_material_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_material_maju"/>
+            <field name="category">Materials</field>
+            <field name="description">Silicon anode materials and battery components</field>
+            <field name="amount">220000000</field>
+        </record>
+        <record id="budget_line_material_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_material_maju"/>
+            <field name="category">Travel</field>
+            <field name="description">International collaboration and conference travel</field>
+            <field name="amount">80000000</field>
+        </record>
+        <record id="budget_line_material_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_material_maju"/>
+            <field name="category">Other</field>
+            <field name="description">Patent filing and publication expenses</field>
+            <field name="amount">20000000</field>
+        </record>
+
+        <!-- Budget Lines for hibah_sample_edutech_inovasi -->
+        <record id="budget_line_edutech_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_edutech_inovasi"/>
+            <field name="category">Personnel</field>
+            <field name="description">VR education platform development team</field>
+            <field name="amount">360000000</field>
+        </record>
+        <record id="budget_line_edutech_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_edutech_inovasi"/>
+            <field name="category">Equipment</field>
+            <field name="description">VR development hardware and content creation tools</field>
+            <field name="amount">360000000</field>
+        </record>
+        <record id="budget_line_edutech_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_edutech_inovasi"/>
+            <field name="category">Materials</field>
+            <field name="description">Educational content development and VR assets</field>
+            <field name="amount">120000000</field>
+        </record>
+        <record id="budget_line_edutech_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_edutech_inovasi"/>
+            <field name="category">Travel</field>
+            <field name="description">School partnership and teacher training travel</field>
+            <field name="amount">45000000</field>
+        </record>
+        <record id="budget_line_edutech_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_edutech_inovasi"/>
+            <field name="category">Other</field>
+            <field name="description">Platform hosting and educational research expenses</field>
+            <field name="amount">15000000</field>
+        </record>
+
+        <!-- Budget Lines for hibah_sample_lingkungan_pengabdian -->
+        <record id="budget_line_lingkungan_personnel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_lingkungan_pengabdian"/>
+            <field name="category">Personnel</field>
+            <field name="description">Mangrove restoration and community development team</field>
+            <field name="amount">75000000</field>
+        </record>
+        <record id="budget_line_lingkungan_equipment" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_lingkungan_pengabdian"/>
+            <field name="category">Equipment</field>
+            <field name="description">Restoration equipment and monitoring tools</field>
+            <field name="amount">75000000</field>
+        </record>
+        <record id="budget_line_lingkungan_materials" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_lingkungan_pengabdian"/>
+            <field name="category">Materials</field>
+            <field name="description">Mangrove seedlings and restoration materials</field>
+            <field name="amount">75000000</field>
+        </record>
+        <record id="budget_line_lingkungan_travel" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_lingkungan_pengabdian"/>
+            <field name="category">Travel</field>
+            <field name="description">Community outreach and monitoring travel</field>
+            <field name="amount">20000000</field>
+        </record>
+        <record id="budget_line_lingkungan_other" model="hibah.budget.line">
+            <field name="hibah_id" ref="hibah_sample_lingkungan_pengabdian"/>
+            <field name="category">Other</field>
+            <field name="description">Community education and awareness campaigns</field>
             <field name="amount">5000000</field>
         </record>
 
