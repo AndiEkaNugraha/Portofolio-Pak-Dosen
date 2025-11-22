@@ -4,7 +4,7 @@ services:
     container_name: odoo_app
     restart: always
     ports:
-      - "8069:8069" # Port web Odoo
+      - "8070:8069" # Port web Odoo
       # - "8072:8072" # Port untuk live chat/longpolling (opsional, aktifkan jika perlu)
     environment:
       - HOST=postgres
