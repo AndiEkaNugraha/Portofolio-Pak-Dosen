@@ -19,9 +19,9 @@ services:
       - app_network
     command: >
       odoo
-      -d odoo_portfolio
+      -d odoo_portfolio_web
       --no-database-list
-      --db-filter=^odoo_portfolio$
+      --db-filter=^odoo_portfolio_web$
       --addons-path=/mnt/extra-addons,/usr/lib/python3/dist-packages/odoo/addons
     security_opt:  # <-- TAMBAHKAN BLOK INI
       - apparmor:unconfined
