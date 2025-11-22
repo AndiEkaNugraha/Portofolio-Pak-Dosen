@@ -512,54 +512,63 @@
         <record id="license_sample_1_1" model="hki.license">
             <field name="post_id" ref="hki_sample_1"/>
             <field name="licensee">PT. Teknologi Pendidikan Nusantara</field>
+            <field name="licensee_website">https://www.teknologi-edukasi.co.id</field>
             <field name="license_agreement">Lisensi eksklusif 5 tahun untuk implementasi di Indonesia</field>
         </record>
 
         <record id="license_sample_2_1" model="hki.license">
             <field name="post_id" ref="hki_sample_2"/>
             <field name="licensee">PT. Teknologi Sensor Indonesia</field>
+            <field name="licensee_website">https://www.sensor-tech.id</field>
             <field name="license_agreement">Lisensi non-eksklusif untuk produksi di Indonesia</field>
         </record>
 
         <record id="license_sample_2_2" model="hki.license">
             <field name="post_id" ref="hki_sample_2"/>
             <field name="licensee">CV. Enviro Solutions</field>
+            <field name="licensee_website">https://www.enviro-solutions.co.id</field>
             <field name="license_agreement">Lisensi distribusi untuk Asia Tenggara</field>
         </record>
 
         <record id="license_sample_3_1" model="hki.license">
             <field name="post_id" ref="hki_sample_3"/>
             <field name="licensee">EduTech Solutions Pte Ltd (Singapore)</field>
+            <field name="licensee_website">https://www.edutech-solutions.sg</field>
             <field name="license_agreement">Franchise licensing untuk Asia Tenggara dengan royalty fee 8%</field>
         </record>
 
         <record id="license_sample_3_2" model="hki.license">
             <field name="post_id" ref="hki_sample_3"/>
             <field name="licensee">Digital Learning Middle East LLC (UAE)</field>
+            <field name="licensee_website">https://www.digital-learning-me.ae</field>
             <field name="license_agreement">Franchise licensing untuk Timur Tengah dengan royalty fee 8%</field>
         </record>
 
         <record id="license_sample_4_1" model="hki.license">
             <field name="post_id" ref="hki_sample_4"/>
             <field name="licensee">PT. Teknologi Medis Nusantara</field>
+            <field name="licensee_website">https://www.teknologi-medis.co.id</field>
             <field name="license_agreement">Manufacturing license untuk Indonesia dengan revenue sharing 15%</field>
         </record>
 
         <record id="license_sample_4_2" model="hki.license">
             <field name="post_id" ref="hki_sample_4"/>
             <field name="licensee">Adaptive Mobility Solutions Pte Ltd</field>
+            <field name="licensee_website">https://www.adaptive-mobility.sg</field>
             <field name="license_agreement">Distribusi license untuk Asia Tenggara dengan revenue sharing 15%</field>
         </record>
 
         <record id="license_sample_5_1" model="hki.license">
             <field name="post_id" ref="hki_sample_5"/>
             <field name="licensee">PT. Teknologi Air Bersih Indonesia</field>
+            <field name="licensee_website">https://www.teknologi-air.co.id</field>
             <field name="license_agreement">Production license untuk Indonesia dengan technology transfer</field>
         </record>
 
         <record id="license_sample_5_2" model="hki.license">
             <field name="post_id" ref="hki_sample_5"/>
             <field name="licensee">Clean Water Solutions Sdn Bhd</field>
+            <field name="licensee_website">https://www.clean-water.my</field>
             <field name="license_agreement">Production license untuk Malaysia dengan training package</field>
         </record>
 

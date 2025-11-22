@@ -146,25 +146,18 @@
                             
                             <page string="Komersialisasi">
                                 <group>
-                                    <group>
-                                        <field name="commercialized"/>
-                                        <field name="license_ids">
-                                            <list editable="bottom">
-                                                <field name="licensee"/>
-                                                <field name="license_agreement"/>
-                                            </list>
-                                        </field>
-                                    </group>
-                                    <group>
-                                        <field name="citations"/>
-                                        <field name="family_patents"/>
-                                    </group>
-                                </group>
-                                <group>
-                                    <group>
-                                        <field name="award_received"/>
-                                        <field name="award_description" invisible="not award_received"/>
-                                    </group>
+                                    <field name="commercialized"/>
+                                    <field name="license_ids">
+                                        <list editable="bottom">
+                                            <field name="licensee"/>
+                                            <field name="licensee_website"/>
+                                            <field name="license_agreement"/>
+                                        </list>
+                                    </field>
+                                    <field name="citations"/>
+                                    <field name="family_patents"/>
+                                    <field name="award_received"/>
+                                    <field name="award_description" invisible="not award_received"/>
                                 </group>
                             </page>
                             
@@ -301,6 +294,7 @@
                         <group>
                             <group>
                                 <field name="licensee"/>
+                                <field name="licensee_website"/>
                             </group>
                             <group>
                                 <field name="license_agreement"/>
@@ -317,6 +311,7 @@
             <field name="arch" type="xml">
                 <list string="Lisensi HKI">
                     <field name="licensee"/>
+                    <field name="licensee_website"/>
                     <field name="license_agreement"/>
                 </list>
             </field>

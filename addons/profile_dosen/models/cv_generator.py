@@ -367,7 +367,7 @@ class CVGenerator(models.TransientModel):
         placeholders = {
             'profile_name': self._escape_html(profile.name or ''),
             'profile_subtitle': self._escape_html(profile.subtitle or ''),
-            'profile_biography': biography_content,  # Keep inner HTML tags like <h2>, <p>, etc
+            'profile_biography': self._escape_html(profile.teaser or ''),  # Use teaser as summary
             'custom_css': template.custom_css or '',
         }
         
@@ -394,12 +394,16 @@ class CVGenerator(models.TransientModel):
                 period = f"{work.start_date.strftime('%B %Y') if work.start_date else ''} - {work.end_date.strftime('%B %Y') if work.end_date else 'Sekarang'}"
                 # Clean description HTML to prevent nested issues
                 description = self._clean_html_field(work.description) if work.description else ''
+                achievements = self._escape_html(work.achievements) if hasattr(work, 'achievements') and work.achievements else ''
+                skills = self._escape_html(work.skills) if hasattr(work, 'skills') and work.skills else ''
                 work_html += f"""
                 <div class="work-item">
                     <h4>{self._escape_html(work.position)}</h4>
                     <p class="institution">{self._escape_html(work.institution)}</p>
                     <p class="period">{period}</p>
                     {f'<p class="description">{description}</p>' if description else ''}
+                    {f'<p class="achievements"><strong>Pencapaian:</strong> {achievements}</p>' if achievements else ''}
+                    {f'<p class="skills"><strong>Keterampilan:</strong> {skills}</p>' if skills else ''}
                 </div>
                 """
             placeholders['work_experience_html'] = work_html
@@ -462,8 +466,16 @@ class CVGenerator(models.TransientModel):
         if cv_data.get('books'):
             books_html = ''
             for book in cv_data['books']:
-                publisher = self._escape_html(book.publisher_name if hasattr(book, 'publisher_name') else '')
+                # Get publisher with fallback logic
+                publisher = ''
+                if hasattr(book, 'publisher_name') and book.publisher_name:
+                    publisher = book.publisher_name
+                elif hasattr(book, 'publisher_id') and book.publisher_id and hasattr(book.publisher_id, 'name'):
+                    publisher = book.publisher_id.name
+                publisher = self._escape_html(publisher)
+                
                 year = book.publication_year if hasattr(book, 'publication_year') else ''
+                publisher_year = f"{publisher}, {year}" if publisher and year else (publisher or str(year) or '')
                 book_url = f"{base_url}/buku-karya/{book.slug}" if hasattr(book, 'slug') and book.slug else ''
                 if book_url:
                     title_html = f'<a href="{self._escape_html(book_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(book.name)}</a>'
@@ -473,7 +485,7 @@ class CVGenerator(models.TransientModel):
                 books_html += f"""
                 <div class="book-item">
                     <p><strong>{title_html}</strong></p>
-                    <p class="book-meta">{publisher}, {year}</p>
+                    <p class="book-meta">{publisher_year}</p>
                     {f'<p class="description">{teaser}</p>' if teaser else ''}
                 </div>
                 """
@@ -623,20 +635,31 @@ class CVGenerator(models.TransientModel):
         # Reviewer Activities
         if cv_data.get('reviewer_activities'):
             reviewer_html = ''
+            # Group by reviewer type
+            reviewer_by_type = {}
             for review in cv_data['reviewer_activities']:
-                journal = self._escape_html(review.journal_conference_name if hasattr(review, 'journal_conference_name') else '')
-                review_date = review.review_date.strftime('%Y') if hasattr(review, 'review_date') and review.review_date else ''
-                review_url = f"{base_url}/reviewer-dosen/{review.slug}" if hasattr(review, 'slug') and review.slug else ''
-                if review_url:
-                    title_html = f'<a href="{self._escape_html(review_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(review.name)}</a>'
-                else:
-                    title_html = self._escape_html(review.name)
-                reviewer_html += f"""
-                <div class="reviewer-item">
-                    <p><strong>{title_html}</strong></p>
-                    <p class="reviewer-meta">{journal}, {review_date}</p>
-                </div>
-                """
+                reviewer_type = review.reviewer_type_id.name if review.reviewer_type_id else 'Lainnya'
+                if reviewer_type not in reviewer_by_type:
+                    reviewer_by_type[reviewer_type] = []
+                reviewer_by_type[reviewer_type].append(review)
+            
+            # Render grouped reviewer activities
+            for reviewer_type, reviews in reviewer_by_type.items():
+                reviewer_html += f"<h4>{self._escape_html(reviewer_type)}</h4>"
+                for review in reviews:
+                    journal = self._escape_html(review.journal_conference_name if hasattr(review, 'journal_conference_name') else '')
+                    review_date = review.review_date.strftime('%Y') if hasattr(review, 'review_date') and review.review_date else ''
+                    review_url = f"{base_url}/reviewer-dosen/{review.slug}" if hasattr(review, 'slug') and review.slug else ''
+                    if review_url:
+                        title_html = f'<a href="{self._escape_html(review_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(review.name)}</a>'
+                    else:
+                        title_html = self._escape_html(review.name)
+                    reviewer_html += f"""
+                    <div class="reviewer-item">
+                        <p><strong>{title_html}</strong></p>
+                        <p class="reviewer-meta">{journal}, {review_date}</p>
+                    </div>
+                    """
             placeholders['reviewer_html'] = reviewer_html
         else:
             placeholders['reviewer_html'] = ''
@@ -644,21 +667,32 @@ class CVGenerator(models.TransientModel):
         # Events (Acara Dosen)
         if cv_data.get('events'):
             events_html = ''
+            # Group by acara type
+            events_by_type = {}
             for event in cv_data['events']:
-                event_date = event.event_date.strftime('%Y') if hasattr(event, 'event_date') and event.event_date else ''
-                event_url = f"{base_url}/acara-dosen/{event.slug}" if hasattr(event, 'slug') and event.slug else ''
-                if event_url:
-                    title_html = f'<a href="{self._escape_html(event_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(event.name)}</a>'
-                else:
-                    title_html = self._escape_html(event.name)
-                teaser = self._clean_html_field(event.teaser) if hasattr(event, 'teaser') and event.teaser else ''
-                events_html += f"""
-                <div class="event-item">
-                    <p><strong>{title_html}</strong></p>
-                    <p class="event-meta">{event_date}</p>
-                    {f'<p class="description">{teaser}</p>' if teaser else ''}
-                </div>
-                """
+                acara_type = event.acara_type_id.name if event.acara_type_id else 'Lainnya'
+                if acara_type not in events_by_type:
+                    events_by_type[acara_type] = []
+                events_by_type[acara_type].append(event)
+            
+            # Render grouped events
+            for acara_type, events in events_by_type.items():
+                events_html += f"<h4>{self._escape_html(acara_type)}</h4>"
+                for event in events:
+                    event_date = event.event_date.strftime('%Y') if hasattr(event, 'event_date') and event.event_date else ''
+                    event_url = f"{base_url}/acara-dosen/{event.slug}" if hasattr(event, 'slug') and event.slug else ''
+                    if event_url:
+                        title_html = f'<a href="{self._escape_html(event_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(event.name)}</a>'
+                    else:
+                        title_html = self._escape_html(event.name)
+                    teaser = self._clean_html_field(event.teaser_text) if hasattr(event, 'teaser_text') and event.teaser_text else ''
+                    events_html += f"""
+                    <div class="event-item">
+                        <p><strong>{title_html}</strong></p>
+                        <p class="event-meta">{event_date}</p>
+                        {f'<p class="description">{teaser}</p>' if teaser else ''}
+                    </div>
+                    """
             placeholders['events_html'] = events_html
         else:
             placeholders['events_html'] = ''

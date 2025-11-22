@@ -36,6 +36,7 @@ class HkiLicense(models.Model):
     
     post_id = fields.Many2one('hki.post', 'HKI Post', required=True, ondelete='cascade')
     licensee = fields.Char('Penerima Lisensi', required=True)
+    licensee_website = fields.Char('Website Penerima Lisensi', help="URL website penerima lisensi")
     license_agreement = fields.Text('Perjanjian Lisensi')
 
 
