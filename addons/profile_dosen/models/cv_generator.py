@@ -444,7 +444,7 @@ class CVGenerator(models.TransientModel):
                 journal = self._escape_html(pub.journal_name if hasattr(pub, 'journal_name') else '')
                 year = pub.publication_year if hasattr(pub, 'publication_year') else ''
                 # Get URL slug - judul langsung clickable
-                pub_url = f"{base_url}/jurnal-ilmiah/{pub.slug}" if hasattr(pub, 'slug') and pub.slug else ''
+                pub_url = f"{base_url}/jurnal/artikel/{pub.slug}-{pub.id}" if hasattr(pub, 'slug') and pub.slug else ''
                 if pub_url:
                     title_html = f'<a href="{self._escape_html(pub_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(pub.name)}</a>'
                 else:
@@ -476,7 +476,7 @@ class CVGenerator(models.TransientModel):
                 
                 year = book.publication_year if hasattr(book, 'publication_year') else ''
                 publisher_year = f"{publisher}, {year}" if publisher and year else (publisher or str(year) or '')
-                book_url = f"{base_url}/buku-karya/{book.slug}" if hasattr(book, 'slug') and book.slug else ''
+                book_url = f"{base_url}/buku/detail/{book.slug}" if hasattr(book, 'slug') and book.slug else ''
                 if book_url:
                     title_html = f'<a href="{self._escape_html(book_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(book.name)}</a>'
                 else:
@@ -499,7 +499,7 @@ class CVGenerator(models.TransientModel):
             for patent in cv_data['patents']:
                 cert_number = self._escape_html(patent.certificate_number if hasattr(patent, 'certificate_number') else '')
                 reg_date = patent.registration_date.strftime('%Y') if hasattr(patent, 'registration_date') and patent.registration_date else ''
-                patent_url = f"{base_url}/hki-paten/{patent.slug}" if hasattr(patent, 'slug') and patent.slug else ''
+                patent_url = f"{base_url}/hki/detail/{patent.slug}" if hasattr(patent, 'slug') and patent.slug else ''
                 if patent_url:
                     title_html = f'<a href="{self._escape_html(patent_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(patent.name)}</a>'
                 else:
@@ -547,7 +547,7 @@ class CVGenerator(models.TransientModel):
             community_html = ''
             for service in cv_data['community_service']:
                 impl_year = service.implementation_date.year if hasattr(service, 'implementation_date') and service.implementation_date else ''
-                service_url = f"{base_url}/pengabdian-masyarakat/{service.slug}" if hasattr(service, 'slug') and service.slug else ''
+                service_url = f"{base_url}/pengabdian/detail/{service.slug}" if hasattr(service, 'slug') and service.slug else ''
                 if service_url:
                     title_html = f'<a href="{self._escape_html(service_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(service.name)}</a>'
                 else:
@@ -570,7 +570,7 @@ class CVGenerator(models.TransientModel):
             for conf in cv_data['conferences']:
                 conf_name = self._escape_html(conf.conference_name if hasattr(conf, 'conference_name') else '')
                 conf_date = conf.conference_date.strftime('%Y') if hasattr(conf, 'conference_date') and conf.conference_date else ''
-                conf_url = f"{base_url}/prosiding-konferensi/{conf.slug}" if hasattr(conf, 'slug') and conf.slug else ''
+                conf_url = f"{base_url}/prosiding/paper/{conf.slug}" if hasattr(conf, 'slug') and conf.slug else ''
                 if conf_url:
                     title_html = f'<a href="{self._escape_html(conf_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(conf.name)}</a>'
                 else:
@@ -615,7 +615,7 @@ class CVGenerator(models.TransientModel):
             products_html = ''
             for product in cv_data['research_products']:
                 dev_year = product.development_date.year if hasattr(product, 'development_date') and product.development_date else ''
-                product_url = f"{base_url}/produk-penelitian/{product.slug}" if hasattr(product, 'slug') and product.slug else ''
+                product_url = f"{base_url}/produk-penelitian/detail/{product.slug}" if hasattr(product, 'slug') and product.slug else ''
                 if product_url:
                     title_html = f'<a href="{self._escape_html(product_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(product.name)}</a>'
                 else:
@@ -649,7 +649,7 @@ class CVGenerator(models.TransientModel):
                 for review in reviews:
                     journal = self._escape_html(review.journal_conference_name if hasattr(review, 'journal_conference_name') else '')
                     review_date = review.review_date.strftime('%Y') if hasattr(review, 'review_date') and review.review_date else ''
-                    review_url = f"{base_url}/reviewer-dosen/{review.slug}" if hasattr(review, 'slug') and review.slug else ''
+                    review_url = f"{base_url}/reviewer/detail/{review.slug}" if hasattr(review, 'slug') and review.slug else ''
                     if review_url:
                         title_html = f'<a href="{self._escape_html(review_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(review.name)}</a>'
                     else:
@@ -680,7 +680,7 @@ class CVGenerator(models.TransientModel):
                 events_html += f"<h4>{self._escape_html(acara_type)}</h4>"
                 for event in events:
                     event_date = event.event_date.strftime('%Y') if hasattr(event, 'event_date') and event.event_date else ''
-                    event_url = f"{base_url}/acara-dosen/{event.slug}" if hasattr(event, 'slug') and event.slug else ''
+                    event_url = f"{base_url}/acara/detail/{event.slug}" if hasattr(event, 'slug') and event.slug else ''
                     if event_url:
                         title_html = f'<a href="{self._escape_html(event_url)}" style="color: #2c3e50; text-decoration: none;">{self._escape_html(event.name)}</a>'
                     else:
