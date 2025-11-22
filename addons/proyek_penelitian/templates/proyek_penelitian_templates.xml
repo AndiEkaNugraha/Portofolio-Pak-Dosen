@@ -655,7 +655,7 @@
                             <!-- Collaboration -->
                             <t t-if="post.mitra_ids and len(post.mitra_ids) > 0">
                                 <div class="mb-5">
-                                    <h3 class="h4 mb-3"><i class="fa fa-handshake text-primary"/> Kolaborasi</h3>
+                                    <h3 class="h4 mb-3"><i class="fa fa-handshake-o text-primary"/> Kolaborasi</h3>
 
                                     <t t-set="academic_partners" t-value="post.mitra_ids.filtered(lambda m: m.partner_type == 'academic')"/>
                                     <t t-set="government_partners" t-value="post.mitra_ids.filtered(lambda m: m.partner_type == 'government')"/>
@@ -809,7 +809,7 @@
                             <!-- Media & Documentation -->
                             <t t-if="post.project_video or post.project_documents or post.related_links">
                                 <div class="mb-5">
-                                    <h3 class="h4 mb-3"><i class="fa fa-file-video text-primary"/> Media &amp; Dokumentasi</h3>
+                                    <h3 class="h4 mb-3"><i class="fa fa-file-video-o text-primary"/> Media &amp; Dokumentasi</h3>
                                     
                                     <t t-if="post.project_video">
                                         <h6>Link Video</h6>

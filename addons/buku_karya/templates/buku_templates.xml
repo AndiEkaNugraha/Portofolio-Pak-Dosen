@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-search"/> Cari
+                                        <i class="fa fa-search"/>
                                     </button>
                                 </div>
                             </form>
@@ -318,17 +318,17 @@
                                     <div class="col-md-6">
                                         <table class="table table-borderless">
                                             <tr>
-                                                <td><strong>Penulis:</strong></td>
+                                                <td style="white-space: nowrap;"><strong>Penulis:</strong></td>
                                                 <td><t t-esc="post.display_authors"/></td>
                                             </tr>
                                             <t t-if="post.editors">
                                                 <tr>
-                                                    <td><strong>Editor:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Editor:</strong></td>
                                                     <td><t t-esc="post.editors"/></td>
                                                 </tr>
                                             </t>
                                             <tr>
-                                                <td><strong>Penerbit:</strong></td>
+                                                <td style="white-space: nowrap;"><strong>Penerbit:</strong></td>
                                                 <td>
                                                     <t t-if="post.publisher_id and post.publisher_id.website">
                                                         <a t-att-href="post.publisher_id.website" target="_blank">
@@ -342,47 +342,47 @@
                                             </tr>
                                             <t t-if="post.blog_id">
                                                 <tr>
-                                                    <td><strong>Kategori Buku:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Kategori Buku:</strong></td>
                                                     <td><t t-esc="post.blog_id.name"/></td>
                                                 </tr>
                                             </t>
                                             <tr>
-                                                <td><strong>Tahun Terbit:</strong></td>
+                                                <td style="white-space: nowrap;"><strong>Tahun Terbit:</strong></td>
                                                 <td><t t-esc="post.publication_year"/></td>
                                             </tr>
                                             <t t-if="post.pages">
                                                 <tr>
-                                                    <td><strong>Jumlah Halaman:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Jumlah Halaman:</strong></td>
                                                     <td><t t-esc="post.pages"/> halaman</td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.citation_count">
                                                 <tr>
-                                                    <td><strong>Jumlah Sitasi:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Jumlah Sitasi:</strong></td>
                                                     <td><t t-esc="post.citation_count"/></td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.print_run">
                                                 <tr>
-                                                    <td><strong>Oplah Cetak:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Oplah Cetak:</strong></td>
                                                     <td><t t-esc="post.print_run"/> eksemplar</td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.isbn">
                                                 <tr>
-                                                    <td><strong>ISBN:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>ISBN:</strong></td>
                                                     <td><t t-esc="post.isbn"/></td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.issn">
                                                 <tr>
-                                                    <td><strong>ISSN:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>ISSN:</strong></td>
                                                     <td><t t-esc="post.issn"/></td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.doi">
                                                 <tr>
-                                                    <td><strong>DOI:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>DOI:</strong></td>
                                                     <td>
                                                         <a t-att-href="'https://doi.org/' + post.doi" target="_blank">
                                                             <t t-esc="post.doi"/>
@@ -395,7 +395,7 @@
                                     <div class="col-md-6">
                                         <table class="table table-borderless">
                                             <tr>
-                                                <td><strong>Bahasa:</strong></td>
+                                                <td style="white-space: nowrap;"><strong>Bahasa:</strong></td>
                                                 <td>
                                                     <t t-if="post.language == 'id'">Bahasa Indonesia</t>
                                                     <t t-elif="post.language == 'en'">English</t>
@@ -405,31 +405,31 @@
                                             </tr>
                                             <t t-if="post.edition">
                                                 <tr>
-                                                    <td><strong>Edisi:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Edisi:</strong></td>
                                                     <td><t t-esc="post.edition"/></td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.subject">
                                                 <tr>
-                                                    <td><strong>Subjek:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Subjek:</strong></td>
                                                     <td><t t-esc="post.subject"/></td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.blog_id and post.blog_id.book_scope">
                                                 <tr>
-                                                    <td><strong>Cakupan Publikasi:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Cakupan Publikasi:</strong></td>
                                                     <td><t t-esc="post.blog_id.book_scope"/></td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.blog_id and post.blog_id.target_audience">
                                                 <tr>
-                                                    <td><strong>Target Pembaca:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Target Pembaca:</strong></td>
                                                     <td><t t-esc="post.blog_id.target_audience"/></td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.academic_level">
                                                 <tr>
-                                                    <td><strong>Tingkat Akademik:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Tingkat Akademik:</strong></td>
                                                     <td>
                                                         <t t-if="post.academic_level == 'elementary'">SD/MI</t>
                                                         <t t-elif="post.academic_level == 'junior_high'">SMP/MTs</t>
@@ -445,13 +445,13 @@
                                             </t>
                                             <t t-if="post.dewey_classification">
                                                 <tr>
-                                                    <td><strong>Klasifikasi Dewey:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Klasifikasi Dewey:</strong></td>
                                                     <td><t t-esc="post.dewey_classification"/></td>
                                                 </tr>
                                             </t>
                                             <t t-if="post.publication_date">
                                                 <tr>
-                                                    <td><strong>Tanggal Terbit:</strong></td>
+                                                    <td style="white-space: nowrap;"><strong>Tanggal Terbit:</strong></td>
                                                     <td><t t-esc="post.publication_date"/></td>
                                                 </tr>
                                             </t>
@@ -463,7 +463,6 @@
                                 
                                 <t t-if="post.content">
                                     <div class="mt-4">
-                                        <h5>Deskripsi Lengkap</h5>
                                         <div t-field="post.content"/>
                                     </div>
                                 </t>
