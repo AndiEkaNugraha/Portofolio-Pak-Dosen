@@ -41,6 +41,37 @@ class ProdukTechnology(models.Model):
     active = fields.Boolean('Aktif', default=True)
 
 
+class ProdukPartner(models.Model):
+    _name = 'produk.partner'
+    _description = 'Mitra Produk Penelitian'
+    _order = 'sequence, name'
+    
+    name = fields.Char('Nama Mitra', required=True)
+    partner_type = fields.Selection([
+        ('institution', 'Institusi'),
+        ('company', 'Perusahaan'),
+        ('community', 'Masyarakat'),
+        ('organization', 'Organisasi'),
+        ('government', 'Pemerintah'),
+        ('ngo', 'LSM/NGO'),
+        ('other', 'Lainnya'),
+    ], string='Jenis Mitra', required=True, default='institution')
+    
+    website_url = fields.Char('Website', help="URL website mitra")
+    contact_person = fields.Char('Contact Person', help="Nama orang yang dapat dihubungi")
+    contact_email = fields.Char('Email Kontak')
+    contact_phone = fields.Char('Telepon Kontak')
+    address = fields.Text('Alamat')
+    description = fields.Text('Deskripsi', help="Deskripsi peran mitra dalam produk penelitian")
+    
+    sequence = fields.Integer('Urutan', default=10)
+    active = fields.Boolean('Aktif', default=True)
+    
+    # Relations
+    produk_post_ids = fields.Many2many('produk.post', 'produk_post_partner_rel', 
+                                       'partner_id', 'post_id', string='Produk Penelitian')
+
+
 class ProdukPost(models.Model):
     _name = 'produk.post'
     _description = 'Produk Penelitian'
@@ -103,7 +134,9 @@ class ProdukPost(models.Model):
     # Team and collaboration
     principal_investigator = fields.Char('Peneliti Utama', required=True, help="Nama peneliti utama/ketua tim")
     team_members = fields.Text('Anggota Tim', help="Daftar anggota tim, pisahkan dengan enter")
-    partner_institutions = fields.Text('Institusi Mitra', help="Institusi atau perusahaan yang berkolaborasi")
+    partner_ids = fields.Many2many('produk.partner', 'produk_post_partner_rel', 
+                                   'post_id', 'partner_id', string='Mitra Kerjasama',
+                                   help="Pilih mitra yang terlibat dalam pengembangan produk ini")
     funding_source = fields.Char('Sumber Pendanaan')
     
     # Technical specifications

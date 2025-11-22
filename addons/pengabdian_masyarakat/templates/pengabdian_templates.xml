@@ -97,7 +97,7 @@
                                                     <div class="card-body">
                                                         <span class="badge bg-primary mb-2"><t t-esc="post.pengabdian_type_id.name"/></span>
                                                         <h5 class="card-title">
-                                                            <a t-att-href="'/pengabdian/detail/%s' % post.slug">
+                                                            <a t-att-href="'/pengabdian/detail/%s' % post.slug" class="text-decoration-none">
                                                                 <t t-esc="post.name"/>
                                                             </a>
                                                         </h5>
@@ -481,7 +481,7 @@
                                         <ul class="list-group list-group-flush">
                                             <t t-foreach="post.hibah_pendanaan_ids" t-as="hibah">
                                                 <li class="list-group-item">
-                                                    <a t-att-href="'/hibah-pendanaan/%s' % hibah.slug">
+                                                    <a t-att-href="'/hibah-pendanaan/%s' % hibah.slug" class="text-decoration-none">
                                                         <strong><t t-esc="hibah.name"/></strong>
                                                     </a>
                                                     <br/>
@@ -504,7 +504,7 @@
                                                     <div class="d-flex justify-content-between align-items-start">
                                                         <div>
                                                             <t t-if="partner.website_url">
-                                                                <a t-att-href="partner.website_url" target="_blank" rel="noopener noreferrer">
+                                                                <a t-att-href="partner.website_url" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
                                                                     <strong><t t-esc="partner.name"/></strong> <i class="fa fa-external-link small"/>
                                                                 </a>
                                                             </t>
@@ -575,7 +575,7 @@
                                         <ul class="list-group list-group-flush">
                                             <t t-foreach="related_posts" t-as="related">
                                                 <li class="list-group-item">
-                                                    <a t-att-href="'/pengabdian/detail/%s-%s' % (related.slug, related.id)">
+                                                    <a t-att-href="'/pengabdian/detail/%s-%s' % (related.slug, related.id)" class="text-decoration-none">
                                                         <strong><t t-esc="related.name[:60]"/><t t-if="len(related.name) > 60">...</t></strong>
                                                     </a>
                                                     <br/>
@@ -650,7 +650,7 @@
                                         <div class="card-body">
                                             <span class="badge bg-primary mb-2"><t t-esc="post.pengabdian_type_id.name"/></span>
                                             <h5 class="card-title">
-                                                <a t-att-href="'/pengabdian/detail/%s' % post.slug">
+                                                <a t-att-href="'/pengabdian/detail/%s' % post.slug" class="text-decoration-none">
                                                     <t t-esc="post.name"/>
                                                 </a>
                                             </h5>

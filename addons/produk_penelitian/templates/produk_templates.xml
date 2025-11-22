@@ -348,12 +348,6 @@
                                                     <td><t t-esc="post.funding_source"/></td>
                                                 </tr>
                                             </t>
-                                            <t t-if="post.partner_institutions">
-                                                <tr>
-                                                    <td><strong>Mitra:</strong></td>
-                                                    <td><t t-esc="post.partner_institutions"/></td>
-                                                </tr>
-                                            </t>
                                             <t t-if="post.technology_ids">
                                                 <tr>
                                                     <td><strong>Teknologi:</strong></td>
@@ -367,131 +361,209 @@
                                         </table>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Description -->
                                 
                                 <t t-if="post.content">
                                     <div class="mb-4">
-                                        <h5>Deskripsi Lengkap</h5>
                                         <t t-raw="post.content"/>
+                                    </div>
+                                </t>
+
+                                <!-- Partners -->
+                                <t t-if="post.partner_ids">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-handshake-o text-info"/> Mitra Kerjasama</h5>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <t t-foreach="post.partner_ids" t-as="partner">
+                                                <li class="list-group-item">
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <t t-if="partner.website_url">
+                                                                <a t-att-href="partner.website_url" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                                                    <strong><t t-esc="partner.name"/></strong> <i class="fa fa-external-link small"/>
+                                                                </a>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <strong><t t-esc="partner.name"/></strong>
+                                                            </t>
+                                                            <br/>
+                                                            <small class="text-muted">
+                                                                <t t-esc="dict(partner._fields['partner_type'].selection).get(partner.partner_type, partner.partner_type)"/>
+                                                            </small>
+                                                            <t t-if="partner.contact_person">
+                                                                <br/><small><i class="fa fa-user"/> <t t-esc="partner.contact_person"/></small>
+                                                            </t>
+                                                            <t t-if="partner.contact_email">
+                                                                <br/><small><i class="fa fa-envelope"/> <t t-esc="partner.contact_email"/></small>
+                                                            </t>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </t>
+                                        </ul>
                                     </div>
                                 </t>
                                 
                                 <!-- Technical Specs -->
                                 <t t-if="post.technical_specs">
-                                    <div class="mb-4">
-                                        <h5>Spesifikasi Teknis</h5>
-                                        <t t-raw="post.technical_specs"/>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-cogs text-primary"/> Spesifikasi Teknis</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-raw="post.technical_specs"/>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- Innovation Points -->
                                 <t t-if="post.innovation_points">
-                                    <div class="mb-4">
-                                        <h5>Poin Inovasi</h5>
-                                        <t t-raw="post.innovation_points"/>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-lightbulb-o text-warning"/> Poin Inovasi</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-raw="post.innovation_points"/>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- Commercial Info -->
                                 <t t-if="post.target_market or post.business_model">
-                                    <div class="row mb-4">
-                                        <div class="col-12">
-                                            <h5>Informasi Komersialisasi</h5>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-shopping-cart text-success"/> Informasi Komersialisasi</h5>
                                         </div>
-                                        <t t-if="post.target_market">
-                                            <div class="col-md-6">
-                                                <h6>Target Pasar</h6>
-                                                <p><t t-esc="post.target_market"/></p>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <t t-if="post.target_market">
+                                                    <div class="col-md-6">
+                                                        <h6>Target Pasar</h6>
+                                                        <p><t t-esc="post.target_market"/></p>
+                                                    </div>
+                                                </t>
+                                                <t t-if="post.business_model">
+                                                    <div class="col-md-6">
+                                                        <h6>Model Bisnis</h6>
+                                                        <p><t t-esc="post.business_model"/></p>
+                                                    </div>
+                                                </t>
                                             </div>
-                                        </t>
-                                        <t t-if="post.business_model">
-                                            <div class="col-md-6">
-                                                <h6>Model Bisnis</h6>
-                                                <p><t t-esc="post.business_model"/></p>
-                                            </div>
-                                        </t>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- Performance Metrics -->
                                 <t t-if="post.performance_metrics">
-                                    <div class="mb-4">
-                                        <h5>Metrik Kinerja</h5>
-                                        <t t-raw="post.performance_metrics"/>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-line-chart text-info"/> Metrik Kinerja</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-raw="post.performance_metrics"/>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- Limitations -->
                                 <t t-if="post.limitations">
-                                    <div class="mb-4">
-                                        <h5>Keterbatasan</h5>
-                                        <p class="text-muted"><t t-esc="post.limitations"/></p>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-exclamation-triangle text-warning"/> Keterbatasan</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0"><t t-esc="post.limitations"/></p>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- Awards and Recognition -->
                                 <t t-if="post.awards_recognition">
-                                    <div class="mb-4">
-                                        <h5>Penghargaan dan Pengakuan</h5>
-                                        <p><t t-esc="post.awards_recognition"/></p>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-trophy text-warning"/> Penghargaan dan Pengakuan</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0"><t t-esc="post.awards_recognition"/></p>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- Publications -->
                                 <t t-if="post.publications">
-                                    <div class="mb-4">
-                                        <h5>Publikasi Terkait</h5>
-                                        <p><t t-esc="post.publications"/></p>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-book text-primary"/> Publikasi Terkait</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0"><t t-esc="post.publications"/></p>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- Competitive Advantage -->
                                 <t t-if="post.competitive_advantage">
-                                    <div class="mb-4">
-                                        <h5>Keunggulan Kompetitif</h5>
-                                        <p><t t-esc="post.competitive_advantage"/></p>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-star text-success"/> Keunggulan Kompetitif</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0"><t t-esc="post.competitive_advantage"/></p>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- Market Information -->
                                 <t t-if="post.estimated_market_size or post.market_potential">
-                                    <div class="mb-4">
-                                        <h5>Informasi Pasar</h5>
-                                        <t t-if="post.market_potential">
-                                            <p><strong>Potensi Pasar:</strong> 
-                                                <span class="badge bg-info">
-                                                    <t t-esc="dict(post._fields['market_potential'].selection)[post.market_potential]"/>
-                                                </span>
-                                            </p>
-                                        </t>
-                                        <t t-if="post.estimated_market_size">
-                                            <p><strong>Estimasi Ukuran Pasar:</strong> <t t-esc="post.estimated_market_size"/></p>
-                                        </t>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-bar-chart text-info"/> Informasi Pasar</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="post.market_potential">
+                                                <p class="mb-2"><strong>Potensi Pasar:</strong> 
+                                                    <span class="badge bg-info">
+                                                        <t t-esc="dict(post._fields['market_potential'].selection)[post.market_potential]"/>
+                                                    </span>
+                                                </p>
+                                            </t>
+                                            <t t-if="post.estimated_market_size">
+                                                <p class="mb-0"><strong>Estimasi Ukuran Pasar:</strong> <t t-esc="post.estimated_market_size"/></p>
+                                            </t>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- IP Details -->
                                 <t t-if="post.ip_status != 'none'">
-                                    <div class="mb-4">
-                                        <h5>Kekayaan Intelektual</h5>
-                                        <t t-if="post.patent_number">
-                                            <p><strong>Nomor Paten/HKI:</strong> <t t-esc="post.patent_number"/></p>
-                                        </t>
-                                        <t t-if="post.patent_title">
-                                            <p><strong>Judul Paten/HKI:</strong> <t t-esc="post.patent_title"/></p>
-                                        </t>
-                                        <t t-if="post.patent_date">
-                                            <p><strong>Tanggal Paten/HKI:</strong> <t t-esc="post.patent_date"/></p>
-                                        </t>
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-shield text-warning"/> Kekayaan Intelektual</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <t t-if="post.patent_number">
+                                                <p class="mb-2"><strong>Nomor Paten/HKI:</strong> <t t-esc="post.patent_number"/></p>
+                                            </t>
+                                            <t t-if="post.patent_title">
+                                                <p class="mb-2"><strong>Judul Paten/HKI:</strong> <t t-esc="post.patent_title"/></p>
+                                            </t>
+                                            <t t-if="post.patent_date">
+                                                <p class="mb-0"><strong>Tanggal Paten/HKI:</strong> <t t-esc="post.patent_date"/></p>
+                                            </t>
+                                        </div>
                                     </div>
                                 </t>
                                 
                                 <!-- Technical Drawing -->
                                 <t t-if="post.technical_drawing">
-                                    <div class="mb-4">
-                                        <h5>Gambar Teknis</h5>
-                                        <div class="text-center">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-header bg-white">
+                                            <h5 class="mb-0"><i class="fa fa-image text-primary"/> Gambar Teknis</h5>
+                                        </div>
+                                        <div class="card-body text-center">
                                             <img t-att-src="'/web/image/produk.post/%s/technical_drawing' % post.id" 
                                                  t-att-alt="'Gambar Teknis ' + post.name" 
                                                  class="img-fluid rounded shadow"

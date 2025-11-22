@@ -145,6 +145,74 @@
             <field name="description">Teknologi nano dan material</field>
         </record>
         
+        <!-- Security Access Rules -->
+        <record id="access_produk_partner_public" model="ir.model.access">
+            <field name="name">produk.partner.public</field>
+            <field name="model_id" ref="model_produk_partner"/>
+            <field name="group_id"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">0</field>
+            <field name="perm_create">0</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+        <record id="access_produk_partner_user" model="ir.model.access">
+            <field name="name">produk.partner.user</field>
+            <field name="model_id" ref="model_produk_partner"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+        
+        <!-- Sample Partners -->
+        <record id="partner_kemenristek" model="produk.partner">
+            <field name="name">Kementerian Riset dan Teknologi</field>
+            <field name="partner_type">government</field>
+            <field name="contact_person">Dr. Ahmad Santoso</field>
+            <field name="contact_email">ahmad.santoso@kemenristek.go.id</field>
+            <field name="website_url">https://kemenristek.go.id</field>
+            <field name="description">Kementerian yang memberikan pendanaan dan dukungan kebijakan</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="partner_pt_green_tech" model="produk.partner">
+            <field name="name">PT. Green Technology Indonesia</field>
+            <field name="partner_type">company</field>
+            <field name="contact_person">Budi Setiawan</field>
+            <field name="contact_email">budi@ptgreentech.com</field>
+            <field name="contact_phone">+62-21-555-0123</field>
+            <field name="website_url">https://ptgreentech.com</field>
+            <field name="address">Jl. Teknologi No. 15, Jakarta</field>
+            <field name="description">Perusahaan teknologi yang menyediakan peralatan dan dukungan teknis</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <record id="partner_bmkg" model="produk.partner">
+            <field name="name">Badan Meteorologi Klimatologi dan Geofisika</field>
+            <field name="partner_type">government</field>
+            <field name="contact_person">Dr. Rina Sari</field>
+            <field name="contact_email">rina.sari@bmkg.go.id</field>
+            <field name="contact_phone">+62-21-654-3210</field>
+            <field name="website_url">https://bmkg.go.id</field>
+            <field name="address">Jl. Meteorologi No. 5, Jakarta</field>
+            <field name="description">Institusi yang menyediakan data meteorologi untuk validasi produk</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <record id="partner_universitas_indonesia" model="produk.partner">
+            <field name="name">Universitas Indonesia</field>
+            <field name="partner_type">institution</field>
+            <field name="contact_person">Prof. Dr. Hendra Wijaya</field>
+            <field name="contact_email">hendra.wijaya@ui.ac.id</field>
+            <field name="contact_phone">+62-21-786-3434</field>
+            <field name="website_url">https://ui.ac.id</field>
+            <field name="address">Jl. Salemba Raya No. 4, Jakarta</field>
+            <field name="description">Universitas yang berkolaborasi dalam penelitian dan pengembangan</field>
+            <field name="sequence">40</field>
+        </record>
+        
         <!-- Sample Product Data -->
         <record id="produk_sample_sistem_monitoring_iot" model="produk.post">
             <field name="name">Sistem Monitoring Lingkungan Berbasis IoT</field>
@@ -164,9 +232,7 @@
 Budi Setiawan, S.Kom., M.Kom.
 Rina Kusuma, S.T., M.T.
 Muhammad Rizki, S.T.</field>
-            <field name="partner_institutions">Kementerian Lingkungan Hidup
-PT. Green Technology Indonesia
-Badan Meteorologi Klimatologi dan Geofisika</field>
+            <field name="partner_ids" eval="[(4, ref('partner_kemenristek')), (4, ref('partner_pt_green_tech')), (4, ref('partner_bmkg'))]"/>
             <field name="funding_source">Hibah Penelitian Terapan Kemenristek 2023</field>
             <field name="technical_specs">&lt;ul&gt;
 &lt;li&gt;Sensor PM2.5, PM10 untuk kualitas udara&lt;/li&gt;
@@ -235,10 +301,7 @@ dr. Bambang Suryanto, Sp.PD
 Maya Sari, S.Kom., M.Kom.
 Rudi Hartono, S.T., M.T.
 Fitri Rahmawati, S.Kom.</field>
-            <field name="partner_institutions">RS. Siloam Hospital
-RS. Mitra Keluarga
-Fakultas Kedokteran Universitas Indonesia
-Kementerian Kesehatan RI</field>
+            <field name="partner_ids" eval="[(4, ref('partner_universitas_indonesia'))]"/>
             <field name="funding_source">Hibah Inovasi Kesehatan Digital Kemenkes 2022</field>
             <field name="technical_specs">&lt;ul&gt;
 &lt;li&gt;Platform: Android dan iOS native apps&lt;/li&gt;
@@ -308,10 +371,7 @@ Dr. Eng. Dewi Kartika, S.T., M.Eng.
 Agus Wijaya, S.T., M.T.
 Fitri Handayani, S.T., M.T.
 Roni Saputra, S.T.</field>
-            <field name="partner_institutions">Kementerian ESDM
-PT. PLN (Persero)
-Pemda Kabupaten Sumba Timur
-Yayasan Energi Berkelanjutan Indonesia</field>
+            <field name="partner_ids" eval="[(4, ref('partner_kemenristek'))]"/>
             <field name="funding_source">Hibah Program Desa Mandiri Energi Kemenristek-BRIN 2021</field>
             <field name="technical_specs">&lt;ul&gt;
 &lt;li&gt;Solar Panel: 15 kWp monocrystalline dengan efficiency 20%&lt;/li&gt;
@@ -386,10 +446,7 @@ Hendro Wibowo, S.Kom., M.Kom.
 Dr. Fitri Amalia, S.T., M.T.
 Andi Setiawan, S.Kom., M.T.
 Lina Marlina, S.P., M.Si.</field>
-            <field name="partner_institutions">Dinas Pertanian Provinsi Jawa Barat
-Fakultas Pertanian IPB
-PT. Pupuk Indonesia
-Kelompok Tani Maju Jaya</field>
+            <field name="partner_ids" eval="[(4, ref('partner_universitas_indonesia'))]"/>
             <field name="funding_source">Hibah Smart Agriculture Innovation dari Kementerian Pertanian 2022</field>
             <field name="technical_specs">&lt;ul&gt;
 &lt;li&gt;Web Platform: React.js frontend, Django backend&lt;/li&gt;
@@ -464,10 +521,7 @@ Rudi Hermawan, S.Kom., M.Kom.
 Siti Aminah, S.T., M.T.
 Budi Santoso, S.T., M.T.
 Rina Wati, S.Kom.</field>
-            <field name="partner_institutions">Dinas Perhubungan DKI Jakarta
-Kepolisian Daerah Metro Jaya
-PT. Jasa Marga (Persero) Tbk
-Institut Teknologi Bandung</field>
+            <field name="partner_ids" eval="[(4, ref('partner_universitas_indonesia'))]"/>
             <field name="funding_source">Hibah Kerjasama Pemerintah Daerah DKI Jakarta 2022</field>
             <field name="technical_specs">&lt;ul&gt;
 &lt;li&gt;Computer Vision: YOLO v8 untuk vehicle detection dan counting&lt;/li&gt;
@@ -542,10 +596,7 @@ Dian Purnama, S.Kom., M.Kom.
 Eko Wahyudi, S.T., M.T.
 Sari Rahayu, S.Sos., M.Si.
 Rizki Fauzi, S.T.</field>
-            <field name="partner_institutions">Dinas Lingkungan Hidup Kota Bandung
-PT. Recycling Indonesia
-Bank Sampah Nasional
-Komunitas Peduli Lingkungan Bandung</field>
+            <field name="partner_ids" eval="[(4, ref('partner_pt_green_tech'))]"/>
             <field name="funding_source">Hibah Smart City Innovation Kemenkominfo 2023</field>
             <field name="technical_specs">&lt;ul&gt;
 &lt;li&gt;Smart Bin: Sensor ultrasonic HC-SR04 untuk level detection&lt;/li&gt;

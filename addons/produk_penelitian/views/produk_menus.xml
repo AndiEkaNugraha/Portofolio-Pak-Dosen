@@ -27,6 +27,12 @@
             <field name="view_mode">list,form</field>
         </record>
         
+        <record id="action_produk_partner" model="ir.actions.act_window">
+            <field name="name">Mitra Produk</field>
+            <field name="res_model">produk.partner</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
         <!-- Menus -->
         <menuitem id="menu_produk_main" name="Produk Penelitian" sequence="50"/>
         
@@ -39,6 +45,8 @@
         <menuitem id="menu_produk_types" name="Jenis Produk" parent="menu_produk_config" sequence="20" action="action_produk_type"/>
         
         <menuitem id="menu_produk_technologies" name="Teknologi Produk" parent="menu_produk_config" sequence="30" action="action_produk_technology"/>
+        
+        <menuitem id="menu_produk_partners" name="Mitra Produk" parent="menu_produk_config" sequence="40" action="action_produk_partner"/>
         
         <!-- Website Menu -->
         <record id="menu_produk_website" model="website.menu">
