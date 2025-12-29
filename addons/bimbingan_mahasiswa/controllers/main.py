@@ -9,18 +9,45 @@ import datetime
 
 class BimbinganPortal(CustomerPortal):
 
+    def _prepare_portal_layout_values(self):
+        """Override to hide guidance menu if not allowed"""
+        values = super()._prepare_portal_layout_values()
+        if not self._is_website_allowed():
+            # Filter out guidance menu from menu_items
+            values['menu_items'] = [item for item in values.get('menu_items', []) if '/my/guidance' not in item.get('url', '')]
+        return values
+
+    def _is_website_allowed(self):
+        """Check if current website is allowed to show guidance features"""
+        config_param = request.env['ir.config_parameter'].sudo()
+        website_ids_str = config_param.get_param('bimbingan_mahasiswa.bimbingan_website_ids', default='')
+        if not website_ids_str:
+            return True  # If no websites specified, allow all
+        try:
+            # Parse comma-separated string to list of IDs
+            allowed_website_ids = [int(wid.strip()) for wid in website_ids_str.split(',') if wid.strip().isdigit()]
+            return request.website.id in allowed_website_ids
+        except ValueError:
+            return True  # If parsing fails, allow all
+
     def _prepare_home_portal_values(self, counters):
         values = super()._prepare_home_portal_values(counters)
-        partner = request.env.user.partner_id
-        values['guidance_count'] = request.env['guidance.request'].search_count([
-            ('student_id', '=', partner.id)
-        ])
+        if self._is_website_allowed():
+            partner = request.env.user.partner_id
+            values['guidance_count'] = request.env['guidance.request'].search_count([
+                ('student_id', '=', partner.id),
+                ('website_id', '=', request.website.id)
+            ])
+        else:
+            values['guidance_count'] = 0
         return values
 
     @http.route(['/my/guidance', '/my/guidance/page/<int:page>'], type='http', auth="user", website=True)
     def portal_my_guidance(self, page=1, **kw):
+        if not self._is_website_allowed():
+            return request.not_found()
         partner = request.env.user.partner_id
-        domain = [('student_id', '=', partner.id)]
+        domain = [('student_id', '=', partner.id), ('website_id', '=', request.website.id)]
         guidance_requests = request.env['guidance.request'].search(domain, order='submission_date desc')
         guidance_count = len(guidance_requests)
         pager = request.website.pager(url='/my/guidance', total=guidance_count, page=page, step=10)
@@ -36,10 +63,13 @@ class BimbinganPortal(CustomerPortal):
 
     @http.route('/my/guidance/<int:guidance_id>', type='http', auth="user", website=True)
     def portal_guidance_detail(self, guidance_id, **kw):
+        if not self._is_website_allowed():
+            return request.not_found()
         partner = request.env.user.partner_id
         guidance = request.env['guidance.request'].sudo().search([
             ('id', '=', guidance_id),
-            ('student_id', '=', partner.id)
+            ('student_id', '=', partner.id),
+            ('website_id', '=', request.website.id)
         ], limit=1)
         if not guidance:
             return request.not_found()
@@ -59,10 +89,13 @@ class BimbinganPortal(CustomerPortal):
 
     @http.route('/my/guidance/comment/<int:guidance_id>', type='http', auth="user", website=True, methods=['POST'], csrf=True)
     def portal_guidance_comment(self, guidance_id, **kw):
+        if not self._is_website_allowed():
+            return request.not_found()
         partner = request.env.user.partner_id
         guidance = request.env['guidance.request'].search([
             ('id', '=', guidance_id),
-            ('student_id', '=', partner.id)
+            ('student_id', '=', partner.id),
+            ('website_id', '=', request.website.id)
         ], limit=1)
         if not guidance:
             return request.not_found()
@@ -77,6 +110,8 @@ class BimbinganPortal(CustomerPortal):
     @http.route('/my/guidance/attachment/<int:attachment_id>', type='http', auth="user", website=True)
     def portal_guidance_attachment(self, attachment_id, **kw):
         """Download attachment untuk guidance request milik user"""
+        if not self._is_website_allowed():
+            return request.not_found()
         partner = request.env.user.partner_id
         
         # Get attachment
@@ -87,7 +122,7 @@ class BimbinganPortal(CustomerPortal):
         # Check if attachment belongs to user's guidance request
         if attachment.res_model == 'guidance.request':
             guidance = request.env['guidance.request'].sudo().browse(attachment.res_id)
-            if not guidance.exists() or guidance.student_id.id != partner.id:
+            if not guidance.exists() or guidance.student_id.id != partner.id or guidance.website_id.id != request.website.id:
                 return request.not_found()
         else:
             return request.not_found()
@@ -105,6 +140,8 @@ class BimbinganPortal(CustomerPortal):
     @http.route('/my/guidance/attachment/delete/<int:attachment_id>', type='http', auth="user", website=True, csrf=False)
     def portal_guidance_attachment_delete(self, attachment_id, **kw):
         """Delete attachment untuk guidance request milik user"""
+        if not self._is_website_allowed():
+            return request.not_found()
         partner = request.env.user.partner_id
         
         # Get attachment
@@ -116,7 +153,7 @@ class BimbinganPortal(CustomerPortal):
         guidance_id = None
         if attachment.res_model == 'guidance.request':
             guidance = request.env['guidance.request'].sudo().browse(attachment.res_id)
-            if not guidance.exists() or guidance.student_id.id != partner.id:
+            if not guidance.exists() or guidance.student_id.id != partner.id or guidance.website_id.id != request.website.id:
                 return request.not_found()
             
             # Check if guidance can still be edited
@@ -133,10 +170,13 @@ class BimbinganPortal(CustomerPortal):
 
     @http.route('/my/guidance/edit/<int:guidance_id>', type='http', auth="user", website=True, methods=['GET'])
     def portal_guidance_edit_form(self, guidance_id, **kw):
+        if not self._is_website_allowed():
+            return request.not_found()
         partner = request.env.user.partner_id
         guidance = request.env['guidance.request'].sudo().search([
             ('id', '=', guidance_id),
             ('student_id', '=', partner.id),
+            ('website_id', '=', request.website.id),
             ('status', 'in', ['draft', 'submitted'])
         ], limit=1)
         if not guidance:
@@ -157,10 +197,13 @@ class BimbinganPortal(CustomerPortal):
 
     @http.route('/my/guidance/edit/<int:guidance_id>', type='http', auth="user", website=True, methods=['POST'])
     def portal_guidance_edit(self, guidance_id, **kw):
+        if not self._is_website_allowed():
+            return request.not_found()
         partner = request.env.user.partner_id
         guidance = request.env['guidance.request'].search([
             ('id', '=', guidance_id),
             ('student_id', '=', partner.id),
+            ('website_id', '=', request.website.id),
             ('status', 'in', ['draft', 'submitted'])
         ], limit=1)
         if not guidance:
@@ -199,10 +242,14 @@ class BimbinganPortal(CustomerPortal):
 
     @http.route('/my/guidance/submit', type='http', auth="user", website=True, methods=['GET'])
     def portal_guidance_submit_form(self, **kw):
+        if not self._is_website_allowed():
+            return request.not_found()
         return request.render('bimbingan_mahasiswa.portal_guidance_submit', {'page_name': 'guidance_submit'})
 
     @http.route('/my/guidance/submit', type='http', auth="user", website=True, methods=['POST'])
     def portal_guidance_submit(self, **kw):
+        if not self._is_website_allowed():
+            return request.not_found()
         partner = request.env.user.partner_id
         guidance_type = kw.get('guidance_type')
         description = kw.get('description')
@@ -210,7 +257,8 @@ class BimbinganPortal(CustomerPortal):
             vals = {
                 'student_id': partner.id,
                 'guidance_type': guidance_type,
-                'description': description
+                'description': description,
+                'website_id': request.website.id
             }
             guidance_date = kw.get('guidance_date')
             if guidance_date:

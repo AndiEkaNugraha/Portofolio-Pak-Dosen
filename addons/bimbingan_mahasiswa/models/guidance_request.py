@@ -28,6 +28,7 @@ class GuidanceRequest(models.Model):
         ('rejected', 'Ditolak'),
     ], string='Status', default='draft', tracking=True)
     approval_notes = fields.Text('Catatan Persetujuan/Ditolakan', tracking=True)
+    website_id = fields.Many2one('website', string='Website', default=lambda self: self.env['website'].get_current_website())
     submission_date = fields.Datetime('Tanggal Pengajuan', default=fields.Datetime.now)
     approval_date = fields.Datetime('Tanggal Persetujuan/Ditolakan', tracking=True)
 

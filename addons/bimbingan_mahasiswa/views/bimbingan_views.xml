@@ -9,6 +9,7 @@
                 <list>
                     <field name="student_id"/>
                     <field name="guidance_type"/>
+                    <field name="website_id"/>
                     <field name="guidance_date"/>
                     <field name="description"/>
                     <field name="status"/>
@@ -35,6 +36,7 @@
                         <group>
                             <field name="student_id"/>
                             <field name="guidance_type"/>
+                            <field name="website_id"/>
                         </group>
                         <group>
                             <field name="submission_date"/>
@@ -112,6 +114,10 @@
                 <form string="Konfigurasi Email Notifikasi" class="oe_form_configuration">
                     <sheet>
                         <div class="app_settings_block">
+                            <h2>Pengaturan Website</h2>
+                            <group>
+                                <field name="bimbingan_website_ids" widget="many2many_tags"/>
+                            </group>
                             <h2>Pengaturan Email Notifikasi Bimbingan</h2>
                             <group>
                                 <group>
