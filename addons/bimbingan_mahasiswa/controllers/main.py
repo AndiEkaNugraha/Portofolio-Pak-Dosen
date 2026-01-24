@@ -3,6 +3,7 @@
 from odoo import http
 from odoo.http import request
 from odoo.addons.portal.controllers.portal import CustomerPortal
+from collections import OrderedDict
 import base64
 import datetime
 
@@ -15,6 +16,8 @@ class BimbinganPortal(CustomerPortal):
         if not self._is_website_allowed():
             # Filter out guidance menu from menu_items
             values['menu_items'] = [item for item in values.get('menu_items', []) if '/my/guidance' not in item.get('url', '')]
+        
+        values['show_guidance'] = self._is_website_allowed()
         return values
 
     def _is_website_allowed(self):
@@ -32,32 +35,57 @@ class BimbinganPortal(CustomerPortal):
 
     def _prepare_home_portal_values(self, counters):
         values = super()._prepare_home_portal_values(counters)
-        if self._is_website_allowed():
-            partner = request.env.user.partner_id
-            values['guidance_count'] = request.env['guidance.request'].search_count([
-                ('student_id', '=', partner.id),
-                ('website_id', '=', request.website.id)
-            ])
-        else:
-            values['guidance_count'] = 0
+        if counters is True or (counters and 'guidance_count' in counters):
+            is_allowed = self._is_website_allowed()
+            if is_allowed:
+                partner = request.env.user.partner_id
+                values['guidance_count'] = request.env['guidance.request'].search_count([
+                    ('student_id', '=', partner.id),
+                    ('website_id', '=', request.website.id)
+                ])
+            else:
+                values['guidance_count'] = 0
         return values
 
     @http.route(['/my/guidance', '/my/guidance/page/<int:page>'], type='http', auth="user", website=True)
-    def portal_my_guidance(self, page=1, **kw):
+    def portal_my_guidance(self, page=1, filterby=None, **kw):
         if not self._is_website_allowed():
             return request.not_found()
         partner = request.env.user.partner_id
         domain = [('student_id', '=', partner.id), ('website_id', '=', request.website.id)]
-        guidance_requests = request.env['guidance.request'].search(domain, order='submission_date desc')
-        guidance_count = len(guidance_requests)
-        pager = request.website.pager(url='/my/guidance', total=guidance_count, page=page, step=10)
-        guidance_requests = guidance_requests[pager['offset']:pager['offset'] + 10]
+
+        searchbar_filters = {
+            'all': {'label': 'Semua', 'domain': []},
+            'draft': {'label': 'Draft', 'domain': [('status', '=', 'draft')]},
+            'submitted': {'label': 'Diajukan', 'domain': [('status', '=', 'submitted')]},
+            'approved': {'label': 'Disetujui', 'domain': [('status', '=', 'approved')]},
+            'rejected': {'label': 'Ditolak', 'domain': [('status', '=', 'rejected')]},
+        }
+
+        if not filterby:
+            filterby = 'all'
+        
+        if filterby in searchbar_filters:
+            domain += searchbar_filters[filterby]['domain']
+
+        guidance_count = request.env['guidance.request'].search_count(domain)
+        pager = request.website.pager(
+            url='/my/guidance', 
+            total=guidance_count, 
+            page=page, 
+            step=10,
+            url_args={'filterby': filterby}
+        )
+        guidance_requests = request.env['guidance.request'].search(domain, order='submission_date desc', limit=10, offset=pager['offset'])
+        
         values = {
             'guidance_requests': guidance_requests,
             'guidance_count': guidance_count,
             'pager': pager,
             'page_name': 'my_guidance',
             'default_url': '/my/guidance',
+            'searchbar_filters': OrderedDict(sorted(searchbar_filters.items())),
+            'filterby': filterby,
         }
         return request.render('bimbingan_mahasiswa.portal_my_guidance', values)
 
